@@ -1,6 +1,0 @@
-/Users/admin/Desktop/donow/donow/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
-/Users/admin/Desktop/donow/donow/bin/Debug/donow.dll.mdb
-/Users/admin/Desktop/donow/donow/bin/Debug/donow.dll
-/Users/admin/Desktop/donow/donow/obj/Debug/donow.dll
-/Users/admin/Desktop/donow/donow/obj/Debug/donow.dll.mdb
-/Users/admin/Desktop/donow/donow/bin/Debug/Validation.dll
