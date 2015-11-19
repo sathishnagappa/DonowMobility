@@ -32,6 +32,7 @@ namespace donow.iOS
 
 					AppDelegate.UserDetails.UserName = TextBoxUserName.Text;
 					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxPassword.Text.ToLower());
+
 				}
 				else
 				{
