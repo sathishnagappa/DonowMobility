@@ -14,24 +14,8 @@ namespace donow.iOS
 	[Register ("HomeViewController")]
 	partial class HomeViewController
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIPickerView homePagePickerView { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelResponse { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (homePagePickerView != null) {
-				homePagePickerView.Dispose ();
-				homePagePickerView = null;
-			}
-			if (LabelResponse != null) {
-				LabelResponse.Dispose ();
-				LabelResponse = null;
-			}
 		}
 	}
 }
