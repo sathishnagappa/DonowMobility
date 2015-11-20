@@ -49,8 +49,10 @@
     <Compile Include="Model\UserDetails.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Util\Crypto.cs" />
-    <Compile Include="BusinessLogic\User.cs" />
     <Compile Include="Util\Constants.cs" />
+    <Compile Include="Model\Leads.cs" />
+    <Compile Include="BusinessLogic\LeadsBL.cs" />
+    <Compile Include="BusinessLogic\UserBL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

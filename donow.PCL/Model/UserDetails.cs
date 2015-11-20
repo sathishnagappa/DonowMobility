@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace donow.Model
+namespace donow.PCL.Model
 {
 	public class UserDetails
 	{

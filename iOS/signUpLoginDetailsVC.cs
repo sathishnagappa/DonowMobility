@@ -3,6 +3,9 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 using donow.Util;
+using donow.PCL.Model;
+using System.Collections.Generic;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -15,6 +18,12 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+
+			//List<Leads> leads = new  List<Leads>();
+			LeadsBL leadsbl = new LeadsBL ();
+			//leads = leadsbl.GetAllLeads ();
+			Leads lead = new Leads();
+			lead = leadsbl.GetLeadDetails (1);
 			NextBtn.Layer.CornerRadius = 5.0f;
 
 			TextBoxUserName.ShouldReturn = delegate {

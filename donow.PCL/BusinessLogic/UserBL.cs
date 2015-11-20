@@ -1,14 +1,14 @@
 ﻿using System;
-using donow.Model;
 using donow.Services;
 using System.Json;
 using System.Threading.Tasks;
+using donow.PCL.Model;
 
 namespace donow.PCL
 {
-	public class User
+	public class UserBL
 	{
-		public User ()
+		public UserBL()
 		{
 		}
 

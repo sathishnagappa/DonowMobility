@@ -48,10 +48,10 @@
 				<string>donowapp</string>
 			</array>
 			<key>CFBundleURLName</key>
-			<string>com.brillio.donow.iOS</string>
+			<string>com.brillio.donow</string>
 		</dict>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.brillio.donow.iOS</string>
+	<string>com.brillio.donow</string>
 </dict>
 </plist>
