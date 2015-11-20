@@ -616,7 +616,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnw-or-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="946" y="3033"/>
-
         </scene>
         <!--Item 1-->
         <scene sceneID="0Xp-QG-J32">
@@ -649,7 +648,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="IWk-U2-CsE">
             <objects>
-                <tabBarController id="4jQ-0i-fA0" sceneMemberID="viewController">
+                <tabBarController id="4jQ-0i-fA0" sceneMemberID="viewController" customClass="LandingTabBarVC" storyboardIdentifier="LandingTabBarVC" useStoryboardIdentifierAsRestorationIdentifier="YES">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Aiq-MO-gVW">
@@ -667,7 +666,6 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3A-qp-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="83" y="1675"/>
         </scene>
         <!--Item-->
@@ -735,7 +733,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1618" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="914" y="929"/>
-
         </scene>
         <!--Linked In LoginVC-->
         <scene sceneID="2148">
@@ -754,7 +751,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2151" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1771" y="923"/>
-
         </scene>
         <!--Notifications-->
         <scene sceneID="2533">
@@ -929,16 +925,8 @@
         <segue reference="1523"/>
     </inferredMetricsTieBreakers>
     <resources>
-<<<<<<< HEAD
         <image name="settingsImage.png" width="30" height="30"/>
         <image name="DoNowSplash.png" width="137" height="118"/>
         <image name="Collaboration.png" width="25" height="25"/>
     </resources>
 </document>
-
-=======
-        <image name="settingsImage.png" width="259" height="194"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-    </resources>
-</document>
->>>>>>> origin/master
