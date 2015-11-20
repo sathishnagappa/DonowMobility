@@ -20,8 +20,8 @@ namespace donow.iOS
 //			var url = "https://www.bing.com/news/search?q=ibm+trends&qpvt=ibm+trends&FORM=EWRE"; // NOTE: https secure request
 //			webView.LoadRequest(new NSUrlRequest(new NSUrl(url)));
 //
-			UserBL userBL = new UserBL ();
-			string response =  userBL.GetUserDetailsString ();
+//			UserBL userBL = new UserBL ();
+//			string response =  userBL.GetUserDetailsString ();
 //			LabelResponse.Text = response;
 		}
 	}

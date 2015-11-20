@@ -653,7 +653,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="IWk-U2-CsE">
             <objects>
-                <tabBarController id="4jQ-0i-fA0" sceneMemberID="viewController">
+                <tabBarController id="4jQ-0i-fA0" sceneMemberID="viewController" customClass="LandingTabBarVC" storyboardIdentifier="LandingTabBarVC" useStoryboardIdentifierAsRestorationIdentifier="YES">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Aiq-MO-gVW">
@@ -932,11 +932,13 @@ What would you like to do next?</string>
             <point key="canvasLocation" x="659" y="1078"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Collaboration.png" width="25" height="25"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jyY-bd-t4A"/>
         <segue reference="2831"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="settingsImage.png" width="30" height="30"/>
+        <image name="DoNowSplash.png" width="137" height="118"/>
+        <image name="Collaboration.png" width="25" height="25"/>
+    </resources>
 </document>
