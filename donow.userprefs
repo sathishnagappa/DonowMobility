@@ -1,1 +1,12 @@
-﻿<Properties StartupItem="iOS/donow.iOS.csproj" />
+﻿<Properties StartupItem="iOS/donow.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Info.plist">
+    <Files>
+      <File FileName="iOS/Info.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
