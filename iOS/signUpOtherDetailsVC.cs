@@ -30,7 +30,7 @@ namespace donow.iOS
 				"UT","VT","VA","WA","WV","WI","WY"
 			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1200f);
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1150f);
 			ButtonNext.Layer.CornerRadius = 5.0f;
 			TableViewState.Source = new TableSource(States,this , "States");
 			TableViewState.ContentSize = new SizeF (100f,50f);
