@@ -10,5 +10,9 @@ namespace donow.iOS
 		public WelcomeVC (IntPtr handle) : base (handle)
 		{
 		}
+		public override void ViewDidLoad ()
+		{
+			this.Title = @"Welcome";
+		}
 	}
 }
