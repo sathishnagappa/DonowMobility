@@ -22,7 +22,7 @@ namespace donow.iOS
 //
 			UserBL userBL = new UserBL ();
 			string response =  userBL.GetUserDetailsString ();
-			LabelResponse.Text = response;
+//			LabelResponse.Text = response;
 		}
 	}
 }

@@ -144,7 +144,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1573">
-                                                <rect key="frame" x="36" y="386" width="104" height="122"/>
+                                                <rect key="frame" x="31" y="386" width="109" height="122"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45h-D1-zir">
@@ -157,8 +157,8 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aV1-Ut-YsY">
                                                 <rect key="frame" x="295" y="182" width="24" height="24"/>
                                             </imageView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-j9-SdM">
-                                                <rect key="frame" x="36" y="209" width="294" height="122"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-j9-SdM" hidden="YES">
+                                                <rect key="frame" x="31" y="209" width="299" height="122"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
                                         </subviews>
@@ -244,6 +244,20 @@
                         <outlet property="ButtonState" destination="344" id="name-outlet-344"/>
                         <outlet property="ScrollViewSignUpDetails" destination="313" id="name-outlet-313"/>
                         <outlet property="TableViewState" destination="1573" id="name-outlet-1573"/>
+                        <outlet property="TableViewIndustry" destination="TTJ-j9-SdM" id="name-outlet-TTJ-j9-SdM"/>
+                        <outlet property="ButtonIndustry" destination="45h-D1-zir" id="name-outlet-45h-D1-zir"/>
+                        <outlet property="TextBoxFullName" destination="337" id="name-outlet-337"/>
+                        <outlet property="TextBoxTitle" destination="338" id="name-outlet-338"/>
+                        <outlet property="TextBoxCompany" destination="340" id="name-outlet-340"/>
+                        <outlet property="TextBoxIndustry" destination="341" id="name-outlet-341"/>
+                        <outlet property="TextBoxOfficeAddress" destination="BDP-gE-YOL" id="name-outlet-BDP-gE-YOL"/>
+                        <outlet property="TextBoxCity" destination="9L7-l2-gEu" id="name-outlet-9L7-l2-gEu"/>
+                        <outlet property="TextBoxZip" destination="343" id="name-outlet-343"/>
+                        <outlet property="TextBoxState" destination="Nyy-hV-x4P" id="name-outlet-Nyy-hV-x4P"/>
+                        <outlet property="TextBoxPhone" destination="346" id="name-outlet-346"/>
+                        <outlet property="TextBoxEmail" destination="349" id="name-outlet-349"/>
+                        <outlet property="TextBoxPayPalUser" destination="Pg8-qC-Iy8" id="name-outlet-Pg8-qC-Iy8"/>
+                        <outlet property="TextBoxPayPalPassword" destination="MlH-B2-s5C" id="name-outlet-MlH-B2-s5C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="309" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,7 +273,7 @@
                         <viewControllerLayoutGuide type="bottom" id="355"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="358">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="361">
@@ -350,7 +364,7 @@
                         <viewControllerLayoutGuide type="bottom" id="370"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="373">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="379">
@@ -525,7 +539,7 @@
             <objects>
                 <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LZx-Os-ndx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -557,7 +571,7 @@
                         <viewControllerLayoutGuide type="bottom" id="d1N-te-Ghc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sYa-co-YAp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Request Referral" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2582">
@@ -585,7 +599,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lmd-2A-DCR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ph7-Lp-bgW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Customers" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2583">
@@ -613,7 +627,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fyL-Zs-6WA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5oa-HH-rqg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Customer Stream" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2584">
@@ -664,7 +678,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Veg-iP-WqP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rqi-JZ-dni">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Leads" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2585">
@@ -692,7 +706,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1614"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1617">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Management Page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4S-aD-L4J">
@@ -730,7 +744,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2147"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2150">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -860,7 +874,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2597"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2600">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2683">
@@ -911,4 +925,8 @@
         <segue reference="2831"/>
         <segue reference="1523"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="settingsImage.png" width="259" height="194"/>
+        <image name="DoNowSplash.png" width="137" height="118"/>
+    </resources>
 </document>

@@ -62,11 +62,11 @@ namespace donow.iOS
 			};
 
 			// The user image profile is set automatically once is logged in
-			pictureView = new ProfilePictureView (new CGRect (160, 160, 220, 220));
+			pictureView = new ProfilePictureView (new CGRect (100, 160, 220, 220));
 
 			// Create the label that will hold user's facebook name
-			nameLabel = new UILabel (new CGRect (20, 319, 280, 21)) {
-				TextAlignment = UITextAlignment.Center,
+			nameLabel = new UILabel (new CGRect (100, 400, 280, 21)) {
+				TextAlignment = UITextAlignment.Left,
 				BackgroundColor = UIColor.Clear
 			};
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,18 +14,22 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DoNowSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="45">
-                                <rect key="frame" x="203" y="180" width="129" height="118"/>
+                                <rect key="frame" x="143" y="142" width="129" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="Pdb-s0-f4B"/>
+                                    <constraint firstAttribute="width" constant="129" id="avc-P8-6YU"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DoNow" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="46">
-                                <rect key="frame" x="203" y="325" width="129" height="82"/>
+                                <rect key="frame" x="143" y="285" width="129" height="82"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="129" id="Tbk-VC-4et"/>
-                                    <constraint firstAttribute="height" constant="82" id="b12-F2-bIj"/>
+                                    <constraint firstAttribute="height" constant="82" id="ta5-tD-qsN"/>
+                                    <constraint firstAttribute="width" constant="129" id="zzi-Zn-Fvo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,13 +38,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="45" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading" constant="203" id="50"/>
-                            <constraint firstItem="45" firstAttribute="width" secondItem="46" secondAttribute="width" id="51"/>
-                            <constraint firstItem="46" firstAttribute="centerX" secondItem="45" secondAttribute="centerX" id="0hb-Pa-9op"/>
-                            <constraint firstItem="46" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="27" id="Nih-l4-xrW"/>
-                            <constraint firstItem="9ZL-r4-8FZ" firstAttribute="top" secondItem="46" secondAttribute="bottom" constant="193" id="TzP-BS-HOE"/>
+                            <constraint firstAttribute="centerY" secondItem="45" secondAttribute="centerY" constant="167" id="AW6-hg-sYU"/>
+                            <constraint firstAttribute="centerX" secondItem="45" secondAttribute="centerX" id="HKL-Fd-oiJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="46" secondAttribute="trailing" constant="126" id="Nva-WI-8WQ"/>
+                            <constraint firstItem="46" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leadingMargin" constant="127" id="bxd-Cz-tqr"/>
+                            <constraint firstItem="45" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom" constant="122" id="f11-Gi-b1P"/>
+                            <constraint firstItem="46" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="25" id="hDq-K6-jwo"/>
+                            <constraint firstItem="46" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="25" id="xvA-Ed-noA"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
