@@ -55,11 +55,46 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{				
-				UIAlertController okAlertController = UIAlertController.Create ("Row Touched", TableItems[indexPath.Row], UIAlertControllerStyle.Alert);
-				okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-				owner.PresentViewController (okAlertController, true, null);
+			{
+				switch (TableItems [indexPath.Row]) {
+				case "Notifications": 
+					NotificationsVC notificationVC = owner.Storyboard.InstantiateViewController ("NotificationsVC") as NotificationsVC;
+					if (notificationVC != null) {
+						owner.NavigationController.PushViewController (notificationVC, true);
+					}
+					break;
+				case "My Profile": 
+					MyProfileVC myProfileVC = owner.Storyboard.InstantiateViewController ("MyProfileVC") as MyProfileVC;
+					if (myProfileVC != null) {
+						owner.NavigationController.PushViewController (myProfileVC, true);
+					}
+					break;
+				case "My Meetings": 
+					MyMeetingsVC myMeetingVC = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
+					if (myMeetingVC != null) {
+						owner.NavigationController.PushViewController (myMeetingVC, true);
+					}
+					break;
+				case "Deal Makers": 
+					DealMakersVC dealMakersVC = owner.Storyboard.InstantiateViewController ("DealMakersVC") as DealMakersVC;
+					if (dealMakersVC != null) {
+						owner.NavigationController.PushViewController (dealMakersVC, true);
+					}
+					break;
+				case "Account Management": 
+					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
+					if (accountManagementVC != null) {
+						owner.NavigationController.PushViewController (accountManagementVC, true);
+					}
+					break;
+				default:
+					UIAlertController okAlertController = UIAlertController.Create ("Row Touched", TableItems [indexPath.Row], UIAlertControllerStyle.Alert);
+					okAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
+					owner.PresentViewController (okAlertController, true, null);
+					break;
+				}
 
+//
 				tableView.DeselectRow (indexPath, true);
 			}
 

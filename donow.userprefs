@@ -1,28 +1,11 @@
 ﻿<Properties StartupItem="iOS/donow.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/signUpSocialLinkDetailsVC.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="38" Column="6" />
-      <File FileName="iOS/HambergerMenuVC .cs" Line="15" Column="38" />
-      <File FileName="iOS/signUpSocialLinksVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/signUpSocialLinkDetailsVC.cs" Line="94" Column="4" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="67" Column="1" />
+      <File FileName="iOS/loginPageViewController.cs" Line="38" Column="7" />
+      <File FileName="iOS/NotificationsVC.cs" Line="8" Column="31" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="donow" expanded="True">
-            <Node name="donow.iOS" expanded="True">
-              <Node name="Resources" expanded="True">
-                <Node name="Images.xcassets" expanded="True" />
-              </Node>
-              <Node name="HambergerMenuVC .cs" expanded="True" />
-              <Node name="signUpLoginDetailsVC.cs" expanded="True" />
-              <Node name="signUpSocialLinkDetailsVC.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
