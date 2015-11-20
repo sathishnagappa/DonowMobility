@@ -48,7 +48,7 @@ namespace donow.iOS
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				cell.TextLabel.Text = item;
-				cell.ImageView.Image = UIImage.FromFile("settingsImage.png"); 
+				cell.ImageView.Image = UIImage.FromBundle("settingsImage.png"); 
 				//cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 
 				return cell;

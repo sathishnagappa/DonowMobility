@@ -106,7 +106,6 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png" />
-    <ImageAsset Include="Resources\settingsImage.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\ITunesArtwork" />
@@ -218,5 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\DoNowSplash.png" />
+    <BundleResource Include="Resources\settingsImage.png" />
+    <BundleResource Include="Resources\Collaboration.png" />
   </ItemGroup>
 </Project>

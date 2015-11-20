@@ -526,7 +526,7 @@
                             <outlet property="delegate" destination="G6v-n5-VUg" id="BZp-SO-t40"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="1Rk-Aq-F50"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="1Rk-Aq-F50" image="Collaboration.png"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMT-FG-PrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -554,11 +554,11 @@
                             </label>
                         </subviews>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3iL-9I-lM3"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="3iL-9I-lM3" image="Collaboration.png"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i00-j6-HbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347" y="3095"/>
+            <point key="canvasLocation" x="130" y="3038"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="Yyr-9Z-L68">
@@ -582,11 +582,11 @@
                             </label>
                         </subviews>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="TLb-jh-gLM"/>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="TLb-jh-gLM" image="Collaboration.png"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnw-or-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="2348"/>
+            <point key="canvasLocation" x="946" y="3033"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="0Xp-QG-J32">
@@ -610,11 +610,11 @@
                             </label>
                         </subviews>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="pU4-O5-sne"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="pU4-O5-sne" image="Collaboration.png"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xl-IP-fLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="1782"/>
+            <point key="canvasLocation" x="1695" y="3030"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IWk-U2-CsE">
@@ -624,7 +624,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Aiq-MO-gVW">
                         <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
                     </tabBar>
                     <connections>
                         <segue destination="2SF-Ef-MM8" kind="relationship" relationship="viewControllers" id="5d4-1X-0r8"/>
@@ -637,7 +637,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3A-qp-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="1847"/>
+            <point key="canvasLocation" x="83" y="1675"/>
         </scene>
         <!--Item-->
         <scene sceneID="Via-La-pNQ">
@@ -661,11 +661,11 @@
                             </label>
                         </subviews>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="836-H6-BrV"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="836-H6-BrV" image="Collaboration.png"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gP2-N1-ISa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-501" y="2550"/>
+            <point key="canvasLocation" x="-591" y="3050"/>
         </scene>
         <!--Account Management-->
         <scene sceneID="1615">
@@ -703,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1618" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="964"/>
+            <point key="canvasLocation" x="914" y="929"/>
         </scene>
         <!--Linked In LoginVC-->
         <scene sceneID="2148">
@@ -721,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2151" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="958"/>
+            <point key="canvasLocation" x="1771" y="923"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="2533">
@@ -748,7 +748,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2536" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="1021"/>
+            <point key="canvasLocation" x="2516" y="901"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="2542">
@@ -802,7 +802,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2552" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="1730"/>
+            <point key="canvasLocation" x="2567" y="1628"/>
         </scene>
         <!--Deal Makers-->
         <scene sceneID="2556">
@@ -829,7 +829,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2559" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="2438"/>
+            <point key="canvasLocation" x="1803" y="2368"/>
         </scene>
         <scene sceneID="2598">
             <objects>
@@ -883,14 +883,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2601" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="2554"/>
+            <point key="canvasLocation" x="2531" y="3176"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="1523"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="settingsImage.png" width="259" height="194"/>
+        <image name="settingsImage.png" width="30" height="30"/>
         <image name="DoNowSplash.png" width="137" height="118"/>
+        <image name="Collaboration.png" width="25" height="25"/>
     </resources>
 </document>
