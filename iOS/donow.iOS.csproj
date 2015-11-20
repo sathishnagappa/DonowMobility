@@ -106,6 +106,7 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png" />
+    <ImageAsset Include="Resources\settingsImage.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\ITunesArtwork" />
@@ -166,6 +167,46 @@
     <Compile Include="LinkedInLoginVC.cs" />
     <Compile Include="LinkedInLoginVC.designer.cs">
       <DependentUpon>LinkedInLoginVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HambergerMenuVC .cs" />
+    <Compile Include="HambergerMenuVC .designer.cs">
+      <DependentUpon>HambergerMenuVC .cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationsVC.cs" />
+    <Compile Include="NotificationsVC.designer.cs">
+      <DependentUpon>NotificationsVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyProfileVC.cs" />
+    <Compile Include="MyProfileVC.designer.cs">
+      <DependentUpon>MyProfileVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyMeetingsVC.cs" />
+    <Compile Include="MyMeetingsVC.designer.cs">
+      <DependentUpon>MyMeetingsVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DealMakersVC.cs" />
+    <Compile Include="DealMakersVC.designer.cs">
+      <DependentUpon>DealMakersVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LandingCustomerStreamVC.cs" />
+    <Compile Include="LandingCustomerStreamVC.designer.cs">
+      <DependentUpon>LandingCustomerStreamVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LandingCustomerVC.cs" />
+    <Compile Include="LandingCustomerVC.designer.cs">
+      <DependentUpon>LandingCustomerVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeVC.cs" />
+    <Compile Include="WelcomeVC.designer.cs">
+      <DependentUpon>WelcomeVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LandingRefferalRequestVC.cs" />
+    <Compile Include="LandingRefferalRequestVC.designer.cs">
+      <DependentUpon>LandingRefferalRequestVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LandingLeadsVC.cs" />
+    <Compile Include="LandingLeadsVC.designer.cs">
+      <DependentUpon>LandingLeadsVC.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

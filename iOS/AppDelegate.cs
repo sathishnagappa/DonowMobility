@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using UIKit;
-using donow.Model;
 using Facebook.CoreKit;
+using donow.PCL.Model;
 
 namespace donow.iOS
 {

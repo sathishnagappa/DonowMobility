@@ -12,7 +12,7 @@ namespace donow.Services
 	public class RestService
 	{
 
-		public string GetData (string param)
+		public string GetData (string RestURL)
 		{
 			// Create an HTTP web request using the URL:
 //			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (url));
@@ -37,9 +37,7 @@ namespace donow.Services
 //			response.EnsureSuccessStatusCode();
 //			string contentString = await response.Content.ReadAsStringAsync();
 //			return contentString;
-
-			var rxcui = Constants.RestAPI + param + "/allinfo";
-			var request = HttpWebRequest.Create(rxcui);
+			var request = HttpWebRequest.Create(RestURL);
 			request.ContentType = "application/json";
 			request.Method = "GET";
 
