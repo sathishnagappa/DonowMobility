@@ -94,7 +94,6 @@ namespace donow.iOS
 					break;
 				}
 
-//
 				tableView.DeselectRow (indexPath, true);
 			}
 

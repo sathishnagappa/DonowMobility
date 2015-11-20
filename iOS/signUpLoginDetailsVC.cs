@@ -13,7 +13,6 @@ namespace donow.iOS
 	{
 		public signUpLoginDetailsVC (IntPtr handle) : base (handle)
 		{
-			
 		}
 
 		public override void ViewDidLoad ()
