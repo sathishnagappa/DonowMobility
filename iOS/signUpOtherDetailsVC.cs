@@ -22,6 +22,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			TextBoxShouldReturn ();
+			LoadUserDetails ();
 			TableViewState.Hidden = true;
 			IList<string> States = new List<string>
 			{
@@ -108,6 +109,15 @@ namespace donow.iOS
 				TextBoxPayPalPassword.ResignFirstResponder ();
 				return true;
 			};
+		}
+
+		void LoadUserDetails()
+		{
+			TextBoxEmail.Text = AppDelegate.UserProfile.email;
+			TextBoxCompany.Text = AppDelegate.UserProfile.positions.values [0].company.name;
+			TextBoxTitle.Text = AppDelegate.UserProfile.positions.values[0].title;
+			TextBoxFullName.Text = AppDelegate.UserProfile.name;
+			TextBoxIndustry.Text = AppDelegate.UserProfile.industry;
 		}
 
 		public void UpdateControls (string Parameter, string TableType)

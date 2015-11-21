@@ -1,6 +1,6 @@
 ﻿using Foundation;
 using UIKit;
-using Facebook.CoreKit;
+//using Facebook.CoreKit;
 using donow.PCL.Model;
 
 namespace donow.iOS
@@ -11,9 +11,10 @@ namespace donow.iOS
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-		string appId = "814782795310317";
-		string appName = "DoNow App";
+//		string appId = "814782795310317";
+//		string appName = "DoNow App";
 		public static UserDetails UserDetails;
+		public static Profile UserProfile;
 		public override UIWindow Window {
 			get;
 			set;
@@ -23,10 +24,11 @@ namespace donow.iOS
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-			Profile.EnableUpdatesOnAccessTokenChange (true);
-			Settings.AppID = appId;
-			Settings.DisplayName = appName;
+//			Profile.EnableUpdatesOnAccessTokenChange (true);
+//			Settings.AppID = appId;
+//			Settings.DisplayName = appName;
 			UserDetails = new UserDetails();
+			UserProfile = new Profile ();
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
@@ -67,11 +69,11 @@ namespace donow.iOS
 			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
 		}
 
-		public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-		{
+		//public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		//{
 			// We need to handle URLs by passing them to their own OpenUrl in order to make the SSO authentication works.
-			return ApplicationDelegate.SharedInstance.OpenUrl (application, url, sourceApplication, annotation);
-		}
+			//return ApplicationDelegate.SharedInstance.OpenUrl (application, url, sourceApplication, annotation);
+		//}
 
 
 	}
