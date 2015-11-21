@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="407">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="407">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Sign Up-->
@@ -432,7 +432,7 @@
                                 <rect key="frame" x="50" y="357" width="25" height="25"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="421">
-                                <rect key="frame" x="100" y="355" width="279" height="30"/>
+                                <rect key="frame" x="100" y="355" width="265" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -447,7 +447,7 @@
                                 <rect key="frame" x="48" y="285" width="25" height="25"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bsz-4D-24g">
-                                <rect key="frame" x="98" y="283" width="279" height="30"/>
+                                <rect key="frame" x="98" y="283" width="267" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -516,6 +516,8 @@
                         <outlet property="ButtonLogin" destination="419" id="name-outlet-419"/>
                         <outlet property="ButtonSignUp" destination="461" id="name-outlet-461"/>
                         <outlet property="TextBoxPassword" destination="421" id="name-outlet-421"/>
+                        <outlet property="TextBoxUserName" destination="Bsz-4D-24g" id="name-outlet-Bsz-4D-24g"/>
+                        <outlet property="ButtonLinkedInLogin" destination="Y31-30-Hqd" id="name-outlet-Y31-30-Hqd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="413" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -592,7 +594,7 @@
             <objects>
                 <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LZx-Os-ndx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1048,9 +1050,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
         <image name="Collaboration.png" width="25" height="25"/>
+        <image name="DoNowSplash.png" width="137" height="118"/>
+        <image name="settingsImage.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jyY-bd-t4A"/>

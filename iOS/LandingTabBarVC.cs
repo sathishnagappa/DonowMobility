@@ -10,5 +10,12 @@ namespace donow.iOS
 		public LandingTabBarVC (IntPtr handle) : base (handle)
 		{
 		}
+
+		public override void ViewDidLoad ()
+		{
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+		}
 	}
 }

@@ -19,9 +19,6 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.DarkGray;
-			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-
 			TextBoxUserName.ShouldReturn = delegate {
 				TextBoxUserName.ResignFirstResponder ();
 				return true;
@@ -37,8 +34,17 @@ namespace donow.iOS
 			Xamarin.Calabash.Start ();
 			#endif
 
-			ButtonLogin.TouchUpInside += async (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
+				if (ValidateCredentials ()) {
+					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+					if (landingVC != null) {
+						this.PresentViewController(landingVC, true, null);
+					}
+				} 
+			};
 
+			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
+				
 				var auth0 = new Auth0Client(
 					"donow.auth0.com",
 					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
@@ -51,23 +57,15 @@ namespace donow.iOS
 				{
 					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
 					if (signUpVC != null) {
-						this.NavigationController.PushViewController (signUpVC, true);
+						this.PresentViewController(signUpVC, true, null);
 					}
 				}
-
-				//Call to Authencation service 
-//				if (ValidateCredentials ()) {
-//					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-//					if (landingVC != null) {
-//						this.NavigationController.PushViewController (landingVC, true);
-//					}
-//				} 
 			};
 
 			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {
 				signUpLoginDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
 				if (signUpVC != null) {
-					this.NavigationController.PushViewController (signUpVC, true);
+					this.PresentViewController(signUpVC, true , null);
 				}
 			};
 

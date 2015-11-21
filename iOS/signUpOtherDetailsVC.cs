@@ -21,6 +21,10 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+//			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
+//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+
 			TextBoxShouldReturn ();
 			LoadUserDetails ();
 			TableViewState.Hidden = true;

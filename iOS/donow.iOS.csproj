@@ -214,12 +214,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\donow.PCL\donow.PCL.csproj">
-      <Project>{CF3EBDCE-9874-42B9-B789-E943C519D3DC}</Project>
-      <Name>donow.PCL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\DoNowSplash.png" />
     <BundleResource Include="Resources\settingsImage.png" />
     <BundleResource Include="Resources\Collaboration.png" />
@@ -229,5 +223,11 @@
       <Version>0.5.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\donow.PCL\donow.PCL.csproj">
+      <Project>{CF3EBDCE-9874-42B9-B789-E943C519D3DC}</Project>
+      <Name>donow.PCL</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
