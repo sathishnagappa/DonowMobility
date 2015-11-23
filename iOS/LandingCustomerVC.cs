@@ -10,5 +10,10 @@ namespace donow.iOS
 		public LandingCustomerVC (IntPtr handle) : base (handle)
 		{
 		}
+
+		public override void ViewDidLoad ()
+		{
+			this.Title = "Referral Request";
+		}
 	}
 }
