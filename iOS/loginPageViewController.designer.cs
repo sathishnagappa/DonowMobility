@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonForgotPassword { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonLinkedInLogin { get; set; }
 
 		[Outlet]
@@ -28,6 +32,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelPassword { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelUserName { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField TextBoxPassword { get; set; }
 
 		[Outlet]
@@ -36,6 +48,10 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonForgotPassword != null) {
+				ButtonForgotPassword.Dispose ();
+				ButtonForgotPassword = null;
+			}
 			if (ButtonLinkedInLogin != null) {
 				ButtonLinkedInLogin.Dispose ();
 				ButtonLinkedInLogin = null;
@@ -47,6 +63,14 @@ namespace donow.iOS
 			if (ButtonSignUp != null) {
 				ButtonSignUp.Dispose ();
 				ButtonSignUp = null;
+			}
+			if (LabelPassword != null) {
+				LabelPassword.Dispose ();
+				LabelPassword = null;
+			}
+			if (LabelUserName != null) {
+				LabelUserName.Dispose ();
+				LabelUserName = null;
 			}
 			if (TextBoxPassword != null) {
 				TextBoxPassword.Dispose ();

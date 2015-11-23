@@ -28,6 +28,10 @@ namespace donow.PCL
 			return response;
 		}
 
+		// UpdateNewPassword()
+		// UpdateUserDetails()
+		// GetUserDetails() 
+
 	}
 }
 

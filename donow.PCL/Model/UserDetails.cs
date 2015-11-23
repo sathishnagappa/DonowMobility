@@ -8,8 +8,7 @@ namespace donow.PCL.Model
 		public string UserName { get;set;}
 		public byte[] Password { get;set;}
 		public string CompanyName { get;set;}
-		public string PhoneNumber1 { get;set;}
-		public string PhoneNumber2 { get;set;}
+		public string PhoneNo { get;set;}
 		public string FullName { get;set;}
 		public string Title { get;set;}
 		public string OfficeAddess { get;set;}

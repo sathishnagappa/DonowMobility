@@ -19,9 +19,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-//			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
-//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+			this.Title = "Sign Up";
 //			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 //				bounds.Size = new CGSize(bounds.Size.Height, bounds.Size.Width);
@@ -29,9 +27,9 @@ namespace donow.iOS
 //			loadingOverlay = new LoadingOverlay (bounds);
 //			View.Add (loadingOverlay);
 
-			List<Leads> leads = new  List<Leads>();
-			LeadsBL leadsbl = new LeadsBL ();
-			leads = leadsbl.GetAllLeads ();
+			//List<Leads> leads = new  List<Leads>();
+			//LeadsBL leadsbl = new LeadsBL ();
+			//leads = leadsbl.GetAllLeads ();
 			//loadingOverlay.Hide ();
 
 			//Leads lead = new Leads();
@@ -47,25 +45,58 @@ namespace donow.iOS
 				return true;
 			};
 
-			NextBtn.TouchUpInside += (object sender, EventArgs e) => {
-
-				if(TextBoxPassword.Text == TextBoxVerifyPassword.Text) {
-
-					AppDelegate.UserDetails.UserName = TextBoxUserName.Text;
-					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxPassword.Text.ToLower());
-
-				}
-				else
-				{
-					UIAlertView alert = new UIAlertView () { 
-						Title = "Password Mismatch", 
-						Message = "Confirm password doesn't match with the password."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
-				}
+			TextBoxVerifyPassword.ShouldReturn = delegate {
+				TextBoxVerifyPassword.ResignFirstResponder ();
+				return true;
 			};
-	
+
+			NextBtn.TouchUpInside += (object sender, EventArgs e) => {
+				if (Validation ()) {
+					
+						AppDelegate.UserDetails.UserName = TextBoxUserName.Text;
+						AppDelegate.UserDetails.Password = Crypto.Encrypt (TextBoxPassword.Text.ToLower ());
+
+						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+						if (signUpVC != null) {
+							this.NavigationController.PushViewController (signUpVC, true);
+					}
+
+				}
+			};	
+
+		}
+
+		private bool Validation()
+		{
+			UIAlertView alert = null;
+			if (string.IsNullOrEmpty(TextBoxUserName.Text)) {
+				alert = new UIAlertView () { 
+					Title = "User Name is blank", 
+					Message = "Please enter the User Name."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty(TextBoxPassword.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Password is blank", 
+					Message = "Please enter the Password."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (TextBoxPassword.Text != TextBoxVerifyPassword.Text) {				
+				alert = new UIAlertView () { 
+					Title = "Password Mismatch", 
+					Message = "Confirm password doesn't match with the password."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			return true;
 		}
 	}
 }

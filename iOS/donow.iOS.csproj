@@ -212,6 +212,11 @@
     <Compile Include="LandingTabBarVC.designer.cs">
       <DependentUpon>LandingTabBarVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeadsTableCell.cs" />
+    <Compile Include="LeadsTableCell.designer.cs">
+      <DependentUpon>LeadsTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeadTableCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
