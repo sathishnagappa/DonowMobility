@@ -1,35 +1,20 @@
-﻿<Properties StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/signUpOtherDetailsVC.cs">
+﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.0" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="donow.PCL/Services/RestService.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/Profile.cs" Line="88" Column="24" />
-      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="21" Column="52" />
-      <File FileName="iOS/LandingTabBarVC.cs" Line="22" Column="1" />
-      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="34" Column="9" />
-      <File FileName="iOS/loginPageViewController.cs" Line="43" Column="70" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="69" Column="31" />
-      <File FileName="iOS/HambergerMenuVC .cs" Line="14" Column="3" />
-      <File FileName="iOS/WelcomeVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="35" Column="14" />
+      <File FileName="iOS/LeadsTableCell.cs" Line="10" Column="32" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="48" Column="33" />
+      <File FileName="iOS/LandingRefferalRequestVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingTabBarVC.cs" Line="10" Column="14" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="donow.iOS" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="signUpOtherDetailsVC.cs" selected="True" />
-          </Node>
-          <Node name="donow.PCL" expanded="True">
-            <Node name="Model" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/signUpOtherDetailsVC.cs" line="28" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LandingLeadsVC.cs" line="16" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LandingLeadsVC.cs" line="40" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

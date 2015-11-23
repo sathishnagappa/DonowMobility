@@ -11,26 +11,18 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("LandingLeadsVC")]
-	partial class LandingLeadsVC
+	[Register ("LeadsTableCell")]
+	partial class LeadsTableCell
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonRequestNewLead { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewLeads { get; set; }
+		UILabel label { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ButtonRequestNewLead != null) {
-				ButtonRequestNewLead.Dispose ();
-				ButtonRequestNewLead = null;
-			}
-			if (TableViewLeads != null) {
-				TableViewLeads.Dispose ();
-				TableViewLeads = null;
+			if (label != null) {
+				label.Dispose ();
+				label = null;
 			}
 		}
 	}

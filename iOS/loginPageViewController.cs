@@ -28,7 +28,15 @@ namespace donow.iOS
 				TextBoxPassword.ResignFirstResponder ();
 				return true;
 			};
-				
+
+			LabelUserName.Layer.CornerRadius = 5.0f;
+			LabelUserName.Layer.BorderWidth = 1.0f;
+			LabelUserName.Layer.BorderColor = UIColor.DarkGray.CGColor;
+
+			LabelPassword.Layer.CornerRadius = 5.0f;
+			LabelPassword.Layer.BorderWidth = 1.0f;
+			LabelPassword.Layer.BorderColor = UIColor.DarkGray.CGColor;
+
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start ();
@@ -40,7 +48,7 @@ namespace donow.iOS
 					if (landingVC != null) {
 						this.PresentViewController(landingVC, true, null);
 					}
-				} 
+				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
