@@ -46,8 +46,9 @@ namespace donow.iOS
 			TableViewIndustry.Hidden = true;
 			IList<string> Industries = new List<string>
 			{
-				"Automobiles","Chemicals","Construction & Capital Goods","Consumption products","Energy", "Financials","Healthcare","Industrials",
-				"Infrastructure","Metals","Retail and other services","Technology", "Media and Telecomunication","Textiles","Transportation","Travel"
+				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
+				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
+				"Shipping","Technology","Telecommunications","Transportation","Utilities"
 			};
 
 			TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
