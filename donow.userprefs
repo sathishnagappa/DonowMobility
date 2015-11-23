@@ -1,33 +1,13 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.8.2" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="iOS/loginPageViewController.cs">
     <Files>
-      <File FileName="iOS/HambergerMenuVC .cs" Line="1" Column="1" />
-      <File FileName="iOS/loginPageViewController.cs" Line="43" Column="42" />
-      <File FileName="iOS/NotificationsVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="16" Column="62" />
-      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/HambergerMenuVC .designer.cs" Line="1" Column="1" />
-      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="iOS/HomeViewController.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Util/LoadingOverlay.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Util/Crypto.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Services/RestService.cs" Line="1" Column="1" />
-      <File FileName="iOS/LinkedInLoginVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/signUpSocialLinkDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="14" Column="3" />
       <File FileName="iOS/WelcomeVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/loginPageViewController.cs" Line="77" Column="1" />
+      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="36" Column="4" />
+      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="121" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="donow.iOS" expanded="True">
-            <Node name="ComponentReferenceFolder" expanded="True" />
-            <Node name="loginPageViewController.cs" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

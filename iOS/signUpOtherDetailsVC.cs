@@ -26,7 +26,9 @@ namespace donow.iOS
 //			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 
 			TextBoxShouldReturn ();
-			LoadUserDetails ();
+			if (AppDelegate.UserProfile.name != null) {
+				LoadUserDetails ();
+			}
 			TableViewState.Hidden = true;
 			IList<string> States = new List<string>
 			{
@@ -35,7 +37,7 @@ namespace donow.iOS
 				"UT","VT","VA","WA","WV","WI","WY"
 			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1150f);
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1200);
 			ButtonNext.Layer.CornerRadius = 5.0f;
 			TableViewState.Source = new TableSource(States,this , "States");
 			TableViewState.ContentSize = new SizeF (100f,50f);
