@@ -21,11 +21,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-//			this.NavigationController.SetNavigationBarHidden (false, false);
-//			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
-//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-
+			
 			TextBoxShouldReturn ();
 			if (AppDelegate.UserProfile.name != null) {
 				LoadUserDetails ();

@@ -19,9 +19,6 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-//			this.NavigationController.SetNavigationBarHidden (false, false);
-//			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
-//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 //				bounds.Size = new CGSize(bounds.Size.Height, bounds.Size.Width);
