@@ -114,6 +114,7 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="leadsCustomCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -214,14 +215,20 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <BundleResource Include="Resources\DoNowSplash.png" />
+    <BundleResource Include="Resources\settingsImage.png" />
+    <BundleResource Include="Resources\Collaboration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="Auth0Client">
+      <Version>0.5.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\donow.PCL\donow.PCL.csproj">
       <Project>{CF3EBDCE-9874-42B9-B789-E943C519D3DC}</Project>
       <Name>donow.PCL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\DoNowSplash.png" />
-    <BundleResource Include="Resources\settingsImage.png" />
-    <BundleResource Include="Resources\Collaboration.png" />
   </ItemGroup>
 </Project>

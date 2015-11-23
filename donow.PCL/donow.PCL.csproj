@@ -54,6 +54,7 @@
     <Compile Include="BusinessLogic\LeadsBL.cs" />
     <Compile Include="BusinessLogic\UserBL.cs" />
     <Compile Include="Util\LoadingOverlay.cs" />
+    <Compile Include="Model\Profile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

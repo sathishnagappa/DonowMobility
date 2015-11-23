@@ -21,7 +21,14 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+//			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
+//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+
 			TextBoxShouldReturn ();
+			if (AppDelegate.UserProfile.name != null) {
+				LoadUserDetails ();
+			}
 			TableViewState.Hidden = true;
 			IList<string> States = new List<string>
 			{
@@ -30,7 +37,7 @@ namespace donow.iOS
 				"UT","VT","VA","WA","WV","WI","WY"
 			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1150f);
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1200);
 			ButtonNext.Layer.CornerRadius = 5.0f;
 			TableViewState.Source = new TableSource(States,this , "States");
 			TableViewState.ContentSize = new SizeF (100f,50f);
@@ -41,8 +48,9 @@ namespace donow.iOS
 			TableViewIndustry.Hidden = true;
 			IList<string> Industries = new List<string>
 			{
-				"Automobiles","Chemicals","Construction & Capital Goods","Consumption products","Energy", "Financials","Healthcare","Industrials",
-				"Infrastructure","Metals","Retail and other services","Technology", "Media and Telecomunication","Textiles","Transportation","Travel"
+				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
+				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
+				"Shipping","Technology","Telecommunications","Transportation","Utilities"
 			};
 
 			TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
@@ -108,6 +116,15 @@ namespace donow.iOS
 				TextBoxPayPalPassword.ResignFirstResponder ();
 				return true;
 			};
+		}
+
+		void LoadUserDetails()
+		{
+			TextBoxEmail.Text = AppDelegate.UserProfile.email;
+			TextBoxCompany.Text = AppDelegate.UserProfile.positions.values [0].company.name;
+			TextBoxTitle.Text = AppDelegate.UserProfile.positions.values[0].title;
+			TextBoxFullName.Text = AppDelegate.UserProfile.name;
+			TextBoxIndustry.Text = AppDelegate.UserProfile.industry;
 		}
 
 		public void UpdateControls (string Parameter, string TableType)

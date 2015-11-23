@@ -15,6 +15,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+
 //			var webView = new UIWebView (View.Bounds);
 //			View.AddSubview(webView);
 //			var url = "https://www.bing.com/news/search?q=ibm+trends&qpvt=ibm+trends&FORM=EWRE"; // NOTE: https secure request

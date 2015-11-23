@@ -4,6 +4,8 @@ using System.CodeDom.Compiler;
 using UIKit;
 using donow.Util;
 using CoreGraphics;
+using Auth0.SDK;
+using donow.PCL.Model;
 
 namespace donow.iOS
 {
@@ -13,12 +15,9 @@ namespace donow.iOS
 		{
 		}
 
-		public override void ViewDidLoad ()
+		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.DarkGray;
-			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 			TextBoxUserName.ShouldReturn = delegate {
 				TextBoxUserName.ResignFirstResponder ();
@@ -35,20 +34,38 @@ namespace donow.iOS
 			Xamarin.Calabash.Start ();
 			#endif
 
-			ButtonLogin.TouchUpInside += (object sender, EventArgs e) => {
-				//Call to Authencation service 
+			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 				if (ValidateCredentials ()) {
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 					if (landingVC != null) {
-						this.NavigationController.PushViewController (landingVC, true);
+						this.PresentViewController(landingVC, true, null);
 					}
 				} 
+			};
+
+			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
+				
+				var auth0 = new Auth0Client(
+					"donow.auth0.com",
+					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
+
+				var user = await auth0.LoginAsync(this,"linkedin");
+
+				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
+
+				if(AppDelegate.UserProfile.email_verified == true)
+				{
+					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+					if (signUpVC != null) {
+						this.PresentViewController(signUpVC, true, null);
+					}
+				}
 			};
 
 			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {
 				signUpLoginDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
 				if (signUpVC != null) {
-					this.NavigationController.PushViewController (signUpVC, true);
+					this.PresentViewController(signUpVC, true , null);
 				}
 			};
 

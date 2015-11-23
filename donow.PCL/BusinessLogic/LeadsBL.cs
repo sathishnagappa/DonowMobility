@@ -30,6 +30,11 @@ namespace donow.PCL
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
 			return parsedResponse;
 		}
+
+		// UpdateLeadStatus()
+		// UpdateIntialFeedBack()
+		// UpdateF2FFeedBack()
+		// GetNewLeads() 
 	}
 }
 
