@@ -36,9 +36,6 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
-			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-
 			TextBoxUserName.ShouldReturn = delegate {
 				TextBoxUserName.ResignFirstResponder ();
 				return true;
@@ -56,6 +53,7 @@ namespace donow.iOS
 
 			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 				if (ValidateCredentials ()) {
+					// Call to Get user details and validate credentials
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 					if (landingVC != null) {
 						this.NavigationController.PushViewController(landingVC, true);
@@ -67,7 +65,7 @@ namespace donow.iOS
 				
 				var auth0 = new Auth0Client(
 					"donow.auth0.com",
-					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
+					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
 
 				var user = await auth0.LoginAsync(this,"linkedin");
 
@@ -89,16 +87,24 @@ namespace donow.iOS
 				}
 			};
 
+			ButtonForgotPassword.TouchUpInside += (object sender, EventArgs e) => {			
+				ForgotPasswordVC forgotPasswordVC = this.Storyboard.InstantiateViewController ("ForgotPasswordVC") as ForgotPasswordVC;
+				if (forgotPasswordVC != null) {
+					this.NavigationController.PushViewController(forgotPasswordVC, true);
+				}
+			};
+
 		}
 
 		bool ValidateCredentials()
 		{
+			UIAlertView alert = null;
 			if (TextBoxUserName.Text != null && TextBoxPassword.Text != null) {
 				if (AppDelegate.UserDetails.UserName.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					return true;
 				}
 				else {
-					UIAlertView alert = new UIAlertView () { 
+					alert = new UIAlertView () { 
 						Title = "Invalid Credentials", 
 						Message = "User Name or Password doesn't match"
 					};
@@ -107,7 +113,7 @@ namespace donow.iOS
 					return false;
 				}
 			} else {
-				UIAlertView alert = new UIAlertView () { 
+				alert = new UIAlertView () { 
 					Title = "Error", 
 					Message = "User Name or Password cannot be blank"
 				};

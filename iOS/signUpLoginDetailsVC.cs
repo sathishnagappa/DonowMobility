@@ -19,6 +19,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			this.Title = "Sign Up";
 //			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 //				bounds.Size = new CGSize(bounds.Size.Height, bounds.Size.Width);
@@ -50,28 +51,52 @@ namespace donow.iOS
 			};
 
 			NextBtn.TouchUpInside += (object sender, EventArgs e) => {
+				if (Validation ()) {
+					
+						AppDelegate.UserDetails.UserName = TextBoxUserName.Text;
+						AppDelegate.UserDetails.Password = Crypto.Encrypt (TextBoxPassword.Text.ToLower ());
 
-				if(TextBoxPassword.Text == TextBoxVerifyPassword.Text) {
-
-					AppDelegate.UserDetails.UserName = TextBoxUserName.Text;
-					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxPassword.Text.ToLower());
-
-					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
-					if (signUpVC != null) {
-						this.NavigationController.PushViewController(signUpVC, true);
+						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+						if (signUpVC != null) {
+							this.NavigationController.PushViewController (signUpVC, true);
 					}
+
 				}
-				else
-				{
-					UIAlertView alert = new UIAlertView () { 
-						Title = "Password Mismatch", 
-						Message = "Confirm password doesn't match with the password."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
-				}
-			};
-	
+			};	
+
+		}
+
+		private bool Validation()
+		{
+			UIAlertView alert = null;
+			if (string.IsNullOrEmpty(TextBoxUserName.Text)) {
+				alert = new UIAlertView () { 
+					Title = "User Name is blank", 
+					Message = "Please enter the User Name."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty(TextBoxPassword.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Password is blank", 
+					Message = "Please enter the Password."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (TextBoxPassword.Text != TextBoxVerifyPassword.Text) {				
+				alert = new UIAlertView () { 
+					Title = "Password Mismatch", 
+					Message = "Confirm password doesn't match with the password."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			return true;
 		}
 	}
 }

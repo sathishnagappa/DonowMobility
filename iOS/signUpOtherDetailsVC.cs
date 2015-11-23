@@ -21,7 +21,6 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-			
 			TextBoxShouldReturn ();
 			if (AppDelegate.UserProfile.name != null) {
 				LoadUserDetails ();
@@ -63,12 +62,26 @@ namespace donow.iOS
 				}
 			};
 
-			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {				
+			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {	
+				SaveUserDetails();
 				signUpSocialLinksVC signUpSocialVC = this.Storyboard.InstantiateViewController ("signUpSocialLinksVC") as signUpSocialLinksVC;
 				if (signUpSocialVC != null) {
 					this.NavigationController.PushViewController (signUpSocialVC, true);
 				}
 			};
+		}
+
+		void SaveUserDetails()
+		{
+			AppDelegate.UserDetails.FullName = TextBoxFullName.Text;
+			AppDelegate.UserDetails.Title = TextBoxTitle.Text;
+			AppDelegate.UserDetails.CompanyName = TextBoxFullName.Text;
+			AppDelegate.UserDetails.OfficeAddess = TextBoxFullName.Text;
+			AppDelegate.UserDetails.City = TextBoxFullName.Text;
+			AppDelegate.UserDetails.ZipCode = string.IsNullOrEmpty(TextBoxZip.Text) == true ? 0 : int.Parse(TextBoxZip.Text);
+			AppDelegate.UserDetails.EmailID = TextBoxEmail.Text;
+			AppDelegate.UserDetails.PhoneNo = TextBoxPhone.Text;
+
 		}
 
 		void TextBoxShouldReturn()
@@ -105,14 +118,14 @@ namespace donow.iOS
 				TextBoxPhone.ResignFirstResponder ();
 				return true;
 			};
-			TextBoxPayPalUser.ShouldReturn = delegate {
-				TextBoxPayPalUser.ResignFirstResponder ();
-				return true;
-			};
-			TextBoxPayPalPassword.ShouldReturn = delegate {
-				TextBoxPayPalPassword.ResignFirstResponder ();
-				return true;
-			};
+//			TextBoxPayPalUser.ShouldReturn = delegate {
+//				TextBoxPayPalUser.ResignFirstResponder ();
+//				return true;
+//			};
+//			TextBoxPayPalPassword.ShouldReturn = delegate {
+//				TextBoxPayPalPassword.ResignFirstResponder ();
+//				return true;
+//			};
 		}
 
 		void LoadUserDetails()
