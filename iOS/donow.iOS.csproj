@@ -216,6 +216,7 @@
     <Compile Include="LeadsTableCell.designer.cs">
       <DependentUpon>LeadsTableCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeadTableCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

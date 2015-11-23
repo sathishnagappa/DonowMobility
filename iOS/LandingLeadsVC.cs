@@ -37,10 +37,10 @@ namespace donow.iOS
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
-				var cell = tableView.DequeueReusableCell (CellIdentifier) as LeadsTableCell;
+				var cell = tableView.DequeueReusableCell (CellIdentifier) as LeadTableCell;
 
 				if (cell == null) {
-					cell = new LeadsTableCell(CellIdentifier);
+					cell = new LeadTableCell(CellIdentifier);
 				}
 
 //				cell.UpdateCell("name"
