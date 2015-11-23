@@ -71,8 +71,8 @@ namespace donow.iOS
 
 		//public override bool OpenUrl (UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		//{
-			// We need to handle URLs by passing them to their own OpenUrl in order to make the SSO authentication works.
-			//return ApplicationDelegate.SharedInstance.OpenUrl (application, url, sourceApplication, annotation);
+			 //We need to handle URLs by passing them to their own OpenUrl in order to make the SSO authentication works.
+		//	return ApplicationDelegate.SharedInstance.OpenUrl (application, url, sourceApplication, annotation);
 		//}
 
 

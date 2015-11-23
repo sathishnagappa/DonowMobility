@@ -16,21 +16,37 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSend { get; set; }
+		UIButton ButtonChange { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextField TextBoxConfirmPassword { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField TextBoxEmailID { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextField TextBoxPassword { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
-			if (ButtonSend != null) {
-				ButtonSend.Dispose ();
-				ButtonSend = null;
+			if (ButtonChange != null) {
+				ButtonChange.Dispose ();
+				ButtonChange = null;
+			}
+			if (TextBoxConfirmPassword != null) {
+				TextBoxConfirmPassword.Dispose ();
+				TextBoxConfirmPassword = null;
 			}
 			if (TextBoxEmailID != null) {
 				TextBoxEmailID.Dispose ();
 				TextBoxEmailID = null;
+			}
+			if (TextBoxPassword != null) {
+				TextBoxPassword.Dispose ();
+				TextBoxPassword = null;
 			}
 		}
 	}

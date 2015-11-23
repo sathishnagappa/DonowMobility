@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonForgotPassword { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonLinkedInLogin { get; set; }
 
 		[Outlet]
@@ -44,6 +48,10 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonForgotPassword != null) {
+				ButtonForgotPassword.Dispose ();
+				ButtonForgotPassword = null;
+			}
 			if (ButtonLinkedInLogin != null) {
 				ButtonLinkedInLogin.Dispose ();
 				ButtonLinkedInLogin = null;
