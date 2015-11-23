@@ -15,9 +15,29 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.NavigationController.SetNavigationBarHidden (true, false);
+		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			this.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+		}
+
 		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 			TextBoxUserName.ShouldReturn = delegate {
 				TextBoxUserName.ResignFirstResponder ();
@@ -38,7 +58,7 @@ namespace donow.iOS
 				if (ValidateCredentials ()) {
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 					if (landingVC != null) {
-						this.PresentViewController(landingVC, true, null);
+						this.NavigationController.PushViewController(landingVC, true);
 					}
 				} 
 			};
@@ -57,7 +77,7 @@ namespace donow.iOS
 				{
 					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
 					if (signUpVC != null) {
-						this.PresentViewController(signUpVC, true, null);
+						this.NavigationController.PushViewController(signUpVC, true);
 					}
 				}
 			};
@@ -65,7 +85,7 @@ namespace donow.iOS
 			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {
 				signUpLoginDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
 				if (signUpVC != null) {
-					this.PresentViewController(signUpVC, true , null);
+					this.NavigationController.PushViewController(signUpVC, true);
 				}
 			};
 
@@ -93,8 +113,8 @@ namespace donow.iOS
 				};
 				alert.AddButton ("OK");
 				alert.Show ();
+				return false;
 			}
-			return false;
 		}
 	}
 }
