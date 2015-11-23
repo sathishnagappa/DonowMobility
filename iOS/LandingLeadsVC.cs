@@ -20,7 +20,7 @@ namespace donow.iOS
 		}
 
 		public class TableSource : UITableViewSource {
-			string CellIdentifier = new NSString("TableCell");
+			string CellIdentifier = "TableCell";
 //			LandingLeadsVC owner;
 
 			public TableSource ()
@@ -37,10 +37,10 @@ namespace donow.iOS
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
-				var cell = tableView.DequeueReusableCell (CellIdentifier);
+				var cell = tableView.DequeueReusableCell (CellIdentifier) as LeadsTableCell;
 
 				if (cell == null) {
-					cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier) as LeadsTableCell;
+					cell = new LeadsTableCell(CellIdentifier);
 				}
 
 //				cell.UpdateCell("name"

@@ -7,7 +7,7 @@ namespace donow.iOS
 {
 	partial class LeadsTableCell : UITableViewCell
 	{
-		public LeadsTableCell (IntPtr handle) : base (handle)
+		public LeadsTableCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;
 		}
