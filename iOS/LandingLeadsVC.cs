@@ -2,11 +2,17 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 using UIKit;
+using donow.PCL.Model;
+using donow.PCL;
+using System.Collections.Generic;
+using donow.Util;
+using CoreGraphics;
 
 namespace donow.iOS
 {
 	partial class LandingLeadsVC : UIViewController
 	{
+		LoadingOverlay loadingOverlay;
 		public LandingLeadsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -15,43 +21,52 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 //			var table = new UITableView(View.Bounds); // defaults to Plain style
+			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
+			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
+				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
+			}
+			loadingOverlay = new LoadingOverlay (bounds);
+			View.Add (loadingOverlay);
 
-			TableViewLeads.Source = new TableSource();
+			List<Leads> leads = new  List<Leads> ();
+			LeadsBL leadsbl = new LeadsBL ();
+			leads = leadsbl.GetAllLeads ();
+			loadingOverlay.Hide ();
+			TableViewLeads.Source = new TableSource (leads);
 		}
 
 		public class TableSource : UITableViewSource {
 			string CellIdentifier = "TableCell";
+			List<Leads> TableItems;
 //			LandingLeadsVC owner;
 
-			public TableSource ()
+			public TableSource (List<Leads> items)
 			{
-//				TableItems = items;
+			TableItems = items;
 //				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-//				return TableItems.Length;
-				return 3;
+				return TableItems.Count;
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				var cell = tableView.DequeueReusableCell (CellIdentifier) as LeadTableCell;
+				Leads leadObj = TableItems[indexPath.Row];
 
 				if (cell == null) {
 					cell = new LeadTableCell(CellIdentifier);
 				}
 
-//				cell.UpdateCell("name"
-//					, UIImage.FromFile ("Images/ic_facebook.png") );
+				cell.UpdateCell(leadObj);
 				return cell;
 
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				
+			{				
 
 				tableView.DeselectRow (indexPath, true);
 			}
