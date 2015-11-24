@@ -212,11 +212,11 @@
     <Compile Include="LandingTabBarVC.designer.cs">
       <DependentUpon>LandingTabBarVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="LeadsTableCell.cs" />
-    <Compile Include="LeadsTableCell.designer.cs">
-      <DependentUpon>LeadsTableCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="LeadTableCell.cs" />
+    <Compile Include="LeadDetailVC.cs" />
+    <Compile Include="LeadDetailVC.designer.cs">
+      <DependentUpon>LeadDetailVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -225,6 +225,8 @@
     <BundleResource Include="Resources\Collaboration.png" />
     <BundleResource Include="Resources\mvboli.ttf" />
     <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf" />
+    <BundleResource Include="Resources\Images\Geo Icon.png" />
+    <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
@@ -237,5 +239,8 @@
       <Project>{CF3EBDCE-9874-42B9-B789-E943C519D3DC}</Project>
       <Name>donow.PCL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
   </ItemGroup>
 </Project>
