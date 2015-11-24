@@ -3,6 +3,28 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="mvboli.ttf">
+            <string>MVBoli</string>
+        </mutableArray>
+        <mutableArray key="ufonts.com_segoe-ui-light.ttf">
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+            <string>SegoeUI-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Sign Up-->
         <scene sceneID="175">
@@ -25,28 +47,27 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="256">
                                 <rect key="frame" x="45" y="215" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="257">
                                 <rect key="frame" x="45" y="273" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="258">
                                 <rect key="frame" x="45" y="333" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="259">
                                 <rect key="frame" x="45" y="444" width="320" height="43"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="24"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -157,7 +178,7 @@
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="353">
                                                 <rect key="frame" x="45" y="550" width="320" height="45"/>
-                                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1"/>
+                                                <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Next">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -374,11 +395,10 @@
             </objects>
             <point key="canvasLocation" x="1783" y="208"/>
         </scene>
-        <!--Navigation Controller-->
         <!--Login-->
         <scene sceneID="410">
             <objects>
-                <viewController storyboardIdentifier="loginPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="407" customClass="loginPageViewController" sceneMemberID="viewController" title="Login">
+                <viewController storyboardIdentifier="loginPageViewController" title="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="407" customClass="loginPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="402"/>
                         <viewControllerLayoutGuide type="bottom" id="403"/>
@@ -388,24 +408,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="DoNow" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="416">
-                                <rect key="frame" x="145" y="168" width="113" height="40"/>
+                                <rect key="frame" x="154" y="168" width="113" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="MVBoli" family="MV Boli" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="419">
-                                <rect key="frame" x="45" y="455" width="320" height="45"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="47" y="455" width="320" height="45"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="24"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Eo-Da-fqP">
-                                <rect key="frame" x="45" y="352" width="320" height="35"/>
+                                <rect key="frame" x="47" y="352" width="320" height="35"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -416,11 +435,11 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="421">
                                 <rect key="frame" x="100" y="355" width="265" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N9-vn-WOI">
-                                <rect key="frame" x="45" y="280" width="320" height="35"/>
+                                <rect key="frame" x="47" y="280" width="320" height="35"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -431,33 +450,29 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bsz-4D-24g">
                                 <rect key="frame" x="98" y="283" width="267" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E3u-ti-mTO">
-                                <rect key="frame" x="126" y="20" width="150" height="130"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wb5-co-6JR">
-                                <rect key="frame" x="35" y="627" width="140" height="1"/>
+                                <rect key="frame" x="45" y="628" width="140" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQz-nR-LqL">
-                                <rect key="frame" x="223" y="628" width="152" height="1"/>
+                                <rect key="frame" x="227" y="628" width="140" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="461">
-                                <rect key="frame" x="45" y="640" width="320" height="45"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.13725490196078433" green="0.35686274509803922" blue="0.74901960784313726" alpha="1"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="47" y="640" width="320" height="45"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.35686274509803922" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="24"/>
                                 <state key="normal" title="SignUp">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ju-vW-dRd">
-                                <rect key="frame" x="193" y="617" width="16" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="197" y="617" width="16" height="21"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -467,7 +482,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign in with LinkedIn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTV-dh-4za">
                                 <rect key="frame" x="172" y="554" width="159" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -476,8 +491,9 @@
                                 <color key="backgroundColor" red="0.17198314603167128" green="0.4515427683153474" blue="0.78774068813131293" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-30-Hqd">
-                                <rect key="frame" x="72" y="545" width="259" height="40"/>
+                                <rect key="frame" x="78" y="545" width="259" height="40"/>
                                 <state key="normal">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -485,39 +501,42 @@
                                 <rect key="frame" x="90" y="354" width="2" height="26"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3077" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="144" y="395" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3077">
+                                <rect key="frame" x="141" y="395" width="132" height="30"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E3u-ti-mTO">
+                                <rect key="frame" x="160" y="32" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="411"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="ButtonForgotPassword" destination="3077" id="name-outlet-3077"/>
                         <outlet property="ButtonLinkedInLogin" destination="Y31-30-Hqd" id="name-outlet-Y31-30-Hqd"/>
                         <outlet property="ButtonLogin" destination="419" id="name-outlet-419"/>
                         <outlet property="ButtonSignUp" destination="461" id="name-outlet-461"/>
+                        <outlet property="LabelPassword" destination="7Eo-Da-fqP" id="name-outlet-7Eo-Da-fqP"/>
+                        <outlet property="LabelUserName" destination="6N9-vn-WOI" id="name-outlet-6N9-vn-WOI"/>
                         <outlet property="TextBoxPassword" destination="421" id="name-outlet-421"/>
                         <outlet property="TextBoxUserName" destination="Bsz-4D-24g" id="name-outlet-Bsz-4D-24g"/>
-                        <outlet property="ButtonForgotPassword" destination="3077" id="name-outlet-3077"/>
-                        <outlet property="LabelUserName" destination="6N9-vn-WOI" id="name-outlet-6N9-vn-WOI"/>
-                        <outlet property="LabelPassword" destination="7Eo-Da-fqP" id="name-outlet-7Eo-Da-fqP"/>
                     </connections>
-                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="413" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130" y="-740"/>
         </scene>
-        <!--Home-->
-        <!--Forgot PasswordVC-->
+        <!--Forgot Password-->
         <scene sceneID="1595">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordVC" id="1596" customClass="ForgotPasswordVC" sceneMemberID="viewController" title="Forgot Password">
+                <viewController storyboardIdentifier="ForgotPasswordVC" title="Forgot Password" id="1596" customClass="ForgotPasswordVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1593"/>
                         <viewControllerLayoutGuide type="bottom" id="1594"/>
@@ -526,15 +545,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1601" placeholder="User Name">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1601">
                                 <rect key="frame" x="45" y="221" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1602">
                                 <rect key="frame" x="45" y="477" width="320" height="45"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="24"/>
                                 <state key="normal" title="Change">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -545,14 +564,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3073" placeholder="New Password">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3073">
                                 <rect key="frame" x="45" y="301" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3074" placeholder="Confirm Password">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3074">
                                 <rect key="frame" x="45" y="381" width="320" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Light" family="Segoe UI" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -561,9 +580,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="ButtonChange" destination="1602" id="name-outlet-1602"/>
+                        <outlet property="TextBoxConfirmPassword" destination="3074" id="name-outlet-3074"/>
                         <outlet property="TextBoxEmailID" destination="1601" id="name-outlet-1601"/>
                         <outlet property="TextBoxPassword" destination="3073" id="name-outlet-3073"/>
-                        <outlet property="TextBoxConfirmPassword" destination="3074" id="name-outlet-3074"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1598" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,7 +594,7 @@
             <objects>
                 <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LZx-Os-ndx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -599,10 +618,10 @@
             </objects>
             <point key="canvasLocation" x="1463" y="3038"/>
         </scene>
-        <!--Item-->
+        <!--Referral Requests-->
         <scene sceneID="6v8-ot-igW">
             <objects>
-                <viewController id="ulS-fI-BRO" customClass="LandingRefferalRequestVC" sceneMemberID="viewController" title="Referral Requests">
+                <viewController title="Referral Requests" id="ulS-fI-BRO" customClass="LandingRefferalRequestVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1mL-jP-MlH"/>
                         <viewControllerLayoutGuide type="bottom" id="d1N-te-Ghc"/>
@@ -628,10 +647,10 @@
             </objects>
             <point key="canvasLocation" x="130" y="3038"/>
         </scene>
-        <!--Item 2-->
+        <!--Customers-->
         <scene sceneID="Yyr-9Z-L68">
             <objects>
-                <viewController id="9BI-kv-aKZ" customClass="LandingCustomerVC" sceneMemberID="viewController" title="Customers">
+                <viewController title="Customers" id="9BI-kv-aKZ" customClass="LandingCustomerVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k1k-5w-MWk"/>
                         <viewControllerLayoutGuide type="bottom" id="lmd-2A-DCR"/>
@@ -657,10 +676,10 @@
             </objects>
             <point key="canvasLocation" x="769" y="3045"/>
         </scene>
-        <!--Item 1-->
+        <!--Customer Stream-->
         <scene sceneID="0Xp-QG-J32">
             <objects>
-                <viewController id="2SF-Ef-MM8" customClass="LandingCustomerStreamVC" sceneMemberID="viewController" title="Customer Stream">
+                <viewController title="Customer Stream" id="2SF-Ef-MM8" customClass="LandingCustomerStreamVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M7K-KE-MRh"/>
                         <viewControllerLayoutGuide type="bottom" id="fyL-Zs-6WA"/>
@@ -686,7 +705,6 @@
             </objects>
             <point key="canvasLocation" x="2210" y="3038"/>
         </scene>
-        <!--Navigation Controller-->
         <!--Landing Tab BarVC-->
         <scene sceneID="IWk-U2-CsE">
             <objects>
@@ -711,10 +729,10 @@
             </objects>
             <point key="canvasLocation" x="769" y="2110"/>
         </scene>
-        <!--Item-->
+        <!--Leads-->
         <scene sceneID="Via-La-pNQ">
             <objects>
-                <viewController id="Vbc-Ed-l3g" customClass="LandingLeadsVC" sceneMemberID="viewController" title="Leads">
+                <viewController title="Leads" id="Vbc-Ed-l3g" customClass="LandingLeadsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F3Q-fl-kYk"/>
                         <viewControllerLayoutGuide type="bottom" id="Veg-iP-WqP"/>
@@ -742,12 +760,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4R6-C0-OXh">
                                 <rect key="frame" x="0.0" y="214" width="414" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1006,7 +1023,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2682">
                                 <rect key="frame" x="45" y="398" width="320" height="45"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start Selling">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1017,7 +1034,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2687">
                                 <rect key="frame" x="45" y="486" width="320" height="45"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start Referring">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1062,13 +1079,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2861">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
-                        <color key="barTintColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
                     </navigationBar>
                     <connections>
-                        <segue id="2944" destination="407" kind="relationship" relationship="rootViewController"/>
+                        <segue destination="407" kind="relationship" relationship="rootViewController" id="2944"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2862" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1078,10 +1095,9 @@
     </scenes>
     <resources>
         <image name="Collaboration.png" width="25" height="25"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2831"/>
         <segue reference="jyY-bd-t4A"/>
     </inferredMetricsTieBreakers>
 </document>

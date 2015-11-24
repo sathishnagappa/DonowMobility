@@ -223,6 +223,8 @@
     <BundleResource Include="Resources\DoNowSplash.png" />
     <BundleResource Include="Resources\settingsImage.png" />
     <BundleResource Include="Resources\Collaboration.png" />
+    <BundleResource Include="Resources\mvboli.ttf" />
+    <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
