@@ -32,6 +32,7 @@ namespace donow.iOS
 			LeadsBL leadsbl = new LeadsBL ();
 			leads = leadsbl.GetAllLeads ();
 			loadingOverlay.Hide ();
+
 			TableViewLeads.Source = new TableSource (leads);
 		}
 
@@ -73,7 +74,7 @@ namespace donow.iOS
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 60.0f;
+				return 150.0f;
 			}
 		}
 	}

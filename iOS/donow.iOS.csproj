@@ -106,6 +106,9 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait.png" />
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-Portrait%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\ufonts.com_segoe-ui-light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\ITunesArtwork" />
@@ -223,10 +226,16 @@
     <BundleResource Include="Resources\DoNowSplash.png" />
     <BundleResource Include="Resources\settingsImage.png" />
     <BundleResource Include="Resources\Collaboration.png" />
+<<<<<<< HEAD
     <BundleResource Include="Resources\mvboli.ttf" />
     <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf" />
     <BundleResource Include="Resources\Images\Geo Icon.png" />
     <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
+=======
+    <BundleResource Include="Resources\mvboli.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
