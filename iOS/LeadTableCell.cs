@@ -12,44 +12,44 @@ namespace donow.iOS
 
 		public LeadTableCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
-			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.FromRGB (218, 255, 127);
+			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelLeadName = new UILabel () {
-				Font = UIFont.FromName("Cochin-BoldItalic", 22f),
+				Font = UIFont.FromName("Segoe UI", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadName});
 
 			LabelCompanyName = new UILabel () {
-				Font = UIFont.FromName("Cochin-BoldItalic", 22f),
+				Font = UIFont.FromName("Segoe UI", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCompanyName});
 
 			LabelCityAndState = new UILabel () {
-				Font = UIFont.FromName("Cochin-BoldItalic", 22f),
+				Font = UIFont.FromName("Segoe UI", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCityAndState});
 
 			LabelScore = new UILabel () {
-				Font = UIFont.FromName("Cochin-BoldItalic", 22f),
+				Font = UIFont.FromName("Segoe UI", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScore});
 
 			LabelScoreDigit = new UILabel () {
-				Font = UIFont.FromName("Cochin-BoldItalic", 22f),
+				Font = UIFont.FromName("Segoe UI", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScoreDigit});
 
 			LabelNewLead = new UILabel () {
-				Font = UIFont.FromName("Cochin-BoldItalic", 22f),
+				Font = UIFont.FromName("Segoe UI", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
@@ -64,8 +64,8 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = lead.Name;
 			LabelCompanyName.Text = lead.Company;
-			LabelCityAndState.Text = lead.City + ", " + lead.State; 
-//			LabelScoreDigit.Text = lead.LeadScore;
+			LabelCityAndState.Text = lead.City; 
+			LabelScoreDigit.Text = lead.LeadScore.ToString();
 		}
 
 		public override void LayoutSubviews ()

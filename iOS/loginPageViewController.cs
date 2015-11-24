@@ -26,6 +26,7 @@ namespace donow.iOS
 		{
 			base.ViewWillDisappear (animated);
 
+			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
