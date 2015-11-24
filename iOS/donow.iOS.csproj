@@ -212,16 +212,15 @@
     <Compile Include="LandingTabBarVC.designer.cs">
       <DependentUpon>LandingTabBarVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="LeadsTableCell.cs" />
-    <Compile Include="LeadsTableCell.designer.cs">
-      <DependentUpon>LeadsTableCell.cs</DependentUpon>
-    </Compile>
+    <Compile Include="LeadTableCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <BundleResource Include="Resources\DoNowSplash.png" />
     <BundleResource Include="Resources\settingsImage.png" />
     <BundleResource Include="Resources\Collaboration.png" />
+    <BundleResource Include="Resources\mvboli.ttf" />
+    <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
