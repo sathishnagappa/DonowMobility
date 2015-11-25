@@ -16,10 +16,18 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonRequestNewLead { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewLeads { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonRequestNewLead != null) {
+				ButtonRequestNewLead.Dispose ();
+				ButtonRequestNewLead = null;
+			}
 			if (TableViewLeads != null) {
 				TableViewLeads.Dispose ();
 				TableViewLeads = null;

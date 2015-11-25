@@ -33,6 +33,15 @@ namespace donow.iOS
 			leads = leadsbl.GetAllLeads ();
 			loadingOverlay.Hide ();
 
+			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
+				View.Add (loadingOverlay);
+				List<Leads> newleads = new  List<Leads> ();
+				LeadsBL newleadsbl = new LeadsBL ();
+				leads = leadsbl.GetAllLeads ();
+				loadingOverlay.Hide ();
+				TableViewLeads.Source = new TableSource (leads, this);
+			};
+
 			TableViewLeads.Source = new TableSource (leads, this);
 		}
 

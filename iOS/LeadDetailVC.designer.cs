@@ -20,6 +20,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonAccept { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonPass { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ButtonView { get; set; }
 
 		[Outlet]
@@ -37,6 +45,14 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageProfileExpand { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelBusinessNeeds { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCompanyInfo { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -84,6 +100,14 @@ namespace donow.iOS
 				BusinessNeedsView.Dispose ();
 				BusinessNeedsView = null;
 			}
+			if (ButtonAccept != null) {
+				ButtonAccept.Dispose ();
+				ButtonAccept = null;
+			}
+			if (ButtonPass != null) {
+				ButtonPass.Dispose ();
+				ButtonPass = null;
+			}
 			if (ButtonView != null) {
 				ButtonView.Dispose ();
 				ButtonView = null;
@@ -103,6 +127,14 @@ namespace donow.iOS
 			if (ImageProfileExpand != null) {
 				ImageProfileExpand.Dispose ();
 				ImageProfileExpand = null;
+			}
+			if (LabelBusinessNeeds != null) {
+				LabelBusinessNeeds.Dispose ();
+				LabelBusinessNeeds = null;
+			}
+			if (LabelCompanyInfo != null) {
+				LabelCompanyInfo.Dispose ();
+				LabelCompanyInfo = null;
 			}
 			if (LabelDateTime != null) {
 				LabelDateTime.Dispose ();

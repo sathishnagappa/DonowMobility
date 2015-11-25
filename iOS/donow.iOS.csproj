@@ -87,6 +87,9 @@
     <Reference Include="Calabash">
       <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.4\lib\Xamarin.iOS10\Calabash.dll</HintPath>
     </Reference>
+    <Reference Include="Salesforce">
+      <HintPath>..\Components\SalesforceSDK-1.4.4.0\lib\ios-unified\Salesforce.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -166,10 +169,6 @@
     <Compile Include="AccountManagementVC.cs" />
     <Compile Include="AccountManagementVC.designer.cs">
       <DependentUpon>AccountManagementVC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LinkedInLoginVC.cs" />
-    <Compile Include="LinkedInLoginVC.designer.cs">
-      <DependentUpon>LinkedInLoginVC.cs</DependentUpon>
     </Compile>
     <Compile Include="HambergerMenuVC .cs" />
     <Compile Include="HambergerMenuVC .designer.cs">

@@ -6,6 +6,9 @@ using donow.Util;
 using CoreGraphics;
 using Auth0.SDK;
 using donow.PCL.Model;
+//using Salesforce;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
@@ -59,7 +62,34 @@ namespace donow.iOS
 			Xamarin.Calabash.Start ();
 			#endif
 
-			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+
+//				Uri sfuri = new Uri(@"http://localhost:7070/RestTest/oauth/_callback");
+//				var client = new SalesforceClient ("3MVG9ZL0ppGP5UrC4rjQFkEhUnYTSNP_Tvanu8b30_TqkLH7cOg8UC9zHKCsX.mgW_hFVY2J0jRyO.Ev_VsH0", "1975032834009986449", sfuri);
+//
+//
+//				var users = client.LoadUsers ();
+//
+//				if (!users.Any ())
+//				{
+//					client.AuthenticationComplete += (sender1, e1) => 
+//					{
+//					};
+//
+//					// Starts the Salesforce login process.
+//					var loginUI = client.GetLoginInterface (); 
+//				} 
+//				else 
+//				{
+//					// We're ready to fetch some data!
+//					// Let's grab some sales accounts to display.
+//					var request = new ReadRequest {
+//						Resource = new Search { QueryText = "FIND {John}" }
+//					};
+//
+//					var results = await client.ProcessAsync<ReadRequest> (request);
+//
+//				}
 				if (ValidateCredentials ()) {
 					// Call to Get user details and validate credentials
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
