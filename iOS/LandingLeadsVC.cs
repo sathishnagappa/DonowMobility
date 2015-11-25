@@ -73,7 +73,10 @@ namespace donow.iOS
 				LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 				if (leadDetailVC != null) {
 					leadDetailVC.leadObj = TableItems[indexPath.Row];
-					owner.NavigationController.PushViewController(leadDetailVC, true);
+
+//					owner.NavigationController.PushViewController(leadDetailVC, true);
+
+					owner.PresentModalViewController (leadDetailVC, true);
 				}
 			}
 	

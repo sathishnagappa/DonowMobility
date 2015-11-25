@@ -33,7 +33,7 @@ namespace donow.iOS
 				"UT","VT","VA","WA","WV","WI","WY"
 			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1200);
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1100);
 			ButtonNext.Layer.CornerRadius = 5.0f;
 			TableViewState.Source = new TableSource(States,this , "States");
 			TableViewState.ContentSize = new SizeF (100f,50f);
@@ -53,13 +53,6 @@ namespace donow.iOS
 			TableViewIndustry.ContentSize = new SizeF (100f,50f);
 			ButtonIndustry.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewIndustry.Hidden = false;
-			};
-
-			ButtonDolater.TouchUpInside += (object sender, EventArgs e) => {
-				signUpSocialLinksVC signUpSocialVC = this.Storyboard.InstantiateViewController ("signUpSocialLinksVC") as signUpSocialLinksVC;
-				if (signUpSocialVC != null) {
-					this.NavigationController.PushViewController (signUpSocialVC, true);
-				}
 			};
 
 			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {	
