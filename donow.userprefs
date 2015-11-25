@@ -1,0 +1,29 @@
+﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.8.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/LeadTableCell.cs">
+    <Files>
+      <File FileName="iOS/LeadDetailVC.designer.cs" Line="1" Column="1" />
+      <File FileName="iOS/LeadTableCell.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="donow.iOS" expanded="True" selected="True">
+            <Node name="ComponentReferenceFolder" expanded="True" />
+          </Node>
+          <Node name="donow.PCL" expanded="True">
+            <Node name="Services" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="205" column="1" />
+      <Breakpoint file="/Users/vaibhavbarchhiha/Desktop/DonowMobility/iOS/signUpOtherDetailsVC.cs" line="122" column="1" />
+      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="186" column="67" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

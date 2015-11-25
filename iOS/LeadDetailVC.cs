@@ -23,7 +23,8 @@ namespace donow.iOS
 			LabelCompanyInfo.Text = leadObj.CompanyInfo;
 			LabelTitleCompany.Text = leadObj.Company;
 			LabelLocation.Text = leadObj.City + "," + leadObj.State;
-			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
+//			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
+
 		}
 	}
 }

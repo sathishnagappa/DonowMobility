@@ -20,7 +20,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonAccept { get; set; }
+		 UIButton ButtonAccept { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -128,6 +128,7 @@ namespace donow.iOS
 				ImageProfileExpand.Dispose ();
 				ImageProfileExpand = null;
 			}
+
 			if (LabelBusinessNeeds != null) {
 				LabelBusinessNeeds.Dispose ();
 				LabelBusinessNeeds = null;
