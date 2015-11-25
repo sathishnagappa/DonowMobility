@@ -233,6 +233,16 @@
     </BundleResource>
     <BundleResource Include="Resources\Images\Geo Icon.png" />
     <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
+    <BundleResource Include="Resources\DoNow Logo.png" />
+    <BundleResource Include="Resources\LinkedIn Icon_Small.png" />
+    <BundleResource Include="Resources\Password Icon.png" />
+    <BundleResource Include="Resources\User Name Icon.png" />
+    <BundleResource Include="Resources\Leads Icon_Small.png" />
+    <BundleResource Include="Resources\Stream Icon_Small.png" />
+    <BundleResource Include="Resources\Scott Anders_Large.png" />
+    <BundleResource Include="Resources\Calendar Thumbnail.png" />
+    <BundleResource Include="Resources\Email Thumbnail.png" />
+    <BundleResource Include="Resources\Phone Thumbnail.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

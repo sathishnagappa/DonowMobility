@@ -62,7 +62,7 @@ namespace donow.iOS
 			Xamarin.Calabash.Start ();
 			#endif
 
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
 //				Uri sfuri = new Uri(@"http://localhost:7070/RestTest/oauth/_callback");
 //				var client = new SalesforceClient ("3MVG9ZL0ppGP5UrC4rjQFkEhUnYTSNP_Tvanu8b30_TqkLH7cOg8UC9zHKCsX.mgW_hFVY2J0jRyO.Ev_VsH0", "1975032834009986449", sfuri);
