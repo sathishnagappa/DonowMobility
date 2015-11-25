@@ -107,7 +107,7 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
-			if (TextBoxUserName.Text != null && TextBoxPassword.Text != null) {
+			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text)) {
 				if (AppDelegate.UserDetails.UserName.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					return true;
 				}

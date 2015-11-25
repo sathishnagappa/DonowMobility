@@ -14,42 +14,42 @@ namespace donow.iOS
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelLeadName = new UILabel () {
-				Font = UIFont.FromName("Segoe UI", 22f),
+				Font = UIFont.FromName("Arial", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadName});
 
 			LabelCompanyName = new UILabel () {
-				Font = UIFont.FromName("Segoe UI", 22f),
+				Font = UIFont.FromName("Arial", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCompanyName});
 
 			LabelCityAndState = new UILabel () {
-				Font = UIFont.FromName("Segoe UI", 22f),
+				Font = UIFont.FromName("Arial", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCityAndState});
 
 			LabelScore = new UILabel () {
-				Font = UIFont.FromName("Segoe UI", 22f),
+				Font = UIFont.FromName("Arial", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScore});
 
 			LabelScoreDigit = new UILabel () {
-				Font = UIFont.FromName("Segoe UI", 22f),
+				Font = UIFont.FromName("Arial", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScoreDigit});
 
 			LabelNewLead = new UILabel () {
-				Font = UIFont.FromName("Segoe UI", 22f),
+				Font = UIFont.FromName("Arial", 22f),
 				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Clear
 			};
@@ -73,12 +73,12 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewLeadImage.Frame = new CGRect (10, 35, 100, 100);
-			LabelLeadName.Frame = new CGRect (140, 38, 180, 20);
-			LabelCompanyName.Frame = new CGRect (140, 63, 150, 20);
-			LabelCityAndState.Frame = new CGRect (140, 83, 150, 20);
-			LabelScore.Frame = new CGRect (140, 118, 120, 20);
-			LabelScoreDigit.Frame = new CGRect (270, 117, 20, 20);
-			LabelNewLead.Frame = new CGRect (330, 20, 80, 20);
+			LabelLeadName.Frame = new CGRect (140, 38, 180, 25);
+			LabelCompanyName.Frame = new CGRect (140, 63, 150, 25);
+			LabelCityAndState.Frame = new CGRect (140, 83, 150, 25);
+			LabelScore.Frame = new CGRect (140, 118, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 117, 25, 25);
+			LabelNewLead.Frame = new CGRect (330, 20, 80, 25);
 		}
 	}
 }

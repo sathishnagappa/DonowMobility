@@ -44,10 +44,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelLeadMetrics { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView LabelLeadMetrics { get; set; }
 
 		[Outlet]
@@ -111,10 +107,6 @@ namespace donow.iOS
 			if (LabelDateTime != null) {
 				LabelDateTime.Dispose ();
 				LabelDateTime = null;
-			}
-			if (LabelLeadMetrics != null) {
-				LabelLeadMetrics.Dispose ();
-				LabelLeadMetrics = null;
 			}
 			if (LabelLeadMetrics != null) {
 				LabelLeadMetrics.Dispose ();

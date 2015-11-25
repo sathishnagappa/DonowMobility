@@ -33,18 +33,18 @@ namespace donow.iOS
 			leads = leadsbl.GetAllLeads ();
 			loadingOverlay.Hide ();
 
-			TableViewLeads.Source = new TableSource (leads);
+			TableViewLeads.Source = new TableSource (leads, this);
 		}
 
 		public class TableSource : UITableViewSource {
 			string CellIdentifier = "TableCell";
 			List<Leads> TableItems;
-//			LandingLeadsVC owner;
+			LandingLeadsVC owner;
 
-			public TableSource (List<Leads> items)
+			public TableSource (List<Leads> items, LandingLeadsVC owner)
 			{
 			TableItems = items;
-//				this.owner = owner;
+			this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -67,9 +67,14 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{				
-
+			{
+				
 				tableView.DeselectRow (indexPath, true);
+				LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+				if (leadDetailVC != null) {
+					leadDetailVC.leadObj = TableItems[indexPath.Row];
+					owner.NavigationController.PushViewController(leadDetailVC, true);
+				}
 			}
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

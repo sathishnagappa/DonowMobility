@@ -69,9 +69,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Calabash">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.2\lib\Xamarin.iOS10\Calabash.dll</HintPath>
-    </Reference>
     <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -86,6 +83,9 @@
     </Reference>
     <Reference Include="Xamarin.Auth.iOS">
       <HintPath>..\Components\Auth0Client-0.5.0\lib\ios-unified\Xamarin.Auth.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.4\lib\Xamarin.iOS10\Calabash.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -226,16 +226,14 @@
     <BundleResource Include="Resources\DoNowSplash.png" />
     <BundleResource Include="Resources\settingsImage.png" />
     <BundleResource Include="Resources\Collaboration.png" />
-<<<<<<< HEAD
-    <BundleResource Include="Resources\mvboli.ttf" />
-    <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf" />
-    <BundleResource Include="Resources\Images\Geo Icon.png" />
-    <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
-=======
     <BundleResource Include="Resources\mvboli.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
->>>>>>> origin/master
+    <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\Images\Geo Icon.png" />
+    <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
