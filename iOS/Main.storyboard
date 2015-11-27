@@ -643,7 +643,7 @@
             <objects>
                 <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LZx-Os-ndx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -830,6 +830,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="TableViewLeads" destination="4R6-C0-OXh" id="name-outlet-4R6-C0-OXh"/>
+                        <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gP2-N1-ISa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1217,7 +1218,7 @@
                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
+                                        <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
                                         <color key="value" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
@@ -1278,6 +1279,14 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3109">
                                 <rect key="frame" x="-2" y="288" width="415" height="104"/>
@@ -1301,7 +1310,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3108">
-                                <rect key="frame" x="-1" y="130" width="415" height="123"/>
+                                 <rect key="frame" x="0.0" y="167" width="415" height="123"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Source: " lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3131">
                                         <rect key="frame" x="31" y="56" width="82" height="21"/>
@@ -1345,7 +1354,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
+                                        <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                         <color key="value" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
@@ -1357,6 +1366,64 @@
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-6j-Rfe">
                                 <rect key="frame" x="44" y="199" width="327" height="213"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFD-3q-EkI">
+                                        <rect key="frame" x="354" y="59" width="48" height="37"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blue Bell Networks....." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSp-BA-Ufu">
+                                        <rect key="frame" x="30" y="33" width="300" height="63"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIa-hd-NOD">
+                                        <rect key="frame" x="21" y="4" width="156" height="21"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3110">
+                                <rect key="frame" x="0.0" y="454" width="415" height="124"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcz-Ow-Jrp">
+                                        <rect key="frame" x="354" y="70" width="47" height="37"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sales Co ordination software..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzy-7f-bxt">
+                                        <rect key="frame" x="32" y="67" width="293" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business Needs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihI-i3-sVS">
+                                        <rect key="frame" x="25" y="29" width="180" height="21"/>
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                      </userDefinedRuntimeAttribute>
+                                  </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-6j-Rfe">
+                                <rect key="frame" x="39" y="219" width="327" height="213"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lead Accepted !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBE-d4-2fX">
                                         <rect key="frame" x="112" y="24" width="164" height="33"/>
@@ -1471,6 +1538,10 @@
                         <outlet property="ButtonOptionPassView" destination="RQP-8M-pVQ" id="name-outlet-RQP-8M-pVQ"/>
                         <outlet property="TableViewPassView" destination="Dyf-OR-em8" id="name-outlet-Dyf-OR-em8"/>
                         <outlet property="ButtonSubmitPassView" destination="FTV-Jp-dRb" id="name-outlet-FTV-Jp-dRb"/>
+                        <outlet property="LabelCompanyInfo" destination="KSp-BA-Ufu" id="name-outlet-KSp-BA-Ufu"/>
+                        <outlet property="LabelBusinessNeeds" destination="lzy-7f-bxt" id="name-outlet-lzy-7f-bxt"/>
+                        <outlet property="ButtonAccept" destination="KIs-f0-WdT" id="name-outlet-KIs-f0-WdT"/>
+                        <outlet property="ButtonPass" destination="0Ab-u1-kxu" id="name-outlet-0Ab-u1-kxu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3105" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1485,6 +1556,10 @@
         <image name="Email Thumbnail.png" width="90" height="90"/>
         <image name="Images/Geo Icon.png" width="30" height="46"/>
         <image name="Images/Scott Anders_Small.png" width="128" height="128"/>
+        <image name="DoNowSplash.png" width="137" height="118"/>
+        <image name="settingsImage.png" width="30" height="30"/>
+        <image name="mvboli.ttf" width="0" height="0"/>
+        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
         <image name="LinkedIn Icon_Small.png" width="50" height="50"/>
         <image name="Password Icon.png" width="46" height="46"/>
         <image name="Phone Thumbnail.png" width="90" height="90"/>

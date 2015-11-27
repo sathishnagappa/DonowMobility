@@ -22,7 +22,14 @@ namespace donow.iOS
 		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
 			LabelTitleName.Text = leadObj.Name;
+			LabelScore.Text = leadObj.Source;
+			LabelSourceName.Text = leadObj.Source;
+			LabelCompanyInfo.Text = leadObj.CompanyInfo;
+			LabelTitleCompany.Text = leadObj.Company;
+			LabelLocation.Text = leadObj.City + "," + leadObj.State;
+//			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
 
 			ButtonOptionPassView.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewPassView.Hidden = false;
