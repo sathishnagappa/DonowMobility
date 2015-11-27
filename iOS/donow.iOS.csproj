@@ -244,6 +244,7 @@
     <BundleResource Include="Resources\Calendar Thumbnail.png" />
     <BundleResource Include="Resources\Email Thumbnail.png" />
     <BundleResource Include="Resources\Phone Thumbnail.png" />
+    <BundleResource Include="Resources\transparent-bg.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

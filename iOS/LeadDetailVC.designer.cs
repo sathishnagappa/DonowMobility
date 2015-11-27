@@ -20,6 +20,22 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonAccept { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonOptionPassView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonPass { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSubmitPassView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ButtonView { get; set; }
 
 		[Outlet]
@@ -37,6 +53,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageProfileExpand { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView ImageViewTransparentBackground { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -76,13 +96,41 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewPassView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView TitleView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewAccept { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewPass { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
 				BusinessNeedsView.Dispose ();
 				BusinessNeedsView = null;
+			}
+			if (ButtonAccept != null) {
+				ButtonAccept.Dispose ();
+				ButtonAccept = null;
+			}
+			if (ButtonOptionPassView != null) {
+				ButtonOptionPassView.Dispose ();
+				ButtonOptionPassView = null;
+			}
+			if (ButtonPass != null) {
+				ButtonPass.Dispose ();
+				ButtonPass = null;
+			}
+			if (ButtonSubmitPassView != null) {
+				ButtonSubmitPassView.Dispose ();
+				ButtonSubmitPassView = null;
 			}
 			if (ButtonView != null) {
 				ButtonView.Dispose ();
@@ -103,6 +151,10 @@ namespace donow.iOS
 			if (ImageProfileExpand != null) {
 				ImageProfileExpand.Dispose ();
 				ImageProfileExpand = null;
+			}
+			if (ImageViewTransparentBackground != null) {
+				ImageViewTransparentBackground.Dispose ();
+				ImageViewTransparentBackground = null;
 			}
 			if (LabelDateTime != null) {
 				LabelDateTime.Dispose ();
@@ -140,9 +192,21 @@ namespace donow.iOS
 				LabelTitleName.Dispose ();
 				LabelTitleName = null;
 			}
+			if (TableViewPassView != null) {
+				TableViewPassView.Dispose ();
+				TableViewPassView = null;
+			}
 			if (TitleView != null) {
 				TitleView.Dispose ();
 				TitleView = null;
+			}
+			if (ViewAccept != null) {
+				ViewAccept.Dispose ();
+				ViewAccept = null;
+			}
+			if (ViewPass != null) {
+				ViewPass.Dispose ();
+				ViewPass = null;
 			}
 		}
 	}
