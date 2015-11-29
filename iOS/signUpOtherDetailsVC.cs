@@ -149,10 +149,10 @@ namespace donow.iOS
 		string CellIdentifier = "TableCell";
 		string TSTableType = string.Empty;
 
-		signUpOtherDetailsVC signupVC;
-		public TableSource (IList<string> items, signUpOtherDetailsVC signupVC, string TableType)
+		signUpOtherDetailsVC signupOtherDetailsVC;
+		public TableSource (IList<string> items, signUpOtherDetailsVC signupOtherDetailsVC, string TableType)
 		{
-			this.signupVC = signupVC;
+			this.signupOtherDetailsVC = signupOtherDetailsVC;
 			TableItems = items;
 			TSTableType = TableType;
 		}
@@ -181,7 +181,7 @@ namespace donow.iOS
 		{
 			//			signupVC.ButtonState.TitleLabel.Text = TableItems[indexPath.Row].ToString();
 			//			signupVC.TableViewState.Hidden = true;
-			signupVC.UpdateControls(TableItems[indexPath.Row], TSTableType);
+			signupOtherDetailsVC.UpdateControls(TableItems[indexPath.Row], TSTableType);
 			//			signupVC.changeTitle(TableItems[indexPath.Row]);
 		}
 

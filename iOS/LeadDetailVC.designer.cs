@@ -20,11 +20,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		 UIButton ButtonAccept { get; set; }
+ 		UIButton ButtonAccept { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonPass { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSubmitPassView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -48,7 +52,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelBusinessNeeds { get; set; }
+		UIImageView ImageViewTransparentBackground { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -92,7 +96,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewPassView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView TitleView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewAccept { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewPass { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -104,10 +120,17 @@ namespace donow.iOS
 				ButtonAccept.Dispose ();
 				ButtonAccept = null;
 			}
-			if (ButtonPass != null) {
-				ButtonPass.Dispose ();
-				ButtonPass = null;
+
+            if (ButtonOptionPassView != null) {
+				ButtonOptionPassView.Dispose ();
+				ButtonOptionPassView = null;
 			}
+            
+			if (ButtonSubmitPassView != null) {
+				ButtonSubmitPassView.Dispose ();
+				ButtonSubmitPassView = null;
+			}
+
 			if (ButtonView != null) {
 				ButtonView.Dispose ();
 				ButtonView = null;
@@ -128,6 +151,9 @@ namespace donow.iOS
 				ImageProfileExpand.Dispose ();
 				ImageProfileExpand = null;
 			}
+			if (ImageViewTransparentBackground != null) {
+				ImageViewTransparentBackground.Dispose ();
+				ImageViewTransparentBackground = null;
 
 			if (LabelBusinessNeeds != null) {
 				LabelBusinessNeeds.Dispose ();
@@ -173,9 +199,21 @@ namespace donow.iOS
 				LabelTitleName.Dispose ();
 				LabelTitleName = null;
 			}
+			if (TableViewPassView != null) {
+				TableViewPassView.Dispose ();
+				TableViewPassView = null;
+			}
 			if (TitleView != null) {
 				TitleView.Dispose ();
 				TitleView = null;
+			}
+			if (ViewAccept != null) {
+				ViewAccept.Dispose ();
+				ViewAccept = null;
+			}
+			if (ViewPass != null) {
+				ViewPass.Dispose ();
+				ViewPass = null;
 			}
 		}
 	}
