@@ -65,7 +65,7 @@ namespace donow.iOS
 			Xamarin.Calabash.Start ();
 			#endif
 
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
 //				Uri sfuri = new Uri(@"com.brillio.donow:///");
 //				var client = new SalesforceClient ("3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb", "3609838585053312823", sfuri);
@@ -107,16 +107,16 @@ namespace donow.iOS
 //					}
 //
 //				}
-				RestService rs = new RestService();
-				string content = rs.SFDCAuthentication();
-				rs.UpdateData("00D280000015q03!AQUAQC4RwbSCln4dsZHOpF2kjVAP_O0Rcx5SruHzh1v4jCnyzB__Z27ZO3ElLkuCOnFMbvyKl5PYkjXMGH4t0SSDc5Cy7rDZ");
-//				if (ValidateCredentials ()) {
-//					// Call to Get user details and validate credentials
-//					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-//					if (landingVC != null) {
-//						this.NavigationController.PushViewController(landingVC, true);
-//					}
-//				}
+//				RestService rs = new RestService();
+//				string content = rs.SFDCAuthentication();
+//				rs.UpdateData("00D280000015q03!AQUAQC4RwbSCln4dsZHOpF2kjVAP_O0Rcx5SruHzh1v4jCnyzB__Z27ZO3ElLkuCOnFMbvyKl5PYkjXMGH4t0SSDc5Cy7rDZ");
+				if (ValidateCredentials ()) {
+					// Call to Get user details and validate credentials
+					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+					if (landingVC != null) {
+						this.NavigationController.PushViewController(landingVC, true);
+					}
+				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
