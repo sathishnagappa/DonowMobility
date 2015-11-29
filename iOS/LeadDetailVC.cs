@@ -29,7 +29,11 @@ namespace donow.iOS
 			LabelCompanyInfo.Text = leadObj.CompanyInfo;
 			LabelTitleCompany.Text = leadObj.Company;
 			LabelLocation.Text = leadObj.City + "," + leadObj.State;
-//			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
+			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
+
+			TableViewPassView.Hidden = true;
+			ViewAccept.Hidden = true;
+			ViewPass.Hidden = true;
 
 			ButtonOptionPassView.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewPassView.Hidden = false;
