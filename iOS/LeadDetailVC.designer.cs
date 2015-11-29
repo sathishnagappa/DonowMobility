@@ -110,6 +110,14 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonOptionPassView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelBusinessNeeds { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
@@ -121,7 +129,7 @@ namespace donow.iOS
 				ButtonAccept = null;
 			}
 
-            if (ButtonOptionPassView != null) {
+			if (ButtonOptionPassView != null) {
 				ButtonOptionPassView.Dispose ();
 				ButtonOptionPassView = null;
 			}
@@ -154,7 +162,7 @@ namespace donow.iOS
 			if (ImageViewTransparentBackground != null) {
 				ImageViewTransparentBackground.Dispose ();
 				ImageViewTransparentBackground = null;
-
+			}
 			if (LabelBusinessNeeds != null) {
 				LabelBusinessNeeds.Dispose ();
 				LabelBusinessNeeds = null;
