@@ -6,6 +6,7 @@ using System.IO;
 using System.Net.Http;
 using System.Json;
 using donow.Util;
+using System.Text;
 
 namespace donow.Services
 {
@@ -55,12 +56,55 @@ namespace donow.Services
 		}
 
 
-		public string UpdateData ()
+		public string SFDCAuthentication ()
 		{
 			
+			var request = HttpWebRequest.Create("https://ap2.salesforce.com//services/oauth2/token");
+			request.ContentType = "application/x-www-form-urlencoded";
+			request.Headers.Add ("X-PrettyPrint", "1");
+			request.Method = "POST";
+
+			var postData = "grant_type=password&username=DoNow_dev2@brillio.com&password=donow@dev2QlaqbI1YXNO6nkQh1bW6QOzXy&client_id= 3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb&client_secret= 3609838585053312823";
+
+			var data = Encoding.ASCII.GetBytes(postData);
+			request.ContentLength = data.Length;
+
+			using (var stream = request.GetRequestStream())
+			{
+				stream.Write(data, 0, data.Length);
+			}
+
+			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+			{
+				if (response.StatusCode != HttpStatusCode.OK)
+					Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);
+				using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+				{
+					var content = reader.ReadToEnd();
+					return content;
+				}
+			}
+
+		}
+
+		public string UpdateData (string accessCode)
+		{
+
 			var request = HttpWebRequest.Create("https://ap2.salesforce.com/services/data/v35.0/sobjects/Lead/");
 			request.ContentType = "application/json";
-			request.Method = "GET";
+			request.Headers.Add ("X-PrettyPrint", "1");
+			request.Headers.Add ("Authorization", accessCode);
+			request.Method = "POST";
+
+			var postData = "{ \"First Name\": \"John\",\"Last Name\": \"Gibson\",\"Company\" : \"Brillio\",\"Email\": \"john.gibson@brillio.com\" }";
+
+			var data = Encoding.ASCII.GetBytes(postData);
+			request.ContentLength = data.Length;
+
+			using (var stream = request.GetRequestStream())
+			{
+				stream.Write(data, 0, data.Length);
+			}
 
 			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 			{

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2858">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1134" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2858">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ufonts.com_segoe-ui-light.ttf">
@@ -643,7 +643,7 @@
             <objects>
                 <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LZx-Os-ndx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -829,8 +829,8 @@
                     <tabBarItem key="tabBarItem" title="Item" image="Collaboration.png" id="836-H6-BrV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="TableViewLeads" destination="4R6-C0-OXh" id="name-outlet-4R6-C0-OXh"/>
                         <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
+                        <outlet property="TableViewLeads" destination="4R6-C0-OXh" id="name-outlet-4R6-C0-OXh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gP2-N1-ISa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1230,7 +1230,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIs-f0-WdT">
                                         <rect key="frame" x="32" y="26" width="132" height="43"/>
-                                       <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Accept">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1257,8 +1257,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                              <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3108">
- 
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3108">
                                 <rect key="frame" x="0.0" y="167" width="415" height="123"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Source: " lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3131">
@@ -1365,8 +1364,8 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                         <color key="value" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
-                                      </userDefinedRuntimeAttribute>
-                                  </userDefinedRuntimeAttributes>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-6j-Rfe">
                                 <rect key="frame" x="39" y="219" width="327" height="213"/>
@@ -1413,14 +1412,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="R72-Ki-I0q"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="BusinessNeedsView" destination="3110" id="name-outlet-3110"/>
+                        <outlet property="ButtonAccept" destination="KIs-f0-WdT" id="name-outlet-KIs-f0-WdT"/>
+                        <outlet property="ButtonPass" destination="0Ab-u1-kxu" id="name-outlet-0Ab-u1-kxu"/>
                         <outlet property="ButtonView" destination="3119" id="name-outlet-3119"/>
                         <outlet property="CompanyInfoView" destination="3109" id="name-outlet-3109"/>
                         <outlet property="ImageLocation" destination="3123" id="name-outlet-3123"/>
                         <outlet property="ImageProfile" destination="3120" id="name-outlet-3120"/>
                         <outlet property="ImageProfileExpand" destination="3121" id="name-outlet-3121"/>
+                        <outlet property="LabelBusinessNeeds" destination="lzy-7f-bxt" id="name-outlet-lzy-7f-bxt"/>
+                        <outlet property="LabelCompanyInfo" destination="KSp-BA-Ufu" id="name-outlet-KSp-BA-Ufu"/>
                         <outlet property="LabelDateTime" destination="3129" id="name-outlet-3129"/>
                         <outlet property="LabelLeadMetrics" destination="3108" id="name-outlet-3108"/>
                         <outlet property="LabelLeadScore" destination="3133" id="name-outlet-3133"/>
@@ -1431,15 +1435,11 @@
                         <outlet property="LabelTitleCompany" destination="3127" id="name-outlet-3127"/>
                         <outlet property="LabelTitleName" destination="3126" id="name-outlet-3126"/>
                         <outlet property="TitleView" destination="3107" id="name-outlet-3107"/>
-                        <outlet property="LabelCompanyInfo" destination="KSp-BA-Ufu" id="name-outlet-KSp-BA-Ufu"/>
-                        <outlet property="LabelBusinessNeeds" destination="lzy-7f-bxt" id="name-outlet-lzy-7f-bxt"/>
-                        <outlet property="ButtonAccept" destination="KIs-f0-WdT" id="name-outlet-KIs-f0-WdT"/>
-                        <outlet property="ButtonPass" destination="0Ab-u1-kxu" id="name-outlet-0Ab-u1-kxu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3105" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2729" y="3283"/>
+            <point key="canvasLocation" x="3541" y="3283"/>
         </scene>
     </scenes>
     <resources>
@@ -1449,10 +1449,6 @@
         <image name="Email Thumbnail.png" width="90" height="90"/>
         <image name="Images/Geo Icon.png" width="30" height="46"/>
         <image name="Images/Scott Anders_Small.png" width="128" height="128"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="mvboli.ttf" width="0" height="0"/>
-        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
         <image name="LinkedIn Icon_Small.png" width="50" height="50"/>
         <image name="Password Icon.png" width="46" height="46"/>
         <image name="Phone Thumbnail.png" width="90" height="90"/>
@@ -1463,4 +1459,3 @@
         <segue reference="jyY-bd-t4A"/>
     </inferredMetricsTieBreakers>
 </document>
-                 

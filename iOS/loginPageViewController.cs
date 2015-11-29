@@ -9,6 +9,9 @@ using donow.PCL.Model;
 //using Salesforce;
 using System.Linq;
 using System.Collections.Generic;
+using Salesforce;
+using System.Net;
+using donow.Services;
 
 namespace donow.iOS
 {
@@ -62,10 +65,10 @@ namespace donow.iOS
 			Xamarin.Calabash.Start ();
 			#endif
 
-			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
 
-//				Uri sfuri = new Uri(@"http://localhost:7070/RestTest/oauth/_callback");
-//				var client = new SalesforceClient ("3MVG9ZL0ppGP5UrC4rjQFkEhUnYTSNP_Tvanu8b30_TqkLH7cOg8UC9zHKCsX.mgW_hFVY2J0jRyO.Ev_VsH0", "1975032834009986449", sfuri);
+//				Uri sfuri = new Uri(@"com.brillio.donow:///");
+//				var client = new SalesforceClient ("3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb", "3609838585053312823", sfuri);
 //
 //
 //				var users = client.LoadUsers ();
@@ -77,26 +80,43 @@ namespace donow.iOS
 //					};
 //
 //					// Starts the Salesforce login process.
-//					var loginUI = client.GetLoginInterface (); 
+//					//var loginUI = client.GetLoginInterface (); 
+//					var loginController = client.GetLoginInterface () as UIViewController;
+//					PresentViewController (new UINavigationController(loginController), true, null);
+//
 //				} 
 //				else 
 //				{
 //					// We're ready to fetch some data!
 //					// Let's grab some sales accounts to display.
-//					var request = new ReadRequest {
-//						Resource = new Search { QueryText = "FIND {John}" }
-//					};
+////					var request = new ReadRequest {
+////						Resource = new Search { QueryText = "FIND {John}" }
+////					};
+////
+////					var results = await client.ProcessAsync<ReadRequest> (request);
 //
-//					var results = await client.ProcessAsync<ReadRequest> (request);
+//
+//					IEnumerable<SObject> response;
+//
+//					try {
+//						response = await client.QueryAsync ("Select name From Lead");
+//					} catch (InvalidSessionException) {
+//						return;
+//					} catch (WebException) {						
+//						return;
+//					}
 //
 //				}
-				if (ValidateCredentials ()) {
-					// Call to Get user details and validate credentials
-					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-					if (landingVC != null) {
-						this.NavigationController.PushViewController(landingVC, true);
-					}
-				}
+				RestService rs = new RestService();
+				string content = rs.SFDCAuthentication();
+				rs.UpdateData("00D280000015q03!AQUAQC4RwbSCln4dsZHOpF2kjVAP_O0Rcx5SruHzh1v4jCnyzB__Z27ZO3ElLkuCOnFMbvyKl5PYkjXMGH4t0SSDc5Cy7rDZ");
+//				if (ValidateCredentials ()) {
+//					// Call to Get user details and validate credentials
+//					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+//					if (landingVC != null) {
+//						this.NavigationController.PushViewController(landingVC, true);
+//					}
+//				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
