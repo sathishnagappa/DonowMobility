@@ -57,9 +57,9 @@ namespace donow.iOS
 
 			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {	
 				SaveUserDetails();
-				signUpSocialLinksVC signUpSocialVC = this.Storyboard.InstantiateViewController ("signUpSocialLinksVC") as signUpSocialLinksVC;
-				if (signUpSocialVC != null) {
-					this.NavigationController.PushViewController (signUpSocialVC, true);
+				AccountManagementVC accountManagementVC = this.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
+				if (accountManagementVC != null) {
+					this.NavigationController.PushViewController (accountManagementVC, true);
 				}
 			};
 		}

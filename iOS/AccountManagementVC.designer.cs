@@ -14,8 +14,16 @@ namespace donow.iOS
 	[Register ("AccountManagementVC")]
 	partial class AccountManagementVC
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonFinish { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonFinish != null) {
+				ButtonFinish.Dispose ();
+				ButtonFinish = null;
+			}
 		}
 	}
 }

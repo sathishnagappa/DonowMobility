@@ -16,10 +16,6 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonDolater { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonIndustry { get; set; }
 
 		[Outlet]
@@ -92,10 +88,6 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ButtonDolater != null) {
-				ButtonDolater.Dispose ();
-				ButtonDolater = null;
-			}
 			if (ButtonIndustry != null) {
 				ButtonIndustry.Dispose ();
 				ButtonIndustry = null;

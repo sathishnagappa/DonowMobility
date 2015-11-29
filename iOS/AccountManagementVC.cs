@@ -10,5 +10,15 @@ namespace donow.iOS
 		public AccountManagementVC (IntPtr handle) : base (handle)
 		{
 		}
+
+		public override void ViewDidLoad ()
+		{
+			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {	
+				WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
+				if (welcomeVC != null) {
+					this.NavigationController.PushViewController (welcomeVC, true);
+				}
+			};
+		}
 	}
 }
