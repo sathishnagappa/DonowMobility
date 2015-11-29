@@ -643,7 +643,7 @@
             <objects>
                 <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LZx-Os-ndx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -651,7 +651,7 @@
                             <outlet property="delegate" destination="G6v-n5-VUg" id="BZp-SO-t40"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" image="Collaboration.png" id="1Rk-Aq-F50"/>
+                    <tabBarItem key="tabBarItem" title="HamburgerMenu" image="Collaboration.png" id="1Rk-Aq-F50"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMT-FG-PrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -679,7 +679,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="Collaboration.png" id="3iL-9I-lM3"/>
+                    <tabBarItem key="tabBarItem" title="Referral Request" image="Collaboration.png" id="3iL-9I-lM3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i00-j6-HbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,7 +708,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="Collaboration.png" id="TLb-jh-gLM"/>
+                    <tabBarItem key="tabBarItem" title="Customers" image="Collaboration.png" id="TLb-jh-gLM"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnw-or-ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -737,7 +737,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="Collaboration.png" id="pU4-O5-sne"/>
+                    <tabBarItem key="tabBarItem" title="Customer Stream" image="Collaboration.png" id="pU4-O5-sne"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xl-IP-fLb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -826,7 +826,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="Collaboration.png" id="836-H6-BrV"/>
+                    <tabBarItem key="tabBarItem" title="Leads" image="Collaboration.png" id="836-H6-BrV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
@@ -1148,7 +1148,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2601" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1530,13 +1529,6 @@
         <image name="Phone Thumbnail.png" width="90" height="90"/>
         <image name="User Name Icon.png" width="46" height="46"/>
         <image name="transparent-bg.png" width="750" height="1334"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="mvboli.ttf" width="0" height="0"/>
-        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
-        <image name="Leads Icon_Small.png" width="58" height="58"/>
-        <image name="Stream Icon_Small.png" width="58" height="58"/>
-        <image name="Scott Anders_Large.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>
