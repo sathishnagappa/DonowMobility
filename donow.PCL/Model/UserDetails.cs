@@ -6,7 +6,7 @@ namespace donow.PCL.Model
 	{
 
 		public string UserName { get;set;}
-		public byte[] Password { get;set;}
+		public string Password { get;set;}
 		public string CompanyName { get;set;}
 		public string PhoneNo { get;set;}
 		public string FullName { get;set;}

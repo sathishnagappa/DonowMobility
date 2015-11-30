@@ -13,7 +13,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-			this.Title = "Referral Request";
+//			this.Title = "Referral Request";
 		}
 	}
 }

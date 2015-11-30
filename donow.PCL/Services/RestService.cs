@@ -64,7 +64,7 @@ namespace donow.Services
 			request.Headers.Add ("X-PrettyPrint", "1");
 			request.Method = "POST";
 
-			var postData = "grant_type=password&username=DoNow_dev2@brillio.com&password=donow@dev2QlaqbI1YXNO6nkQh1bW6QOzXy&client_id= 3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb&client_secret= 3609838585053312823";
+			var postData = "grant_type=password&username=DoNow_dev2@brillio.com&password=donow@dev2QlaqbI1YXNO6nkQh1bW6QOzXy&client_id=3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb&client_secret=3609838585053312823";
 
 			var data = Encoding.ASCII.GetBytes(postData);
 			request.ContentLength = data.Length;

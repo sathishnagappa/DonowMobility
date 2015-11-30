@@ -24,7 +24,7 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 
 			LabelTitleName.Text = leadObj.Name;
-			LabelScore.Text = leadObj.Source;
+			LabelScore.Text = leadObj.LeadScore.ToString();
 			LabelSourceName.Text = leadObj.Source;
 			LabelCompanyInfo.Text = leadObj.CompanyInfo;
 			LabelTitleCompany.Text = leadObj.Company;

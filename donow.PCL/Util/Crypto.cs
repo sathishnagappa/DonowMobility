@@ -9,10 +9,10 @@ namespace donow.Util
 	public class Crypto
 	{
 
-		public static byte[] Encrypt(string plainText)
+		public static string Encrypt(string plainText)
 		{
 
-			byte[] encrypted;
+			string encrypted;
 			// Create an Aes object
 			// with the specified key and IV.
 			byte[] keyArray = UTF8Encoding.UTF8.GetBytes ("SecretPassphrase");
@@ -36,7 +36,8 @@ namespace donow.Util
 							//Write all data to the stream.
 							swEncrypt.Write(plainText);
 						}
-						encrypted = msEncrypt.ToArray();
+						//encrypted = msEncrypt.ToArray();
+						encrypted = EncodeToString(msEncrypt.ToArray());
 					}
 				}
 			}
@@ -46,7 +47,7 @@ namespace donow.Util
 
 		}
 
-		public static string Decrypt(byte[] cipherText)
+		public static string Decrypt(string cipherText)
 		{
 			
 
@@ -64,9 +65,9 @@ namespace donow.Util
 				// Create a decrytor to perform the stream transform.
 				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key
 					, aesAlg.IV);
-
+				byte[] cipherByteArray = DecodeToBytes(cipherText);
 				// Create the streams used for decryption.
-				using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+				using (MemoryStream msDecrypt = new MemoryStream(cipherByteArray))
 				{
 					using (CryptoStream csDecrypt = new CryptoStream(msDecrypt
 						, decryptor, CryptoStreamMode.Read))
@@ -87,6 +88,23 @@ namespace donow.Util
 
 			return plaintext;
 
+		}
+
+		public static string EncodeToString(byte[] bytes)
+		{
+			bool even = (bytes.Length % 2 == 0);
+			char[] chars = new char[1 + bytes.Length / sizeof(char) + (even ? 0 : 1)];
+			chars[0] = (even ? '0' : '1');
+			System.Buffer.BlockCopy(bytes, 0, chars, 2, bytes.Length);
+			return new string(chars);
+		}
+		public static byte[] DecodeToBytes(string str)
+		{
+			bool even = str[0] == '0';
+			byte[] bytes = new byte[(str.Length - 1) * sizeof(char) + (even ? 0 : -1)];
+			char[] chars = str.ToCharArray();
+			System.Buffer.BlockCopy(chars, 2, bytes, 0, bytes.Length);
+			return bytes;
 		}
 	}
 
