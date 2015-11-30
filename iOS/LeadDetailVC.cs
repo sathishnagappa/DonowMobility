@@ -37,8 +37,9 @@ namespace donow.iOS
 
 			ButtonOptionPassView.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewPassView.Hidden = false;
-				TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 			};
+
+			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 
 			ButtonAccept.TouchUpInside += (object sender, EventArgs e) => {
 				ImageViewTransparentBackground.Hidden = false;
@@ -54,6 +55,24 @@ namespace donow.iOS
 		public void UpdateControls (string Parameter)
 		{
 			ButtonOptionPassView.SetTitle (Parameter, UIControlState.Normal);
+			TableViewPassView.Hidden = true;
+		}
+
+		public override void TouchesBegan (NSSet touches, UIEvent evt)
+		{
+			base.TouchesBegan (touches, evt);
+			UITouch touch = touches.AnyObject as UITouch;
+			if (touch != null)
+			{
+				//code here to handle touch
+				if (this.ImageViewTransparentBackground.Frame.Contains (touch.LocationInView (this.View)))
+				{
+					// the touch event happened inside the UIView imgTouchMe.
+					ImageViewTransparentBackground.Hidden = true;
+					ViewAccept.Hidden = true;
+					ViewPass.Hidden = true;
+				}
+			}
 		}
 	}
 
