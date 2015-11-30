@@ -24,11 +24,23 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonCalendarAcceptView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonEmailAcceptView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonOptionPassView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonPass { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonPhoneAcceptView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -128,6 +140,14 @@ namespace donow.iOS
 				ButtonAccept.Dispose ();
 				ButtonAccept = null;
 			}
+			if (ButtonCalendarAcceptView != null) {
+				ButtonCalendarAcceptView.Dispose ();
+				ButtonCalendarAcceptView = null;
+			}
+			if (ButtonEmailAcceptView != null) {
+				ButtonEmailAcceptView.Dispose ();
+				ButtonEmailAcceptView = null;
+			}
 			if (ButtonOptionPassView != null) {
 				ButtonOptionPassView.Dispose ();
 				ButtonOptionPassView = null;
@@ -135,6 +155,10 @@ namespace donow.iOS
 			if (ButtonPass != null) {
 				ButtonPass.Dispose ();
 				ButtonPass = null;
+			}
+			if (ButtonPhoneAcceptView != null) {
+				ButtonPhoneAcceptView.Dispose ();
+				ButtonPhoneAcceptView = null;
 			}
 			if (ButtonSubmitPassView != null) {
 				ButtonSubmitPassView.Dispose ();
