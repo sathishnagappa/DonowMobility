@@ -219,6 +219,10 @@
     <Compile Include="LeadDetailVC.designer.cs">
       <DependentUpon>LeadDetailVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="dummyViewController.cs" />
+    <Compile Include="dummyViewController.designer.cs">
+      <DependentUpon>dummyViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -245,6 +249,7 @@
     <BundleResource Include="Resources\Phone Thumbnail.png" />
     <BundleResource Include="Resources\transparent-bg.png" />
     <BundleResource Include="Resources\Navigation_Back_Icon.png" />
+    <BundleResource Include="Resources\Expand Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
