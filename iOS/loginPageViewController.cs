@@ -17,6 +17,7 @@ namespace donow.iOS
 {
 	partial class loginPageViewController : UIViewController
 	{
+		LoadingOverlay loadingOverlay;
 		public loginPageViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -36,6 +37,9 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+				this.NavigationController.PopViewController(true);
+			}), true);
 		}
 
 		public  override void ViewDidLoad ()
@@ -64,7 +68,8 @@ namespace donow.iOS
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start ();
 			#endif
-
+			//AppDelegate.UserDetails.UserName = "sathish";
+			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
 			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
 //				Uri sfuri = new Uri(@"com.brillio.donow:///");
@@ -110,12 +115,21 @@ namespace donow.iOS
 //				RestService rs = new RestService();
 //				string content = rs.SFDCAuthentication();
 //				rs.UpdateData("00D280000015q03!AQUAQC4RwbSCln4dsZHOpF2kjVAP_O0Rcx5SruHzh1v4jCnyzB__Z27ZO3ElLkuCOnFMbvyKl5PYkjXMGH4t0SSDc5Cy7rDZ");
+
+	
 				if (ValidateCredentials ()) {
+					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
+					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
+						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
+					}
+					loadingOverlay = new LoadingOverlay (bounds);
+					View.Add (loadingOverlay);
 					// Call to Get user details and validate credentials
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 					if (landingVC != null) {
 						this.NavigationController.PushViewController(landingVC, true);
 					}
+					loadingOverlay.Hide ();
 				}
 			};
 
@@ -136,16 +150,18 @@ namespace donow.iOS
 						this.NavigationController.PushViewController(signUpVC, true);
 					}
 				}
+
 			};
 
-			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {
+			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {				
 				signUpLoginDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
 				if (signUpVC != null) {
 					this.NavigationController.PushViewController(signUpVC, true);
 				}
 			};
 
-			ButtonForgotPassword.TouchUpInside += (object sender, EventArgs e) => {			
+			ButtonForgotPassword.TouchUpInside += (object sender, EventArgs e) => {	
+
 				ForgotPasswordVC forgotPasswordVC = this.Storyboard.InstantiateViewController ("ForgotPasswordVC") as ForgotPasswordVC;
 				if (forgotPasswordVC != null) {
 					this.NavigationController.PushViewController(forgotPasswordVC, true);
@@ -157,8 +173,9 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
-			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text)) {
-				if (AppDelegate.UserDetails.UserName.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
+			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
+				if (!string.IsNullOrEmpty(AppDelegate.UserDetails.UserName) && 
+					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.UserName.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					return true;
 				}
 				else {

@@ -17,6 +17,15 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+//			this.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+//				this.NavigationController.PopViewController(true);
+//			}), true);
+		}
+
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Sign Up";
@@ -26,14 +35,6 @@ namespace donow.iOS
 //			}
 //			loadingOverlay = new LoadingOverlay (bounds);
 //			View.Add (loadingOverlay);
-
-			//List<Leads> leads = new  List<Leads>();
-			//LeadsBL leadsbl = new LeadsBL ();
-			//leads = leadsbl.GetAllLeads ();
-			//loadingOverlay.Hide ();
-
-			//Leads lead = new Leads();
-			//lead = leadsbl.GetLeadDetails (1);
 			NextBtn.Layer.CornerRadius = 5.0f;
 
 			TextBoxUserName.ShouldReturn = delegate {
@@ -65,6 +66,8 @@ namespace donow.iOS
 			};	
 
 		}
+
+
 
 		private bool Validation()
 		{

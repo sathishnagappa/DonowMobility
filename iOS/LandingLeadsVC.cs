@@ -31,15 +31,17 @@ namespace donow.iOS
 			List<Leads> leads = new  List<Leads> ();
 			LeadsBL leadsbl = new LeadsBL ();
 			leads = leadsbl.GetAllLeads ();
+			this.TabBarItem.BadgeValue = leads.Count.ToString();
 			loadingOverlay.Hide ();
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
 				List<Leads> newleads = new  List<Leads> ();
-				LeadsBL newleadsbl = new LeadsBL ();
-				leads = leadsbl.GetAllLeads ();
+//				LeadsBL newleadsbl = new LeadsBL ();
+				newleads = leadsbl.GetAllLeads ();
 				loadingOverlay.Hide ();
-				TableViewLeads.Source = new TableSource (leads, this);
+				this.TabBarItem.BadgeValue = newleads.Count.ToString();
+				TableViewLeads.Source = new TableSource (newleads, this);
 			};
 
 			TableViewLeads.Source = new TableSource (leads, this);

@@ -55,6 +55,15 @@
     <Compile Include="BusinessLogic\UserBL.cs" />
     <Compile Include="Util\LoadingOverlay.cs" />
     <Compile Include="Model\Profile.cs" />
+    <Compile Include="Model\ReferralRequest.cs" />
+    <Compile Include="Model\Broker.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="BusinessLogic\BrokerBL.cs" />
+    <Compile Include="BusinessLogic\CustomerBL.cs" />
+    <Compile Include="BusinessLogic\ReferralRequestBL.cs" />
+    <Compile Include="Model\Feed.cs" />
+    <Compile Include="BusinessLogic\FeedBL.cs" />
+    <Compile Include="Model\UserMeetings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -248,6 +248,7 @@
     <BundleResource Include="Resources\Email Thumbnail.png" />
     <BundleResource Include="Resources\Phone Thumbnail.png" />
     <BundleResource Include="Resources\transparent-bg.png" />
+    <BundleResource Include="Resources\Navigation_Back_Icon.png" />
     <BundleResource Include="Resources\Expand Icon.png" />
   </ItemGroup>
   <ItemGroup>
