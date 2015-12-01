@@ -68,10 +68,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageViewTransparentBackground { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelBusinessNeeds { get; set; }
 
 		[Outlet]
@@ -130,6 +126,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewTransparentBackground { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
@@ -183,10 +183,6 @@ namespace donow.iOS
 			if (ImageProfileExpand != null) {
 				ImageProfileExpand.Dispose ();
 				ImageProfileExpand = null;
-			}
-			if (ImageViewTransparentBackground != null) {
-				ImageViewTransparentBackground.Dispose ();
-				ImageViewTransparentBackground = null;
 			}
 			if (LabelBusinessNeeds != null) {
 				LabelBusinessNeeds.Dispose ();
@@ -247,6 +243,10 @@ namespace donow.iOS
 			if (ViewPass != null) {
 				ViewPass.Dispose ();
 				ViewPass = null;
+			}
+			if (ViewTransparentBackground != null) {
+				ViewTransparentBackground.Dispose ();
+				ViewTransparentBackground = null;
 			}
 		}
 	}
