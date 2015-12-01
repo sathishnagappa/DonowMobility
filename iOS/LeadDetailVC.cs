@@ -112,7 +112,7 @@ namespace donow.iOS
 					ViewAccept.Hidden = true;
 					dummyViewController dummyVC = this.Storyboard.InstantiateViewController ("dummyViewController") as dummyViewController;
 					if (dummyVC != null) {
-						this.PresentViewController (dummyVC, true);
+						this.PresentViewController (dummyVC, true, null);
 					}
 				} else {
 					ViewPass.Hidden = true;
