@@ -74,8 +74,8 @@ namespace donow.iOS
 					// do mail operations here
 					mailController = new MFMailComposeViewController ();
 					mailController.SetToRecipients (new string[]{"john@doe.com"});
-					mailController.SetSubject ("mail test");
-					mailController.SetMessageBody ("this is a test", false);
+					mailController.SetSubject ("Quick request");
+					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
 
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
 						Console.WriteLine (args.Result.ToString ());
@@ -87,6 +87,16 @@ namespace donow.iOS
 
 //					Device.OpenUri(new Uri("mailto:ryan.hatfield@test.com"));
 				}
+			};
+
+			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
+				ViewPass.Hidden = true;
+				ImageViewTransparentBackground.Hidden = true;
+				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+				if (landingLeadsVC != null) {
+					this.NavigationController.PushViewController(landingLeadsVC, true);
+				}
+				
 			};
 		}
 
@@ -112,7 +122,7 @@ namespace donow.iOS
 					ViewAccept.Hidden = true;
 					dummyViewController dummyVC = this.Storyboard.InstantiateViewController ("dummyViewController") as dummyViewController;
 					if (dummyVC != null) {
-						this.PresentViewController (dummyVC, true, null);
+						this.NavigationController.PushViewController(dummyVC, true);
 					}
 				} else {
 					ViewPass.Hidden = true;
