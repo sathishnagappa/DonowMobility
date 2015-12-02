@@ -3,6 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 using CoreGraphics;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
@@ -12,13 +13,18 @@ namespace donow.iOS
 		{
 		}
 
+		IList<string> imageIcons = new List<string>
+		{
+			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png"
+		};
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 //			this.Title = "Hamburger Menu";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {"Notifications","My Profile","My Meetings","Deal Makers","Account Management",};
-			table.Source = new TableSource(tableItems, this);
+			string[] tableItems = new string[] {/*"Notifications",*/"My Profile","My Meetings","Deal Makers","Account Management",};
+			table.Source = new TableSource(tableItems, imageIcons, this);
 			Add (table);
 		}
 
@@ -26,12 +32,15 @@ namespace donow.iOS
 
 			string[] TableItems;
 			string CellIdentifier = "TableCell";
+			IList<string> imageIcons;
+
 			HambergerMenuVC owner;
 
-			public TableSource (string[] items, HambergerMenuVC owner)
+			public TableSource (string[] items, IList<string> imageIcons, HambergerMenuVC owner)
 			{
 				TableItems = items;
 				this.owner = owner;
+				this.imageIcons = imageIcons;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -49,7 +58,7 @@ namespace donow.iOS
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				cell.TextLabel.Text = item;
-				cell.ImageView.Image = UIImage.FromBundle("settingsImage.png"); 
+				cell.ImageView.Image = UIImage.FromBundle(imageIcons[indexPath.Row]); 
 				//cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 
 				return cell;

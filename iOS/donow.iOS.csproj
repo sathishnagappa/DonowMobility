@@ -250,6 +250,11 @@
     <BundleResource Include="Resources\Navigation_Back_Icon.png" />
     <BundleResource Include="Resources\Expand Icon.png" />
     <BundleResource Include="Resources\.DS_Store" />
+    <BundleResource Include="Resources\Account Mgmt Icon.png" />
+    <BundleResource Include="Resources\HAMBURGER MENU_RED LINE.pdf" />
+    <BundleResource Include="Resources\Info Page Icon.png" />
+    <BundleResource Include="Resources\My Deal Makers Icon.png" />
+    <BundleResource Include="Resources\My Profile Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
