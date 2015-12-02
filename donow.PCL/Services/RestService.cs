@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Json;
 using donow.Util;
 using System.Text;
+using donow.PCL;
 
 namespace donow.Services
 {
@@ -64,7 +65,7 @@ namespace donow.Services
 			request.Headers.Add ("X-PrettyPrint", "1");
 			request.Method = "POST";
 
-			var postData = "grant_type=password&username=DoNow_dev2@brillio.com&password=donow@dev2QlaqbI1YXNO6nkQh1bW6QOzXy&client_id=3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb&client_secret=3609838585053312823";
+			var postData = "grant_type=password&username=DoNow_dev2@brillio.com&password=donow@dev2k9n6IQFyBYvDeGM2g0nVmFHpg&client_id=3MVG9ZL0ppGP5UrC4rjQFkEhUnYTSNP_Tvanu8b30_TqkLH7cOg8UC9zHKCsX.mgW_hFVY2J0jRyO.Ev_VsH0&client_secret=1975032834009986449";
 
 			var data = Encoding.ASCII.GetBytes(postData);
 			request.ContentLength = data.Length;
@@ -73,17 +74,20 @@ namespace donow.Services
 			{
 				stream.Write(data, 0, data.Length);
 			}
-
+			var content = string.Empty; 
 			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 			{
+				
 				if (response.StatusCode != HttpStatusCode.OK)
 					Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);
 				using (StreamReader reader = new StreamReader(response.GetResponseStream()))
 				{
-					var content = reader.ReadToEnd();
-					return content;
+					content = reader.ReadToEnd();
+					//return content;
 				}
 			}
+			SFDCAuth sfdcAuthObj = Newtonsoft.Json.JsonConvert.DeserializeObject<SFDCAuth>(content.ToString());
+			return sfdcAuthObj.access_token;
 
 		}
 
@@ -117,6 +121,35 @@ namespace donow.Services
 				}
 			}
 
+		}
+
+
+		public string PostData(string RestURL, string postData)
+		{
+
+			var request = HttpWebRequest.Create(RestURL);
+			request.ContentType = "application/json";
+			request.Method = "POST";
+
+
+			var data = Encoding.ASCII.GetBytes(postData);
+			request.ContentLength = data.Length;
+
+			using (var stream = request.GetRequestStream())
+			{
+				stream.Write(data, 0, data.Length);
+			}
+
+			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+			{
+				if (response.StatusCode != HttpStatusCode.OK)
+					Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);
+				using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+				{
+					var content = reader.ReadToEnd();
+					return content;
+				}
+			}
 		}
 
 	}

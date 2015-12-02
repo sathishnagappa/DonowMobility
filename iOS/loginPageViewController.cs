@@ -12,6 +12,7 @@ using System.Collections.Generic;
 //using Salesforce;
 using System.Net;
 using donow.Services;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -112,9 +113,10 @@ namespace donow.iOS
 //					}
 //
 //				}
+
 //				RestService rs = new RestService();
 //				string content = rs.SFDCAuthentication();
-//				rs.UpdateData("00D280000015q03!AQUAQC4RwbSCln4dsZHOpF2kjVAP_O0Rcx5SruHzh1v4jCnyzB__Z27ZO3ElLkuCOnFMbvyKl5PYkjXMGH4t0SSDc5Cy7rDZ");
+//				rs.UpdateData(content);
 
 	
 				if (ValidateCredentials ()) {
@@ -173,9 +175,11 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
+			UserBL userBL = new UserBL ();
+			AppDelegate.UserDetails = userBL.GetUserDetails ("4");
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
-				if (!string.IsNullOrEmpty(AppDelegate.UserDetails.UserName) && 
-					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.UserName.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
+				if (!string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
+					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					return true;
 				}
 				else {

@@ -68,12 +68,12 @@ namespace donow.iOS
 		{
 			AppDelegate.UserDetails.FullName = TextBoxFullName.Text;
 			AppDelegate.UserDetails.Title = TextBoxTitle.Text;
-			AppDelegate.UserDetails.CompanyName = TextBoxFullName.Text;
-			AppDelegate.UserDetails.OfficeAddess = TextBoxFullName.Text;
-			AppDelegate.UserDetails.City = TextBoxFullName.Text;
-			AppDelegate.UserDetails.ZipCode = string.IsNullOrEmpty(TextBoxZip.Text) == true ? 0 : int.Parse(TextBoxZip.Text);
-			AppDelegate.UserDetails.EmailID = TextBoxEmail.Text;
-			AppDelegate.UserDetails.PhoneNo = TextBoxPhone.Text;
+			AppDelegate.UserDetails.Company = TextBoxCompany.Text;
+			AppDelegate.UserDetails.OfficeAddress = TextBoxOfficeAddress.Text;
+			AppDelegate.UserDetails.City = TextBoxCity.Text;
+			AppDelegate.UserDetails.Zip = string.IsNullOrEmpty(TextBoxZip.Text) == true ? "" : TextBoxZip.Text;
+			AppDelegate.UserDetails.Email = TextBoxEmail.Text;
+			AppDelegate.UserDetails.Phone = TextBoxPhone.Text;
 
 		}
 

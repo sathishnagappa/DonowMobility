@@ -3,6 +3,7 @@ using donow.Services;
 using System.Json;
 using System.Threading.Tasks;
 using donow.PCL.Model;
+using donow.Util;
 
 namespace donow.PCL
 {
@@ -12,25 +13,50 @@ namespace donow.PCL
 		{
 		}
 
-		public UserDetails GetUserDetails()
+//		public UserDetails GetUserDetails()
+//		{
+//			RestService restSevice = new RestService ();
+//			string response =  restSevice.GetData ("https://mapi.move.com/forsale/v1/search/?loc=San%20Jose,%20CA%2095113&limit=20&sort=newest&offset=0&type=single_family,condo,mobile,multi_family,farm,land&include_newhomes=0&client_id=rdc_mobile_native,2.0.0929.0000,windowsStore&include_client_event_data=true&request_timestamp=1445340641");
+//			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+//			return parsedResponse;
+//		}
+
+		public UserDetails CreateUser(UserDetails userDetails)
 		{
 			RestService restSevice = new RestService ();
-			string response =  restSevice.GetData ("https://mapi.move.com/forsale/v1/search/?loc=San%20Jose,%20CA%2095113&limit=20&sort=newest&offset=0&type=single_family,condo,mobile,multi_family,farm,land&include_newhomes=0&client_id=rdc_mobile_native,2.0.0929.0000,windowsStore&include_client_event_data=true&request_timestamp=1445340641");
+			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(userDetails);
+			string response = restSevice.PostData (Constants.UserCreation, postData);
 			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
 			return parsedResponse;
 		}
 
-		public string GetUserDetailsString()
+
+		public UserDetails UpdateCredentails(string id,string UserName, string Password)
 		{
 			RestService restSevice = new RestService ();
-			string response =  restSevice.GetData ("198440");
-			//string parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
-			return response;
+			string postData = "{ \"ID\" :" + id + ", \"UserName\" :" + UserName + ",\"Password\" :" + Password + "}"; 
+			string response = restSevice.PostData (Constants.UserCreation, postData);
+			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			return parsedResponse;
 		}
 
-		// UpdateNewPassword()
-		// UpdateUserDetails()
-		// GetUserDetails() 
+		public UserDetails UpdateUserDetails(UserDetails userDetails)
+		{
+			RestService restSevice = new RestService ();	
+			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(userDetails);
+			string response = restSevice.PostData (Constants.UserCreation, postData);
+			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			return parsedResponse;
+		}
+		
+		public UserDetails GetUserDetails(string id)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.UserCreation + "/" + id;
+			string response = restSevice.GetData (restUrl);
+			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			return parsedResponse;
+		}
 
 	}
 }

@@ -64,6 +64,10 @@
     <Compile Include="Model\Feed.cs" />
     <Compile Include="BusinessLogic\FeedBL.cs" />
     <Compile Include="Model\UserMeetings.cs" />
+    <Compile Include="Model\BusinessRecomendations.cs" />
+    <Compile Include="Model\CustomerLatestInfo.cs" />
+    <Compile Include="Model\CustomerConnect.cs" />
+    <Compile Include="Model\SFDCAuth.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

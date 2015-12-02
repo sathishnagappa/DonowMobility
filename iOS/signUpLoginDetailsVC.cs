@@ -54,7 +54,7 @@ namespace donow.iOS
 			NextBtn.TouchUpInside += (object sender, EventArgs e) => {
 				if (Validation ()) {
 					
-						AppDelegate.UserDetails.UserName = TextBoxUserName.Text;
+					   AppDelegate.UserDetails.Name = TextBoxUserName.Text;
 						AppDelegate.UserDetails.Password = Crypto.Encrypt (TextBoxPassword.Text.ToLower ());
 
 						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
