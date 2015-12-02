@@ -37,7 +37,8 @@ namespace donow.Util
 							swEncrypt.Write(plainText);
 						}
 						//encrypted = msEncrypt.ToArray();
-						encrypted = EncodeToString(msEncrypt.ToArray());
+						encrypted = Base64Encode(EncodeToString(msEncrypt.ToArray()));
+
 					}
 				}
 			}
@@ -65,7 +66,8 @@ namespace donow.Util
 				// Create a decrytor to perform the stream transform.
 				ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key
 					, aesAlg.IV);
-				byte[] cipherByteArray = DecodeToBytes(cipherText);
+				//var cipherTextdecoded = Encoding.ASCII.GetString(cipherText);
+				byte[] cipherByteArray = DecodeToBytes(Base64Decode(cipherText));
 				// Create the streams used for decryption.
 				using (MemoryStream msDecrypt = new MemoryStream(cipherByteArray))
 				{
@@ -105,6 +107,16 @@ namespace donow.Util
 			char[] chars = str.ToCharArray();
 			System.Buffer.BlockCopy(chars, 2, bytes, 0, bytes.Length);
 			return bytes;
+		}
+
+		public static string Base64Encode(string plainText) {
+			var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+			return System.Convert.ToBase64String(plainTextBytes);
+		}
+
+		public static string Base64Decode(string base64EncodedData) {
+			var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+			return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
 		}
 	}
 

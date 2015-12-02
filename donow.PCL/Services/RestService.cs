@@ -140,7 +140,7 @@ namespace donow.Services
 				stream.Write(data, 0, data.Length);
 			}
 
-			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+  			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 			{
 				if (response.StatusCode != HttpStatusCode.OK)
 					Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);

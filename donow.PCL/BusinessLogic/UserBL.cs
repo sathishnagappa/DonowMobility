@@ -49,10 +49,10 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 		
-		public UserDetails GetUserDetails(string id)
+		public UserDetails GetUserDetails(string userName)
 		{
 			RestService restSevice = new RestService ();
-			string restUrl = Constants.UserCreation + "/" + id;
+			string restUrl = Constants.UserCreation + "?name=" + userName;
 			string response = restSevice.GetData (restUrl);
 			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
 			return parsedResponse;

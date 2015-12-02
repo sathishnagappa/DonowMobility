@@ -1790,7 +1790,6 @@
         <!--Leads-->
         <scene sceneID="mmP-90-xKu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mdd-4r-2nC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="99I-nJ-1U0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="3" title="Leads" image="Collaboration.png" id="836-H6-BrV"/>
                     <toolbarItems/>
@@ -1803,6 +1802,7 @@
                         <segue destination="Vbc-Ed-l3g" kind="relationship" relationship="rootViewController" id="oPi-sG-dlE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdd-4r-2nC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-530" y="2159"/>
         </scene>
@@ -1820,7 +1820,6 @@
         <image name="Phone Thumbnail.png" width="90" height="90"/>
         <image name="Scott Anders_Large.png" width="150" height="150"/>
         <image name="User Name Icon.png" width="46" height="46"/>
-        <image name="transparent-bg.png" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>

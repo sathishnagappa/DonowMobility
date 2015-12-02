@@ -176,7 +176,7 @@ namespace donow.iOS
 		{
 			UIAlertView alert = null;
 			UserBL userBL = new UserBL ();
-			AppDelegate.UserDetails = userBL.GetUserDetails ("4");
+			AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
 				if (!string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
