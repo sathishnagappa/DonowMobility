@@ -54,8 +54,8 @@ namespace donow.iOS
 
 			public TableSource (List<Leads> items, LandingLeadsVC owner)
 			{
-			TableItems = items;
-			this.owner = owner;
+				TableItems = items;
+				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)

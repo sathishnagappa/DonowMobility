@@ -5,6 +5,7 @@ using UIKit;
 using donow.PCL.Model;
 using System.Collections.Generic;
 using MessageUI;
+using EventKit;
 
 namespace donow.iOS
 {
@@ -44,20 +45,20 @@ namespace donow.iOS
 			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 
 			ButtonAccept.TouchUpInside += (object sender, EventArgs e) => {
-				ImageViewTransparentBackground.Hidden = false;
+				ViewTransparentBackground.Hidden = false;
 				ViewAccept.Hidden = false;
 				isLeadAccepted = true;
 			};
 
 			ButtonPass.TouchUpInside += (object sender, EventArgs e) => {
-				ImageViewTransparentBackground.Hidden = false;
+				ViewTransparentBackground.Hidden = false;
 				ViewPass.Hidden = false;
 				isLeadAccepted = false;
 			};
 
 			ButtonPhoneAcceptView.TouchUpInside += (object sender, EventArgs e) => {
 
-				var url = new NSUrl ("tel:" );//+ leadObj .Text);
+				var url = new NSUrl ("tel://8197393644");
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
 					var av = new UIAlertView ("Not supported",
 						"Scheme 'tel:' is not supported on this device",
@@ -84,14 +85,17 @@ namespace donow.iOS
 
 					this.PresentViewController (mailController, true, null);
 
-
 //					Device.OpenUri(new Uri("mailto:ryan.hatfield@test.com"));
 				}
 			};
 
+			ButtonCalendarAcceptView.TouchUpInside += (object sender, EventArgs e) => {
+
+			};
+
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
 				ViewPass.Hidden = true;
-				ImageViewTransparentBackground.Hidden = true;
+				ViewTransparentBackground.Hidden = true;
 				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
 				if (landingLeadsVC != null) {
 					this.NavigationController.PushViewController(landingLeadsVC, true);
@@ -113,16 +117,17 @@ namespace donow.iOS
 			if (touch != null)
 			{
 				//code here to handle touch
-				if (this.ImageViewTransparentBackground.Frame.Contains (touch.LocationInView (this.View)))
+				if (this.ViewTransparentBackground.Frame.Contains (touch.LocationInView (this.View)))
 				{
 					// the touch event happened inside the UIView imgTouchMe.
-					ImageViewTransparentBackground.Hidden = true;
+					ViewTransparentBackground.Hidden = true;
 				}
 				if (isLeadAccepted) {
 					ViewAccept.Hidden = true;
 					dummyViewController dummyVC = this.Storyboard.InstantiateViewController ("dummyViewController") as dummyViewController;
 					if (dummyVC != null) {
-						this.NavigationController.PushViewController(dummyVC, true);
+						this.PresentViewController (dummyVC, true, null);
+//						this.NavigationController.PushViewController(dummyVC, true);
 					}
 				} else {
 					ViewPass.Hidden = true;
