@@ -219,9 +219,9 @@
     <Compile Include="LeadDetailVC.designer.cs">
       <DependentUpon>LeadDetailVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="dummyViewController.cs" />
-    <Compile Include="dummyViewController.designer.cs">
-      <DependentUpon>dummyViewController.cs</DependentUpon>
+    <Compile Include="prospectDetailsVC.cs" />
+    <Compile Include="prospectDetailsVC.designer.cs">
+      <DependentUpon>prospectDetailsVC.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -254,6 +254,12 @@
     <BundleResource Include="Resources\Info Page Icon.png" />
     <BundleResource Include="Resources\My Deal Makers Icon.png" />
     <BundleResource Include="Resources\My Profile Icon.png" />
+    <BundleResource Include="Resources\Customer Feed Icon_25x25px.png" />
+    <BundleResource Include="Resources\Customers Icon_25x25px.png" />
+    <BundleResource Include="Resources\Hamburger Icon_25x25px.png" />
+    <BundleResource Include="Resources\Leads Icon_25x25px.png" />
+    <BundleResource Include="Resources\Referral Requests Icon_25x25px.png" />
+    <BundleResource Include="Resources\down-arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

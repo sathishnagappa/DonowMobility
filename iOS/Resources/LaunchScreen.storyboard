@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,18 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="DoNow" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="46">
-                                <rect key="frame" x="143" y="285" width="129" height="82"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DoNow" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="46">
+                                <rect key="frame" x="147" y="285" width="120" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="DoNowSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="45">
-                                <rect key="frame" x="143" y="142" width="129" height="118"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DoNowSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="45">
+                                <rect key="frame" x="139" y="142" width="137" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="5IO-AN-Aqx"/>
+                                    <constraint firstAttribute="width" constant="137" id="qik-02-99R"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="45" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom" constant="122" id="37s-zz-JSw"/>
+                            <constraint firstItem="45" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="Edz-8B-4WY"/>
+                            <constraint firstItem="46" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="F1n-Dn-gpE"/>
+                            <constraint firstItem="46" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="25" id="poK-F5-51W"/>
+                            <constraint firstItem="46" firstAttribute="top" secondItem="yd7-JS-zBw" secondAttribute="topMargin" constant="285" id="zUb-YQ-MDn"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>

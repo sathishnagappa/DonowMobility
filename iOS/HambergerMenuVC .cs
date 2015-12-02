@@ -109,7 +109,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 60.0f;
+				return 80.0f;
 			}
 
 		}

@@ -144,7 +144,7 @@ namespace donow.iOS
 				var user = await auth0.LoginAsync(this,"linkedin");
 
 				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
-
+				
 				if(AppDelegate.UserProfile.email_verified == true)
 				{
 					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;

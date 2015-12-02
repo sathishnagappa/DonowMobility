@@ -1,29 +1,25 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.8.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.storyboard">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="donow.PCL/Services/RestService.cs">
     <Files>
-      <File FileName="iOS/LeadDetailVC.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/UserDetails.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Services/RestService.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="1" Column="1" />
-      <File FileName="iOS/AccountManagementVC.cs" Line="1" Column="1" />
       <File FileName="iOS/signUpLoginDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="157" Column="28" />
+      <File FileName="iOS/LandingTabBarVC.cs" Line="6" Column="20" />
       <File FileName="iOS/loginPageViewController.cs" Line="1" Column="1" />
-      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/SFDCAuth.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Util/Crypto.cs" Line="100" Column="4" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/Main.storyboard" Line="755" Column="84" />
+      <File FileName="iOS/LeadDetailVC.cs" Line="149" Column="4" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="92" Column="29" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="56" Column="1" />
+      <File FileName="donow.PCL/Services/RestService.cs" Line="42" Column="49" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="246" column="1" />
-      <Breakpoint file="/Users/vaibhavbarchhiha/Desktop/DonowMobility/iOS/signUpOtherDetailsVC.cs" line="122" column="1" />
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="227" column="67" />
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/LandingLeadsVC.cs" line="38" column="31" />
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="179" column="58" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LeadsTableCell.cs" line="10" column="32" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="16" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="6" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/HambergerMenuVC .cs" line="61" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/loginPageViewController.cs" line="121" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

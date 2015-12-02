@@ -17,9 +17,7 @@ namespace donow.iOS
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 
-//			if (this.TabBarItem.Tag.Equals("3")) {
-				this.TabBarItem.BadgeValue = "2";
-//			}
+			this.SelectedIndex = 2;
 		}
 	}
 }
