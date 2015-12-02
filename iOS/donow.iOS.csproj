@@ -249,6 +249,7 @@
     <BundleResource Include="Resources\Phone Thumbnail.png" />
     <BundleResource Include="Resources\Navigation_Back_Icon.png" />
     <BundleResource Include="Resources\Expand Icon.png" />
+    <BundleResource Include="Resources\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

@@ -31,15 +31,15 @@ namespace donow.PCL
 		}
 
 
-		public UserDetails UpdateCredentails(string id,string UserName, string Password)
-		{
-			RestService restSevice = new RestService ();
-			string postData = "{ \"ID\" :" + id + ", \"UserName\" :" + UserName + ",\"Password\" :" + Password + "}"; 
-			string response = restSevice.PostData (Constants.UserCreation, postData);
-			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
-			return parsedResponse;
-		}
-
+//		public UserDetails UpdateCredentails(string id,string UserName, string Password)
+//		{
+//			RestService restSevice = new RestService ();
+//			string postData = "{ \"ID\" :" + id + ", \"UserName\" :" + UserName + ",\"Password\" :" + Password + "}"; 
+//			string response = restSevice.PostData (Constants.UserCreation, postData);
+//			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+//			return parsedResponse;
+//		}
+//
 		public UserDetails UpdateUserDetails(UserDetails userDetails)
 		{
 			RestService restSevice = new RestService ();	
@@ -56,6 +56,14 @@ namespace donow.PCL
 			string response = restSevice.GetData (restUrl);
 			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
 			return parsedResponse;
+		}
+
+		public bool CheckUserExist(string userName)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.UserCreation + "?username=" + userName;
+			string response = restSevice.GetData (restUrl);
+			return Convert.ToBoolean (response);
 		}
 
 	}

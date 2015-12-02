@@ -71,52 +71,11 @@ namespace donow.iOS
 			#endif
 			//AppDelegate.UserDetails.UserName = "sathish";
 			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
-			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
-
-//				Uri sfuri = new Uri(@"com.brillio.donow:///");
-//				var client = new SalesforceClient ("3MVG9ZL0ppGP5UrC4rjQFkEhUnd9ZCrKkVaIy1COk6wFHjRWnMvItwzkBIovWfjRnsj0PuduRN0j7hjpHbYXb", "3609838585053312823", sfuri);
-//
-//
-//				var users = client.LoadUsers ();
-//
-//				if (!users.Any ())
-//				{
-//					client.AuthenticationComplete += (sender1, e1) => 
-//					{
-//					};
-//
-//					// Starts the Salesforce login process.
-//					//var loginUI = client.GetLoginInterface (); 
-//					var loginController = client.GetLoginInterface () as UIViewController;
-//					PresentViewController (new UINavigationController(loginController), true, null);
-//
-//				} 
-//				else 
-//				{
-//					// We're ready to fetch some data!
-//					// Let's grab some sales accounts to display.
-////					var request = new ReadRequest {
-////						Resource = new Search { QueryText = "FIND {John}" }
-////					};
-////
-////					var results = await client.ProcessAsync<ReadRequest> (request);
-//
-//
-//					IEnumerable<SObject> response;
-//
-//					try {
-//						response = await client.QueryAsync ("Select name From Lead");
-//					} catch (InvalidSessionException) {
-//						return;
-//					} catch (WebException) {						
-//						return;
-//					}
-//
-//				}
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
 
 //				RestService rs = new RestService();
 //				string content = rs.SFDCAuthentication();
-//				rs.UpdateData(content);
+//				await rs.UpdateSFDCData(content);
 
 	
 				if (ValidateCredentials ()) {
@@ -142,6 +101,7 @@ namespace donow.iOS
 					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
 
 				var user = await auth0.LoginAsync(this,"linkedin");
+
 
 				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
 
