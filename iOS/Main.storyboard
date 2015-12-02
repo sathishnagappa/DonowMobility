@@ -752,11 +752,7 @@
                     <navigationItem key="navigationItem" id="b14-FT-JUv"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" horizontalCompressionResistancePriority="720" verticalCompressionResistancePriority="720" id="Aiq-MO-gVW">
-<<<<<<< HEAD
                         <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-=======
-                        <rect key="frame" x="0.0" y="687" width="414" height="49"/>
->>>>>>> origin/master
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -1789,11 +1785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrJ-LM-wM0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="581" y="4011"/>
-=======
-            <point key="canvasLocation" x="1304" y="3895"/>
->>>>>>> origin/master
         </scene>
         <!--Leads-->
         <scene sceneID="mmP-90-xKu">
@@ -1828,10 +1820,7 @@
         <image name="Phone Thumbnail.png" width="90" height="90"/>
         <image name="Scott Anders_Large.png" width="150" height="150"/>
         <image name="User Name Icon.png" width="46" height="46"/>
-<<<<<<< HEAD
         <image name="transparent-bg.png" width="750" height="1334"/>
-=======
->>>>>>> origin/master
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>
