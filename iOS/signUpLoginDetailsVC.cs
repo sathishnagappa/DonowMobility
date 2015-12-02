@@ -67,8 +67,6 @@ namespace donow.iOS
 
 		}
 
-
-
 		private bool Validation()
 		{
 			UIAlertView alert = null;
@@ -82,6 +80,7 @@ namespace donow.iOS
 //				alert.AddButton ("OK");
 //				alert.Show ();
 //			}
+
 			if (string.IsNullOrEmpty(TextBoxUserName.Text)) {
 				alert = new UIAlertView () { 
 					Title = "User Name is blank", 
