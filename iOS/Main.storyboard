@@ -1257,7 +1257,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3108">
-                                <rect key="frame" x="0.0" y="133" width="415" height="137"/>
+                                <rect key="frame" x="0.0" y="131" width="415" height="137"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lead Metrics" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3130">
                                         <rect key="frame" x="20" y="10" width="129" height="21"/>
@@ -1833,6 +1833,8 @@
                         <outlet property="ImageProspect" destination="Ya3-C7-874" id="name-outlet-Ya3-C7-874"/>
                         <outlet property="ImageSecondBroker" destination="HgP-dL-IUh" id="name-outlet-HgP-dL-IUh"/>
                         <outlet property="ImageThirdBroker" destination="jVy-4m-Pxh" id="name-outlet-jVy-4m-Pxh"/>
+                        <outlet property="LabelLeadScore" destination="Xef-xU-rYF" id="name-outlet-Xef-xU-rYF"/>
+                        <outlet property="LabelLeadSource" destination="b5j-4o-mWQ" id="name-outlet-b5j-4o-mWQ"/>
                         <outlet property="LabelProspectCityandState" destination="sOx-0W-2L4" id="name-outlet-sOx-0W-2L4"/>
                         <outlet property="LabelProspectCompanyName" destination="85N-8o-Upi" id="name-outlet-85N-8o-Upi"/>
                         <outlet property="LabelProspectName" destination="fjp-nB-7hD" id="name-outlet-fjp-nB-7hD"/>
