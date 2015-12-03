@@ -64,19 +64,11 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageProfileExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelBusinessNeeds { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCompanyInfo { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelDateTime { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -180,10 +172,6 @@ namespace donow.iOS
 				ImageProfile.Dispose ();
 				ImageProfile = null;
 			}
-			if (ImageProfileExpand != null) {
-				ImageProfileExpand.Dispose ();
-				ImageProfileExpand = null;
-			}
 			if (LabelBusinessNeeds != null) {
 				LabelBusinessNeeds.Dispose ();
 				LabelBusinessNeeds = null;
@@ -191,10 +179,6 @@ namespace donow.iOS
 			if (LabelCompanyInfo != null) {
 				LabelCompanyInfo.Dispose ();
 				LabelCompanyInfo = null;
-			}
-			if (LabelDateTime != null) {
-				LabelDateTime.Dispose ();
-				LabelDateTime = null;
 			}
 			if (LabelLeadMetrics != null) {
 				LabelLeadMetrics.Dispose ();

@@ -2,6 +2,8 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 using UIKit;
+using donow.PCL;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
@@ -13,7 +15,8 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-//			this.Title = "Referral Request";
+			CustomerBL customerBL = new CustomerBL ();
+			List<Customer> cusotmerList =  customerBL.GetAllCustomers ();
 		}
 	}
 }

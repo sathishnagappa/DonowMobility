@@ -2,6 +2,7 @@
 using UIKit;
 //using Facebook.CoreKit;
 using donow.PCL.Model;
+using EventKit;
 
 namespace donow.iOS
 {
@@ -15,6 +16,12 @@ namespace donow.iOS
 //		string appName = "DoNow App";
 		public static UserDetails UserDetails;
 		public static Profile UserProfile;
+		public static EKEventStore eventStore;
+
+		public static EKEventStore EventStore
+		{
+			get { return eventStore; }
+		}
 		public override UIWindow Window {
 			get;
 			set;
@@ -29,6 +36,7 @@ namespace donow.iOS
 //			Settings.DisplayName = appName;
 			UserDetails = new UserDetails();
 			UserProfile = new Profile ();
+			eventStore = new EKEventStore ( );
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();

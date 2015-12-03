@@ -223,6 +223,9 @@
     <Compile Include="dummyViewController.designer.cs">
       <DependentUpon>dummyViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalenderEventVC.cs" />
+    <Compile Include="CalenderHomeDVC.cs" />
+    <Compile Include="EventListDVC.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -90,7 +90,12 @@ namespace donow.iOS
 			};
 
 			ButtonCalendarAcceptView.TouchUpInside += (object sender, EventArgs e) => {
-
+				
+				UIApplication.SharedApplication.OpenUrl(new NSUrl("calshow://"));
+				//CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+				//if (calendarHomeDV != null)
+				//	this.NavigationController.PushViewController(calendarHomeDV, true);
+			      //PresentViewController(calendarHomeDV, true,null);
 			};
 
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
