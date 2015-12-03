@@ -21,12 +21,12 @@ namespace donow.PCL
 //			return parsedResponse;
 //		}
 
-		public UserDetails CreateUser(UserDetails userDetails)
+		public bool CreateUser(UserDetails userDetails)
 		{
 			RestService restSevice = new RestService ();
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(userDetails);
 			string response = restSevice.PostData (Constants.UserCreation, postData);
-			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			bool parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(response.ToString());
 			return parsedResponse;
 		}
 

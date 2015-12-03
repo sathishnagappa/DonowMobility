@@ -24,9 +24,30 @@ namespace donow.iOS
 			"Too Busy", "Score Lead too Low", "Not Right Fit"
 		};
 
+
+		public override void ViewWillAppear (bool animated)
+		{
+ 			base.ViewWillAppear (animated);
+			ViewTransparentBackground.Hidden = true;
+			ViewAccept.Hidden = true;
+			ViewPass.Hidden = true;
+
+			if (AppDelegate.IsCalendarClicked) {
+				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+				if (prospectVC != null) {
+					prospectVC.localLeads = leadObj;
+					this.NavigationController.PushViewController (prospectVC, true);
+				}
+			}
+		}
+
 		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+
+
+			this.Title = "Lead Details";
 
 			LabelTitleName.Text = leadObj.Name;
 			LabelScore.Text = leadObj.LeadScore.ToString();
@@ -36,9 +57,6 @@ namespace donow.iOS
 			LabelLocation.Text = leadObj.City + "," + leadObj.State;
 			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
 
-			TableViewPassView.Hidden = true;
-			ViewAccept.Hidden = true;
-			ViewPass.Hidden = true;
 
 			ButtonOptionPassView.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewPassView.Hidden = false;
@@ -92,11 +110,12 @@ namespace donow.iOS
 			};
 
 			ButtonCalendarAcceptView.TouchUpInside += (object sender, EventArgs e) => {
-				UIApplication.SharedApplication.OpenUrl(new NSUrl("calshow://"));
-				//CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
-				//if (calendarHomeDV != null)
-				//	this.NavigationController.PushViewController(calendarHomeDV, true);
-			      //PresentViewController(calendarHomeDV, true,null);
+				//UIApplication.SharedApplication.OpenUrl(new NSUrl("calshow://"));
+				AppDelegate.IsCalendarClicked = true;
+				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+			   // if (calendarHomeDV != null)
+				this.NavigationController.PushViewController(calendarHomeDV, true);
+			    //PresentViewController(calendarHomeDV, true,null);
 
 				//				label.AdjustsFontSizeToFitWidth = false;
 
@@ -148,13 +167,13 @@ namespace donow.iOS
 				}
 				if (isLeadAccepted) {
 					ViewAccept.Hidden = true;
-					prospectDetailsVC dummyVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-					if (dummyVC != null) {
+					prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+					if (prospectVC != null) {
 
-						dummyVC.localLeads = leadObj;
+						prospectVC.localLeads = leadObj;
 
-						this.PresentViewController (dummyVC, true, null);
-//						this.NavigationController.PushViewController(dummyVC, true);
+//						this.PresentViewController (dummyVC, true, null);
+						this.NavigationController.PushViewController(prospectVC, true);
 					}
 				} else {
 					ViewPass.Hidden = true;

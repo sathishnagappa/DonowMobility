@@ -24,6 +24,12 @@ namespace donow.iOS
 
 		public CalenderHomeDVC () : base (UITableViewStyle.Grouped, null)
 		{
+			this.NavigationItem.SetLeftBarButtonItem(
+				new UIBarButtonItem(UIImage.FromBundle("Navigation_Back_Icon.png"),UIBarButtonItemStyle.Plain, (sender,args) => {
+					this.NavigationController.PopViewController(true);
+				})
+				, true);
+			
 			// build out our table using MT.D
 			Root = calendarListRoot;
 			// add our calendar lists items
@@ -86,8 +92,8 @@ namespace donow.iOS
 		protected void LaunchCalendarListScreen (EKEntityType calendarStore)
 		{
 			calendarListScreen = new CalenderEventVC(calendarStore);
-			//NavigationController.PushViewController (calendarListScreen, true);
-			PresentViewController(calendarListScreen, true,null);
+			NavigationController.PushViewController (calendarListScreen, true);
+			//PresentViewController(calendarListScreen, true,null);
 		}
 
 		/// <summary>
@@ -127,6 +133,8 @@ namespace donow.iOS
 
 			// show the event controller
 			PresentViewController (eventController, true, null);
+			//NavigationController.PushViewController (calendarListScreen, true);
+
 		}
 
 		/// <summary>

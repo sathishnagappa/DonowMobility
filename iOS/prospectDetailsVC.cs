@@ -18,9 +18,10 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			AppDelegate.IsCalendarClicked = false;
 			base.ViewDidLoad ();
 
-			IList<Leads> leads = new  List<Leads> ();
+//			IList<Leads> leads = new  List<Leads> ();
 
 
 		}

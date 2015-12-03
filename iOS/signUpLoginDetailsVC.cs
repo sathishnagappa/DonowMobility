@@ -71,15 +71,15 @@ namespace donow.iOS
 		{
 			UIAlertView alert = null;
 			UserBL userBL = new UserBL ();
-//			if(userBL.CheckUserExist(TextBoxUserName.Text))
-//			{
-//				alert = new UIAlertView () { 
-//					Title = "Error", 
-//					Message = "User Name already exists."
-//				};
-//				alert.AddButton ("OK");
-//				alert.Show ();
-//			}
+			if(userBL.CheckUserExist(TextBoxUserName.Text))
+			{
+				alert = new UIAlertView () { 
+					Title = "Error", 
+					Message = "User Name already exists."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+			}
 
 			if (string.IsNullOrEmpty(TextBoxUserName.Text)) {
 				alert = new UIAlertView () { 

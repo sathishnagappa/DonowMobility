@@ -17,7 +17,7 @@ namespace donow.iOS
 		public static UserDetails UserDetails;
 		public static Profile UserProfile;
 		public static EKEventStore eventStore;
-
+		public static bool IsCalendarClicked;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }

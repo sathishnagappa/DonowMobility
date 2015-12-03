@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1134" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2858">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -600,7 +600,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1601">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1601">
                                 <rect key="frame" x="45" y="221" width="324" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tYl-G4-ORV"/>
@@ -608,7 +608,7 @@
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1602">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1602">
                                 <rect key="frame" x="45" y="477" width="324" height="45"/>
                                 <color key="backgroundColor" red="0.21176470588235294" green="0.58823529411764708" blue="0.7686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -625,7 +625,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3073">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3073">
                                 <rect key="frame" x="45" y="301" width="324" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zPd-Et-jgt"/>
@@ -633,7 +633,7 @@
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3074">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3074">
                                 <rect key="frame" x="45" y="381" width="324" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fHA-eW-9N6"/>
@@ -791,7 +791,7 @@
                     <connections>
                         <segue destination="2SF-Ef-MM8" kind="relationship" relationship="viewControllers" id="wCh-7I-zUH"/>
                         <segue destination="9BI-kv-aKZ" kind="relationship" relationship="viewControllers" id="95g-Bh-VZd"/>
-                        <segue destination="gU7-ZM-RZ7" kind="relationship" relationship="viewControllers" id="orl-JU-wgb"/>
+                        <segue destination="6wj-FA-biO" kind="relationship" relationship="viewControllers" id="orl-JU-wgb"/>
                         <segue destination="ulS-fI-BRO" kind="relationship" relationship="viewControllers" id="mAk-9e-93H"/>
                         <segue destination="G6v-n5-VUg" kind="relationship" relationship="viewControllers" id="vFn-2b-AMo"/>
                     </connections>
@@ -858,7 +858,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Leads" image="Leads Icon_25x25px.png" id="ocd-tU-ClN"/>
                     <navigationItem key="navigationItem" id="whu-0e-mlT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -1192,7 +1191,7 @@
                 <navigationController definesPresentationContext="YES" id="2858" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2861">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="508" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <color key="barTintColor" red="0.61568627450980395" green="0.19607843137254902" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -1207,10 +1206,10 @@
             </objects>
             <point key="canvasLocation" x="-545" y="-306"/>
         </scene>
-        <!--Lead DetailVC-->
+        <!--Lead Details-->
         <scene sceneID="3102">
             <objects>
-                <viewController storyboardIdentifier="LeadDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3103" customClass="LeadDetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeadDetailVC" title="Lead Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3103" customClass="LeadDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3100"/>
                         <viewControllerLayoutGuide type="bottom" id="3101"/>
@@ -1257,7 +1256,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3108">
-                                <rect key="frame" x="0.0" y="133" width="415" height="137"/>
+                                <rect key="frame" x="0.0" y="131" width="415" height="137"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lead Metrics" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3130">
                                         <rect key="frame" x="20" y="10" width="129" height="21"/>
@@ -1408,7 +1407,7 @@
                                 <rect key="frame" x="40" y="190" width="327" height="213"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lead Accepted !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBE-d4-2fX">
-                                        <rect key="frame" x="112" y="24" width="164" height="33"/>
+                                        <rect key="frame" x="80" y="24" width="164" height="33"/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1521,6 +1520,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="5Vz-Rt-SSf"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -1560,10 +1560,10 @@
             </objects>
             <point key="canvasLocation" x="1259" y="4047"/>
         </scene>
-        <!--Prospect DetailsVC-->
+        <!--Prospect-->
         <scene sceneID="Cq8-vu-zAt">
             <objects>
-                <viewController storyboardIdentifier="dummyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2wH-4f-w9r" customClass="prospectDetailsVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dummyViewController" title="Prospect" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2wH-4f-w9r" customClass="prospectDetailsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bDU-NN-XwV"/>
                         <viewControllerLayoutGuide type="bottom" id="JKC-04-Ft2"/>
@@ -1833,6 +1833,8 @@
                         <outlet property="ImageProspect" destination="Ya3-C7-874" id="name-outlet-Ya3-C7-874"/>
                         <outlet property="ImageSecondBroker" destination="HgP-dL-IUh" id="name-outlet-HgP-dL-IUh"/>
                         <outlet property="ImageThirdBroker" destination="jVy-4m-Pxh" id="name-outlet-jVy-4m-Pxh"/>
+                        <outlet property="LabelLeadScore" destination="Xef-xU-rYF" id="name-outlet-Xef-xU-rYF"/>
+                        <outlet property="LabelLeadSource" destination="b5j-4o-mWQ" id="name-outlet-b5j-4o-mWQ"/>
                         <outlet property="LabelProspectCityandState" destination="sOx-0W-2L4" id="name-outlet-sOx-0W-2L4"/>
                         <outlet property="LabelProspectCompanyName" destination="85N-8o-Upi" id="name-outlet-85N-8o-Upi"/>
                         <outlet property="LabelProspectName" destination="fjp-nB-7hD" id="name-outlet-fjp-nB-7hD"/>
@@ -1843,28 +1845,27 @@
             <point key="canvasLocation" x="581" y="4011"/>
         </scene>
         <!--Leads-->
-        <scene sceneID="35E-FK-1eR">
+        <scene sceneID="g7d-tC-Hrx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gU7-ZM-RZ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Leads" image="Collaboration.png" id="ocd-tU-ClN"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6wj-FA-biO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Leads" image="Leads Icon_25x25px.png" id="ocd-tU-ClN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="uOp-e8-MRV">
-                        <rect key="frame" x="0.0" y="20" width="880" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T26-6m-NsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Vbc-Ed-l3g" kind="relationship" relationship="rootViewController" id="hqa-5V-F2g"/>
+                        <segue destination="Vbc-Ed-l3g" kind="relationship" relationship="rootViewController" id="NmM-CO-gAz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uQe-FF-pjY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXr-Gu-JLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="152" y="2159"/>
         </scene>
     </scenes>
     <resources>
         <image name="Calendar Thumbnail.png" width="90" height="90"/>
-        <image name="Collaboration.png" width="25" height="25"/>
         <image name="Customer Feed Icon_25x25px.png" width="25" height="25"/>
         <image name="Customers Icon_25x25px.png" width="25" height="25"/>
         <image name="DoNow Logo.png" width="270" height="314"/>
@@ -1883,7 +1884,7 @@
         <image name="down-arrow.png" width="13" height="9"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jyY-bd-t4A"/>
         <segue reference="2831"/>
+        <segue reference="jyY-bd-t4A"/>
     </inferredMetricsTieBreakers>
 </document>

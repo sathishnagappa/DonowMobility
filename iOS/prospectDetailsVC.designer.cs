@@ -76,6 +76,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLeadScore { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLeadSource { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelProspectCityandState { get; set; }
 
 		[Outlet]
@@ -147,6 +155,14 @@ namespace donow.iOS
 			if (ImageThirdBroker != null) {
 				ImageThirdBroker.Dispose ();
 				ImageThirdBroker = null;
+			}
+			if (LabelLeadScore != null) {
+				LabelLeadScore.Dispose ();
+				LabelLeadScore = null;
+			}
+			if (LabelLeadSource != null) {
+				LabelLeadSource.Dispose ();
+				LabelLeadSource = null;
 			}
 			if (LabelProspectCityandState != null) {
 				LabelProspectCityandState.Dispose ();
