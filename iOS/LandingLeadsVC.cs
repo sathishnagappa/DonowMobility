@@ -17,9 +17,39 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+            this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.SetNavigationBarHidden (true, false);
+//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+//			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+//				this.NavigationController.PopViewController(true);
+//			}), true);
+		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+//			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+//				this.NavigationController.PopViewController(true);
+//			}), true);
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			this.Title = "Leads";
 //			var table = new UITableView(View.Bounds); // defaults to Plain style
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
@@ -84,7 +114,8 @@ namespace donow.iOS
 				LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 				if (leadDetailVC != null) {
 					leadDetailVC.leadObj = TableItems[indexPath.Row];
-					owner.View.AddSubview (leadDetailVC.View);
+					//owner.View.AddSubview (leadDetailVC.View);
+					owner.NavigationController.PushViewController(leadDetailVC,true);
 //				UIWindow window = new UIWindow(UIScreen.MainScreen.Bounds);
 //
 //				UINavigationController NavigationController = new UINavigationController ();

@@ -18,12 +18,12 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			AppDelegate.IsCalendarClicked = false;
 			base.ViewDidLoad ();
 
 			LabelProspectName.Text = localLeads.Name;
 			LabelProspectCompanyName.Text = localLeads.Company;
 			LabelProspectCityandState.Text = localLeads.City + ", " + localLeads.State;
-
 			LabelLeadScore.Text = localLeads.LeadScore.ToString();
 			LabelLeadSource.Text = localLeads.Source;
 

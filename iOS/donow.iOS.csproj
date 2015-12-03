@@ -63,6 +63,9 @@
     <MtouchDebug>true</MtouchDebug>
     <IpaPackageName>
     </IpaPackageName>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -223,6 +226,9 @@
     <Compile Include="prospectDetailsVC.designer.cs">
       <DependentUpon>prospectDetailsVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalenderEventVC.cs" />
+    <Compile Include="CalenderHomeDVC.cs" />
+    <Compile Include="EventListDVC.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
