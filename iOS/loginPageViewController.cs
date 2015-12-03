@@ -104,7 +104,7 @@ namespace donow.iOS
 
 
 				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
-
+				
 				if(AppDelegate.UserProfile.email_verified == true)
 				{
 					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;

@@ -24,11 +24,23 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonBusinessNeedsExpand { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonCalendarAcceptView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonCompanyInfoExpand { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonEmailAcceptView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonLeadMetricesExpand { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -132,13 +144,25 @@ namespace donow.iOS
 				ButtonAccept.Dispose ();
 				ButtonAccept = null;
 			}
+			if (ButtonBusinessNeedsExpand != null) {
+				ButtonBusinessNeedsExpand.Dispose ();
+				ButtonBusinessNeedsExpand = null;
+			}
 			if (ButtonCalendarAcceptView != null) {
 				ButtonCalendarAcceptView.Dispose ();
 				ButtonCalendarAcceptView = null;
 			}
+			if (ButtonCompanyInfoExpand != null) {
+				ButtonCompanyInfoExpand.Dispose ();
+				ButtonCompanyInfoExpand = null;
+			}
 			if (ButtonEmailAcceptView != null) {
 				ButtonEmailAcceptView.Dispose ();
 				ButtonEmailAcceptView = null;
+			}
+			if (ButtonLeadMetricesExpand != null) {
+				ButtonLeadMetricesExpand.Dispose ();
+				ButtonLeadMetricesExpand = null;
 			}
 			if (ButtonOptionPassView != null) {
 				ButtonOptionPassView.Dispose ();

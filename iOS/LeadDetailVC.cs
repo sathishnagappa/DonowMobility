@@ -6,6 +6,8 @@ using donow.PCL.Model;
 using System.Collections.Generic;
 using MessageUI;
 using EventKit;
+using CoreGraphics;
+using System.Drawing;
 
 namespace donow.iOS
 {
@@ -82,7 +84,7 @@ namespace donow.iOS
 						Console.WriteLine (args.Result.ToString ());
 						args.Controller.DismissViewController (true, null);
 					};
-
+						 
 					this.PresentViewController (mailController, true, null);
 
 //					Device.OpenUri(new Uri("mailto:ryan.hatfield@test.com"));
@@ -90,12 +92,29 @@ namespace donow.iOS
 			};
 
 			ButtonCalendarAcceptView.TouchUpInside += (object sender, EventArgs e) => {
-				
 				UIApplication.SharedApplication.OpenUrl(new NSUrl("calshow://"));
 				//CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
 				//if (calendarHomeDV != null)
 				//	this.NavigationController.PushViewController(calendarHomeDV, true);
 			      //PresentViewController(calendarHomeDV, true,null);
+
+				//				label.AdjustsFontSizeToFitWidth = false;
+
+
+			};
+
+			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
+			
+				var maxHeight = 500.0f;
+				float width = 280;// label.Frame.Width;  
+				LabelCompanyInfo.Lines = 0;
+				CGSize size = ((NSString)LabelCompanyInfo.Text).StringSize(LabelCompanyInfo.Font,  
+					constrainedToSize:new SizeF(width, maxHeight) ,lineBreakMode:UILineBreakMode.WordWrap);
+
+				var labelFrame = LabelCompanyInfo.Frame;
+				labelFrame.Size = new CGSize(280,size.Height);
+				LabelCompanyInfo.Frame = labelFrame; 
+
 			};
 
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
@@ -129,8 +148,11 @@ namespace donow.iOS
 				}
 				if (isLeadAccepted) {
 					ViewAccept.Hidden = true;
-					dummyViewController dummyVC = this.Storyboard.InstantiateViewController ("dummyViewController") as dummyViewController;
+					prospectDetailsVC dummyVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (dummyVC != null) {
+
+						dummyVC.localLeads = leadObj;
+
 						this.PresentViewController (dummyVC, true, null);
 //						this.NavigationController.PushViewController(dummyVC, true);
 					}
