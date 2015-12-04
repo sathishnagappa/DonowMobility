@@ -28,39 +28,11 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageAcquireLead { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageBackgroundAcquireLead { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageBackgroundCloseSale { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageBackgroundFollowUp { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageBackgroundProposal { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageCloseSale { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageFirstBroker { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageFollowUp { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageProposal { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -108,41 +80,13 @@ namespace donow.iOS
 				ButtonSeeAllBrokers.Dispose ();
 				ButtonSeeAllBrokers = null;
 			}
-			if (ImageAcquireLead != null) {
-				ImageAcquireLead.Dispose ();
-				ImageAcquireLead = null;
-			}
 			if (ImageBackgroundAcquireLead != null) {
 				ImageBackgroundAcquireLead.Dispose ();
 				ImageBackgroundAcquireLead = null;
 			}
-			if (ImageBackgroundCloseSale != null) {
-				ImageBackgroundCloseSale.Dispose ();
-				ImageBackgroundCloseSale = null;
-			}
-			if (ImageBackgroundFollowUp != null) {
-				ImageBackgroundFollowUp.Dispose ();
-				ImageBackgroundFollowUp = null;
-			}
-			if (ImageBackgroundProposal != null) {
-				ImageBackgroundProposal.Dispose ();
-				ImageBackgroundProposal = null;
-			}
-			if (ImageCloseSale != null) {
-				ImageCloseSale.Dispose ();
-				ImageCloseSale = null;
-			}
 			if (ImageFirstBroker != null) {
 				ImageFirstBroker.Dispose ();
 				ImageFirstBroker = null;
-			}
-			if (ImageFollowUp != null) {
-				ImageFollowUp.Dispose ();
-				ImageFollowUp = null;
-			}
-			if (ImageProposal != null) {
-				ImageProposal.Dispose ();
-				ImageProposal = null;
 			}
 			if (ImageProspect != null) {
 				ImageProspect.Dispose ();

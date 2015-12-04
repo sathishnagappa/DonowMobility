@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace donow.iOS
 {
-	partial class HambergerMenuVC  : UITableViewController
+	partial class HambergerMenuVC  : UIViewController
 	{
 		public HambergerMenuVC  (IntPtr handle) : base (handle)
 		{
@@ -25,16 +25,19 @@ namespace donow.iOS
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 		}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-//			this.Title = "Hamburger Menu";
+			this.Title = "Hamburger Menu";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {/*"Notifications",*/"My Profile","My Meetings","Deal Makers","Account Management",};
+			string[] tableItems = new string[] {"My Profile","My Meetings","Deal Makers","Account Management",};
 			table.Source = new TableSource(tableItems, imageIcons, this);
-			Add (table);
+			View.Add (table);
 		}
 
 		public class TableSource : UITableViewSource {

@@ -17,6 +17,12 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+		}
+
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
@@ -29,6 +35,12 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Sign Up";
+
+
+			TextBoxUserName.Text = string.Empty;
+			TextBoxPassword.Text = string.Empty;
+			TextBoxVerifyPassword.Text = string.Empty;
+
 //			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 //				bounds.Size = new CGSize(bounds.Size.Height, bounds.Size.Width);

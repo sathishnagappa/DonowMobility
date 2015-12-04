@@ -21,6 +21,17 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			TextBoxEmail.Text = string.Empty;
+			TextBoxCompany.Text = string.Empty;
+			TextBoxTitle.Text = string.Empty;
+			TextBoxFullName.Text = string.Empty;
+			TextBoxIndustry.Text = string.Empty;
+			TextBoxZip.Text = string.Empty;
+			TextBoxPhone.Text = string.Empty;
+			TextBoxOfficeAddress.Text = string.Empty;
+			TextBoxCity.Text = string.Empty;
+			TextBoxState.Text = string.Empty;
+			
 			TextBoxShouldReturn ();
 			if (AppDelegate.UserProfile.name != null) {
 				LoadUserDetails ();
