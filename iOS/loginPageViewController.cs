@@ -38,7 +38,7 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+			this.NavigationController.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem(UIImage.FromBundle("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
 				this.NavigationController.PopViewController(true);
 			}), true);
 		}
@@ -71,7 +71,7 @@ namespace donow.iOS
 			#endif
 			//AppDelegate.UserDetails.UserName = "sathish";
 			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
 //				RestService rs = new RestService();
 //				string content = rs.SFDCAuthentication();
@@ -100,9 +100,18 @@ namespace donow.iOS
 					"donow.auth0.com",
 					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
 
-				var user = await auth0.LoginAsync(this,"linkedin");
+//				Auth0User user = null;
+//				try
+//				{
+				 var user = await auth0.LoginAsync(this,"linkedin");
+//				}
+//				catch(Exception ex)
+//				{
+//					this.DismissViewController(true,null);
+//				}
 
-
+				if(user != null)
+				{
 				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
 				
 				if(AppDelegate.UserProfile.email_verified == true)
@@ -111,6 +120,7 @@ namespace donow.iOS
 					if (signUpVC != null) {
 						this.NavigationController.PushViewController(signUpVC, true);
 					}
+				}
 				}
 
 			};

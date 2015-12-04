@@ -73,18 +73,21 @@ namespace donow.Services
 		{
 
 			HttpClient queryClient3 = new HttpClient ();
-			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/sobjects/Lead/";
+			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/sobjects/Lead/00Q28000001Ku4xEAC?_HttpMethod=PATCH";
 
-			string insertPacket = "{ \"FirstName\": \"John\",\"LastName\": \"Gibson\",\"Company\" : \"Brillio\",\"Email\": \"john.gibson@brillio.com\" }";
+			string insertPacket = "{ \"FirstName\": \"Jack\",\"LastName\": \"Nickelson\",\"Company\" : \"IBM\",\"Email\": \"jack.Nickelson@brillio.com\" }";
 
 			StringContent insertString = new StringContent(insertPacket,Encoding.UTF8,"application/json");
 			HttpRequestMessage request3 = new HttpRequestMessage(HttpMethod.Post, serviceURL3);
 			request3.Headers.Add("Authorization", "OAuth " + accessCode);
 			request3.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			request3.Headers.Add("X-Http-Method-Override", "PATCH");
 			request3.Content = insertString;
 			HttpResponseMessage response3 = await queryClient3.SendAsync(request3);
 			string result = await response3.Content.ReadAsStringAsync();
 			return result;
+
+
 
 		}
 

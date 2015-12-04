@@ -8,6 +8,7 @@ using MonoTouch.Dialog;
 using Foundation;
 using UIKit;
 using EventKit;
+using donow.PCL.Model;
 
 namespace donow.iOS
 {
@@ -182,11 +183,26 @@ namespace donow.iOS
 			{
 				// save our controller reference
 				this.eventController = eventController;
+
 			}
+
+			void AddEvent(EKEvent calendarEvent)
+			{
+				CalenderEvent calendarObj = new CalenderEvent ();
+				calendarObj.ID = 1;
+				calendarObj.LeadID = "3";
+				calendarObj.UserID = "6";
+				calendarObj.Subject = calendarEvent.Title;
+				calendarObj.StartDate = calendarEvent.StartDate.ToString ();
+				calendarObj.EndDate = calendarEvent.EndDate.ToString ();
+				AppDelegate.CalendarList.Add (calendarObj);
+			}
+
 
 			// completed is called when a user eith
 			public override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
 			{
+				AddEvent(controller.Event);
 				eventController.DismissViewController (true, null);
 
 				// action tells you what the user did in the dialog, so you can optionally

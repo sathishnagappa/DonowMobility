@@ -3,6 +3,7 @@ using UIKit;
 //using Facebook.CoreKit;
 using donow.PCL.Model;
 using EventKit;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
@@ -18,6 +19,7 @@ namespace donow.iOS
 		public static Profile UserProfile;
 		public static EKEventStore eventStore;
 		public static bool IsCalendarClicked;
+		public static List<CalenderEvent> CalendarList;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }
@@ -37,6 +39,7 @@ namespace donow.iOS
 			UserDetails = new UserDetails();
 			UserProfile = new Profile ();
 			eventStore = new EKEventStore ( );
+			CalendarList = new List<CalenderEvent> ();
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
