@@ -28,7 +28,13 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
  			base.ViewWillAppear (animated);
-			ViewTransparentBackground.Hidden = true;
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+			ButtonBackgroundView.Hidden = true;
 			ViewAccept.Hidden = true;
 			ViewPass.Hidden = true;
 
@@ -44,8 +50,6 @@ namespace donow.iOS
 		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-
 
 			this.Title = "Lead Details";
 
@@ -65,15 +69,33 @@ namespace donow.iOS
 			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 
 			ButtonAccept.TouchUpInside += (object sender, EventArgs e) => {
-				ViewTransparentBackground.Hidden = false;
+				ButtonBackgroundView.Hidden = false;
 				ViewAccept.Hidden = false;
 				isLeadAccepted = true;
 			};
 
 			ButtonPass.TouchUpInside += (object sender, EventArgs e) => {
-				ViewTransparentBackground.Hidden = false;
+				ButtonBackgroundView.Hidden = false;
 				ViewPass.Hidden = false;
 				isLeadAccepted = false;
+			};
+
+			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {
+
+				ButtonBackgroundView.Hidden = true;
+				if (isLeadAccepted) {
+					ViewAccept.Hidden = true;
+					prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+					if (prospectVC != null) {
+
+						prospectVC.localLeads = leadObj;
+
+						//						this.PresentViewController (dummyVC, true, null);
+						this.NavigationController.PushViewController(prospectVC, true);
+					}
+				} else {
+					ViewPass.Hidden = true;
+				}
 			};
 
 			ButtonPhoneAcceptView.TouchUpInside += (object sender, EventArgs e) => {
@@ -138,7 +160,7 @@ namespace donow.iOS
 
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
 				ViewPass.Hidden = true;
-				ViewTransparentBackground.Hidden = true;
+				ButtonBackgroundView.Hidden = true;
 				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
 				if (landingLeadsVC != null) {
 					this.NavigationController.PushViewController(landingLeadsVC, true);
@@ -147,38 +169,12 @@ namespace donow.iOS
 			};
 		}
 
+
+
 		public void UpdateControls (string Parameter)
 		{
 			ButtonOptionPassView.SetTitle (Parameter, UIControlState.Normal);
 			TableViewPassView.Hidden = true;
-		}
-
-		public override void TouchesBegan (NSSet touches, UIEvent evt)
-		{
-			base.TouchesBegan (touches, evt);
-			UITouch touch = touches.AnyObject as UITouch;
-			if (touch != null)
-			{
-				//code here to handle touch
-				if (this.ViewTransparentBackground.Frame.Contains (touch.LocationInView (this.View)))
-				{
-					// the touch event happened inside the UIView imgTouchMe.
-					ViewTransparentBackground.Hidden = true;
-				}
-				if (isLeadAccepted) {
-					ViewAccept.Hidden = true;
-					prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-					if (prospectVC != null) {
-
-						prospectVC.localLeads = leadObj;
-
-//						this.PresentViewController (dummyVC, true, null);
-						this.NavigationController.PushViewController(prospectVC, true);
-					}
-				} else {
-					ViewPass.Hidden = true;
-				}
-			}
 		}
 	}
 

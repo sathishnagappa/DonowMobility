@@ -24,6 +24,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonBackgroundView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonBusinessNeedsExpand { get; set; }
 
 		[Outlet]
@@ -130,10 +134,6 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView ViewTransparentBackground { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
@@ -143,6 +143,10 @@ namespace donow.iOS
 			if (ButtonAccept != null) {
 				ButtonAccept.Dispose ();
 				ButtonAccept = null;
+			}
+			if (ButtonBackgroundView != null) {
+				ButtonBackgroundView.Dispose ();
+				ButtonBackgroundView = null;
 			}
 			if (ButtonBusinessNeedsExpand != null) {
 				ButtonBusinessNeedsExpand.Dispose ();
@@ -251,10 +255,6 @@ namespace donow.iOS
 			if (ViewPass != null) {
 				ViewPass.Dispose ();
 				ViewPass = null;
-			}
-			if (ViewTransparentBackground != null) {
-				ViewTransparentBackground.Dispose ();
-				ViewTransparentBackground = null;
 			}
 		}
 	}

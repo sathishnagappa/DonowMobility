@@ -267,6 +267,11 @@
     <BundleResource Include="Resources\Leads Icon_25x25px.png" />
     <BundleResource Include="Resources\Referral Requests Icon_25x25px.png" />
     <BundleResource Include="Resources\down-arrow.png" />
+    <BundleResource Include="Resources\LifeCycle_Proposal Highlight.png" />
+    <BundleResource Include="Resources\LifeCycle_Acquire Lead Highlight.png" />
+    <BundleResource Include="Resources\LifeCycle_Close Sale Highlight.png" />
+    <BundleResource Include="Resources\LifeCycle_Follow Up Highlight.png" />
+    <BundleResource Include="Resources\Aman Tankar_Small.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

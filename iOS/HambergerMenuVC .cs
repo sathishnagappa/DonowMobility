@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace donow.iOS
 {
-	partial class HambergerMenuVC  : UITableViewController
+	partial class HambergerMenuVC  : UIViewController
 	{
 		public HambergerMenuVC  (IntPtr handle) : base (handle)
 		{
@@ -23,37 +23,17 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			//this.NavigationController.SetNavigationBarHidden (true, false);
-			//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
-			//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-			//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-			//			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-			//				this.NavigationController.PopViewController(true);
-			//			}), true);
 		}
 
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-//			this.NavigationController.SetNavigationBarHidden (false, false);
-//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
-//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-//			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-//				this.NavigationController.PopViewController(true);
-//			}), true);
-		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-//			this.Title = "Hamburger Menu";
+			this.Title = "Hamburger Menu";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {/*"Notifications",*/"My Profile","My Meetings","Deal Makers","Account Management",};
+			string[] tableItems = new string[] {"My Profile","My Meetings","Deal Makers","Account Management",};
 			table.Source = new TableSource(tableItems, imageIcons, this);
-			Add (table);
+			View.Add (table);
 		}
 
 		public class TableSource : UITableViewSource {

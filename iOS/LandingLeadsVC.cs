@@ -35,10 +35,10 @@ namespace donow.iOS
 		{
 			base.ViewWillDisappear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-			this.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
-			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+//			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+//			this.NavigationController.SetNavigationBarHidden (false, false);
+//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 //			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
 //				this.NavigationController.PopViewController(true);
@@ -116,13 +116,6 @@ namespace donow.iOS
 					leadDetailVC.leadObj = TableItems[indexPath.Row];
 					//owner.View.AddSubview (leadDetailVC.View);
 					owner.NavigationController.PushViewController(leadDetailVC,true);
-//				UIWindow window = new UIWindow(UIScreen.MainScreen.Bounds);
-//
-//				UINavigationController NavigationController = new UINavigationController ();
-//					leadDetailVC = NavigationController.TopViewController as LeadDetailVC;
-////				leadDetailVC.leadObj = TableItems[indexPath.Row];
-//				window.RootViewController = leadDetailVC;
-//					window.MakeKeyAndVisible ();
 				}
 			}
 	

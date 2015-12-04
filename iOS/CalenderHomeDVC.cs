@@ -21,6 +21,10 @@ namespace donow.iOS
 		// event controller delegate
 		protected CreateEventEditViewDelegate eventControllerDelegate;
 
+		public override void ViewWillAppear (bool animated)
+		{
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+		}
 
 		public CalenderHomeDVC () : base (UITableViewStyle.Grouped, null)
 		{

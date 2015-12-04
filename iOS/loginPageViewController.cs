@@ -71,7 +71,7 @@ namespace donow.iOS
 			#endif
 			//AppDelegate.UserDetails.UserName = "sathish";
 			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
 //				RestService rs = new RestService();
 //				string content = rs.SFDCAuthentication();
@@ -100,7 +100,7 @@ namespace donow.iOS
 					"donow.auth0.com",
 					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
 
-				var user = await auth0.LoginAsync(this,"linkedin");
+				var user = await auth0.LoginAsync(this,"linkedin");				
 
 
 				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
