@@ -100,7 +100,7 @@ namespace donow.iOS
 					"donow.auth0.com",
 					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
 
-<<<<<<< HEAD
+
 //				Auth0User user = null;
 //				try
 //				{
@@ -113,11 +113,7 @@ namespace donow.iOS
 
 				if(user != null)
 				{
-=======
-				var user = await auth0.LoginAsync(this,"linkedin");				
-
-
->>>>>>> origin/master
+					
 				AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
 				
 				if(AppDelegate.UserProfile.email_verified == true)

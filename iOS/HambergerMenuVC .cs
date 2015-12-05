@@ -25,11 +25,6 @@ namespace donow.iOS
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 		}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
-
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();

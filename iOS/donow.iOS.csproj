@@ -75,9 +75,6 @@
     <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="Facebook">
-      <HintPath>..\packages\Xamarin.Facebook.iOS.4.5.1.0\lib\Xamarin.iOS10\Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="Auth0Client.iOS">
       <HintPath>..\Components\Auth0Client-0.5.0\lib\ios-unified\Auth0Client.iOS.dll</HintPath>
     </Reference>
@@ -92,6 +89,9 @@
     </Reference>
     <Reference Include="Salesforce">
       <HintPath>..\Components\SalesforceSDK-1.4.4.0\lib\ios-unified\Salesforce.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Xamarin.Facebook.iOS.4.8.0.0\lib\Xamarin.iOS10\Facebook.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +123,6 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="leadsCustomCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -257,7 +256,6 @@
     <BundleResource Include="Resources\Expand Icon.png" />
     <BundleResource Include="Resources\.DS_Store" />
     <BundleResource Include="Resources\Account Mgmt Icon.png" />
-    <BundleResource Include="Resources\HAMBURGER MENU_RED LINE.pdf" />
     <BundleResource Include="Resources\Info Page Icon.png" />
     <BundleResource Include="Resources\My Deal Makers Icon.png" />
     <BundleResource Include="Resources\My Profile Icon.png" />
@@ -272,6 +270,10 @@
     <BundleResource Include="Resources\LifeCycle_Close Sale Highlight.png" />
     <BundleResource Include="Resources\LifeCycle_Follow Up Highlight.png" />
     <BundleResource Include="Resources\Aman Tankar_Small.png" />
+    <BundleResource Include="Resources\Latest Customer Info.png" />
+    <BundleResource Include="Resources\Latest Industry Thumb.png" />
+    <BundleResource Include="Resources\My Notes Icon.png" />
+    <BundleResource Include="Resources\Talking Points Thumb.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
