@@ -728,6 +728,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3215">
+                                <rect key="frame" x="184" y="382" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pA2-aM-ugz" kind="show" id="3284"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1560,7 +1569,7 @@
         <!--Customer ProfileVC-->
         <scene sceneID="HGd-sp-gCN">
             <objects>
-                <viewController storyboardIdentifier="CustomerProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pA2-aM-ugz" customClass="CustomerProfileVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="customerProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pA2-aM-ugz" customClass="customerProfileVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D9d-EQ-fIi"/>
                         <viewControllerLayoutGuide type="bottom" id="Ufw-yU-Oj9"/>
@@ -1675,35 +1684,38 @@
                                         <rect key="frame" x="0.0" y="472" width="414" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="CCl-2y-wbY">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeadsTableCell" rowHeight="150" id="CCl-2y-wbY">
                                                 <rect key="frame" x="0.0" y="1" width="414" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CCl-2y-wbY" id="vFS-ow-vvQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Leads Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="i9N-7z-7rC">
                                                             <rect key="frame" x="35" y="23" width="60" height="55"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <bool key="isElement" value="NO"/>
+                                                            </accessibility>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sales Coordination Software" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3T-5a-yCC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sales Coordination Software" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3T-5a-yCC" tag="10">
                                                             <rect key="frame" x="122" y="17" width="273" height="32"/>
                                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lead Score: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osn-wb-yIT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lead Score: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osn-wb-yIT" tag="20">
                                                             <rect key="frame" x="124" y="58" width="127" height="21"/>
                                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Source: DoNow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLf-Ee-b6y">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Source: DoNow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLf-Ee-b6y" tag="30">
                                                             <rect key="frame" x="264" y="57" width="127" height="21"/>
                                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 hrs ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDU-IW-HBb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 hrs ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDU-IW-HBb" tag="40">
                                                             <rect key="frame" x="124" y="100" width="72" height="21"/>
                                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1715,6 +1727,7 @@
                                                         </view>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections/>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -1755,14 +1768,14 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="UJl-F7-R6x">
-                                                <rect key="frame" x="0.0" y="120" width="414" height="100"/>
+                                                <rect key="frame" x="0.0" y="120" width="414" height="141"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="qNe-OT-htZ">
                                                         <rect key="frame" x="0.0" y="1" width="414" height="135"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNe-OT-htZ" id="01b-b0-eba">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-WM-3fN">
@@ -1822,7 +1835,7 @@
                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJe-Ko-TE5" id="i7O-x8-h8w">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-ib-Qsd">
@@ -1933,7 +1946,7 @@
                                                                 <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W75-AG-OP2" id="6m6-C7-9zE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Email Sent Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-vK-D4z">
@@ -2006,7 +2019,7 @@
                                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zvO-YN-HDe" id="QYk-2Z-yJE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Between Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-Kb-0mb">
@@ -2079,10 +2092,29 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <outlet property="ButtonMail" destination="xvi-3Y-UyS" id="name-outlet-xvi-3Y-UyS"/>
+                        <outlet property="ButtonPhone" destination="Sb9-vV-zJp" id="name-outlet-Sb9-vV-zJp"/>
+                        <outlet property="ButtonSeeAllDealHistory" destination="orj-S9-6Bm" id="name-outlet-orj-S9-6Bm"/>
+                        <outlet property="ButtonSeeAllEmails" destination="Cxx-yZ-JhG" id="name-outlet-Cxx-yZ-JhG"/>
+                        <outlet property="ButtonSeeAllLeadsTable" destination="o0B-HB-uiw" id="name-outlet-o0B-HB-uiw"/>
+                        <outlet property="ButtonSeeAllPreviousMeetings" destination="GYt-6i-tBE" id="name-outlet-GYt-6i-tBE"/>
+                        <outlet property="DealMakersImage1" destination="DAK-gf-dWG" id="name-outlet-DAK-gf-dWG"/>
+                        <outlet property="DealMakersImage2" destination="4Gw-jQ-3w0" id="name-outlet-4Gw-jQ-3w0"/>
+                        <outlet property="DealMakersImage3" destination="344-VO-Szx" id="name-outlet-344-VO-Szx"/>
+                        <outlet property="LabelCityAndState" destination="2nt-5S-Fd0" id="name-outlet-2nt-5S-Fd0"/>
+                        <outlet property="LabelCompanyName" destination="Oaf-eb-k6F" id="name-outlet-Oaf-eb-k6F"/>
+                        <outlet property="LabelCustomerName" destination="cMQ-7r-aXH" id="name-outlet-cMQ-7r-aXH"/>
+                        <outlet property="ScrollViewCustomerProfile" destination="QiS-Ms-hfe" id="name-outlet-QiS-Ms-hfe"/>
+                        <outlet property="TableViewDealHistory" destination="Gup-r9-vv2" id="name-outlet-Gup-r9-vv2"/>
+                        <outlet property="TableViewEmails" destination="en9-PS-53h" id="name-outlet-en9-PS-53h"/>
+                        <outlet property="TableViewMeetings" destination="UJl-F7-R6x" id="name-outlet-UJl-F7-R6x"/>
+                        <outlet property="TableViewNewLeads" destination="3Xr-se-TCS" id="name-outlet-3Xr-se-TCS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EaM-Xv-IdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2037" y="4124"/>
+            <point key="canvasLocation" x="1817" y="3957"/>
         </scene>
         <!--Prospect-->
         <scene sceneID="Cq8-vu-zAt">
@@ -2366,6 +2398,31 @@
         <image name="See All Icon.png" width="18" height="34"/>
         <image name="User Name Icon.png" width="46" height="46"/>
         <image name="down-arrow.png" width="13" height="9"/>
+        <image name="DoNowSplash.png" width="137" height="118"/>
+        <image name="settingsImage.png" width="30" height="30"/>
+        <image name="Collaboration.png" width="25" height="25"/>
+        <image name="mvboli.ttf" width="0" height="0"/>
+        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
+        <image name="Stream Icon_Small.png" width="58" height="58"/>
+        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
+        <image name="Account Mgmt Icon.png" width="58" height="58"/>
+        <image name="Info Page Icon.png" width="58" height="58"/>
+        <image name="My Deal Makers Icon.png" width="58" height="58"/>
+        <image name="My Profile Icon.png" width="58" height="58"/>
+        <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
+        <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
+        <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
+        <image name="Article 1 Thumb.png" width="80" height="70"/>
+        <image name="Article 2 Thumb.png" width="80" height="70"/>
+        <image name="Article 3 Thumb.png" width="80" height="70"/>
+        <image name="Contact Info Icon_Small.png" width="58" height="58"/>
+        <image name="LinkedIn Thumb.png" width="80" height="70"/>
+        <image name="Phone Thumb.png" width="80" height="70"/>
+        <image name="Promotions Thumb.png" width="80" height="70"/>
+        <image name="Thumbs Down White.png" width="78" height="78"/>
+        <image name="Thumbs Up Grey.png" width="78" height="78"/>
+        <image name="Thumbs Up White.png" width="78" height="78"/>
+        <image name="Twitter Thumb.png" width="80" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>

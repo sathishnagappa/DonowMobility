@@ -229,9 +229,9 @@
     <Compile Include="CalenderEventVC.cs" />
     <Compile Include="CalenderHomeDVC.cs" />
     <Compile Include="EventListDVC.cs" />
-    <Compile Include="CustomerProfileVC.cs" />
-    <Compile Include="CustomerProfileVC.designer.cs">
-      <DependentUpon>CustomerProfileVC.cs</DependentUpon>
+    <Compile Include="customerProfileVC.cs" />
+    <Compile Include="customerProfileVC.designer.cs">
+      <DependentUpon>customerProfileVC.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
