@@ -274,6 +274,7 @@
     <BundleResource Include="Resources\Latest Industry Thumb.png" />
     <BundleResource Include="Resources\My Notes Icon.png" />
     <BundleResource Include="Resources\Talking Points Thumb.png" />
+    <BundleResource Include="Resources\Twitter Thumb.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

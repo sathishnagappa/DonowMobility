@@ -104,6 +104,7 @@ namespace donow.iOS
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
+				cell.ImageView.Image = UIImage.FromBundle("Twitter Thumb.png"); 
 				cell.TextLabel.Text = item;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
 				cell.TextLabel.Lines = 0;
