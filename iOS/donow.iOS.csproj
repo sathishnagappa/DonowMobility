@@ -228,6 +228,10 @@
     <Compile Include="CalenderEventVC.cs" />
     <Compile Include="CalenderHomeDVC.cs" />
     <Compile Include="EventListDVC.cs" />
+    <Compile Include="customerProfileVC.cs" />
+    <Compile Include="customerProfileVC.designer.cs">
+      <DependentUpon>customerProfileVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -275,6 +279,26 @@
     <BundleResource Include="Resources\My Notes Icon.png" />
     <BundleResource Include="Resources\Talking Points Thumb.png" />
     <BundleResource Include="Resources\Twitter Thumb.png" />
+    <BundleResource Include="Resources\Article 1 Thumb.png" />
+    <BundleResource Include="Resources\Article 2 Thumb.png" />
+    <BundleResource Include="Resources\Article 3 Thumb.png" />
+    <BundleResource Include="Resources\Between Icon_Small.png" />
+    <BundleResource Include="Resources\Between Thumb.png" />
+    <BundleResource Include="Resources\Calendar Icon_Small.png" />
+    <BundleResource Include="Resources\Contact Info Icon_Small.png" />
+    <BundleResource Include="Resources\Deal History Icon_Small.png" />
+    <BundleResource Include="Resources\Deal History Thumb.png" />
+    <BundleResource Include="Resources\Email Sent Thumb.png" />
+    <BundleResource Include="Resources\LinkedIn Thumb.png" />
+    <BundleResource Include="Resources\New Leads Thumb.png" />
+    <BundleResource Include="Resources\New Meeting Thumb.png" />
+    <BundleResource Include="Resources\Phone Thumb.png" />
+    <BundleResource Include="Resources\Promotions Thumb.png" />
+    <BundleResource Include="Resources\Thumbs Down White.png" />
+    <BundleResource Include="Resources\Thumbs Up Grey.png" />
+    <BundleResource Include="Resources\Thumbs Up White.png" />
+    <BundleResource Include="Resources\Interactions Icon_Small.png" />
+    <BundleResource Include="Resources\See All Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

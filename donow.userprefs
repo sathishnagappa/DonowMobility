@@ -26,6 +26,10 @@
     <BreakpointStore>
       <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="205" column="1" />
       <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/loginPageViewController.cs" line="186" column="67" />
+      <Breakpoint file="/Users/vaibhavbarchhiha/Desktop/DonowMobility/iOS/CustomerProfileVC.cs" line="100" column="13" />
+      <Breakpoint file="/Users/vaibhavbarchhiha/Desktop/DonowMobility/iOS/CustomerProfileVC.cs" line="123" column="1" />
+      <Breakpoint file="/Users/vaibhavbarchhiha/Desktop/DonowMobility/iOS/customerProfileVC.cs" line="57" column="1" />
+      <Breakpoint file="/Users/vaibhavbarchhiha/Desktop/DonowMobility/iOS/customerProfileVC.cs" line="55" column="50" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
