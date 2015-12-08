@@ -23,8 +23,8 @@ namespace donow.iOS
 			string[] TakingPoints =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
 				"* What else are you willing to \n look into?"};
 			string[] LastestCustomerInfo =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?"};
-			string[] LatestIndustryInfo =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
-				"* What else are you willing to \n look into?"};
+			string[] LatestIndustryInfo =  {"HR Tech Tools Optimized for\nBest Results", "HR Management: How Top\nCompanies are Strategizing",
+				"HR Tools to Compare: How do\nyou stack up?"};
 			TalkingPointTable.Source = new TableSource(TakingPoints, this);
 			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(LastestCustomerInfo, this);
 			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(LatestIndustryInfo, this);
@@ -104,6 +104,7 @@ namespace donow.iOS
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
+				//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
 				cell.ImageView.Image = UIImage.FromBundle("Twitter Thumb.png"); 
 				cell.TextLabel.Text = item;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
@@ -152,6 +153,7 @@ namespace donow.iOS
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
+				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
 				cell.TextLabel.Text = item;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
 				cell.TextLabel.Lines = 0;
@@ -160,7 +162,8 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{			
+			{	
+
 
 				tableView.DeselectRow (indexPath, true);
 			}

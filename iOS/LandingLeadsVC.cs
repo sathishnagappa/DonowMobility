@@ -50,7 +50,6 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 
 			this.Title = "Leads";
-//			var table = new UITableView(View.Bounds); // defaults to Plain style
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
@@ -58,23 +57,27 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 
-			List<Leads> leads = new  List<Leads> ();
-			LeadsBL leadsbl = new LeadsBL ();
-			leads = leadsbl.GetAllLeads ();
+			List<Leads> leads = GetLeads (false);
 			this.TabBarItem.BadgeValue = leads.Count.ToString();
-			loadingOverlay.Hide ();
+			TableViewLeads.Source = new TableSource (leads, this);
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
-				List<Leads> newleads = new  List<Leads> ();
-//				LeadsBL newleadsbl = new LeadsBL ();
-				newleads = leadsbl.GetAllLeads ();
-				loadingOverlay.Hide ();
+				List<Leads> newleads = GetLeads(true);
 				this.TabBarItem.BadgeValue = newleads.Count.ToString();
 				TableViewLeads.Source = new TableSource (newleads, this);
+				loadingOverlay.Hide ();
 			};
 
-			TableViewLeads.Source = new TableSource (leads, this);
+			loadingOverlay.Hide ();
+		}
+
+		List<Leads> GetLeads(bool isNewLeadRequest)
+		{
+			List<Leads> leads = new  List<Leads> ();
+			LeadsBL leadsbl = new LeadsBL ();
+			leads = leadsbl.GetAllLeads ();
+			return leads;
 		}
 
 		public class TableSource : UITableViewSource {

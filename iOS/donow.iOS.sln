@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "donow.iOS", "donow.iOS.csproj", "{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Debug|iPhone.Build.0 = Debug|iPhone
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Release|iPhone.ActiveCfg = Release|iPhone
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Release|iPhone.Build.0 = Release|iPhone
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{C9EFE20E-BDDE-4494-B0ED-396A905D0E5A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
