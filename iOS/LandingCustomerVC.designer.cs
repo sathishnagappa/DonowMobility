@@ -14,8 +14,16 @@ namespace donow.iOS
 	[Register ("LandingCustomerVC")]
 	partial class LandingCustomerVC
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewCustomerList { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (TableViewCustomerList != null) {
+				TableViewCustomerList.Dispose ();
+				TableViewCustomerList = null;
+			}
 		}
 	}
 }
