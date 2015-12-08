@@ -104,7 +104,7 @@ namespace donow.iOS
 				if (cell == null) {
 					cell = new LeadTableCell(CellIdentifier);
 				}
-
+					
 				cell.UpdateCell(leadObj);
 				return cell;
 

@@ -28,7 +28,6 @@
     </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -229,6 +228,12 @@
       <DependentUpon>ReferralRequestDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="ReferralRequestTableCell.cs" />
+    <Compile Include="Customer360TableCell.cs" />
+    <Compile Include="CustomerViewTableCellLeads.cs" />
+    <Compile Include="CustomerViewTableCellUpcomingMeetings.cs" />
+    <Compile Include="CustomerViewTableCellinteractionWithCustomerCell.cs" />
+    <Compile Include="CustomerViewTableCellBtwnYouNCustomer.cs" />
+
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -302,6 +307,7 @@
     <BundleResource Include="Resources\Referral Action Pending Icon.png" />
     <BundleResource Include="Resources\Sal Anderson Large.png" />
     <BundleResource Include="Resources\ShowMore.png" />
+    <BundleResource Include="Resources\Leads Thumb.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />
