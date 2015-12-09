@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView AlertView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonRequestNewLead { get; set; }
 
 		[Outlet]
@@ -24,6 +28,10 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (AlertView != null) {
+				AlertView.Dispose ();
+				AlertView = null;
+			}
 			if (ButtonRequestNewLead != null) {
 				ButtonRequestNewLead.Dispose ();
 				ButtonRequestNewLead = null;
