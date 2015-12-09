@@ -150,6 +150,7 @@ namespace donow.iOS
 			} else {
 				TableViewIndustry.Hidden = true;
 				TextBoxIndustry.Text = Parameter;
+
 			}
 		}
 	}

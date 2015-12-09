@@ -35,10 +35,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer: Lashmi Narayanan (TP5FJS8KV4)</CodesignKey>
-    <CodesignProvision>647cf4a6-504e-439a-8022-ee6423a96f75</CodesignProvision>
-    <IpaPackageName>
-    </IpaPackageName>
+    <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
+    <CodesignProvision>1b2b8472-5ab2-4e36-b6fa-2ac942db814d</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -66,8 +64,9 @@
     <IpaPackageName>
     </IpaPackageName>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
     <CodesignProvision>1b2b8472-5ab2-4e36-b6fa-2ac942db814d</CodesignProvision>
-    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -88,12 +87,6 @@
     </Reference>
     <Reference Include="Calabash">
       <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.4\lib\Xamarin.iOS10\Calabash.dll</HintPath>
-    </Reference>
-    <Reference Include="Salesforce">
-      <HintPath>..\Components\SalesforceSDK-1.4.4.0\lib\ios-unified\Salesforce.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook">
-      <HintPath>..\packages\Xamarin.Facebook.iOS.4.8.0.0\lib\Xamarin.iOS10\Facebook.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -145,10 +138,6 @@
     <Compile Include="signUpSocialLinksVC.cs" />
     <Compile Include="signUpSocialLinksVC.designer.cs">
       <DependentUpon>signUpSocialLinksVC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="signUpSocialLinkDetailsVC.cs" />
-    <Compile Include="signUpSocialLinkDetailsVC.designer.cs">
-      <DependentUpon>signUpSocialLinkDetailsVC.cs</DependentUpon>
     </Compile>
     <Compile Include="loginPageViewController.cs" />
     <Compile Include="loginPageViewController.designer.cs">
@@ -234,6 +223,11 @@
     <Compile Include="customerProfileVC.designer.cs">
       <DependentUpon>customerProfileVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReferralRequestDetails.cs" />
+    <Compile Include="ReferralRequestDetails.designer.cs">
+      <DependentUpon>ReferralRequestDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReferralRequestTableCell.cs" />
     <Compile Include="Customer360TableCell.cs" />
     <Compile Include="CustomerViewTableCellLeads.cs" />
     <Compile Include="CustomerViewTableCellUpcomingMeetings.cs" />
@@ -314,15 +308,18 @@
     <BundleResource Include="Resources\Thumbs Up White.png" />
     <BundleResource Include="Resources\Interactions Icon_Small.png" />
     <BundleResource Include="Resources\See All Icon.png" />
+    <BundleResource Include="Resources\New Referral Request Icon.png" />
+    <BundleResource Include="Resources\Passed Requests Icon.png" />
+    <BundleResource Include="Resources\Completed Requests Icon.png" />
+    <BundleResource Include="Resources\Referral Action Pending Icon.png" />
+    <BundleResource Include="Resources\Sal Anderson Large.png" />
+    <BundleResource Include="Resources\ShowMore.png" />
     <BundleResource Include="Resources\Leads Thumb.png" />
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="Auth0Client">
-      <Version>0.5.0</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
+    <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\donow.PCL\donow.PCL.csproj">
@@ -331,6 +328,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Images\" />
+    <XamarinComponentReference Include="Auth0Client">
+      <Version>0.5.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>
