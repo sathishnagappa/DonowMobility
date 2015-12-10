@@ -2,6 +2,7 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 using UIKit;
+using System.Drawing;
 
 namespace donow.iOS
 {
@@ -22,6 +23,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Referral Request";
+			ReferralRequestScrollView.ContentSize =  new SizeF (0f, 900f);
 			ReferralRequestDetails referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
 
 			ButtonNewRequest.TouchUpInside += (object sender, EventArgs e) => {

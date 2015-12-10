@@ -30,6 +30,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonPassedRequest { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ReferralRequestScrollView { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonAcceptRequest != null) {
@@ -47,6 +51,10 @@ namespace donow.iOS
 			if (ButtonPassedRequest != null) {
 				ButtonPassedRequest.Dispose ();
 				ButtonPassedRequest = null;
+			}
+			if (ReferralRequestScrollView != null) {
+				ReferralRequestScrollView.Dispose ();
+				ReferralRequestScrollView = null;
 			}
 		}
 	}

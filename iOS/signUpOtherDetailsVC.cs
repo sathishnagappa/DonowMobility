@@ -4,6 +4,9 @@ using System.CodeDom.Compiler;
 using UIKit;
 using System.Drawing;
 using System.Collections.Generic;
+using CoreGraphics;
+using donow.PCL;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -60,10 +63,23 @@ namespace donow.iOS
 				"Shipping","Technology","Telecommunications","Transportation","Utilities"
 			};
 
-			TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
-			TableViewIndustry.ContentSize = new SizeF (100f,50f);
+
+			//TableViewIndustry.ContentSize = new SizeF (100f,50f);
 			ButtonIndustry.TouchUpInside += (object sender, EventArgs e) =>  {
+				TextBoxLineOfBusiness.Text = string.Empty;
+				TableViewIndustry.Frame = new CGRect(47,215,320,122);
 				TableViewIndustry.Hidden = false;
+				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
+			};
+
+			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
+				TableViewIndustry.Frame = new CGRect(47,275,320,122);
+				TableViewIndustry.Hidden = false;
+				var listLOB = IndustryBL.GetLOB();
+				List<string> lob =  (from item in listLOB
+					where item.Industry == TextBoxIndustry.Text
+					select item.LOB).ToList();
+				TableViewIndustry.Source = new TableSource(lob,this, "LOB");
 			};
 
 			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {	
@@ -85,6 +101,7 @@ namespace donow.iOS
 			AppDelegate.UserDetails.Zip = string.IsNullOrEmpty(TextBoxZip.Text) == true ? "" : TextBoxZip.Text;
 			AppDelegate.UserDetails.Email = TextBoxEmail.Text;
 			AppDelegate.UserDetails.Phone = TextBoxPhone.Text;
+			AppDelegate.UserDetails.LineOfBusiness = TextBoxLineOfBusiness.Text;
 
 		}
 
@@ -145,12 +162,14 @@ namespace donow.iOS
 		{
 			if (TableType == "States") {
 				TableViewState.Hidden = true;
-				//				ButtonState.SetTitle (Parameter, UIControlState.Normal);
 				TextBoxState.Text = Parameter;
-			} else {
+			} else if (TableType == "Industry") {
 				TableViewIndustry.Hidden = true;
 				TextBoxIndustry.Text = Parameter;
 
+			} else {
+				TableViewIndustry.Hidden = true;
+				TextBoxLineOfBusiness.Text = Parameter;
 			}
 		}
 	}

@@ -50,6 +50,7 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 
 			this.Title = "Leads";
+
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
@@ -58,8 +59,12 @@ namespace donow.iOS
 			View.Add (loadingOverlay);
 
 			List<Leads> leads = GetLeads (false);
-			this.TabBarItem.BadgeValue = leads.Count.ToString();
-			TableViewLeads.Source = new TableSource (leads, this);
+			if (leads.Count > 0) {
+				this.TabBarItem.BadgeValue = leads.Count.ToString ();
+				TableViewLeads.Source = new TableSource (leads, this);
+			} else {
+				AlertView.Hidden = false;
+			}
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
@@ -114,12 +119,22 @@ namespace donow.iOS
 			{
 				
 				tableView.DeselectRow (indexPath, true);
-				LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-				if (leadDetailVC != null) {
-					leadDetailVC.leadObj = TableItems[indexPath.Row];
-					//owner.View.AddSubview (leadDetailVC.View);
-					owner.NavigationController.PushViewController(leadDetailVC,true);
+				if (TableItems [indexPath.Row].Status == "Accepted") {
+					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+					if (leadDetailVC != null) {
+						leadDetailVC.leadObj = TableItems [indexPath.Row];
+						//owner.View.AddSubview (leadDetailVC.View);
+						owner.NavigationController.PushViewController (leadDetailVC, true);
+					}
+				} else if (TableItems [indexPath.Row].Status == "Accepted") {
+					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+					if (prospectVC != null) {
+						prospectVC.localLeads = TableItems [indexPath.Row];
+						owner.NavigationController.PushViewController (prospectVC, true);
+					}
+					
 				}
+
 			}
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

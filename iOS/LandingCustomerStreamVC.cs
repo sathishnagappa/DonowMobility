@@ -16,11 +16,12 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.SetNavigationBarHidden (true, false);
 		}
 
 		public override void ViewDidLoad ()
 		{
-//			this.Title = "Referral Request";
+			this.Title = "Customer Stream";
 		}
 	}
 }

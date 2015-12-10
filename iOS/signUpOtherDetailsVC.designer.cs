@@ -20,6 +20,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonLineOfBusiness { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonNext { get; set; }
 
 		[Outlet]
@@ -60,6 +64,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextField TextBoxLineOfBusiness { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField TextBoxOfficeAddress { get; set; }
 
 		[Outlet]
@@ -91,6 +99,10 @@ namespace donow.iOS
 			if (ButtonIndustry != null) {
 				ButtonIndustry.Dispose ();
 				ButtonIndustry = null;
+			}
+			if (ButtonLineOfBusiness != null) {
+				ButtonLineOfBusiness.Dispose ();
+				ButtonLineOfBusiness = null;
 			}
 			if (ButtonNext != null) {
 				ButtonNext.Dispose ();
@@ -131,6 +143,10 @@ namespace donow.iOS
 			if (TextBoxIndustry != null) {
 				TextBoxIndustry.Dispose ();
 				TextBoxIndustry = null;
+			}
+			if (TextBoxLineOfBusiness != null) {
+				TextBoxLineOfBusiness.Dispose ();
+				TextBoxLineOfBusiness = null;
 			}
 			if (TextBoxOfficeAddress != null) {
 				TextBoxOfficeAddress.Dispose ();
