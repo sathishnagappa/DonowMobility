@@ -794,11 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDg-xt-hsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="2678" y="2237"/>
-=======
             <point key="canvasLocation" x="3289" y="3150"/>
->>>>>>> origin/master
         </scene>
         <!--Referral Requests-->
         <scene sceneID="6v8-ot-igW">
@@ -1566,11 +1562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2545" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="5939" y="2492"/>
-=======
             <point key="canvasLocation" x="5753" y="2492"/>
->>>>>>> origin/master
         </scene>
         <!--Meeting Info-->
         <scene sceneID="2549">
