@@ -34,6 +34,7 @@ namespace donow.iOS
 			TextBoxOfficeAddress.Text = string.Empty;
 			TextBoxCity.Text = string.Empty;
 			TextBoxState.Text = string.Empty;
+			TextBoxLineOfBusiness.Text = string.Empty;
 			
 			TextBoxShouldReturn ();
 			if (AppDelegate.UserProfile.name != null) {
@@ -82,13 +83,75 @@ namespace donow.iOS
 				TableViewIndustry.Source = new TableSource(lob,this, "LOB");
 			};
 
-			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {	
+			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {
+				if(Validation()) {	
 				SaveUserDetails();
 				AccountManagementVC accountManagementVC = this.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
 				if (accountManagementVC != null) {
 					this.NavigationController.PushViewController (accountManagementVC, true);
 				}
+				}
 			};
+		}
+
+		bool Validation()
+		{
+			UIAlertView alert = null;
+			if (string.IsNullOrEmpty (TextBoxFullName.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Mandatory Field", 
+					Message = "Please enter Full Name."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty (TextBoxEmail.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Mandatory Field", 
+					Message = "Please enter Email ID."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty (TextBoxIndustry.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Mandatory Field", 
+					Message = "Please enter City."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty (TextBoxState.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Mandatory Field", 
+					Message = "Please select State."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty (TextBoxIndustry.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Mandatory Field", 
+					Message = "Please select Industry."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
+				alert = new UIAlertView () { 
+					Title = "Mandatory Field", 
+					Message = "Please select Line of Business."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			return true;
 		}
 
 		void SaveUserDetails()
@@ -96,6 +159,7 @@ namespace donow.iOS
 			AppDelegate.UserDetails.FullName = TextBoxFullName.Text;
 			AppDelegate.UserDetails.Title = TextBoxTitle.Text;
 			AppDelegate.UserDetails.Company = TextBoxCompany.Text;
+			AppDelegate.UserDetails.Industry = TextBoxIndustry.Text;
 			AppDelegate.UserDetails.OfficeAddress = TextBoxOfficeAddress.Text;
 			AppDelegate.UserDetails.City = TextBoxCity.Text;
 			AppDelegate.UserDetails.Zip = string.IsNullOrEmpty(TextBoxZip.Text) == true ? "" : TextBoxZip.Text;

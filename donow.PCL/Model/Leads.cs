@@ -13,11 +13,14 @@ namespace donow.PCL.Model
 			public string City { get; set; }
 			public string State { get; set; }
 			public string Source { get; set; }
+		    public string Address   { get; set; }
 			public string CompanyInfo { get; set; }
 			public string BusinessNeeds { get; set; }
 			public string Status { get; set; }
 			public string ReasonForPass { get; set; }
 			public string SalesStage { get; set; }
+		    public string Phone   { get; set; }
+		    public string Email { get; set; }
 		}	
 }
 

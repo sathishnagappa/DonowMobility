@@ -150,6 +150,7 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
+			AppDelegate.IsNewUser = false;
 			UserBL userBL = new UserBL ();
 			AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {

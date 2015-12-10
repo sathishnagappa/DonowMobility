@@ -13,7 +13,7 @@ namespace donow.PCL
 		{
 		}
 
-		public List<Leads> GetAllLeads()
+		public List<Leads> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;

@@ -59,7 +59,7 @@ namespace donow.iOS
 			View.Add (loadingOverlay);
 
 			List<Leads> leads = GetLeads (false);
-			if (leads.Count > 0) {
+			if (!AppDelegate.IsNewUser) {
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
 			} else {
@@ -81,7 +81,7 @@ namespace donow.iOS
 		{
 			List<Leads> leads = new  List<Leads> ();
 			LeadsBL leadsbl = new LeadsBL ();
-			leads = leadsbl.GetAllLeads ();
+			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
 			return leads;
 		}
 
