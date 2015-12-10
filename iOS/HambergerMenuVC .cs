@@ -30,7 +30,7 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 			this.Title = "Hamburger Menu";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {"My Profile","My Meetings","Deal Makers","Account Management",};
+			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page" };
 			table.Source = new TableSource(tableItems, imageIcons, this);
 			View.Add (table);
 		}
@@ -74,25 +74,13 @@ namespace donow.iOS
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 				switch (TableItems [indexPath.Row]) {
-				case "Notifications": 
-					NotificationsVC notificationVC = owner.Storyboard.InstantiateViewController ("NotificationsVC") as NotificationsVC;
-					if (notificationVC != null) {
-						owner.NavigationController.PushViewController (notificationVC, true);
-					}
-					break;
 				case "My Profile": 
 					MyProfileVC myProfileVC = owner.Storyboard.InstantiateViewController ("MyProfileVC") as MyProfileVC;
 					if (myProfileVC != null) {
 						owner.NavigationController.PushViewController (myProfileVC, true);
 					}
 					break;
-				case "My Meetings": 
-					MyMeetingsVC myMeetingVC = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
-					if (myMeetingVC != null) {
-						owner.NavigationController.PushViewController (myMeetingVC, true);
-					}
-					break;
-				case "Deal Makers": 
+				case "My Deal Makers": 
 					DealMakersVC dealMakersVC = owner.Storyboard.InstantiateViewController ("DealMakersVC") as DealMakersVC;
 					if (dealMakersVC != null) {
 						owner.NavigationController.PushViewController (dealMakersVC, true);
@@ -103,6 +91,12 @@ namespace donow.iOS
 					if (accountManagementVC != null) {
 						owner.NavigationController.PushViewController (accountManagementVC, true);
 					}
+					break;
+				case "Info Page": 
+//					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
+//					if (accountManagementVC != null) {
+//						owner.NavigationController.PushViewController (accountManagementVC, true);
+//					}
 					break;
 				default:
 					UIAlertController okAlertController = UIAlertController.Create ("Row Touched", TableItems [indexPath.Row], UIAlertControllerStyle.Alert);

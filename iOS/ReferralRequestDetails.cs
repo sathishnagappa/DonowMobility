@@ -30,7 +30,16 @@ namespace donow.iOS
 			this.Title = "Deal Maker";
 
 			SetImageAndTitle ();
+			ReferralRequest rr = new ReferralRequest ();
+			rr.ReferralRequestID = 1;
+			rr.UserName = "Susan";
+			rr.City = "Seattle";
+			rr.State = "WA";
+			rr.Industry = "Technology";
+			rr.Prospect = "Scott Anders";
+			rr.BusinessNeeds = "Sales Tracking SoftWare";
 			List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
+			rrdetails.Add (rr);
 			TableViewRR.Source = new TableSource (rrdetails, this);		
 		}
 
@@ -51,9 +60,9 @@ namespace donow.iOS
 				LabelRRTitle.Text = "Passed Requests";
 				break;
 			case "Completed":
-				break;
 				ImageRR.Image = UIImage.FromBundle ("Completed Requests Icon.png");
 				LabelRRTitle.Text = "Completed Requests";
+				break;
 			default:
 				break;
 
@@ -104,7 +113,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 200.0f;
 			}
 		}
 	}

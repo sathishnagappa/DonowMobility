@@ -12,6 +12,7 @@ namespace donow.PCL.Model
 		public string Title { get; set; }
 		public string Company { get; set; }
 		public string Industry { get; set; }
+		public string LineOfBusiness { get; set; }
 		public string OfficeAddress { get; set; }
 		public string City { get; set; }
 		public string State { get; set; }

@@ -127,10 +127,22 @@ namespace donow.iOS
 
 			ButtonForgotPassword.TouchUpInside += (object sender, EventArgs e) => {	
 
+				if(string.IsNullOrEmpty(AppDelegate.UserDetails.Name))
+				{
 				ForgotPasswordVC forgotPasswordVC = this.Storyboard.InstantiateViewController ("ForgotPasswordVC") as ForgotPasswordVC;
 				if (forgotPasswordVC != null) {
 					this.NavigationController.PushViewController(forgotPasswordVC, true);
 				}
+				}
+				else{
+					UIAlertView alert = new UIAlertView () { 
+						Title = "User Not Registered", 
+						Message = "Please Sign Up to the App."
+					};
+					alert.AddButton ("OK");
+					alert.Show ();
+				}
+				
 			};
 
 		}
