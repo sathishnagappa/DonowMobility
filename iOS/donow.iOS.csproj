@@ -233,7 +233,14 @@
     <Compile Include="CustomerViewTableCellUpcomingMeetings.cs" />
     <Compile Include="CustomerViewTableCellinteractionWithCustomerCell.cs" />
     <Compile Include="CustomerViewTableCellBtwnYouNCustomer.cs" />
-
+    <Compile Include="LeadUpdateVC.cs" />
+    <Compile Include="LeadUpdateVC.designer.cs">
+      <DependentUpon>LeadUpdateVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InteractionLeadUpdateVC.cs" />
+    <Compile Include="InteractionLeadUpdateVC.designer.cs">
+      <DependentUpon>InteractionLeadUpdateVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -308,6 +315,8 @@
     <BundleResource Include="Resources\Sal Anderson Large.png" />
     <BundleResource Include="Resources\ShowMore.png" />
     <BundleResource Include="Resources\Leads Thumb.png" />
+    <BundleResource Include="Resources\Grey Neutral.png" />
+    <BundleResource Include="Resources\Thumbs Down Grey.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />
