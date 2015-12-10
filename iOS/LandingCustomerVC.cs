@@ -34,6 +34,7 @@ namespace donow.iOS
 			List<Customer> cusotmerList =  customerBL.GetAllCustomers ();
 
 			TableViewCustomerList.Source = new TableSource (cusotmerList, this);
+			this.Title = "Customers";
 		}
 
 		public class TableSource : UITableViewSource {

@@ -32,7 +32,9 @@ namespace donow.iOS
 
 			TableViewNewLeads.Source = new TableSource (ListLeads, this);
 			TableViewMeetings.Source = new TableSourceupComingMeetings (this);
-
+			TableViewEmails.Source = new TableSourceInteractionWithCustomer ();
+			TableViewDealHistory.Source = new TableSourceBtwnYouNCustomer ();
+			TableViewPreviousMeetings.Source = new TableSourceupComingMeetings (this);
 
 			LabelCompanyName.Text = customer.Company;
 			LabelCustomerName.Text = customer.Name;
@@ -47,7 +49,7 @@ namespace donow.iOS
 			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
 
 				TableSeeAllClicked = true;
-				TableViewNewLeads.ReloadData ();
+				TableViewMeetings.ReloadData ();
 
 			};
 		}
@@ -58,7 +60,7 @@ namespace donow.iOS
 //			List<Leads> TableItems;
 			customerProfileVC owner;
 
-			public TableSourceBtwnYouNCustomer (/*List<Leads> items,*/ customerProfileVC owner)
+			public TableSourceBtwnYouNCustomer (/*List<Leads> items, customerProfileVC owner*/)
 			{
 //				TableItems = items;
 				this.owner = owner;
@@ -100,7 +102,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 100.0f;
 			}
 		}
 
@@ -110,7 +112,7 @@ namespace donow.iOS
 //			List<Leads> TableItems;
 //			customerProfileVC owner;
 
-			public TableSourceInteractionWithCustomer (/*List<Leads> items,*/ customerProfileVC owner)
+			public TableSourceInteractionWithCustomer (/*List<Leads> items, customerProfileVC owner*/)
 			{
 //				TableItems = items;
 //				this.owner = owner;
@@ -148,7 +150,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 100.0f;
 			}
 		}
 

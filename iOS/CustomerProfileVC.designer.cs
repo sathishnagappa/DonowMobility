@@ -1,4 +1,5 @@
 // WARNING
+//
 // This file has been generated automatically by Xamarin Studio from the outlets and
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
@@ -81,6 +82,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewNewLeads { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewPreviousMeetings { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonMail != null) {
@@ -150,6 +155,10 @@ namespace donow.iOS
 			if (TableViewNewLeads != null) {
 				TableViewNewLeads.Dispose ();
 				TableViewNewLeads = null;
+			}
+			if (TableViewPreviousMeetings != null) {
+				TableViewPreviousMeetings.Dispose ();
+				TableViewPreviousMeetings = null;
 			}
 		}
 	}
