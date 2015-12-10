@@ -28,7 +28,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Hamburger Menu";
+			this.Title = "More";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
 			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page" };
 			table.Source = new TableSource(tableItems, imageIcons, this);

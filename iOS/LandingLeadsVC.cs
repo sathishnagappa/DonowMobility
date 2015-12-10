@@ -24,6 +24,7 @@ namespace donow.iOS
             this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.SetNavigationBarHidden (true, false);
 
+			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
 			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
 
 //			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);

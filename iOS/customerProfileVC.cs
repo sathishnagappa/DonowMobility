@@ -24,7 +24,7 @@ namespace donow.iOS
 
 			List <Leads> ListLeads = new List <Leads> ();
 			LeadsBL leadsVC = new LeadsBL ();
-			ListLeads = leadsVC.GetAllLeads ();
+			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 
 //			UserMeetings upComingMeetings;
 

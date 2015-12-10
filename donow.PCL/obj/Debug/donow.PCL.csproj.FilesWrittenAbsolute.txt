@@ -1,7 +1,0 @@
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/obj/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/obj/Debug/optimized/
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/bin/Debug/donow.PCL.dll.mdb
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/bin/Debug/donow.PCL.dll
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/obj/Debug/donow.PCL.dll
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/obj/Debug/donow.PCL.dll.mdb
-/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/bin/Debug/Newtonsoft.Json.dll
