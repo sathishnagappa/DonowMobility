@@ -108,12 +108,12 @@ namespace donow.iOS
 
 			string CellIdentifier = "InteractionWithCustomer";
 //			List<Leads> TableItems;
-			customerProfileVC owner;
+//			customerProfileVC owner;
 
 			public TableSourceInteractionWithCustomer (/*List<Leads> items,*/ customerProfileVC owner)
 			{
 //				TableItems = items;
-				this.owner = owner;
+//				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)

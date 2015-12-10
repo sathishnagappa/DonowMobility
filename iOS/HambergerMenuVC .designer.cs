@@ -11,7 +11,7 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("HambergerMenuVC ")]
+	[Register ("HambergerMenuVC")]
 	partial class HambergerMenuVC
 	{
 		void ReleaseDesignerOutlets ()

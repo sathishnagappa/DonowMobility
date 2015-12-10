@@ -32,12 +32,12 @@ namespace donow.iOS
 				"Purist"
 			};
 
-			ButtonLikeMeeting.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-			ButtonDisLikeMeeting.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
-			ButtonLikeMeetingInfoHelpful.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-			ButtonDisLikeMeetingInfoHelpful.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
-			ButtonLikeLeadAdvanced.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-			ButtonDisLikeLeadAdvanced.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
+			ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
+			ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
+			ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
 
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 			
@@ -58,13 +58,14 @@ namespace donow.iOS
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
 
-			InteractionLeadUpdateVC interactionLeadUpdateVC;
+			LeadUpdateVC leadUpdateVC;
 
-			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
+			public TableSource (IList<string> items, LeadUpdateVC leadUpdateVC)
 			{
-				this.interactionLeadUpdateVC = interactionLeadUpdateVC;
+				this.leadUpdateVC = leadUpdateVC;
 				TableItems = items;
 			}
+
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
@@ -94,5 +95,4 @@ namespace donow.iOS
 		}
 
 	}
-}
 }

@@ -24,10 +24,10 @@ namespace donow.iOS
 				"Did Not Have Enough Info"
 			};
 
-			ButtonLikeInteraction.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-			ButtonDislikeInteraction.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
-			ButtonLikeCustomerAcknowledge.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-			ButtonDisLikeCustomerAcknowledge.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
+			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
 		}
 
@@ -72,5 +72,4 @@ namespace donow.iOS
 		}
 
 		}
-	}
 }

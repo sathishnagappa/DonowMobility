@@ -740,15 +740,31 @@
             </objects>
             <point key="canvasLocation" x="743" y="-742"/>
         </scene>
-        <!--Hamberger Menu-->
-        <scene sceneID="X5h-jW-Y3K">
+        <!--Hamberger MenuVC-->
+        <scene sceneID="wrc-RA-1m6">
             <objects>
-                <tableViewController title="Hamberger Menu" id="G6v-n5-VUg" customClass="HambergerMenuVC " sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="5" title="More" image="Hamburger Icon_25x25px.png" id="1Rk-Aq-F50"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMT-FG-PrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="R9I-3Q-sZO" customClass="HambergerMenuVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2VV-cv-HhA"/>
+                        <viewControllerLayoutGuide type="bottom" id="cWh-SF-KAr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s9S-32-VmO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ple-T8-2sE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5YM-cd-syc"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDg-xt-hsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2663" y="3150"/>
+            <point key="canvasLocation" x="2678" y="2237"/>
         </scene>
         <!--Referral Requests-->
         <scene sceneID="6v8-ot-igW">
@@ -1203,7 +1219,7 @@
                         <segue destination="9BI-kv-aKZ" kind="relationship" relationship="viewControllers" id="95g-Bh-VZd"/>
                         <segue destination="6wj-FA-biO" kind="relationship" relationship="viewControllers" id="orl-JU-wgb"/>
                         <segue destination="YdC-eA-s54" kind="relationship" relationship="viewControllers" id="mAk-9e-93H"/>
-                        <segue destination="G6v-n5-VUg" kind="relationship" relationship="viewControllers" id="vFn-2b-AMo"/>
+                        <segue destination="Yhc-qw-vqm" kind="relationship" relationship="viewControllers" id="hkz-Hv-Q6r"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3A-qp-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1476,7 +1492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2536" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2821" y="1720"/>
+            <point key="canvasLocation" x="3633" y="1720"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="2542">
@@ -1506,7 +1522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2545" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5127" y="2492"/>
+            <point key="canvasLocation" x="5939" y="2492"/>
         </scene>
         <!--Meeting Info-->
         <scene sceneID="2549">
@@ -1711,7 +1727,7 @@ steps.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2552" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3786" y="1575"/>
+            <point key="canvasLocation" x="4598" y="1575"/>
         </scene>
         <!--Deal Makers-->
         <scene sceneID="2556">
@@ -1741,7 +1757,7 @@ steps.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2559" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3297" y="1720"/>
+            <point key="canvasLocation" x="4109" y="1720"/>
         </scene>
         <!--WelcomeVC-->
         <scene sceneID="2598">
@@ -2506,7 +2522,7 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="1" width="414" height="135"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNe-OT-htZ" id="01b-b0-eba">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-WM-3fN">
@@ -2578,7 +2594,7 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJe-Ko-TE5" id="i7O-x8-h8w">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-ib-Qsd">
@@ -2718,7 +2734,7 @@ steps.</string>
                                                                 <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W75-AG-OP2" id="6m6-C7-9zE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Email Sent Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-vK-D4z">
@@ -2805,7 +2821,7 @@ steps.</string>
                                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zvO-YN-HDe" id="QYk-2Z-yJE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Between Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-Kb-0mb">
@@ -3209,23 +3225,23 @@ steps.</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
-                        <outlet property="ButtonLikeMeeting" destination="PjO-Rm-yB3" id="name-outlet-PjO-Rm-yB3"/>
+                        <outlet property="ButtonCustomerCategorizationDropDown" destination="Ug2-Z8-5hl" id="name-outlet-Ug2-Z8-5hl"/>
+                        <outlet property="ButtonDisLikeLeadAdvanced" destination="KGZ-vX-fnE" id="name-outlet-KGZ-vX-fnE"/>
                         <outlet property="ButtonDisLikeMeeting" destination="jxk-eD-20O" id="name-outlet-jxk-eD-20O"/>
-                        <outlet property="ButtonMeetingDislikeReasonDropDown" destination="x7t-MN-s5z" id="name-outlet-x7t-MN-s5z"/>
-                        <outlet property="TableViewInteractionDislikeReason" destination="Td2-Oo-TAh" id="name-outlet-Td2-Oo-TAh"/>
-                        <outlet property="ButtonLikeMeetingInfoHelpful" destination="NRs-kk-Ix7" id="name-outlet-NRs-kk-Ix7"/>
                         <outlet property="ButtonDisLikeMeetingInfoHelpful" destination="fJa-Xh-3CJ" id="name-outlet-fJa-Xh-3CJ"/>
                         <outlet property="ButtonLikeLeadAdvanced" destination="bXf-1H-PoE" id="name-outlet-bXf-1H-PoE"/>
-                        <outlet property="ButtonDisLikeLeadAdvanced" destination="KGZ-vX-fnE" id="name-outlet-KGZ-vX-fnE"/>
-                        <outlet property="ButtonCustomerCategorizationDropDown" destination="Ug2-Z8-5hl" id="name-outlet-Ug2-Z8-5hl"/>
-                        <outlet property="TableViewCustomerCategorization" destination="zyd-1l-A45" id="name-outlet-zyd-1l-A45"/>
+                        <outlet property="ButtonLikeMeeting" destination="PjO-Rm-yB3" id="name-outlet-PjO-Rm-yB3"/>
+                        <outlet property="ButtonLikeMeetingInfoHelpful" destination="NRs-kk-Ix7" id="name-outlet-NRs-kk-Ix7"/>
+                        <outlet property="ButtonMeetingDislikeReasonDropDown" destination="x7t-MN-s5z" id="name-outlet-x7t-MN-s5z"/>
                         <outlet property="ButtonNextStepsDropDown" destination="dwe-kb-Zeq" id="name-outlet-dwe-kb-Zeq"/>
+                        <outlet property="TableViewCustomerCategorization" destination="zyd-1l-A45" id="name-outlet-zyd-1l-A45"/>
+                        <outlet property="TableViewInteractionDislikeReason" destination="Td2-Oo-TAh" id="name-outlet-Td2-Oo-TAh"/>
                         <outlet property="TableViewNextSteps" destination="SkO-cc-TUe" id="name-outlet-SkO-cc-TUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdt-IL-yiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="3975"/>
+            <point key="canvasLocation" x="2443" y="5055"/>
         </scene>
         <!--Interaction Lead UpdateVC-->
         <scene sceneID="Lk1-6k-L6J">
@@ -3408,12 +3424,12 @@ steps.</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="ButtonLikeInteraction" destination="gea-Vi-zuN" id="name-outlet-gea-Vi-zuN"/>
+                        <outlet property="ButtonDisLikeCustomerAcknowledge" destination="t6i-1S-1GB" id="name-outlet-t6i-1S-1GB"/>
                         <outlet property="ButtonDislikeInteraction" destination="qOD-PC-lb2" id="name-outlet-qOD-PC-lb2"/>
                         <outlet property="ButtonInteractionDislikeReasonDropDown" destination="DhX-xq-8VW" id="name-outlet-DhX-xq-8VW"/>
-                        <outlet property="TableViewInteractionDislikerReason" destination="fPo-TB-aLb" id="name-outlet-fPo-TB-aLb"/>
                         <outlet property="ButtonLikeCustomerAcknowledge" destination="KJk-zb-Rfn" id="name-outlet-KJk-zb-Rfn"/>
-                        <outlet property="ButtonDisLikeCustomerAcknowledge" destination="t6i-1S-1GB" id="name-outlet-t6i-1S-1GB"/>
+                        <outlet property="ButtonLikeInteraction" destination="gea-Vi-zuN" id="name-outlet-gea-Vi-zuN"/>
+                        <outlet property="TableViewInteractionDislikerReason" destination="fPo-TB-aLb" id="name-outlet-fPo-TB-aLb"/>
                         <outlet property="TextViewComments" destination="wtM-0d-c0V" id="name-outlet-wtM-0d-c0V"/>
                     </connections>
                 </viewController>
@@ -3733,6 +3749,26 @@ steps.</string>
             </objects>
             <point key="canvasLocation" x="1250" y="3172"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="w5U-zs-wLn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yhc-qw-vqm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="Hamburger Icon_25x25px.png" id="szX-eN-PR6"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iL5-qp-J4j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R9I-3Q-sZO" kind="relationship" relationship="rootViewController" id="rST-Wx-85S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYa-qd-Uv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2078" y="2237"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Aman Tankar_Small.png" width="100" height="100"/>
@@ -3777,32 +3813,6 @@ steps.</string>
         <image name="Thumbs Up Grey.png" width="78" height="78"/>
         <image name="User Name Icon.png" width="46" height="46"/>
         <image name="down-arrow.png" width="13" height="9"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="Collaboration.png" width="25" height="25"/>
-        <image name="mvboli.ttf" width="0" height="0"/>
-        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
-        <image name="Stream Icon_Small.png" width="58" height="58"/>
-        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
-        <image name="Account Mgmt Icon.png" width="58" height="58"/>
-        <image name="Info Page Icon.png" width="58" height="58"/>
-        <image name="My Deal Makers Icon.png" width="58" height="58"/>
-        <image name="My Profile Icon.png" width="58" height="58"/>
-        <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
-        <image name="Twitter Thumb.png" width="80" height="70"/>
-        <image name="Article 1 Thumb.png" width="80" height="70"/>
-        <image name="Article 2 Thumb.png" width="80" height="70"/>
-        <image name="Article 3 Thumb.png" width="80" height="70"/>
-        <image name="Contact Info Icon_Small.png" width="58" height="58"/>
-        <image name="LinkedIn Thumb.png" width="80" height="70"/>
-        <image name="New Leads Thumb.png" width="80" height="70"/>
-        <image name="Phone Thumb.png" width="80" height="70"/>
-        <image name="Promotions Thumb.png" width="80" height="70"/>
-        <image name="Thumbs Down White.png" width="78" height="78"/>
-        <image name="Thumbs Up White.png" width="78" height="78"/>
-        <image name="Leads Thumb.png" width="80" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>
