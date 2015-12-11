@@ -42,6 +42,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextView TextViewComments { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewInteractionThumbsDown { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonDisLikeCustomerAcknowledge != null) {
@@ -71,6 +75,10 @@ namespace donow.iOS
 			if (TextViewComments != null) {
 				TextViewComments.Dispose ();
 				TextViewComments = null;
+			}
+			if (ViewInteractionThumbsDown != null) {
+				ViewInteractionThumbsDown.Dispose ();
+				ViewInteractionThumbsDown = null;
 			}
 		}
 	}

@@ -14,10 +14,19 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
 			{
 				"Wasn't Prepared",
@@ -29,6 +38,20 @@ namespace donow.iOS
 			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
+
+			TableViewInteractionDislikerReason.Hidden = true;
+
+			ButtonInteractionDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				TableViewInteractionDislikerReason.Hidden = false;
+			};
+
+			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
+				ViewInteractionThumbsDown.Hidden = false;
+			};
+
+			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
+				ViewInteractionThumbsDown.Hidden = true;
+			};
 		}
 
 		public class TableSource : UITableViewSource {

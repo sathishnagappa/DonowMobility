@@ -5,15 +5,30 @@ using System;
 using Foundation;
 using UIKit;
 using System.Collections.Generic;
+using CoreGraphics;
 
 namespace donow.iOS
 {
 	public partial class LeadUpdateVC : UIViewController
 	{
+
+		public LeadUpdateVC (IntPtr handle) : base (handle)
+		{
+		}
+
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+		}
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+			ScrollViewF2F.ContentSize = new CGSize (414f, 1100f); 
+			ViewF2FMeetingDown.Hidden = true;
 			IList<string> ListThumbsDownReason = new List<string>
 			{
 				"Customer Cancelled",
@@ -39,6 +54,20 @@ namespace donow.iOS
 			ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
 
+			TableViewInteractionDislikeReason.Hidden = true;
+
+			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				TableViewInteractionDislikeReason.Hidden = false;
+			};
+
+			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
+				ViewF2FMeetingDown.Hidden = false;
+			};
+
+			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
+				ViewF2FMeetingDown.Hidden = true;
+			};
+
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 			
 				TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this);
@@ -59,6 +88,7 @@ namespace donow.iOS
 			string CellIdentifier = "TableCell";
 
 			LeadUpdateVC leadUpdateVC;
+
 
 			public TableSource (IList<string> items, LeadUpdateVC leadUpdateVC)
 			{

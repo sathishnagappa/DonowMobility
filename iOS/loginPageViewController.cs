@@ -28,6 +28,7 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.NavigationController.SetNavigationBarHidden (true, false);
+			AppDelegate.IsNewUser = false;
 		}
 
 		public override void ViewWillDisappear (bool animated)
