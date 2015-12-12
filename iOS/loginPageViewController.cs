@@ -78,7 +78,8 @@ namespace donow.iOS
 //				await rs.UpdateSFDCData(content);
 
 	
-				if (ValidateCredentials ()) {
+//				if (ValidateCredentials ()) {
+
 					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
@@ -91,7 +92,7 @@ namespace donow.iOS
 						this.NavigationController.PushViewController(landingVC, true);
 					}
 					loadingOverlay.Hide ();
-				}
+//				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {

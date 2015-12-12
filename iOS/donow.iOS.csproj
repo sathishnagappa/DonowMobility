@@ -239,6 +239,19 @@
     <Compile Include="CustomerViewTableCellUpcomingMeetings.cs" />
     <Compile Include="CustomerViewTableCellinteractionWithCustomerCell.cs" />
     <Compile Include="CustomerViewTableCellBtwnYouNCustomer.cs" />
+    <Compile Include="LeadUpdateVC.cs" />
+    <Compile Include="LeadUpdateVC.designer.cs">
+      <DependentUpon>LeadUpdateVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InteractionLeadUpdateVC.cs" />
+    <Compile Include="InteractionLeadUpdateVC.designer.cs">
+      <DependentUpon>InteractionLeadUpdateVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerStreamTableViewCell.cs" />
+    <Compile Include="LandingCustomerDetailVC.cs" />
+    <Compile Include="LandingCustomerDetailVC.designer.cs">
+      <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -251,7 +264,6 @@
     <BundleResource Include="Resources\ufonts.com_segoe-ui-light.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\Images\Geo Icon.png" />
     <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
     <BundleResource Include="Resources\DoNow Logo.png" />
     <BundleResource Include="Resources\LinkedIn Icon_Small.png" />
@@ -307,6 +319,9 @@
     <BundleResource Include="Resources\Interactions Icon_Small.png" />
     <BundleResource Include="Resources\See All Icon.png" />
     <BundleResource Include="Resources\Leads Thumb.png" />
+    <BundleResource Include="Resources\Grey Neutral.png" />
+    <BundleResource Include="Resources\Thumbs Down Grey.png" />
+    <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

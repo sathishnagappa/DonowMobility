@@ -872,7 +872,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3A-qp-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="2308"/>
+            <point key="canvasLocation" x="1382" y="2140"/>
         </scene>
         <!--Leads-->
         <scene sceneID="Via-La-pNQ">
@@ -3029,10 +3029,10 @@ steps.</string>
             </objects>
             <point key="canvasLocation" x="3059" y="3970"/>
         </scene>
-        <!--Landing Customer DetailVC-->
+        <!--Landing Customer Stream DetailVC-->
         <scene sceneID="Asp-ek-h8u">
             <objects>
-                <viewController storyboardIdentifier="LandingCustomerDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eOp-YI-PiW" customClass="LandingCustomerDetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingCustomerDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eOp-YI-PiW" sceneMemberID="viewController" customClass="LandingCustomerDetailVC">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S8z-6q-gLc"/>
                         <viewControllerLayoutGuide type="bottom" id="pI9-5i-NSa"/>
@@ -3040,37 +3040,7 @@ steps.</string>
                     <view key="view" contentMode="scaleToFill" id="Ou9-d2-exR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xax-BK-gv3">
-                                <rect key="frame" x="0.0" y="40" width="414" height="171"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-uf-Dfn" image="Scott Anders_Large.png">
-                                        <rect key="frame" x="17" y="35" width="44" height="42"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKX-ad-hFp">
-                                        <rect key="frame" x="55" y="30" width="279" height="21"/>
-                                        <string key="text">	Scott Anders</string>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seattle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpO-EH-Noh">
-                                        <rect key="frame" x="86" y="60" width="279" height="27"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scott Anders is celebrating 5 years at Northwest Pacific Tech" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drP-jR-Sqt">
-                                        <rect key="frame" x="17" y="85" width="224" height="87"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="1" blue="1" alpha="1"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>

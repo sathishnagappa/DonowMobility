@@ -1,19 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Resources/LaunchScreen.storyboard">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.9.0" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="iOS/loginPageViewController.cs" Line="1" Column="1" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/customerProfileLeadTableCell.cs" Line="1" Column="1" />
       <File FileName="iOS/customerProfileVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/MyMeetingsVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/Customer360TableCell.cs" Line="27" Column="6" />
-      <File FileName="iOS/LeadTableCell.cs" Line="1" Column="1" />
-      <File FileName="iOS/Entitlements.plist" />
-      <File FileName="iOS/Main.cs" Line="16" Column="31" />
-      <File FileName="iOS/Info.plist" />
-      <File FileName="iOS/Resources/LaunchScreen.storyboard" Line="54" Column="12" />
-      <File FileName="iOS/AppDelegate.cs" Line="21" Column="18" />
+      <File FileName="iOS/CustomerStreamTableViewCell.cs" Line="1" Column="1" />
+      <File FileName="iOS/LeadTableCell.cs" Line="30" Column="40" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingCustomerDetailVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LeadDetailVC.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
