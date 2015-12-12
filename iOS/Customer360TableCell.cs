@@ -55,8 +55,8 @@ namespace donow.iOS
 //			ImageViewLeadImage.Image = UIImage.FromBundle ();
 			LabelLeadStory.Text = leads.BusinessNeeds;
 			LabelLeadScore.Text = "Score: " + leads.LeadScore.ToString();
-			LabelLeadSource.Text = leads.Source; 
-			LabelLeadHours.Text = DateTime.Now.Hour.ToString();
+			LabelLeadSource.Text = "Source:" + leads.Source; 
+			LabelLeadHours.Text = DateTime.Now.Hour.ToString() + "h";
 		}
 
 		public override void LayoutSubviews ()

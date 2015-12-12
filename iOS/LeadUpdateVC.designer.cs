@@ -52,6 +52,13 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+<<<<<<< HEAD
+=======
+		UIScrollView ScrollViewF2F { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+>>>>>>> origin/master
 		UITableView TableViewCustomerCategorization { get; set; }
 
 		[Outlet]
@@ -62,6 +69,13 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewNextSteps { get; set; }
 
+<<<<<<< HEAD
+=======
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewF2FMeetingDown { get; set; }
+
+>>>>>>> origin/master
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonCustomerCategorizationDropDown != null) {
@@ -100,6 +114,13 @@ namespace donow.iOS
 				ButtonNextStepsDropDown.Dispose ();
 				ButtonNextStepsDropDown = null;
 			}
+<<<<<<< HEAD
+=======
+			if (ScrollViewF2F != null) {
+				ScrollViewF2F.Dispose ();
+				ScrollViewF2F = null;
+			}
+>>>>>>> origin/master
 			if (TableViewCustomerCategorization != null) {
 				TableViewCustomerCategorization.Dispose ();
 				TableViewCustomerCategorization = null;
@@ -112,6 +133,13 @@ namespace donow.iOS
 				TableViewNextSteps.Dispose ();
 				TableViewNextSteps = null;
 			}
+<<<<<<< HEAD
+=======
+			if (ViewF2FMeetingDown != null) {
+				ViewF2FMeetingDown.Dispose ();
+				ViewF2FMeetingDown = null;
+			}
+>>>>>>> origin/master
 		}
 	}
 }

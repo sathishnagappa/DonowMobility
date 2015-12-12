@@ -5,15 +5,39 @@ using System;
 using Foundation;
 using UIKit;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using CoreGraphics;
+>>>>>>> origin/master
 
 namespace donow.iOS
 {
 	public partial class LeadUpdateVC : UIViewController
 	{
+<<<<<<< HEAD
+=======
+
+		public LeadUpdateVC (IntPtr handle) : base (handle)
+		{
+		}
+
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+		}
+>>>>>>> origin/master
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+<<<<<<< HEAD
+=======
+			ScrollViewF2F.ContentSize = new CGSize (414f, 1100f); 
+			ViewF2FMeetingDown.Hidden = true;
+>>>>>>> origin/master
 			IList<string> ListThumbsDownReason = new List<string>
 			{
 				"Customer Cancelled",
@@ -32,6 +56,7 @@ namespace donow.iOS
 				"Purist"
 			};
 
+<<<<<<< HEAD
 //			ButtonLikeMeeting.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
 //			ButtonDisLikeMeeting.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
 //			ButtonLikeMeetingInfoHelpful.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
@@ -40,6 +65,41 @@ namespace donow.iOS
 //			ButtonDisLikeLeadAdvanced.ImageForState( (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
 //
 //			TableViewInteractionDislikeReason.Source = new TableSource (InteractionDislikerReason, this);
+=======
+			ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
+			ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
+			ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
+
+			TableViewInteractionDislikeReason.Hidden = true;
+
+			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				TableViewInteractionDislikeReason.Hidden = false;
+			};
+
+			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
+				ViewF2FMeetingDown.Hidden = false;
+			};
+
+			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
+				ViewF2FMeetingDown.Hidden = true;
+			};
+
+			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+			
+				TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this);
+			};
+			
+			ButtonCustomerCategorizationDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
+				TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this);
+			};
+
+			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
+				TableViewNextSteps.Source = new TableSource (ListNextStep, this);
+			};
+>>>>>>> origin/master
 		}
 
 		public class TableSource : UITableViewSource {
@@ -47,6 +107,7 @@ namespace donow.iOS
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
 
+<<<<<<< HEAD
 			InteractionLeadUpdateVC interactionLeadUpdateVC;
 
 			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
@@ -55,6 +116,18 @@ namespace donow.iOS
 				TableItems = items;
 			}
 
+=======
+			LeadUpdateVC leadUpdateVC;
+
+
+			public TableSource (IList<string> items, LeadUpdateVC leadUpdateVC)
+			{
+				this.leadUpdateVC = leadUpdateVC;
+				TableItems = items;
+			}
+
+
+>>>>>>> origin/master
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
 				return TableItems.Count;
@@ -84,5 +157,8 @@ namespace donow.iOS
 
 	}
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master

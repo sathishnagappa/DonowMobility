@@ -69,6 +69,8 @@
     <Compile Include="Model\CustomerConnect.cs" />
     <Compile Include="Model\SFDCAuth.cs" />
     <Compile Include="Model\CalenderEvent.cs" />
+    <Compile Include="Model\LineOfBusiness.cs" />
+    <Compile Include="BusinessLogic\IndustryBL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

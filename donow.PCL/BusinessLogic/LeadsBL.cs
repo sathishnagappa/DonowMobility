@@ -13,12 +13,19 @@ namespace donow.PCL
 		{
 		}
 
-		public List<Leads> GetAllLeads()
+		public List<Leads> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;
-			string response =  restSevice.GetData (leadsApicall);
-			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
+			var parsedResponse = new List<Leads>();
+			try
+			{
+			   string response =  restSevice.GetData (leadsApicall);
+			   parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
+			}
+			catch {
+				
+			}
 			return parsedResponse;
 		}
 
@@ -26,6 +33,7 @@ namespace donow.PCL
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + leadId ;
+
 			string response =  restSevice.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
 			return parsedResponse;

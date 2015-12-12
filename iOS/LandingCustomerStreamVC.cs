@@ -21,11 +21,13 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.SetNavigationBarHidden (true, false);
 		}
 
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Customer Stream";
+<<<<<<< HEAD
 			CustomerBL customerObj = new CustomerBL ();
 			IList<Customer> customerList = customerObj.GetAllCustomers ();
 			TableViewCustomerStream.Source= new TableSource(customerList, this);
@@ -89,6 +91,8 @@ namespace donow.iOS
 			{
 				return 150.0f;
 			}
+=======
+>>>>>>> origin/master
 		}
 
 	}

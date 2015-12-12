@@ -23,9 +23,13 @@ namespace donow.iOS
 
             this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.SetNavigationBarHidden (true, false);
+
+			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
+			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
+
 //			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+//			this.NavikeygationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 //			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
 //				this.NavigationController.PopViewController(true);
 //			}), true);
@@ -50,7 +54,7 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 
 			this.Title = "Leads";
-//			var table = new UITableView(View.Bounds); // defaults to Plain style
+
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
@@ -58,23 +62,31 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 
-			List<Leads> leads = new  List<Leads> ();
-			LeadsBL leadsbl = new LeadsBL ();
-			leads = leadsbl.GetAllLeads ();
-			this.TabBarItem.BadgeValue = leads.Count.ToString();
-			loadingOverlay.Hide ();
+			List<Leads> leads = GetLeads (false);
+			if (!AppDelegate.IsNewUser) {
+				this.TabBarItem.BadgeValue = leads.Count.ToString ();
+				TableViewLeads.Source = new TableSource (leads, this);
+			} else {
+				AlertView.Hidden = false;
+			}
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
-				List<Leads> newleads = new  List<Leads> ();
-//				LeadsBL newleadsbl = new LeadsBL ();
-				newleads = leadsbl.GetAllLeads ();
-				loadingOverlay.Hide ();
+				List<Leads> newleads = GetLeads(true);
 				this.TabBarItem.BadgeValue = newleads.Count.ToString();
 				TableViewLeads.Source = new TableSource (newleads, this);
+				loadingOverlay.Hide ();
 			};
 
-			TableViewLeads.Source = new TableSource (leads, this);
+			loadingOverlay.Hide ();
+		}
+
+		List<Leads> GetLeads(bool isNewLeadRequest)
+		{
+			List<Leads> leads = new  List<Leads> ();
+			LeadsBL leadsbl = new LeadsBL ();
+			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
+			return leads;
 		}
 
 		public class TableSource : UITableViewSource {
@@ -111,12 +123,22 @@ namespace donow.iOS
 			{
 				
 				tableView.DeselectRow (indexPath, true);
-				LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-				if (leadDetailVC != null) {
-					leadDetailVC.leadObj = TableItems[indexPath.Row];
-					//owner.View.AddSubview (leadDetailVC.View);
-					owner.NavigationController.PushViewController(leadDetailVC,true);
+				if (TableItems [indexPath.Row].Status == "Accepted") {
+					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+					if (leadDetailVC != null) {
+						leadDetailVC.leadObj = TableItems [indexPath.Row];
+						//owner.View.AddSubview (leadDetailVC.View);
+						owner.NavigationController.PushViewController (leadDetailVC, true);
+					}
+				} else if (TableItems [indexPath.Row].Status == "Accepted") {
+					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+					if (prospectVC != null) {
+						prospectVC.localLeads = TableItems [indexPath.Row];
+						owner.NavigationController.PushViewController (prospectVC, true);
+					}
+					
 				}
+
 			}
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

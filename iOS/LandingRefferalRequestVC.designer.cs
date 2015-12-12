@@ -14,8 +14,48 @@ namespace donow.iOS
 	[Register ("LandingRefferalRequestVC")]
 	partial class LandingRefferalRequestVC
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonAcceptRequest { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonCompletedRequest { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonNewRequest { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonPassedRequest { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ReferralRequestScrollView { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonAcceptRequest != null) {
+				ButtonAcceptRequest.Dispose ();
+				ButtonAcceptRequest = null;
+			}
+			if (ButtonCompletedRequest != null) {
+				ButtonCompletedRequest.Dispose ();
+				ButtonCompletedRequest = null;
+			}
+			if (ButtonNewRequest != null) {
+				ButtonNewRequest.Dispose ();
+				ButtonNewRequest = null;
+			}
+			if (ButtonPassedRequest != null) {
+				ButtonPassedRequest.Dispose ();
+				ButtonPassedRequest = null;
+			}
+			if (ReferralRequestScrollView != null) {
+				ReferralRequestScrollView.Dispose ();
+				ReferralRequestScrollView = null;
+			}
 		}
 	}
 }

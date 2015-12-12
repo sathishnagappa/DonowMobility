@@ -28,6 +28,7 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.NavigationController.SetNavigationBarHidden (true, false);
+			AppDelegate.IsNewUser = false;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -78,8 +79,14 @@ namespace donow.iOS
 //				await rs.UpdateSFDCData(content);
 
 	
+<<<<<<< HEAD
 //				if (ValidateCredentials ()) {
 
+=======
+				//if (ValidateCredentials ()) {
+				if(true)
+				{
+>>>>>>> origin/master
 					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
@@ -128,10 +135,22 @@ namespace donow.iOS
 
 			ButtonForgotPassword.TouchUpInside += (object sender, EventArgs e) => {	
 
+				if(string.IsNullOrEmpty(AppDelegate.UserDetails.Name))
+				{
 				ForgotPasswordVC forgotPasswordVC = this.Storyboard.InstantiateViewController ("ForgotPasswordVC") as ForgotPasswordVC;
 				if (forgotPasswordVC != null) {
 					this.NavigationController.PushViewController(forgotPasswordVC, true);
 				}
+				}
+				else{
+					UIAlertView alert = new UIAlertView () { 
+						Title = "User Not Registered", 
+						Message = "Please Sign Up to the App."
+					};
+					alert.AddButton ("OK");
+					alert.Show ();
+				}
+				
 			};
 
 		}
@@ -139,6 +158,7 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
+			AppDelegate.IsNewUser = false;
 			UserBL userBL = new UserBL ();
 			AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {

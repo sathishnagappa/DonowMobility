@@ -82,6 +82,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewNewLeads { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewPreviousMeetings { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonMail != null) {
@@ -151,6 +155,10 @@ namespace donow.iOS
 			if (TableViewNewLeads != null) {
 				TableViewNewLeads.Dispose ();
 				TableViewNewLeads = null;
+			}
+			if (TableViewPreviousMeetings != null) {
+				TableViewPreviousMeetings.Dispose ();
+				TableViewPreviousMeetings = null;
 			}
 		}
 	}

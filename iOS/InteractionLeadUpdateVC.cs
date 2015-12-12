@@ -14,21 +14,58 @@ namespace donow.iOS
 		{
 		}
 
+<<<<<<< HEAD
+=======
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+		}
+
+>>>>>>> origin/master
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+<<<<<<< HEAD
+=======
+			ViewInteractionThumbsDown.Hidden = true;
+>>>>>>> origin/master
 			IList<string> InteractionDislikerReason = new List<string>
 			{
 				"Wasn't Prepared",
 				"Did Not Have Enough Info"
 			};
 
+<<<<<<< HEAD
 //			ButtonLikeInteraction.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
 //			ButtonDislikeInteraction.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
 //			ButtonLikeCustomerAcknowledge.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
 //			ButtonDisLikeCustomerAcknowledge.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
+=======
+			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
+
+			TableViewInteractionDislikerReason.Hidden = true;
+
+			ButtonInteractionDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				TableViewInteractionDislikerReason.Hidden = false;
+			};
+
+			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
+				ViewInteractionThumbsDown.Hidden = false;
+			};
+
+			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
+				ViewInteractionThumbsDown.Hidden = true;
+			};
+>>>>>>> origin/master
 		}
 
 		public class TableSource : UITableViewSource {
@@ -72,4 +109,8 @@ namespace donow.iOS
 		}
 
 		}
+<<<<<<< HEAD
 	}
+=======
+}
+>>>>>>> origin/master

@@ -50,7 +50,7 @@
 		</dict>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.brillio.donow.iOS</string>
+	<string>com.brillio.donow</string>
 	<key>CFBundleDisplayName</key>
 	<string>DoNow</string>
 </dict>

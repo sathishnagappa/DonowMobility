@@ -15,7 +15,7 @@ namespace donow.iOS
 
 		IList<string> imageIcons = new List<string>
 		{
-			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png"
+			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png","Info Page Icon.png","Info Page Icon.png"
 		};
 
 		public override void ViewWillAppear (bool animated)
@@ -23,14 +23,15 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.SetNavigationBarHidden (true, false);
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Hamburger Menu";
+			this.Title = "More";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {"My Profile","My Meetings","Deal Makers","Account Management",};
+			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page","Intial FeedBack","F2F Feedback" };
 			table.Source = new TableSource(tableItems, imageIcons, this);
 			View.Add (table);
 		}
@@ -74,25 +75,13 @@ namespace donow.iOS
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 				switch (TableItems [indexPath.Row]) {
-				case "Notifications": 
-					NotificationsVC notificationVC = owner.Storyboard.InstantiateViewController ("NotificationsVC") as NotificationsVC;
-					if (notificationVC != null) {
-						owner.NavigationController.PushViewController (notificationVC, true);
-					}
-					break;
 				case "My Profile": 
 					MyProfileVC myProfileVC = owner.Storyboard.InstantiateViewController ("MyProfileVC") as MyProfileVC;
 					if (myProfileVC != null) {
 						owner.NavigationController.PushViewController (myProfileVC, true);
 					}
 					break;
-				case "My Meetings": 
-					MyMeetingsVC myMeetingVC = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
-					if (myMeetingVC != null) {
-						owner.NavigationController.PushViewController (myMeetingVC, true);
-					}
-					break;
-				case "Deal Makers": 
+				case "My Deal Makers": 
 					DealMakersVC dealMakersVC = owner.Storyboard.InstantiateViewController ("DealMakersVC") as DealMakersVC;
 					if (dealMakersVC != null) {
 						owner.NavigationController.PushViewController (dealMakersVC, true);
@@ -103,6 +92,24 @@ namespace donow.iOS
 					if (accountManagementVC != null) {
 						owner.NavigationController.PushViewController (accountManagementVC, true);
 					}
+					break;
+				case "Info Page": 
+//					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
+//					if (accountManagementVC != null) {
+//						owner.NavigationController.PushViewController (accountManagementVC, true);
+//					}
+					break;
+				case "Intial FeedBack": 
+					InteractionLeadUpdateVC IntialFeeback = owner.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+					if (IntialFeeback != null) {
+						owner.NavigationController.PushViewController (IntialFeeback, true);
+										}
+					break;
+				case "F2F Feedback": 
+					LeadUpdateVC f2fFeedback = owner.Storyboard.InstantiateViewController ("LeadUpdateVC") as LeadUpdateVC;
+					if (f2fFeedback != null) {
+						owner.NavigationController.PushViewController (f2fFeedback, true);
+										}
 					break;
 				default:
 					UIAlertController okAlertController = UIAlertController.Create ("Row Touched", TableItems [indexPath.Row], UIAlertControllerStyle.Alert);

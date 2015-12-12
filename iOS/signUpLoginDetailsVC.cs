@@ -83,15 +83,6 @@ namespace donow.iOS
 		{
 			UIAlertView alert = null;
 			UserBL userBL = new UserBL ();
-			if(userBL.CheckUserExist(TextBoxUserName.Text))
-			{
-				alert = new UIAlertView () { 
-					Title = "Error", 
-					Message = "User Name already exists."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
-			}
 
 			if (string.IsNullOrEmpty(TextBoxUserName.Text)) {
 				alert = new UIAlertView () { 
@@ -115,6 +106,16 @@ namespace donow.iOS
 				alert = new UIAlertView () { 
 					Title = "Password Mismatch", 
 					Message = "Confirm password doesn't match with the password."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+			if(userBL.CheckUserExist(TextBoxUserName.Text))
+			{
+				alert = new UIAlertView () { 
+					Title = "Error", 
+					Message = "User Name already exists."
 				};
 				alert.AddButton ("OK");
 				alert.Show ();
