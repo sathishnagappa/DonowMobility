@@ -256,9 +256,9 @@
     <Compile Include="DealMakerDetailVC.designer.cs">
       <DependentUpon>DealMakerDetailVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="LandingReferalProfileVC.cs" />
-    <Compile Include="LandingReferalProfileVC.designer.cs">
-      <DependentUpon>LandingReferalProfileVC.cs</DependentUpon>
+    <Compile Include="ScrollReq.cs" />
+    <Compile Include="ScrollReq.designer.cs">
+      <DependentUpon>ScrollReq.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

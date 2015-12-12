@@ -108,13 +108,13 @@ namespace donow.iOS
 
 				tableView.DeselectRow (indexPath, true);
 
-				LandingReferalProfileVC landingReferalProfile = owner.Storyboard.InstantiateViewController ("landingReferalProfile") as LandingReferalProfileVC;
-				if (landingReferalProfile != null) {
+				ScrollReq ScrollReqProf = owner.Storyboard.InstantiateViewController ("ScrollReqProf") as ScrollReq;
+				if (ScrollReqProf != null) {
 					//customerStreamDetailVC.customerObj = TableItems[indexPath.Row];
 					//Customer customerObj = TableItems[indexPath.Row];
 
 					//owner.View.AddSubview (leadDetailVC.View);
-					owner.NavigationController.PushViewController(landingReferalProfile,true);
+					owner.NavigationController.PushViewController(ScrollReqProf,true);
 				}
 				//LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 //				if (leadDetailVC != null) {

@@ -2396,10 +2396,10 @@ steps.</string>
             </objects>
             <point key="canvasLocation" x="1653" y="3983"/>
         </scene>
-        <!--Landing Referal ProfileVC-->
+        <!--Scroll Req-->
         <scene sceneID="yUg-qj-KRf">
             <objects>
-                <viewController storyboardIdentifier="landingReferalProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMr-GG-amP" customClass="LandingReferalProfileVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScrollReqProf" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMr-GG-amP" customClass="ScrollReq" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ih2-ml-dgM"/>
                         <viewControllerLayoutGuide type="bottom" id="IkY-Uw-9GC"/>
@@ -2592,10 +2592,6 @@ steps.</string>
                                                 <rect key="frame" x="0.0" y="145" width="414" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view hidden="YES" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOx-Ua-Y3L">
-                                                <rect key="frame" x="0.0" y="-222" width="414" height="736"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -2657,9 +2653,6 @@ steps.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="ScrollReferalProfile" destination="EOu-F5-M35" id="name-outlet-EOu-F5-M35"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcV-xZ-fw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2857,7 +2850,7 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="1" width="414" height="135"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNe-OT-htZ" id="01b-b0-eba">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-WM-3fN">
@@ -2929,7 +2922,7 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJe-Ko-TE5" id="i7O-x8-h8w">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-ib-Qsd">
@@ -3069,7 +3062,7 @@ steps.</string>
                                                                 <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W75-AG-OP2" id="6m6-C7-9zE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Email Sent Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-vK-D4z">
@@ -3156,7 +3149,7 @@ steps.</string>
                                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zvO-YN-HDe" id="QYk-2Z-yJE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Between Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-Kb-0mb">
@@ -3796,7 +3789,7 @@ steps.</string>
                                         <rect key="frame" x="0.0" y="1" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c24-Dp-wc7" id="tHt-gZ-YWI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j7F-Ll-4yp">
@@ -4459,31 +4452,6 @@ steps.</string>
         <image name="Thumbs Up Grey.png" width="78" height="78"/>
         <image name="User Name Icon.png" width="46" height="46"/>
         <image name="down-arrow.png" width="13" height="9"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="Collaboration.png" width="25" height="25"/>
-        <image name="mvboli.ttf" width="0" height="0"/>
-        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
-        <image name="Stream Icon_Small.png" width="58" height="58"/>
-        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
-        <image name="Info Page Icon.png" width="58" height="58"/>
-        <image name="My Deal Makers Icon.png" width="58" height="58"/>
-        <image name="My Profile Icon.png" width="58" height="58"/>
-        <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
-        <image name="Twitter Thumb.png" width="80" height="70"/>
-        <image name="Article 1 Thumb.png" width="80" height="70"/>
-        <image name="Article 2 Thumb.png" width="80" height="70"/>
-        <image name="Article 3 Thumb.png" width="80" height="70"/>
-        <image name="Contact Info Icon_Small.png" width="58" height="58"/>
-        <image name="LinkedIn Thumb.png" width="80" height="70"/>
-        <image name="New Leads Thumb.png" width="80" height="70"/>
-        <image name="Phone Thumb.png" width="80" height="70"/>
-        <image name="Promotions Thumb.png" width="80" height="70"/>
-        <image name="Thumbs Down White.png" width="78" height="78"/>
-        <image name="Thumbs Up White.png" width="78" height="78"/>
-        <image name="Leads Thumb.png" width="80" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>

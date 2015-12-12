@@ -5,19 +5,18 @@ using UIKit;
 using CoreGraphics;
 using System.Drawing;
 
+
 namespace donow.iOS
 {
-	public partial class LandingReferalProfileVC : UIViewController
+	partial class ScrollReq : UIViewController
 	{
-		public LandingReferalProfileVC (IntPtr handle) : base (handle)
+		public ScrollReq (IntPtr handle) : base (handle)
 		{
 		}
 		public override void ViewDidLoad ()
 		{
-
-			ScrollReferalProfile.ContentSize =  new CGSize (415f, 1100);
+			base.ViewDidLoad ();
+			//ScrollReq.co
 		}
-
-
 	}
 }
