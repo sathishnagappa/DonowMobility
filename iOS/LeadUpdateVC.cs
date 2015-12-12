@@ -5,17 +5,12 @@ using System;
 using Foundation;
 using UIKit;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using CoreGraphics;
->>>>>>> origin/master
 
 namespace donow.iOS
 {
 	public partial class LeadUpdateVC : UIViewController
 	{
-<<<<<<< HEAD
-=======
 
 		public LeadUpdateVC (IntPtr handle) : base (handle)
 		{
@@ -28,16 +23,12 @@ namespace donow.iOS
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			this.NavigationController.SetNavigationBarHidden (false, false);
 		}
->>>>>>> origin/master
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-<<<<<<< HEAD
-=======
 			ScrollViewF2F.ContentSize = new CGSize (414f, 1100f); 
 			ViewF2FMeetingDown.Hidden = true;
->>>>>>> origin/master
 			IList<string> ListThumbsDownReason = new List<string>
 			{
 				"Customer Cancelled",
@@ -56,16 +47,7 @@ namespace donow.iOS
 				"Purist"
 			};
 
-<<<<<<< HEAD
-//			ButtonLikeMeeting.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-//			ButtonDisLikeMeeting.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
-//			ButtonLikeMeetingInfoHelpful.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-//			ButtonDisLikeMeetingInfoHelpful.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
-//			ButtonLikeLeadAdvanced.ImageForState (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Up White.png");
-//			ButtonDisLikeLeadAdvanced.ImageForState( (UIControlState.Selected) = UIImage.FromBundle ("Thumbs Down White.png");
-//
-//			TableViewInteractionDislikeReason.Source = new TableSource (InteractionDislikerReason, this);
-=======
+
 			ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
 			ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
@@ -99,7 +81,6 @@ namespace donow.iOS
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewNextSteps.Source = new TableSource (ListNextStep, this);
 			};
->>>>>>> origin/master
 		}
 
 		public class TableSource : UITableViewSource {
@@ -107,7 +88,6 @@ namespace donow.iOS
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
 
-<<<<<<< HEAD
 			InteractionLeadUpdateVC interactionLeadUpdateVC;
 
 			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
@@ -116,7 +96,6 @@ namespace donow.iOS
 				TableItems = items;
 			}
 
-=======
 			LeadUpdateVC leadUpdateVC;
 
 
@@ -127,7 +106,6 @@ namespace donow.iOS
 			}
 
 
->>>>>>> origin/master
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
 				return TableItems.Count;
@@ -157,8 +135,4 @@ namespace donow.iOS
 
 	}
 }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> origin/master

@@ -243,14 +243,19 @@
     <Compile Include="InteractionLeadUpdateVC.designer.cs">
       <DependentUpon>InteractionLeadUpdateVC.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="CustomerStreamTableViewCell.cs" />
     <Compile Include="LandingCustomerDetailVC.cs" />
     <Compile Include="LandingCustomerDetailVC.designer.cs">
       <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
     </Compile>
-=======
->>>>>>> origin/master
+    <Compile Include="DealMakerVC.cs" />
+    <Compile Include="DealMakerVC.designer.cs">
+      <DependentUpon>DealMakerVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DealMakerDetailVC.cs" />
+    <Compile Include="DealMakerDetailVC.designer.cs">
+      <DependentUpon>DealMakerDetailVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -326,10 +331,7 @@
     <BundleResource Include="Resources\Leads Thumb.png" />
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
-<<<<<<< HEAD
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
-=======
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

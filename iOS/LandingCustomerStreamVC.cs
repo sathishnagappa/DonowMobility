@@ -27,7 +27,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Customer Stream";
-<<<<<<< HEAD
+
 			CustomerBL customerObj = new CustomerBL ();
 			IList<Customer> customerList = customerObj.GetAllCustomers ();
 			TableViewCustomerStream.Source= new TableSource(customerList, this);
@@ -91,8 +91,6 @@ namespace donow.iOS
 			{
 				return 150.0f;
 			}
-=======
->>>>>>> origin/master
 		}
 
 	}
