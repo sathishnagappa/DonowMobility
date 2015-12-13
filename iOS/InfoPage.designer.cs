@@ -11,11 +11,19 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("DealMakersVC")]
-	partial class DealMakersVC
+	[Register ("InfoPage")]
+	partial class InfoPage
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewInfoPage { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (ScrollViewInfoPage != null) {
+				ScrollViewInfoPage.Dispose ();
+				ScrollViewInfoPage = null;
+			}
 		}
 	}
 }

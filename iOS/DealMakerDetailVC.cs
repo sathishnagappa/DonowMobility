@@ -12,5 +12,21 @@ namespace donow.iOS
 		public DealMakerDetailVC (IntPtr handle) : base (handle)
 		{
 		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+
+			ViewBackgroundTransparent.Hidden = true;
+			ViewSendRequestView.Hidden = true;
+
+			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
+				ViewBackgroundTransparent.Hidden = false;
+				ViewSendRequestView.Hidden = false;
+			};
+			ButtonOkSendRequestView.TouchUpInside += (object sender, EventArgs e) => {
+
+			};
+		}
 	}
 }

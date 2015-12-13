@@ -52,11 +52,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSaleStageDropDown { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewF2F { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewCustomerCategorization { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewSalesStage { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -75,6 +83,10 @@ namespace donow.iOS
 			if (ButtonCustomerCategorizationDropDown != null) {
 				ButtonCustomerCategorizationDropDown.Dispose ();
 				ButtonCustomerCategorizationDropDown = null;
+			}
+			if (ButtonSaleStageDropDown != null) {
+				ButtonSaleStageDropDown.Dispose ();
+				ButtonSaleStageDropDown = null;
 			}
 			if (ButtonDisLikeLeadAdvanced != null) {
 				ButtonDisLikeLeadAdvanced.Dispose ();
@@ -115,6 +127,10 @@ namespace donow.iOS
 			if (TableViewCustomerCategorization != null) {
 				TableViewCustomerCategorization.Dispose ();
 				TableViewCustomerCategorization = null;
+			}
+			if (TableViewSalesStage != null) {
+				TableViewSalesStage.Dispose ();
+				TableViewSalesStage = null;
 			}
 			if (TableViewInteractionDislikeReason != null) {
 				TableViewInteractionDislikeReason.Dispose ();

@@ -81,24 +81,24 @@ namespace donow.iOS
 						owner.NavigationController.PushViewController (myProfileVC, true);
 					}
 					break;
-				case "My Deal Makers": 
-					DealMakersVC dealMakersVC = owner.Storyboard.InstantiateViewController ("DealMakersVC") as DealMakersVC;
-					if (dealMakersVC != null) {
-						owner.NavigationController.PushViewController (dealMakersVC, true);
-					}
-					break;
+//				case "My Deal Makers": 
+//					DealMakerVC dealMakerVC = owner.Storyboard.InstantiateViewController ("DealMakerVC") as DealMakerVC;
+//					if (dealMakerVC != null) {
+//						owner.NavigationController.PushViewController (dealMakerVC, true);
+//					}
+//					break;
 				case "Account Management": 
 					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
 					if (accountManagementVC != null) {
 						owner.NavigationController.PushViewController (accountManagementVC, true);
 					}
 					break;
-				case "Info Page": 
-//					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
-//					if (accountManagementVC != null) {
-//						owner.NavigationController.PushViewController (accountManagementVC, true);
+//				case "Info Page": 
+//					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
+//					if (infoVC != null) {
+//						owner.NavigationController.PushViewController (infoVC, true);
 //					}
-					break;
+//					break;
 				case "Intial FeedBack": 
 					InteractionLeadUpdateVC IntialFeeback = owner.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 					if (IntialFeeback != null) {
