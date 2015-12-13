@@ -1,23 +1,30 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/CalenderHomeDVC.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="donow.PCL/BusinessLogic/CustomerBL.cs">
     <Files>
-      <File FileName="donow.PCL/Model/UserMeetings.cs" Line="17" Column="3" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="12" Column="3" />
-      <File FileName="donow.PCL/Model/UserDetails.cs" Line="15" Column="45" />
-      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="26" Column="1" />
-      <File FileName="iOS/loginPageViewController.cs" Line="156" Column="75" />
-      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="50" Column="25" />
-      <File FileName="iOS/CalenderHomeDVC.cs" Line="210" Column="74" />
-      <File FileName="donow.PCL/Model/CalenderEvent.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/Model/Broker.cs" Line="5" Column="21" />
+      <File FileName="donow.PCL/BusinessLogic/BrokerBL.cs" Line="27" Column="44" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="86" Column="33" />
+      <File FileName="iOS/DealMakersVC.cs" Line="19" Column="35" />
+      <File FileName="iOS/LeadDetailVC.cs" Line="30" Column="36" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="58" Column="24" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="31" Column="4" />
+      <File FileName="donow.PCL/Model/Customer.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/BusinessLogic/CustomerBL.cs" Line="41" Column="49" />
+      <File FileName="donow.PCL/Model/Feed.cs" Line="9" Column="38" />
+      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="59" Column="4" />
+      <File FileName="donow.PCL/BusinessLogic/IndustryBL.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/EventListDVC.cs" line="23" column="1" />
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LeadsTableCell.cs" line="10" column="32" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/Main.cs" line="17" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="16" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="6" column="1" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/BusinessLogic/UserBL.cs" line="56" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-</Properties>			ScrollReferalProfile.ContentSize =  new CGSize (415f, 1100);
+</Properties>

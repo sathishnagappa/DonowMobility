@@ -63,7 +63,6 @@
     <Compile Include="BusinessLogic\CustomerBL.cs" />
     <Compile Include="BusinessLogic\ReferralRequestBL.cs" />
     <Compile Include="Model\Feed.cs" />
-    <Compile Include="BusinessLogic\FeedBL.cs" />
     <Compile Include="Model\UserMeetings.cs" />
     <Compile Include="Model\BusinessRecomendations.cs" />
     <Compile Include="Model\CustomerLatestInfo.cs" />

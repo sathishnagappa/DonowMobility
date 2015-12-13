@@ -28,8 +28,10 @@ namespace donow.iOS
 		{
 			this.Title = "Customer Stream";
 
-			CustomerBL customerObj = new CustomerBL ();
-			IList<Customer> customerList = customerObj.GetAllCustomers ();
+			CustomerBL customerBL = new CustomerBL ();
+			//List<Feed> feedlist = customerBL.GetCustomerFeed ();
+			List<Customer> customerList = customerBL.GetAllCustomers();
+
 			TableViewCustomerStream.Source= new TableSource(customerList, this);
 
 

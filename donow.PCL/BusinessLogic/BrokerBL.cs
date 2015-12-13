@@ -1,6 +1,7 @@
 ﻿using System;
 using donow.Services;
 using donow.Util;
+using System.Collections.Generic;
 
 namespace donow.PCL
 {
@@ -18,6 +19,15 @@ namespace donow.PCL
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 
+		}
+
+		public List<Broker> GetAllBrokers(string IndustryName,string LOB)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.DealMaker + "?IndustryName=" + IndustryName + "&LOB=" + LOB;
+			string response =  restSevice.GetData (leadsApicall);
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
+			return parsedResponse;
 		}
 	}
 }

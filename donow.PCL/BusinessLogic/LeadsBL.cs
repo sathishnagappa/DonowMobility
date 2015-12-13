@@ -16,7 +16,7 @@ namespace donow.PCL
 		public List<Leads> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?id" + UserID;
+			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
 			var parsedResponse = new List<Leads>();
 			try
 			{
