@@ -28,7 +28,6 @@ namespace donow.PCL
 			var bing = new BingSearchContainer(
 				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
 			{ Credentials = new NetworkCredential(bingKey, bingKey) };
-
 			var query = bing.Web(parameter, null, null, null, null, null, null, null);
 			//var query = bing.News("Market trends", null, null, null, null, null, null, null, null);
 			var results = query.Execute();

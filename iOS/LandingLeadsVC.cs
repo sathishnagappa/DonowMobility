@@ -22,14 +22,13 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-            this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.SetNavigationBarHidden (true, false);
 
-			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
-			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
-
-//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
-//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+//			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
+//			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			this.NavikeygationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 //			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
 //				this.NavigationController.PopViewController(true);

@@ -53,5 +53,10 @@
 	<string>com.brillio.donow</string>
 	<key>CFBundleDisplayName</key>
 	<string>DoNow</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

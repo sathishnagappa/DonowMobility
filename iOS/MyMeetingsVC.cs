@@ -168,6 +168,12 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
+				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+				if (bingSearchVC != null) {
+					bingSearchVC.webURL = TableItems [indexPath.Row].Url;
+					//owner.View.AddSubview (leadDetailVC.View);
+					owner.NavigationController.PushViewController (bingSearchVC, true);
+				}
 				tableView.DeselectRow (indexPath, true);
 			}
 

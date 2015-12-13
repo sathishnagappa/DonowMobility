@@ -78,15 +78,15 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {ImageViewDealMakerImage});
 		}
 
-		public void UpdateCell ()
+		public void UpdateCell (Broker brokerObj)
 		{
-			LabelDealMakerScoreName.Text = "Maker Score:";
-			LabelDealMakerIndustry.Text = "Industry:";
-			LabelDealMakerLocation.Text = "Location";
-			LabelDealMakerScoreDigit.Text = "5";
-			LabelDealMakerIndustryDiscription.Text = "Tech";
-			LabelDealMakerLocationDescription.Text = "Seattle";
-			LabelLeadStatus.Text = "New";
+			LabelDealMakerScoreName.Text = "Maker Score: ";
+			LabelDealMakerIndustry.Text = "Industry: ";
+			LabelDealMakerLocation.Text = "Location: " ;
+			LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
+			LabelDealMakerIndustryDiscription.Text = brokerObj.Industry;
+			LabelDealMakerLocationDescription.Text = brokerObj.City + ", " + brokerObj.State;
+			LabelLeadStatus.Text = brokerObj.Status;
 //				ImageViewDealMakerImage.Image = 
 		}
 

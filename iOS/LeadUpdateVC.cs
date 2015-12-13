@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using System.Collections.Generic;
 using CoreGraphics;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -22,7 +23,11 @@ namespace donow.iOS
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			this.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
 		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -92,6 +97,19 @@ namespace donow.iOS
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewNextSteps.Hidden = false;
 			};
+
+//			LeadsBL leadbl = new LeadsBL();
+//			LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack();
+//			leadf2ffeedback.LeadID = 1231;
+//			leadf2ffeedback.UserID = 1;
+//			leadf2ffeedback.ReasonForDown = "Not Ok";
+//			leadf2ffeedback.ConfirmMeeting = "UP";
+//			leadf2ffeedback.CustomerCategorization = "dadaoene";
+//			leadf2ffeedback.MeetingInfoHelpFull = "";
+//			leadf2ffeedback.LeadAdvanced = "UP";
+//			leadf2ffeedback.NextSteps = "dadaoene";
+//			leadf2ffeedback.SalesStage = "Followup";
+//			leadbl.SaveLeadF2FFeedBack(leadf2ffeedback);
 		}
 
 		public class TableSource : UITableViewSource {

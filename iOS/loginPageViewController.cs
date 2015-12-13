@@ -77,14 +77,7 @@ namespace donow.iOS
 				//				string content = rs.SFDCAuthentication();
 				//				await rs.UpdateSFDCData(content);
 
-//				LeadsBL leadbl = new LeadsBL();
-//				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-//				leadfeedback.LeadID = 1211;
-//				leadfeedback.QuestionNo = 1;
-//				leadfeedback.Options = 2;
-//				leadfeedback.AnswerType = 2;
-//				leadfeedback.Comments = "";
-//				leadbl.SaveLeadFeedBack(leadfeedback);
+
 
 
 				//LeadsBL leadbl = new LeadsBL();
@@ -92,13 +85,7 @@ namespace donow.iOS
 				//leadbl.UpdateReasonForPass(125960876,"Client Not interested");
 
 
-//				LeadF2FFeedBack leadfeedback = new LeadF2FFeedBack();
-//				leadfeedback.LeadID = 1231;
-//				leadfeedback.QuestionNo = 1;
-//				leadfeedback.Options = 2;
-//				leadfeedback.AnswerType = 2;
-//				leadfeedback.Comments = "";
-//				leadbl.SaveLeadF2FFeedBack(leadfeedback);
+
 
 				//ReferralRequestBL rrbl = new ReferralRequestBL();
 				//rrbl.GetReferralRequest();

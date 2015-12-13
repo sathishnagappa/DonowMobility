@@ -193,14 +193,7 @@ namespace donow.iOS
 
 			void AddEvent(EKEvent calendarEvent)
 			{
-//				CalenderEvent calendarObj = new CalenderEvent ();
-//				calendarObj.ID = 1;
-//				calendarObj.LeadID = "3";
-//				calendarObj.UserID = "6";
-//				calendarObj.Subject = calendarEvent.Title;
-//				calendarObj.StartDate = calendarEvent.StartDate.ToString ();
-//				calendarObj.EndDate = calendarEvent.EndDate.ToString ();
-//				AppDelegate.CalendarList.Add (calendarObj);
+
 
 				UserMeetings userMeetings = new UserMeetings ();
 				userMeetings.id = 0;
