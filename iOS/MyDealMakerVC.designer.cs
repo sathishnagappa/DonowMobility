@@ -11,11 +11,19 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("LandingCustomerDetailVC")]
-	partial class LandingCustomerDetailVC
+	[Register ("MyDealMakerVC")]
+	partial class MyDealMakerVC
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewDealMaker { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (TableViewDealMaker != null) {
+				TableViewDealMaker.Dispose ();
+				TableViewDealMaker = null;
+			}
 		}
 	}
 }
