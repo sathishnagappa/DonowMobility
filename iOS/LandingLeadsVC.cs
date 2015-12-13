@@ -37,6 +37,21 @@ namespace donow.iOS
 //			List<Leads> newleads = GetLeads();
 //			this.TabBarItem.BadgeValue = newleads.Count.ToString();
 //			TableViewLeads.Source = new TableSource (newleads, this);
+
+
+			List<Leads> leads = GetLeads ();
+			if (leads.Count > 0) {
+				this.TabBarItem.BadgeValue = leads.Count.ToString ();
+				TableViewLeads.Source = new TableSource (leads, this);
+			} else {
+				//AlertView.Hidden = false;
+				UIAlertView alert = new UIAlertView () { 
+					Title = "", 
+					Message = "We are gathering your leads for you! \n Check Back Shortly."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+			}
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -66,19 +81,6 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 
-			List<Leads> leads = GetLeads ();
-			if (!AppDelegate.IsNewUser) {
-				this.TabBarItem.BadgeValue = leads.Count.ToString ();
-				TableViewLeads.Source = new TableSource (leads, this);
-			} else {
-				//AlertView.Hidden = false;
-				UIAlertView alert = new UIAlertView () { 
-					Title = "", 
-					Message = "We are gathering your leads for you! \n Check Back Shortly."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
-			}
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
@@ -96,7 +98,6 @@ namespace donow.iOS
 			List<Leads> leads = new  List<Leads> ();
 			LeadsBL leadsbl = new LeadsBL ();
 			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
-			//leads = leadsbl.GetAllLeads (1);
 			return leads;
 		}
 

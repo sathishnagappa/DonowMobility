@@ -40,6 +40,7 @@ namespace donow.PCL
 				bingResult.Url = result.Url;
 				bingResult.Description = result.Description;
 				bingResult.DisplayUrl = result.DisplayUrl;
+				bingResult.Title = result.Title;
 				binglist.Add (bingResult);				 
 			}
 			return binglist;
@@ -55,6 +56,17 @@ namespace donow.PCL
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}
+
+		public List<Feed> GetCustomerFeed()
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.CustomerFeed;
+			string response = restSevice.GetData (restUrl);
+			List<Feed> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(response.ToString());
+			return parsedResponse;
+		}
+
+
 	}
 }
 

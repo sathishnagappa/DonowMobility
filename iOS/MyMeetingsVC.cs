@@ -5,11 +5,14 @@ using UIKit;
 using donow.PCL.Model;
 using System.Collections.Generic;
 using CoreGraphics;
+using donow.PCL;
+using System.Collections;
 
 namespace donow.iOS
 {
 	partial class MyMeetingsVC : UIViewController
 	{
+		
 		public MyMeetingsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -23,15 +26,17 @@ namespace donow.iOS
 			string[] TakingPoints =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
 				"* What else are you willing to \n look into?"};
 			string[] LastestCustomerInfo =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?"};
-			string[] LatestIndustryInfo =  {"HR Tech Tools Optimized for\nBest Results", "HR Management: How Top\nCompanies are Strategizing",
-				"HR Tools to Compare: How do\nyou stack up?"};
+//			string[] LatestIndustryInfo =  {"HR Tech Tools Optimized for\nBest Results", "HR Management: How Top\nCompanies are Strategizing",
+//				"HR Tools to Compare: How do\nyou stack up?"};
+			CustomerBL customerBL = new CustomerBL();
+			List<BingResult>  bingResult = customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
 			TalkingPointTable.Source = new TableSource(TakingPoints, this);
 			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(LastestCustomerInfo, this);
-			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(LatestIndustryInfo, this);
+			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(bingResult, this);
 		}
 
 		public class TableSource : UITableViewSource {
-
+			 
 			string[] TableItems;
 			string CellIdentifier = "TableCell";
 
@@ -128,12 +133,12 @@ namespace donow.iOS
 
 		public class CustomerIndustryTableSource : UITableViewSource {
 
-			string[] TableItems;
+			List<BingResult> TableItems;
 			string CellIdentifier = "TableCell";
 
 			MyMeetingsVC owner;
 
-			public CustomerIndustryTableSource (string[] meetingList, MyMeetingsVC owner)
+			public CustomerIndustryTableSource (List<BingResult> meetingList, MyMeetingsVC owner)
 			{
 				TableItems = meetingList;
 				this.owner = owner;
@@ -141,20 +146,20 @@ namespace donow.iOS
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				return TableItems.Length;
+				return 5;
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 			{
 				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				string item = TableItems[indexPath.Row];
+				BingResult item = TableItems[indexPath.Row];
 
 				//---- if there are no cells to reuse, create a new one
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
-				cell.TextLabel.Text = item;
+				cell.TextLabel.Text = item.Title;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
 				cell.TextLabel.Lines = 0;
 
@@ -162,9 +167,7 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{	
-
-
+			{
 				tableView.DeselectRow (indexPath, true);
 			}
 

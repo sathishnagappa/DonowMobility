@@ -65,6 +65,9 @@ namespace donow.iOS
 
 		public void UpdateCell (ReferralRequest rrObj)
 		{
+
+
+
 //			LabelSellerName.Text = "Seller :" + rrObj.UserName;
 //			LabelIndustryName.Text = "Industry:" + rrObj.Industry;
 //			LabelLocation.Text = "Location:"+ rrObj.City + ", " + rrObj.State;
