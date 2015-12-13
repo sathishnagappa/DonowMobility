@@ -93,12 +93,12 @@ namespace donow.iOS
 						owner.NavigationController.PushViewController (accountManagementVC, true);
 					}
 					break;
-				case "Info Page": 
-					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
-					if (infoVC != null) {
-						owner.NavigationController.PushViewController (infoVC, true);
-					}
-//					break;
+//				case "Info Page": 
+//					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
+//					if (infoVC != null) {
+//						owner.NavigationController.PushViewController (infoVC, true);
+//					}
+////					break;
 				case "Intial FeedBack": 
 					InteractionLeadUpdateVC IntialFeeback = owner.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 					if (IntialFeeback != null) {
