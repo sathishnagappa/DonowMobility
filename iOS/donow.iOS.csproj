@@ -244,19 +244,23 @@
     <Compile Include="LandingCustomerDetailVC.designer.cs">
       <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="DealMakerVC.cs" />
-    <Compile Include="DealMakerVC.designer.cs">
-      <DependentUpon>DealMakerVC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DealMakerDetailVC.cs" />
-    <Compile Include="DealMakerDetailVC.designer.cs">
-      <DependentUpon>DealMakerDetailVC.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScrollReq.cs" />
     <Compile Include="ScrollReq.designer.cs">
       <DependentUpon>ScrollReq.cs</DependentUpon>
     </Compile>
     <Compile Include="DealMakerTableViewCell.cs" />
+    <Compile Include="InfoPage_.cs" />
+    <Compile Include="InfoPage_.designer.cs">
+      <DependentUpon>InfoPage_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDealMakerVC.cs" />
+    <Compile Include="MyDealMakerVC.designer.cs">
+      <DependentUpon>MyDealMakerVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDealMakerDetailVC.cs" />
+    <Compile Include="MyDealMakerDetailVC.designer.cs">
+      <DependentUpon>MyDealMakerDetailVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -333,6 +337,7 @@
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
+    <BundleResource Include="Resources\DoNow Logo_Small.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

@@ -7,9 +7,9 @@ using UIKit;
 
 namespace donow.iOS
 {
-	public partial class DealMakerDetailVC : UIViewController
+	public partial class MyDealMakerDetailVC : UIViewController
 	{
-		public DealMakerDetailVC (IntPtr handle) : base (handle)
+		public MyDealMakerDetailVC (IntPtr handle) : base (handle)
 		{
 		}
 
@@ -25,8 +25,10 @@ namespace donow.iOS
 				ViewSendRequestView.Hidden = false;
 			};
 			ButtonOkSendRequestView.TouchUpInside += (object sender, EventArgs e) => {
-
+				ViewBackgroundTransparent.Hidden = true;
+				ViewSendRequestView.Hidden = true;
 			};
+//			ScrollViewDealMakerDetails.ContentSize = new CGSize (414, 633.0f);
 		}
 	}
 }
