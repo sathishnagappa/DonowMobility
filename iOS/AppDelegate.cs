@@ -21,6 +21,7 @@ namespace donow.iOS
 		public static bool IsCalendarClicked;
 		public static List<CalenderEvent> CalendarList;
 		public static bool IsNewUser;
+		public static Leads CurrentLead;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }

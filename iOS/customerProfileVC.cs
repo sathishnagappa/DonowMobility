@@ -6,8 +6,10 @@ using UIKit;
 using donow.PCL.Model;
 using donow.PCL;
 using CoreGraphics;
+using donow.Services;
 
 namespace donow.iOS
+
 {
 	partial class customerProfileVC : UIViewController
 	{
@@ -25,8 +27,11 @@ namespace donow.iOS
 			List <Leads> ListLeads = new List <Leads> ();
 			LeadsBL leadsVC = new LeadsBL ();
 			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+			RestService restservice = new RestService ();
+			//restservice.GetBingResult ("DoNow Market Trends");
 
-//			UserMeetings upComingMeetings;
+
+			//UserMeetings upComingMeetings =  leadsVC.GetMeetingEvents(AppDelegate.);
 
 			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);
 

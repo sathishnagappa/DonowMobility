@@ -53,9 +53,9 @@ namespace donow.iOS
 		public void UpdateCell (Leads leads)
 		{
 //			ImageViewLeadImage.Image = UIImage.FromBundle ();
-			LabelLeadStory.Text = leads.BusinessNeeds;
-			LabelLeadScore.Text = "Score: " + leads.LeadScore.ToString();
-			LabelLeadSource.Text = "Source:" + leads.Source; 
+			LabelLeadStory.Text = leads.BUSINESS_NEED;
+			LabelLeadScore.Text = "Score: " + leads.LEAD_SCORE.ToString();
+			LabelLeadSource.Text = "Source:" + leads.LEAD_SOURCE; 
 			LabelLeadHours.Text = DateTime.Now.Hour.ToString() + "h";
 		}
 

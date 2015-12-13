@@ -28,17 +28,17 @@ namespace donow.iOS
 			AppDelegate.IsCalendarClicked = false;
 			base.ViewDidLoad ();
 
-			LabelProspectName.Text = localLeads.Name;
-			LabelProspectCompanyName.Text = localLeads.Company;
-			LabelProspectCityandState.Text = localLeads.City + ", " + localLeads.State;
-			LabelLeadScore.Text = localLeads.LeadScore.ToString();
-			LabelLeadSource.Text = localLeads.Source;
+			LabelProspectName.Text = localLeads.LEAD_NAME;
+			LabelProspectCompanyName.Text = localLeads.COMPANY_NAME;
+			LabelProspectCityandState.Text = localLeads.CITY + ", " + localLeads.STATE;
+			LabelLeadScore.Text = localLeads.LEAD_SCORE.ToString();
+			LabelLeadSource.Text = localLeads.LEAD_SOURCE == 1? "SFDC" : "DoNow";
 
-			if (localLeads.SalesStage.Equals("Closed Sale")) {
+			if (localLeads.LEAD_STATUS.Equals(1)) {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Close Sale Highlight.png");
-			} else if (localLeads.SalesStage.Equals("Proposal")) {
+			} else if (localLeads.LEAD_STATUS.Equals(2)) {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Proposal Highlight.png");
-			} else if (localLeads.SalesStage.Equals("Follow Up")) {
+			} else if (localLeads.LEAD_STATUS.Equals(3)) {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Follow Up Highlight.png");
 			} else {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Acquire Lead Highlight.png");

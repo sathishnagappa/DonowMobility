@@ -56,6 +56,15 @@ namespace donow.iOS
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
 			};
+
+			//				LeadsBL leadbl = new LeadsBL();
+			//				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
+			//				leadfeedback.LeadID = 1211;
+			//				leadfeedback.QuestionNo = 1;
+			//				leadfeedback.Options = 2;
+			//				leadfeedback.AnswerType = 2;
+			//				leadfeedback.Comments = "";
+			//				leadbl.SaveLeadFeedBack(leadfeedback);
 		}
 
 		public class TableSource : UITableViewSource {
