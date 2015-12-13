@@ -77,7 +77,6 @@ namespace donow.iOS
 				//				string content = rs.SFDCAuthentication();
 				//				await rs.UpdateSFDCData(content);
 
-<<<<<<< HEAD
 //				LeadsBL leadbl = new LeadsBL();
 //				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
 //				leadfeedback.LeadID = 1211;
@@ -148,24 +147,7 @@ namespace donow.iOS
 						this.NavigationController.PushViewController(landingVC, true);
 					}
 					loadingOverlay.Hide ();
-=======
-
-				//				if (ValidateCredentials ()) {
-
-				var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
-				if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
-					bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
 				}
-				loadingOverlay = new LoadingOverlay (bounds);
-				View.Add (loadingOverlay);
-				// Call to Get user details and validate credentials
-				LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-				if (landingVC != null) {
-					this.NavigationController.PushViewController(landingVC, true);
->>>>>>> origin/master
-				}
-				loadingOverlay.Hide ();
-				//				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {

@@ -95,8 +95,8 @@ namespace donow.iOS
 		{
 			List<Leads> leads = new  List<Leads> ();
 			LeadsBL leadsbl = new LeadsBL ();
-			//leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
-			leads = leadsbl.GetAllLeads (1);
+			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
+			//leads = leadsbl.GetAllLeads (1);
 			return leads;
 		}
 
