@@ -181,10 +181,6 @@
     <Compile Include="MyMeetingsVC.designer.cs">
       <DependentUpon>MyMeetingsVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="DealMakersVC.cs" />
-    <Compile Include="DealMakersVC.designer.cs">
-      <DependentUpon>DealMakersVC.cs</DependentUpon>
-    </Compile>
     <Compile Include="LandingCustomerStreamVC.cs" />
     <Compile Include="LandingCustomerStreamVC.designer.cs">
       <DependentUpon>LandingCustomerStreamVC.cs</DependentUpon>
@@ -260,6 +256,7 @@
     <Compile Include="ScrollReq.designer.cs">
       <DependentUpon>ScrollReq.cs</DependentUpon>
     </Compile>
+    <Compile Include="DealMakerTableViewCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

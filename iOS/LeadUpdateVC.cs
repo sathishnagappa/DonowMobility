@@ -27,8 +27,9 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewF2F.ContentSize = new CGSize (414f, 1100f); 
+			ScrollViewF2F.ContentSize = new CGSize (414f, 1350.0f); 
 			ViewF2FMeetingDown.Hidden = true;
+
 			IList<string> ListThumbsDownReason = new List<string>
 			{
 				"Customer Cancelled",
@@ -41,12 +42,18 @@ namespace donow.iOS
 				"Climber",
 				"Purist"
 			};
+			IList<string> ListSalesStages = new List<string>
+			{
+				"(1) Acquire Lead",
+				"(2) Proposal",
+				"(3) Follow Up",
+				"(4) Close Sale"
+			};
 			IList<string> ListNextStep = new List<string>
 			{
 				"Get Product Info",
 				"Purist"
 			};
-
 
 			ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
@@ -57,6 +64,7 @@ namespace donow.iOS
 
 			TableViewInteractionDislikeReason.Hidden = true;
 
+			TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this);
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewInteractionDislikeReason.Hidden = false;
 			};
@@ -67,19 +75,22 @@ namespace donow.iOS
 
 			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
 				ViewF2FMeetingDown.Hidden = true;
+				TableViewInteractionDislikeReason.Hidden = true;
 			};
 
-			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
-			
-				TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this);
+			TableViewSalesStage.Source = new TableSource (ListSalesStages, this);
+			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				TableViewSalesStage.Hidden = false;
 			};
-			
+
+			TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this);
 			ButtonCustomerCategorizationDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
-				TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this);
+				TableViewCustomerCategorization.Hidden = false;
 			};
 
+			TableViewNextSteps.Source = new TableSource (ListNextStep, this);
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
-				TableViewNextSteps.Source = new TableSource (ListNextStep, this);
+				TableViewNextSteps.Hidden = false;
 			};
 		}
 
@@ -87,14 +98,6 @@ namespace donow.iOS
 
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
-
-			InteractionLeadUpdateVC interactionLeadUpdateVC;
-
-			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
-			{
-				this.interactionLeadUpdateVC = interactionLeadUpdateVC;
-				TableItems = items;
-			}
 
 			LeadUpdateVC leadUpdateVC;
 
@@ -135,4 +138,3 @@ namespace donow.iOS
 
 	}
 }
-
