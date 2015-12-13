@@ -333,6 +333,7 @@
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
+    <BundleResource Include="Resources\Images\Geo Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />
