@@ -13,6 +13,7 @@ namespace donow.iOS
 	partial class LandingLeadsVC : UIViewController
 	{
 		LoadingOverlay loadingOverlay;
+		List<Leads> leads;
 		public LandingLeadsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -33,6 +34,9 @@ namespace donow.iOS
 //			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
 //				this.NavigationController.PopViewController(true);
 //			}), true);
+//			List<Leads> newleads = GetLeads();
+//			this.TabBarItem.BadgeValue = newleads.Count.ToString();
+//			TableViewLeads.Source = new TableSource (newleads, this);
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -62,30 +66,37 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 
-			List<Leads> leads = GetLeads (false);
+			List<Leads> leads = GetLeads ();
 			if (!AppDelegate.IsNewUser) {
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
 			} else {
-				AlertView.Hidden = false;
+				//AlertView.Hidden = false;
+				UIAlertView alert = new UIAlertView () { 
+					Title = "", 
+					Message = "We are gathering your leads for you! \n Check Back Shortly."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
 			}
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
-				List<Leads> newleads = GetLeads(true);
-				this.TabBarItem.BadgeValue = newleads.Count.ToString();
-				TableViewLeads.Source = new TableSource (newleads, this);
+				leads = GetLeads();
+				this.TabBarItem.BadgeValue = leads.Count.ToString();
+				TableViewLeads.Source = new TableSource (leads, this);
 				loadingOverlay.Hide ();
 			};
 
 			loadingOverlay.Hide ();
 		}
 
-		List<Leads> GetLeads(bool isNewLeadRequest)
+		List<Leads> GetLeads()
 		{
 			List<Leads> leads = new  List<Leads> ();
 			LeadsBL leadsbl = new LeadsBL ();
-			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
+			//leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
+			leads = leadsbl.GetAllLeads (1);
 			return leads;
 		}
 
@@ -123,14 +134,16 @@ namespace donow.iOS
 			{
 				
 				tableView.DeselectRow (indexPath, true);
-				if (TableItems [indexPath.Row].Status == "Accepted") {
+				AppDelegate.CurrentLead = TableItems [indexPath.Row];
+				if (TableItems [indexPath.Row].STATUS == "NEW") 
+				{
 					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 					if (leadDetailVC != null) {
 						leadDetailVC.leadObj = TableItems [indexPath.Row];
 						//owner.View.AddSubview (leadDetailVC.View);
 						owner.NavigationController.PushViewController (leadDetailVC, true);
 					}
-				} else if (TableItems [indexPath.Row].Status == "Accepted") {
+				} else if (TableItems [indexPath.Row].LEAD_STATUS == "Accepted") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
 						prospectVC.localLeads = TableItems [indexPath.Row];

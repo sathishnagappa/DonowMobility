@@ -78,10 +78,64 @@ namespace donow.iOS
 //				string content = rs.SFDCAuthentication();
 //				await rs.UpdateSFDCData(content);
 
-	
-				//if (ValidateCredentials ()) {
-				if(true)
-				{
+//				LeadsBL leadbl = new LeadsBL();
+//				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
+//				leadfeedback.LeadID = 1211;
+//				leadfeedback.QuestionNo = 1;
+//				leadfeedback.Options = 2;
+//				leadfeedback.AnswerType = 2;
+//				leadfeedback.Comments = "";
+//				leadbl.SaveLeadFeedBack(leadfeedback);
+
+
+				//LeadsBL leadbl = new LeadsBL();
+				//leadbl.UpdateStatus(125960876,"Accepted");
+				//leadbl.UpdateReasonForPass(125960876,"Client Not interested");
+
+
+//				LeadF2FFeedBack leadfeedback = new LeadF2FFeedBack();
+//				leadfeedback.LeadID = 1231;
+//				leadfeedback.QuestionNo = 1;
+//				leadfeedback.Options = 2;
+//				leadfeedback.AnswerType = 2;
+//				leadfeedback.Comments = "";
+//				leadbl.SaveLeadF2FFeedBack(leadfeedback);
+
+				//ReferralRequestBL rrbl = new ReferralRequestBL();
+				//rrbl.GetReferralRequest();
+
+//				ReferralRequest rr = new ReferralRequest();
+//				rr.AcceptorId = 1;
+//				rr.LeadId = 1;
+//				rr.SenderId = 1;
+//				rr.Status = "Accepted";
+//				rrbl.SaveReferralRequest(rr);
+
+//				leadfeedback.LeadID = 1211;
+//				leadfeedback.QuestionNo = 1;
+//				leadfeedback.Options = 2;
+//				leadfeedback.AnswerType = 2;
+//				leadfeedback.Comments = "";
+//				leadbl.SaveLeadF2FFeedBack(leadfeedback);
+
+//				BrokerBL brokerbl = new BrokerBL();
+//				brokerbl.UpdateBrokerStatus(125960876,"Acceptance Pending");
+
+//				UserDetails userdetails = new UserDetails();
+//				userdetails.Password = "test";
+//				userdetails.UserId = 10;
+//				UserBL userbl = new UserBL();
+//				userbl.UpdateUserDetails(userdetails);
+					
+//				CustomerBL customerbl = new CustomerBL();
+//				CustomerInteraction customerinteract = new CustomerInteraction();
+//				customerinteract.CustomerName = "Scott Anders";
+//				customerinteract.UserId = 12121;
+//				customerinteract.Type = "Email";
+//				customerinteract.DateNTime = DateTime.Now.ToString();
+//				customerbl.SaveCutomerInteraction(customerinteract);
+	          
+				if (ValidateCredentials ()) {
 					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);

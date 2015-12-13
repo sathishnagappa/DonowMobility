@@ -53,7 +53,6 @@ namespace donow.iOS
 				Font = UIFont.FromName("Arial", 18f),
 //				TextColor = UIColor.FromRGB (127, 51, 0),
 				BackgroundColor = UIColor.Black,
-				Text = "New",
 				TextColor = UIColor.White,
 				TextAlignment = UITextAlignment.Center
 			};
@@ -68,12 +67,11 @@ namespace donow.iOS
 
 		public void UpdateCell (Leads lead)
 		{
-			LabelLeadName.Text = lead.Name;
-			LabelCompanyName.Text = lead.Company;
-			LabelCityAndState.Text = lead.City; 
-			LabelScoreDigit.Text = lead.LeadScore.ToString();
-			if (lead.IsNew == false)
-				LabelNewLead.Hidden = true;
+			LabelLeadName.Text = lead.LEAD_NAME;
+			LabelCompanyName.Text = lead.COMPANY_NAME;
+			LabelCityAndState.Text = lead.CITY; 
+			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
+			LabelNewLead.Text = lead.STATUS;
 		}
 
 		public override void LayoutSubviews ()
@@ -82,8 +80,8 @@ namespace donow.iOS
 
 			ImageViewLeadImage.Frame = new CGRect (10, 35, 100, 100);
 			LabelLeadName.Frame = new CGRect (140, 38, 180, 30);
-			LabelCompanyName.Frame = new CGRect (140, 63, 150, 25);
-			LabelCityAndState.Frame = new CGRect (140, 83, 150, 25);
+			LabelCompanyName.Frame = new CGRect (140, 63, 200, 25);
+			LabelCityAndState.Frame = new CGRect (140, 83, 200, 25);
 			LabelScore.Frame = new CGRect (140, 118, 120, 25);
 			LabelScoreDigit.Frame = new CGRect (270, 117, 25, 25);
 			LabelNewLead.Frame = new CGRect (330, 20, 80, 25);

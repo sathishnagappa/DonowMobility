@@ -9,6 +9,7 @@ using Foundation;
 using UIKit;
 using EventKit;
 using donow.PCL.Model;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -192,14 +193,27 @@ namespace donow.iOS
 
 			void AddEvent(EKEvent calendarEvent)
 			{
-				CalenderEvent calendarObj = new CalenderEvent ();
-				calendarObj.ID = 1;
-				calendarObj.LeadID = "3";
-				calendarObj.UserID = "6";
-				calendarObj.Subject = calendarEvent.Title;
-				calendarObj.StartDate = calendarEvent.StartDate.ToString ();
-				calendarObj.EndDate = calendarEvent.EndDate.ToString ();
-				AppDelegate.CalendarList.Add (calendarObj);
+//				CalenderEvent calendarObj = new CalenderEvent ();
+//				calendarObj.ID = 1;
+//				calendarObj.LeadID = "3";
+//				calendarObj.UserID = "6";
+//				calendarObj.Subject = calendarEvent.Title;
+//				calendarObj.StartDate = calendarEvent.StartDate.ToString ();
+//				calendarObj.EndDate = calendarEvent.EndDate.ToString ();
+//				AppDelegate.CalendarList.Add (calendarObj);
+
+				UserMeetings userMeetings = new UserMeetings ();
+				userMeetings.id = 0;
+				userMeetings.LeadID = AppDelegate.CurrentLead.LEAD_ID;
+				userMeetings.UserID = AppDelegate.UserDetails.UserId;
+				userMeetings.Subject = calendarEvent.Title;
+				userMeetings.Start = DateTime.Parse(calendarEvent.StartDate.ToString());
+				userMeetings.End = DateTime.Parse(calendarEvent.EndDate.ToString());
+				userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
+				userMeetings.City = AppDelegate.CurrentLead.CITY;
+				userMeetings.State = AppDelegate.CurrentLead.STATE;
+				LeadsBL leadsbl = new LeadsBL ();
+				leadsbl.SaveMeetingEvent (userMeetings);
 			}
 
 

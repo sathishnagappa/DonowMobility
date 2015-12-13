@@ -40,12 +40,12 @@ namespace donow.PCL
 //			return parsedResponse;
 //		}
 //
-		public UserDetails UpdateUserDetails(UserDetails userDetails)
+		public int UpdateUserDetails(UserDetails userDetails)
 		{
 			RestService restSevice = new RestService ();	
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(userDetails);
-			string response = restSevice.PostData (Constants.UserCreation, postData);
-			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			string response = restSevice.PostData (Constants.UserUpdate, postData);
+			int parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}
 		

@@ -38,6 +38,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Services.Client" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -71,6 +72,12 @@
     <Compile Include="Model\CalenderEvent.cs" />
     <Compile Include="Model\LineOfBusiness.cs" />
     <Compile Include="BusinessLogic\IndustryBL.cs" />
+    <Compile Include="Util\BingSearchContainer.cs" />
+    <Compile Include="Model\LeadIntialContactFeedBack.cs" />
+    <Compile Include="Model\BingResult.cs" />
+    <Compile Include="Model\LeadF2FFeedBack.cs" />
+    <Compile Include="Model\DealHistroy.cs" />
+    <Compile Include="Model\CustomerInteraction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

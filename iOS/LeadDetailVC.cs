@@ -53,13 +53,13 @@ namespace donow.iOS
 
 			this.Title = "Lead Details";
 
-			LabelTitleName.Text = leadObj.Name;
-			LabelScore.Text = leadObj.LeadScore.ToString();
-			LabelSourceName.Text = leadObj.Source;
-			LabelCompanyInfo.Text = leadObj.CompanyInfo;
-			LabelTitleCompany.Text = leadObj.Company;
-			LabelLocation.Text = leadObj.City + "," + leadObj.State;
-			LabelBusinessNeeds.Text = leadObj.BusinessNeeds;
+			LabelTitleName.Text = leadObj.LEAD_NAME;
+			LabelScore.Text = leadObj.LEAD_SCORE.ToString();
+			LabelSourceName.Text = leadObj.LEAD_SOURCE == 1 ? "SFDC" : "DoNow" ;
+			LabelCompanyInfo.Text = leadObj.COMPANY_INFO;
+			LabelTitleCompany.Text = leadObj.COMPANY_NAME;
+			LabelLocation.Text = leadObj.CITY + "," + leadObj.STATE;
+			LabelBusinessNeeds.Text = leadObj.BUSINESS_NEED;
 
 
 			ButtonOptionPassView.TouchUpInside += (object sender, EventArgs e) =>  {

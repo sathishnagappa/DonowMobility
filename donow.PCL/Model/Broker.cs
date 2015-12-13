@@ -4,9 +4,17 @@ namespace donow.PCL
 {
 	public class Broker
 	{
-		public Broker ()
-		{
-		}
+		public int BrokerID { get; set; }
+		public string BrokerName { get; set; }
+		public string State { get; set; }
+		public string Country { get; set; }
+		public string Industry { get; set; }
+		public string Phone { get; set; }
+		public string Company { get; set; }
+		public string City { get; set; }
+		public string CreateTime { get; set; }
+		public string BrokerScore { get; set; }
+		public string Status { get; set; }
 	}
 }
 
