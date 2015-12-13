@@ -14,6 +14,7 @@ namespace donow.iOS
 		{
 		}
 
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -22,9 +23,11 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 		}
 
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
@@ -32,6 +35,7 @@ namespace donow.iOS
 				"Wasn't Prepared",
 				"Did Not Have Enough Info"
 			};
+
 
 			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
@@ -104,4 +108,7 @@ namespace donow.iOS
 		}
 
 		}
-}
+
+	}
+
+

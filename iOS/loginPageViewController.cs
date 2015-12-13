@@ -28,7 +28,6 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.NavigationController.SetNavigationBarHidden (true, false);
-			AppDelegate.IsNewUser = false;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -74,10 +73,11 @@ namespace donow.iOS
 			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
 			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
-//				RestService rs = new RestService();
-//				string content = rs.SFDCAuthentication();
-//				await rs.UpdateSFDCData(content);
+				//				RestService rs = new RestService();
+				//				string content = rs.SFDCAuthentication();
+				//				await rs.UpdateSFDCData(content);
 
+<<<<<<< HEAD
 //				LeadsBL leadbl = new LeadsBL();
 //				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
 //				leadfeedback.LeadID = 1211;
@@ -148,11 +148,28 @@ namespace donow.iOS
 						this.NavigationController.PushViewController(landingVC, true);
 					}
 					loadingOverlay.Hide ();
+=======
+
+				//				if (ValidateCredentials ()) {
+
+				var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
+				if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
+					bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
 				}
+				loadingOverlay = new LoadingOverlay (bounds);
+				View.Add (loadingOverlay);
+				// Call to Get user details and validate credentials
+				LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+				if (landingVC != null) {
+					this.NavigationController.PushViewController(landingVC, true);
+>>>>>>> origin/master
+				}
+				loadingOverlay.Hide ();
+				//				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
-				
+
 				var auth0 = new Auth0Client(
 					"donow.auth0.com",
 					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
@@ -163,7 +180,7 @@ namespace donow.iOS
 				if(user != null)
 				{
 					AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
-				
+
 					if(AppDelegate.UserProfile.email_verified == true)
 					{
 						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
@@ -184,22 +201,10 @@ namespace donow.iOS
 
 			ButtonForgotPassword.TouchUpInside += (object sender, EventArgs e) => {	
 
-				if(string.IsNullOrEmpty(AppDelegate.UserDetails.Name))
-				{
 				ForgotPasswordVC forgotPasswordVC = this.Storyboard.InstantiateViewController ("ForgotPasswordVC") as ForgotPasswordVC;
 				if (forgotPasswordVC != null) {
 					this.NavigationController.PushViewController(forgotPasswordVC, true);
 				}
-				}
-				else{
-					UIAlertView alert = new UIAlertView () { 
-						Title = "User Not Registered", 
-						Message = "Please Sign Up to the App."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
-				}
-				
 			};
 
 		}
@@ -207,7 +212,6 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
-			AppDelegate.IsNewUser = false;
 			UserBL userBL = new UserBL ();
 			AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {

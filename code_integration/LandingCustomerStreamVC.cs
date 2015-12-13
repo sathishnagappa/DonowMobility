@@ -21,13 +21,11 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.SetNavigationBarHidden (true, false);
 		}
 
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Customer Stream";
-
 			CustomerBL customerObj = new CustomerBL ();
 			IList<Customer> customerList = customerObj.GetAllCustomers ();
 			TableViewCustomerStream.Source= new TableSource(customerList, this);

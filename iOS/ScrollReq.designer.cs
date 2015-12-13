@@ -11,19 +11,11 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("LandingCustomerStreamVC")]
-	partial class LandingCustomerStreamVC
+	[Register ("ScrollReq")]
+	partial class ScrollReq
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewCustomerStream { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (TableViewCustomerStream != null) {
-				TableViewCustomerStream.Dispose ();
-				TableViewCustomerStream = null;
-			}
 		}
 	}
 }

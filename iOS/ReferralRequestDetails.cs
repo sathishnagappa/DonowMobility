@@ -18,6 +18,8 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
+			SetImageAndTitle ();
+
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
@@ -41,32 +43,33 @@ namespace donow.iOS
 //			List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
 //			rrdetails.Add (rr);
 //			TableViewRR.Source = new TableSource (rrdetails, this);		
+
 		}
 
 		void SetImageAndTitle()
 		{
-			switch (referralRequestType) {
+			//switch (referralRequestType) {
 
-			case "New":
+			if (referralRequestType == "New") {
+
 				ImageRR.Image = UIImage.FromBundle ("New Referral Request Icon.png");
 				LabelRRTitle.Text = "New Referral Requests";
-				break;
-			case "Accepted":
+			} else if (referralRequestType == "Accepted") {
+
 				ImageRR.Image = UIImage.FromBundle ("Referral Action Pending Icon.png");
 				LabelRRTitle.Text = "Accepted Requests (Action Pending)";
-				break;
-			case "Passed":
+			} else if (referralRequestType == "Passed") {
+
 				ImageRR.Image = UIImage.FromBundle ("Passed Requests Icon.png");
 				LabelRRTitle.Text = "Passed Requests";
-				break;
-			case "Completed":
+			} else if (referralRequestType == "Completed") {
+			
 				ImageRR.Image = UIImage.FromBundle ("Completed Requests Icon.png");
 				LabelRRTitle.Text = "Completed Requests";
-				break;
-			default:
-				break;
-
 			}
+				
+				
+			//}
 			
 		}
 
@@ -103,6 +106,15 @@ namespace donow.iOS
 			{
 
 				tableView.DeselectRow (indexPath, true);
+
+				ScrollReq ScrollReqProf = owner.Storyboard.InstantiateViewController ("ScrollReqProf") as ScrollReq;
+				if (ScrollReqProf != null) {
+					//customerStreamDetailVC.customerObj = TableItems[indexPath.Row];
+					//Customer customerObj = TableItems[indexPath.Row];
+
+					//owner.View.AddSubview (leadDetailVC.View);
+					owner.NavigationController.PushViewController(ScrollReqProf,true);
+				}
 				//LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 //				if (leadDetailVC != null) {
 //					leadDetailVC.leadObj = TableItems[indexPath.Row];

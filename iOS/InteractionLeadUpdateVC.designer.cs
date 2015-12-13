@@ -42,6 +42,8 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextView TextViewComments { get; set; }
 
+
+
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewInteractionThumbsDown { get; set; }

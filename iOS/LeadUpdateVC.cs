@@ -47,6 +47,7 @@ namespace donow.iOS
 				"Purist"
 			};
 
+
 			ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
 			ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
@@ -87,6 +88,14 @@ namespace donow.iOS
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
 
+			InteractionLeadUpdateVC interactionLeadUpdateVC;
+
+			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
+			{
+				this.interactionLeadUpdateVC = interactionLeadUpdateVC;
+				TableItems = items;
+			}
+
 			LeadUpdateVC leadUpdateVC;
 
 
@@ -126,3 +135,4 @@ namespace donow.iOS
 
 	}
 }
+
