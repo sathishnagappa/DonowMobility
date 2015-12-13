@@ -1,21 +1,29 @@
-<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.0" />
+﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.9.0" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="iOS/customerProfileVC.cs" Line="12" Column="26" />
+      <File FileName="iOS/customerProfileVC.cs" Line="1" Column="1" />
       <File FileName="iOS/CustomerStreamTableViewCell.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadTableCell.cs" Line="1" Column="1" />
-      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingReferalProfileVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpRootViewController.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingReferalProfileVC.designer.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingReferalProfileVC1.cs" Line="1" Column="1" />
+      <File FileName="iOS/ReferralRequestDetails.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingReferalProfileVC1.designer.cs" Line="1" Column="1" />
+      <File FileName="iOS/signUpOtherDetailsVC.designer.cs" Line="1" Column="1" />
+      <File FileName="iOS/ScrollReq.designer.cs" Line="1" Column="1" />
+      <File FileName="iOS/ReferralRequestTableCell.cs" Line="1" Column="1" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="82" Column="7" />
       <File FileName="iOS/LandingCustomerDetailVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadDetailVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/Main.cs" Line="1" Column="1" />
-      <File FileName="iOS/loginPageViewController.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadDetailVC.designer.cs" Line="1" Column="1" />
-      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="22" Column="25" />
-      <File FileName="iOS/InteractionLeadUpdateVC.designer.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadUpdateVC.designer.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadUpdateVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LeadUpdateVC.cs" Line="14" Column="3" />
+      <File FileName="iOS/loginPageViewController.cs" Line="48" Column="24" />
+      <File FileName="iOS/LeadDetailVC.cs" Line="122" Column="6" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="38" Column="4" />
+      <File FileName="iOS/MyMeetingsVC.cs" Line="22" Column="41" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -25,4 +33,4 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-</Properties>			ScrollReferalProfile.ContentSize =  new CGSize (415f, 1100);
+</Properties>
