@@ -82,7 +82,8 @@ namespace donow.iOS
 					}
 					break;
 				case "My Deal Makers": 
-					DealMakerVC dealMakerVC = owner.Storyboard.InstantiateViewController ("DealMakerVC") as DealMakerVC;
+					MyDealMakerVC dealMakerVC = owner.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+			
 					if (dealMakerVC != null) {
 						owner.NavigationController.PushViewController (dealMakerVC, true);
 					}
@@ -99,6 +100,13 @@ namespace donow.iOS
 //						owner.NavigationController.PushViewController (infoVC, true);
 //					}
 ////					break;
+				case "Info Page": 
+					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
+					if (infoVC != null) {
+						owner.NavigationController.PushViewController (infoVC, true);
+					}
+					break;
+//					break;
 				case "Intial FeedBack": 
 					InteractionLeadUpdateVC IntialFeeback = owner.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 					if (IntialFeeback != null) {

@@ -35,7 +35,7 @@ namespace donow.iOS
 				AlertSubView.Hidden=false;
 
 			};
-			ButtonScroll.TouchUpInside += (object sender, EventArgs e) => {
+			ButtonScroll_.TouchUpInside += (object sender, EventArgs e) => {
 		
 				AlertView.Hidden=true;
 				AlertSubView.Hidden=true;		

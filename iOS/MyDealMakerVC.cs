@@ -10,10 +10,10 @@ using CoreGraphics;
 
 namespace donow.iOS
 {
-	partial class DealMakerVC : UIViewController
+	partial class MyDealMakerVC : UIViewController
 	{
 		LoadingOverlay loadingOverlay;
-		public DealMakerVC (IntPtr handle) : base (handle)
+		public MyDealMakerVC (IntPtr handle) : base (handle)
 		{
 		}
 
@@ -28,9 +28,9 @@ namespace donow.iOS
 		public class TableSource : UITableViewSource {
 			string CellIdentifier = "TableCell";
 			//			List<Leads> TableItems;
-			DealMakerVC owner;
+			MyDealMakerVC owner;
 
-			public TableSource (DealMakerVC owner)
+			public TableSource (MyDealMakerVC owner)
 			{
 				//				TableItems = items;
 				this.owner = owner;
@@ -58,7 +58,7 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-				DealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("DealMakerDetailVC") as DealMakerDetailVC;
+				MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
 				if (dealmakerDetailObject != null) {
 					//					dealmakerDetailObject.leadObj = TableItems [indexPath.Row];
 					owner.NavigationController.PushViewController (dealmakerDetailObject, true);

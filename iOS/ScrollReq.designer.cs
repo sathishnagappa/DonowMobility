@@ -44,7 +44,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonScroll { get; set; }
+		UIButton ButtonScroll_ { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -88,9 +88,9 @@ namespace donow.iOS
 				ButtonReferLater.Dispose ();
 				ButtonReferLater = null;
 			}
-			if (ButtonScroll != null) {
-				ButtonScroll.Dispose ();
-				ButtonScroll = null;
+			if (ButtonScroll_ != null) {
+				ButtonScroll_.Dispose ();
+				ButtonScroll_ = null;
 			}
 			if (MakeView != null) {
 				MakeView.Dispose ();

@@ -11,8 +11,8 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("DealMakerDetailVC")]
-	partial class DealMakerDetailVC
+	[Register ("MyDealMakerDetailVC")]
+	partial class MyDealMakerDetailVC
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -25,6 +25,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSendRequest { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewDealMakerDetails { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -47,6 +51,10 @@ namespace donow.iOS
 			if (ButtonSendRequest != null) {
 				ButtonSendRequest.Dispose ();
 				ButtonSendRequest = null;
+			}
+			if (ScrollViewDealMakerDetails != null) {
+				ScrollViewDealMakerDetails.Dispose ();
+				ScrollViewDealMakerDetails = null;
 			}
 			if (ViewBackgroundTransparent != null) {
 				ViewBackgroundTransparent.Dispose ();
