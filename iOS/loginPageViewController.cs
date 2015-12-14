@@ -34,7 +34,7 @@ namespace donow.iOS
 		{
 			base.ViewWillDisappear (animated);
 
-			this.NavigationController.SetNavigationBarHidden (false, false);
+
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
@@ -47,6 +47,9 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
+			this.NavigationItem.SetHidesBackButton (true, false);
+	
+			this.NavigationItem.SetLeftBarButtonItem(null, true);
 			TextBoxUserName.ShouldReturn = delegate {
 				TextBoxUserName.ResignFirstResponder ();
 				return true;

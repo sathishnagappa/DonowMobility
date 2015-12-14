@@ -22,8 +22,8 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
 
 //			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
 //			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
@@ -72,6 +72,9 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 
 			this.Title = "Leads";
+			this.NavigationItem.SetHidesBackButton (true, false);
+			this.NavigationItem.SetLeftBarButtonItem(null, true);
+
 
 			//List<UserMeetings> userMeeetings 
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
