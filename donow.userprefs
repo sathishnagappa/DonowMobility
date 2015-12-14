@@ -1,36 +1,28 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="donow.PCL/Util/TwitterUtil.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/ScrollReq.cs">
     <Files>
-      <File FileName="iOS/MyDealMakerVC.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/BusinessLogic/BrokerBL.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingRefferalRequestVC.cs" Line="28" Column="4" />
+      <File FileName="iOS/ReferralRequestDetails.cs" Line="84" Column="5" />
+      <File FileName="iOS/ScrollReq.cs" Line="43" Column="8" />
+      <File FileName="iOS/HambergerMenuVC .cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="iOS/loginPageViewController.cs" Line="46" Column="39" />
+      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/MyDealMakerVC.cs" Line="84" Column="6" />
       <File FileName="iOS/DealMakerTableViewCell.cs" Line="1" Column="1" />
-      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="72" Column="10" />
-      <File FileName="donow.PCL/BusinessLogic/IndustryBL.cs" Line="15" Column="90" />
-      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/LineOfBusiness.cs" Line="8" Column="44" />
-      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="80" Column="20" />
-      <File FileName="iOS/prospectDetailsVC.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/LeadF2FFeedBack.cs" Line="16" Column="39" />
-      <File FileName="donow.PCL/Model/LeadIntialContactFeedBack.cs" Line="13" Column="5" />
-      <File FileName="iOS/WelcomeVC.cs" Line="19" Column="1" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="76" Column="6" />
-      <File FileName="donow.PCL/Model/UserMeetings.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="73" Column="6" />
-      <File FileName="donow.PCL/Util/TwitterUtil.cs" Line="25" Column="42" />
+      <File FileName="iOS/MyMeetingsVC.cs" Line="86" Column="4" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="74" Column="25" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="30" Column="4" />
+      <File FileName="iOS/LandingCustomerVC.cs" Line="105" Column="3" />
+      <File FileName="iOS/LandingCustomerDetailVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="102" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LeadsTableCell.cs" line="10" column="32" />
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/Main.cs" line="17" column="1" />
-
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="16" column="1" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="6" column="1" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/BusinessLogic/UserBL.cs" line="56" column="1" />
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/BusinessLogic/LeadsBL.cs" line="86" column="1" />
-      <RunToCursorBreakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/LandingLeadsVC.cs" line="76" column="12" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

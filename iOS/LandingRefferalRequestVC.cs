@@ -15,8 +15,8 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
@@ -25,6 +25,10 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Referral Request";
+
+			this.NavigationItem.SetHidesBackButton (true, false);
+			this.NavigationItem.SetLeftBarButtonItem(null, true);
+
 			ReferralRequestScrollView.ContentSize =  new SizeF (0f, 900f);
 			ReferralRequestDetails referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
 

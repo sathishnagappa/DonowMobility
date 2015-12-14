@@ -18,8 +18,8 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
@@ -30,11 +30,16 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+	
+
 			CustomerBL customerBL = new CustomerBL ();
 			List<Customer> cusotmerList =  customerBL.GetAllCustomers ();
 
 			TableViewCustomerList.Source = new TableSource (cusotmerList, this);
 			this.Title = "Customers";
+
+			this.NavigationItem.SetHidesBackButton (true, false);
+			this.NavigationItem.SetLeftBarButtonItem(null, true);
 		}
 
 		public class TableSource : UITableViewSource {

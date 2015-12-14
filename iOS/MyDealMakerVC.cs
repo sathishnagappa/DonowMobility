@@ -33,6 +33,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+		
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
 			if(!AppDelegate.IsFromProspect)				

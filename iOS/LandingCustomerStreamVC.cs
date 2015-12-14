@@ -20,8 +20,8 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
@@ -30,12 +30,14 @@ namespace donow.iOS
 		{
 			this.Title = "Customer Stream";
 
+
+			this.NavigationItem.SetHidesBackButton (true, false);
+			this.NavigationItem.SetLeftBarButtonItem(null, true);
 			CustomerBL customerBL = new CustomerBL ();
 			//List<Feed> feedlist = customerBL.GetCustomerFeed ();
 			List<Customer> customerList = customerBL.GetAllCustomers();
 
 			TableViewCustomerStream.Source= new TableSource(customerList, this);
-
 
 		}
 

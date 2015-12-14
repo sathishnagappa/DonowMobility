@@ -18,6 +18,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			this.Title = "Referall Request";
 			ScrollViewRR.ContentSize=new CGSize (400f, 1300);
 
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
@@ -29,7 +30,22 @@ namespace donow.iOS
 				MakeView.Hidden=true;
 
 			};
-
+//			ButtonPassRR.TouchUpInside += (object sender, EventArgs e) => {
+//
+//
+//
+//
+//
+//				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as LandingRefferalRequestVC;
+//				if (landingRefferalRequestVC != null) {
+//					//					dealmakerDetailObject.leadObj = TableItems [indexPath.Row];
+//					this.NavigationController.PushViewController (landingRefferalRequestVC, true);
+//				}
+////				this.NavigationController.PopViewController(false);
+////				this.NavigationController.PopViewController(false);
+////				this.NavigationController.PushViewController
+//
+//			};
 			ButtonMakeReferal.TouchUpInside += (object sender, EventArgs e) => {
 				AlertView.Hidden=false;
 				AlertSubView.Hidden=false;
