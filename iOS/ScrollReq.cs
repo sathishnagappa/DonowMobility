@@ -26,15 +26,32 @@ namespace donow.iOS
 				MakeView.Hidden=false;
 			};
 			ButtonReferLater.TouchUpInside += (object sender, EventArgs e) => {
-				PassView.Hidden=false;
-				MakeView.Hidden=true;
+//				AlertView.Hidden=true;
+//				AlertSubView.Hidden=true;	
+
+				AlertViewLater.Hidden=false;
+				AlertSubViewLater.Hidden=false;
 
 			};
-//			ButtonPassRR.TouchUpInside += (object sender, EventArgs e) => {
+			ButtonLaterView.TouchUpInside += (object sender, EventArgs e) => {
+
+				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController("landingRefferalRequestVC") as LandingRefferalRequestVC;
+				if (landingRefferalRequestVC != null)
+				{
+					//landingRefferalRequestVC.CaseID = GetCurrentCaseID();
+					this.NavigationController.PushViewController(landingRefferalRequestVC, true);
+				}  
+			};
+
+			ButtonPassRR.TouchUpInside += (object sender, EventArgs e) => {
+
 //
-//
-//
-//
+				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController("landingRefferalRequestVC") as LandingRefferalRequestVC;
+				if (landingRefferalRequestVC != null)
+			{
+					//landingRefferalRequestVC.CaseID = GetCurrentCaseID();
+					this.NavigationController.PushViewController(landingRefferalRequestVC, true);
+			}  
 //
 //				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as LandingRefferalRequestVC;
 //				if (landingRefferalRequestVC != null) {
@@ -45,10 +62,17 @@ namespace donow.iOS
 ////				this.NavigationController.PopViewController(false);
 ////				this.NavigationController.PushViewController
 //
-//			};
+			};
 			ButtonMakeReferal.TouchUpInside += (object sender, EventArgs e) => {
 				AlertView.Hidden=false;
 				AlertSubView.Hidden=false;
+
+			};
+
+			ButtonAlertViewDisable.TouchUpInside += (object sender, EventArgs e) => {
+
+				AlertViewLater.Hidden=true;
+				AlertSubViewLater.Hidden=true;
 
 			};
 			ButtonScroll_.TouchUpInside += (object sender, EventArgs e) => {

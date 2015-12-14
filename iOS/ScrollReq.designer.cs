@@ -20,7 +20,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView AlertSubViewLater { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView AlertView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView AlertViewLater { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -28,7 +36,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonAlertViewDisable { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonEmailAcceptView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonLaterView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -64,17 +80,33 @@ namespace donow.iOS
 				AlertSubView.Dispose ();
 				AlertSubView = null;
 			}
+			if (AlertSubViewLater != null) {
+				AlertSubViewLater.Dispose ();
+				AlertSubViewLater = null;
+			}
 			if (AlertView != null) {
 				AlertView.Dispose ();
 				AlertView = null;
+			}
+			if (AlertViewLater != null) {
+				AlertViewLater.Dispose ();
+				AlertViewLater = null;
 			}
 			if (ButtonAccepRR != null) {
 				ButtonAccepRR.Dispose ();
 				ButtonAccepRR = null;
 			}
+			if (ButtonAlertViewDisable != null) {
+				ButtonAlertViewDisable.Dispose ();
+				ButtonAlertViewDisable = null;
+			}
 			if (ButtonEmailAcceptView != null) {
 				ButtonEmailAcceptView.Dispose ();
 				ButtonEmailAcceptView = null;
+			}
+			if (ButtonLaterView != null) {
+				ButtonLaterView.Dispose ();
+				ButtonLaterView = null;
 			}
 			if (ButtonMakeReferal != null) {
 				ButtonMakeReferal.Dispose ();
