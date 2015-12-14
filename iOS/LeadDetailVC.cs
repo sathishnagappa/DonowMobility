@@ -8,6 +8,7 @@ using MessageUI;
 using EventKit;
 using CoreGraphics;
 using System.Drawing;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -15,6 +16,7 @@ namespace donow.iOS
 	{
 		public Leads leadObj;
 		bool isLeadAccepted = false;
+		LeadsBL leadsBL;
 		public LeadDetailVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -155,6 +157,18 @@ namespace donow.iOS
 			    //PresentViewController(calendarHomeDV, true,null);
 
 				//				label.AdjustsFontSizeToFitWidth = false;
+			};
+
+			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
+				leadsBL = new LeadsBL();
+				string text = ButtonOptionPassView.TitleLabel.Text;
+				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+			};
+
+			ButtonAccept.TouchUpInside+= (object sender, EventArgs e) => {
+				leadsBL = new LeadsBL();
+
+				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
 			};
 
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {

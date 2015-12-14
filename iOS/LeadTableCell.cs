@@ -69,7 +69,7 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = lead.LEAD_NAME;
 			LabelCompanyName.Text = lead.COMPANY_NAME;
-			LabelCityAndState.Text = lead.CITY; 
+			LabelCityAndState.Text = lead.CITY + ", " + lead.STATE; 
 			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
 			LabelNewLead.Text = lead.STATUS;
 		}
