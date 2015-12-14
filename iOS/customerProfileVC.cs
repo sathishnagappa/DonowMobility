@@ -27,9 +27,10 @@ namespace donow.iOS
 			List <Leads> ListLeads = new List <Leads> ();
 			LeadsBL leadsVC = new LeadsBL ();
 			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
-			RestService restservice = new RestService ();
+//			RestService restservice = new RestService ();
 			//restservice.GetBingResult ("DoNow Market Trends");
 
+			this.Title = "Customer";
 
 			//UserMeetings upComingMeetings =  leadsVC.GetMeetingEvents(AppDelegate.);
 

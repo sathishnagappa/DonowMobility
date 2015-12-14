@@ -38,9 +38,10 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-			this.NavigationController.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem(UIImage.FromBundle("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-				this.NavigationController.PopViewController(true);
-			}), true);
+//			this.NavigationController.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem(UIImage.FromBundle("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+//				this.NavigationController.PopViewController(true);
+//			}), true);
+		
 		}
 
 		public  override void ViewDidLoad ()

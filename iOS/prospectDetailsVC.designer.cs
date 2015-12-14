@@ -66,6 +66,18 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelProspectName { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelScoreFirstBroker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelScoreSecondBroker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelScoreThirdBroker { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonMailProspect != null) {
@@ -119,6 +131,18 @@ namespace donow.iOS
 			if (LabelProspectName != null) {
 				LabelProspectName.Dispose ();
 				LabelProspectName = null;
+			}
+			if (LabelScoreFirstBroker != null) {
+				LabelScoreFirstBroker.Dispose ();
+				LabelScoreFirstBroker = null;
+			}
+			if (LabelScoreSecondBroker != null) {
+				LabelScoreSecondBroker.Dispose ();
+				LabelScoreSecondBroker = null;
+			}
+			if (LabelScoreThirdBroker != null) {
+				LabelScoreThirdBroker.Dispose ();
+				LabelScoreThirdBroker = null;
 			}
 		}
 	}
