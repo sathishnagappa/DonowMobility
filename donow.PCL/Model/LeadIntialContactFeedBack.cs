@@ -10,6 +10,7 @@ namespace donow.PCL
 		public string ReasonForDown { get; set;}
 		public string CustomerAcknowledged { get; set;}	
 		public string Comments { get; set;}
+		//public string MeetingID { get; set;}
 	}
 }
 

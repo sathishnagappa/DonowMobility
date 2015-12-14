@@ -28,6 +28,7 @@ namespace donow.iOS
 			AppDelegate.IsCalendarClicked = false;
 			base.ViewDidLoad ();
 
+			AppDelegate.CurrentLead = localLeads;
 			LabelProspectName.Text = localLeads.LEAD_NAME;
 			LabelProspectCompanyName.Text = localLeads.COMPANY_NAME;
 			LabelProspectCityandState.Text = localLeads.CITY + ", " + localLeads.STATE;
@@ -43,6 +44,17 @@ namespace donow.iOS
 			} else {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Acquire Lead Highlight.png");
 			}
+
+			ButtonSeeAllBrokers.TouchUpInside += (object sender, EventArgs e) => 
+			{
+				MyDealMakerVC myDealMaker = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+
+				if(myDealMaker!=null)
+				{				
+					AppDelegate.IsFromProspect = true;
+					this.NavigationController.PushViewController(myDealMaker,true);					
+				}
+			};
 		}
 
 	}

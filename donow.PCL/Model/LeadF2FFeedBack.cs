@@ -13,7 +13,7 @@ namespace donow.PCL
 		public string CustomerCategorization { get; set;}
 		public string SalesStage { get; set;}
 		public string NextSteps { get; set;}
-
+		public string MeetingID { get; set;}
 
 	}
 }

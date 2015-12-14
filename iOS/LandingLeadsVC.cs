@@ -73,6 +73,7 @@ namespace donow.iOS
 
 			this.Title = "Leads";
 
+			//List<UserMeetings> userMeeetings 
 			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);

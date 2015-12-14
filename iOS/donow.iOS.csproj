@@ -240,10 +240,6 @@
       <DependentUpon>InteractionLeadUpdateVC.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerStreamTableViewCell.cs" />
-    <Compile Include="LandingCustomerDetailVC.cs" />
-    <Compile Include="LandingCustomerDetailVC.designer.cs">
-      <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScrollReq.cs" />
     <Compile Include="ScrollReq.designer.cs">
       <DependentUpon>ScrollReq.cs</DependentUpon>

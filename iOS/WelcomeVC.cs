@@ -12,7 +12,7 @@ namespace donow.iOS
 		}
 		public override void ViewDidLoad ()
 		{
-			this.Title = @"Welcome";
+			this.Title = @"Get Started";
 		}
 	}
 }

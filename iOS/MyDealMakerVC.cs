@@ -32,9 +32,12 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
+			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
-			List<Broker> brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness);
+			if(!AppDelegate.IsFromProspect)				
+				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness);
+			else
+				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID);
 
 			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
