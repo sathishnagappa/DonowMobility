@@ -74,6 +74,10 @@ namespace donow.iOS
 				isLeadAccepted = true;
 			};
 
+			ButtonPass.Layer.BorderWidth = 2.0f;
+			ButtonPass.Layer.BorderColor = UIColor.FromRGB (45, 125, 177).CGColor;
+			ButtonPass.Layer.CornerRadius = 8.0f;
+
 			ButtonPass.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonBackgroundView.Hidden = false;
 				ViewPass.Hidden = false;
@@ -168,8 +172,6 @@ namespace donow.iOS
 				
 			};
 		}
-
-
 
 		public void UpdateControls (string Parameter)
 		{
