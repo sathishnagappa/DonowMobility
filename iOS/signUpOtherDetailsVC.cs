@@ -57,13 +57,17 @@ namespace donow.iOS
 			};
 
 			TableViewIndustry.Hidden = true;
-			IList<string> Industries = new List<string>
-			{
-				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
-				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
-				"Shipping","Technology","Telecommunications","Transportation","Utilities"
-			};
+//			IList<string> Industries = new List<string>
+//			{
+//				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
+//				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
+//				"Shipping","Technology","Telecommunications","Transportation","Utilities"
+//			};
+//
 
+			IndustryBL industryBL = new IndustryBL();
+			List<LineOfBusiness> listLOB = industryBL.GetLOB();
+			List<string> Industries = industryBL.GetIndustry ();
 
 			//TableViewIndustry.ContentSize = new SizeF (100f,50f);
 			ButtonIndustry.TouchUpInside += (object sender, EventArgs e) =>  {
@@ -76,10 +80,9 @@ namespace donow.iOS
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewIndustry.Frame = new CGRect(47,275,320,122);
 				TableViewIndustry.Hidden = false;
-				var listLOB = IndustryBL.GetLOB();
 				List<string> lob =  (from item in listLOB
-					where item.Industry == TextBoxIndustry.Text
-					select item.LOB).ToList();
+					where item.IndustryName == TextBoxIndustry.Text
+					select item.LineofBusiness).ToList();
 				TableViewIndustry.Source = new TableSource(lob,this, "LOB");
 			};
 

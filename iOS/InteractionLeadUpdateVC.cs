@@ -5,6 +5,7 @@ using System;
 using Foundation;
 using UIKit;
 using System.Collections.Generic;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -57,14 +58,15 @@ namespace donow.iOS
 				ViewInteractionThumbsDown.Hidden = true;
 			};
 
-			//				LeadsBL leadbl = new LeadsBL();
-			//				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-			//				leadfeedback.LeadID = 1211;
-			//				leadfeedback.QuestionNo = 1;
-			//				leadfeedback.Options = 2;
-			//				leadfeedback.AnswerType = 2;
-			//				leadfeedback.Comments = "";
-			//				leadbl.SaveLeadFeedBack(leadfeedback);
+//			LeadsBL leadbl = new LeadsBL();
+//			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
+//			leadfeedback.LeadID = 1211;
+//			leadfeedback.UserID = 1;
+//			leadfeedback.ReasonForDown = "not ok";
+//			leadfeedback.InteractionFeedBack = "UP";
+//			leadfeedback.CustomerAcknowledged = "UP";
+//			leadfeedback.Comments = "Good";
+//			leadbl.SaveLeadFeedBack(leadfeedback);
 		}
 
 		public class TableSource : UITableViewSource {

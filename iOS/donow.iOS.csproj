@@ -26,7 +26,7 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>1b2b8472-5ab2-4e36-b6fa-2ac942db814d</CodesignProvision>
+    <CodesignProvision>591bad58-c59e-4462-9973-2facec7a5852</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -36,8 +36,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited (55NT5EBBDV)</CodesignKey>
-    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
+    <CodesignProvision>591bad58-c59e-4462-9973-2facec7a5852</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -244,6 +244,7 @@
     <Compile Include="LandingCustomerDetailVC.designer.cs">
       <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
     </Compile>
+
     <Compile Include="ScrollReq.cs" />
     <Compile Include="ScrollReq.designer.cs">
       <DependentUpon>ScrollReq.cs</DependentUpon>
@@ -261,6 +262,12 @@
     <Compile Include="MyDealMakerDetailVC.designer.cs">
       <DependentUpon>MyDealMakerDetailVC.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="BingSearchVC.cs" />
+    <Compile Include="BingSearchVC.designer.cs">
+      <DependentUpon>BingSearchVC.cs</DependentUpon>
+    </Compile>
+
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -337,6 +344,9 @@
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
+
+    <BundleResource Include="Resources\Images\Geo Icon.png" />
+
     <BundleResource Include="Resources\DoNow Logo_Small.png" />
   </ItemGroup>
   <ItemGroup>

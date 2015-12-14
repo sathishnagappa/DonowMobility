@@ -77,14 +77,7 @@ namespace donow.iOS
 				//				string content = rs.SFDCAuthentication();
 				//				await rs.UpdateSFDCData(content);
 
-//				LeadsBL leadbl = new LeadsBL();
-//				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-//				leadfeedback.LeadID = 1211;
-//				leadfeedback.QuestionNo = 1;
-//				leadfeedback.Options = 2;
-//				leadfeedback.AnswerType = 2;
-//				leadfeedback.Comments = "";
-//				leadbl.SaveLeadFeedBack(leadfeedback);
+
 
 
 				//LeadsBL leadbl = new LeadsBL();
@@ -92,13 +85,7 @@ namespace donow.iOS
 				//leadbl.UpdateReasonForPass(125960876,"Client Not interested");
 
 
-//				LeadF2FFeedBack leadfeedback = new LeadF2FFeedBack();
-//				leadfeedback.LeadID = 1231;
-//				leadfeedback.QuestionNo = 1;
-//				leadfeedback.Options = 2;
-//				leadfeedback.AnswerType = 2;
-//				leadfeedback.Comments = "";
-//				leadbl.SaveLeadF2FFeedBack(leadfeedback);
+
 
 				//ReferralRequestBL rrbl = new ReferralRequestBL();
 				//rrbl.GetReferralRequest();
@@ -194,10 +181,13 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
+			AppDelegate.IsNewUser = false;
 			UserBL userBL = new UserBL ();
-			AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
+
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
-				if (!string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
+
+				AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
+				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					return true;
 				}
@@ -220,5 +210,6 @@ namespace donow.iOS
 				return false;
 			}
 		}
+
 	}
 }

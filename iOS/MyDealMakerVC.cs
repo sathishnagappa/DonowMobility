@@ -1,3 +1,4 @@
+
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
@@ -17,41 +18,58 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			List<Broker> brokerList;
+			BrokerBL brokerBL = new BrokerBL ();
+			if(!AppDelegate.IsFromProspect)				
+				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness);
+			else
+				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID);
 
-			TableViewDealMaker.Source = new TableSource (this);
+			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
 		}
 
 		public class TableSource : UITableViewSource {
 			string CellIdentifier = "TableCell";
-			//			List<Leads> TableItems;
+			List<Broker> TableItems;
 			MyDealMakerVC owner;
 
-			public TableSource (MyDealMakerVC owner)
+			public TableSource (List<Broker> brokerList,MyDealMakerVC owner)
 			{
-				//				TableItems = items;
+				TableItems = brokerList;
 				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				//				return TableItems.Count;
-				return 1;
+				return TableItems.Count;
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				DealMakerTableViewCell cell = tableView.DequeueReusableCell (CellIdentifier) as DealMakerTableViewCell;
-				//				Leads leadObj = TableItems[indexPath.Row];
+				Broker brokerobj = TableItems[indexPath.Row];
 
 				if (cell == null) {
 					cell = new DealMakerTableViewCell(CellIdentifier);
 				}
 
-				cell.UpdateCell();
+				cell.UpdateCell(brokerobj);
 				return cell;
 
 			}

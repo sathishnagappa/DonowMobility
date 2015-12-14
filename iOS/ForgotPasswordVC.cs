@@ -22,7 +22,6 @@ namespace donow.iOS
 					AppDelegate.UserDetails.Name = TextBoxEmailID.Text;
 					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxPassword.Text.ToLower());
 					this.NavigationController.PopViewController(true);
-	
 				}
 				else
 				{

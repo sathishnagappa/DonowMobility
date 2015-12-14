@@ -28,6 +28,15 @@ namespace donow.iOS
 				ViewBackgroundTransparent.Hidden = true;
 				ViewSendRequestView.Hidden = true;
 			};
+
+
+			ButtonSendRequest.Layer.CornerRadius = 8.0f;
+			ButtonOkSendRequestView.Layer.CornerRadius = 8.0f;
+
+			ButtonCancel.Layer.BorderWidth = 2.0f;
+			ButtonCancel.Layer.BorderColor = UIColor.FromRGB (45, 125, 177).CGColor;
+			ButtonCancel.Layer.CornerRadius = 8.0f;
+
 //			ScrollViewDealMakerDetails.ContentSize = new CGSize (414, 633.0f);
 		}
 	}

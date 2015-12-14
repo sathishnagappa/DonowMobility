@@ -22,6 +22,8 @@ namespace donow.iOS
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
 
 		public override void ViewDidLoad ()
@@ -75,18 +77,7 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-
 				tableView.DeselectRow (indexPath, true);
-				LandingCustomerDetailVC customerStreamDetailVC = owner.Storyboard.InstantiateViewController ("LandingCustomerDetailVC") as LandingCustomerDetailVC;
-				if (customerStreamDetailVC != null) {
-					//customerStreamDetailVC.customerObj = TableItems[indexPath.Row];
-					//Customer customerObj = TableItems[indexPath.Row];
-
-					//owner.View.AddSubview (leadDetailVC.View);
-					owner.NavigationController.PushViewController(customerStreamDetailVC,true);
-				}
-
-
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

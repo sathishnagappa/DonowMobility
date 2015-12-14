@@ -4,6 +4,7 @@ using System.Json;
 using System.Threading.Tasks;
 using donow.PCL.Model;
 using donow.Util;
+using System.Collections.Generic;
 
 namespace donow.PCL
 {
@@ -65,6 +66,11 @@ namespace donow.PCL
 			string response = restSevice.GetData (restUrl);
 			return Convert.ToBoolean (response);
 		}
+
+//		public List<UserMeetings> GetMeetings(UserDetails userMeetings)
+//		{
+//			
+//		}
 
 
 	}

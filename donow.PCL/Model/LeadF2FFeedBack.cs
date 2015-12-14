@@ -4,11 +4,17 @@ namespace donow.PCL
 {
 	public class LeadF2FFeedBack
 	{
-		public int LeadID { get; set;}
-		public int QuestionNo { get; set;}
-		public int AnswerType { get; set;}
-		public int Options { get; set;}
-		public string Comments { get; set;}
+		public long LeadID { get; set;}
+		public int UserID { get; set;}
+		public string ConfirmMeeting { get; set;}
+		public string ReasonForDown { get; set;}
+		public string MeetingInfoHelpFull { get; set;}	
+		public string LeadAdvanced { get; set;}
+		public string CustomerCategorization { get; set;}
+		public string SalesStage { get; set;}
+		public string NextSteps { get; set;}
+		public string MeetingID { get; set;}
+
 	}
 }
 

@@ -11,19 +11,18 @@ using UIKit;
 
 namespace donow.iOS
 {
-	[Register ("MyDealMakerVC")]
-	partial class MyDealMakerVC
+	[Register ("BingSearchVC")]
+	partial class BingSearchVC
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewDealMaker { get; set; }
+		UIWebView BingWebView { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (TableViewDealMaker != null) {
-				TableViewDealMaker.Dispose ();
-				TableViewDealMaker = null;
-				
+			if (BingWebView != null) {
+				BingWebView.Dispose ();
+				BingWebView = null;
 			}
 		}
 	}

@@ -24,6 +24,8 @@ namespace donow.iOS
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
 
 		public override void ViewDidLoad ()
@@ -83,30 +85,25 @@ namespace donow.iOS
 					break;
 				case "My Deal Makers": 
 					MyDealMakerVC dealMakerVC = owner.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-			
+
 					if (dealMakerVC != null) {
+						AppDelegate.IsFromProspect = false;
 						owner.NavigationController.PushViewController (dealMakerVC, true);
 					}
 					break;
-				case "Account Management": 
+				case "Account Management":  
 					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
 					if (accountManagementVC != null) {
 						owner.NavigationController.PushViewController (accountManagementVC, true);
 					}
 					break;
-//				case "Info Page": 
-//					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
-//					if (infoVC != null) {
-//						owner.NavigationController.PushViewController (infoVC, true);
-//					}
-////					break;
 				case "Info Page": 
 					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
 					if (infoVC != null) {
 						owner.NavigationController.PushViewController (infoVC, true);
 					}
 					break;
-//					break;
+
 				case "Intial FeedBack": 
 					InteractionLeadUpdateVC IntialFeeback = owner.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 					if (IntialFeeback != null) {

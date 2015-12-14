@@ -74,6 +74,10 @@ namespace donow.iOS
 				isLeadAccepted = true;
 			};
 
+			ButtonPass.Layer.BorderWidth = 2.0f;
+			ButtonPass.Layer.BorderColor = UIColor.FromRGB (45, 125, 177).CGColor;
+			ButtonPass.Layer.CornerRadius = 8.0f;
+
 			ButtonPass.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonBackgroundView.Hidden = false;
 				ViewPass.Hidden = false;
@@ -100,7 +104,7 @@ namespace donow.iOS
 
 			ButtonPhoneAcceptView.TouchUpInside += (object sender, EventArgs e) => {
 
-				var url = new NSUrl ("tel://8197393644");
+				var url = new NSUrl ("tel://" + leadObj.PHONE);
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
 					var av = new UIAlertView ("Not supported",
 						"Scheme 'tel:' is not supported on this device",
@@ -116,7 +120,7 @@ namespace donow.iOS
 				if (MFMailComposeViewController.CanSendMail) {
 					// do mail operations here
 					mailController = new MFMailComposeViewController ();
-					mailController.SetToRecipients (new string[]{"john@doe.com"});
+					mailController.SetToRecipients (new string[]{leadObj.EMAILID});
 					mailController.SetSubject ("Quick request");
 					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
 
@@ -168,8 +172,6 @@ namespace donow.iOS
 				
 			};
 		}
-
-
 
 		public void UpdateControls (string Parameter)
 		{

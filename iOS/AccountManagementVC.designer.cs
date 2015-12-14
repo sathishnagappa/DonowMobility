@@ -18,11 +18,19 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonFinish { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewAccountManager { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonFinish != null) {
 				ButtonFinish.Dispose ();
 				ButtonFinish = null;
+			}
+			if (ScrollViewAccountManager != null) {
+				ScrollViewAccountManager.Dispose ();
+				ScrollViewAccountManager = null;
 			}
 		}
 	}

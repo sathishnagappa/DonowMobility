@@ -3,6 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 using donow.PCL;
+using CoreGraphics;
 
 namespace donow.iOS
 {
@@ -13,9 +14,23 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			this.NavigationController.SetNavigationBarHidden (false, false);
+			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
+			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+		}
+
 		public override void ViewDidLoad ()
 		{
-			AppDelegate.IsNewUser = true;
+//			AppDelegate.IsNewUser = true;
+
+			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 960.0f);
+
 			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {					
 				userBL = new UserBL();
 				//AppDelegate.UserDetails.UserId = 7;
