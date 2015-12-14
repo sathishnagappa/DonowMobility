@@ -38,7 +38,14 @@ namespace donow.iOS
 			ViewAccept.Hidden = true;
 			ViewPass.Hidden = true;
 
-			if (AppDelegate.IsCalendarClicked) {
+//			if (AppDelegate.IsCalendarClicked) {
+//				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+//				if (prospectVC != null) {
+//					prospectVC.localLeads = leadObj;
+//					this.NavigationController.PushViewController (prospectVC, true);
+//				}
+//			}
+			if (AppDelegate.IsLeadAccepted) {
 				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 				if (prospectVC != null) {
 					prospectVC.localLeads = leadObj;
@@ -72,6 +79,7 @@ namespace donow.iOS
 				ButtonBackgroundView.Hidden = false;
 				ViewAccept.Hidden = false;
 				isLeadAccepted = true;
+				AppDelegate.IsLeadAccepted = true;
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -94,13 +102,15 @@ namespace donow.iOS
 
 						prospectVC.localLeads = leadObj;
 
-						//						this.PresentViewController (dummyVC, true, null);
+//						this.PresentViewController (dummyVC, true, null);
 						this.NavigationController.PushViewController(prospectVC, true);
 					}
 				} else {
 					ViewPass.Hidden = true;
 				}
 			};
+
+
 
 			ButtonPhoneAcceptView.TouchUpInside += (object sender, EventArgs e) => {
 
@@ -136,16 +146,15 @@ namespace donow.iOS
 			};
 
 			ButtonCalendarAcceptView.TouchUpInside += (object sender, EventArgs e) => {
-				//UIApplication.SharedApplication.OpenUrl(new NSUrl("calshow://"));
-				AppDelegate.IsCalendarClicked = true;
+
+//				AppDelegate.IsCalendarClicked = true;
+
 				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
 			   // if (calendarHomeDV != null)
 				this.NavigationController.PushViewController(calendarHomeDV, true);
 			    //PresentViewController(calendarHomeDV, true,null);
 
 				//				label.AdjustsFontSizeToFitWidth = false;
-
-
 			};
 
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {

@@ -41,6 +41,8 @@ namespace donow.iOS
 			else
 				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID);
 
+//			brokerList[0].Status == 
+
 			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
 		}

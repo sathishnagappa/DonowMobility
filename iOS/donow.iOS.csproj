@@ -267,7 +267,10 @@
     <Compile Include="BingSearchVC.designer.cs">
       <DependentUpon>BingSearchVC.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="DealMakerAcceptedReferralRequestlVC.cs" />
+    <Compile Include="DealMakerAcceptedReferralRequestlVC.designer.cs">
+      <DependentUpon>DealMakerAcceptedReferralRequestlVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
