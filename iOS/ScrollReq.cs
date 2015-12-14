@@ -35,6 +35,12 @@ namespace donow.iOS
 				AlertSubView.Hidden=false;
 
 			};
+			ButtonScroll_.TouchUpInside += (object sender, EventArgs e) => {
+		
+				AlertView.Hidden=true;
+				AlertSubView.Hidden=true;		
+			};
+
 
 			ButtonEmailAcceptView.TouchUpInside += (object sender, EventArgs e) =>  {
 				MFMailComposeViewController mailController;

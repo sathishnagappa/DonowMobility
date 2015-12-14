@@ -240,6 +240,11 @@
       <DependentUpon>InteractionLeadUpdateVC.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerStreamTableViewCell.cs" />
+    <Compile Include="LandingCustomerDetailVC.cs" />
+    <Compile Include="LandingCustomerDetailVC.designer.cs">
+      <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="ScrollReq.cs" />
     <Compile Include="ScrollReq.designer.cs">
       <DependentUpon>ScrollReq.cs</DependentUpon>
@@ -257,6 +262,7 @@
     <Compile Include="MyDealMakerDetailVC.designer.cs">
       <DependentUpon>MyDealMakerDetailVC.cs</DependentUpon>
     </Compile>
+
     <Compile Include="BingSearchVC.cs" />
     <Compile Include="BingSearchVC.designer.cs">
       <DependentUpon>BingSearchVC.cs</DependentUpon>
@@ -341,7 +347,9 @@
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
+
     <BundleResource Include="Resources\Images\Geo Icon.png" />
+
     <BundleResource Include="Resources\DoNow Logo_Small.png" />
   </ItemGroup>
   <ItemGroup>

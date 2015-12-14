@@ -85,6 +85,7 @@ namespace donow.iOS
 					break;
 				case "My Deal Makers": 
 					MyDealMakerVC dealMakerVC = owner.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+
 					if (dealMakerVC != null) {
 						AppDelegate.IsFromProspect = false;
 						owner.NavigationController.PushViewController (dealMakerVC, true);

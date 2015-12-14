@@ -29,6 +29,7 @@ namespace donow.iOS
 				ViewSendRequestView.Hidden = true;
 			};
 
+
 			ButtonSendRequest.Layer.CornerRadius = 8.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 8.0f;
 
