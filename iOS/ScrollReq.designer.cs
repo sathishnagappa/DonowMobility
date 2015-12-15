@@ -24,11 +24,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView AlertSubViewRequestMeeting { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView AlertView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView AlertViewLater { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView AlertViewRequestMeeting { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -60,7 +68,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonRequestMeeting { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonScroll_ { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton DisableReqMeetScroll { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -84,6 +100,10 @@ namespace donow.iOS
 				AlertSubViewLater.Dispose ();
 				AlertSubViewLater = null;
 			}
+			if (AlertSubViewRequestMeeting != null) {
+				AlertSubViewRequestMeeting.Dispose ();
+				AlertSubViewRequestMeeting = null;
+			}
 			if (AlertView != null) {
 				AlertView.Dispose ();
 				AlertView = null;
@@ -91,6 +111,10 @@ namespace donow.iOS
 			if (AlertViewLater != null) {
 				AlertViewLater.Dispose ();
 				AlertViewLater = null;
+			}
+			if (AlertViewRequestMeeting != null) {
+				AlertViewRequestMeeting.Dispose ();
+				AlertViewRequestMeeting = null;
 			}
 			if (ButtonAccepRR != null) {
 				ButtonAccepRR.Dispose ();
@@ -120,9 +144,17 @@ namespace donow.iOS
 				ButtonReferLater.Dispose ();
 				ButtonReferLater = null;
 			}
+			if (ButtonRequestMeeting != null) {
+				ButtonRequestMeeting.Dispose ();
+				ButtonRequestMeeting = null;
+			}
 			if (ButtonScroll_ != null) {
 				ButtonScroll_.Dispose ();
 				ButtonScroll_ = null;
+			}
+			if (DisableReqMeetScroll != null) {
+				DisableReqMeetScroll.Dispose ();
+				DisableReqMeetScroll = null;
 			}
 			if (MakeView != null) {
 				MakeView.Dispose ();
