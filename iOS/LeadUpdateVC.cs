@@ -12,6 +12,14 @@ namespace donow.iOS
 {
 	public partial class LeadUpdateVC : UIViewController
 	{
+		string localConfirmMeeting;
+		string localReasonForDown;
+		string localMeetingInfoHelpFull;	
+		string localLeadAdvanced;
+		string localCustomerCategorization;
+		string localSalesStage;
+		string localNextSteps;
+		string localMeetingID;
 
 		public LeadUpdateVC (IntPtr handle) : base (handle)
 		{
@@ -26,6 +34,24 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
+		}
+
+		public void UpdateControls (string Parameter, string TableType)
+		{
+			if (TableType == "ReasonForPass") {
+				ButtonMeetingDislikeReasonDropDown.SetTitle (Parameter, UIControlState.Normal);
+				TableViewInteractionDislikeReason.Hidden = true;
+				localReasonForDown = Parameter;
+			} else if (TableType == "SalesStage") {
+				ButtonSaleStageDropDown.SetTitle (Parameter, UIControlState.Normal);
+				localSalesStage = Parameter;
+			} else if (TableType == "CustomerCategorisation") {
+				ButtonCustomerCategorizationDropDown.SetTitle (Parameter, UIControlState.Normal);
+				localCustomerCategorization = Parameter;
+			} else {
+				ButtonNextStepsDropDown.SetTitle (Parameter, UIControlState.Normal);
+				localNextSteps = Parameter;
+			}
 		}
 
 		public override void ViewDidLoad ()
@@ -60,16 +86,45 @@ namespace donow.iOS
 				"Purist"
 			};
 
-			ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
-			ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
-			ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
-			ButtonDisLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
-			ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
-			ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
+			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localConfirmMeeting = "UP";
+			};
+
+			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				localConfirmMeeting = "DOWN";
+			};
+
+			ButtonLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localMeetingInfoHelpFull = "YES";
+			};
+
+			ButtonDisLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				localMeetingInfoHelpFull = "NO";
+			};
+
+			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localLeadAdvanced = "YES";
+			};
+
+			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				localLeadAdvanced = "NO";
+			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
 
-			TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this);
+			TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this,"ReasonForPass");
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewInteractionDislikeReason.Hidden = false;
 			};
@@ -83,47 +138,51 @@ namespace donow.iOS
 				TableViewInteractionDislikeReason.Hidden = true;
 			};
 
-			TableViewSalesStage.Source = new TableSource (ListSalesStages, this);
+			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
 			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewSalesStage.Hidden = false;
 			};
 
-			TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this);
+			TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this, "CustomerCategorisation");
 			ButtonCustomerCategorizationDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewCustomerCategorization.Hidden = false;
 			};
 
-			TableViewNextSteps.Source = new TableSource (ListNextStep, this);
+			TableViewNextSteps.Source = new TableSource (ListNextStep, this, "NextStep");
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewNextSteps.Hidden = false;
 			};
 
-//			LeadsBL leadbl = new LeadsBL();
-//			LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack();
-//			leadf2ffeedback.LeadID = 1231;
-//			leadf2ffeedback.UserID = 1;
-//			leadf2ffeedback.ReasonForDown = "Not Ok";
-//			leadf2ffeedback.ConfirmMeeting = "UP";
-//			leadf2ffeedback.CustomerCategorization = "dadaoene";
-//			leadf2ffeedback.MeetingInfoHelpFull = "";
-//			leadf2ffeedback.LeadAdvanced = "UP";
-//			leadf2ffeedback.NextSteps = "dadaoene";
-//			leadf2ffeedback.SalesStage = "Followup";
-//			leadbl.SaveLeadF2FFeedBack(leadf2ffeedback);
+			//			LeadsBL leadbl = new LeadsBL();
+			//			LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack();
+			//			leadf2ffeedback.LeadID = 1231;
+			//			leadf2ffeedback.UserID = 1;
+			//			leadf2ffeedback.ReasonForDown = "Not Ok";
+			//			leadf2ffeedback.ConfirmMeeting = "UP";
+			//			leadf2ffeedback.CustomerCategorization = "dadaoene";
+			//			leadf2ffeedback.MeetingInfoHelpFull = "";
+			//			leadf2ffeedback.LeadAdvanced = "UP";
+			//			leadf2ffeedback.NextSteps = "dadaoene";
+			//			leadf2ffeedback.SalesStage = "Followup";
+			//			leadbl.SaveLeadF2FFeedBack(leadf2ffeedback);
+
 		}
+
+
 
 		public class TableSource : UITableViewSource {
 
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
-
+			public string TSTableType = string.Empty;
 			LeadUpdateVC leadUpdateVC;
 
 
-			public TableSource (IList<string> items, LeadUpdateVC leadUpdateVC)
+			public TableSource (IList<string> items, LeadUpdateVC leadUpdateVC, string tableType)
 			{
 				this.leadUpdateVC = leadUpdateVC;
 				TableItems = items;
+				TSTableType = tableType;
 			}
 
 
@@ -147,9 +206,10 @@ namespace donow.iOS
 			}
 
 
-			public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-
+				tableView.DeselectRow (indexPath, true);
+				leadUpdateVC.UpdateControls(TableItems[indexPath.Row],TSTableType);
 			}
 
 		}

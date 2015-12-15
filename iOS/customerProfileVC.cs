@@ -24,9 +24,9 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			List <Leads> ListLeads = new List <Leads> ();
+//			List <Leads> ListLeads = new List <Leads> ();
 			LeadsBL leadsVC = new LeadsBL ();
-			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 //			RestService restservice = new RestService ();
 			//restservice.GetBingResult ("DoNow Market Trends");
 
