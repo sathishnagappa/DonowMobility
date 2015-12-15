@@ -80,7 +80,7 @@ namespace donow.iOS
 			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
 			leadfeedback.LeadID = AppDelegate.UpdateLead.LEAD_ID;
 			leadfeedback.UserID = AppDelegate.UserDetails.UserId;
-			leadfeedback.ReasonForDown = ;
+			leadfeedback.ReasonForDown ="" ;
 			leadfeedback.InteractionFeedBack = Interaction;
 			leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
 			leadfeedback.Comments = TextViewComments.Text;

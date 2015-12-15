@@ -3433,8 +3433,6 @@ steps.</string>
                         <outlet property="TableViewInteractionDislikerReason" destination="fPo-TB-aLb" id="name-outlet-fPo-TB-aLb"/>
                         <outlet property="TextViewComments" destination="wtM-0d-c0V" id="name-outlet-wtM-0d-c0V"/>
                         <outlet property="ViewInteractionThumbsDown" destination="PGV-UB-hS0" id="name-outlet-PGV-UB-hS0"/>
-                        <outlet property="ButtonInteractionSide" destination="TFY-dU-Vcf" id="name-outlet-TFY-dU-Vcf"/>
-                        <outlet property="ButtonAcknowledgementSide" destination="C9a-UF-1JL" id="name-outlet-C9a-UF-1JL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6G-Xe-wyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
