@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonAcknowledgementSide { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonDisLikeCustomerAcknowledge { get; set; }
 
 		[Outlet]
@@ -25,6 +29,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonInteractionDislikeReasonDropDown { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonInteractionSide { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -42,14 +50,16 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextView TextViewComments { get; set; }
 
-
-
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewInteractionThumbsDown { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonAcknowledgementSide != null) {
+				ButtonAcknowledgementSide.Dispose ();
+				ButtonAcknowledgementSide = null;
+			}
 			if (ButtonDisLikeCustomerAcknowledge != null) {
 				ButtonDisLikeCustomerAcknowledge.Dispose ();
 				ButtonDisLikeCustomerAcknowledge = null;
@@ -61,6 +71,10 @@ namespace donow.iOS
 			if (ButtonInteractionDislikeReasonDropDown != null) {
 				ButtonInteractionDislikeReasonDropDown.Dispose ();
 				ButtonInteractionDislikeReasonDropDown = null;
+			}
+			if (ButtonInteractionSide != null) {
+				ButtonInteractionSide.Dispose ();
+				ButtonInteractionSide = null;
 			}
 			if (ButtonLikeCustomerAcknowledge != null) {
 				ButtonLikeCustomerAcknowledge.Dispose ();

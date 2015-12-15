@@ -15,7 +15,12 @@ namespace donow.iOS
 		{
 		}
 
+		public InteractionLeadUpdateVC ()
+		{
+		}
+
 		string Interaction = string.Empty;
+		string CustomerAcknowledge = string.Empty;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -40,12 +45,19 @@ namespace donow.iOS
 
 			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
-			{
-				Interaction = "UP";
-			};
 			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
 			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
+			{
+				CustomerAcknowledge = "UP";
+			};
+
 			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
+			{
+				CustomerAcknowledge = "DOWN";
+			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
 
 			TableViewInteractionDislikerReason.Hidden = true;
@@ -56,20 +68,22 @@ namespace donow.iOS
 
 			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = false;
+				Interaction = "DOWN";
 			};
 
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
+				Interaction = "UP";
 			};
 
 			LeadsBL leadbl = new LeadsBL();
 			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
 			leadfeedback.LeadID = AppDelegate.UpdateLead.LEAD_ID;
 			leadfeedback.UserID = AppDelegate.UserDetails.UserId;
-			leadfeedback.ReasonForDown = "OK";
-			leadfeedback.InteractionFeedBack = "UP";
-			leadfeedback.CustomerAcknowledged = "UP";
-			leadfeedback.Comments = "Good";
+			leadfeedback.ReasonForDown = ;
+			leadfeedback.InteractionFeedBack = Interaction;
+			leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
+			leadfeedback.Comments = TextViewComments.Text;
 			leadbl.SaveLeadFeedBack(leadfeedback);
 		}
 
