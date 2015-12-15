@@ -97,6 +97,18 @@ namespace donow.iOS
 				NavigationController.PopViewController(true);
 			};
 
+<<<<<<< HEAD
+=======
+			LeadsBL leadbl = new LeadsBL();
+			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
+			leadfeedback.LeadID = AppDelegate.UpdateLead.LEAD_ID;
+			leadfeedback.UserID = AppDelegate.UserDetails.UserId;
+			leadfeedback.ReasonForDown ="" ;
+			leadfeedback.InteractionFeedBack = Interaction;
+			leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
+			leadfeedback.Comments = TextViewComments.Text;
+			leadbl.SaveLeadFeedBack(leadfeedback);
+>>>>>>> origin/master
 		}
 
 		public class TableSource : UITableViewSource {

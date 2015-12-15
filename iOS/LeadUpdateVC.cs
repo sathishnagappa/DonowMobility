@@ -13,7 +13,10 @@ namespace donow.iOS
 {
 	public partial class LeadUpdateVC : UIViewController
 	{
+<<<<<<< HEAD
 		public UserMeetings meetingObj;
+=======
+>>>>>>> origin/master
 		string localConfirmMeeting;
 		string localReasonForDown;
 		string localMeetingInfoHelpFull;	
@@ -103,25 +106,41 @@ namespace donow.iOS
 			ButtonLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+<<<<<<< HEAD
 				localMeetingInfoHelpFull = "UP";
+=======
+				localMeetingInfoHelpFull = "YES";
+>>>>>>> origin/master
 			};
 
 			ButtonDisLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+<<<<<<< HEAD
 				localMeetingInfoHelpFull = "DOWN";
+=======
+				localMeetingInfoHelpFull = "NO";
+>>>>>>> origin/master
 			};
 
 			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+<<<<<<< HEAD
 				localLeadAdvanced = "UP";
+=======
+				localLeadAdvanced = "YES";
+>>>>>>> origin/master
 			};
 
 			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+<<<<<<< HEAD
 				localLeadAdvanced = "DOWN";
+=======
+				localLeadAdvanced = "NO";
+>>>>>>> origin/master
 			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
@@ -173,6 +192,22 @@ namespace donow.iOS
 				NavigationController.PopViewController(true);
 			};
 
+<<<<<<< HEAD
+=======
+			//			LeadsBL leadbl = new LeadsBL();
+			//			LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack();
+			//			leadf2ffeedback.LeadID = 1231;
+			//			leadf2ffeedback.UserID = 1;
+			//			leadf2ffeedback.ReasonForDown = "Not Ok";
+			//			leadf2ffeedback.ConfirmMeeting = "UP";
+			//			leadf2ffeedback.CustomerCategorization = "dadaoene";
+			//			leadf2ffeedback.MeetingInfoHelpFull = "";
+			//			leadf2ffeedback.LeadAdvanced = "UP";
+			//			leadf2ffeedback.NextSteps = "dadaoene";
+			//			leadf2ffeedback.SalesStage = "Followup";
+			//			leadbl.SaveLeadF2FFeedBack(leadf2ffeedback);
+
+>>>>>>> origin/master
 		}
 
 
