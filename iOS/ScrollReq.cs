@@ -75,6 +75,12 @@ namespace donow.iOS
 				AlertSubViewLater.Hidden=true;
 
 			};
+			DisableReqMeetScroll.TouchUpInside += (object sender, EventArgs e) => {
+			
+				AlertViewRequestMeeting.Hidden=true;
+				AlertSubViewRequestMeeting.Hidden=true;
+			};
+
 			ButtonScroll_.TouchUpInside += (object sender, EventArgs e) => {
 		
 				AlertView.Hidden=true;
@@ -94,12 +100,19 @@ namespace donow.iOS
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
 						Console.WriteLine (args.Result.ToString ());
 						args.Controller.DismissViewController (true, null);
+						AlertView.Hidden=true;
+						AlertSubView.Hidden=true;
+
+						AlertViewRequestMeeting.Hidden=false;
+						AlertSubViewRequestMeeting.Hidden=false;
+
 					};
 
 					this.PresentViewController (mailController, true, null);
 
 					//					Device.OpenUri(new Uri("mailto:ryan.hatfield@test.com"));
 				}
+
 			};
 
 		}
