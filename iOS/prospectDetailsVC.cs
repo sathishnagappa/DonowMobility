@@ -6,6 +6,7 @@ using donow.PCL;
 using System.Collections.Generic;
 using donow.PCL.Model;
 using MessageUI;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -21,9 +22,30 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
+			AppDelegate.IsProspectVisited = true;
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+//		    this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
+//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+//				if (landingLeadsVC != null) {
+//					this.NavigationController.PopToViewController(landingLeadsVC, true);
+//				} 
+//			}), true);
+
+
 		}
+		public override void ViewWillDisappear (bool animated)
+		{
+			LeadDetailVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+			List<UIViewController> listvc = this.NavigationController.ViewControllers.ToList();
+			foreach (var item in listvc) {
+
+				if(item == landingLeadsVC)
+				{
+					item.NavigationController.RemoveFromParentViewController ();
+				}
+			}
+		}
+
 
 		public override void ViewDidLoad ()
 		{
@@ -64,6 +86,8 @@ namespace donow.iOS
 				};
 			};
 
+
+
 			ButtonMailProspect.TouchUpInside += (object sender, EventArgs e) => {
 				MFMailComposeViewController mailController;
 				if (MFMailComposeViewController.CanSendMail) {
@@ -97,22 +121,32 @@ namespace donow.iOS
 		void showBrokerImage (int count) {
 			switch (count) {
 			case 0:
-				ImageFirstBroker.Hidden = true; LabelScoreFirstBroker.Hidden = true;
-				ImageSecondBroker.Hidden = true; LabelScoreSecondBroker.Hidden = true;
-				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
+				ImageFirstBroker.Hidden = true;
+				LabelScoreFirstBroker.Hidden = true;
+				ImageSecondBroker.Hidden = true;
+				LabelScoreSecondBroker.Hidden = true;
+				ImageThirdBroker.Hidden = true;
+				LabelScoreThirdBroker.Hidden = true;
+				ButtonSeeAllBrokers.Hidden = true;
 				break;
 			case 1:
+				ButtonSeeAllBrokers.Hidden = false;
 				LabelScoreFirstBroker.Text = "Score: " + brokerList [0].BrokerScore;
 				ImageSecondBroker.Hidden = true; LabelScoreSecondBroker.Hidden = true;
 				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
 				break;
 			case 2:
+				ButtonSeeAllBrokers.Hidden = false;
 				LabelScoreFirstBroker.Text = "Score: " + brokerList [0].BrokerScore;
 				LabelScoreSecondBroker.Text = "Score: " + brokerList [1].BrokerScore;
 				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
 				break;
 			default:
-				LabelScoreFirstBroker.Text = "Score: " + brokerList [0].BrokerScore;
+				ButtonSeeAllBrokers.Hidden = false;
+				LabelScoreFirstBroker.Hidden = false;
+				LabelScoreSecondBroker.Hidden = false;
+				LabelScoreThirdBroker.Hidden = false;
+				LabelScoreFirstBroker.Text = "Score: " + brokerList[0].BrokerScore;
 				LabelScoreSecondBroker.Text = "Score: " + brokerList [1].BrokerScore;
 				LabelScoreThirdBroker.Text = "Score: " + brokerList [2].BrokerScore;
 				break;

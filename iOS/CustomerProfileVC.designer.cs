@@ -44,14 +44,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView DealMakersImage2 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView DealMakersImage3 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCityAndState { get; set; }
 
 		[Outlet]
@@ -115,14 +107,6 @@ namespace donow.iOS
 			if (DealMakersImage1 != null) {
 				DealMakersImage1.Dispose ();
 				DealMakersImage1 = null;
-			}
-			if (DealMakersImage2 != null) {
-				DealMakersImage2.Dispose ();
-				DealMakersImage2 = null;
-			}
-			if (DealMakersImage3 != null) {
-				DealMakersImage3.Dispose ();
-				DealMakersImage3 = null;
 			}
 			if (LabelCityAndState != null) {
 				LabelCityAndState.Dispose ();

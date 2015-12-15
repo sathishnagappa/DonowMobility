@@ -193,8 +193,6 @@ namespace donow.iOS
 
 			void AddEvent(EKEvent calendarEvent)
 			{
-
-
 				UserMeetings userMeetings = new UserMeetings ();
 				userMeetings.id = 0;
 				userMeetings.LeadID = AppDelegate.CurrentLead.LEAD_ID;
@@ -207,6 +205,25 @@ namespace donow.iOS
 				userMeetings.State = AppDelegate.CurrentLead.STATE;
 				LeadsBL leadsbl = new LeadsBL ();
 				leadsbl.SaveMeetingEvent (userMeetings);
+
+				var notification = new UILocalNotification();
+
+				// set the fire date (the date time in which it will fire)
+				notification.FireDate = NSDate.FromTimeIntervalSinceNow(100);
+				//notification.Class = AppDelegate.CurrentLead;
+				// configure the alert
+//				notification.AlertAction = "View Alert";
+//				notification.AlertBody = "Your one minute alert has fired!";
+
+				// modify the badge
+				notification.ApplicationIconBadgeNumber = 1;
+
+				// set the sound to be the default sound
+				notification.SoundName = UILocalNotification.DefaultSoundName;
+
+				// schedule it
+				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+
 			}
 
 

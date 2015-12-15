@@ -15,7 +15,7 @@ namespace donow.iOS
 		{
 		}
 
-
+		string Interaction = string.Empty;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -39,6 +39,10 @@ namespace donow.iOS
 
 
 			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
+			{
+				Interaction = "UP";
+			};
 			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
 			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
@@ -58,15 +62,15 @@ namespace donow.iOS
 				ViewInteractionThumbsDown.Hidden = true;
 			};
 
-//			LeadsBL leadbl = new LeadsBL();
-//			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-//			leadfeedback.LeadID = 1211;
-//			leadfeedback.UserID = 1;
-//			leadfeedback.ReasonForDown = "not ok";
-//			leadfeedback.InteractionFeedBack = "UP";
-//			leadfeedback.CustomerAcknowledged = "UP";
-//			leadfeedback.Comments = "Good";
-//			leadbl.SaveLeadFeedBack(leadfeedback);
+			LeadsBL leadbl = new LeadsBL();
+			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
+			leadfeedback.LeadID = AppDelegate.UpdateLead.LEAD_ID;
+			leadfeedback.UserID = AppDelegate.UserDetails.UserId;
+			leadfeedback.ReasonForDown = "OK";
+			leadfeedback.InteractionFeedBack = "UP";
+			leadfeedback.CustomerAcknowledged = "UP";
+			leadfeedback.Comments = "Good";
+			leadbl.SaveLeadFeedBack(leadfeedback);
 		}
 
 		public class TableSource : UITableViewSource {

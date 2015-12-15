@@ -4,6 +4,7 @@ using UIKit;
 using donow.PCL.Model;
 using EventKit;
 using System.Collections.Generic;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -24,10 +25,14 @@ namespace donow.iOS
 		public static bool IsNewUser;
 		public static Leads CurrentLead;
 		public static bool IsFromProspect;
+		public static bool IsProspectVisited;
+		public static List<UserMeetings> userMeetings;
+		public static Leads UpdateLead;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }
 		}
+		LandingCustomerStreamVC landingCustomerSteam;
 		public override UIWindow Window {
 			get;
 			set;
@@ -44,6 +49,33 @@ namespace donow.iOS
 			UserProfile = new Profile ();
 			eventStore = new EKEventStore ( );
 			CalendarList = new List<CalenderEvent> ();
+			//landingCustomerSteam = new LandingCustomerStreamVC();
+			// check for a notification
+			if (launchOptions != null)
+			{
+				// check for a local notification
+				if (launchOptions.ContainsKey(UIApplication.LaunchOptionsLocalNotificationKey))
+				{
+					var localNotification = launchOptions[UIApplication.LaunchOptionsLocalNotificationKey] as UILocalNotification;
+					if (localNotification != null)
+					{
+						UIAlertController okayAlertController = UIAlertController.Create (localNotification.AlertAction, localNotification.AlertBody, UIAlertControllerStyle.Alert);
+						okayAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
+						landingCustomerSteam.PresentViewController (okayAlertController, true, null);
+
+						// reset our badge
+						UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+					}
+				}
+			}
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+				var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes (
+					UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null
+				);
+
+				application.RegisterUserNotificationSettings (notificationSettings);
+			} 
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
@@ -51,6 +83,21 @@ namespace donow.iOS
 
 			//return ApplicationDelegate.SharedInstance.FinishedLaunching (application, launchOptions);
 			return true;
+		}
+
+		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+		{
+			// show an alert
+//			UIAlertController okayAlertController = UIAlertController.Create (notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
+//			okayAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
+
+			//UpdateLead = notification.Class;
+			//InteractionLeadUpdateVC interactionVC = new InteractionLeadUpdateVC ();
+
+			//landingCustomerSteam.PresentViewController (interactionVC, true, null);
+
+			// reset our badge
+			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
 		}
 
 		public override void OnResignActivation (UIApplication application)
