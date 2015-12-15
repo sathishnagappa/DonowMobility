@@ -8,6 +8,7 @@ using donow.PCL;
 using System.Collections.Generic;
 using donow.Util;
 using CoreGraphics;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -37,9 +38,9 @@ namespace donow.iOS
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
 			if(!AppDelegate.IsFromProspect)				
-				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness);
+				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness).OrderByDescending(X => X.BrokerScore).ToList();
 			else
-				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID);
+				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
 //			brokerList[0].Status == 
 

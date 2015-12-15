@@ -7,6 +7,7 @@ using donow.PCL;
 using System.Collections.Generic;
 using donow.Util;
 using CoreGraphics;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -24,20 +25,22 @@ namespace donow.iOS
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			this.NavigationController.SetNavigationBarHidden (false, false);
-
+			//this.ParentViewController.NavigationItem.Title = "Leads";
 //			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
 //			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			this.NavikeygationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 //			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-//				this.NavigationController.PopViewController(true);
+//				this.NavigationController;
 //			}), true);
 //			List<Leads> newleads = GetLeads();
 //			this.TabBarItem.BadgeValue = newleads.Count.ToString();
 //			TableViewLeads.Source = new TableSource (newleads, this);
 
 
+
+			AppDelegate.IsProspectVisited = false; 
 			List<Leads> leads = GetLeads ();
 			if (leads.Count > 0) {
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
@@ -73,7 +76,7 @@ namespace donow.iOS
 
 			this.Title = "Leads";
 			this.NavigationItem.SetHidesBackButton (true, false);
-			this.NavigationItem.SetLeftBarButtonItem(null, true);
+//			this.NavigationItem.SetLeftBarButtonItem(null, true);
 
 
 			//List<UserMeetings> userMeeetings 
@@ -87,8 +90,18 @@ namespace donow.iOS
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
+			if (leads.Count > 0) {
 				leads = GetLeads();
 				this.TabBarItem.BadgeValue = leads.Count.ToString();
+				} else {
+					//AlertView.Hidden = false;
+					UIAlertView alert = new UIAlertView () { 
+						Title = "", 
+						Message = "We are gathering your leads for you! \n Check Back Shortly."
+					};
+					alert.AddButton ("OK");
+					alert.Show ();
+				}
 				TableViewLeads.Source = new TableSource (leads, this);
 				loadingOverlay.Hide ();
 			};
@@ -147,7 +160,7 @@ namespace donow.iOS
 						//owner.View.AddSubview (leadDetailVC.View);
 						owner.NavigationController.PushViewController (leadDetailVC, true);
 					}
-				} else if (TableItems [indexPath.Row].LEAD_STATUS == "Accepted") {
+				} else if (TableItems [indexPath.Row].STATUS == "Accepted") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
 						prospectVC.localLeads = TableItems [indexPath.Row];

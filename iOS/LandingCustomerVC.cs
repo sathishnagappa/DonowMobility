@@ -5,6 +5,7 @@ using UIKit;
 using donow.PCL;
 using System.Collections.Generic;
 using CoreGraphics;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -30,12 +31,12 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-	
+			
 
 			CustomerBL customerBL = new CustomerBL ();
 			List<Customer> cusotmerList =  customerBL.GetAllCustomers ();
 
-			TableViewCustomerList.Source = new TableSource (cusotmerList, this);
+			TableViewCustomerList.Source = new TableSource (cusotmerList.OrderBy(X => X.Name).ToList(), this);
 			this.Title = "Customers";
 
 			this.NavigationItem.SetHidesBackButton (true, false);

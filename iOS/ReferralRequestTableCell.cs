@@ -66,13 +66,11 @@ namespace donow.iOS
 		public void UpdateCell (ReferralRequest rrObj)
 		{
 
-
-
-//			LabelSellerName.Text = "Seller :" + rrObj.UserName;
-//			LabelIndustryName.Text = "Industry:" + rrObj.Industry;
-//			LabelLocation.Text = "Location:"+ rrObj.City + ", " + rrObj.State;
-//			LabelProspect.Text = "Prospect:"+ rrObj.Prospect;
-//			LabelBusinessNeeds.Text =  "Business Needs:" + rrObj.BusinessNeeds;
+			LabelSellerName.Text = "Seller :" + rrObj.UserName;
+			LabelIndustryName.Text = "Industry:" + rrObj.Industry;
+			LabelLocation.Text = "Location:"+ rrObj.City + ", " + rrObj.State;
+			LabelProspect.Text = "Prospect:"+ rrObj.Prospect;
+			LabelBusinessNeeds.Text =  "Business Needs:" + rrObj.BusinessNeeds;
 //			if (lead.IsNew == false)
 //				LabelNewLead.Hidden = true;
 		}

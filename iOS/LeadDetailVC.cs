@@ -47,11 +47,19 @@ namespace donow.iOS
 //					this.NavigationController.PushViewController (prospectVC, true);
 //				}
 //			}
-			if (AppDelegate.IsLeadAccepted) {
+			if (!AppDelegate.IsProspectVisited && AppDelegate.IsLeadAccepted) {
 				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 				if (prospectVC != null) {
 					prospectVC.localLeads = leadObj;
 					this.NavigationController.PushViewController (prospectVC, true);
+				}
+			} 
+
+			if(AppDelegate.IsProspectVisited)
+			{
+				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+				if (landingLeadsVC != null) {
+					this.NavigationController.PushViewController (landingLeadsVC, true);
 				}
 			}
 		}
@@ -163,11 +171,11 @@ namespace donow.iOS
 				leadsBL = new LeadsBL();
 				string text = ButtonOptionPassView.TitleLabel.Text;
 				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+				this.NavigationController.PopViewController(false);
 			};
 
 			ButtonAccept.TouchUpInside+= (object sender, EventArgs e) => {
 				leadsBL = new LeadsBL();
-
 				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
 			};
 
