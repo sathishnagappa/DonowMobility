@@ -16,6 +16,9 @@ namespace donow.iOS
 		{
 		}
 
+		public LandingCustomerStreamVC () {
+		}
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);

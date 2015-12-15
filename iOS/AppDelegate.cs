@@ -49,7 +49,7 @@ namespace donow.iOS
 			UserProfile = new Profile ();
 			eventStore = new EKEventStore ( );
 			CalendarList = new List<CalenderEvent> ();
-			//landingCustomerSteam = new LandingCustomerStreamVC();
+			landingCustomerSteam = new LandingCustomerStreamVC();
 			// check for a notification
 			if (launchOptions != null)
 			{
@@ -85,20 +85,16 @@ namespace donow.iOS
 			return true;
 		}
 
-		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
-		{
-			// show an alert
-//			UIAlertController okayAlertController = UIAlertController.Create (notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
-//			okayAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
-
-			//UpdateLead = notification.Class;
-			//InteractionLeadUpdateVC interactionVC = new InteractionLeadUpdateVC ();
-
-			//landingCustomerSteam.PresentViewController (interactionVC, true, null);
-
-			// reset our badge
-			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
-		}
+//		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+//		{
+//			// show an alert
+////			UIAlertController okayAlertController = UIAlertController.Create (notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
+////			okayAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
+//			InteractionLeadUpdateVC interactionVC =  new InteractionLeadUpdateVC();
+//			landingCustomerSteam.PresentViewController (interactionVC, true, null);
+//			// reset our badge
+//			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+//		}
 
 		public override void OnResignActivation (UIApplication application)
 		{
