@@ -1,7 +1,12 @@
 ﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.2" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/CalenderHomeDVC.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.0" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
+      <File FileName="iOS/ScrollReq.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="iOS/loginPageViewController.cs" Line="7" Column="17" />
+      <File FileName="iOS/LeadUpdateVC.cs" Line="1" Column="1" />
+
       <File FileName="iOS/LeadDetailVC.cs" Line="58" Column="37" />
       <File FileName="iOS/MyDealMakerVC.cs" Line="17" Column="31" />
       <File FileName="iOS/LeadTableCell.cs" Line="1" Column="1" />
@@ -23,8 +28,8 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/EventListDVC.cs" line="23" column="1" />
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LeadsTableCell.cs" line="10" column="32" />
+      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/Main.cs" line="17" column="1" />
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="16" column="1" />
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="6" column="1" />
       <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/BusinessLogic/UserBL.cs" line="56" column="1" />
