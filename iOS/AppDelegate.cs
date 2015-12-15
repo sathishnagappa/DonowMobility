@@ -28,6 +28,7 @@ namespace donow.iOS
 		public static bool IsProspectVisited;
 		public static List<UserMeetings> userMeetings;
 		public static Leads UpdateLead;
+		public static LeadsBL leadsBL;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }
@@ -47,6 +48,7 @@ namespace donow.iOS
 //			Settings.DisplayName = appName;
 			UserDetails = new UserDetails();
 			UserProfile = new Profile ();
+			leadsBL = new LeadsBL ();
 			eventStore = new EKEventStore ( );
 			CalendarList = new List<CalenderEvent> ();
 			landingCustomerSteam = new LandingCustomerStreamVC();
@@ -85,16 +87,16 @@ namespace donow.iOS
 			return true;
 		}
 
-//		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
-//		{
-//			// show an alert
-////			UIAlertController okayAlertController = UIAlertController.Create (notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
-////			okayAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
-//			InteractionLeadUpdateVC interactionVC =  new InteractionLeadUpdateVC();
-//			landingCustomerSteam.PresentViewController (interactionVC, true, null);
-//			// reset our badge
-//			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
-//		}
+		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+		{
+			// show an alert
+//			UIAlertController okayAlertController = UIAlertController.Create (notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
+//			okayAlertController.AddAction (UIAlertAction.Create ("OK", UIAlertActionStyle.Default, null));
+			InteractionLeadUpdateVC interactionVC =  new InteractionLeadUpdateVC();
+			landingCustomerSteam.PresentViewController (interactionVC, true, null);
+			// reset our badge
+			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+		}
 
 		public override void OnResignActivation (UIApplication application)
 		{

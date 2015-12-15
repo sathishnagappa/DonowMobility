@@ -24,19 +24,21 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			List <Leads> ListLeads = new List <Leads> ();
-			LeadsBL leadsVC = new LeadsBL ();
-			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+//			List <Leads> ListLeads = new List <Leads> ();
+//			LeadsBL leadsVC = new LeadsBL ();
+//			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 //			RestService restservice = new RestService ();
 			//restservice.GetBingResult ("DoNow Market Trends");
 
 			this.Title = "Customer";
+//			UserBL userbl = new UserBL ();
+//			List<UserMeetings> listMeeting = new List<UserMeetings> ();
+//			listMeeting =  userbl.GetMeetings(customer.Name);
 
-			//UserMeetings upComingMeetings =  leadsVC.GetMeetingEvents(AppDelegate.);
-
+			//List<UserMeetings>
 			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);
 
-			TableViewNewLeads.Source = new TableSource (ListLeads, this);
+			//TableViewNewLeads.Source = new TableSource (ListLeads, this);
 			TableViewMeetings.Source = new TableSourceupComingMeetings (this);
 			TableViewEmails.Source = new TableSourceInteractionWithCustomer ();
 			TableViewDealHistory.Source = new TableSourceBtwnYouNCustomer ();
@@ -222,11 +224,9 @@ namespace donow.iOS
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				if(owner.TableSeeAllClicked == false) {
-					return 2;
-				} else {
+	
 					return TableItems.Count;
-				}
+
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)

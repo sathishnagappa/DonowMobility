@@ -20,7 +20,7 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
+			this.NavigationController.SetNavigationBarHidden (false, false);
 		}
 
 		public override void ViewWillDisappear (bool animated)

@@ -56,15 +56,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSubmit { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewF2F { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewCustomerCategorization { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewSalesStage { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -76,6 +76,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewSalesStage { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewF2FMeetingDown { get; set; }
 
 		void ReleaseDesignerOutlets ()
@@ -83,10 +87,6 @@ namespace donow.iOS
 			if (ButtonCustomerCategorizationDropDown != null) {
 				ButtonCustomerCategorizationDropDown.Dispose ();
 				ButtonCustomerCategorizationDropDown = null;
-			}
-			if (ButtonSaleStageDropDown != null) {
-				ButtonSaleStageDropDown.Dispose ();
-				ButtonSaleStageDropDown = null;
 			}
 			if (ButtonDisLikeLeadAdvanced != null) {
 				ButtonDisLikeLeadAdvanced.Dispose ();
@@ -120,6 +120,14 @@ namespace donow.iOS
 				ButtonNextStepsDropDown.Dispose ();
 				ButtonNextStepsDropDown = null;
 			}
+			if (ButtonSaleStageDropDown != null) {
+				ButtonSaleStageDropDown.Dispose ();
+				ButtonSaleStageDropDown = null;
+			}
+			if (ButtonSubmit != null) {
+				ButtonSubmit.Dispose ();
+				ButtonSubmit = null;
+			}
 			if (ScrollViewF2F != null) {
 				ScrollViewF2F.Dispose ();
 				ScrollViewF2F = null;
@@ -128,10 +136,6 @@ namespace donow.iOS
 				TableViewCustomerCategorization.Dispose ();
 				TableViewCustomerCategorization = null;
 			}
-			if (TableViewSalesStage != null) {
-				TableViewSalesStage.Dispose ();
-				TableViewSalesStage = null;
-			}
 			if (TableViewInteractionDislikeReason != null) {
 				TableViewInteractionDislikeReason.Dispose ();
 				TableViewInteractionDislikeReason = null;
@@ -139,6 +143,10 @@ namespace donow.iOS
 			if (TableViewNextSteps != null) {
 				TableViewNextSteps.Dispose ();
 				TableViewNextSteps = null;
+			}
+			if (TableViewSalesStage != null) {
+				TableViewSalesStage.Dispose ();
+				TableViewSalesStage = null;
 			}
 			if (ViewF2FMeetingDown != null) {
 				ViewF2FMeetingDown.Dispose ();

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using donow.Util;
 using CoreGraphics;
 using System.Linq;
+using System.Threading;
 
 namespace donow.iOS
 {
@@ -15,6 +16,7 @@ namespace donow.iOS
 	{
 		LoadingOverlay loadingOverlay;
 		List<Leads> leads;
+		LeadsBL leadsbl;
 		public LandingLeadsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -40,8 +42,9 @@ namespace donow.iOS
 
 
 
-			AppDelegate.IsProspectVisited = false; 
-			List<Leads> leads = GetLeads ();
+
+			//AppDelegate.IsProspectVisited = false; 
+			leads = GetLeads ();
 			if (leads.Count > 0) {
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
@@ -54,6 +57,8 @@ namespace donow.iOS
 				alert.AddButton ("OK");
 				alert.Show ();
 			}
+
+			GetLeadUpdatePage ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -89,10 +94,12 @@ namespace donow.iOS
 
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
-				View.Add (loadingOverlay);
-			if (leads.Count > 0) {
-				leads = GetLeads();
+			View.Add (loadingOverlay);
+				 leads = GetLeads();
+				if (leads.Count > 0) {					
 				this.TabBarItem.BadgeValue = leads.Count.ToString();
+				TableViewLeads.Source = new TableSource (leads, this);
+				loadingOverlay.Hide ();
 				} else {
 					//AlertView.Hidden = false;
 					UIAlertView alert = new UIAlertView () { 
@@ -102,8 +109,7 @@ namespace donow.iOS
 					alert.AddButton ("OK");
 					alert.Show ();
 				}
-				TableViewLeads.Source = new TableSource (leads, this);
-				loadingOverlay.Hide ();
+
 			};
 
 			loadingOverlay.Hide ();
@@ -111,7 +117,6 @@ namespace donow.iOS
 
 		List<Leads> GetLeads()
 		{
-			List<Leads> leads = new  List<Leads> ();
 			LeadsBL leadsbl = new LeadsBL ();
 			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);
 			return leads;
@@ -152,15 +157,14 @@ namespace donow.iOS
 				
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				if (TableItems [indexPath.Row].STATUS == "NEW") 
+				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE != 1) 
 				{
 					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 					if (leadDetailVC != null) {
 						leadDetailVC.leadObj = TableItems [indexPath.Row];
-						//owner.View.AddSubview (leadDetailVC.View);
 						owner.NavigationController.PushViewController (leadDetailVC, true);
 					}
-				} else if (TableItems [indexPath.Row].STATUS == "Accepted") {
+				} else if (TableItems [indexPath.Row].STATUS != "Passed") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
 						prospectVC.localLeads = TableItems [indexPath.Row];
@@ -175,6 +179,81 @@ namespace donow.iOS
 			{
 				return 150.0f;
 			}
+
+
 		}
+
+		void GetLeadUpdatePage()
+		{
+			UserBL userbl = new UserBL ();
+			List<UserMeetings> userMeetings = new List<UserMeetings> ();
+			userMeetings = userbl.GetMeetingsByUserName (AppDelegate.UserDetails.UserId);
+
+
+			TimerCallback timerDelegate = new TimerCallback(CheckStatus);
+			// Create a timer that waits one second, then invokes every second.
+			DateTime meeetingEndDate;
+			foreach (var item in userMeetings) {
+
+
+//				Leads lead = from leaditem in leads
+//						where leaditem.LEAD_ID == item.LeadId
+//					select leaditem;
+
+				
+				meeetingEndDate = DateTime.Parse (item.EndDate);
+				TimeSpan span= DateTime.UtcNow.Subtract(meeetingEndDate);
+
+				if ( DateTime.Compare(meeetingEndDate,DateTime.Now) < 0) {
+					Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
+				}
+				if ((DateTime.Compare(DateTime.Parse(item.EndDate),DateTime.Now) >= 0) && item.Status != "Done") {
+//					if (lead.STATUS == "Accepted" || lead.LEAD_STATUS == "Acquire Lead") {
+//						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+//						if (interactionLeadUpdateVC != null) {
+//							interactionLeadUpdateVC.userMeetings = item;
+//							this.PresentViewController (interactionLeadUpdateVC, true, null);
+//						} 
+//					}
+//					else {
+						LeadUpdateVC leadUpdateVC = this.Storyboard.InstantiateViewController ("LeadUpdateVC") as LeadUpdateVC;
+						if (leadUpdateVC != null) {
+							leadUpdateVC.meetingObj = item;
+							this.PresentViewController (leadUpdateVC,true,null);
+						}
+					//}
+				}
+			}
+		}
+
+		void CheckStatus(Object userMeeting) {
+			InvokeOnMainThread(() =>
+				{
+//					Leads lead = from leaditem in leads
+//							where leaditem.LEAD_ID == userMeeting.LeadId
+//						select leaditem;
+//					
+//					if(lead.STATUS == "NEW")
+//					{
+//					InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+//					if (interactionLeadUpdateVC != null) {
+//						interactionLeadUpdateVC.userMeetings = (UserMeetings)userMeeting;
+//						this.PresentViewController (interactionLeadUpdateVC,true,null);
+//					}
+//					}
+//					else
+//					{
+						LeadUpdateVC leadUpdateVC = this.Storyboard.InstantiateViewController ("LeadUpdateVC") as LeadUpdateVC;
+						if (leadUpdateVC != null) {
+							leadUpdateVC.meetingObj = (UserMeetings)userMeeting;
+							this.PresentViewController (leadUpdateVC,true,null);
+						}
+					//}
+				});
+
+
+			
+		}
+
 	}
 }

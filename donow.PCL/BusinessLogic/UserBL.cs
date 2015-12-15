@@ -67,10 +67,25 @@ namespace donow.PCL
 			return Convert.ToBoolean (response);
 		}
 
-//		public List<UserMeetings> GetMeetings(UserDetails userMeetings)
-//		{
-//			
-//		}
+		public List<UserMeetings> GetMeetings(string customername)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.MeetingList + "?name=" + customername;
+			string response = restSevice.GetData (restUrl);
+			List<UserMeetings> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserMeetings>>(response.ToString());
+			return parsedResponse;
+		}
+
+		public List<UserMeetings> GetMeetingsByUserName(int userid)
+		//public UserMeetings GetMeetingsByUserName(int userid)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.MeetingList + "?UserID=" + userid;
+			string response = restSevice.GetData (restUrl);
+			List<UserMeetings> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserMeetings>>(response.ToString());
+			//UserMeetings parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserMeetings>(response.ToString());
+			return parsedResponse;
+		}
 
 
 	}

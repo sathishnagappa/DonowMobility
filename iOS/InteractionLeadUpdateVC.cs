@@ -19,14 +19,15 @@ namespace donow.iOS
 		{
 		}
 
+		public UserMeetings userMeetings;
 		string Interaction = string.Empty;
 		string CustomerAcknowledge = string.Empty;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-			this.NavigationController.SetNavigationBarHidden (false, false);
+			//this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			//this.NavigationController.SetNavigationBarHidden (false, false);
 		}
 
 
@@ -39,13 +40,14 @@ namespace donow.iOS
 			IList<string> InteractionDislikerReason = new List<string>
 			{
 				"Wasn't Prepared",
-				"Did Not Have Enough Info"
+				"Did Not Have Enough Info",
+				"Customer Not Interested"
 			};
 
 
 			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
-			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
 			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
 			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
@@ -53,10 +55,14 @@ namespace donow.iOS
 				CustomerAcknowledge = "UP";
 			};
 
-			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png.png"), UIControlState.Selected);
+			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
 			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
 			{
 				CustomerAcknowledge = "DOWN";
+			};
+			ButtonAcknowledgementSide.TouchUpInside+= (object sender, EventArgs e) => 
+			{
+				CustomerAcknowledge = "SIDE";
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
 
@@ -70,21 +76,27 @@ namespace donow.iOS
 				ViewInteractionThumbsDown.Hidden = false;
 				Interaction = "DOWN";
 			};
-
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
 				Interaction = "UP";
 			};
+			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
+			{
+				Interaction = "SIDE";
+			};
 
-			LeadsBL leadbl = new LeadsBL();
-			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-			leadfeedback.LeadID = AppDelegate.UpdateLead.LEAD_ID;
-			leadfeedback.UserID = AppDelegate.UserDetails.UserId;
-			leadfeedback.ReasonForDown = ;
-			leadfeedback.InteractionFeedBack = Interaction;
-			leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
-			leadfeedback.Comments = TextViewComments.Text;
-			leadbl.SaveLeadFeedBack(leadfeedback);
+			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
+				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
+				leadfeedback.LeadID = 165806841;
+				leadfeedback.UserID = AppDelegate.UserDetails.UserId;
+				leadfeedback.ReasonForDown = ButtonInteractionDislikeReasonDropDown.CurrentTitle;
+				leadfeedback.InteractionFeedBack = Interaction;
+				leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
+				leadfeedback.Comments = TextViewComments.Text;
+				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
+				NavigationController.PopViewController(true);
+			};
+
 		}
 
 		public class TableSource : UITableViewSource {
