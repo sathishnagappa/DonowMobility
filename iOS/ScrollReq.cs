@@ -87,7 +87,13 @@ namespace donow.iOS
 				AlertSubView.Hidden=true;		
 			};
 
+			ButtonRequestMeeting.TouchUpInside += (object sender, EventArgs e) => {
 
+				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+				// if (calendarHomeDV != null)
+				this.NavigationController.PushViewController(calendarHomeDV, true);
+
+			};
 			ButtonEmailAcceptView.TouchUpInside += (object sender, EventArgs e) =>  {
 				MFMailComposeViewController mailController;
 				if (MFMailComposeViewController.CanSendMail) {
