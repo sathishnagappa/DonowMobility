@@ -160,24 +160,41 @@ namespace donow.iOS
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 				
+//				tableView.DeselectRow (indexPath, true);
+//				AppDelegate.CurrentLead = TableItems [indexPath.Row];
+//				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE != 1) 
+//				{
+//					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+//					if (leadDetailVC != null) {
+//						leadDetailVC.leadObj = TableItems [indexPath.Row];
+//						owner.NavigationController.PushViewController (leadDetailVC, true);
+//					}
+//				} else if (TableItems [indexPath.Row].STATUS != "Accepted") {
+//					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+//					if (prospectVC != null) {
+//						prospectVC.localLeads = TableItems [indexPath.Row];
+//						owner.NavigationController.PushViewController (prospectVC, true);
+//					}
+//					
+//				}
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE != 1) 
+				if (TableItems [indexPath.Row].STATUS == "NEW") 
 				{
 					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 					if (leadDetailVC != null) {
 						leadDetailVC.leadObj = TableItems [indexPath.Row];
+						//owner.View.AddSubview (leadDetailVC.View);
 						owner.NavigationController.PushViewController (leadDetailVC, true);
 					}
-				} else if (TableItems [indexPath.Row].STATUS != "Passed") {
+				} else if (TableItems [indexPath.Row].STATUS == "Accepted") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
 						prospectVC.localLeads = TableItems [indexPath.Row];
 						owner.NavigationController.PushViewController (prospectVC, true);
 					}
-					
-				}
 
+				}
 			}
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
@@ -209,9 +226,9 @@ namespace donow.iOS
 				meeetingEndDate = DateTime.Parse (item.EndDate);
 				TimeSpan span= DateTime.UtcNow.Subtract(meeetingEndDate);
 
-				if ( DateTime.Compare(meeetingEndDate,DateTime.Now) < 0) {
-					Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
-				}
+//				if ( DateTime.Compare(meeetingEndDate,DateTime.Now) < 0) {
+//					Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
+//				}
 				if ((DateTime.Compare(DateTime.Parse(item.EndDate),DateTime.Now) >= 0) && item.Status != "Done") {
 //					if (lead.STATUS == "Accepted" || lead.LEAD_STATUS == "Acquire Lead") {
 //						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;

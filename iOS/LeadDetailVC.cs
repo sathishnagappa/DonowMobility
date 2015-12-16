@@ -47,21 +47,21 @@ namespace donow.iOS
 //					this.NavigationController.PushViewController (prospectVC, true);
 //				}
 //			}
-			if (!AppDelegate.IsProspectVisited && AppDelegate.IsLeadAccepted) {
-				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-				if (prospectVC != null) {
-					prospectVC.localLeads = leadObj;
-					this.NavigationController.PushViewController (prospectVC, true);
-				}
-			} 
-
-			if(AppDelegate.IsProspectVisited)
-			{
-				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-				if (landingLeadsVC != null) {
-					this.NavigationController.PushViewController (landingLeadsVC, true);
-				}
-			}
+//			if (!AppDelegate.IsProspectVisited && AppDelegate.IsLeadAccepted) {
+//				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+//				if (prospectVC != null) {
+//					prospectVC.localLeads = leadObj;
+//					this.NavigationController.PushViewController (prospectVC, true);
+//				}
+//			} 
+//
+//			if(AppDelegate.IsProspectVisited)
+//			{
+//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+//				if (landingLeadsVC != null) {
+//					this.NavigationController.PushViewController (landingLeadsVC, true);
+//				}
+//			}
 		}
 
 		public  override void ViewDidLoad ()
@@ -90,6 +90,14 @@ namespace donow.iOS
 				ViewAccept.Hidden = false;
 				isLeadAccepted = true;
 				AppDelegate.IsLeadAccepted = true;
+				leadsBL = new LeadsBL();
+				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
+
+//				prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+//				if (prospectVC != null) {
+//					prospectVC.localLeads = TableItems [indexPath.Row];
+//					owner.NavigationController.PushViewController (prospectVC, true);
+//				}
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -174,10 +182,12 @@ namespace donow.iOS
 				this.NavigationController.PopViewController(false);
 			};
 
-			ButtonAccept.TouchUpInside+= (object sender, EventArgs e) => {
-				leadsBL = new LeadsBL();
-				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
-			};
+//			ButtonAccept.TouchUpInside+= (object sender, EventArgs e) => {
+//				leadsBL = new LeadsBL();
+//				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
+//
+//
+//			};
 
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
 			
