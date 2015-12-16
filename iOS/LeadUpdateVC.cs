@@ -13,10 +13,7 @@ namespace donow.iOS
 {
 	public partial class LeadUpdateVC : UIViewController
 	{
-<<<<<<< HEAD
 		public UserMeetings meetingObj;
-=======
->>>>>>> origin/master
 		string localConfirmMeeting;
 		string localReasonForDown;
 		string localMeetingInfoHelpFull;	
@@ -105,42 +102,27 @@ namespace donow.iOS
 
 			ButtonLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
-				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
-<<<<<<< HEAD
+				ButtonDisLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "UP";
-=======
-				localMeetingInfoHelpFull = "YES";
->>>>>>> origin/master
+			
 			};
 
 			ButtonDisLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
-				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
-<<<<<<< HEAD
+				ButtonDisLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "DOWN";
-=======
-				localMeetingInfoHelpFull = "NO";
->>>>>>> origin/master
 			};
 
 			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
-				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
-				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
-<<<<<<< HEAD
+				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				localLeadAdvanced = "UP";
-=======
-				localLeadAdvanced = "YES";
->>>>>>> origin/master
 			};
 
 			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
-				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
-<<<<<<< HEAD
 				localLeadAdvanced = "DOWN";
-=======
-				localLeadAdvanced = "NO";
->>>>>>> origin/master
 			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
@@ -192,8 +174,6 @@ namespace donow.iOS
 				NavigationController.PopViewController(true);
 			};
 
-<<<<<<< HEAD
-=======
 			//			LeadsBL leadbl = new LeadsBL();
 			//			LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack();
 			//			leadf2ffeedback.LeadID = 1231;
@@ -207,7 +187,6 @@ namespace donow.iOS
 			//			leadf2ffeedback.SalesStage = "Followup";
 			//			leadbl.SaveLeadF2FFeedBack(leadf2ffeedback);
 
->>>>>>> origin/master
 		}
 
 

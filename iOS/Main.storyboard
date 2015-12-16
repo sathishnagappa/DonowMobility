@@ -10,7 +10,6 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Landing Customer DetailVC-->
         <!--Sign Up-->
         <scene sceneID="175">
             <objects>
@@ -690,7 +689,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cWh-SF-KAr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s9S-32-VmO">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ple-T8-2sE">
@@ -711,13 +710,13 @@
         <!--Referral Requests-->
         <scene sceneID="6v8-ot-igW">
             <objects>
-                <viewController title="Referral Requests" id="ulS-fI-BRO" customClass="LandingRefferalRequestVC" sceneMemberID="viewController" storyboardIdentifier="landingRefferalRequestVC">
+                <viewController storyboardIdentifier="landingRefferalRequestVC" title="Referral Requests" id="ulS-fI-BRO" customClass="LandingRefferalRequestVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1mL-jP-MlH"/>
                         <viewControllerLayoutGuide type="bottom" id="d1N-te-Ghc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sYa-co-YAp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIl-uj-ZC9">
@@ -1043,7 +1042,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lmd-2A-DCR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ph7-Lp-bgW">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="40" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="GB2-aF-tOy">
@@ -1073,7 +1072,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fyL-Zs-6WA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5oa-HH-rqg">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Customer Stream" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2584">
@@ -1134,7 +1133,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Veg-iP-WqP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rqi-JZ-dni">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Hb-a1-QX8">
@@ -1482,9 +1481,6 @@
                     <size key="freeformSize" width="414" height="960"/>
                     <connections>
                         <outlet property="ButtonFinish" destination="3186" id="name-outlet-3186"/>
-<<<<<<< HEAD
-                        <outlet property="ScrollViewAccountManager" destination="srB-xZ-rVi" id="name-outlet-srB-xZ-rVi"/>
-=======
                         <outlet property="ButtonInfoCompanyDropDown" destination="EnS-ho-rd1" id="name-outlet-EnS-ho-rd1"/>
                         <outlet property="ButtonInfoCustomersDropDown" destination="97S-mv-r9x" id="name-outlet-97S-mv-r9x"/>
                         <outlet property="ButtonInfoIndustryDropDown" destination="4wC-WY-PkV" id="name-outlet-4wC-WY-PkV"/>
@@ -1497,7 +1493,6 @@
                         <outlet property="SwitchNewLeads" destination="Gf4-vh-U8K" id="name-outlet-Gf4-vh-U8K"/>
                         <outlet property="SwitchReferralRequests" destination="4U1-W4-cXm" id="name-outlet-4U1-W4-cXm"/>
                         <outlet property="TableViewCustomerStreamActivity" destination="p8A-2T-nBw" id="name-outlet-p8A-2T-nBw"/>
->>>>>>> origin/master
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1618" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2691,7 +2686,7 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="1" width="414" height="135"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNe-OT-htZ" id="01b-b0-eba">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-WM-3fN">
@@ -2751,7 +2746,7 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJe-Ko-TE5" id="i7O-x8-h8w">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-ib-Qsd">
@@ -2868,7 +2863,7 @@ steps.</string>
                                                                 <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W75-AG-OP2" id="6m6-C7-9zE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Email Sent Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-vK-D4z">
@@ -2941,7 +2936,7 @@ steps.</string>
                                                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zvO-YN-HDe" id="QYk-2Z-yJE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Between Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="X2A-Kb-0mb">
@@ -3354,17 +3349,17 @@ steps.</string>
                                                         <rect key="frame" x="49" y="51" width="308" height="60"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="separatorColor" red="0.13725490200000001" green="0.1215686275" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <view key="tableHeaderView" contentMode="scaleToFill" id="3407">
+                                                            <rect key="frame" x="0.0" y="0.0" width="308" height="30"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        </view>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <view contentMode="scaleToFill" id="3407" key="tableHeaderView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="308" height="30"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                        </view>
                                                     </tableView>
-                                                    <view contentMode="scaleToFill" id="3408" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3408">
                                                         <rect key="frame" x="-2" y="117" width="416" height="53"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
@@ -3374,12 +3369,12 @@ steps.</string>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3409" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3409">
                                         <rect key="frame" x="120" y="1381" width="184" height="42"/>
-                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.38823529411764707" green="0.84313725490196079" blue="1" alpha="1"/>
+                                        <color key="backgroundColor" red="0.38823529411764707" green="0.84313725490196079" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -3400,17 +3395,14 @@ steps.</string>
                         <outlet property="ButtonMeetingDislikeReasonDropDown" destination="x7t-MN-s5z" id="name-outlet-x7t-MN-s5z"/>
                         <outlet property="ButtonNextStepsDropDown" destination="dwe-kb-Zeq" id="name-outlet-dwe-kb-Zeq"/>
                         <outlet property="ButtonSaleStageDropDown" destination="nJ4-3h-26k" id="name-outlet-nJ4-3h-26k"/>
+                        <outlet property="ButtonSide" destination="BF0-yA-1mA" id="name-outlet-BF0-yA-1mA"/>
+                        <outlet property="ButtonSubmit" destination="3409" id="name-outlet-3409"/>
                         <outlet property="ScrollViewF2F" destination="E8k-qC-IPV" id="name-outlet-E8k-qC-IPV"/>
                         <outlet property="TableViewCustomerCategorization" destination="zyd-1l-A45" id="name-outlet-zyd-1l-A45"/>
                         <outlet property="TableViewInteractionDislikeReason" destination="Td2-Oo-TAh" id="name-outlet-Td2-Oo-TAh"/>
                         <outlet property="TableViewNextSteps" destination="SkO-cc-TUe" id="name-outlet-SkO-cc-TUe"/>
                         <outlet property="TableViewSalesStage" destination="ql4-rQ-ppa" id="name-outlet-ql4-rQ-ppa"/>
                         <outlet property="ViewF2FMeetingDown" destination="9gy-FR-o3Z" id="name-outlet-9gy-FR-o3Z"/>
-<<<<<<< HEAD
-                        <outlet property="ButtonSubmit" destination="3409" id="name-outlet-3409"/>
-=======
-                        <outlet property="ButtonSide" destination="BF0-yA-1mA" id="name-outlet-BF0-yA-1mA"/>
->>>>>>> origin/master
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdt-IL-yiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3587,12 +3579,12 @@ steps.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3356" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3356">
                                                 <rect key="frame" x="129" y="108" width="156" height="36"/>
-                                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.32156862745098042" green="0.78431372549019607" blue="1" alpha="1"/>
+                                                <color key="backgroundColor" red="0.32156862745098042" green="0.78431372549019607" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Submit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -3613,15 +3605,10 @@ steps.</string>
                         <outlet property="ButtonInteractionSide" destination="TFY-dU-Vcf" id="name-outlet-TFY-dU-Vcf"/>
                         <outlet property="ButtonLikeCustomerAcknowledge" destination="KJk-zb-Rfn" id="name-outlet-KJk-zb-Rfn"/>
                         <outlet property="ButtonLikeInteraction" destination="gea-Vi-zuN" id="name-outlet-gea-Vi-zuN"/>
+                        <outlet property="ButtonSubmit" destination="3356" id="name-outlet-3356"/>
                         <outlet property="TableViewInteractionDislikerReason" destination="fPo-TB-aLb" id="name-outlet-fPo-TB-aLb"/>
                         <outlet property="TextViewComments" destination="wtM-0d-c0V" id="name-outlet-wtM-0d-c0V"/>
                         <outlet property="ViewInteractionThumbsDown" destination="PGV-UB-hS0" id="name-outlet-PGV-UB-hS0"/>
-<<<<<<< HEAD
-                        <outlet property="ButtonInteractionSide" destination="TFY-dU-Vcf" id="name-outlet-TFY-dU-Vcf"/>
-                        <outlet property="ButtonAcknowledgementSide" destination="C9a-UF-1JL" id="name-outlet-C9a-UF-1JL"/>
-                        <outlet property="ButtonSubmit" destination="3356" id="name-outlet-3356"/>
-=======
->>>>>>> origin/master
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6G-Xe-wyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3648,7 +3635,7 @@ steps.</string>
                                         <rect key="frame" x="0.0" y="1" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c24-Dp-wc7" id="tHt-gZ-YWI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j7F-Ll-4yp">
@@ -4866,14 +4853,7 @@ steps.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zm-2F-OYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="1387" y="3033"/>
-=======
-            <point key="canvasLocation" x="1387" y="3033"/>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master
-=======
             <point key="canvasLocation" x="2156" y="3956"/>
->>>>>>> origin/master
         </scene>
     </scenes>
     <resources>
@@ -4924,30 +4904,6 @@ steps.</string>
         <image name="Thumbs Up Grey.png" width="78" height="78"/>
         <image name="User Name Icon.png" width="46" height="46"/>
         <image name="down-arrow.png" width="13" height="9"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="Collaboration.png" width="25" height="25"/>
-        <image name="mvboli.ttf" width="0" height="0"/>
-        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
-        <image name="Stream Icon_Small.png" width="58" height="58"/>
-        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
-        <image name="Info Page Icon.png" width="58" height="58"/>
-        <image name="My Profile Icon.png" width="58" height="58"/>
-        <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
-        <image name="Twitter Thumb.png" width="80" height="70"/>
-        <image name="Article 1 Thumb.png" width="80" height="70"/>
-        <image name="Article 2 Thumb.png" width="80" height="70"/>
-        <image name="Article 3 Thumb.png" width="80" height="70"/>
-        <image name="Contact Info Icon_Small.png" width="58" height="58"/>
-        <image name="LinkedIn Thumb.png" width="80" height="70"/>
-        <image name="New Leads Thumb.png" width="80" height="70"/>
-        <image name="Phone Thumb.png" width="80" height="70"/>
-        <image name="Promotions Thumb.png" width="80" height="70"/>
-        <image name="Thumbs Down White.png" width="78" height="78"/>
-        <image name="Thumbs Up White.png" width="78" height="78"/>
-        <image name="Leads Thumb.png" width="80" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>
