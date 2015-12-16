@@ -84,6 +84,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView PagingSendMail { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView PassView { get; set; }
 
 		[Outlet]
@@ -159,6 +163,10 @@ namespace donow.iOS
 			if (MakeView != null) {
 				MakeView.Dispose ();
 				MakeView = null;
+			}
+			if (PagingSendMail != null) {
+				PagingSendMail.Dispose ();
+				PagingSendMail = null;
 			}
 			if (PassView != null) {
 				PassView.Dispose ();

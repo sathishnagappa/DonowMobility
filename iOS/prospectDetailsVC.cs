@@ -21,6 +21,7 @@ namespace donow.iOS
 
 		public override void ViewWillAppear (bool animated)
 		{
+			
 			base.ViewWillAppear (animated);
 			AppDelegate.IsProspectVisited = true;
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);

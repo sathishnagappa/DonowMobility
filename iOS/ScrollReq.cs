@@ -21,7 +21,30 @@ namespace donow.iOS
 			this.Title = "Referall Request";
 			ScrollViewRR.ContentSize=new CGSize (400f, 1300);
 
+		
+
+			AlertSubView.Layer.CornerRadius = 15.0f;
+			AlertSubView.Layer.MasksToBounds = true;
+
+			AlertSubViewRequestMeeting.Layer.CornerRadius = 15.0f;
+			AlertSubViewRequestMeeting.Layer.MasksToBounds = true;
+
+			AlertSubViewLater.Layer.CornerRadius = 15.0f;
+			AlertSubViewLater.Layer.MasksToBounds = true;
+
+
+			ButtonEmailAcceptView.Layer.CornerRadius = 5.0f;
+			ButtonLaterView.Layer.CornerRadius = 5.0f;
+			DisableReqMeetScroll.Layer.CornerRadius = 5.0f;
+			ButtonRequestMeeting.Layer.CornerRadius = 5.0f;
+
+			ButtonReferLater.Layer.BorderWidth = 2.0f;
+			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (50, 135, 172).CGColor;
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
+
+
+							  
+
 				PassView.Hidden=true;
 				MakeView.Hidden=false;
 			};
@@ -108,6 +131,7 @@ namespace donow.iOS
 						args.Controller.DismissViewController (true, null);
 						AlertView.Hidden=true;
 						AlertSubView.Hidden=true;
+						//PagingSendMail.BackgroundColor=UIColor.Red;
 
 						AlertViewRequestMeeting.Hidden=false;
 						AlertSubViewRequestMeeting.Hidden=false;
