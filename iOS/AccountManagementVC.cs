@@ -20,9 +20,9 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 			if (!isFromSignUp)
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-
+			
 			this.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
+ 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 		}
@@ -32,7 +32,7 @@ namespace donow.iOS
 			AppDelegate.IsNewUser = true;
 			TableViewCustomerStreamActivity.Hidden = true;
 
-			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 960.0f);
+			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 1200.0f);
 
 			ButtonInfoIndustryDropDown.Layer.BorderWidth = 1.0f;
 			ButtonInfoCompanyDropDown.Layer.BorderWidth = 1.0f;

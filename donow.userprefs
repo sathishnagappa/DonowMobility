@@ -15,10 +15,14 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/LeadUpdateVC.cs" line="40" column="1" />
-      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/AccountManagementVC.cs" line="125" column="1" />
-      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/AccountManagementVC.cs" line="166" column="1" />
-    </BreakpointStore>
+      <File FileName="iOS/customerProfileVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingCustomerVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="61" Column="24" />
+      <File FileName="iOS/Customer360TableCell.cs" Line="28" Column="6" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

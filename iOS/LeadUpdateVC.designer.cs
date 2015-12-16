@@ -56,6 +56,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSubmit { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSide { get; set; }
 
 		[Outlet]
@@ -123,6 +127,10 @@ namespace donow.iOS
 			if (ButtonSaleStageDropDown != null) {
 				ButtonSaleStageDropDown.Dispose ();
 				ButtonSaleStageDropDown = null;
+			}
+			if (ButtonSubmit != null) {
+				ButtonSubmit.Dispose ();
+				ButtonSubmit = null;
 			}
 			if (ButtonSide != null) {
 				ButtonSide.Dispose ();

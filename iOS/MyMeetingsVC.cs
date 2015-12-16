@@ -20,7 +20,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "My Meetings";
+			this.Title = "Meeting Info";
 			ScrollViewMeeting.ContentSize = new CGSize (414f, 1350f);
 			//var meetingList = AppDelegate.CalendarList[0];
 			string[] TakingPoints =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
