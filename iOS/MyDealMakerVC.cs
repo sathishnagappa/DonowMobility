@@ -35,6 +35,14 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 		
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
+				this.NavigationController.PushViewController(hambergerVC,true);
+			};
+
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
 			if(!AppDelegate.IsFromProspect)				

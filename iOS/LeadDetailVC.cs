@@ -68,6 +68,15 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				LandingLeadsVC leadPage = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+				this.NavigationController.PushViewController(leadPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 			this.Title = "Lead Details";
 
 			LabelTitleName.Text = leadObj.LEAD_NAME;

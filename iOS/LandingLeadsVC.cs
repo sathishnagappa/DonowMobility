@@ -49,13 +49,14 @@ namespace donow.iOS
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
 			} else {
-				//AlertView.Hidden = false;
-				UIAlertView alert = new UIAlertView () { 
-					Title = "", 
-					Message = "We are gathering your leads for you! \n Check Back Shortly."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
+				AlertView.Hidden = false;
+//				UIAlertView alert = new UIAlertView () { 
+//					Title = "", 
+//					Message = "We are gathering your leads for you! \n Check Back Shortly."
+//				};
+//				alert.AddButton ("OK");
+//				alert.Show ();
+
 			}
 
 			GetLeadUpdatePage ();
@@ -92,6 +93,10 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 
+			LabelAlertView.Layer.CornerRadius = 10.0f;
+			ButtonOkAlertView.TouchUpInside += (object sender, EventArgs e) =>  {
+				AlertView.Hidden = true;
+			};
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 			View.Add (loadingOverlay);
@@ -102,12 +107,12 @@ namespace donow.iOS
 				loadingOverlay.Hide ();
 				} else {
 					//AlertView.Hidden = false;
-					UIAlertView alert = new UIAlertView () { 
-						Title = "", 
-						Message = "We are gathering your leads for you! \n Check Back Shortly."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
+//					UIAlertView alert = new UIAlertView () { 
+//						Title = "", 
+//						Message = "We are gathering your leads for you! \n Check Back Shortly."
+//					};
+//					alert.AddButton ("OK");
+//					alert.Show ();
 				}
 
 			};
@@ -174,7 +179,7 @@ namespace donow.iOS
 //				}
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				if (TableItems [indexPath.Row].STATUS == "NEW") 
+				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
 				{
 					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 					if (leadDetailVC != null) {
@@ -182,7 +187,7 @@ namespace donow.iOS
 						//owner.View.AddSubview (leadDetailVC.View);
 						owner.NavigationController.PushViewController (leadDetailVC, true);
 					}
-				} else if (TableItems [indexPath.Row].STATUS == "Accepted") {
+				} else if (TableItems [indexPath.Row].STATUS != "Passed") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
 						prospectVC.localLeads = TableItems [indexPath.Row];
