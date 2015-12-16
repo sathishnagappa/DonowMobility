@@ -44,6 +44,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSubmit { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewInteractionDislikerReason { get; set; }
 
 		[Outlet]
@@ -83,6 +87,10 @@ namespace donow.iOS
 			if (ButtonLikeInteraction != null) {
 				ButtonLikeInteraction.Dispose ();
 				ButtonLikeInteraction = null;
+			}
+			if (ButtonSubmit != null) {
+				ButtonSubmit.Dispose ();
+				ButtonSubmit = null;
 			}
 			if (TableViewInteractionDislikerReason != null) {
 				TableViewInteractionDislikerReason.Dispose ();

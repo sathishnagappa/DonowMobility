@@ -194,12 +194,12 @@ namespace donow.iOS
 			void AddEvent(EKEvent calendarEvent)
 			{
 				UserMeetings userMeetings = new UserMeetings ();
-				userMeetings.id = 0;
-				userMeetings.LeadID = AppDelegate.CurrentLead.LEAD_ID;
-				userMeetings.UserID = AppDelegate.UserDetails.UserId;
+				userMeetings.Id = 0;
+				userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
+				userMeetings.UserId = AppDelegate.UserDetails.UserId;
 				userMeetings.Subject = calendarEvent.Title;
-				userMeetings.Start = DateTime.Parse(calendarEvent.StartDate.ToString());
-				userMeetings.End = DateTime.Parse(calendarEvent.EndDate.ToString());
+				userMeetings.StartDate = calendarEvent.StartDate.ToString();
+				userMeetings.EndDate = calendarEvent.EndDate.ToString();
 				userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
 				userMeetings.City = AppDelegate.CurrentLead.CITY;
 				userMeetings.State = AppDelegate.CurrentLead.STATE;
