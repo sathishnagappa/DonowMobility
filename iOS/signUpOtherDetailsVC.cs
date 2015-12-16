@@ -91,6 +91,7 @@ namespace donow.iOS
 				SaveUserDetails();
 				AccountManagementVC accountManagementVC = this.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
 				if (accountManagementVC != null) {
+					accountManagementVC.isFromSignUp = true;
 					this.NavigationController.PushViewController (accountManagementVC, true);
 				}
 				}

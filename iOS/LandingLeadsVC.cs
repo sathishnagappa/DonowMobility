@@ -46,13 +46,14 @@ namespace donow.iOS
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
 			} else {
-				//AlertView.Hidden = false;
-				UIAlertView alert = new UIAlertView () { 
-					Title = "", 
-					Message = "We are gathering your leads for you! \n Check Back Shortly."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
+				AlertView.Hidden = false;
+//				UIAlertView alert = new UIAlertView () { 
+//					Title = "", 
+//					Message = "We are gathering your leads for you! \n Check Back Shortly."
+//				};
+//				alert.AddButton ("OK");
+//				alert.Show ();
+
 			}
 		}
 
@@ -87,6 +88,10 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 
+			LabelAlertView.Layer.CornerRadius = 10.0f;
+			ButtonOkAlertView.TouchUpInside += (object sender, EventArgs e) =>  {
+				AlertView.Hidden = true;
+			};
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 				View.Add (loadingOverlay);
@@ -95,12 +100,12 @@ namespace donow.iOS
 				this.TabBarItem.BadgeValue = leads.Count.ToString();
 				} else {
 					//AlertView.Hidden = false;
-					UIAlertView alert = new UIAlertView () { 
-						Title = "", 
-						Message = "We are gathering your leads for you! \n Check Back Shortly."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
+//					UIAlertView alert = new UIAlertView () { 
+//						Title = "", 
+//						Message = "We are gathering your leads for you! \n Check Back Shortly."
+//					};
+//					alert.AddButton ("OK");
+//					alert.Show ();
 				}
 				TableViewLeads.Source = new TableSource (leads, this);
 				loadingOverlay.Hide ();

@@ -33,7 +33,6 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-
 		}
 
 		public void UpdateControls (string Parameter, string TableType)

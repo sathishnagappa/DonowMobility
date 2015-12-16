@@ -20,7 +20,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonOkAlertView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonRequestNewLead { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView LabelAlertView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -32,9 +40,17 @@ namespace donow.iOS
 				AlertView.Dispose ();
 				AlertView = null;
 			}
+			if (ButtonOkAlertView != null) {
+				ButtonOkAlertView.Dispose ();
+				ButtonOkAlertView = null;
+			}
 			if (ButtonRequestNewLead != null) {
 				ButtonRequestNewLead.Dispose ();
 				ButtonRequestNewLead = null;
+			}
+			if (LabelAlertView != null) {
+				LabelAlertView.Dispose ();
+				LabelAlertView = null;
 			}
 			if (TableViewLeads != null) {
 				TableViewLeads.Dispose ();
