@@ -55,7 +55,7 @@ namespace donow.iOS
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Title = "Leads";
-			btn.Image = UIImage.FromFile("See All Icon.png");
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
 				LandingLeadsVC leadsPage = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
 				this.NavigationController.PushViewController(leadsPage,true);

@@ -24,6 +24,15 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				signUpLoginDetailsVC signUpPage = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
+				this.NavigationController.PushViewController(signUpPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 			TextBoxEmail.Text = string.Empty;
 			TextBoxCompany.Text = string.Empty;
 			TextBoxTitle.Text = string.Empty;

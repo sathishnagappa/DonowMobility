@@ -29,6 +29,21 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				if (isFromSignUp) {
+					signUpOtherDetailsVC signUpOtherDetailsPage = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+					this.NavigationController.PushViewController(signUpOtherDetailsPage,true);
+				}
+				else {
+					HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
+					this.NavigationController.PushViewController(hambergerVC,true);
+				}
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 			AppDelegate.IsNewUser = true;
 			TableViewCustomerStreamActivity.Hidden = true;
 

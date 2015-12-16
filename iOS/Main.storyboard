@@ -683,7 +683,7 @@
         <!--Hamberger MenuVC-->
         <scene sceneID="wrc-RA-1m6">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="R9I-3Q-sZO" customClass="HambergerMenuVC" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="R9I-3Q-sZO" customClass="HambergerMenuVC" sceneMemberID="viewController" storyboardIdentifier="HambergerMenuVC">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2VV-cv-HhA"/>
                         <viewControllerLayoutGuide type="bottom" id="cWh-SF-KAr"/>
@@ -3936,8 +3936,8 @@ steps.</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfW-qb-j9C">
                                         <rect key="frame" x="0.0" y="-1" width="414" height="43"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prospect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-Qn-A21">
-                                                <rect key="frame" x="150" y="11" width="124" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prospect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-Qn-A21">
+                                                <rect key="frame" x="170" y="11" width="75" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -3950,7 +3950,7 @@ steps.</string>
                                         <rect key="frame" x="0.0" y="34" width="415" height="199"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bil Murphy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjp-nB-7hD">
-                                                <rect key="frame" x="128" y="8" width="158" height="22"/>
+                                                <rect key="frame" x="128" y="11" width="158" height="22"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4937,6 +4937,7 @@ steps.</string>
         <image name="Thumbs Down White.png" width="78" height="78"/>
         <image name="Thumbs Up White.png" width="78" height="78"/>
         <image name="Leads Thumb.png" width="80" height="70"/>
+        <image name="Navigation Back Icon.png" width="18" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>

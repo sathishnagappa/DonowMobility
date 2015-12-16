@@ -179,7 +179,7 @@ namespace donow.iOS
 //				}
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				if (TableItems [indexPath.Row].STATUS == "NEW") 
+				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
 				{
 					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 					if (leadDetailVC != null) {
@@ -187,7 +187,7 @@ namespace donow.iOS
 						//owner.View.AddSubview (leadDetailVC.View);
 						owner.NavigationController.PushViewController (leadDetailVC, true);
 					}
-				} else if (TableItems [indexPath.Row].STATUS == "Accepted") {
+				} else if (TableItems [indexPath.Row].STATUS != "Passed") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
 						prospectVC.localLeads = TableItems [indexPath.Row];

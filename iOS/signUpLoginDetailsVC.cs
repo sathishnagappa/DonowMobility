@@ -36,6 +36,14 @@ namespace donow.iOS
 		{
 			this.Title = "Sign Up";
 
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				loginPageViewController loginPage = this.Storyboard.InstantiateViewController ("loginPageViewController") as loginPageViewController;
+				this.NavigationController.PushViewController(loginPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
 
 			TextBoxUserName.Text = string.Empty;
 			TextBoxPassword.Text = string.Empty;
