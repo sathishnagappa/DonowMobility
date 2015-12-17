@@ -85,7 +85,7 @@ namespace donow.iOS
 			LabelDealMakerLocation.Text = "Location: " ;
 			LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
 			LabelDealMakerIndustryDiscription.Text = brokerObj.Industry;
-			LabelDealMakerLocationDescription.Text = brokerObj.City + ", " + brokerObj.State;
+			LabelDealMakerLocationDescription.Text = brokerObj.City; //+ ", " + brokerObj.State;
 			LabelLeadStatus.Text = brokerObj.Status;
 //				ImageViewDealMakerImage.Image = 
 		}

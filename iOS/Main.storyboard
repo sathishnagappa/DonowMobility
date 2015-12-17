@@ -1212,8 +1212,7 @@
                         <outlet property="AlertView" destination="ZCT-GG-P1l" id="name-outlet-ZCT-GG-P1l"/>
                         <outlet property="ButtonOkAlertView" destination="YgT-oP-Pwe" id="name-outlet-YgT-oP-Pwe"/>
                         <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
-                        <outlet property="LabelAlertView" destination="iYA-hZ-SQo" id="name-outlet-iYA-hZ-SQo"/>
-                        <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
+                        <outlet property="LabelAlertView" destination="iYA-hZ-SQo" id="name-outlet-iYA-hZ-SQo"/>            
                         <outlet property="TableViewLeads" destination="4R6-C0-OXh" id="name-outlet-4R6-C0-OXh"/>
                     </connections>
                 </viewController>
@@ -3895,13 +3894,7 @@ steps.</string>
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your request has been submitted! We will notify you as soon as the Broker accepts your request." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwB-E6-Cpt">
-                                                <rect key="frame" x="51" y="8" width="201" height="192"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            </button>                        
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
