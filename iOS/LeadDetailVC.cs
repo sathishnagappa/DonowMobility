@@ -101,12 +101,6 @@ namespace donow.iOS
 				AppDelegate.IsLeadAccepted = true;
 				leadsBL = new LeadsBL();
 				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
-
-//				prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-//				if (prospectVC != null) {
-//					prospectVC.localLeads = TableItems [indexPath.Row];
-//					owner.NavigationController.PushViewController (prospectVC, true);
-//				}
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -117,6 +111,10 @@ namespace donow.iOS
 				ButtonBackgroundView.Hidden = false;
 				ViewPass.Hidden = false;
 				isLeadAccepted = false;
+				leadsBL = new LeadsBL();
+				string text = ButtonOptionPassView.TitleLabel.Text;
+				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+				this.NavigationController.PopViewController(false);
 			};
 
 			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {
@@ -184,12 +182,12 @@ namespace donow.iOS
 				//				label.AdjustsFontSizeToFitWidth = false;
 			};
 
-			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
-				leadsBL = new LeadsBL();
-				string text = ButtonOptionPassView.TitleLabel.Text;
-				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
-				this.NavigationController.PopViewController(false);
-			};
+//			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
+//				leadsBL = new LeadsBL();
+//				string text = ButtonOptionPassView.TitleLabel.Text;
+//				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+//				this.NavigationController.PopViewController(false);
+//			};
 
 //			ButtonAccept.TouchUpInside+= (object sender, EventArgs e) => {
 //				leadsBL = new LeadsBL();

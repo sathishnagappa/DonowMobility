@@ -42,6 +42,7 @@ namespace donow.iOS
 				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
 				this.NavigationController.PushViewController(hambergerVC,true);
 			};
+			NavigationItem.LeftBarButtonItem = btn;
 
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();

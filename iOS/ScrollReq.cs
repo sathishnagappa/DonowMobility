@@ -18,8 +18,16 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Referall Request";
+			this.Title = "Referral Request";
 			ScrollViewRR.ContentSize=new CGSize (400f, 1300);
+
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				ReferralRequestDetails referralPage = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
+				this.NavigationController.PushViewController(referralPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
 
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
 				PassView.Hidden=true;
