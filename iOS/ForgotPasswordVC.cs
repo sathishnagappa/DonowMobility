@@ -14,6 +14,7 @@ namespace donow.iOS
 
 		public  override void ViewDidLoad ()
 		{
+			ButtonChange.Layer.CornerRadius = 5.0f;
 
 			ButtonChange.TouchUpInside += (object sender, EventArgs e) =>  {
 			
