@@ -11,6 +11,9 @@ namespace donow.iOS
 	partial class AccountManagementVC : UIViewController
 	{
 		UserBL userBL;
+		string prefferedIndustry;
+		string prefferedCompany;
+		string prefferedCustomer;
 		public AccountManagementVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -64,10 +67,22 @@ namespace donow.iOS
 				TableViewCustomerStreamActivity.ReloadData();
 			};
 
+
 			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {					
 				userBL = new UserBL();
+
+				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.Selected;
+				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.Selected;
+				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.Selected;
+				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.Selected;
+				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.Selected;
+				 
 				//AppDelegate.UserDetails.UserId = 7;
-				AppDelegate.UserDetails.UserId = userBL.CreateUser(AppDelegate.UserDetails);
+				if(AppDelegate.UserDetails.UserId == 0)
+					AppDelegate.UserDetails.UserId = userBL.CreateUser(AppDelegate.UserDetails);
+				else
+					userBL.UpdateUserDetails(AppDelegate.UserDetails);
+				
 				WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
 				if (welcomeVC != null) {
 					this.NavigationController.PushViewController (welcomeVC, true);
@@ -80,12 +95,15 @@ namespace donow.iOS
 			if (TableType == "Industry") {
 				TableViewCustomerStreamActivity.Hidden = true;
 				ButtonInfoIndustryDropDown.SetTitle (Parameter, UIControlState.Normal);
+				AppDelegate.UserDetails.PreferredIndustry = Parameter;
 			} else if (TableType == "Company") {
 				TableViewCustomerStreamActivity.Hidden = true;
 				ButtonInfoCompanyDropDown.SetTitle(Parameter,UIControlState.Normal);
+				AppDelegate.UserDetails.PreferredCompany = Parameter;
 			} else {
 				TableViewCustomerStreamActivity.Hidden = true;
 				ButtonInfoCustomersDropDown.SetTitle(Parameter,UIControlState.Normal);
+				AppDelegate.UserDetails.PreferredCustomers = Parameter;
 			}
 		}
 

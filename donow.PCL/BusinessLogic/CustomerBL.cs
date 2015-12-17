@@ -65,6 +65,36 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
+		public List<CustomerInteraction> GetCustomerInteraction(string customerName, int userID)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.CustomerInteraction + "?CustomerName=" + customerName + "&UserId=" + userID;
+			string response = restSevice.GetData (restUrl);
+			List<CustomerInteraction> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CustomerInteraction>>(response.ToString());
+			return parsedResponse;
+		}
+
+		public List<DealHistroy> GetDealHistroy(string customerName, int userID)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.DealHistory + "?CustomerName=" + customerName + "&UserId=" + userID;
+			string response = restSevice.GetData (restUrl);
+			List<DealHistroy> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DealHistroy>>(response.ToString());
+			return parsedResponse;
+		}
+
+		public int SaveDealHistory(DealHistroy dealHistroy)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.DealHistory;
+			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(dealHistroy);
+			string response =  restSevice.PostData (leadsApicall, postData);
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
+			return parsedResponse;
+		}
+
+			
+
 
 	}
 }

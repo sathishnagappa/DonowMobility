@@ -57,10 +57,10 @@ namespace donow.iOS
 			LabelProspectCompanyName.Text = localLeads.COMPANY_NAME;
 			LabelProspectCityandState.Text = localLeads.CITY + ", " + localLeads.STATE;
 			LabelLeadScore.Text = localLeads.LEAD_SCORE.ToString();
-			LabelLeadSource.Text = localLeads.LEAD_SOURCE == 1? "SFDC" : "DoNow";
+			LabelLeadSource.Text = localLeads.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
 
 			BrokerBL brokerBL = new BrokerBL ();
-			brokerList = brokerBL.GetBrokerForProspect (localLeads.LEAD_ID);
+			brokerList = brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
 			showBrokerImage (brokerList.Count);
 
@@ -84,6 +84,12 @@ namespace donow.iOS
 						null);
 					av.Show ();
 				};
+				CustomerInteraction customerinteract = new CustomerInteraction();
+				customerinteract.CustomerName =  localLeads.COMPANY_NAME;
+				customerinteract.UserId = AppDelegate.UserDetails.UserId;
+				customerinteract.Type = "Phone";
+				customerinteract.DateNTime = DateTime.Now.ToString();
+				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 			};
 
 
@@ -98,6 +104,12 @@ namespace donow.iOS
 					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
 
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
+						CustomerInteraction customerinteract = new CustomerInteraction();
+						customerinteract.CustomerName =  localLeads.COMPANY_NAME;
+						customerinteract.UserId = AppDelegate.UserDetails.UserId;
+						customerinteract.Type = "Email";
+						customerinteract.DateNTime = DateTime.Now.ToString();
+						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						Console.WriteLine (args.Result.ToString ());
 						args.Controller.DismissViewController (true, null);
 					};

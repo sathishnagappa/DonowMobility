@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using CoreGraphics;
 using donow.PCL;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace donow.iOS
 {
@@ -118,6 +119,18 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
+
+			if (!Regex.IsMatch (TextBoxEmail.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", 
+				   RegexOptions.IgnoreCase)) {
+				alert = new UIAlertView () { 
+					Title = "Invalid Email ID", 
+					Message = "Please enter valid Email ID"
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+
 			if (string.IsNullOrEmpty (TextBoxIndustry.Text)) {
 				alert = new UIAlertView () { 
 					Title = "Mandatory Field", 
@@ -145,15 +158,15 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
-			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
-				alert = new UIAlertView () { 
-					Title = "Mandatory Field", 
-					Message = "Please select Line of Business."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
-				return false;
-			}
+//			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
+//				alert = new UIAlertView () { 
+//					Title = "Mandatory Field", 
+//					Message = "Please select Line of Business."
+//				};
+//				alert.AddButton ("OK");
+//				alert.Show ();
+//				return false;
+//			}
 			return true;
 		}
 

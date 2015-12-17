@@ -4,11 +4,13 @@ using System;
 
 using Foundation;
 using UIKit;
+using donow.PCL;
 
 namespace donow.iOS
 {
 	public partial class MyDealMakerDetailVC : UIViewController
 	{
+		public Broker brokerObj;
 		public MyDealMakerDetailVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -21,6 +23,9 @@ namespace donow.iOS
 			ViewSendRequestView.Hidden = true;
 
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
+				
+				BrokerBL brokerbl = new BrokerBL();
+				brokerbl.UpdateBrokerStatus(brokerObj.BrokerID,"Acceptance Pending");
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
 			};

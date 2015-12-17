@@ -88,7 +88,7 @@
       <HintPath>..\Components\Auth0Client-0.5.0\lib\ios-unified\Xamarin.Auth.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Calabash">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.4\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.17.0\lib\Xamarin.iOS10\Calabash.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -244,7 +244,6 @@
     <Compile Include="LandingCustomerDetailVC.designer.cs">
       <DependentUpon>LandingCustomerDetailVC.cs</DependentUpon>
     </Compile>
-
     <Compile Include="ScrollReq.cs" />
     <Compile Include="ScrollReq.designer.cs">
       <DependentUpon>ScrollReq.cs</DependentUpon>
@@ -262,7 +261,6 @@
     <Compile Include="MyDealMakerDetailVC.designer.cs">
       <DependentUpon>MyDealMakerDetailVC.cs</DependentUpon>
     </Compile>
-
     <Compile Include="BingSearchVC.cs" />
     <Compile Include="BingSearchVC.designer.cs">
       <DependentUpon>BingSearchVC.cs</DependentUpon>
@@ -347,10 +345,10 @@
     <BundleResource Include="Resources\Grey Neutral.png" />
     <BundleResource Include="Resources\Thumbs Down Grey.png" />
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
-
     <BundleResource Include="Resources\Images\Geo Icon.png" />
-
     <BundleResource Include="Resources\DoNow Logo_Small.png" />
+    <BundleResource Include="Resources\Contact Us Logo_Small.png" />
+    <BundleResource Include="Resources\Salesperson Logo_Small.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonConfirmMeetingSide { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonCustomerCategorizationDropDown { get; set; }
 
 		[Outlet]
@@ -29,6 +33,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonDisLikeMeetingInfoHelpful { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonLeadAdvancedSide { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -48,6 +56,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonMeetingInfoSide { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonNextStepsDropDown { get; set; }
 
 		[Outlet]
@@ -56,11 +68,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-<<<<<<< HEAD
 		UIButton ButtonSubmit { get; set; }
-=======
-		UIButton ButtonSide { get; set; }
->>>>>>> origin/master
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -88,6 +96,10 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonConfirmMeetingSide != null) {
+				ButtonConfirmMeetingSide.Dispose ();
+				ButtonConfirmMeetingSide = null;
+			}
 			if (ButtonCustomerCategorizationDropDown != null) {
 				ButtonCustomerCategorizationDropDown.Dispose ();
 				ButtonCustomerCategorizationDropDown = null;
@@ -103,6 +115,10 @@ namespace donow.iOS
 			if (ButtonDisLikeMeetingInfoHelpful != null) {
 				ButtonDisLikeMeetingInfoHelpful.Dispose ();
 				ButtonDisLikeMeetingInfoHelpful = null;
+			}
+			if (ButtonLeadAdvancedSide != null) {
+				ButtonLeadAdvancedSide.Dispose ();
+				ButtonLeadAdvancedSide = null;
 			}
 			if (ButtonLikeLeadAdvanced != null) {
 				ButtonLikeLeadAdvanced.Dispose ();
@@ -120,6 +136,10 @@ namespace donow.iOS
 				ButtonMeetingDislikeReasonDropDown.Dispose ();
 				ButtonMeetingDislikeReasonDropDown = null;
 			}
+			if (ButtonMeetingInfoSide != null) {
+				ButtonMeetingInfoSide.Dispose ();
+				ButtonMeetingInfoSide = null;
+			}
 			if (ButtonNextStepsDropDown != null) {
 				ButtonNextStepsDropDown.Dispose ();
 				ButtonNextStepsDropDown = null;
@@ -128,15 +148,9 @@ namespace donow.iOS
 				ButtonSaleStageDropDown.Dispose ();
 				ButtonSaleStageDropDown = null;
 			}
-<<<<<<< HEAD
 			if (ButtonSubmit != null) {
 				ButtonSubmit.Dispose ();
 				ButtonSubmit = null;
-=======
-			if (ButtonSide != null) {
-				ButtonSide.Dispose ();
-				ButtonSide = null;
->>>>>>> origin/master
 			}
 			if (ScrollViewF2F != null) {
 				ScrollViewF2F.Dispose ();

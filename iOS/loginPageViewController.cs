@@ -89,6 +89,11 @@ namespace donow.iOS
 				//leadbl.UpdateReasonForPass(125960876,"Client Not interested");
 
 
+//				UserMeetings usermeeting = new UserMeetings();
+//				usermeeting.LeadId = 4;
+//				usermeeting.State="Done";
+//				UserBL userbl = new UserBL();
+//				userbl.UpdateMeetingList(usermeeting);
 
 
 				//ReferralRequestBL rrbl = new ReferralRequestBL();

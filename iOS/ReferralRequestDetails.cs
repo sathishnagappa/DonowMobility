@@ -10,6 +10,7 @@ namespace donow.iOS
 	partial class ReferralRequestDetails : UIViewController
 	{
 		public string referralRequestType = string.Empty;
+		public List<ReferralRequest> referralRequests;
 		public ReferralRequestDetails (IntPtr handle) : base (handle)
 		{
 		}
@@ -32,17 +33,6 @@ namespace donow.iOS
 			this.Title = "Deal Maker";
 
 			SetImageAndTitle ();
-			ReferralRequest rr = new ReferralRequest ();
-			rr.ReferralRequestID = 1;
-			rr.UserName = "Susan";
-			rr.City = "Seattle";
-			rr.State = "WA";
-			rr.Industry = "Technology";
-			rr.Prospect = "Scott Anders";
-			rr.BusinessNeeds = "Sales Tracking SoftWare";
-			List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
-			rrdetails.Add (rr);
-			TableViewRR.Source = new TableSource (rrdetails, this);		
 
 		}
 
@@ -68,7 +58,17 @@ namespace donow.iOS
 				LabelRRTitle.Text = "Completed Requests";
 			}
 				
-				
+						ReferralRequest rr = new ReferralRequest ();
+						rr.ReferralRequestID = 1;
+						rr.UserName = "Susan";
+						rr.City = "Seattle";
+						rr.State = "WA";
+						rr.Industry = "Technology";
+						rr.Prospect = "Scott Anders";
+						rr.BusinessNeeds = "Sales Tracking SoftWare";
+						List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
+						rrdetails.Add (rr);
+						TableViewRR.Source = new TableSource (rrdetails, this);			
 			//}
 			
 		}
@@ -109,10 +109,6 @@ namespace donow.iOS
 
 				ScrollReq ScrollReqProf = owner.Storyboard.InstantiateViewController ("ScrollReqProf") as ScrollReq;
 				if (ScrollReqProf != null) {
-					//customerStreamDetailVC.customerObj = TableItems[indexPath.Row];
-					//Customer customerObj = TableItems[indexPath.Row];
-
-					//owner.View.AddSubview (leadDetailVC.View);
 					owner.NavigationController.PushViewController(ScrollReqProf,true);
 				}
 				//LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;

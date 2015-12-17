@@ -21,5 +21,12 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+
+
+		}
 	}
 }

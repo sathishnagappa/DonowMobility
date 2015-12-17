@@ -14,7 +14,7 @@ namespace donow.iOS
 		public DealMakerTableViewCell  (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			LabelDealMakerScoreName = new UILabel () {
-				Font = UIFont.FromName ("Arial-BoldMT", 24f),
+				Font = UIFont.FromName ("Arial-BoldMT", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
 				BackgroundColor = UIColor.Clear
 			};
@@ -22,7 +22,7 @@ namespace donow.iOS
 		
 			LabelDealMakerIndustry = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 22f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
 				BackgroundColor = UIColor.Clear
 			};
@@ -31,7 +31,7 @@ namespace donow.iOS
 
 			LabelDealMakerLocation = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 22f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
 				BackgroundColor = UIColor.Clear
 			};
@@ -95,13 +95,13 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewDealMakerImage.Frame = new CGRect (35,29,60,60);
-			LabelDealMakerScoreName.Frame = new CGRect (120,29,127,21);
-			LabelDealMakerIndustry.Frame = new CGRect (120,56,127,21);
-			LabelDealMakerLocation.Frame = new CGRect (120,88,127,21);
-			LabelDealMakerScoreDigit.Frame = new CGRect (285,25,100,21);
-			LabelDealMakerIndustryDiscription.Frame = new CGRect (285,59,100,21);
-			LabelDealMakerLocationDescription.Frame = new CGRect (285,88,100,21);
-			LabelLeadStatus.Frame = new CGRect (241,0,173,21);
+			LabelDealMakerScoreName.Frame = new CGRect (120,29,150,21);
+			LabelDealMakerIndustry.Frame = new CGRect (120,56,150,21);
+			LabelDealMakerLocation.Frame = new CGRect (120,88,150,21);
+			LabelDealMakerScoreDigit.Frame = new CGRect (250,25,100,21);
+			LabelDealMakerIndustryDiscription.Frame = new CGRect (250,56,150,21);
+			LabelDealMakerLocationDescription.Frame = new CGRect (250,88,150,21);
+			LabelLeadStatus.Frame = new CGRect (241,0,160,21);
 		}
 	}
 }
