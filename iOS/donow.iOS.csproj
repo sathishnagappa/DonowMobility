@@ -349,6 +349,7 @@
     <BundleResource Include="Resources\DoNow Logo_Small.png" />
     <BundleResource Include="Resources\Contact Us Logo_Small.png" />
     <BundleResource Include="Resources\Salesperson Logo_Small.png" />
+    <BundleResource Include="Resources\Navigation Back Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

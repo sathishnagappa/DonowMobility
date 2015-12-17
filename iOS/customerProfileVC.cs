@@ -26,6 +26,7 @@ namespace donow.iOS
 
 //			List <Leads> ListLeads = new List <Leads> ();
 
+
 //			LeadsBL leadsVC = new LeadsBL ();
 //			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 
@@ -34,6 +35,15 @@ namespace donow.iOS
 
 			CustomerBL customerbl = new CustomerBL ();
 			List<CustomerInteraction> customerList = customerbl.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
+
+			LeadsBL leadsVC = new LeadsBL ();
+			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+
+
+
+//			LeadsBL leadsVC = new LeadsBL ();
+//			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+
 
 
 //			RestService restservice = new RestService ();

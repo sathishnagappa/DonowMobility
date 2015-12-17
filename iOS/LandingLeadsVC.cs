@@ -49,13 +49,14 @@ namespace donow.iOS
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads.OrderByDescending(X => X.LEAD_SCORE).ToList(), this);
 			} else {
-				//AlertView.Hidden = false;
-				UIAlertView alert = new UIAlertView () { 
-					Title = "", 
-					Message = "We are gathering your leads for you! \n Check Back Shortly."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
+				AlertView.Hidden = false;
+//				UIAlertView alert = new UIAlertView () { 
+//					Title = "", 
+//					Message = "We are gathering your leads for you! \n Check Back Shortly."
+//				};
+//				alert.AddButton ("OK");
+//				alert.Show ();
+
 			}
 
 			GetLeadUpdatePage ();
@@ -92,6 +93,10 @@ namespace donow.iOS
 			//loadingOverlay = new LoadingOverlay (bounds);
 			//View.Add (loadingOverlay);
 
+			LabelAlertView.Layer.CornerRadius = 10.0f;
+			ButtonOkAlertView.TouchUpInside += (object sender, EventArgs e) =>  {
+				AlertView.Hidden = true;
+			};
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 			//View.Add (loadingOverlay);
@@ -102,12 +107,12 @@ namespace donow.iOS
 				//loadingOverlay.Hide ();
 				} else {
 					//AlertView.Hidden = false;
-					UIAlertView alert = new UIAlertView () { 
-						Title = "", 
-						Message = "We are gathering your leads for you! \n Check Back Shortly."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
+//					UIAlertView alert = new UIAlertView () { 
+//						Title = "", 
+//						Message = "We are gathering your leads for you! \n Check Back Shortly."
+//					};
+//					alert.AddButton ("OK");
+//					alert.Show ();
 				}
 
 			};
@@ -155,6 +160,23 @@ namespace donow.iOS
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 				
+//				tableView.DeselectRow (indexPath, true);
+//				AppDelegate.CurrentLead = TableItems [indexPath.Row];
+//				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE != 1) 
+//				{
+//					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+//					if (leadDetailVC != null) {
+//						leadDetailVC.leadObj = TableItems [indexPath.Row];
+//						owner.NavigationController.PushViewController (leadDetailVC, true);
+//					}
+//				} else if (TableItems [indexPath.Row].STATUS != "Accepted") {
+//					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+//					if (prospectVC != null) {
+//						prospectVC.localLeads = TableItems [indexPath.Row];
+//						owner.NavigationController.PushViewController (prospectVC, true);
+//					}
+//					
+//				}
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
 				if (TableItems [indexPath.Row].STATUS.ToUpper() == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
@@ -175,6 +197,7 @@ namespace donow.iOS
 						alert.AddButton ("OK");
 						alert.Show ();
 						
+
 					}
 
 				} else if (TableItems [indexPath.Row].STATUS != "Passed") {
@@ -183,9 +206,8 @@ namespace donow.iOS
 						prospectVC.localLeads = TableItems [indexPath.Row];
 						owner.NavigationController.PushViewController (prospectVC, true);
 					}
-					
-				}
 
+				}
 			}
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
@@ -223,7 +245,8 @@ namespace donow.iOS
 						Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
 					}
 					if ((DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) <= 0) && item.Status != "Done") {
-//					if (lead.STATUS == "Accepted" || lead.LEAD_STATUS == "Acquire Lead") {
+
+						//					if (lead.STATUS == "Accepted" || lead.LEAD_STATUS == "Acquire Lead") {
 //						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 //						if (interactionLeadUpdateVC != null) {
 //							interactionLeadUpdateVC.userMeetings = item;

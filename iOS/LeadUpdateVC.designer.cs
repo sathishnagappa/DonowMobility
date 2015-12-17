@@ -69,7 +69,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSubmit { get; set; }
-
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewF2F { get; set; }

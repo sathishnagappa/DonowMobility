@@ -21,6 +21,7 @@ namespace donow.iOS
 
 		public override void ViewWillAppear (bool animated)
 		{
+			
 			base.ViewWillAppear (animated);
 			AppDelegate.IsProspectVisited = true;
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
@@ -35,15 +36,15 @@ namespace donow.iOS
 		}
 		public override void ViewWillDisappear (bool animated)
 		{
-			LeadDetailVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-			List<UIViewController> listvc = this.NavigationController.ViewControllers.ToList();
-			foreach (var item in listvc) {
-
-				if(item == landingLeadsVC)
-				{
-					item.NavigationController.RemoveFromParentViewController ();
-				}
-			}
+//			LeadDetailVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+//			List<UIViewController> listvc = this.NavigationController.ViewControllers.ToList();
+//			foreach (var item in listvc) {
+//
+//				if(item == landingLeadsVC)
+//				{
+//					item.NavigationController.RemoveFromParentViewController ();
+//				}
+//			}
 		}
 
 
@@ -51,6 +52,17 @@ namespace donow.iOS
 		{
 			AppDelegate.IsCalendarClicked = false;
 			base.ViewDidLoad ();
+
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Title = "Leads";
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				LandingLeadsVC leadsPage = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+				this.NavigationController.PushViewController(leadsPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 
 			AppDelegate.CurrentLead = localLeads;
 			LabelProspectName.Text = localLeads.LEAD_NAME;

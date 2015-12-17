@@ -17,20 +17,36 @@ namespace donow.iOS
 		public AccountManagementVC (IntPtr handle) : base (handle)
 		{
 		}
-
+		public bool isFromSignUp;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
-			//this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-			//this.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
+			if (!isFromSignUp)
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			
+			this.NavigationController.SetNavigationBarHidden (false, false);
+ 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 		}
 
 		public override void ViewDidLoad ()
 		{
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				if (isFromSignUp) {
+					signUpOtherDetailsVC signUpOtherDetailsPage = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+					this.NavigationController.PushViewController(signUpOtherDetailsPage,true);
+				}
+				else {
+					HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
+					this.NavigationController.PushViewController(hambergerVC,true);
+				}
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 			AppDelegate.IsNewUser = true;
 			TableViewCustomerStreamActivity.Hidden = true;
 

@@ -31,10 +31,13 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
+
 //			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 //			this.NavigationController.SetNavigationBarHidden (false, false);
 //			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+
 
 		}
 
@@ -125,6 +128,7 @@ namespace donow.iOS
 				ButtonDisLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "DOWN";
 
+
 			};
 			ButtonMeetingInfoSide.TouchUpInside+= (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
@@ -138,8 +142,16 @@ namespace donow.iOS
 				localLeadAdvanced = "UP";
 
 			};
+
+			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localLeadAdvanced = "UP";
+			};
+
 			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+
 				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localLeadAdvanced = "DOWN";
 			};
@@ -147,6 +159,10 @@ namespace donow.iOS
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				localLeadAdvanced = "SIDE";
+
+				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				localLeadAdvanced = "DOWN";
+
 			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
@@ -212,6 +228,7 @@ namespace donow.iOS
 				AppDelegate.IsUpdateLeadDone = true;
 				DismissViewController(true,null);
 			};
+
 
 		}
 

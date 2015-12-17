@@ -56,6 +56,7 @@ namespace donow.iOS
 
 			public TableSource (List<Customer> items, LandingCustomerVC owner)
 			{
+				
 				TableItems = items;
 				this.owner = owner;
 			}
@@ -78,7 +79,7 @@ namespace donow.iOS
 				return cell;
 
 			}
-
+		
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 
@@ -90,12 +91,48 @@ namespace donow.iOS
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}
+			 
+		
+			public override string[] SectionIndexTitles (UITableView tableView)
+			{
 
+				string[] _arrayString = new string[26];
+				return _arrayString=headerArray.ToArray();
+
+			}
+
+
+
+//			public override nint SectionFor (UITableView tableView, string title, nint atIndex)
+//			{
+//				string[] _arrayString = new string[26];
+//				_arrayString=headerArray.ToArray();
+//
+////				for (int i = 0; i<26; i++) {
+//					// Here you return the name i.e. Honda,Mazda 
+//					// and match the title for first letter of name
+////					[[dataArray objectAtIndex:i] substringToIndex:1];
+//					// and move to that row corresponding to that indexpath as below
+//					string letterString = _arrayString.ElementAt(0).Substring(1) ;
+////					if (letterString.Equals(title) {
+////						[tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+////						break;
+////					}
+//				//}
+//				return 0;
+//			}
+		
+//			public override string TitleForHeader (UITableView tableView, int section)
+//			{
+//				throw new System.NotImplementedException ();
+//				//string[] _arrayString = new string[26];
+//				return "Test";
+//			}
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
 				return 100.0f;
 			}
-
+	
 //			public virtual UITableViewHeaderFooterView GetHeaderView (nint section) {
 //
 //				UIView headerView = new UIView ();
