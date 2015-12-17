@@ -33,8 +33,6 @@ namespace donow.iOS
 				this.NavigationController.PushViewController(hambergerVC,true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-			};		
-
 		}
 	}
 }

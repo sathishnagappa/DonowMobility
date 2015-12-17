@@ -48,17 +48,15 @@ namespace donow.iOS
 
 			ButtonReferLater.Layer.BorderWidth = 2.0f;
 			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (50, 135, 172).CGColor;
->>>>>>> origin/master
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
 
 				//BrokerBL brokerbl = new BrokerBL();
 				//brokerbl.UpdateBrokerStatus(brokerObj.BrokerID,"Acceptance Pending");
 
-
-
-				PassView.Hidden=true;
-				MakeView.Hidden=false;
+				PassView.Hidden = true;
+				MakeView.Hidden = false;
 			};
+				
 			ButtonReferLater.TouchUpInside += (object sender, EventArgs e) => {
 //				AlertView.Hidden=true;
 //				AlertSubView.Hidden=true;	

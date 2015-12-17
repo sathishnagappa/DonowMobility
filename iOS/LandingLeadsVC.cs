@@ -94,7 +94,9 @@ namespace donow.iOS
 			//View.Add (loadingOverlay);
 
 			LabelAlertView.Layer.CornerRadius = 10.0f;
-			ButtonOkAlertView.TouchUpInside += (object sender, EventArgs e) =>  {
+			ButtonOk.Layer.CornerRadius = 5.0f;
+
+			ButtonOk.TouchUpInside += (object sender, EventArgs e) =>  {
 				AlertView.Hidden = true;
 			};
 

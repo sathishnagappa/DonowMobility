@@ -89,10 +89,20 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-				MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
-				if (dealmakerDetailObject != null) {
-					dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
-					owner.NavigationController.PushViewController (dealmakerDetailObject, true);
+				if (TableItems [indexPath.Row].Status.ToLower().Trim() == "New") {
+					MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
+					if (dealmakerDetailObject != null) {
+						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
+						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
+					}
+				}
+				else if ((TableItems [indexPath.Row].Status.ToLower().Trim() == "workedwith") || (TableItems [indexPath.Row].Status.ToLower().Trim() == "workingwith")) 
+				{
+					DealMakerAcceptedReferralRequestlVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("DealMakerAcceptedReferralRequestlVC") as DealMakerAcceptedReferralRequestlVC;
+					if (dealmakerDetailObject != null) {
+//						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
+						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
+					}
 				}
 			}
 

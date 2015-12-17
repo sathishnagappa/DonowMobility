@@ -10,7 +10,6 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Landing Customer DetailVC-->
         <!--Sign Up-->
         <scene sceneID="175">
             <objects>
@@ -1184,14 +1183,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYA-hZ-SQo">
-                                        <rect key="frame" x="75" y="243" width="255" height="161"/>
+                                        <rect key="frame" x="68" y="198" width="279" height="194"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="“We are gathering specific leads just for you.  Please check back shortly”" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOX-nc-CAW">
-                                                <rect key="frame" x="8" y="14" width="239" height="139"/>
+                                                <rect key="frame" x="20" y="14" width="239" height="139"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4f-yV-pTd">
+                                                <rect key="frame" x="69" y="148" width="135" height="30"/>
+                                                <color key="backgroundColor" red="0.16862745100000001" green="0.56470588239999997" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Ok">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -1210,15 +1216,198 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="AlertView" destination="ZCT-GG-P1l" id="name-outlet-ZCT-GG-P1l"/>
-                        <outlet property="ButtonOkAlertView" destination="YgT-oP-Pwe" id="name-outlet-YgT-oP-Pwe"/>
+                        <outlet property="ButtonOk" destination="Y4f-yV-pTd" id="name-outlet-Y4f-yV-pTd"/>
                         <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
-                        <outlet property="LabelAlertView" destination="iYA-hZ-SQo" id="name-outlet-iYA-hZ-SQo"/>            
+                        <outlet property="LabelAlertView" destination="iYA-hZ-SQo" id="name-outlet-iYA-hZ-SQo"/>
                         <outlet property="TableViewLeads" destination="4R6-C0-OXh" id="name-outlet-4R6-C0-OXh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gP2-N1-ISa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672" y="2144"/>
+        </scene>
+        <!--Deal Maker Accepted Referral RequestlVC-->
+        <scene sceneID="rwA-se-Q0W">
+            <objects>
+                <viewController storyboardIdentifier="DealMakerAcceptedReferralRequestlVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NKk-HO-ixv" customClass="DealMakerAcceptedReferralRequestlVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bR2-xm-Ifv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mq7-vi-eQE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="57n-7t-Yal">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ou-LO-rAF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="158"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Scott Anders_Large.png" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-Ip-fKZ">
+                                        <rect key="frame" x="35" y="30" width="70" height="70"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Anderson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K8-kQ-FT7">
+                                        <rect key="frame" x="130" y="22" width="245" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Executive Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-Wx-A5N">
+                                        <rect key="frame" x="130" y="42" width="245" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GenWork Corp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNM-T8-sSc">
+                                        <rect key="frame" x="130" y="63" width="245" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seattle, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unN-ba-6w2">
+                                        <rect key="frame" x="161" y="121" width="149" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Images/Geo Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="2FH-j8-fXG">
+                                        <rect key="frame" x="130" y="112" width="20" height="30"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Industry: Tech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la4-oi-RsJ">
+                                        <rect key="frame" x="130" y="83" width="245" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXU-i1-Vud">
+                                <rect key="frame" x="0.0" y="166" width="414" height="96"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Me-jJ-Ze9">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deal Maker Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti3-Tm-iO3">
+                                                <rect key="frame" x="28" y="13" width="145" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRQ-qb-o5Z">
+                                                <rect key="frame" x="79" y="36" width="42" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.16862745100000001" green="0.56470588239999997" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O3L-nw-CXz">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# of Referral Made" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xon-Q0-FtU">
+                                        <rect key="frame" x="232" y="13" width="155" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfM-cS-ygs">
+                                        <rect key="frame" x="289" y="36" width="42" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L9w-7f-aso">
+                                <rect key="frame" x="0.0" y="253" width="414" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Broker Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvw-wP-GCG">
+                                        <rect key="frame" x="35" y="27" width="137" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ju-Db-zNA">
+                                        <rect key="frame" x="35" y="70" width="300" height="50"/>
+                                        <string key="text">Sal Anderson has been an Executive
+Manager in the tech industry for...</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PoV-5W-ew1">
+                                        <rect key="frame" x="0.0" y="145" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gy-Tu-z7F">
+                                        <rect key="frame" x="360" y="98" width="13" height="22"/>
+                                        <state key="normal" image="down-arrow.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xK-oq-l72">
+                                <rect key="frame" x="0.0" y="401" width="414" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connection to Lead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FE-vj-DZG">
+                                        <rect key="frame" x="35" y="27" width="188" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attended same University UW Grad 2001.." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5g-an-EFX">
+                                        <rect key="frame" x="35" y="70" width="250" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fgg-mL-Vbx">
+                                        <rect key="frame" x="0.0" y="145" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryj-2h-79Z">
+                                        <rect key="frame" x="360" y="98" width="13" height="22"/>
+                                        <state key="normal" image="down-arrow.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-KJ-WnY">
+                                <rect key="frame" x="0.0" y="547" width="414" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Domain Expertise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW8-Lv-70S">
+                                        <rect key="frame" x="35" y="27" width="169" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attended same University UW Grad 2001.." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQv-k1-mAs">
+                                        <rect key="frame" x="35" y="70" width="250" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYj-zj-eaI">
+                                        <rect key="frame" x="0.0" y="145" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpy-eZ-Srl">
+                                        <rect key="frame" x="360" y="98" width="13" height="22"/>
+                                        <state key="normal" image="down-arrow.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctS-da-lr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698" y="4869"/>
         </scene>
         <!--Account Management-->
         <scene sceneID="1615">
@@ -1517,7 +1706,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username &amp; Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q05-6M-f5G">
                                 <rect key="frame" x="40" y="36" width="250" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ErW-TG-WA5">
@@ -1527,13 +1716,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilo-Dx-Qac">
                                 <rect key="frame" x="40" y="156" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Z-Lh-2cD">
                                 <rect key="frame" x="40" y="208" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ql4-s4-mdk">
@@ -2099,8 +2288,8 @@ steps.</string>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="ButtonStartSelling" destination="2682" id="name-outlet-2682"/>
                         <outlet property="ButtonStartReferring" destination="2687" id="name-outlet-2687"/>
+                        <outlet property="ButtonStartSelling" destination="2682" id="name-outlet-2682"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2601" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3358,17 +3547,17 @@ steps.</string>
                                                         <rect key="frame" x="49" y="51" width="308" height="60"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="separatorColor" red="0.13725490200000001" green="0.1215686275" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <view key="tableHeaderView" contentMode="scaleToFill" id="3407">
+                                                            <rect key="frame" x="0.0" y="0.0" width="308" height="30"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        </view>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                        <view contentMode="scaleToFill" id="3407" key="tableHeaderView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="308" height="30"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                        </view>
                                                     </tableView>
-                                                    <view contentMode="scaleToFill" id="3408" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3408">
                                                         <rect key="frame" x="-2" y="117" width="416" height="53"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
@@ -3378,13 +3567,13 @@ steps.</string>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3409" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3409">
                                         <rect key="frame" x="120" y="1381" width="184" height="42"/>
                                         <color key="backgroundColor" red="0.16862745100000001" green="0.56470588239999997" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -3395,26 +3584,26 @@ steps.</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
+                        <outlet property="ButtonConfirmMeetingSide" destination="BF0-yA-1mA" id="name-outlet-BF0-yA-1mA"/>
                         <outlet property="ButtonCustomerCategorizationDropDown" destination="Ug2-Z8-5hl" id="name-outlet-Ug2-Z8-5hl"/>
                         <outlet property="ButtonDisLikeLeadAdvanced" destination="KGZ-vX-fnE" id="name-outlet-KGZ-vX-fnE"/>
                         <outlet property="ButtonDisLikeMeeting" destination="jxk-eD-20O" id="name-outlet-jxk-eD-20O"/>
                         <outlet property="ButtonDisLikeMeetingInfoHelpful" destination="fJa-Xh-3CJ" id="name-outlet-fJa-Xh-3CJ"/>
+                        <outlet property="ButtonLeadAdvancedSide" destination="JBC-Mo-hCP" id="name-outlet-JBC-Mo-hCP"/>
                         <outlet property="ButtonLikeLeadAdvanced" destination="bXf-1H-PoE" id="name-outlet-bXf-1H-PoE"/>
                         <outlet property="ButtonLikeMeeting" destination="PjO-Rm-yB3" id="name-outlet-PjO-Rm-yB3"/>
                         <outlet property="ButtonLikeMeetingInfoHelpful" destination="NRs-kk-Ix7" id="name-outlet-NRs-kk-Ix7"/>
                         <outlet property="ButtonMeetingDislikeReasonDropDown" destination="x7t-MN-s5z" id="name-outlet-x7t-MN-s5z"/>
+                        <outlet property="ButtonMeetingInfoSide" destination="V3W-Kk-Wl3" id="name-outlet-V3W-Kk-Wl3"/>
                         <outlet property="ButtonNextStepsDropDown" destination="dwe-kb-Zeq" id="name-outlet-dwe-kb-Zeq"/>
                         <outlet property="ButtonSaleStageDropDown" destination="nJ4-3h-26k" id="name-outlet-nJ4-3h-26k"/>
+                        <outlet property="ButtonSubmit" destination="3409" id="name-outlet-3409"/>
                         <outlet property="ScrollViewF2F" destination="E8k-qC-IPV" id="name-outlet-E8k-qC-IPV"/>
                         <outlet property="TableViewCustomerCategorization" destination="zyd-1l-A45" id="name-outlet-zyd-1l-A45"/>
                         <outlet property="TableViewInteractionDislikeReason" destination="Td2-Oo-TAh" id="name-outlet-Td2-Oo-TAh"/>
                         <outlet property="TableViewNextSteps" destination="SkO-cc-TUe" id="name-outlet-SkO-cc-TUe"/>
                         <outlet property="TableViewSalesStage" destination="ql4-rQ-ppa" id="name-outlet-ql4-rQ-ppa"/>
                         <outlet property="ViewF2FMeetingDown" destination="9gy-FR-o3Z" id="name-outlet-9gy-FR-o3Z"/>
-                        <outlet property="ButtonSubmit" destination="3409" id="name-outlet-3409"/>
-                        <outlet property="ButtonConfirmMeetingSide" destination="BF0-yA-1mA" id="name-outlet-BF0-yA-1mA"/>
-                        <outlet property="ButtonMeetingInfoSide" destination="V3W-Kk-Wl3" id="name-outlet-V3W-Kk-Wl3"/>
-                        <outlet property="ButtonLeadAdvancedSide" destination="JBC-Mo-hCP" id="name-outlet-JBC-Mo-hCP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdt-IL-yiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3596,8 +3785,8 @@ steps.</string>
                                                 <color key="backgroundColor" red="0.16862745100000001" green="0.56470588239999997" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                                 <state key="normal" title="Submit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -3618,10 +3807,10 @@ steps.</string>
                         <outlet property="ButtonInteractionSide" destination="TFY-dU-Vcf" id="name-outlet-TFY-dU-Vcf"/>
                         <outlet property="ButtonLikeCustomerAcknowledge" destination="KJk-zb-Rfn" id="name-outlet-KJk-zb-Rfn"/>
                         <outlet property="ButtonLikeInteraction" destination="gea-Vi-zuN" id="name-outlet-gea-Vi-zuN"/>
+                        <outlet property="ButtonSubmit" destination="3356" id="name-outlet-3356"/>
                         <outlet property="TableViewInteractionDislikerReason" destination="fPo-TB-aLb" id="name-outlet-fPo-TB-aLb"/>
                         <outlet property="TextViewComments" destination="wtM-0d-c0V" id="name-outlet-wtM-0d-c0V"/>
                         <outlet property="ViewInteractionThumbsDown" destination="PGV-UB-hS0" id="name-outlet-PGV-UB-hS0"/>
-                        <outlet property="ButtonSubmit" destination="3356" id="name-outlet-3356"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6G-Xe-wyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3657,43 +3846,43 @@ steps.</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVL-2W-5iP">
                                                     <rect key="frame" x="150" y="29" width="127" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYE-bc-K2A">
                                                     <rect key="frame" x="150" y="88" width="127" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vy1-R3-2gH">
                                                     <rect key="frame" x="285" y="29" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxx-xx-Uky">
                                                     <rect key="frame" x="285" y="88" width="103" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-jl-SNX">
                                                     <rect key="frame" x="285" y="58" width="103" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAk-zp-VLa">
                                                     <rect key="frame" x="241" y="0.0" width="173" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pg-6L-MVV">
                                                     <rect key="frame" x="150" y="58" width="127" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -3737,11 +3926,11 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seattle Deal Maker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUh-Gf-G77">
                                                 <rect key="frame" x="139" y="53" width="245" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z42-J4-FfA">
                                         <rect key="frame" x="0.0" y="128" width="414" height="96"/>
@@ -3762,7 +3951,7 @@ steps.</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Broker Fee: $35" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwO-UF-3NL">
                                                 <rect key="frame" x="282" y="5" width="131" height="80"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -3776,13 +3965,13 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uq-4B-pCb">
                                                 <rect key="frame" x="35" y="27" width="137" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This Broker has been an Executive Manager in the tech industry for..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7m-JJ-qh6">
                                                 <rect key="frame" x="35" y="70" width="300" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xY-oj-PyH">
@@ -3802,7 +3991,7 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connection to Lead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEh-Cx-jwt">
                                                 <rect key="frame" x="35" y="25" width="188" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-TE-Vdm">
@@ -3812,7 +4001,7 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attended same University UW Grad 2001.." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-XG-pMv">
                                                 <rect key="frame" x="35" y="61" width="323" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-Yc-PmQ">
@@ -3879,7 +4068,7 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your request has been submitted! We will notify you as soon as the Broker accepts your request." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwB-E6-Cpt">
                                                 <rect key="frame" x="44" y="8" width="175" height="192"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NH-Tn-MTY">
@@ -3894,7 +4083,7 @@ steps.</string>
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </button>                        
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -4086,7 +4275,7 @@ steps.</string>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnP-4b-cYT" image="My Deal Makers Icon.png">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="My Deal Makers Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="fnP-4b-cYT">
                                                 <rect key="frame" x="30" y="48" width="35" height="35"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="My Deal Makers Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="HgP-dL-IUh">
@@ -4247,7 +4436,7 @@ steps.</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DoNow Info Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhO-PN-GhR">
                                                         <rect key="frame" x="35" y="18" width="224" height="25"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -4262,7 +4451,7 @@ steps.</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DoNow Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njE-QO-Cjs">
                                                         <rect key="frame" x="120" y="45" width="224" height="25"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AA4-u6-WLd">
@@ -4273,7 +4462,7 @@ steps.</string>
                                                         <rect key="frame" x="35" y="107" width="330" height="171"/>
                                                         <string key="text">DoNow is a registered company created to connect salespeople and enhance their sales experience. All information provided should be used as guidance and DoNow does not take accountability for the result of any particular sale. For further details on the DoNow activities, please see below.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Zb-UL-4Hg">
@@ -4295,7 +4484,7 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Being a DealMaker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THA-lb-G7z">
                                                 <rect key="frame" x="120" y="45" width="224" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZD-rm-LCQ">
@@ -4306,7 +4495,7 @@ steps.</string>
                                                 <rect key="frame" x="35" y="107" width="330" height="256"/>
                                                 <string key="text">All salespeople on the DoNow app are added to the DoNow network and have the opportunity to be a deal maker and make connections for others salespeople like you. Your payment will be based on whether you make the referral for another salesperson, your past history as a dealmaker via dealer score, and the size of the deal. Payments will be delivered soon after the referral has been made. Opportunities for making connections can be found in the "Referral Requests" menu.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDR-UO-zcs">
@@ -4325,7 +4514,7 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Being a Salesperson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZH-9g-v4h">
                                                 <rect key="frame" x="120" y="45" width="224" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="flf-TZ-ftQ">
@@ -4336,7 +4525,7 @@ steps.</string>
                                                 <rect key="frame" x="35" y="107" width="330" height="256"/>
                                                 <string key="text">As a salesperson on the DoNow app, you can take advantage of the many activities provided to give you the competitive edge. This includes the ability to request new leads, receive 360 views on your customers or prospects, and be connected with dealmakers that can increase your chance of a better first impression with a prospect. For individuals leveraging the app and would like to benefit more, look into our Enterprise package for your company by contacting us.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-YK-MIY">
@@ -4355,7 +4544,7 @@ steps.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-6r-Ukx">
                                                 <rect key="frame" x="120" y="45" width="224" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyI-hz-84j">
@@ -4366,7 +4555,7 @@ steps.</string>
                                                 <rect key="frame" x="35" y="107" width="330" height="96"/>
                                                 <string key="text">For inquiries on the app, payments, or to learn more about additional benefits/packages reach out to TBD@donowx.com (will fill in)</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJd-Bq-5eZ">
@@ -4917,30 +5106,6 @@ steps.</string>
         <image name="Thumbs Up Grey.png" width="78" height="78"/>
         <image name="User Name Icon.png" width="46" height="46"/>
         <image name="down-arrow.png" width="13" height="9"/>
-        <image name="DoNowSplash.png" width="137" height="118"/>
-        <image name="settingsImage.png" width="30" height="30"/>
-        <image name="Collaboration.png" width="25" height="25"/>
-        <image name="mvboli.ttf" width="0" height="0"/>
-        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
-        <image name="Stream Icon_Small.png" width="58" height="58"/>
-        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
-        <image name="Info Page Icon.png" width="58" height="58"/>
-        <image name="My Profile Icon.png" width="58" height="58"/>
-        <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
-        <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
-        <image name="Twitter Thumb.png" width="80" height="70"/>
-        <image name="Article 1 Thumb.png" width="80" height="70"/>
-        <image name="Article 2 Thumb.png" width="80" height="70"/>
-        <image name="Article 3 Thumb.png" width="80" height="70"/>
-        <image name="Contact Info Icon_Small.png" width="58" height="58"/>
-        <image name="LinkedIn Thumb.png" width="80" height="70"/>
-        <image name="New Leads Thumb.png" width="80" height="70"/>
-        <image name="Phone Thumb.png" width="80" height="70"/>
-        <image name="Promotions Thumb.png" width="80" height="70"/>
-        <image name="Thumbs Down White.png" width="78" height="78"/>
-        <image name="Thumbs Up White.png" width="78" height="78"/>
-        <image name="Leads Thumb.png" width="80" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2831"/>
