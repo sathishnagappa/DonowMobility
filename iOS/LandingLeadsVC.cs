@@ -47,7 +47,7 @@ namespace donow.iOS
 			leads = GetLeads ();
 			if (leads.Count > 0) {
 				this.TabBarItem.BadgeValue = leads.Count.ToString ();
-				TableViewLeads.Source = new TableSource (leads, this);
+				TableViewLeads.Source = new TableSource (leads.OrderByDescending(X => X.LEAD_SCORE).ToList(), this);
 			} else {
 				AlertView.Hidden = false;
 //				UIAlertView alert = new UIAlertView () { 
@@ -86,25 +86,27 @@ namespace donow.iOS
 
 
 			//List<UserMeetings> userMeeetings 
-			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
-			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
-				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
-			}
-			loadingOverlay = new LoadingOverlay (bounds);
-			View.Add (loadingOverlay);
+			//var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
+			//if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
+			//	bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
+			//}
+			//loadingOverlay = new LoadingOverlay (bounds);
+			//View.Add (loadingOverlay);
 
 			LabelAlertView.Layer.CornerRadius = 10.0f;
-			ButtonOkAlertView.TouchUpInside += (object sender, EventArgs e) =>  {
+			ButtonOk.Layer.CornerRadius = 5.0f;
+
+			ButtonOk.TouchUpInside += (object sender, EventArgs e) =>  {
 				AlertView.Hidden = true;
 			};
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
-			View.Add (loadingOverlay);
-				 leads = GetLeads();
+			//View.Add (loadingOverlay);
+				leads = GetLeads();
 				if (leads.Count > 0) {					
 				this.TabBarItem.BadgeValue = leads.Count.ToString();
-				TableViewLeads.Source = new TableSource (leads, this);
-				loadingOverlay.Hide ();
+				TableViewLeads.Source = new TableSource (leads.OrderByDescending(X => X.LEAD_SCORE).ToList(), this);
+				//loadingOverlay.Hide ();
 				} else {
 					//AlertView.Hidden = false;
 //					UIAlertView alert = new UIAlertView () { 
@@ -117,7 +119,7 @@ namespace donow.iOS
 
 			};
 
-			loadingOverlay.Hide ();
+			//loadingOverlay.Hide ();
 		}
 
 		List<Leads> GetLeads()
@@ -179,14 +181,27 @@ namespace donow.iOS
 //				}
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
+				if (TableItems [indexPath.Row].STATUS.ToUpper() == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
 				{
-					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-					if (leadDetailVC != null) {
-						leadDetailVC.leadObj = TableItems [indexPath.Row];
-						//owner.View.AddSubview (leadDetailVC.View);
-						owner.NavigationController.PushViewController (leadDetailVC, true);
+					if (TableItems [indexPath.Row].STATUS.ToUpper() != "ACCEPTED") {
+						LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
+						if (leadDetailVC != null) {
+							leadDetailVC.leadObj = TableItems [indexPath.Row];
+							owner.NavigationController.PushViewController (leadDetailVC, true);
+						}
 					}
+					else
+					{
+						UIAlertView alert = new UIAlertView () { 
+							Title = "Alert", 
+							Message = "Lead is Accepted by another Seller."
+						};
+						alert.AddButton ("OK");
+						alert.Show ();
+						
+
+					}
+
 				} else if (TableItems [indexPath.Row].STATUS != "Passed") {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
@@ -212,10 +227,12 @@ namespace donow.iOS
 			userMeetings = userbl.GetMeetingsByUserName (AppDelegate.UserDetails.UserId);
 
 
-			TimerCallback timerDelegate = new TimerCallback(CheckStatus);
-			// Create a timer that waits one second, then invokes every second.
-			DateTime meeetingEndDate;
-			foreach (var item in userMeetings) {
+
+			if (userMeetings.Count > 0) {
+				TimerCallback timerDelegate = new TimerCallback (CheckStatus);
+				// Create a timer that waits one second, then invokes every second.
+				DateTime meeetingEndDate;
+				foreach (var item in userMeetings) {
 
 
 //				Leads lead = from leaditem in leads
@@ -223,14 +240,15 @@ namespace donow.iOS
 //					select leaditem;
 
 				
-				meeetingEndDate = DateTime.Parse (item.EndDate);
-				TimeSpan span= DateTime.UtcNow.Subtract(meeetingEndDate);
+					meeetingEndDate = DateTime.Parse (item.EndDate);
+					TimeSpan span = DateTime.UtcNow.Subtract (meeetingEndDate);
 
-//				if ( DateTime.Compare(meeetingEndDate,DateTime.Now) < 0) {
-//					Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
-//				}
-				if ((DateTime.Compare(DateTime.Parse(item.EndDate),DateTime.Now) >= 0) && item.Status != "Done") {
-//					if (lead.STATUS == "Accepted" || lead.LEAD_STATUS == "Acquire Lead") {
+					if (DateTime.Compare (meeetingEndDate, DateTime.Now) > 0) {
+						Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
+					}
+					if ((DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) <= 0) && item.Status != "Done") {
+
+						//					if (lead.STATUS == "Accepted" || lead.LEAD_STATUS == "Acquire Lead") {
 //						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 //						if (interactionLeadUpdateVC != null) {
 //							interactionLeadUpdateVC.userMeetings = item;
@@ -241,9 +259,10 @@ namespace donow.iOS
 						LeadUpdateVC leadUpdateVC = this.Storyboard.InstantiateViewController ("LeadUpdateVC") as LeadUpdateVC;
 						if (leadUpdateVC != null) {
 							leadUpdateVC.meetingObj = item;
-							this.PresentViewController (leadUpdateVC,true,null);
+							this.PresentViewController (leadUpdateVC, true, null);
 						}
-					//}
+						//}
+					}
 				}
 			}
 		}

@@ -88,7 +88,7 @@
       <HintPath>..\Components\Auth0Client-0.5.0\lib\ios-unified\Xamarin.Auth.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Calabash">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.16.4\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.17.0\lib\Xamarin.iOS10\Calabash.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +347,8 @@
     <BundleResource Include="Resources\Images.xcassets\Geo Icon.png" />
     <BundleResource Include="Resources\Images\Geo Icon.png" />
     <BundleResource Include="Resources\DoNow Logo_Small.png" />
+    <BundleResource Include="Resources\Contact Us Logo_Small.png" />
+    <BundleResource Include="Resources\Salesperson Logo_Small.png" />
     <BundleResource Include="Resources\Navigation Back Icon.png" />
   </ItemGroup>
   <ItemGroup>

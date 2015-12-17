@@ -26,22 +26,39 @@ namespace donow.iOS
 
 //			List <Leads> ListLeads = new List <Leads> ();
 
-			LeadsBL leadsVC = new LeadsBL ();
-			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
-
-
 
 //			LeadsBL leadsVC = new LeadsBL ();
 //			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+
+//			LeadsBL leadsVC = new LeadsBL ();
+//			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+
+			CustomerBL customerbl = new CustomerBL ();
+			List<CustomerInteraction> customerList = customerbl.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
+
+			LeadsBL leadsVC = new LeadsBL ();
+			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				LandingCustomerVC customerPage = this.Storyboard.InstantiateViewController ("landingCustomerVC") as LandingCustomerVC;
+				this.NavigationController.PushViewController(customerPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
+//			LeadsBL leadsVC = new LeadsBL ();
+//			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+
 
 
 //			RestService restservice = new RestService ();
 			//restservice.GetBingResult ("DoNow Market Trends");
 
 			this.Title = "Customer";
-//			UserBL userbl = new UserBL ();
-//			List<UserMeetings> listMeeting = new List<UserMeetings> ();
-//			listMeeting =  userbl.GetMeetings(customer.Name);
+			UserBL userbl = new UserBL ();
+			List<UserMeetings> listMeeting = new List<UserMeetings> ();
+			listMeeting =  userbl.GetMeetings(customer.Name);
 
 			//List<UserMeetings>
 			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);

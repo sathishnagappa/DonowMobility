@@ -4,11 +4,13 @@ using System;
 
 using Foundation;
 using UIKit;
+using donow.PCL;
 
 namespace donow.iOS
 {
 	public partial class MyDealMakerDetailVC : UIViewController
 	{
+		public Broker brokerObj;
 		public MyDealMakerDetailVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -17,10 +19,25 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				MyDealMakerVC signUpPage = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+				this.NavigationController.PushViewController(signUpPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 			ViewBackgroundTransparent.Hidden = true;
 			ViewSendRequestView.Hidden = true;
 
+			ViewSendRequestView.Layer.CornerRadius = 10.0f;
+			ButtonOkSendRequestView.Layer.CornerRadius = 5.0f;
+
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
+				
+				BrokerBL brokerbl = new BrokerBL();
+				brokerbl.UpdateBrokerStatus(brokerObj.BrokerID,"Acceptance Pending");
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
 			};

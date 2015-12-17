@@ -21,6 +21,7 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -31,7 +32,7 @@ namespace donow.iOS
 				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
 				this.NavigationController.PushViewController(hambergerVC,true);
 			};
-		
+			NavigationItem.LeftBarButtonItem = btn;
 		}
 	}
 }

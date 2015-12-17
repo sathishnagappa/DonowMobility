@@ -7,10 +7,10 @@ namespace donow.PCL
 {
 	public class ReferralRequestBL
 	{
-		public List<ReferralRequest> GetReferralRequest()
+		public List<ReferralRequest> GetReferralRequest(int userID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.ReferralRequests;
+			string leadsApicall = Constants.ReferralRequests + "?AccepterID=" + userID;
 			string response =  restSevice.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ReferralRequest>>(response.ToString());
 			return parsedResponse;

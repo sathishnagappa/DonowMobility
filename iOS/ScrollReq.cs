@@ -5,23 +5,31 @@ using UIKit;
 using CoreGraphics;
 using System.Drawing;
 using MessageUI;
+using donow.PCL;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
 	partial class ScrollReq : UIViewController
 	{
 		public bool Accepted=false;
-
+		public List<ReferralRequest> refferalRequests;
 		public ScrollReq (IntPtr handle) : base (handle)
 		{
 		}
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Referall Request";
+			this.Title = "Referral Request";
 			ScrollViewRR.ContentSize=new CGSize (400f, 1300);
 
-		
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				ReferralRequestDetails referralPage = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
+				this.NavigationController.PushViewController(referralPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;		
 
 			AlertSubView.Layer.CornerRadius = 15.0f;
 			AlertSubView.Layer.MasksToBounds = true;
@@ -42,12 +50,13 @@ namespace donow.iOS
 			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (50, 135, 172).CGColor;
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
 
+				//BrokerBL brokerbl = new BrokerBL();
+				//brokerbl.UpdateBrokerStatus(brokerObj.BrokerID,"Acceptance Pending");
 
-							  
-
-				PassView.Hidden=true;
-				MakeView.Hidden=false;
+				PassView.Hidden = true;
+				MakeView.Hidden = false;
 			};
+				
 			ButtonReferLater.TouchUpInside += (object sender, EventArgs e) => {
 //				AlertView.Hidden=true;
 //				AlertSubView.Hidden=true;	
