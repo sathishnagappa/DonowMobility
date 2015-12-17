@@ -91,7 +91,7 @@ namespace donow.iOS
 			{
 				MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
 				if (dealmakerDetailObject != null) {
-					//					dealmakerDetailObject.leadObj = TableItems [indexPath.Row];
+					dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
 					owner.NavigationController.PushViewController (dealmakerDetailObject, true);
 				}
 			}

@@ -14,8 +14,24 @@ namespace donow.iOS
 	[Register ("WelcomeVC")]
 	partial class WelcomeVC
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonStartReferring { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonStartSelling { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonStartReferring != null) {
+				ButtonStartReferring.Dispose ();
+				ButtonStartReferring = null;
+			}
+			if (ButtonStartSelling != null) {
+				ButtonStartSelling.Dispose ();
+				ButtonStartSelling = null;
+			}
 		}
 	}
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using CoreGraphics;
 using donow.PCL;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace donow.iOS
 {
@@ -78,16 +79,23 @@ namespace donow.iOS
 			List<LineOfBusiness> listLOB = industryBL.GetLOB();
 			List<string> Industries = industryBL.GetIndustry ();
 
+			TableViewIndustry.Layer.BorderColor=UIColor.FromRGB(169,169,169).CGColor;
 			//TableViewIndustry.ContentSize = new SizeF (100f,50f);
 			ButtonIndustry.TouchUpInside += (object sender, EventArgs e) =>  {
 				TextBoxLineOfBusiness.Text = string.Empty;
 				TableViewIndustry.Frame = new CGRect(47,215,320,122);
+
+
+				//TableViewIndustry.layer setBorderColor:[[UIColor colorWithWhite: 0.8 alpha: 1.0] CGColor];
 				TableViewIndustry.Hidden = false;
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
 			};
 
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewIndustry.Frame = new CGRect(47,275,320,122);
+
+
+
 				TableViewIndustry.Hidden = false;
 				List<string> lob =  (from item in listLOB
 					where item.IndustryName == TextBoxIndustry.Text
@@ -128,6 +136,18 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
+
+			if (!Regex.IsMatch (TextBoxEmail.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", 
+				   RegexOptions.IgnoreCase)) {
+				alert = new UIAlertView () { 
+					Title = "Invalid Email ID", 
+					Message = "Please enter valid Email ID"
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
+
 			if (string.IsNullOrEmpty (TextBoxIndustry.Text)) {
 				alert = new UIAlertView () { 
 					Title = "Mandatory Field", 
@@ -155,15 +175,15 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
-			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
-				alert = new UIAlertView () { 
-					Title = "Mandatory Field", 
-					Message = "Please select Line of Business."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
-				return false;
-			}
+//			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
+//				alert = new UIAlertView () { 
+//					Title = "Mandatory Field", 
+//					Message = "Please select Line of Business."
+//				};
+//				alert.AddButton ("OK");
+//				alert.Show ();
+//				return false;
+//			}
 			return true;
 		}
 
@@ -274,12 +294,15 @@ namespace donow.iOS
 		{
 			UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
 			string item = TableItems[indexPath.Row];
-
+				
 			//---- if there are no cells to reuse, create a new one
 			if (cell == null)
 			{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 			cell.TextLabel.Text = item;
+
+			cell.BackgroundColor = UIColor.FromRGB (169, 169, 169);
+
 
 			return cell;
 		}

@@ -31,10 +31,14 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-			this.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
-			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+//			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+//			this.NavigationController.SetNavigationBarHidden (false, false);
+//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
+//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+
+
 		}
 
 		public void UpdateControls (string Parameter, string TableType)
@@ -46,10 +50,13 @@ namespace donow.iOS
 			} else if (TableType == "SalesStage") {
 				ButtonSaleStageDropDown.SetTitle (Parameter, UIControlState.Normal);
 				localSalesStage = Parameter;
+				TableViewSalesStage.Hidden = true;
 			} else if (TableType == "CustomerCategorisation") {
 				ButtonCustomerCategorizationDropDown.SetTitle (Parameter, UIControlState.Normal);
 				localCustomerCategorization = Parameter;
+				TableViewCustomerCategorization.Hidden = true;
 			} else {
+				TableViewNextSteps.Hidden = true;
 				ButtonNextStepsDropDown.SetTitle (Parameter, UIControlState.Normal);
 				localNextSteps = Parameter;
 			}
@@ -59,7 +66,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewF2F.ContentSize = new CGSize (414f, 1350.0f); 
+			ScrollViewF2F.ContentSize = new CGSize (414f, 1450.0f); 
 			ViewF2FMeetingDown.Hidden = true;
 
 			IList<string> ListThumbsDownReason = new List<string>
@@ -91,25 +98,49 @@ namespace donow.iOS
 				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				localConfirmMeeting = "UP";
+				ViewF2FMeetingDown.Hidden = true;
+				TableViewInteractionDislikeReason.Hidden = true;
 			};
 
 			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localConfirmMeeting = "DOWN";
+				ViewF2FMeetingDown.Hidden = false;
+			};
+
+			ButtonConfirmMeetingSide.TouchUpInside+= (object sender, EventArgs e) => {
+				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localConfirmMeeting = "SIDE";
+				ViewF2FMeetingDown.Hidden = true;
 			};
 
 			ButtonLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "UP";
-			
+
 			};
 
 			ButtonDisLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "DOWN";
+
+
+			};
+			ButtonMeetingInfoSide.TouchUpInside+= (object sender, EventArgs e) => {
+				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localMeetingInfoHelpFull = "SIDE";
+			};
+
+			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
+				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				localLeadAdvanced = "UP";
+
 			};
 
 			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
@@ -120,25 +151,26 @@ namespace donow.iOS
 
 			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+
+				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				localLeadAdvanced = "DOWN";
+			};
+			ButtonLeadAdvancedSide.TouchUpInside+= (object sender, EventArgs e) => {
+				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				localLeadAdvanced = "SIDE";
+
 				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localLeadAdvanced = "DOWN";
+
 			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
-
 			TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this,"ReasonForPass");
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewInteractionDislikeReason.Hidden = false;
 			};
 
-			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
-				ViewF2FMeetingDown.Hidden = false;
-			};
-
-			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
-				ViewF2FMeetingDown.Hidden = true;
-				TableViewInteractionDislikeReason.Hidden = true;
-			};
 
 			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
 			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
@@ -165,26 +197,38 @@ namespace donow.iOS
 				leadf2ffeedback.LeadAdvanced = localLeadAdvanced;
 				leadf2ffeedback.NextSteps = localNextSteps;
 				leadf2ffeedback.SalesStage = localSalesStage;
+				//leadf2ffeedback.MeetingID = meetingObj.Id.ToString();
 				AppDelegate.leadsBL.SaveLeadF2FFeedBack (leadf2ffeedback);
 
-				string accessCode = AppDelegate.leadsBL.SFDCAuthentication();
-				AppDelegate.leadsBL.UpdateSFDCData(accessCode,meetingObj.LeadId,localSalesStage);
+				UserMeetings usermeeting = new UserMeetings();
+				usermeeting.LeadId = meetingObj.Id;
+				usermeeting.Status="Done";
+				UserBL userbl = new UserBL();
+				userbl.UpdateMeetingList(usermeeting);
 
-				NavigationController.PopViewController(true);
+				if(string.IsNullOrEmpty(AppDelegate.accessToken))
+				{
+				  AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication();
+				}
+
+				AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,meetingObj.LeadId,localSalesStage);
+
+				if(localSalesStage == "(4) Close Sale")
+				{
+					DealHistroy dealHistory = new DealHistroy();
+					dealHistory.UserId = AppDelegate.UserDetails.UserId;
+					dealHistory.State = meetingObj.State;
+				    dealHistory.City = meetingObj.City;
+				    dealHistory.Date = meetingObj.EndDate;
+					dealHistory.country = "USA";
+					dealHistory.CustomerName = meetingObj.CustomerName;
+					dealHistory.LeadId = meetingObj.LeadId;
+					AppDelegate.customerBL.SaveDealHistory(dealHistory);
+				}
+				AppDelegate.IsUpdateLeadDone = true;
+				DismissViewController(true,null);
 			};
 
-			//			LeadsBL leadbl = new LeadsBL();
-			//			LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack();
-			//			leadf2ffeedback.LeadID = 1231;
-			//			leadf2ffeedback.UserID = 1;
-			//			leadf2ffeedback.ReasonForDown = "Not Ok";
-			//			leadf2ffeedback.ConfirmMeeting = "UP";
-			//			leadf2ffeedback.CustomerCategorization = "dadaoene";
-			//			leadf2ffeedback.MeetingInfoHelpFull = "";
-			//			leadf2ffeedback.LeadAdvanced = "UP";
-			//			leadf2ffeedback.NextSteps = "dadaoene";
-			//			leadf2ffeedback.SalesStage = "Followup";
-			//			leadbl.SaveLeadF2FFeedBack(leadf2ffeedback);
 
 		}
 
@@ -207,7 +251,7 @@ namespace donow.iOS
 
 
 			public override nint RowsInSection (UITableView tableview, nint section)
-			{
+			{				
 				return TableItems.Count;
 			}
 

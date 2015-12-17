@@ -34,6 +34,24 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
+
+		public List<Leads> GetLeadsDetails(int Leadid)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&type=lead";
+			var parsedResponse = new List<Leads>();
+			try
+			{
+				string response =  restSevice.GetData (leadsApicall);
+				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
+			}
+			catch {
+
+			}
+			return parsedResponse;
+		}
+
+
 		public Leads GetLeadDetails(int leadId)
 		{
 			RestService restSevice = new RestService ();

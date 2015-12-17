@@ -87,25 +87,16 @@ namespace donow.iOS
 
 			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
 				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-				leadfeedback.LeadID = 165806841;
+				leadfeedback.LeadID = userMeetings.LeadId;
 				leadfeedback.UserID = AppDelegate.UserDetails.UserId;
 				leadfeedback.ReasonForDown = ButtonInteractionDislikeReasonDropDown.CurrentTitle;
 				leadfeedback.InteractionFeedBack = Interaction;
 				leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
 				leadfeedback.Comments = TextViewComments.Text;
 				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
-				NavigationController.PopViewController(true);
+				DismissViewController(true,null);
 			};
 
-//			LeadsBL leadbl = new LeadsBL();
-//			LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-//			leadfeedback.LeadID = AppDelegate.UpdateLead.LEAD_ID;
-//			leadfeedback.UserID = AppDelegate.UserDetails.UserId;
-//			leadfeedback.ReasonForDown ="" ;
-//			leadfeedback.InteractionFeedBack = Interaction;
-//			leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
-//			leadfeedback.Comments = TextViewComments.Text;
-//			leadbl.SaveLeadFeedBack(leadfeedback);
 		}
 
 		public class TableSource : UITableViewSource {
@@ -143,7 +134,7 @@ namespace donow.iOS
 
 			public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 			{
-				
+				tableView.DeselectRow (indexPath, true);
 			}
 
 		}

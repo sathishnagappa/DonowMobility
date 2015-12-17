@@ -3,11 +3,14 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 using System.Drawing;
+using donow.PCL;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
 	partial class LandingRefferalRequestVC : UIViewController
 	{
+		List<ReferralRequest> rrList;
 		public LandingRefferalRequestVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -19,6 +22,9 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+			ReferralRequestBL rrBL = new ReferralRequestBL ();
+			rrList = rrBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
 		}
 
 
@@ -34,6 +40,7 @@ namespace donow.iOS
 
 			ButtonNewRequest.TouchUpInside += (object sender, EventArgs e) => {
 				referralRequestVC.referralRequestType = "New";
+				referralRequestVC.referralRequests = rrList;
 				if (referralRequestVC != null) {
 					this.NavigationController.PushViewController (referralRequestVC, true);
 				}

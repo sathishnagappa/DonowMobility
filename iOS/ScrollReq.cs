@@ -5,13 +5,15 @@ using UIKit;
 using CoreGraphics;
 using System.Drawing;
 using MessageUI;
+using donow.PCL;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
 	partial class ScrollReq : UIViewController
 	{
 		public bool Accepted=false;
-
+		public List<ReferralRequest> refferalRequests;
 		public ScrollReq (IntPtr handle) : base (handle)
 		{
 		}
@@ -27,9 +29,33 @@ namespace donow.iOS
 				ReferralRequestDetails referralPage = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
 				this.NavigationController.PushViewController(referralPage,true);
 			};
-			NavigationItem.LeftBarButtonItem = btn;
+			NavigationItem.LeftBarButtonItem = btn;		
 
+			AlertSubView.Layer.CornerRadius = 15.0f;
+			AlertSubView.Layer.MasksToBounds = true;
+
+			AlertSubViewRequestMeeting.Layer.CornerRadius = 15.0f;
+			AlertSubViewRequestMeeting.Layer.MasksToBounds = true;
+
+			AlertSubViewLater.Layer.CornerRadius = 15.0f;
+			AlertSubViewLater.Layer.MasksToBounds = true;
+
+
+			ButtonEmailAcceptView.Layer.CornerRadius = 5.0f;
+			ButtonLaterView.Layer.CornerRadius = 5.0f;
+			DisableReqMeetScroll.Layer.CornerRadius = 5.0f;
+			ButtonRequestMeeting.Layer.CornerRadius = 5.0f;
+
+			ButtonReferLater.Layer.BorderWidth = 2.0f;
+			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (50, 135, 172).CGColor;
+>>>>>>> origin/master
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
+
+				//BrokerBL brokerbl = new BrokerBL();
+				//brokerbl.UpdateBrokerStatus(brokerObj.BrokerID,"Acceptance Pending");
+
+
+
 				PassView.Hidden=true;
 				MakeView.Hidden=false;
 			};
@@ -116,6 +142,7 @@ namespace donow.iOS
 						args.Controller.DismissViewController (true, null);
 						AlertView.Hidden=true;
 						AlertSubView.Hidden=true;
+						//PagingSendMail.BackgroundColor=UIColor.Red;
 
 						AlertViewRequestMeeting.Hidden=false;
 						AlertSubViewRequestMeeting.Hidden=false;
