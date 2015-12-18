@@ -31,7 +31,11 @@ namespace donow.iOS
 			btn.Clicked += (sender , e)=>{
 				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
 				this.NavigationController.PushViewController(hambergerVC,true);
-			};		
+			};	
+
+			LabelName.Text = AppDelegate.UserDetails.FullName;
+			LabelCompanyName.Text = AppDelegate.UserDetails.Company;
+			LabelCityAndState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;
 
 		}
 	}

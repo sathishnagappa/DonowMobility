@@ -67,6 +67,15 @@ namespace donow.PCL
 			return Convert.ToBoolean (response);
 		}
 
+		public UserDetails GetUserFromEmail(string EmailID)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.UserCreation + "?EmailID=" + EmailID;
+			string response = restSevice.GetData (restUrl);
+			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			return parsedResponse;
+		}
+
 		public List<UserMeetings> GetMeetings(string customername)
 		{
 			RestService restSevice = new RestService ();

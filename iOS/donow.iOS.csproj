@@ -37,7 +37,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
-    <CodesignProvision>591bad58-c59e-4462-9973-2facec7a5852</CodesignProvision>
+    <CodesignProvision>c2a83380-39cf-4763-b678-73c5749eb4f7</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>

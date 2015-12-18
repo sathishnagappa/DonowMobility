@@ -95,6 +95,7 @@ namespace donow.iOS
 					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
 					if (accountManagementVC != null) {
 						owner.NavigationController.PushViewController (accountManagementVC, true);
+						//owner.PresentViewController(accountManagementVC,);
 					}
 					break;
 				case "Info Page": 

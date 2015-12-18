@@ -72,16 +72,14 @@ namespace donow.iOS
 			};
 
 			NextBtn.TouchUpInside += (object sender, EventArgs e) => {
-				if (Validation ()) {
-					
-					   AppDelegate.UserDetails.Name = TextBoxUserName.Text;
-						AppDelegate.UserDetails.Password = Crypto.Encrypt (TextBoxPassword.Text.ToLower ());
+				if (Validation ()) {					
+					AppDelegate.UserDetails.Name = TextBoxUserName.Text;
+					AppDelegate.UserDetails.Password = Crypto.Encrypt (TextBoxPassword.Text.ToLower ());
 
-						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
-						if (signUpVC != null) {
-							this.NavigationController.PushViewController (signUpVC, true);
+					signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+					if (signUpVC != null) {
+						this.NavigationController.PushViewController (signUpVC, true);
 					}
-
 				}
 			};	
 

@@ -33,6 +33,8 @@ namespace donow.iOS
 		public static CustomerBL customerBL;
 		public static bool IsUpdateLeadDone;
 		public static bool IsTabIndex;
+		public static ReferralRequestBL referralRequestBL;
+		public static UserBL userBL;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }
@@ -57,7 +59,8 @@ namespace donow.iOS
 			CalendarList = new List<CalenderEvent> ();
 			customerBL = new CustomerBL ();
 			IsUpdateLeadDone = false;
-			landingCustomerSteam = new LandingCustomerStreamVC();
+			referralRequestBL = new ReferralRequestBL ();
+			userBL = new UserBL ();
 			// check for a notification
 //			if (launchOptions != null)
 //			{
