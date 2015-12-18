@@ -23,19 +23,12 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-<<<<<<< HEAD
 //				MyDealMakerVC leadPage = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
 				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 			this.Title = "Deal Maker";
-=======
-				MyDealMakerVC signUpPage = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-				this.NavigationController.PushViewController(signUpPage,true);
-			};
-			NavigationItem.LeftBarButtonItem = btn;
 
->>>>>>> origin/master
 			ViewBackgroundTransparent.Hidden = true;
 			ViewSendRequestView.Hidden = true;
 
