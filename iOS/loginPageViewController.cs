@@ -28,7 +28,7 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.NavigationController.SetNavigationBarHidden (true, false);
-			AppDelegate.UserDetails = new UserDetails (); 
+
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -76,7 +76,6 @@ namespace donow.iOS
 			#endif
 			//AppDelegate.UserDetails.UserName = "sathish";
 			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
-			ButtonLogin.TouchUpInside +=  (object sender, EventArgs e) => {
 
 				//				RestService rs = new RestService();
 				//				string content = rs.SFDCAuthentication();
@@ -130,10 +129,9 @@ namespace donow.iOS
 //				customerinteract.Type = "Email";
 //				customerinteract.DateNTime = DateTime.Now.ToString();
 //				customerbl.SaveCutomerInteraction(customerinteract);
-	          
-//				if (ValidateCredentials ()) {
-				if (true) {
-					
+
+				ButtonLogin.TouchUpInside += (object sender, EventArgs e) => {
+				if (ValidateCredentials ()) {
 					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);

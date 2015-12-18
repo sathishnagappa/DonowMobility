@@ -33,11 +33,11 @@ namespace donow.iOS
 //			LeadsBL leadsVC = new LeadsBL ();
 //			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 
-			CustomerBL customerbl = new CustomerBL ();
-			List<CustomerInteraction> customerList = customerbl.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
-
-			LeadsBL leadsVC = new LeadsBL ();
-			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
+//			CustomerBL customerbl = new CustomerBL ();
+//			List<CustomerInteraction> customerList = customerbl.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
+//
+//			LeadsBL leadsVC = new LeadsBL ();
+//			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");

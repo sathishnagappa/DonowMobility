@@ -183,8 +183,10 @@ namespace donow.iOS
 			{
 
 				tableView.DeselectRow (indexPath, true);
+				string tappedKey = _arraySectionTitle [indexPath.Section];
 				customerProfileVC customerDetailVC = owner.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
 				if (customerDetailVC != null) {
+					customerDetailVC.customer = TableItemsDictionary[tappedKey][indexPath.Row];
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}

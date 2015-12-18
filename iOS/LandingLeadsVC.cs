@@ -94,19 +94,13 @@ namespace donow.iOS
 			//loadingOverlay = new LoadingOverlay (bounds);
 			//View.Add (loadingOverlay);
 
-<<<<<<< HEAD
-//			LabelAlertView.Layer.CornerRadius = 10.0f;
-//			ButtonOkAlertView.TouchUpInside += (object sender, EventArgs e) =>  {
-//				AlertView.Hidden = true;
-//			};
-=======
+
 			LabelAlertView.Layer.CornerRadius = 10.0f;
 			ButtonOk.Layer.CornerRadius = 5.0f;
 
 			ButtonOk.TouchUpInside += (object sender, EventArgs e) =>  {
 				AlertView.Hidden = true;
 			};
->>>>>>> origin/master
 
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 			//View.Add (loadingOverlay);

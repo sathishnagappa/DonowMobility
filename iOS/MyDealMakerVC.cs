@@ -42,11 +42,8 @@ namespace donow.iOS
 				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-<<<<<<< HEAD
 			this.Title = "Deal Makers";
-=======
 
->>>>>>> origin/master
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
 			if(!AppDelegate.IsFromProspect)				
@@ -91,13 +88,7 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-<<<<<<< HEAD
-				tableView.DeselectRow (indexPath, true);
-				MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
-				if (dealmakerDetailObject != null) {
-					dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
-					owner.NavigationController.PushViewController (dealmakerDetailObject, true);
-=======
+
 				if (TableItems [indexPath.Row].Status.ToLower().Trim() == "New") {
 					MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
 					if (dealmakerDetailObject != null) {
@@ -112,7 +103,6 @@ namespace donow.iOS
 //						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
 						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
 					}
->>>>>>> origin/master
 				}
 			}
 
