@@ -89,7 +89,7 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-				if (TableItems [indexPath.Row].Status.ToLower().Trim() == "New") {
+				if (TableItems [indexPath.Row].Status.ToLower().Trim() == "new") {
 					MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
 					if (dealmakerDetailObject != null) {
 						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];

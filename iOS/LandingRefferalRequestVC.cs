@@ -25,6 +25,7 @@ namespace donow.iOS
 
 			ReferralRequestBL rrBL = new ReferralRequestBL ();
 			rrList = rrBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
+//			this.NavigationController.TabBarItem.BadgeValue = .ToString ()
 		}
 
 
@@ -37,6 +38,8 @@ namespace donow.iOS
 
 			ReferralRequestScrollView.ContentSize =  new SizeF (0f, 900f);
 			ReferralRequestDetails referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
+
+
 
 			ButtonNewRequest.TouchUpInside += (object sender, EventArgs e) => {
 				referralRequestVC.referralRequestType = "New";

@@ -111,11 +111,14 @@ namespace donow.iOS
 				ButtonBackgroundView.Hidden = false;
 				ViewPass.Hidden = false;
 				isLeadAccepted = false;
-				leadsBL = new LeadsBL();
-				string text = ButtonOptionPassView.TitleLabel.Text;
-				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
-				this.NavigationController.PopViewController(false);
 			};
+
+//			ButtonSubmitPassView.TouchUpInside += (object sender, EventArgs e) => {
+//				leadsBL = new LeadsBL();
+//				string text = ButtonOptionPassView.TitleLabel.Text;
+//				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+//				this.NavigationController.PopViewController(false);
+//			};
 
 			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {
 
@@ -229,6 +232,9 @@ namespace donow.iOS
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
 				ViewPass.Hidden = true;
 				ButtonBackgroundView.Hidden = true;
+				leadsBL = new LeadsBL();
+				string text = ButtonOptionPassView.TitleLabel.Text;
+				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
 				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
 				if (landingLeadsVC != null) {
 					this.NavigationController.PushViewController(landingLeadsVC, true);

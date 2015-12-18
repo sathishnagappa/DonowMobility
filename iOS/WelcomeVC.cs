@@ -23,6 +23,20 @@ namespace donow.iOS
 			NavigationItem.LeftBarButtonItem = btn;
 
 			this.Title = @"Get Started";
+		
+			ButtonStartSelling.TouchUpInside += (object sender, EventArgs e) => {
+			
+				LandingTabBarVC landingPage = this.Storyboard.InstantiateViewController("LandingTabBarVC") as LandingTabBarVC;
+				landingPage.isReferring = false;
+				this.NavigationController.PushViewController(landingPage,false);
+			};
+
+			ButtonStartReferring.TouchUpInside += (object sender, EventArgs e) => {
+
+				LandingTabBarVC landingPage = this.Storyboard.InstantiateViewController("LandingTabBarVC") as LandingTabBarVC;
+				landingPage.isReferring = true;
+				this.NavigationController.PushViewController(landingPage,false);
+			};
 		}
 	}
 }

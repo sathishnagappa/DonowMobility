@@ -1,71 +1,15 @@
-﻿<Properties GitUserInfo="UsingMD" StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.2" />
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="iOS/donow.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.TVS iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/LandingLeadsVC.cs">
     <Files>
-      <File FileName="donow.PCL/Model/UserMeetings.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadUpdateVC.cs" Line="147" Column="36" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="209" Column="7" />
-      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="99" Column="6" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="11" Column="35" />
-      <File FileName="iOS/CalenderHomeDVC.cs" Line="207" Column="45" />
-      <File FileName="iOS/prospectDetailsVC.cs" Line="106" Column="80" />
-      <File FileName="donow.PCL/BusinessLogic/CustomerBL.cs" Line="86" Column="13" />
-      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="44" Column="26" />
-      <File FileName="iOS/LeadUpdateVC.designer.cs" Line="1" Column="1" />
-      <File FileName="iOS/LeadDetailVC.cs" Line="157" Column="33" />
-      <File FileName="iOS/AppDelegate.cs" Line="58" Column="29" />
-      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="96" Column="56" />
-      <File FileName="iOS/AccountManagementVC.cs" Line="92" Column="3" />
-      <File FileName="iOS/MyProfileVC.cs" Line="29" Column="4" />
-      <File FileName="iOS/LeadDetailVC.cs" Line="72" Column="36" />
-      <File FileName="iOS/ReferralRequestDetails.cs" Line="21" Column="24" />
-      <File FileName="iOS/MyDealMakerDetailVC.cs" Line="15" Column="3" />
-      <File FileName="iOS/MyDealMakerVC.cs" Line="92" Column="24" />
-      <File FileName="iOS/MyProfileVC.cs" Line="26" Column="24" />
-      <File FileName="iOS/ScrollReq.cs" Line="14" Column="1" />
-      <File FileName="iOS/LeadUpdateVC.cs" Line="83" Column="49" />
-      <File FileName="iOS/LeadDetailVC.cs" Line="68" Column="4" />
-      <File FileName="iOS/AccountManagementVC.cs" Line="199" Column="5" />
-      <File FileName="iOS/LandingCustomerVC.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/BusinessLogic/IndustryBL.cs" Line="9" Column="3" />
-      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/UserDetails.cs" Line="1" Column="1" />
-      <File FileName="iOS/signUpOtherDetailsVC.cs" Line="70" Column="56" />
-      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="89" Column="3" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="76" Column="4" />
+      <File FileName="iOS/LandingTabBarVC.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="donow" expanded="True">
-            <Node name="donow.iOS" expanded="True">
-              <Node name="ComponentReferenceFolder" expanded="True" />
-              <Node name="Packages" expanded="True" />
-              <Node name="LeadUpdateVC.cs" expanded="True" />
-              <Node name="MyProfileVC.cs" selected="True" />
-            </Node>
-            <Node name="donow.PCL" expanded="True">
-              <Node name="BusinessLogic" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="Services" expanded="True" />
-              <Node name="Util" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/LeadsTableCell.cs" line="10" column="32" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/Main.cs" line="17" column="1" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="16" column="1" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/iOS/AppDelegate.cs" line="6" column="1" />
-      <Breakpoint file="/Users/administrator/Documents/GIT PROJECT/DonowMobility/donow.PCL/BusinessLogic/UserBL.cs" line="56" column="1" />
+      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/MyDealMakerVC.cs" line="92" column="1" />
     </BreakpointStore>
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -7,6 +7,8 @@ namespace donow.iOS
 {
 	partial class LandingTabBarVC : UITabBarController
 	{
+		public bool isReferring;
+
 		public LandingTabBarVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -16,8 +18,12 @@ namespace donow.iOS
 //			this.NavigationController.NavigationBar.BarTintColor = UIColor.Red;
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
+			if (isReferring)
+				this.SelectedIndex = 3;
+			else
+				this.SelectedIndex = 2;
 
-			this.SelectedIndex = 2;
+
 		}
 	}
 }

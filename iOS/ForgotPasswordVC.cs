@@ -20,6 +20,8 @@ namespace donow.iOS
 		}
 		public  override void ViewDidLoad ()
 		{
+			this.Title = "Forgot Password";
+
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
