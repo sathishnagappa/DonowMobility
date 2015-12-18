@@ -14,10 +14,14 @@ namespace donow.iOS
 		private Dictionary<string,List<Customer>> custDictionary;
 
 		protected int sectionHit;
+		private static int cellIndexCount;
+
 
 		public LandingCustomerVC (IntPtr handle) : base (handle)
 		{
 			custDictionary = new Dictionary<string, List<Customer>> ();
+			cellIndexCount = 0;
+
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -28,25 +32,12 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-			//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-			//			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-			//				this.NavigationController.PopViewController(true);
-			//			}), true);
+
 		}
 
 		public override void ViewDidLoad ()
 		{
-
-
-			//			CustomerBL customerBL = new CustomerBL ();
-			//			List<Customer> cusotmerList =  customerBL.GetAllCustomers ();
-			//
-			//			TableViewCustomerList.Source = new TableSource (cusotmerList.OrderBy(X => X.Name).ToList(), this);
-			//			this.Title = "Customers";
-			//
-			//			this.NavigationItem.SetHidesBackButton (true, false);
-			//			this.NavigationItem.SetLeftBarButtonItem(null, true);
-
+		
 			CustomerBL customerBL = new CustomerBL ();
 			List<Customer> cusotmerList = customerBL.GetAllCustomers ().OrderBy (x => x.Name).ToList ();
 			//            custDictionary = new Dictionary<string, List<Customer>> ();
@@ -55,10 +46,6 @@ namespace donow.iOS
 			{
 				custDictionary.Add (c.ToString(), cusotmerList.FindAll (x => x.Name.StartsWith (c.ToString())));
 			} 
-			//			 _arraySectionTitle=new string[custDictionary.Count];
-			//
-			//			var result=custDictionary.Keys;
-			//			_arraySectionTitle=result.ToArray ();
 
 			TableViewCustomerList.Source = new TableSource (custDictionary, this);
 			this.Title = "Customers";
@@ -75,12 +62,12 @@ namespace donow.iOS
 			string CellIdentifier = "TableCell";
 			Dictionary<string,List<Customer>> TableItemsDictionary;
 			LandingCustomerVC owner;
-
-			public List<String> headerArray = new List <String>
+			public List<string> headerArray = new List <string>
 			{
 				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
 				"P","Q", "R", "S", "T", "U", "V","W", "X", "Y", "Z"
 			};
+
 
 			public TableSource ( Dictionary<string,List<Customer>> items, LandingCustomerVC owner)
 			{
@@ -92,29 +79,51 @@ namespace donow.iOS
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				return TableItemsDictionary.Count;
+				int unicode = Convert.ToInt32(section) + 65;
+				char character = (char) unicode;
+				string text = character.ToString();
+//				int str=Convert.ToInt32(section);
+//				TappedIndex = Convert.ToInt32 (str);
+//				string indexValue = headerArray [Convert.ToInt32 (section)];
+				var sectionRowCount=TableItemsDictionary.Where(x=>x.Key==text).FirstOrDefault().Value.Count();
+				return sectionRowCount;
 			}
 
+			int tappedCellIndex = 0;
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewTableCellLeads;
 				//Customer customerObj = TableItems[indexPath.Row];
 
-				if (cell == null) {
-					cell = new CustomerViewTableCellLeads(CellIdentifier);
+				if (cell == null) 
+				{
+					cell = new CustomerViewTableCellLeads(null);
 				}
+
+				if (tappedCellIndex != indexPath.Section)
+					cellIndexCount = 0;
+				tappedCellIndex = indexPath.Section;
 				var result=TableItemsDictionary.Values;
 				List<Customer> _list = new List<Customer> ();
-				string tappedKey = _arraySectionTitle [TappedIndex];
+				string tappedKey = _arraySectionTitle [indexPath.Section];
+
 				if (TableItemsDictionary.ContainsKey (tappedKey)) 
 				{
-					_list=TableItemsDictionary.FirstOrDefault(x=>x.Key==tappedKey).Value;
+					_list = TableItemsDictionary.FirstOrDefault (x => x.Key == tappedKey).Value;
 					//_list = TableItemsDictionary.FirstOrDefault (x => x.Key.Equals("K"));
 				}
-//				
-				cell.UpdateCell(_list[indexPath.Row]);
-				return cell;
+//				if (cellIndexCount > _list.Count)
+//					return null;
+		
+				if (_list != null && _list.Any ()) {
+					
+						if (cellIndexCount <= _list.Count) 
+						{
+							cell.UpdateCell (_list [cellIndexCount++]);
+						}
 
+				}
+				return cell;
 			}
 		
 			public override nint NumberOfSections (UITableView tableView)
@@ -126,34 +135,58 @@ namespace donow.iOS
 			public override string TitleForHeader (UITableView tableView, nint section)
 			{
 
-				//string[] _arraySectionTitle=new string[TableItemsDictionary.Count];
 
 				var result=TableItemsDictionary.Keys;
 				_arraySectionTitle=result.ToArray ();
-				//				string[] _arrayString = new string[26];
-				//
-				//				_arrayString=_arr
-				//				//table.Source = new TableSource(_arraySectionTitle);
-				//				return _arrayString=_arraySectionTitle.ToArray
-//				string[] _arrayString = new string[26];
-				string str=(section).ToString();
-				TappedIndex = Convert.ToInt32 (str);
+		
+//				string str=(section).ToString();
+//				TappedIndex = Convert.ToInt32 (str);
 
 				return _arraySectionTitle[section];
 
 			}
+
+			public override UIView GetViewForHeader(UITableView tableView, nint section)
+			{
+				UIView headerView = new UIView ();
+				headerView.Frame=new CoreGraphics.CGRect (10, 0, 414, 53);
+				headerView.BackgroundColor = UIColor.FromRGB(232,231,231);
+
+				UILabel headerLabel = new UILabel ();
+				headerLabel.Frame = new CoreGraphics.CGRect (10, 20, 16, 16);
+				headerLabel.TextColor = UIColor.Black; // Set your color
+				headerLabel.Text = _arraySectionTitle[section];
+
+				headerView.AddSubview (headerLabel);
+				return headerView;
+			}
+
+		
+//			public override UIView GetViewForHeader (UITableView tableView, nint section)
+//			{
+//				
+//				UIView headerView = new UIView ();
+//				headerView.Frame = new CoreGraphics.CGRect (10, 20, 100, 10);
+//				headerView.BackgroundColor = UIColor.LightGray; 
+//
+//
+//				UILabel headerLabel = new UILabel ();
+//				headerLabel.Frame = new CoreGraphics.CGRect (10, 20, 10, 10);
+//				// Set the frame size you need
+//				headerLabel.TextColor = UIColor.White; // Set your color
+//
+//				headerView.AddSubview (headerLabel);
+//				return headerView;
+//			}
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 
 				tableView.DeselectRow (indexPath, true);
 				customerProfileVC customerDetailVC = owner.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
 				if (customerDetailVC != null) {
-					//customerDetailVC.customer = TableItems[indexPath.Row];
-					//owner.View.AddSubview (leadDetailVC.View);
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}
-
 
 			public override string[] SectionIndexTitles (UITableView tableView)
 			{
@@ -168,30 +201,7 @@ namespace donow.iOS
 				return 100.0f;
 			}
 
-			//			public virtual UITableViewHeaderFooterView GetHeaderView (nint section) {
-			//
-			//				UIView headerView = new UIView ();
-			//				headerView.Frame = new CGRect (0, 0, 414, 40);
-			//
-			//				UILabel headerLabel = new UILabel ();
-			//				headerLabel.Frame = new CGRect (0, 0, 414, 40);
-			//
-			//				headerLabel.BackgroundColor = UIColor.LightGray;
-			//				headerView.AddSubview (headerLabel);
-			//
-			//				headerLabel.Text = headerArray[(int)section];
-			//
-			////				return headerView;
-			//			}
-			//
-			////			public virtual nint NumberOfRowsInSection (nint section) {
-			////
-			////
-			////			}
-			//
-			//			public virtual nint NumberOfSections () {
-			//				return 26;
-			//			}
+
 		}
 	}
 }

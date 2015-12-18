@@ -1026,16 +1026,16 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="40" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="GB2-aF-tOy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="40" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="GB2-aF-tOy">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="1h1-fz-gRW"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="TableViewCustomerList" destination="GB2-aF-tOy" id="name-outlet-GB2-aF-tOy"/>
                     </connections>
@@ -1197,7 +1197,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="AlertView" destination="ZCT-GG-P1l" id="name-outlet-ZCT-GG-P1l"/>
-                        <outlet property="ButtonOkAlertView" destination="YgT-oP-Pwe" id="name-outlet-YgT-oP-Pwe"/>
                         <outlet property="ButtonOk" destination="Y4f-yV-pTd" id="name-outlet-Y4f-yV-pTd"/>
                         <outlet property="ButtonRequestNewLead" destination="YiC-NV-d7i" id="name-outlet-YiC-NV-d7i"/>
                         <outlet property="LabelAlertView" destination="iYA-hZ-SQo" id="name-outlet-iYA-hZ-SQo"/>
@@ -3553,7 +3552,6 @@ steps.</string>
                                         <rect key="frame" x="120" y="1381" width="184" height="42"/>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.52941176469999995" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="22"/>
-                                       
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3767,7 +3765,6 @@ steps.</string>
                                                 <rect key="frame" x="129" y="103" width="156" height="36"/>
                                                 <color key="backgroundColor" red="0.078431372549019607" green="0.52941176470588236" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                               
                                                 <state key="normal" title="Submit">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
