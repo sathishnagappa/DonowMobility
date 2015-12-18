@@ -96,6 +96,7 @@ namespace donow.iOS
 					if (accountManagementVC != null) {
 //						owner.NavigationController.SetNavigationBarHidden (true, false);
 						owner.NavigationController.PushViewController (accountManagementVC, true);
+						//owner.PresentViewController(accountManagementVC,);
 					}
 					break;
 				case "Info Page": 

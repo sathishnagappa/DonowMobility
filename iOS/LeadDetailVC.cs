@@ -27,6 +27,7 @@ namespace donow.iOS
 		};
 
 
+
 		public override void ViewWillAppear (bool animated)
 		{
  			base.ViewWillAppear (animated);
@@ -100,7 +101,7 @@ namespace donow.iOS
 				isLeadAccepted = true;
 				AppDelegate.IsLeadAccepted = true;
 				leadsBL = new LeadsBL();
-				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
+				leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -201,18 +202,28 @@ namespace donow.iOS
 				//				label.AdjustsFontSizeToFitWidth = false;
 			};
 
+			ButtonOptionPassView.TouchUpInside+= (object sender, EventArgs e) => {
+				TableViewPassView.Hidden = false;
+			};
+
+			ButtonSubmitPassView.TouchUpInside += (object sender, EventArgs e) =>  {
+				ButtonBackgroundView.Hidden = true;
+				ViewPass.Hidden = true;
+				leadsBL = new LeadsBL();
+				string text = ButtonOptionPassView.TitleLabel.Text;
+				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+//				this.NavigationController.PopViewController(false);
+								LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+								if (landingLeadsVC != null) {
+									this.NavigationController.PushViewController(landingLeadsVC, true);
+								}				
+						
+			};
 //			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
 //				leadsBL = new LeadsBL();
 //				string text = ButtonOptionPassView.TitleLabel.Text;
 //				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
 //				this.NavigationController.PopViewController(false);
-//			};
-
-//			ButtonAccept.TouchUpInside+= (object sender, EventArgs e) => {
-//				leadsBL = new LeadsBL();
-//				leadsBL.UpdateStatus(leadObj.LEAD_ID,"Accepted");
-//
-//
 //			};
 
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
@@ -241,6 +252,16 @@ namespace donow.iOS
 				}
 				
 			};
+			TableViewPassView.Layer.BorderWidth = 1.0f;
+
+//			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
+//				ViewPass.Hidden = true;
+//				ButtonBackgroundView.Hidden = true;
+//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+//				if (landingLeadsVC != null) {
+//					this.NavigationController.PushViewController(landingLeadsVC, true);
+//				}				
+//			};
 		}
 
 		public void UpdateControls (string Parameter)
@@ -288,6 +309,7 @@ namespace donow.iOS
 
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
+			tableView.DeselectRow (indexPath, true);
 			leadDetailsVC.UpdateControls(TableItems[indexPath.Row]);
 		}
 	}

@@ -21,7 +21,7 @@ namespace donow.PCL
 		public List<Leads> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
+			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&type=user";
 			var parsedResponse = new List<Leads>();
 			try
 			{
@@ -124,11 +124,12 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public int UpdateStatus(int leadid,string status)
+		public int UpdateStatus(int leadid,int status)
 		{
 			Leads leads = new Leads ();
 			leads.LEAD_ID = leadid;
-			leads.STATUS = status;
+			leads.USER_LEAD_STATUS = status;
+			leads.REASON_FOR_PASS = "";
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leads);
@@ -142,6 +143,7 @@ namespace donow.PCL
 		{
 			Leads leads = new Leads ();
 			leads.LEAD_ID = leadid;
+			leads.USER_LEAD_STATUS = 5;
 			leads.REASON_FOR_PASS = reasonForPass;
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;

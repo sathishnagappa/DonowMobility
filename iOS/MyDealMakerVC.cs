@@ -1,4 +1,3 @@
-
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
@@ -35,15 +34,14 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 		
-			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
-				this.NavigationController.PushViewController(hambergerVC,true);
+//				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
+				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-
+			this.Title = "Deal Makers";
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
 			if(!AppDelegate.IsFromProspect)				
@@ -51,7 +49,6 @@ namespace donow.iOS
 			else
 				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
-//			brokerList[0].Status == 
 
 			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
@@ -90,10 +87,11 @@ namespace donow.iOS
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 				if (TableItems [indexPath.Row].Status.ToLower().Trim() == "new") {
-					MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
-					if (dealmakerDetailObject != null) {
-						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
-						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
+				tableView.DeselectRow (indexPath, true);
+				MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
+				if (dealmakerDetailObject != null) {
+					dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
+					owner.NavigationController.PushViewController (dealmakerDetailObject, true);
 					}
 				}
 				else if ((TableItems [indexPath.Row].Status.ToLower().Trim() == "workedwith") || (TableItems [indexPath.Row].Status.ToLower().Trim() == "workingwith")) 

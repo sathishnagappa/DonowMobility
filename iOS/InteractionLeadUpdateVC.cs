@@ -44,7 +44,7 @@ namespace donow.iOS
 				"Customer Not Interested"
 			};
 
-
+			ButtonSubmit.Layer.CornerRadius = 10.0f;
 			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
 			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);

@@ -15,6 +15,11 @@ namespace donow.PCL
 		public string CreateTime { get; set; }
 		public string BrokerScore { get; set; }
 		public string Status { get; set; }
+		public string BrokerFee { get; set; }
+		public string BrokerTotalEarning { get; set; }
+		public string ConnectionLead { get; set; }
+		public string DomainExpertise { get; set; }
+		public string BrokerEmail { get; set; }
 	}
 }
 

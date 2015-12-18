@@ -71,7 +71,33 @@ namespace donow.iOS
 			LabelCompanyName.Text = lead.COMPANY_NAME;
 			LabelCityAndState.Text = lead.CITY + ", " + lead.STATE; 
 			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
-			LabelNewLead.Text = lead.STATUS;
+			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS) ;
+		}
+
+		string  GetStatus(int Status)
+		{
+			
+			switch (Status) {
+			case 1: 
+				return "New";
+
+			case 2:
+				return "Acceptance Pending";
+
+			   break;
+			case 3:
+				return "Assigned";
+
+			case 4:
+				return "Accepted";
+
+			case 5:
+				return "Passed";
+
+			default:
+				return "";
+			}
+
 		}
 
 		public override void LayoutSubviews ()

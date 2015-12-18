@@ -38,6 +38,7 @@ namespace donow.PCL.Model
 		public string REASON_FOR_PASS { get; set; }
 		public string PHONE { get; set; }
 		public string EMAILID { get; set; }
+		public int USER_LEAD_STATUS { get; set; }
 
 		}	
 }
