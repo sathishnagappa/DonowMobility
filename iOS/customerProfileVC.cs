@@ -39,7 +39,13 @@ namespace donow.iOS
 			LeadsBL leadsVC = new LeadsBL ();
 			List <Leads> ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);
 
-
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				LandingCustomerVC customerPage = this.Storyboard.InstantiateViewController ("landingCustomerVC") as LandingCustomerVC;
+				this.NavigationController.PushViewController(customerPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
 
 //			LeadsBL leadsVC = new LeadsBL ();
 //			ListLeads = leadsVC.GetAllLeads(AppDelegate.UserDetails.UserId);

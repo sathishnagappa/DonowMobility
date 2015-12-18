@@ -13,8 +13,23 @@ namespace donow.iOS
 		{
 		}
 
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.NavigationController.SetNavigationBarHidden (false, false);
+		}
 		public  override void ViewDidLoad ()
 		{
+			ButtonChange.Layer.CornerRadius = 5.0f;
+			// Navigation
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				loginPageViewController loginPage = this.Storyboard.InstantiateViewController ("loginPageViewController") as loginPageViewController;
+				this.NavigationController.PushViewController(loginPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
 
 			ButtonChange.TouchUpInside += (object sender, EventArgs e) =>  {
 

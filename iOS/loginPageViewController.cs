@@ -131,7 +131,9 @@ namespace donow.iOS
 //				customerinteract.DateNTime = DateTime.Now.ToString();
 //				customerbl.SaveCutomerInteraction(customerinteract);
 	          
-				if (ValidateCredentials ()) {
+//				if (ValidateCredentials ()) {
+				if (true) {
+					
 					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);

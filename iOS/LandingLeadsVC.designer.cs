@@ -20,7 +20,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonOkAlertView { get; set; }
+		UIButton ButtonOk { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -40,9 +40,9 @@ namespace donow.iOS
 				AlertView.Dispose ();
 				AlertView = null;
 			}
-			if (ButtonOkAlertView != null) {
-				ButtonOkAlertView.Dispose ();
-				ButtonOkAlertView = null;
+			if (ButtonOk != null) {
+				ButtonOk.Dispose ();
+				ButtonOk = null;
 			}
 			if (ButtonRequestNewLead != null) {
 				ButtonRequestNewLead.Dispose ();

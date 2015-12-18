@@ -21,6 +21,15 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 			this.Title = "Meeting Info";
+
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
+			btn.Clicked += (sender , e)=>{
+				customerProfileVC customerPage = this.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
+				this.NavigationController.PushViewController(customerPage,true);
+			};
+			NavigationItem.LeftBarButtonItem = btn;
+
 			ScrollViewMeeting.ContentSize = new CGSize (414f, 1350f);
 			//var meetingList = AppDelegate.CalendarList[0];
 			string[] TakingPoints =  {"* What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
