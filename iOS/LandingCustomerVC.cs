@@ -119,7 +119,7 @@ namespace donow.iOS
 					
 						if (cellIndexCount <= _list.Count) 
 						{
-							cell.UpdateCell (_list [cellIndexCount++]);
+							cell.UpdateCell (_list [cellIndexCount++]);//check
 						}
 
 				}
@@ -153,8 +153,9 @@ namespace donow.iOS
 				headerView.BackgroundColor = UIColor.FromRGB(232,231,231);
 
 				UILabel headerLabel = new UILabel ();
-				headerLabel.Frame = new CoreGraphics.CGRect (10, 20, 16, 16);
+				headerLabel.Frame = new CoreGraphics.CGRect (36, 10, 150, 30);
 				headerLabel.TextColor = UIColor.Black; // Set your color
+				headerLabel.Font=UIFont.FromName("Arial-BoldMT",25f);
 				headerLabel.Text = _arraySectionTitle[section];
 
 				headerView.AddSubview (headerLabel);
