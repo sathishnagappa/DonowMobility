@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using System.Collections.Generic;
 using donow.PCL;
+using CoreGraphics;
 
 namespace donow.iOS
 {
@@ -35,6 +36,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
+			ScrollViewInteractionPage.ContentSize = new CGSize (414.0f,815.0f);
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
@@ -44,25 +46,28 @@ namespace donow.iOS
 				"Customer Not Interested"
 			};
 
-			ButtonSubmit.Layer.CornerRadius = 10.0f;
-			ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
-			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
-			ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
-			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => 
-			ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Selected);
+			ButtonSubmit.Layer.CornerRadius = 5.0f;
 			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
 			{
 				CustomerAcknowledge = "UP";
+				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 			};
 
-			ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Selected);
-			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
+			TextViewComments.Layer.BorderWidth = 2.0f;
+			TextViewComments.Layer.BorderColor = UIColor.DarkGray.CGColor;
+
+			ButtonDisLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
 			{
 				CustomerAcknowledge = "DOWN";
+				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 			};
 			ButtonAcknowledgementSide.TouchUpInside+= (object sender, EventArgs e) => 
 			{
 				CustomerAcknowledge = "SIDE";
+				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
 
@@ -75,14 +80,20 @@ namespace donow.iOS
 			ButtonDislikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = false;
 				Interaction = "DOWN";
+				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
 				Interaction = "UP";
+				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
 			{
 				Interaction = "SIDE";
+				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 			};
 
 			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
@@ -99,16 +110,20 @@ namespace donow.iOS
 
 		}
 
+		void updateCell (string parameter) {
+			ButtonInteractionDislikeReasonDropDown.SetTitle (parameter, UIControlState.Normal);
+		}
+
 		public class TableSource : UITableViewSource {
 
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
 
-			InteractionLeadUpdateVC interactionLeadUpdateVC;
+			InteractionLeadUpdateVC owner;
 
 			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
 			{
-				this.interactionLeadUpdateVC = interactionLeadUpdateVC;
+				this.owner = interactionLeadUpdateVC;
 				TableItems = items;
 			}
 
@@ -135,6 +150,7 @@ namespace donow.iOS
 			public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 			{
 				tableView.DeselectRow (indexPath, true);
+				owner.updateCell (TableItems[indexPath.Row]);
 			}
 
 		}
