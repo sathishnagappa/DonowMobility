@@ -117,7 +117,7 @@ namespace donow.iOS
 		
 				if (_list != null && _list.Any ()) {
 					
-						if (cellIndexCount <= _list.Count) 
+					if (cellIndexCount < _list.Count) 
 						{
 							cell.UpdateCell (_list [cellIndexCount++]);//check
 						}
@@ -188,7 +188,7 @@ namespace donow.iOS
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}
-
+		
 			public override string[] SectionIndexTitles (UITableView tableView)
 			{
 
