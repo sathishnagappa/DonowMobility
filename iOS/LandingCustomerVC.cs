@@ -188,7 +188,7 @@ namespace donow.iOS
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}
-
+		
 			public override string[] SectionIndexTitles (UITableView tableView)
 			{
 
