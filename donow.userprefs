@@ -1,10 +1,19 @@
 ﻿<Properties StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.0" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/MyDealMakerDetailVC.cs">
+    <Files>
+      <File FileName="iOS/DealMakerTableViewCell.cs" Line="80" Column="3" />
+      <File FileName="iOS/prospectDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/ReferralRequestDetails.cs" Line="1" Column="1" />
+      <File FileName="iOS/ScrollReq.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/BusinessLogic/ReferralRequestBL.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/Model/ReferralRequest.cs" Line="1" Column="1" />
+      <File FileName="iOS/MyDealMakerVC.cs" Line="83" Column="20" />
+      <File FileName="iOS/MyDealMakerDetailVC.cs" Line="6" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/brillio/Documents/doNow/DonowMobility/iOS/LeadDetailVC.cs" line="76" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

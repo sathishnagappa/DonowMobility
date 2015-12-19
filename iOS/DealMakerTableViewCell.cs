@@ -72,7 +72,7 @@ namespace donow.iOS
 			ContentView.AddSubviews (new UIView[]{ LabelLeadStatus });
 
 			ImageViewDealMakerImage = new UIImageView () {
-				Image = UIImage.FromBundle("Scott Anders_Large.png")
+				Image = UIImage.FromBundle("My Deal Makers Icon.png")
 			};
 
 			ContentView.AddSubviews(new UIView[] {ImageViewDealMakerImage});
@@ -98,10 +98,10 @@ namespace donow.iOS
 			LabelDealMakerScoreName.Frame = new CGRect (120,29,150,21);
 			LabelDealMakerIndustry.Frame = new CGRect (120,56,150,21);
 			LabelDealMakerLocation.Frame = new CGRect (120,88,150,21);
-			LabelDealMakerScoreDigit.Frame = new CGRect (250,25,100,21);
+			LabelDealMakerScoreDigit.Frame = new CGRect (250,29,100,21);
 			LabelDealMakerIndustryDiscription.Frame = new CGRect (250,56,150,21);
 			LabelDealMakerLocationDescription.Frame = new CGRect (250,88,150,21);
-			LabelLeadStatus.Frame = new CGRect (241,0,160,21);
+			LabelLeadStatus.Frame = new CGRect (241,5,160,21);
 		}
 	}
 }

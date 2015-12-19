@@ -23,10 +23,11 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				MyDealMakerVC signUpPage = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-				this.NavigationController.PushViewController(signUpPage,true);
+//				MyDealMakerVC leadPage = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
+			this.Title = "Deal Maker";
 
 			ViewBackgroundTransparent.Hidden = true;
 			ViewSendRequestView.Hidden = true;
@@ -46,6 +47,11 @@ namespace donow.iOS
 				ViewSendRequestView.Hidden = true;
 			};
 
+			LabelBrokerScore.Text = "Broker Score: \n" + brokerObj.BrokerScore;
+			LabelBrokerFee.Text = "Broker Fee: \n" + brokerObj.BrokerFee;
+			LabelTotalEarnings.Text = "Total Earnings: \n" + brokerObj.BrokerTotalEarning;
+			LabelCompanyInfoDescription.Text = brokerObj.Industry;
+			labelConnectionToLead.Text = brokerObj.ConnectionLead;
 
 			ButtonSendRequest.Layer.CornerRadius = 8.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 8.0f;
@@ -54,6 +60,9 @@ namespace donow.iOS
 			ButtonCancel.Layer.BorderColor = UIColor.FromRGB (45, 125, 177).CGColor;
 			ButtonCancel.Layer.CornerRadius = 8.0f;
 
+			ButtonCancel.TouchUpInside += (object sender, EventArgs e) =>  {
+				this.NavigationController.PopViewController(true);
+			};
 //			ScrollViewDealMakerDetails.ContentSize = new CGSize (414, 633.0f);
 		}
 	}

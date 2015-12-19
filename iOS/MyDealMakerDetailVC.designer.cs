@@ -28,6 +28,26 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelBrokerFee { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelBrokerScore { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCompanyInfoDescription { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel labelConnectionToLead { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelTotalEarnings { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewDealMakerDetails { get; set; }
 
 		[Outlet]
@@ -51,6 +71,26 @@ namespace donow.iOS
 			if (ButtonSendRequest != null) {
 				ButtonSendRequest.Dispose ();
 				ButtonSendRequest = null;
+			}
+			if (LabelBrokerFee != null) {
+				LabelBrokerFee.Dispose ();
+				LabelBrokerFee = null;
+			}
+			if (LabelBrokerScore != null) {
+				LabelBrokerScore.Dispose ();
+				LabelBrokerScore = null;
+			}
+			if (LabelCompanyInfoDescription != null) {
+				LabelCompanyInfoDescription.Dispose ();
+				LabelCompanyInfoDescription = null;
+			}
+			if (labelConnectionToLead != null) {
+				labelConnectionToLead.Dispose ();
+				labelConnectionToLead = null;
+			}
+			if (LabelTotalEarnings != null) {
+				LabelTotalEarnings.Dispose ();
+				LabelTotalEarnings = null;
 			}
 			if (ScrollViewDealMakerDetails != null) {
 				ScrollViewDealMakerDetails.Dispose ();

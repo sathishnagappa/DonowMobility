@@ -25,6 +25,8 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			this.Title = "Sign Up Details";
+
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
@@ -90,6 +92,8 @@ namespace donow.iOS
 				TableViewIndustry.Hidden = false;
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
 			};
+
+
 
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewIndustry.Frame = new CGRect(47,275,320,122);
