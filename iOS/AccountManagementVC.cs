@@ -11,10 +11,7 @@ namespace donow.iOS
 	partial class AccountManagementVC : UIViewController
 	{
 		UserBL userBL;
-//		string prefferedIndustry;
-//		string prefferedCompany;
-//		string prefferedCustomer;
-		public AccountManagementVC (IntPtr handle) : base (handle)
+	    public AccountManagementVC (IntPtr handle) : base (handle)
 		{
 		}
 		public bool isFromSignUp;

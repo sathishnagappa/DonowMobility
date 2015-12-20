@@ -86,8 +86,28 @@ namespace donow.iOS
 			LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
 			LabelDealMakerIndustryDiscription.Text = brokerObj.Industry;
 			LabelDealMakerLocationDescription.Text = brokerObj.City; //+ ", " + brokerObj.State;
-			LabelLeadStatus.Text = brokerObj.Status;
+			LabelLeadStatus.Text = GetStatus(brokerObj.Status);
 //				ImageViewDealMakerImage.Image = 
+		}
+
+		string  GetStatus(int Status)
+		{
+
+			switch (Status) {
+			case 1: 
+				return "New";
+			case 2:
+				return "Acceptance Pending";
+			case 3:
+				return "Passed";
+			case 4:
+				return "Working With";
+			case 5:
+				return "Worked With";
+			default:
+				return "";
+			}
+
 		}
 
 		public override void LayoutSubviews ()

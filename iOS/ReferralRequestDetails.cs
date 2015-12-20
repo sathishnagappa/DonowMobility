@@ -49,7 +49,6 @@ namespace donow.iOS
 			//switch (referralRequestType) {
 
 			if (referralRequestType == "New") {
-
 				ImageRR.Image = UIImage.FromBundle ("New Referral Request Icon.png");
 				LabelRRTitle.Text = "New Referral Requests";
 			} else if (referralRequestType == "Accepted") {
@@ -66,18 +65,7 @@ namespace donow.iOS
 				LabelRRTitle.Text = "Completed Requests";
 			}
 				
-
-						ReferralRequest rr = new ReferralRequest ();
-						rr.ReferralRequestID = 1;
-						rr.UserName = "Susan";
-						rr.City = "Seattle";
-						rr.State = "WA";
-						rr.Industry = "Technology";
-						rr.Prospect = "Scott Anders";
-						rr.BusinessNeeds = "Sales Tracking SoftWare";
-						List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
-						rrdetails.Add (rr);
-						TableViewRR.Source = new TableSource (rrdetails, this);			
+			TableViewRR.Source = new TableSource (referralRequests, this);			
 			//}
 			
 		}
@@ -116,16 +104,13 @@ namespace donow.iOS
 
 				tableView.DeselectRow (indexPath, true);
 
-				ScrollReq ScrollReqProf = owner.Storyboard.InstantiateViewController ("ScrollReqProf") as ScrollReq;
-				if (ScrollReqProf != null) {
-					owner.NavigationController.PushViewController(ScrollReqProf,true);
+				if (TableItems [indexPath.Row].Status != 3) {
+					ScrollReq ScrollReqProf = owner.Storyboard.InstantiateViewController ("ScrollReqProf") as ScrollReq;
+					if (ScrollReqProf != null) {
+						ScrollReqProf.refferalRequests = TableItems [indexPath.Row];
+						owner.NavigationController.PushViewController (ScrollReqProf, true);
+					}
 				}
-				//LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-//				if (leadDetailVC != null) {
-//					leadDetailVC.leadObj = TableItems[indexPath.Row];
-//					//owner.View.AddSubview (leadDetailVC.View);
-//					owner.NavigationController.PushViewController(leadDetailVC,true);
-//				}
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

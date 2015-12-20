@@ -72,7 +72,8 @@ namespace donow.iOS
 			};
 
 			NextBtn.TouchUpInside += (object sender, EventArgs e) => {
-				if (Validation ()) {					
+				if (Validation ()) {	
+					AppDelegate.UserDetails =new UserDetails();
 					AppDelegate.UserDetails.Name = TextBoxUserName.Text;
 					AppDelegate.UserDetails.Password = Crypto.Encrypt (TextBoxPassword.Text.ToLower ());
 

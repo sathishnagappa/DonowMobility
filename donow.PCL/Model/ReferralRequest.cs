@@ -4,19 +4,22 @@ namespace donow.PCL
 {
 	public class ReferralRequest
 	{
-		public int ReferralRequestID { get; set;}
-		public string UserName { get; set;}
-		public string Industry { get; set;}
-		public string State { get; set;}
+		public int ID { get; set;}
+		public string SellerName { get; set;}
+		public int Status { get; set;}
+		public string CompanyInfo { get; set;}
 		public string City { get; set;}
 		public string Prospect { get; set;}
 		public string BusinessNeeds { get; set;}
-
-//		public int Id { get; set; }
-//		public int LeadId { get; set; }
-//		public string Status { get; set; }
-//		public int AcceptorId { get; set; }
-//		public int SenderId { get; set; }
+		public string State { get; set;}
+		public string LeadEmailID { get; set;}
+		public string CreatedOn { get; set;}
+		public int BrokerUserID { get; set;}
+		public long BrokerID { get; set;}
+		public long LeadID { get; set;}
+		public int SellerUserID { get; set;}
+		public string Industry { get; set;}
+		public string CompanyName { get; set;}
 	}
 }
 

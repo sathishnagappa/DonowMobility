@@ -31,14 +31,10 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-
 //			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 //			this.NavigationController.SetNavigationBarHidden (false, false);
 //			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-
-
-
 		}
 
 		public void UpdateControls (string Parameter, string TableType)
@@ -140,7 +136,6 @@ namespace donow.iOS
 				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				localLeadAdvanced = "UP";
-
 			};
 
 			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
@@ -151,7 +146,6 @@ namespace donow.iOS
 
 			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
-
 				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				localLeadAdvanced = "DOWN";
 			};
@@ -159,10 +153,6 @@ namespace donow.iOS
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				localLeadAdvanced = "SIDE";
-
-				ButtonDisLikeMeeting.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
-				localLeadAdvanced = "DOWN";
-
 			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
@@ -170,7 +160,6 @@ namespace donow.iOS
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewInteractionDislikeReason.Hidden = false;
 			};
-
 
 			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
 			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
@@ -186,6 +175,7 @@ namespace donow.iOS
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				TableViewNextSteps.Hidden = false;
 			};
+
 			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
 				LeadF2FFeedBack leadf2ffeedback = new LeadF2FFeedBack ();
 				leadf2ffeedback.LeadID = meetingObj.LeadId;
@@ -228,11 +218,7 @@ namespace donow.iOS
 				AppDelegate.IsUpdateLeadDone = true;
 				DismissViewController(true,null);
 			};
-
-
 		}
-
-
 
 		public class TableSource : UITableViewSource {
 
@@ -241,14 +227,12 @@ namespace donow.iOS
 			public string TSTableType = string.Empty;
 			LeadUpdateVC leadUpdateVC;
 
-
 			public TableSource (IList<string> items, LeadUpdateVC leadUpdateVC, string tableType)
 			{
 				this.leadUpdateVC = leadUpdateVC;
 				TableItems = items;
 				TSTableType = tableType;
 			}
-
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{				
@@ -269,14 +253,11 @@ namespace donow.iOS
 				return cell;
 			}
 
-
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 				tableView.DeselectRow (indexPath, true);
 				leadUpdateVC.UpdateControls(TableItems[indexPath.Row],TSTableType);
 			}
-
 		}
-
 	}
 }

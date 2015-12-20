@@ -47,7 +47,7 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {ImageViewMeeting});
 		}
 
-		public void UpdateCell ()
+		public void UpdateCell (UserMeetings userMeetings)
 		{
 			LabelMeetingWith.Text = "Meeting with Scott Anders";
 			LabelMeetingDate.Text = "Nov. 30, 2015";

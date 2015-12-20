@@ -7,7 +7,7 @@ namespace donow.iOS
 {
 	public class ReferralRequestTableCell : UITableViewCell  {
 
-		UILabel LabelSellerName, LabelIndustryName, LabelLocation, LabelProspect, LabelBusinessNeeds;
+		UILabel LabelSellerName, LabelIndustryName, LabelLocation, LabelProspect, LabelBusinessNeeds,LabelNewRequest;
 		UIImageView ImageViewLeadImage;
 		UIView ViewSeperator;
 
@@ -57,22 +57,33 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelBusinessNeeds});
 
 			ImageViewLeadImage = new UIImageView () {
-				Image = UIImage.FromBundle("Scott Anders_Large.png")
+				Image = UIImage.FromBundle("Salesperson Logo_Small.png")
 			};
 
 			ContentView.AddSubviews(new UIView[] {ImageViewLeadImage});
+
+			LabelNewRequest = new UILabel () {
+				Font = UIFont.FromName("Arial", 18f),
+				Text = "New",
+				TextColor = UIColor.FromRGB (35, 31, 32),
+				BackgroundColor = UIColor.Clear
+			};
+			ContentView.AddSubviews(new UIView[] {LabelNewRequest});
+
 		}
 
 		public void UpdateCell (ReferralRequest rrObj)
 		{
 
-			LabelSellerName.Text = "Seller :" + rrObj.UserName;
+			LabelSellerName.Text = "Seller :" + rrObj.SellerName;
 			LabelIndustryName.Text = "Industry:" + rrObj.Industry;
 			LabelLocation.Text = "Location:"+ rrObj.City + ", " + rrObj.State;
 			LabelProspect.Text = "Prospect:"+ rrObj.Prospect;
 			LabelBusinessNeeds.Text =  "Business Needs:" + rrObj.BusinessNeeds;
-//			if (lead.IsNew == false)
-//				LabelNewLead.Hidden = true;
+			if (rrObj.Status == 1)
+				LabelNewRequest.Hidden = false;
+			else
+				LabelNewRequest.Hidden = true;
 		}
 
 		public override void LayoutSubviews ()
@@ -86,6 +97,7 @@ namespace donow.iOS
 			ViewSeperator.Frame = new CGRect (140, 105, 250,1);
 			LabelProspect.Frame = new CGRect (140, 130, 180, 25);
 			LabelBusinessNeeds.Frame = new CGRect (140, 150, 200, 25);
+			LabelNewRequest.Frame = new CGRect (40, 150, 60, 25);
 
 		}
 	}

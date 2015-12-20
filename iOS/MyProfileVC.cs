@@ -33,7 +33,6 @@ namespace donow.iOS
 				this.NavigationController.PushViewController(hambergerVC,true);
 			};	
 			NavigationItem.LeftBarButtonItem = btn;
-
 			LabelName.Text = AppDelegate.UserDetails.FullName;
 			LabelCompanyName.Text = AppDelegate.UserDetails.Company;
 			LabelCityAndState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;

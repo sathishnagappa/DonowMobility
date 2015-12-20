@@ -49,7 +49,7 @@ namespace donow.iOS
 		{
 			LabelCustomerName.Text = customerInfo.Name;
 			LabelCustomerCompany.Text = customerInfo.Company;
-			LabelCustomerSince.Text =  "Customer since May 2012";
+			//LabelCustomerSince.Text =  "Customer since May 2012";
 		}
 
 		public override void LayoutSubviews ()
