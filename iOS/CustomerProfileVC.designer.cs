@@ -56,6 +56,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewDealHistory { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewEmails { get; set; }
 
 		[Outlet]
@@ -111,6 +115,10 @@ namespace donow.iOS
 			if (ScrollViewCustomerProfile != null) {
 				ScrollViewCustomerProfile.Dispose ();
 				ScrollViewCustomerProfile = null;
+			}
+			if (TableViewDealHistory != null) {
+				TableViewDealHistory.Dispose ();
+				TableViewDealHistory = null;
 			}
 			if (TableViewEmails != null) {
 				TableViewEmails.Dispose ();

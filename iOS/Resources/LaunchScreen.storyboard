@@ -17,29 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DoNow" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="46">
-                                <rect key="frame" x="147" y="285" width="120" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="37"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DoNowSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="45">
-                                <rect key="frame" x="139" y="142" width="137" height="118"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="118" id="5IO-AN-Aqx"/>
-                                    <constraint firstAttribute="width" constant="137" id="qik-02-99R"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="50" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="DoNow Logo.png">
+                                <rect key="frame" x="120" y="150" width="170" height="150"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="45" firstAttribute="top" secondItem="Y8P-hJ-Z43" secondAttribute="bottom" constant="122" id="37s-zz-JSw"/>
-                            <constraint firstItem="45" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="Edz-8B-4WY"/>
-                            <constraint firstItem="46" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="F1n-Dn-gpE"/>
-                            <constraint firstItem="46" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="25" id="poK-F5-51W"/>
-                            <constraint firstItem="46" firstAttribute="top" secondItem="yd7-JS-zBw" secondAttribute="topMargin" constant="285" id="zUb-YQ-MDn"/>
-                        </constraints>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
@@ -50,5 +32,78 @@
     </scenes>
     <resources>
         <image name="DoNowSplash.png" width="137" height="118"/>
+        <image name="settingsImage.png" width="30" height="30"/>
+        <image name="Collaboration.png" width="25" height="25"/>
+        <image name="mvboli.ttf" width="0" height="0"/>
+        <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
+        <image name="Images/Scott Anders_Small.png" width="128" height="128"/>
+        <image name="DoNow Logo.png" width="270" height="314"/>
+        <image name="LinkedIn Icon_Small.png" width="50" height="50"/>
+        <image name="Password Icon.png" width="46" height="46"/>
+        <image name="User Name Icon.png" width="46" height="46"/>
+        <image name="Leads Icon_Small.png" width="58" height="58"/>
+        <image name="Stream Icon_Small.png" width="58" height="58"/>
+        <image name="Scott Anders_Large.png" width="150" height="150"/>
+        <image name="Calendar Thumbnail.png" width="90" height="90"/>
+        <image name="Email Thumbnail.png" width="90" height="90"/>
+        <image name="Phone Thumbnail.png" width="90" height="90"/>
+        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
+        <image name="Expand Icon.png" width="36" height="18"/>
+        <image name="Account Mgmt Icon.png" width="58" height="58"/>
+        <image name="Info Page Icon.png" width="58" height="58"/>
+        <image name="My Deal Makers Icon.png" width="58" height="58"/>
+        <image name="My Profile Icon.png" width="58" height="58"/>
+        <image name="Customer Feed Icon_25x25px.png" width="25" height="25"/>
+        <image name="Customers Icon_25x25px.png" width="25" height="25"/>
+        <image name="Hamburger Icon_25x25px.png" width="25" height="25"/>
+        <image name="Leads Icon_25x25px.png" width="25" height="25"/>
+        <image name="Referral Requests Icon_25x25px.png" width="25" height="25"/>
+        <image name="down-arrow.png" width="13" height="9"/>
+        <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
+        <image name="LifeCycle_Acquire Lead Highlight.png" width="572" height="70"/>
+        <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
+        <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
+        <image name="Aman Tankar_Small.png" width="100" height="100"/>
+        <image name="Latest Customer Info.png" width="80" height="70"/>
+        <image name="Latest Industry Thumb.png" width="80" height="70"/>
+        <image name="My Notes Icon.png" width="58" height="58"/>
+        <image name="Talking Points Thumb.png" width="80" height="70"/>
+        <image name="Twitter Thumb.png" width="80" height="70"/>
+        <image name="Article 1 Thumb.png" width="80" height="70"/>
+        <image name="Article 2 Thumb.png" width="80" height="70"/>
+        <image name="Article 3 Thumb.png" width="80" height="70"/>
+        <image name="Between Icon_Small.png" width="58" height="58"/>
+        <image name="Between Thumb.png" width="80" height="70"/>
+        <image name="Calendar Icon_Small.png" width="58" height="58"/>
+        <image name="Contact Info Icon_Small.png" width="58" height="58"/>
+        <image name="Deal History Icon_Small.png" width="58" height="58"/>
+        <image name="Deal History Thumb.png" width="80" height="70"/>
+        <image name="Email Sent Thumb.png" width="80" height="70"/>
+        <image name="LinkedIn Thumb.png" width="80" height="70"/>
+        <image name="New Leads Thumb.png" width="80" height="70"/>
+        <image name="New Meeting Thumb.png" width="80" height="70"/>
+        <image name="Phone Thumb.png" width="80" height="70"/>
+        <image name="Promotions Thumb.png" width="80" height="70"/>
+        <image name="Thumbs Down White.png" width="78" height="78"/>
+        <image name="Thumbs Up Grey.png" width="78" height="78"/>
+        <image name="Thumbs Up White.png" width="78" height="78"/>
+        <image name="Interactions Icon_Small.png" width="58" height="58"/>
+        <image name="See All Icon.png" width="18" height="34"/>
+        <image name="New Referral Request Icon.png" width="74" height="78"/>
+        <image name="Passed Requests Icon.png" width="74" height="78"/>
+        <image name="Completed Requests Icon.png" width="74" height="78"/>
+        <image name="Referral Action Pending Icon.png" width="74" height="78"/>
+        <image name="Sal Anderson Large.png" width="150" height="150"/>
+        <image name="ShowMore.png" width="18" height="34"/>
+        <image name="Leads Thumb.png" width="80" height="70"/>
+        <image name="Grey Neutral.png" width="78" height="78"/>
+        <image name="Thumbs Down Grey.png" width="78" height="78"/>
+        <image name="Images/Geo Icon.png" width="30" height="46"/>
+        <image name="DoNow Logo_Small.png" width="58" height="58"/>
+        <image name="Contact Us Logo_Small.png" width="58" height="58"/>
+        <image name="Salesperson Logo_Small.png" width="58" height="58"/>
+        <image name="Navigation Back Icon.png" width="18" height="36"/>
+        <image name="Previous Meeting Thumb.png" width="80" height="70"/>
+        <image name="Icon.png" width="57" height="57"/>
     </resources>
 </document>

@@ -270,6 +270,11 @@
       <DependentUpon>DealMakerAcceptedReferralRequestlVC.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerViewDealHistory.cs" />
+    <Compile Include="CustomerViewPreviousMeetings.cs" />
+    <Compile Include="ChangePassword.cs" />
+    <Compile Include="ChangePassword.designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -351,6 +356,8 @@
     <BundleResource Include="Resources\Contact Us Logo_Small.png" />
     <BundleResource Include="Resources\Salesperson Logo_Small.png" />
     <BundleResource Include="Resources\Navigation Back Icon.png" />
+    <BundleResource Include="Resources\Previous Meeting Thumb.png" />
+    <BundleResource Include="Resources\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

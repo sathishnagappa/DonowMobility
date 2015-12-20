@@ -16,6 +16,26 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCityState { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDateAndTime { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelMeetingHeader { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextView LabelNotes { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelNotesDate { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView LatestCustomerInfoTable { get; set; }
 
 		[Outlet]
@@ -32,6 +52,26 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (LabelCityState != null) {
+				LabelCityState.Dispose ();
+				LabelCityState = null;
+			}
+			if (LabelDateAndTime != null) {
+				LabelDateAndTime.Dispose ();
+				LabelDateAndTime = null;
+			}
+			if (LabelMeetingHeader != null) {
+				LabelMeetingHeader.Dispose ();
+				LabelMeetingHeader = null;
+			}
+			if (LabelNotes != null) {
+				LabelNotes.Dispose ();
+				LabelNotes = null;
+			}
+			if (LabelNotesDate != null) {
+				LabelNotesDate.Dispose ();
+				LabelNotesDate = null;
+			}
 			if (LatestCustomerInfoTable != null) {
 				LatestCustomerInfoTable.Dispose ();
 				LatestCustomerInfoTable = null;

@@ -643,12 +643,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-os-YKM" fixedFrame="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7v-os-YKM">
                                 <rect key="frame" x="44" y="256" width="324" height="30"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please enter your registed email id." lineBreakMode="tailTruncation" minimumFontSize="10" id="3551" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Please enter your registed email id." lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3551">
                                 <rect key="frame" x="68" y="173" width="277" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -656,7 +656,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" customColorSpace="calibratedWhite" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -1022,7 +1022,14 @@
                         <outlet property="ButtonNewRequest" destination="3313" id="name-outlet-3313"/>
                         <outlet property="ButtonPassedRequest" destination="3315" id="name-outlet-3315"/>
                         <outlet property="CompletedRequestView" destination="Ipa-qY-5iY" id="name-outlet-Ipa-qY-5iY"/>
+                        <outlet property="LabelBrokerScore" destination="qDW-6H-6iC" id="name-outlet-qDW-6H-6iC"/>
+                        <outlet property="LabelCityState" destination="aMm-uV-zP4" id="name-outlet-aMm-uV-zP4"/>
+                        <outlet property="LabelCompany" destination="QSI-Nm-vcX" id="name-outlet-QSI-Nm-vcX"/>
+                        <outlet property="LabelIndustry" destination="pro-kI-6eF" id="name-outlet-pro-kI-6eF"/>
                         <outlet property="LabelNoReferralRequest" destination="mrj-Cv-qmO" id="name-outlet-mrj-Cv-qmO"/>
+                        <outlet property="LabelTitle" destination="B0Z-K5-KsS" id="name-outlet-B0Z-K5-KsS"/>
+                        <outlet property="LabelTotalEarnings" destination="mKT-TH-JOr" id="name-outlet-mKT-TH-JOr"/>
+                        <outlet property="LabelUserName" destination="JVf-jY-k7a" id="name-outlet-JVf-jY-k7a"/>
                         <outlet property="NewRequestView" destination="W7e-X4-YRz" id="name-outlet-W7e-X4-YRz"/>
                         <outlet property="PassedRequestView" destination="GOo-kC-c2K" id="name-outlet-GOo-kC-c2K"/>
                         <outlet property="ReferralRequestScrollView" destination="vIl-uj-ZC9" id="name-outlet-vIl-uj-ZC9"/>
@@ -1034,13 +1041,6 @@
                         <outlet property="TextNewSellerName" destination="ZZx-l7-aDt" id="name-outlet-ZZx-l7-aDt"/>
                         <outlet property="TextPassedIndustry" destination="R2e-n4-FKk" id="name-outlet-R2e-n4-FKk"/>
                         <outlet property="TextPassedSellerName" destination="Hi7-8M-gTX" id="name-outlet-Hi7-8M-gTX"/>
-                        <outlet property="LabelUserName" destination="JVf-jY-k7a" id="name-outlet-JVf-jY-k7a"/>
-                        <outlet property="LabelTitle" destination="B0Z-K5-KsS" id="name-outlet-B0Z-K5-KsS"/>
-                        <outlet property="LabelCompany" destination="QSI-Nm-vcX" id="name-outlet-QSI-Nm-vcX"/>
-                        <outlet property="LabelIndustry" destination="pro-kI-6eF" id="name-outlet-pro-kI-6eF"/>
-                        <outlet property="LabelCityState" destination="aMm-uV-zP4" id="name-outlet-aMm-uV-zP4"/>
-                        <outlet property="LabelBrokerScore" destination="qDW-6H-6iC" id="name-outlet-qDW-6H-6iC"/>
-                        <outlet property="LabelTotalEarnings" destination="mKT-TH-JOr" id="name-outlet-mKT-TH-JOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i00-j6-HbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1756,7 +1756,7 @@ Manager in the tech industry for...</string>
         <!--View Controller-->
         <scene sceneID="Sqn-eF-1TY">
             <objects>
-                <viewController id="ILl-ch-xKr" sceneMemberID="viewController">
+                <viewController id="ILl-ch-xKr" sceneMemberID="viewController" customClass="ChangePassword">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yji-Ii-0Dq"/>
                         <viewControllerLayoutGuide type="bottom" id="QqC-Cg-HcI"/>
@@ -1776,29 +1776,28 @@ Manager in the tech industry for...</string>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilo-Dx-Qac">
-                                <rect key="frame" x="40" y="156" width="102" height="21"/>
+                                <rect key="frame" x="40" y="168" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7Z-Lh-2cD">
-                                <rect key="frame" x="40" y="208" width="97" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ql4-s4-mdk">
-                                <rect key="frame" x="145" y="152" width="221" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ql4-s4-mdk" enabled="NO">
+                                <rect key="frame" x="195" y="169" width="188" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zS-cd-2f1">
-                                <rect key="frame" x="145" y="204" width="221" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWh-pK-K7f">
+                                <rect key="frame" x="195" y="220" width="188" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-lP-LpJ">
+                                <rect key="frame" x="195" y="272" width="188" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQA-3d-ODA">
-                                <rect key="frame" x="40" y="328" width="326" height="45"/>
+                                <rect key="frame" x="36" y="422" width="347" height="45"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.58823529409999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
                                 <state key="normal" title="Change">
@@ -1811,11 +1810,41 @@ Manager in the tech industry for...</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Old Password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfl-EB-tzh">
+                                <rect key="frame" x="40" y="225" width="116" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlH-II-TnL">
+                                <rect key="frame" x="40" y="277" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5z-8C-xJu">
+                                <rect key="frame" x="40" y="330" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rPz-iz-1gm">
+                                <rect key="frame" x="195" y="325" width="188" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="TextBoxUserName" destination="Ql4-s4-mdk" id="name-outlet-Ql4-s4-mdk"/>
+                        <outlet property="TextBoxOldPassword" destination="fWh-pK-K7f" id="name-outlet-fWh-pK-K7f"/>
+                        <outlet property="TextBoxNewPassword" destination="Mwm-lP-LpJ" id="name-outlet-Mwm-lP-LpJ"/>
+                        <outlet property="TextBoxConfirmPassword" destination="rPz-iz-1gm" id="name-outlet-rPz-iz-1gm"/>
+                        <outlet property="ButtonChangePassword" destination="nQA-3d-ODA" id="name-outlet-nQA-3d-ODA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnD-GT-9iV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2098,8 +2127,8 @@ Manager in the tech industry for...</string>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nov. 30, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsx-WO-z7E">
-                                                <rect key="frame" x="142" y="45" width="132" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nov. 30, 2015      3:30pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsx-WO-z7E">
+                                                <rect key="frame" x="142" y="45" width="230" height="21"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2107,12 +2136,6 @@ Manager in the tech industry for...</string>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Images/Geo Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="aIP-20-X5f">
                                                 <rect key="frame" x="142" y="74" width="26" height="32"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3:30pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGA-K5-Jaa">
-                                                <rect key="frame" x="292" y="45" width="72" height="21"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seattle, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K93-f3-8RY">
                                                 <rect key="frame" x="176" y="85" width="137" height="21"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
@@ -2190,7 +2213,7 @@ Manager in the tech industry for...</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT1-Kj-gkp">
                                         <rect key="frame" x="0.0" y="1187" width="412" height="213"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date : 04/12/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX4-6Z-Rxp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX4-6Z-Rxp">
                                                 <rect key="frame" x="25" y="20" width="152" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2199,10 +2222,6 @@ Manager in the tech industry for...</string>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MTB-Wu-PRx">
                                                 <rect key="frame" x="25" y="73" width="371" height="140"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">Scott is interested to hear more about
-the upgraded products. Connect him to
-the head of Tech dept. to discuss next
-steps.</string>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -2224,7 +2243,7 @@ steps.</string>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7F-tD-H9W">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7F-tD-H9W" showsVerticalScrollIndicator="NO">
                                         <rect key="frame" x="108" y="262" width="304" height="212"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2241,6 +2260,11 @@ steps.</string>
                         <outlet property="LatestIndustryNewsTable" destination="rP8-d1-mMC" id="name-outlet-rP8-d1-mMC"/>
                         <outlet property="ScrollViewMeeting" destination="wLt-qX-cFI" id="name-outlet-wLt-qX-cFI"/>
                         <outlet property="TalkingPointTable" destination="v7F-tD-H9W" id="name-outlet-v7F-tD-H9W"/>
+                        <outlet property="LabelMeetingHeader" destination="VAR-Xy-im6" id="name-outlet-VAR-Xy-im6"/>
+                        <outlet property="LabelDateAndTime" destination="Vsx-WO-z7E" id="name-outlet-Vsx-WO-z7E"/>
+                        <outlet property="LabelCityState" destination="K93-f3-8RY" id="name-outlet-K93-f3-8RY"/>
+                        <outlet property="LabelNotesDate" destination="lX4-6Z-Rxp" id="name-outlet-lX4-6Z-Rxp"/>
+                        <outlet property="LabelNotes" destination="MTB-Wu-PRx" id="name-outlet-MTB-Wu-PRx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2552" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2803,7 +2827,7 @@ steps.</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customer Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3f-c4-KvN">
-                                                <rect key="frame" x="72" y="11" width="180" height="22"/>
+                                                <rect key="frame" x="117" y="10" width="180" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -2935,39 +2959,6 @@ steps.</string>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="UJl-F7-R6x">
                                                 <rect key="frame" x="0.0" y="120" width="414" height="141"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="qNe-OT-htZ">
-                                                        <rect key="frame" x="0.0" y="1" width="414" height="135"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNe-OT-htZ" id="01b-b0-eba">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-WM-3fN">
-                                                                    <rect key="frame" x="35" y="26" width="60" height="55"/>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meeting With Scott Anders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-uf-TPa">
-                                                                    <rect key="frame" x="117" y="17" width="273" height="32"/>
-                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3:30 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLA-p6-5K7">
-                                                                    <rect key="frame" x="269" y="56" width="81" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nov. 30, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLO-bC-5op">
-                                                                    <rect key="frame" x="117" y="57" width="127" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XgC-xw-gbE">
                                                 <rect key="frame" x="0.0" y="678" width="414" height="1"/>
@@ -2995,43 +2986,6 @@ steps.</string>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="US6-uJ-yaG">
                                                 <rect key="frame" x="0.0" y="362" width="414" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="xJe-Ko-TE5">
-                                                        <rect key="frame" x="0.0" y="1" width="414" height="100"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJe-Ko-TE5" id="i7O-x8-h8w">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="New Meeting Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-ib-Qsd">
-                                                                    <rect key="frame" x="35" y="23" width="60" height="55"/>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="June. 3, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAh-G5-54u">
-                                                                    <rect key="frame" x="111" y="17" width="163" height="32"/>
-                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3:30 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE0-m1-MeK">
-                                                                    <rect key="frame" x="288" y="22" width="81" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location: Seattle, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTl-0x-Ccp">
-                                                                    <rect key="frame" x="111" y="53" width="251" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgI-jF-GIl">
-                                                                    <rect key="frame" x="0.0" y="97" width="414" height="1"/>
-                                                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                                </view>
-                                                            </subviews>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-ft-1sd">
                                                 <rect key="frame" x="0.0" y="463" width="414" height="894"/>
@@ -3069,27 +3023,6 @@ steps.</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Deal History Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="QkW-P5-6y3">
-                                                        <rect key="frame" x="41" y="149" width="60" height="55"/>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location: Seattle, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGj-HO-vz4">
-                                                        <rect key="frame" x="125" y="183" width="251" height="21"/>
-                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sep. 26, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-nG-Q9D">
-                                                        <rect key="frame" x="125" y="144" width="163" height="32"/>
-                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1:30 pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0F-X2-aEN">
-                                                        <rect key="frame" x="282" y="148" width="81" height="21"/>
-                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4dE-JN-i9h">
                                                         <rect key="frame" x="0.0" y="235" width="414" height="90"/>
                                                         <subviews>
@@ -3112,39 +3045,6 @@ steps.</string>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="en9-PS-53h">
                                                         <rect key="frame" x="-1" y="321" width="414" height="200"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="W75-AG-OP2">
-                                                                <rect key="frame" x="0.0" y="1" width="414" height="100"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W75-AG-OP2" id="6m6-C7-9zE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Email Sent Thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-vK-D4z">
-                                                                            <rect key="frame" x="35" y="23" width="60" height="55"/>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sent Email: Checking In.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-Vf-bbh">
-                                                                            <rect key="frame" x="122" y="17" width="273" height="32"/>
-                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
-                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sept. 15, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-nx-rgE">
-                                                                            <rect key="frame" x="124" y="58" width="127" height="21"/>
-                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:30 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh2-Wb-Eds">
-                                                                            <rect key="frame" x="264" y="57" width="127" height="21"/>
-                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </tableViewCellContentView>
-                                                            </tableViewCell>
-                                                        </prototypes>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-RS-EiW">
                                                         <rect key="frame" x="0.0" y="521" width="414" height="373"/>
@@ -3196,6 +3096,10 @@ steps.</string>
                                                         <rect key="frame" x="0.0" y="230" width="414" height="1"/>
                                                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cKB-Am-OVq">
+                                                        <rect key="frame" x="-1" y="123" width="414" height="108"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
@@ -3203,12 +3107,6 @@ steps.</string>
                                                 <rect key="frame" x="0.0" y="260" width="414" height="1"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location: Seattle, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8P-ME-Xo5">
-                                                <rect key="frame" x="117" y="216" width="251" height="21"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -3234,6 +3132,7 @@ steps.</string>
                         <outlet property="TableViewMeetings" destination="UJl-F7-R6x" id="name-outlet-UJl-F7-R6x"/>
                         <outlet property="TableViewNewLeads" destination="3Xr-se-TCS" id="name-outlet-3Xr-se-TCS"/>
                         <outlet property="TableViewPreviousMeetings" destination="US6-uJ-yaG" id="name-outlet-US6-uJ-yaG"/>
+                        <outlet property="TableViewDealHistory" destination="cKB-Am-OVq" id="name-outlet-cKB-Am-OVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EaM-Xv-IdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3624,7 +3523,7 @@ steps.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdt-IL-yiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443" y="5055"/>
+            <point key="canvasLocation" x="2148" y="5025"/>
         </scene>
         <!--Interaction Lead UpdateVC-->
         <scene sceneID="Lk1-6k-L6J">
@@ -3836,7 +3735,7 @@ steps.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6G-Xe-wyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="4110"/>
+            <point key="canvasLocation" x="3221" y="4107"/>
         </scene>
         <!--My Deal MakerVC-->
         <scene sceneID="OOP-jK-IFa">
@@ -5110,10 +5009,8 @@ steps.</string>
         <image name="Customer Feed Icon_25x25px.png" width="25" height="25"/>
         <image name="Customers Icon_25x25px.png" width="25" height="25"/>
         <image name="Deal History Icon_Small.png" width="58" height="58"/>
-        <image name="Deal History Thumb.png" width="80" height="70"/>
         <image name="DoNow Logo.png" width="270" height="314"/>
         <image name="DoNow Logo_Small.png" width="58" height="58"/>
-        <image name="Email Sent Thumb.png" width="80" height="70"/>
         <image name="Email Thumbnail.png" width="90" height="90"/>
         <image name="Expand Icon.png" width="36" height="18"/>
         <image name="Grey Neutral.png" width="78" height="78"/>
@@ -5129,16 +5026,14 @@ steps.</string>
         <image name="LinkedIn Icon_Small.png" width="50" height="50"/>
         <image name="My Deal Makers Icon.png" width="58" height="58"/>
         <image name="My Notes Icon.png" width="58" height="58"/>
-        <image name="New Meeting Thumb.png" width="80" height="70"/>
+        <image name="My Profile Icon.png" width="58" height="58"/>
         <image name="New Referral Request Icon.png" width="74" height="78"/>
         <image name="Passed Requests Icon.png" width="74" height="78"/>
         <image name="Password Icon.png" width="46" height="46"/>
         <image name="Phone Thumbnail.png" width="90" height="90"/>
         <image name="Referral Action Pending Icon.png" width="74" height="78"/>
         <image name="Referral Requests Icon_25x25px.png" width="25" height="25"/>
-        <image name="Sal Anderson Large.png" width="150" height="150"/>
         <image name="Salesperson Logo_Small.png" width="58" height="58"/>
-        <image name="Scott Anders_Large.png" width="150" height="150"/>
         <image name="See All Icon.png" width="18" height="34"/>
         <image name="ShowMore.png" width="18" height="34"/>
         <image name="Talking Points Thumb.png" width="80" height="70"/>
@@ -5152,10 +5047,10 @@ steps.</string>
         <image name="mvboli.ttf" width="0" height="0"/>
         <image name="ufonts.com_segoe-ui-light.ttf" width="0" height="0"/>
         <image name="Stream Icon_Small.png" width="58" height="58"/>
+        <image name="Scott Anders_Large.png" width="150" height="150"/>
         <image name="Navigation_Back_Icon.png" width="18" height="36"/>
         <image name="Account Mgmt Icon.png" width="58" height="58"/>
         <image name="Info Page Icon.png" width="58" height="58"/>
-        <image name="My Profile Icon.png" width="58" height="58"/>
         <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
         <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
         <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
@@ -5166,14 +5061,20 @@ steps.</string>
         <image name="Article 3 Thumb.png" width="80" height="70"/>
         <image name="Between Thumb.png" width="80" height="70"/>
         <image name="Contact Info Icon_Small.png" width="58" height="58"/>
+        <image name="Deal History Thumb.png" width="80" height="70"/>
+        <image name="Email Sent Thumb.png" width="80" height="70"/>
         <image name="LinkedIn Thumb.png" width="80" height="70"/>
         <image name="New Leads Thumb.png" width="80" height="70"/>
+        <image name="New Meeting Thumb.png" width="80" height="70"/>
         <image name="Phone Thumb.png" width="80" height="70"/>
         <image name="Promotions Thumb.png" width="80" height="70"/>
         <image name="Thumbs Down White.png" width="78" height="78"/>
         <image name="Thumbs Up White.png" width="78" height="78"/>
+        <image name="Sal Anderson Large.png" width="150" height="150"/>
         <image name="Leads Thumb.png" width="80" height="70"/>
         <image name="Navigation Back Icon.png" width="18" height="36"/>
+        <image name="Previous Meeting Thumb.png" width="80" height="70"/>
+        <image name="Icon.png" width="57" height="57"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jyY-bd-t4A"/>
