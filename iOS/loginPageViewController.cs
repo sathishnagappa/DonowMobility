@@ -162,10 +162,23 @@ namespace donow.iOS
 
 					if(AppDelegate.UserProfile.email_verified == true)
 					{
+						AppDelegate.UserDetails =  AppDelegate.userBL.GetUserFromEmail(AppDelegate.UserProfile.email);
+
+						if(AppDelegate.UserDetails != null)
+						{
+							LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+							if (landingVC != null) {
+								this.NavigationController.PushViewController(landingVC, true);
+							}
+						}
+						else
+						{
 						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
 						if (signUpVC != null) {
 							this.NavigationController.PushViewController(signUpVC, true);
 						}
+						}
+
 					}
 				}
 

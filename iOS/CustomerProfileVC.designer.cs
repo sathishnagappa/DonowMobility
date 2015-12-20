@@ -24,10 +24,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllDealHistory { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSeeAllEmails { get; set; }
 
 		[Outlet]
@@ -60,10 +56,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewDealHistory { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewEmails { get; set; }
 
 		[Outlet]
@@ -87,10 +79,6 @@ namespace donow.iOS
 			if (ButtonPhone != null) {
 				ButtonPhone.Dispose ();
 				ButtonPhone = null;
-			}
-			if (ButtonSeeAllDealHistory != null) {
-				ButtonSeeAllDealHistory.Dispose ();
-				ButtonSeeAllDealHistory = null;
 			}
 			if (ButtonSeeAllEmails != null) {
 				ButtonSeeAllEmails.Dispose ();
@@ -123,10 +111,6 @@ namespace donow.iOS
 			if (ScrollViewCustomerProfile != null) {
 				ScrollViewCustomerProfile.Dispose ();
 				ScrollViewCustomerProfile = null;
-			}
-			if (TableViewDealHistory != null) {
-				TableViewDealHistory.Dispose ();
-				TableViewDealHistory = null;
 			}
 			if (TableViewEmails != null) {
 				TableViewEmails.Dispose ();

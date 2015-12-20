@@ -1,16 +1,16 @@
 ﻿using System;
 using UIKit;
-using CoreGraphics;
 using donow.PCL;
+using CoreGraphics;
 
 namespace donow.iOS
 {
-	public class CustomerViewTableCellinteractionWithCustomerCell : UITableViewCell
+	public class CustomerViewDealHistory : UITableViewCell
 	{
 		UILabel LabelSentEmail, LabelDate, LabelTime;
 		UIImageView ImageViewEmail;
 
-		public CustomerViewTableCellinteractionWithCustomerCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
+		public CustomerViewDealHistory (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelSentEmail = new UILabel () {
@@ -33,14 +33,14 @@ namespace donow.iOS
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelTime});
-		
+
 			ImageViewEmail = new UIImageView () {
 				Image = UIImage.FromBundle("New Meeting Thumb.png")
 			};
 			ContentView.AddSubviews(new UIView[] {ImageViewEmail});
 		}
 
-		public void UpdateCell (CustomerInteraction meetingsInfo)
+		public void UpdateCell (DealHistroy meetingsInfo)
 		{
 			LabelSentEmail.Text = "Sent Email: Checking In..";
 			LabelDate.Text = "Sept. 15, 2015";

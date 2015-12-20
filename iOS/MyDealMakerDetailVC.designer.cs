@@ -44,6 +44,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelNameDealMaker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelTotalEarnings { get; set; }
 
 		[Outlet]
@@ -87,6 +91,10 @@ namespace donow.iOS
 			if (labelConnectionToLead != null) {
 				labelConnectionToLead.Dispose ();
 				labelConnectionToLead = null;
+			}
+			if (LabelNameDealMaker != null) {
+				LabelNameDealMaker.Dispose ();
+				LabelNameDealMaker = null;
 			}
 			if (LabelTotalEarnings != null) {
 				LabelTotalEarnings.Dispose ();

@@ -1,4 +1,3 @@
-
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
@@ -28,6 +27,15 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
+			List<Broker> brokerList;
+			BrokerBL brokerBL = new BrokerBL ();
+			if(!AppDelegate.IsFromProspect)				
+				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness).OrderByDescending(X => X.BrokerScore).ToList();
+			else
+				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
+
+
+			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
 		}
 
@@ -41,18 +49,9 @@ namespace donow.iOS
 //				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
 				this.NavigationController.PopViewController(true);
 			};
+
 			NavigationItem.LeftBarButtonItem = btn;
 			this.Title = "Deal Makers";
-
-			List<Broker> brokerList;
-			BrokerBL brokerBL = new BrokerBL ();
-			if(!AppDelegate.IsFromProspect)				
-				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness).OrderByDescending(X => X.BrokerScore).ToList();
-			else
-				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
-
-
-			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
 		}
 
@@ -88,19 +87,21 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
+				tableView.DeselectRow (indexPath, true);
 
-				if (TableItems [indexPath.Row].Status.ToLower().Trim() == "New") {
+				if (TableItems [indexPath.Row].Status == 1 || TableItems [indexPath.Row].Status == 2) {
+					tableView.DeselectRow (indexPath, true);
 					MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
 					if (dealmakerDetailObject != null) {
 						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
 						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
 					}
 				}
-				else if ((TableItems [indexPath.Row].Status.ToLower().Trim() == "workedwith") || (TableItems [indexPath.Row].Status.ToLower().Trim() == "workingwith")) 
+				else if (TableItems [indexPath.Row].Status == 4 || TableItems [indexPath.Row].Status == 5) 
 				{
 					DealMakerAcceptedReferralRequestlVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("DealMakerAcceptedReferralRequestlVC") as DealMakerAcceptedReferralRequestlVC;
 					if (dealmakerDetailObject != null) {
-//						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
+					 dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
 						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
 					}
 				}

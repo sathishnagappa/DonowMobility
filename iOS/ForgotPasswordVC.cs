@@ -4,6 +4,10 @@ using System.CodeDom.Compiler;
 using UIKit;
 using donow.Util;
 using System.Text.RegularExpressions;
+using System.Linq;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace donow.iOS
 {
@@ -21,6 +25,8 @@ namespace donow.iOS
 		}
 		public  override void ViewDidLoad ()
 		{
+			this.Title = "Forgot Password";
+
 			ButtonChange.Layer.CornerRadius = 5.0f;
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
@@ -36,20 +42,65 @@ namespace donow.iOS
 
 				if(Validation())
 				{
-					AppDelegate.userBL.GetUserFromEmail(TextBoxPassword.Text);
+					AppDelegate.UserDetails =  AppDelegate.userBL.GetUserFromEmail(TextBoxEmailID.Text);
+					string newPassword = RandomString();
+					AppDelegate.UserDetails.Password = Crypto.Encrypt(newPassword); 
+					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
+					SendMail(AppDelegate.UserDetails.Email, newPassword);
 
 				}
 			};
+		}
 
+		void SendMail(string email, string newPassword)
+		{
+			UIAlertView alert;
+			try
+			{
+				MailMessage mail=new MailMessage();
+				SmtpClient SmtpServer=new SmtpClient("smtp.gmail.com");
+				mail.From=new MailAddress("vaibhav22barchhiha@gmail.com");
+				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
+				mail.Subject = "New Password";
+				mail.Body = "Here is your New password " + newPassword;
+				SmtpServer.Port = 587;
+				SmtpServer.Credentials=new System.Net.NetworkCredential("vaibhav22barchhiha","mastercard22_");
+				SmtpServer.EnableSsl=true;
+				ServicePointManager.ServerCertificateValidationCallback=delegate(object sender, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors) {
+					return true;
+				};
+				SmtpServer.Send(mail);
 
+				alert = new UIAlertView () {
+					Title = "", 
+					Message = "Mail Sent."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
 
+			}
+			catch(Exception ex) {
+				alert = new UIAlertView () {
+					Title = "Email Error", 
+					Message = "Coundn't send email."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+			}
+		}
 
+		public static string RandomString()
+		{
+			const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			var random = new Random();
+			return new string(Enumerable.Repeat(chars, 8)
+				.Select(s => s[random.Next(s.Length)]).ToArray());
 		}
 
 		bool Validation()
 		{
 			UIAlertView alert;
-			if (string.IsNullOrEmpty (TextBoxPassword.Text)) {
+			if (string.IsNullOrEmpty (TextBoxEmailID.Text)) {
 				alert = new UIAlertView () { 
 					Title = "Mandatory Field", 
 					Message = "Please enter Email ID."
@@ -58,7 +109,7 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
-			if (!Regex.IsMatch (TextBoxPassword.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", 
+			if (!Regex.IsMatch (TextBoxEmailID.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", 
 				RegexOptions.IgnoreCase)) 
 			{
 				 alert = new UIAlertView () { 

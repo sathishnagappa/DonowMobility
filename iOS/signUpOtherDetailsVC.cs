@@ -25,6 +25,8 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
+			this.Title = "Sign Up: User Info";
+
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
@@ -91,6 +93,8 @@ namespace donow.iOS
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
 			};
 
+
+
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewIndustry.Frame = new CGRect(47,275,320,122);
 
@@ -113,6 +117,19 @@ namespace donow.iOS
 				}
 				}
 			};
+		}
+
+		public override void TouchesBegan (NSSet touches, UIEvent evt)
+		{
+			base.TouchesBegan (touches, evt);
+			UITouch touch = touches.AnyObject as UITouch;
+			if (touch != null) {
+				if (ScrollViewSignUpDetails.Frame.Contains(touch.LocationInView(ScrollViewSignUpDetails)))
+				{
+					TableViewState.Hidden = true;
+					TableViewIndustry.Hidden = true;
+				}
+			}
 		}
 
 		bool Validation()

@@ -101,7 +101,6 @@ namespace donow.iOS
 				isLeadAccepted = true;
 				AppDelegate.IsLeadAccepted = true;
 				leadsBL = new LeadsBL();
-
 				leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
 
 //				prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
@@ -109,6 +108,7 @@ namespace donow.iOS
 //					prospectVC.localLeads = TableItems [indexPath.Row];
 //					owner.NavigationController.PushViewController (prospectVC, true);
 //				}
+
 
 			};
 
@@ -120,11 +120,14 @@ namespace donow.iOS
 				ButtonBackgroundView.Hidden = false;
 				ViewPass.Hidden = false;
 				isLeadAccepted = false;
-				leadsBL = new LeadsBL();
-				string text = ButtonOptionPassView.TitleLabel.Text;
-				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
-				this.NavigationController.PopViewController(false);
 			};
+
+//			ButtonSubmitPassView.TouchUpInside += (object sender, EventArgs e) => {
+//				leadsBL = new LeadsBL();
+//				string text = ButtonOptionPassView.TitleLabel.Text;
+//				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+//				this.NavigationController.PopViewController(false);
+//			};
 
 			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {
 
@@ -226,6 +229,13 @@ namespace donow.iOS
 						
 			};
 
+//			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
+//				leadsBL = new LeadsBL();
+//				string text = ButtonOptionPassView.TitleLabel.Text;
+//				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+//				this.NavigationController.PopViewController(false);
+//			};
+
 
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
 			
@@ -241,6 +251,18 @@ namespace donow.iOS
 
 			};
 
+			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
+				ViewPass.Hidden = true;
+				ButtonBackgroundView.Hidden = true;
+				leadsBL = new LeadsBL();
+				string text = ButtonOptionPassView.TitleLabel.Text;
+				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+				if (landingLeadsVC != null) {
+					this.NavigationController.PushViewController(landingLeadsVC, true);
+				}
+				
+			};
 			TableViewPassView.Layer.BorderWidth = 1.0f;
 
 //			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {

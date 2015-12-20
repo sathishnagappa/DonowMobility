@@ -11,21 +11,20 @@ namespace donow.iOS
 	partial class AccountManagementVC : UIViewController
 	{
 		UserBL userBL;
-
-		public AccountManagementVC (IntPtr handle) : base (handle)
+	    public AccountManagementVC (IntPtr handle) : base (handle)
 		{
 		}
 		public bool isFromSignUp;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
+
 			if (!isFromSignUp)
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			
 			this.NavigationController.SetNavigationBarHidden (false, false);
  			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-
 		}
 
 		public override void ViewDidLoad ()
@@ -51,16 +50,25 @@ namespace donow.iOS
 
 			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 1200.0f);
 
-			ButtonInfoIndustryDropDown.Layer.BorderWidth = 1.0f;
-			ButtonInfoCompanyDropDown.Layer.BorderWidth = 1.0f;
-			ButtonInfoCustomersDropDown.Layer.BorderWidth = 1.0f;
+			ButtonInfoIndustryDropDown.Layer.BorderWidth = 2.0f;
+			ButtonInfoIndustryDropDown.SetTitle ("Tech", UIControlState.Normal);
+			ButtonInfoIndustryDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+			ButtonInfoCompanyDropDown.Layer.BorderWidth = 2.0f;
+			ButtonInfoCompanyDropDown.SetTitle ("Tech", UIControlState.Normal);
+			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
+			ButtonInfoCustomersDropDown.SetTitle ("Tech", UIControlState.Normal);
+			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+
+			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
+			TableViewCustomerStreamActivity.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
 			IndustryBL industry = new IndustryBL ();
 			List<String> industryList = industry.GetIndustry ();
 
 			ButtonInfoIndustryDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;
-				TableViewCustomerStreamActivity.Frame = new CGRect (242,100,123,20);
+				TableViewCustomerStreamActivity.Frame = new CGRect (200,355,168,128);
 				TableViewCustomerStreamActivity.Source = new IndustryTableSource (industryList, this);
 				TableViewCustomerStreamActivity.ReloadData();
 			};
@@ -70,20 +78,29 @@ namespace donow.iOS
 
 			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;
-				TableViewCustomerStreamActivity.Frame = new CGRect (242,151,123,20);
+				TableViewCustomerStreamActivity.Frame = new CGRect (200,410,168,128);
 				TableViewCustomerStreamActivity.Source = new companyTableSource (CompanyList, this);
 				TableViewCustomerStreamActivity.ReloadData();
 			};
 				
 			ButtonInfoCustomersDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;
-				TableViewCustomerStreamActivity.Frame = new CGRect (242,201,123,20);
+				TableViewCustomerStreamActivity.Frame = new CGRect (200,455,168,128);
 				TableViewCustomerStreamActivity.Source = new CustomerTableSource (CompanyList, this);
 				TableViewCustomerStreamActivity.ReloadData();
 			};
 
+			ButtonUserInfo.TouchUpInside += (object sender, EventArgs e) =>  {
+				if (isFromSignUp) {
+					this.NavigationController.PopViewController(false);
+				} else {
+					signUpOtherDetailsVC userInfo = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+					if(userInfo != null)
+						this.NavigationController.PushViewController (userInfo, true);					
+				}
+			};
 
-			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {					
+			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {
 				userBL = new UserBL();
 
 				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.Selected;
@@ -97,11 +114,14 @@ namespace donow.iOS
 					AppDelegate.UserDetails.UserId = userBL.CreateUser(AppDelegate.UserDetails);
 				else
 					userBL.UpdateUserDetails(AppDelegate.UserDetails);
-				
-				WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
-				if (welcomeVC != null) {
-					this.NavigationController.PushViewController (welcomeVC, true);
-				}
+
+				if(isFromSignUp) {
+					WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
+					if (welcomeVC != null) {
+						this.NavigationController.PushViewController (welcomeVC, true);
+					}
+				}else
+					this.NavigationController.PopViewController(false);
 			};
 		}
 
@@ -148,7 +168,7 @@ namespace donow.iOS
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				cell.TextLabel.Text = item;
-
+				cell.TextLabel.TextColor = UIColor.DarkGray;
 				return cell;
 			}
 
@@ -190,6 +210,8 @@ namespace donow.iOS
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				cell.TextLabel.Text = item;
+				cell.TextLabel.TextColor = UIColor.DarkGray;
+
 				return cell;
 			}
 
@@ -231,6 +253,8 @@ namespace donow.iOS
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				cell.TextLabel.Text = item.Name;
+				cell.TextLabel.TextColor = UIColor.DarkGray;
+
 				return cell;
 			}
 

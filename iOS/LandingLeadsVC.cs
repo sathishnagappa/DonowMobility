@@ -28,7 +28,6 @@ namespace donow.iOS
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.Title = "Lead";
-//			this.ParentViewController.NavigationItem.Title = "Leads";
 //			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
 //			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
@@ -42,50 +41,45 @@ namespace donow.iOS
 //			TableViewLeads.Source = new TableSource (newleads, this);
 
 
-
-
 			//AppDelegate.IsProspectVisited = false; 
-			leads = GetLeads ();
-			if (leads.Count > 0) {
-				this.TabBarItem.BadgeValue = leads.Count.ToString ();
-				TableViewLeads.Source = new TableSource (leads, this);
-			} else {
-				AlertView.Hidden = false;
+//			leads = GetLeads ();
+//			if (leads.Count > 0) {
+//				this.TabBarItem.BadgeValue = leads.Count.ToString ();
+//				TableViewLeads.Source = new TableSource (leads.OrderByDescending(X => X.LEAD_SCORE).ToList(), this);
+//			} else {
+//				AlertView.Hidden = false;
+
 //				UIAlertView alert = new UIAlertView () { 
 //					Title = "", 
 //					Message = "We are gathering your leads for you! \n Check Back Shortly."
 //				};
 //				alert.AddButton ("OK");
 //				alert.Show ();
-
-			}
-
-			GetLeadUpdatePage ();
-		}
-
-		public override void ViewWillDisappear (bool animated)
-		{
-			base.ViewWillDisappear (animated);
-
-//   		    this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-//			this.NavigationController.SetNavigationBarHidden (false, false);
-//			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
-//			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-//			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
-//			this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-//				this.NavigationController.PopViewController(true);
-//			}), true);
+//				[[[[[self tabBarController] tabBar] items] 
+//					objectAtIndex:tabIndex] setBadgeValue:badgeValueString];
+//				this.TabBarItem.BadgeValue
+//			}
+//
+//			GetLeadUpdatePage ();
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			this.Title = "Leads";
+			this.NavigationItem.Title = "Leads";
 			this.NavigationItem.SetHidesBackButton (true, false);
 //			this.NavigationItem.SetLeftBarButtonItem(null, true);
 
+			leads = GetLeads ();
+			if (leads.Count > 0) {
+				this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString ();
+				TableViewLeads.Source = new TableSource (leads.OrderByDescending(X => X.LEAD_SCORE).ToList(), this);
+			} else {
+				AlertView.Hidden = false;
+			}
 
+			GetLeadUpdatePage ();
 			//List<UserMeetings> userMeeetings 
 			//var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 			//if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
@@ -95,7 +89,7 @@ namespace donow.iOS
 			//View.Add (loadingOverlay);
 
 
-			LabelAlertView.Layer.CornerRadius = 10.0f;
+			LabelAlertView.Layer.CornerRadius = 5.0f;
 			ButtonOk.Layer.CornerRadius = 5.0f;
 
 			ButtonOk.TouchUpInside += (object sender, EventArgs e) =>  {
@@ -105,14 +99,10 @@ namespace donow.iOS
 			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
 			//View.Add (loadingOverlay);
 				leads = GetLeads();
-//				Leads lead = new Leads();
-//				lead.BUSINESS_NEED = "";
-//				lead.CITY = "Seattle"
-//			    lead.	
 				if (leads.Count > 0) {					
-				this.TabBarItem.BadgeValue = leads.Count.ToString();
-				TableViewLeads.Source = null;
+					this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString();
 				TableViewLeads.Source = new TableSource (leads, this);
+				TableViewLeads.ReloadData ();
 				//loadingOverlay.Hide ();
 				} else {
 					AlertView.Hidden = false;

@@ -33,11 +33,29 @@ namespace donow.iOS
 
 			ViewSendRequestView.Layer.CornerRadius = 10.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 5.0f;
+			LabelNameDealMaker.Text = brokerObj.City + " Deal Maker";
 
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
 				
 				BrokerBL brokerbl = new BrokerBL();
-				brokerbl.UpdateBrokerStatus(brokerObj.BrokerID,"Acceptance Pending");
+				brokerbl.UpdateBrokerStatus(brokerObj.BrokerID, 2,brokerObj.LeadID);
+				ReferralRequest rrnew = new ReferralRequest ();
+				rrnew.ID = 0;
+				rrnew.SellerName = AppDelegate.UserDetails.FullName;
+				rrnew.City = AppDelegate.UserDetails.City;
+				rrnew.State = AppDelegate.UserDetails.State;
+				rrnew.Industry = AppDelegate.UserDetails.Industry;
+				rrnew.Prospect = AppDelegate.CurrentLead.LEAD_NAME;
+				rrnew.BusinessNeeds = AppDelegate.CurrentLead.BUSINESS_NEED;
+				rrnew.BrokerID = brokerObj.BrokerID;
+				rrnew.BrokerUserID = (int)brokerObj.BrokerID;
+				rrnew.Status = 1;
+				rrnew.CreatedOn = DateTime.Now.ToString();
+				rrnew.SellerUserID = AppDelegate.UserDetails.UserId;
+				rrnew.CompanyInfo = AppDelegate.UserDetails.Company;
+				rrnew.CompanyName = AppDelegate.UserDetails.Company;
+				rrnew.LeadEmailID = AppDelegate.CurrentLead.EMAILID;
+				AppDelegate.referralRequestBL.SaveReferralRequest(rrnew);
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
 			};
@@ -46,9 +64,9 @@ namespace donow.iOS
 				ViewSendRequestView.Hidden = true;
 			};
 
-			LabelBrokerScore.Text = "Broker Score: \n" + brokerObj.BrokerScore;
-			LabelBrokerFee.Text = "Broker Fee: \n" + brokerObj.BrokerFee;
-			LabelTotalEarnings.Text = "Total Earnings: \n" + brokerObj.BrokerTotalEarning;
+			LabelBrokerScore.Text = "Broker Score \n" + brokerObj.BrokerScore;
+			LabelBrokerFee.Text = "Broker Fee \n" + brokerObj.BrokerFee;
+			LabelTotalEarnings.Text = "Total Earnings \n" + brokerObj.BrokerTotalEarning;
 			LabelCompanyInfoDescription.Text = brokerObj.Industry;
 			labelConnectionToLead.Text = brokerObj.ConnectionLead;
 

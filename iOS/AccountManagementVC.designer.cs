@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton buttonChangePassword { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonFinish { get; set; }
 
 		[Outlet]
@@ -68,6 +72,10 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (buttonChangePassword != null) {
+				buttonChangePassword.Dispose ();
+				buttonChangePassword = null;
+			}
 			if (ButtonFinish != null) {
 				ButtonFinish.Dispose ();
 				ButtonFinish = null;

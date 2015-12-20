@@ -20,6 +20,7 @@ namespace donow.Util
 		public static string DealMaker="https://microsoft-apiapp73425ff2f5ca4ceea1463faaa349220f.azurewebsites.net/api/Dealmaker";
 		public static string Industry="https://microsoft-apiapp73425ff2f5ca4ceea1463faaa349220f.azurewebsites.net/api/Industry";
 		public static string LOB="https://microsoft-apiapp73425ff2f5ca4ceea1463faaa349220f.azurewebsites.net/api/LineOfBusiness";
+		public static string ReferralRequestsUpdate="https://microsoft-apiapp73425ff2f5ca4ceea1463faaa349220f.azurewebsites.net/api/ReferralRequestsUpdate";
 	}
 }
 
