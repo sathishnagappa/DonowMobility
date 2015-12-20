@@ -124,6 +124,48 @@ namespace donow.iOS
 					this.PresentViewController (mailController, true, null);
 				}
 			};
+
+			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {
+				var url = new NSUrl ("tel://" + customer.Phone);
+				if (!UIApplication.SharedApplication.OpenUrl (url)) {
+					var av = new UIAlertView ("Not supported",
+						"Scheme 'tel:' is not supported on this device",
+						null,
+						"OK",
+						null);
+					av.Show ();
+				};
+				CustomerInteraction customerinteract = new CustomerInteraction();
+				customerinteract.CustomerName =  customer.Name;
+				customerinteract.UserId = AppDelegate.UserDetails.UserId;
+				customerinteract.Type = "Phone";
+				customerinteract.DateNTime = DateTime.Now.ToString();
+				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+			};
+
+			ButtonMail.TouchUpInside += (object sender, EventArgs e) => {
+				MFMailComposeViewController mailController;
+				if (MFMailComposeViewController.CanSendMail) {
+					// do mail operations here
+					mailController = new MFMailComposeViewController ();
+					mailController.SetToRecipients (new string[]{customer.Email});
+					mailController.SetSubject ("Quick request");
+					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
+
+					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
+						CustomerInteraction customerinteract = new CustomerInteraction();
+						customerinteract.CustomerName =  customer.Name;
+						customerinteract.UserId = AppDelegate.UserDetails.UserId;
+						customerinteract.Type = "Email";
+						customerinteract.DateNTime = DateTime.Now.ToString();
+						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+						Console.WriteLine (args.Result.ToString ());
+						args.Controller.DismissViewController (true, null);
+					};
+
+					this.PresentViewController (mailController, true, null);
+				}
+			};
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {

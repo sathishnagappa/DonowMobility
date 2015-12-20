@@ -52,11 +52,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+<<<<<<< HEAD
 		UILabel LabelScore { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewCustomerProfile { get; set; }
+=======
+		UITableView TableViewEmails { get; set; }
+>>>>>>> origin/master
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

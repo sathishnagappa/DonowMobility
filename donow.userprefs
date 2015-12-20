@@ -20,9 +20,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/MyDealMakerVC.cs" line="92" column="1" />
-      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/InteractionLeadUpdateVC.cs" line="100" column="1" />
-      <Breakpoint file="/Users/administrator/Desktop/DonowMobility/iOS/InteractionLeadUpdateVC.cs" line="114" column="87" />
+      <Breakpoint file="/Users/brillio/Documents/doNow/DonowMobility/iOS/LeadDetailVC.cs" line="76" column="1" />
       <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/MyDealMakerDetailVC.cs" line="57" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

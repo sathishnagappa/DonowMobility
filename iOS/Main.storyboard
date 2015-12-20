@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2858">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2858">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ufonts.com_segoe-ui-light.ttf">
@@ -646,16 +647,15 @@
                                 <rect key="frame" x="44" y="256" width="324" height="30"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Please enter your registed email id." lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3551">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please enter your registed email id." lineBreakMode="tailTruncation" minimumFontSize="10" id="3551" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="68" y="173" width="277" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -1029,6 +1029,7 @@
                         <outlet property="LabelTitle" destination="B0Z-K5-KsS" id="name-outlet-B0Z-K5-KsS"/>
                         <outlet property="LabelTotalEarnings" destination="mKT-TH-JOr" id="name-outlet-mKT-TH-JOr"/>
                         <outlet property="LabelUserName" destination="JVf-jY-k7a" id="name-outlet-JVf-jY-k7a"/>
+                        <outlet property="LabelNoReferralRequest" destination="mrj-Cv-qmO" id="name-outlet-mrj-Cv-qmO"/>
                         <outlet property="NewRequestView" destination="W7e-X4-YRz" id="name-outlet-W7e-X4-YRz"/>
                         <outlet property="PassedRequestView" destination="GOo-kC-c2K" id="name-outlet-GOo-kC-c2K"/>
                         <outlet property="ReferralRequestScrollView" destination="vIl-uj-ZC9" id="name-outlet-vIl-uj-ZC9"/>
@@ -1040,6 +1041,13 @@
                         <outlet property="TextNewSellerName" destination="ZZx-l7-aDt" id="name-outlet-ZZx-l7-aDt"/>
                         <outlet property="TextPassedIndustry" destination="R2e-n4-FKk" id="name-outlet-R2e-n4-FKk"/>
                         <outlet property="TextPassedSellerName" destination="Hi7-8M-gTX" id="name-outlet-Hi7-8M-gTX"/>
+                        <outlet property="LabelUserName" destination="JVf-jY-k7a" id="name-outlet-JVf-jY-k7a"/>
+                        <outlet property="LabelTitle" destination="B0Z-K5-KsS" id="name-outlet-B0Z-K5-KsS"/>
+                        <outlet property="LabelCompany" destination="QSI-Nm-vcX" id="name-outlet-QSI-Nm-vcX"/>
+                        <outlet property="LabelIndustry" destination="pro-kI-6eF" id="name-outlet-pro-kI-6eF"/>
+                        <outlet property="LabelCityState" destination="aMm-uV-zP4" id="name-outlet-aMm-uV-zP4"/>
+                        <outlet property="LabelBrokerScore" destination="qDW-6H-6iC" id="name-outlet-qDW-6H-6iC"/>
+                        <outlet property="LabelTotalEarnings" destination="mKT-TH-JOr" id="name-outlet-mKT-TH-JOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i00-j6-HbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1479,7 +1487,7 @@ Manager in the tech industry for...</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV5-DW-Vp2">
                                                 <rect key="frame" x="35" y="66" width="138" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZW-NV-ogV">
@@ -2823,13 +2831,16 @@ steps.</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-Az-sqy">
                                         <rect key="frame" x="0.0" y="346" width="414" height="175"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Leads Icon_Small.png" translatesAutoresizingMaskIntoConstraints="NO" id="9LA-q5-lu1">
+                                                <rect key="frame" x="322" y="8" width="45" height="45"/>
+                                            </imageView>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-hF-Ysu">
                                                 <rect key="frame" x="0.0" y="61" width="414" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customer Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15B-Uu-WmT">
-                                                <rect key="frame" x="35" y="13" width="154" height="36"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Leads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15B-Uu-WmT">
+                                                <rect key="frame" x="35" y="11" width="154" height="36"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2860,27 +2871,41 @@ steps.</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Xr-se-TCS">
+                                        <rect key="frame" x="0.0" y="409" width="414" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-zz-l8R">
                                         <rect key="frame" x="0.0" y="520" width="414" height="1312"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEj-hV-qk3">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                                 <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="See All Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ksr-Le-r9G">
+                                                        <rect key="frame" x="244" y="16" width="15" height="15"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0B-HB-uiw">
+                                                        <rect key="frame" x="0.0" y="3" width="414" height="41"/>
+                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                                        <state key="normal" title="See All">
+                                                            <color key="titleColor" red="0.40784313725490196" green="0.40392156862745099" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                    </button>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1x-UJ-0LB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                                        <rect key="frame" x="0.0" y="45" width="414" height="1"/>
                                                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Upcoming Meetings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwG-GA-sCp">
-                                                        <rect key="frame" x="35" y="20" width="245" height="36"/>
+                                                        <rect key="frame" x="35" y="65" width="245" height="36"/>
                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar Icon_Small.png" translatesAutoresizingMaskIntoConstraints="NO" id="ezg-EZ-brf">
-                                                        <rect key="frame" x="322" y="20" width="45" height="45"/>
+                                                        <rect key="frame" x="322" y="65" width="45" height="45"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v87-to-Qa0">
-                                                        <rect key="frame" x="0.0" y="73" width="414" height="1"/>
+                                                        <rect key="frame" x="0.0" y="118" width="414" height="1"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -2888,6 +2913,7 @@ steps.</string>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="UJl-F7-R6x">
                                                 <rect key="frame" x="0.0" y="75" width="414" height="141"/>
+
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="qNe-OT-htZ">
@@ -3185,7 +3211,7 @@ steps.</string>
                                                                 <rect key="frame" x="99" y="221" width="204" height="21"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -3199,11 +3225,11 @@ steps.</string>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCX-eJ-JL4">
-                                                <rect key="frame" x="0.0" y="215" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="260" width="414" height="1"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location: Seattle, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8P-ME-Xo5">
-                                                <rect key="frame" x="117" y="171" width="251" height="21"/>
+                                                <rect key="frame" x="117" y="216" width="251" height="21"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3222,6 +3248,7 @@ steps.</string>
                         <outlet property="ButtonMail" destination="xvi-3Y-UyS" id="name-outlet-xvi-3Y-UyS"/>
                         <outlet property="ButtonPhone" destination="Sb9-vV-zJp" id="name-outlet-Sb9-vV-zJp"/>
                         <outlet property="ButtonSeeAllEmails" destination="Cxx-yZ-JhG" id="name-outlet-Cxx-yZ-JhG"/>
+                        <outlet property="ButtonSeeAllLeadsTable" destination="o0B-HB-uiw" id="name-outlet-o0B-HB-uiw"/>
                         <outlet property="ButtonSeeAllPreviousMeetings" destination="GYt-6i-tBE" id="name-outlet-GYt-6i-tBE"/>
                         <outlet property="DealMakersImage1" destination="DAK-gf-dWG" id="name-outlet-DAK-gf-dWG"/>
                         <outlet property="LabelCityAndState" destination="2nt-5S-Fd0" id="name-outlet-2nt-5S-Fd0"/>
@@ -3232,6 +3259,7 @@ steps.</string>
                         <outlet property="ScrollViewCustomerProfile" destination="QiS-Ms-hfe" id="name-outlet-QiS-Ms-hfe"/>
                         <outlet property="TableViewEmails" destination="en9-PS-53h" id="name-outlet-en9-PS-53h"/>
                         <outlet property="TableViewMeetings" destination="UJl-F7-R6x" id="name-outlet-UJl-F7-R6x"/>
+                        <outlet property="TableViewNewLeads" destination="3Xr-se-TCS" id="name-outlet-3Xr-se-TCS"/>
                         <outlet property="TableViewPreviousMeetings" destination="US6-uJ-yaG" id="name-outlet-US6-uJ-yaG"/>
                     </connections>
                 </viewController>
@@ -5045,7 +5073,6 @@ steps.</string>
     </scenes>
     <resources>
         <image name="Between Icon_Small.png" width="58" height="58"/>
-        <image name="Between Thumb.png" width="80" height="70"/>
         <image name="Calendar Icon_Small.png" width="58" height="58"/>
         <image name="Calendar Thumbnail.png" width="90" height="90"/>
         <image name="Completed Requests Icon.png" width="74" height="78"/>
@@ -5067,6 +5094,7 @@ steps.</string>
         <image name="Latest Customer Info.png" width="80" height="70"/>
         <image name="Latest Industry Thumb.png" width="80" height="70"/>
         <image name="Leads Icon_25x25px.png" width="25" height="25"/>
+        <image name="Leads Icon_Small.png" width="58" height="58"/>
         <image name="LifeCycle_Acquire Lead Highlight.png" width="572" height="70"/>
         <image name="LinkedIn Icon_Small.png" width="50" height="50"/>
         <image name="My Deal Makers Icon.png" width="58" height="58"/>
@@ -5098,6 +5126,11 @@ steps.</string>
         <image name="Navigation_Back_Icon.png" width="18" height="36"/>
         <image name="Account Mgmt Icon.png" width="58" height="58"/>
         <image name="Info Page Icon.png" width="58" height="58"/>
+        <image name="Stream Icon_Small.png" width="58" height="58"/>
+        <image name="Navigation_Back_Icon.png" width="18" height="36"/>
+        <image name="Account Mgmt Icon.png" width="58" height="58"/>
+        <image name="Info Page Icon.png" width="58" height="58"/>
+        <image name="My Profile Icon.png" width="58" height="58"/>
         <image name="LifeCycle_Proposal Highlight.png" width="572" height="70"/>
         <image name="LifeCycle_Close Sale Highlight.png" width="572" height="70"/>
         <image name="LifeCycle_Follow Up Highlight.png" width="572" height="70"/>
@@ -5106,6 +5139,7 @@ steps.</string>
         <image name="Article 1 Thumb.png" width="80" height="70"/>
         <image name="Article 2 Thumb.png" width="80" height="70"/>
         <image name="Article 3 Thumb.png" width="80" height="70"/>
+        <image name="Between Thumb.png" width="80" height="70"/>
         <image name="Contact Info Icon_Small.png" width="58" height="58"/>
         <image name="LinkedIn Thumb.png" width="80" height="70"/>
         <image name="New Leads Thumb.png" width="80" height="70"/>

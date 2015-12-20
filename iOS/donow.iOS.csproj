@@ -270,8 +270,11 @@
       <DependentUpon>DealMakerAcceptedReferralRequestlVC.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerViewDealHistory.cs" />
+<<<<<<< HEAD
     <Compile Include="ActiveLeadsMyProfileCell.cs" />
     <Compile Include="ReferralRequestsMadeMyProfileCell.cs" />
+=======
+>>>>>>> origin/master
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
