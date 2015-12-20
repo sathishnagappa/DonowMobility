@@ -269,6 +269,9 @@
     <Compile Include="DealMakerAcceptedReferralRequestlVC.designer.cs">
       <DependentUpon>DealMakerAcceptedReferralRequestlVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerViewDealHistory.cs" />
+    <Compile Include="ActiveLeadsMyProfileCell.cs" />
+    <Compile Include="ReferralRequestsMadeMyProfileCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

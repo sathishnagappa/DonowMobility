@@ -7,10 +7,11 @@ namespace donow.PCL
 {
 	public class BrokerBL
 	{
-		public int UpdateBrokerStatus(int brokerId,string status)
+		public int UpdateBrokerStatus(long brokerId,int status,long leadid)
 		{
 			Broker broker = new Broker ();
 			broker.BrokerID = brokerId;
+			broker.LeadID = leadid;
 			broker.Status = status;
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.DealMaker;

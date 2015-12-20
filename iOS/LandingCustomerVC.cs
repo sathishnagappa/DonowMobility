@@ -55,9 +55,9 @@ namespace donow.iOS
 		}
 
 		public class TableSource : UITableViewSource {
-			List<Customer> _list;
+			//List<Customer> _list;
 
-			protected int TappedIndex;
+			//protected int TappedIndex;
 			string[] _arraySectionTitle;
 			string CellIdentifier = "TableCell";
 			Dictionary<string,List<Customer>> TableItemsDictionary;
@@ -71,7 +71,7 @@ namespace donow.iOS
 
 			public TableSource ( Dictionary<string,List<Customer>> items, LandingCustomerVC owner)
 			{
-				string[] TableItems;
+				//string[] TableItems;
 				TableItemsDictionary=new Dictionary<string, List<Customer>>();
 				TableItemsDictionary = items;
 				this.owner = owner;
@@ -183,8 +183,10 @@ namespace donow.iOS
 			{
 
 				tableView.DeselectRow (indexPath, true);
+				string tappedKey = _arraySectionTitle [indexPath.Section];
 				customerProfileVC customerDetailVC = owner.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
 				if (customerDetailVC != null) {
+					customerDetailVC.customer = TableItemsDictionary[tappedKey][indexPath.Row];
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}

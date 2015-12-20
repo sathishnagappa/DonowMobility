@@ -80,11 +80,47 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView MakeView { get; set; }
+		UILabel LabelBusinessNeeds { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView PagingSendMail { get; set; }
+		UILabel LabelCityState { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCompany { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCompanyInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelIndustry { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLocation { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelProspect { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelSellerName { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelSellerProfile { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelWebSite { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView MakeView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -160,13 +196,49 @@ namespace donow.iOS
 				DisableReqMeetScroll.Dispose ();
 				DisableReqMeetScroll = null;
 			}
+			if (LabelBusinessNeeds != null) {
+				LabelBusinessNeeds.Dispose ();
+				LabelBusinessNeeds = null;
+			}
+			if (LabelCityState != null) {
+				LabelCityState.Dispose ();
+				LabelCityState = null;
+			}
+			if (LabelCompany != null) {
+				LabelCompany.Dispose ();
+				LabelCompany = null;
+			}
+			if (LabelCompanyInfo != null) {
+				LabelCompanyInfo.Dispose ();
+				LabelCompanyInfo = null;
+			}
+			if (LabelIndustry != null) {
+				LabelIndustry.Dispose ();
+				LabelIndustry = null;
+			}
+			if (LabelLocation != null) {
+				LabelLocation.Dispose ();
+				LabelLocation = null;
+			}
+			if (LabelProspect != null) {
+				LabelProspect.Dispose ();
+				LabelProspect = null;
+			}
+			if (LabelSellerName != null) {
+				LabelSellerName.Dispose ();
+				LabelSellerName = null;
+			}
+			if (LabelSellerProfile != null) {
+				LabelSellerProfile.Dispose ();
+				LabelSellerProfile = null;
+			}
+			if (LabelWebSite != null) {
+				LabelWebSite.Dispose ();
+				LabelWebSite = null;
+			}
 			if (MakeView != null) {
 				MakeView.Dispose ();
 				MakeView = null;
-			}
-			if (PagingSendMail != null) {
-				PagingSendMail.Dispose ();
-				PagingSendMail = null;
 			}
 			if (PassView != null) {
 				PassView.Dispose ();

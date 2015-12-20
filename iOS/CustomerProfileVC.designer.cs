@@ -24,15 +24,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllDealHistory { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSeeAllEmails { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllLeadsTable { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -56,11 +48,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIScrollView ScrollViewCustomerProfile { get; set; }
+		UILabel LabelLOB { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewDealHistory { get; set; }
+		UILabel LabelScore { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewCustomerProfile { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -69,10 +65,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewMeetings { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewNewLeads { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -88,17 +80,9 @@ namespace donow.iOS
 				ButtonPhone.Dispose ();
 				ButtonPhone = null;
 			}
-			if (ButtonSeeAllDealHistory != null) {
-				ButtonSeeAllDealHistory.Dispose ();
-				ButtonSeeAllDealHistory = null;
-			}
 			if (ButtonSeeAllEmails != null) {
 				ButtonSeeAllEmails.Dispose ();
 				ButtonSeeAllEmails = null;
-			}
-			if (ButtonSeeAllLeadsTable != null) {
-				ButtonSeeAllLeadsTable.Dispose ();
-				ButtonSeeAllLeadsTable = null;
 			}
 			if (ButtonSeeAllPreviousMeetings != null) {
 				ButtonSeeAllPreviousMeetings.Dispose ();
@@ -120,13 +104,17 @@ namespace donow.iOS
 				LabelCustomerName.Dispose ();
 				LabelCustomerName = null;
 			}
+			if (LabelLOB != null) {
+				LabelLOB.Dispose ();
+				LabelLOB = null;
+			}
+			if (LabelScore != null) {
+				LabelScore.Dispose ();
+				LabelScore = null;
+			}
 			if (ScrollViewCustomerProfile != null) {
 				ScrollViewCustomerProfile.Dispose ();
 				ScrollViewCustomerProfile = null;
-			}
-			if (TableViewDealHistory != null) {
-				TableViewDealHistory.Dispose ();
-				TableViewDealHistory = null;
 			}
 			if (TableViewEmails != null) {
 				TableViewEmails.Dispose ();
@@ -135,10 +123,6 @@ namespace donow.iOS
 			if (TableViewMeetings != null) {
 				TableViewMeetings.Dispose ();
 				TableViewMeetings = null;
-			}
-			if (TableViewNewLeads != null) {
-				TableViewNewLeads.Dispose ();
-				TableViewNewLeads = null;
 			}
 			if (TableViewPreviousMeetings != null) {
 				TableViewPreviousMeetings.Dispose ();

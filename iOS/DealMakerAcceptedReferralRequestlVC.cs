@@ -4,13 +4,46 @@ using System;
 
 using Foundation;
 using UIKit;
+using donow.PCL;
+using CoreGraphics;
 
 namespace donow.iOS
 {
 	public partial class DealMakerAcceptedReferralRequestlVC : UIViewController
 	{
+		public Broker brokerObj;
 		public DealMakerAcceptedReferralRequestlVC (IntPtr handle) : base (handle)
 		{
+		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			this.Title = "Deal Maker";
+			LabelBrokerName.Text = brokerObj.BrokerName;
+//			LabelDesignation.Text = brokerObj.BrokerDesignation;
+			LabelCompanyName.Text = brokerObj.Company;
+			LabelIndustryType.Text = "Industry: " + brokerObj.Industry;
+			LabelCityAndState.Text = brokerObj.City + ", " + brokerObj.State;
+			LabelScore.Text = brokerObj.BrokerScore;
+			LabelReferralMade.Text = brokerObj.BrokerTotalEarning;
+			LabelBrokerInfo.Text = brokerObj.Company + "\n" + brokerObj.Industry;
+			LabelConnectionsToLead.Text = brokerObj.ConnectionLead;
+			LabelDomainExpertise.Text = brokerObj.DomainExpertise;
+
+			ScrollViewDealMaker.ContentSize = new CGSize (414, 760);
+
+			ButtonBrokerExpand.TouchUpInside += (object sender, EventArgs e) =>  {
+
+			};
+
+			ButtonConnectionToLEadExpand.TouchUpInside += (object sender, EventArgs e) =>  {
+
+			};
+
+			ButtonDomainExpertiseExpand.TouchUpInside += (object sender, EventArgs e) =>  {
+
+			};
 		}
 	}
 }

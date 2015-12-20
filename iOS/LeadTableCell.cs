@@ -80,20 +80,14 @@ namespace donow.iOS
 			switch (Status) {
 			case 1: 
 				return "New";
-
 			case 2:
 				return "Acceptance Pending";
-
-			   break;
 			case 3:
 				return "Assigned";
-
 			case 4:
 				return "Accepted";
-
 			case 5:
 				return "Passed";
-
 			default:
 				return "";
 			}

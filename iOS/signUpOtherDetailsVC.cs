@@ -25,7 +25,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-			this.Title = "Sign Up Details";
+			this.Title = "Sign Up: User Info";
 
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
@@ -117,6 +117,19 @@ namespace donow.iOS
 				}
 				}
 			};
+		}
+
+		public override void TouchesBegan (NSSet touches, UIEvent evt)
+		{
+			base.TouchesBegan (touches, evt);
+			UITouch touch = touches.AnyObject as UITouch;
+			if (touch != null) {
+				if (ScrollViewSignUpDetails.Frame.Contains(touch.LocationInView(ScrollViewSignUpDetails)))
+				{
+					TableViewState.Hidden = true;
+					TableViewIndustry.Hidden = true;
+				}
+			}
 		}
 
 		bool Validation()

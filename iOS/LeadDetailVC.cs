@@ -102,6 +102,14 @@ namespace donow.iOS
 				AppDelegate.IsLeadAccepted = true;
 				leadsBL = new LeadsBL();
 				leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
+
+//				prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
+//				if (prospectVC != null) {
+//					prospectVC.localLeads = TableItems [indexPath.Row];
+//					owner.NavigationController.PushViewController (prospectVC, true);
+//				}
+
+
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -202,6 +210,7 @@ namespace donow.iOS
 				//				label.AdjustsFontSizeToFitWidth = false;
 			};
 
+
 			ButtonOptionPassView.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewPassView.Hidden = false;
 			};
@@ -219,12 +228,14 @@ namespace donow.iOS
 								}				
 						
 			};
+
 //			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
 //				leadsBL = new LeadsBL();
 //				string text = ButtonOptionPassView.TitleLabel.Text;
 //				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
 //				this.NavigationController.PopViewController(false);
 //			};
+
 
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
 			
