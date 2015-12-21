@@ -159,25 +159,7 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				
-//				tableView.DeselectRow (indexPath, true);
-//				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-//				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE != 1) 
-//				{
-//					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-//					if (leadDetailVC != null) {
-//						leadDetailVC.leadObj = TableItems [indexPath.Row];
-//						owner.NavigationController.PushViewController (leadDetailVC, true);
-//					}
-//				} else if (TableItems [indexPath.Row].STATUS != "Accepted") {
-//					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-//					if (prospectVC != null) {
-//						prospectVC.localLeads = TableItems [indexPath.Row];
-//						owner.NavigationController.PushViewController (prospectVC, true);
-//					}
-//					
-//				}
+			{				
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
 				if ((TableItems [indexPath.Row].USER_LEAD_STATUS == 1 || TableItems [indexPath.Row].USER_LEAD_STATUS == 2) && TableItems [indexPath.Row].LEAD_SOURCE == 1) 

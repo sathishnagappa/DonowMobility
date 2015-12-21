@@ -41,28 +41,6 @@ namespace donow.iOS
 			ViewAccept.Hidden = true;
 			ViewPass.Hidden = true;
 
-//			if (AppDelegate.IsCalendarClicked) {
-//				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-//				if (prospectVC != null) {
-//					prospectVC.localLeads = leadObj;
-//					this.NavigationController.PushViewController (prospectVC, true);
-//				}
-//			}
-//			if (!AppDelegate.IsProspectVisited && AppDelegate.IsLeadAccepted) {
-//				prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-//				if (prospectVC != null) {
-//					prospectVC.localLeads = leadObj;
-//					this.NavigationController.PushViewController (prospectVC, true);
-//				}
-//			} 
-//
-//			if(AppDelegate.IsProspectVisited)
-//			{
-//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-//				if (landingLeadsVC != null) {
-//					this.NavigationController.PushViewController (landingLeadsVC, true);
-//				}
-//			}
 		}
 
 		public  override void ViewDidLoad ()
@@ -72,9 +50,9 @@ namespace donow.iOS
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
-			btn.Clicked += (sender , e)=>{
-				LandingLeadsVC leadPage = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-				this.NavigationController.PushViewController(leadPage,true);
+			btn.Clicked += (sender , e)=>{				
+				this.NavigationController.PopViewController(false);
+
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
@@ -84,7 +62,8 @@ namespace donow.iOS
 			LabelScore.Text = leadObj.LEAD_SCORE.ToString();
 			LabelSourceName.Text = leadObj.LEAD_SOURCE == 2 ? "SFDC" : "DoNow" ;
 			LabelCompanyInfo.Text = leadObj.COMPANY_INFO;
-			LabelTitleCompany.Text = leadObj.COMPANY_NAME;
+//			LabelCompanyInfo.Text = "aaaaaa aaaaaaaaaaav vvvvvvv vvvvfff fffffff fffffbbb bbbbbbb bbffffff fffggggg gggggtttttt ttttdddd dddddaa aaa af";
+			LabelTitleCompany.Text = leadObj.COMPANY_NAME; 
 			LabelLocation.Text = leadObj.CITY + "," + leadObj.STATE;
 			LabelBusinessNeeds.Text = leadObj.BUSINESS_NEED;
 
@@ -102,14 +81,6 @@ namespace donow.iOS
 				AppDelegate.IsLeadAccepted = true;
 				leadsBL = new LeadsBL();
 				leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
-
-//				prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-//				if (prospectVC != null) {
-//					prospectVC.localLeads = TableItems [indexPath.Row];
-//					owner.NavigationController.PushViewController (prospectVC, true);
-//				}
-
-
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -240,15 +211,16 @@ namespace donow.iOS
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
 			
 				var maxHeight = 500.0f;
-				float width = 280;// label.Frame.Width;  
+				float width = 300;// label.Frame.Width;  
 				LabelCompanyInfo.Lines = 0;
 				CGSize size = ((NSString)LabelCompanyInfo.Text).StringSize(LabelCompanyInfo.Font,  
 					constrainedToSize:new SizeF(width, maxHeight) ,lineBreakMode:UILineBreakMode.WordWrap);
-
 				var labelFrame = LabelCompanyInfo.Frame;
-				labelFrame.Size = new CGSize(280,size.Height);
+				labelFrame.Size = new CGSize(width,size.Height);
 				LabelCompanyInfo.Frame = labelFrame; 
 
+//				CompanyInfoView.Frame = new CGRect(0,265,414,200);
+//				BusinessNeedsView.Frame = new CGRect (0,500, 414.0f, 120);
 			};
 
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {

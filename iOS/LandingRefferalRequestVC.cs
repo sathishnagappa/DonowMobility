@@ -88,7 +88,6 @@ namespace donow.iOS
 				PassedRequestView.Frame = new CGRect (0,375,414,155);
 				AcceptedRequestView.Hidden = true;
 				ReferralRequestScrollView.ContentSize = new CGSize (414,736);
-
 			} else {				
 				AcceptedRequestView.Hidden = false;
 				TextAcceptedSellerName.Text = acceptedRequest [0].SellerName;

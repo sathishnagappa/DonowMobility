@@ -120,6 +120,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView lineViewBusinessNeeds { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView lineViewCompanyInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewPassView { get; set; }
 
 		[Outlet]
@@ -239,6 +247,14 @@ namespace donow.iOS
 			if (LabelTitleName != null) {
 				LabelTitleName.Dispose ();
 				LabelTitleName = null;
+			}
+			if (lineViewBusinessNeeds != null) {
+				lineViewBusinessNeeds.Dispose ();
+				lineViewBusinessNeeds = null;
+			}
+			if (lineViewCompanyInfo != null) {
+				lineViewCompanyInfo.Dispose ();
+				lineViewCompanyInfo = null;
 			}
 			if (TableViewPassView != null) {
 				TableViewPassView.Dispose ();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -32,8 +33,7 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				loginPageViewController loginPage = this.Storyboard.InstantiateViewController ("loginPageViewController") as loginPageViewController;
-				this.NavigationController.PushViewController(loginPage,true);
+				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
@@ -79,7 +79,9 @@ namespace donow.iOS
 				alert.Show ();
 
 			}
-			catch(Exception ex) {
+			catch(Exception ex) 
+			{
+				Insights.Report(ex);
 				alert = new UIAlertView () {
 					Title = "Email Error", 
 					Message = "Coundn't send email."

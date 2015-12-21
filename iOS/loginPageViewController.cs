@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Net;
 using donow.Services;
 using donow.PCL;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -225,6 +226,19 @@ namespace donow.iOS
 				AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
 				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
+					#region This code block is used for Insight tracking
+					var userInfos = new Dictionary<string,string> {
+						{ Insights.Traits.Email, AppDelegate.UserDetails.Email },
+						{ Insights.Traits.Name, AppDelegate.UserDetails.FullName},
+						{ "Title",AppDelegate.UserDetails.Title},
+						{ "Company",AppDelegate.UserDetails.Company},
+						{ "Industry",AppDelegate.UserDetails.Industry},
+						{ Insights.Traits.Address,AppDelegate.UserDetails.OfficeAddress},
+						{ Insights.Traits.Phone,AppDelegate.UserDetails.Phone}
+					};
+					#endregion
+					Insights.Identify(AppDelegate.UserDetails.UserId.ToString(), userInfos);
+
 					return true;
 				}
 				else {

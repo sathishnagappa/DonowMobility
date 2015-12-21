@@ -36,8 +36,7 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
-				this.NavigationController.PushViewController(hambergerVC,true);
+				this.NavigationController.PopViewController(false);
 			};	
 			NavigationItem.LeftBarButtonItem = btn;
 			LabelName.Text = AppDelegate.UserDetails.FullName;

@@ -25,28 +25,7 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 			AppDelegate.IsProspectVisited = true;
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-//		    this.NavigationController.NavigationItem.SetLeftBarButtonItem( new UIBarButtonItem(UIImage.FromFile("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
-//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-//				if (landingLeadsVC != null) {
-//					this.NavigationController.PopToViewController(landingLeadsVC, true);
-//				} 
-//			}), true);
-
-
 		}
-		public override void ViewWillDisappear (bool animated)
-		{
-//			LeadDetailVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-//			List<UIViewController> listvc = this.NavigationController.ViewControllers.ToList();
-//			foreach (var item in listvc) {
-//
-//				if(item == landingLeadsVC)
-//				{
-//					item.NavigationController.RemoveFromParentViewController ();
-//				}
-//			}
-		}
-
 
 		public override void ViewDidLoad ()
 		{
@@ -58,8 +37,7 @@ namespace donow.iOS
 			btn.Title = "Leads";
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				LandingLeadsVC leadsPage = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-				this.NavigationController.PushViewController(leadsPage,true);
+				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
