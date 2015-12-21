@@ -33,14 +33,6 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-//				if (isFromSignUp) {
-//					signUpOtherDetailsVC signUpOtherDetailsPage = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
-//					this.NavigationController.PushViewController(signUpOtherDetailsPage,true);
-//				}
-//				else {
-//					HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
-//					this.NavigationController.PushViewController(hambergerVC,true);
-//				}
 				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
@@ -57,7 +49,7 @@ namespace donow.iOS
 			ButtonInfoCompanyDropDown.SetTitle ("Tech", UIControlState.Normal);
 			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
-			ButtonInfoCustomersDropDown.SetTitle ("Tech", UIControlState.Normal);
+			ButtonInfoCustomersDropDown.SetTitle ("", UIControlState.Normal);
 			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
 			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
