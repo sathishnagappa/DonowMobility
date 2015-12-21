@@ -99,7 +99,6 @@ namespace donow.iOS
 
 			List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
 
-
 			List<UserMeetings> listMeeting = new List<UserMeetings> ();
 			listMeeting = AppDelegate.userBL.GetMeetings(customer.Name);
 			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();

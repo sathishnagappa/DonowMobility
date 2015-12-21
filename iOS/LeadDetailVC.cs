@@ -162,7 +162,7 @@ namespace donow.iOS
 				};
 
 				CustomerInteraction customerinteract = new CustomerInteraction();
-				customerinteract.CustomerName =  leadObj.COMPANY_NAME;
+				customerinteract.CustomerName =  leadObj.LEAD_NAME;
 				customerinteract.UserId = AppDelegate.UserDetails.UserId;
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
@@ -180,7 +180,7 @@ namespace donow.iOS
 
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
 						CustomerInteraction customerinteract = new CustomerInteraction();
-						customerinteract.CustomerName =  leadObj.COMPANY_NAME;
+						customerinteract.CustomerName =  leadObj.LEAD_NAME;
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();

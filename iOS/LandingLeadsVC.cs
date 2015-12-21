@@ -259,6 +259,12 @@ namespace donow.iOS
 							leadUpdateVC.meetingObj = item;
 							this.PresentViewController (leadUpdateVC, true, null);
 						}
+//												InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+//												if (interactionLeadUpdateVC != null) {
+//													interactionLeadUpdateVC.userMeetings = item;
+//													this.PresentViewController (interactionLeadUpdateVC, true, null);
+//												} 
+
 						//}
 					}
 				}

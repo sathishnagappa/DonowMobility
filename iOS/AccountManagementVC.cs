@@ -10,7 +10,7 @@ namespace donow.iOS
 {
 	partial class AccountManagementVC : UIViewController
 	{
-		UserBL userBL;
+		
 	    public AccountManagementVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -45,20 +45,42 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			AppDelegate.IsNewUser = true;
+			//AppDelegate.IsNewUser = true;
 			TableViewCustomerStreamActivity.Hidden = true;
 
-			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 1200.0f);
+			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 920.0f);
 
 			ButtonInfoIndustryDropDown.Layer.BorderWidth = 2.0f;
-			ButtonInfoIndustryDropDown.SetTitle ("Tech", UIControlState.Normal);
+			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredIndustry)) 
+				ButtonInfoIndustryDropDown.SetTitle (" Select", UIControlState.Normal);
+			else
+				ButtonInfoIndustryDropDown.SetTitle (AppDelegate.UserDetails.PreferredIndustry, UIControlState.Normal);
+			
 			ButtonInfoIndustryDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 			ButtonInfoCompanyDropDown.Layer.BorderWidth = 2.0f;
-			ButtonInfoCompanyDropDown.SetTitle ("Tech", UIControlState.Normal);
+			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCompany)) 
+				ButtonInfoCompanyDropDown.SetTitle (" Select", UIControlState.Normal);
+			else
+				ButtonInfoCompanyDropDown.SetTitle (AppDelegate.UserDetails.PreferredCompany, UIControlState.Normal);
+			
 			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
-			ButtonInfoCustomersDropDown.SetTitle ("Tech", UIControlState.Normal);
+
+			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCustomers)) 
+				ButtonInfoCustomersDropDown.SetTitle (" Select", UIControlState.Normal);
+			else
+				ButtonInfoCustomersDropDown.SetTitle (AppDelegate.UserDetails.PreferredCustomers, UIControlState.Normal);
+			
 			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+
+			if (AppDelegate.UserDetails.UserId != 0) {
+
+				SwitchNewLeads.On = AppDelegate.UserDetails.IsNewLeadNotificationRequired;
+				SwitchBusinessUpdates.On = AppDelegate.UserDetails.IsBusinessUpdatesRequired;
+				SwitchFollowUp.On = AppDelegate.UserDetails.IsCustomerFollowUpRequired;
+				SwitchReferralRequests.On = AppDelegate.UserDetails.IsReferralRequestRequired;
+				SwitchMeetingReminders.On = AppDelegate.UserDetails.IsMeetingRemindersRequired;
+			}
 
 			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
 			TableViewCustomerStreamActivity.Layer.BorderColor = UIColor.LightGray.CGColor; 
@@ -99,23 +121,37 @@ namespace donow.iOS
 						this.NavigationController.PushViewController (userInfo, true);					
 				}
 			};
+			SwitchNewLeads.ValueChanged+= (object sender, EventArgs e) => {
+				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
+			};
+			SwitchBusinessUpdates.ValueChanged+= (object sender, EventArgs e) => {
+				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.On;
+			};
+			SwitchFollowUp.ValueChanged+= (object sender, EventArgs e) => {
+				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.On;
+			};
+			SwitchReferralRequests.ValueChanged+= (object sender, EventArgs e) => {
+				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.On;
+			};
+			SwitchMeetingReminders.ValueChanged+= (object sender, EventArgs e) => {
+				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.On;
+			};
 
 			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {
-				userBL = new UserBL();
 
-				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.Selected;
-				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.Selected;
-				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.Selected;
-				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.Selected;
-				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.Selected;
+				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
+				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.On;
+				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.On;
+				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.On;
+				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.On;
 				 
 				//AppDelegate.UserDetails.UserId = 7;
 				if(AppDelegate.UserDetails.UserId == 0)
-					AppDelegate.UserDetails.UserId = userBL.CreateUser(AppDelegate.UserDetails);
+					AppDelegate.UserDetails.UserId = AppDelegate.userBL.CreateUser(AppDelegate.UserDetails);
 				else
-					userBL.UpdateUserDetails(AppDelegate.UserDetails);
+					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
 
-				if(isFromSignUp) {
+				if(isFromSignUp && AppDelegate.UserDetails.UserId != 0) {
 					WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
 					if (welcomeVC != null) {
 						this.NavigationController.PushViewController (welcomeVC, true);

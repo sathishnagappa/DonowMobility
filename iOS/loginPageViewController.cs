@@ -151,10 +151,23 @@ namespace donow.iOS
 
 				var auth0 = new Auth0Client(
 					"donow.auth0.com",
-					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
+					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
+				
+				Auth0User user = null;
+				try
+				{
 
-
-				var user = await auth0.LoginAsync(this,"linkedin");
+				user = await auth0.LoginAsync(this,"linkedin");
+			
+				}
+				catch (AggregateException ex)
+			{
+				//this.SetResultText(e.Flatten().Message);
+				}
+				catch (Exception ex)
+			{
+				//this.SetResultText(e.Message);
+				}
 
 				if(user != null)
 				{
@@ -204,7 +217,7 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
-			AppDelegate.IsNewUser = false;
+			//AppDelegate.IsNewUser = false;
 			UserBL userBL = new UserBL ();
 
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {

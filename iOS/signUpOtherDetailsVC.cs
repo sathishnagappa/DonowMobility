@@ -22,7 +22,7 @@ namespace donow.iOS
 		//
 		//			ButtonNext.TitleLabel.Text = title;
 		//		}
-
+		public bool isFromAM;
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Sign Up: User Info";
@@ -93,7 +93,9 @@ namespace donow.iOS
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
 			};
 
-
+//			TextBoxLineOfBusiness.TouchUpOutside+= (object sender, EventArgs e) => {
+//				TableViewIndustry.Hidden = true;
+//			};
 
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewIndustry.Frame = new CGRect(47,275,320,122);

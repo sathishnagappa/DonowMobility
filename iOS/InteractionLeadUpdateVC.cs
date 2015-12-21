@@ -104,7 +104,14 @@ namespace donow.iOS
 				leadfeedback.InteractionFeedBack = Interaction;
 				leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
 				leadfeedback.Comments = TextViewComments.Text;
+				leadfeedback.MeetingID = userMeetings.Id;
 				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
+
+				UserMeetings usermeeting = new UserMeetings();
+				usermeeting.Id = userMeetings.Id;
+				usermeeting.Status="Done";
+				AppDelegate.userBL.UpdateMeetingList(usermeeting);
+
 				DismissViewController(true,null);
 			};
 

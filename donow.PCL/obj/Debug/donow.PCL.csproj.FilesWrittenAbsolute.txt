@@ -1,7 +1,0 @@
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/obj/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/obj/Debug/optimized/
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/bin/Debug/donow.PCL.dll.mdb
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/bin/Debug/donow.PCL.dll
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/obj/Debug/donow.PCL.dll
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/obj/Debug/donow.PCL.dll.mdb
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/donow.PCL/bin/Debug/Newtonsoft.Json.dll
