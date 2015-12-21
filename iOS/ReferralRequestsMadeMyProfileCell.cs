@@ -29,7 +29,7 @@ namespace donow.iOS
 
 			LabelHourText = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 12f),
+				Font = UIFont.FromName ("Arial-BoldMT", 12f),
 				TextColor = UIColor.LightGray,
 				Lines = 0,
 			};
@@ -41,7 +41,7 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = obj.SellerName;
 			LabelCompanyName.Text = obj.CompanyName;
-			LabelHourText.Text = DateTime.Parse(obj.CreatedOn).ToString("yyyy MMMMM dd");
+			LabelHourText.Text = DateTime.Parse(obj.CreatedOn).ToString("MMM dd");
 		}
 
 		public override void LayoutSubviews ()
@@ -50,7 +50,7 @@ namespace donow.iOS
 
 			LabelLeadName.Frame = new CGRect (14, 0, 175,30);
 			LabelCompanyName.Frame = new CGRect (14, 25, 175, 30);
-			LabelHourText.Frame = new CGRect (265,25,60,30);
+			LabelHourText.Frame = new CGRect (265,25,120,30);
 		}
 
 	}

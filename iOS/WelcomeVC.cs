@@ -16,9 +16,7 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{				
-				AccountManagementVC accountManagementPage = this.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
-				accountManagementPage.isFromSignUp = true;
-				this.NavigationController.PushViewController(accountManagementPage,true);
+				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
