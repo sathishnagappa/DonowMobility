@@ -43,14 +43,14 @@ namespace donow.iOS
 			LabelCompanyName.Text = AppDelegate.UserDetails.Company;
 			LabelCityAndState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;
 
-//			LabelSellerScore.Text = AppDelegate.Us
+			LabelSellerScore.Text = "";
 
-			LeadsBL leadsList = new LeadsBL ();
-			List<Leads> tableItems = leadsList.GetAllLeads(AppDelegate.UserDetails.UserId);
+
+		    List<Leads> tableItems = AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
 			tableItems = tableItems.Where (x => x.USER_LEAD_STATUS == 3 || x.USER_LEAD_STATUS == 4).ToList();
+			LabelLeadsReceived.Text = tableItems.Where (x => x.USER_LEAD_STATUS != 3).ToList().Count.ToString();
 
-			ReferralRequestBL referralRequest = new ReferralRequestBL ();
-			List<ReferralRequest> referralRequestList = referralRequest.GetReferralRequest (AppDelegate.UserDetails.UserId);
+			List<ReferralRequest> referralRequestList = AppDelegate.referralRequestBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
 			referralRequestList = referralRequestList.Where (x => x.Status == 1).ToList ();
 
 			TableViewActiveLeads.Source = new ActiveLeadsTableSource (tableItems, this);

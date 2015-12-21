@@ -9,16 +9,16 @@ using System.Linq;
 
 namespace donow.PCL
 {
-	public class Twitter
+	public class TwitterUtil
 	{
 
-		public static async Task<Tuple<List<ExpandoObject>, List<ExpandoObject>>> Search()
+		public static async Task<Tuple<List<ExpandoObject>, List<ExpandoObject>>> Search(string paramter)
 		{
 			Tuple<List<ExpandoObject>, List<ExpandoObject>> _return =
 				new Tuple<List<ExpandoObject>, List<ExpandoObject>>(new List<ExpandoObject>(), new List<ExpandoObject>());
 
-			const string oauthConsumerKey = "bUYWCEojQ3Ob0iyqz6xPP9V6O";  //for testing bUYWCEojQ3Ob0iyqz6xPP9V6O
-			const string oauthConsumerSecret = "Bes8uI7pSaLmsL3ME9nYa0W7QrU9Uxdy2fjXcO0pZift3FGBco"; //for testing Bes8uI7pSaLmsL3ME9nYa0W7QrU9Uxdy2fjXcO0pZift3FGBco
+			const string oauthConsumerKey = "AyKQbgOrgmHOii41sXqkfLWdz";  //for testing bUYWCEojQ3Ob0iyqz6xPP9V6O
+			const string oauthConsumerSecret = "cgv3d0JR9F8irOnT2UVLGDCelztVAufyp5Yt9pURwyrTKdawhC"; //for testing Bes8uI7pSaLmsL3ME9nYa0W7QrU9Uxdy2fjXcO0pZift3FGBco
 			string accessToken;
 
 			// get authentication token
@@ -36,7 +36,7 @@ namespace donow.PCL
 			accessToken = returnJson["access_token"].ToString();
 
 			// get timeline for user buzzfrog
-			HttpRequestMessage requestUserTimeline = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com//1.1/statuses/user_timeline.json?count=100&screen_name=LyndsyMFonseca");
+			HttpRequestMessage requestUserTimeline = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com//1.1/statuses/user_timeline.json?count=100&screen_name=" + paramter);
 			//HttpRequestMessage requestUserTimeline = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?q=%23superbowl&result_type=recent");
 			requestUserTimeline.Headers.Add("Authorization", "Bearer " + accessToken);
 			HttpResponseMessage responseUserTimeLine = await httpClient.SendAsync(requestUserTimeline);

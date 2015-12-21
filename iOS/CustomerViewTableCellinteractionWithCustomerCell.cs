@@ -42,9 +42,13 @@ namespace donow.iOS
 
 		public void UpdateCell (CustomerInteraction meetingsInfo)
 		{
-			LabelSentEmail.Text = "Sent Email: Checking In..";
-			LabelDate.Text = "Sept. 15, 2015";
-			LabelTime.Text =  "12:30 pm";
+			LabelSentEmail.Text = meetingsInfo.Type == "Email" ? "Sent Email" : "Phone Call";
+			LabelDate.Text =  DateTime.Parse(meetingsInfo.DateNTime).ToString("MMM dd, yyyy  hh:mm tt");
+			if(meetingsInfo.Type == "Email")
+				ImageViewEmail.Image = UIImage.FromBundle ("Email Sent Thumb.png"); 
+			else
+				ImageViewEmail.Image = UIImage.FromBundle ("Phone Thumb.png");	
+
 		}
 
 		public override void LayoutSubviews ()
@@ -53,7 +57,7 @@ namespace donow.iOS
 
 			ImageViewEmail.Frame = new CGRect (35, 23, 60, 55);
 			LabelSentEmail.Frame = new CGRect (122, 17, 272, 32);
-			LabelDate.Frame = new CGRect (124,57,127,21);
+			LabelDate.Frame = new CGRect (124,57,272,21);
 			LabelTime.Frame = new CGRect (264,57,127,21);
 		}
 	}

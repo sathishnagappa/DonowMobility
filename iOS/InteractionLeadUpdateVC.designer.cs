@@ -48,10 +48,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIScrollView ScrollViewInteractionPage { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewInteractionDislikerReason { get; set; }
 
 		[Outlet]
@@ -95,10 +91,6 @@ namespace donow.iOS
 			if (ButtonSubmit != null) {
 				ButtonSubmit.Dispose ();
 				ButtonSubmit = null;
-			}
-			if (ScrollViewInteractionPage != null) {
-				ScrollViewInteractionPage.Dispose ();
-				ScrollViewInteractionPage = null;
 			}
 			if (TableViewInteractionDislikerReason != null) {
 				TableViewInteractionDislikerReason.Dispose ();

@@ -48,15 +48,26 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelLOB { get; set; }
+		UILabel LabelIndustry { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+<<<<<<< HEAD
 		UILabel LabelScore { get; set; }
+=======
+		UILabel LabelLineOfBusiness { get; set; }
+>>>>>>> origin/master
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewCustomerProfile { get; set; }
+<<<<<<< HEAD
+=======
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewDealHistory { get; set; }
+>>>>>>> origin/master
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -104,17 +115,21 @@ namespace donow.iOS
 				LabelCustomerName.Dispose ();
 				LabelCustomerName = null;
 			}
-			if (LabelLOB != null) {
-				LabelLOB.Dispose ();
-				LabelLOB = null;
+			if (LabelIndustry != null) {
+				LabelIndustry.Dispose ();
+				LabelIndustry = null;
 			}
-			if (LabelScore != null) {
-				LabelScore.Dispose ();
-				LabelScore = null;
+			if (LabelLineOfBusiness != null) {
+				LabelLineOfBusiness.Dispose ();
+				LabelLineOfBusiness = null;
 			}
 			if (ScrollViewCustomerProfile != null) {
 				ScrollViewCustomerProfile.Dispose ();
 				ScrollViewCustomerProfile = null;
+			}
+			if (TableViewDealHistory != null) {
+				TableViewDealHistory.Dispose ();
+				TableViewDealHistory = null;
 			}
 			if (TableViewEmails != null) {
 				TableViewEmails.Dispose ();

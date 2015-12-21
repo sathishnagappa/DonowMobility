@@ -23,7 +23,6 @@ namespace donow.iOS
 			if (TableViewDealMaker != null) {
 				TableViewDealMaker.Dispose ();
 				TableViewDealMaker = null;
-				
 			}
 		}
 	}

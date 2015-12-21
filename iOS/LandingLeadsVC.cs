@@ -88,7 +88,9 @@ namespace donow.iOS
 			//loadingOverlay = new LoadingOverlay (bounds);
 			//View.Add (loadingOverlay);
 
-
+			if (!AppDelegate.UserDetails.IsNewLeadNotificationRequired)
+				ButtonRequestNewLead.Enabled = false;
+			
 			LabelAlertView.Layer.CornerRadius = 5.0f;
 			ButtonOk.Layer.CornerRadius = 5.0f;
 

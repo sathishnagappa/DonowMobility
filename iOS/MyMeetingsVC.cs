@@ -24,26 +24,37 @@ namespace donow.iOS
 
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
-			btn.Clicked += (sender , e)=>{				
-				this.NavigationController.PopViewController(false);
+			btn.Clicked += (sender , e)=>{
+				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
+
+			LabelMeetingHeader.Text = "Meeting W/" + meetingObj.CustomerName;
+			LabelDateAndTime.Text = DateTime.Parse(meetingObj.StartDate).ToString("MMM. dd, yyyy  hh:mm tt");
+			LabelCityState.Text = meetingObj.City + ", " + meetingObj.State;
+			//if (string.IsNullOrEmpty (LabelNotes.Text)) {
+				//LabelNotesDate.Text = DateTime.Parse (meetingObj.EndDate).ToString ();
+				//LabelNotes.Text = 
+			//}
+
+
 			ScrollViewMeeting.ContentSize = new CGSize (414f, 1350f);
 			//var meetingList = AppDelegate.CalendarList[0];
-			string[] TakingPoints =  {"&#8226; What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
-				"&#8226; What else are you willing to \n look into?","* Would you mind telling me about your current situation?","* Who do you currently use for this service?",
-				"&#8226; What’s working for you?","* What’s not working?","* What are your main frustrations?","* What would you like to change about things?",
-				"&#8226; Ask your prospect if they’d like to know more about how you could answer their needs?","* Does this sound like something that can solve your problems/make you feel better/address your issues?",
-				"&#8226; I feel really good about this, I know this is going to work well for us. What’s the best way to get things underway?",
-				"&#8226; I could email you an order when I get back to the office… or I could just get it from you now. What works best for you?"};
-			string[] LastestCustomerInfo =  {"&#8226; What is the dream solution if \n pricing was not a problem?", "&#8226; How do you want to maintain \n this solution long term?"};
+			string[] TakingPoints =  {"●  What is the dream solution if \n  pricing was not a problem?", "●  How do you want to maintain \n  this solution long term?",
+				"●  What else are you willing to \n  look into?","●  Would you mind telling me about your current situation?","●  Who do you currently use for this service?",
+				"●  What’s working for you?","• What’s not working?","●  What are your main frustrations?","●  What would you like to change about things?",
+				"●  Ask your prospect if they’d like to know more about how you could answer their needs?","●  Does this sound like something that can solve your problems/make you feel better/address your issues?",
+				"●  I feel really good about this, I know this is going to work well for us. What’s the best way to get things underway?",
+				"●  I could email you an order when I get back to the office or I could just get it from you now. What works best for you?"};
+			//string[] LastestCustomerInfo =  {"● What is the dream solution if \n pricing was not a problem?", "● How do you want to maintain \n this solution long term?"};
 //			string[] LatestIndustryInfo =  {"HR Tech Tools Optimized for\nBest Results", "HR Management: How Top\nCompanies are Strategizing",
 //				"HR Tools to Compare: How do\nyou stack up?"};
-			CustomerBL customerBL = new CustomerBL();
-			List<BingResult>  bingResult = customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
-			TalkingPointTable.Source = new TableSource(TakingPoints, this);
-			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(LastestCustomerInfo, this);
+
+			var twitterresult = TwitterUtil.Search (meetingObj.CustomerName.Trim());
+			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
+			TalkingPointTable.Source = new TableSource(TakingPoints);
+			//LatestCustomerInfoTable.Source = new CustomerInfoTableSource(LastestCustomerInfo);
 			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(bingResult, this);
 		}
 
@@ -52,12 +63,9 @@ namespace donow.iOS
 			string[] TableItems;
 			string CellIdentifier = "TableCell";
 
-			MyMeetingsVC owner;
-
-			public TableSource (string[] meetingList, MyMeetingsVC owner)
+			public TableSource (string[] meetingList)
 			{
 				TableItems = meetingList;
-				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -99,12 +107,11 @@ namespace donow.iOS
 			string[] TableItems;
 			string CellIdentifier = "TableCell";
 
-			MyMeetingsVC owner;
 
-			public CustomerInfoTableSource (string[] meetingList, MyMeetingsVC owner)
+
+			public CustomerInfoTableSource (string[] meetingList)
 			{
 				TableItems = meetingList;
-				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)

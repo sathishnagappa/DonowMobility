@@ -5,6 +5,7 @@ using UIKit;
 using donow.PCL;
 using CoreGraphics;
 using System.Collections.Generic;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -103,9 +104,21 @@ namespace donow.iOS
 				 
 				//AppDelegate.UserDetails.UserId = 7;
 				if(AppDelegate.UserDetails.UserId == 0)
+				{
 					AppDelegate.UserDetails.UserId = userBL.CreateUser(AppDelegate.UserDetails);
+					//Xamarin Insight tracking code
+					Insights.Track("CreateUser", new Dictionary <string,string>{
+						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
+					});
+				}
 				else
+				{
 					userBL.UpdateUserDetails(AppDelegate.UserDetails);
+					//Xamarin Insight tracking code
+					Insights.Track("UpdateUserDetails", new Dictionary <string,string>{
+						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
+					});
+				}
 
 				if(isFromSignUp) {
 					WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;

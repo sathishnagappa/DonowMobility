@@ -36,7 +36,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewInteractionPage.ContentSize = new CGSize (414.0f,815.0f);
+			//ScrollViewInteractionPage.ContentSize = new CGSize (414.0f,815.0f);
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
