@@ -28,10 +28,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllLeadsTable { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSeeAllPreviousMeetings { get; set; }
 
 		[Outlet]
@@ -52,6 +48,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelIndustry { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLineOfBusiness { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewCustomerProfile { get; set; }
 
 		[Outlet]
@@ -65,10 +69,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewMeetings { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TableViewNewLeads { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -87,10 +87,6 @@ namespace donow.iOS
 			if (ButtonSeeAllEmails != null) {
 				ButtonSeeAllEmails.Dispose ();
 				ButtonSeeAllEmails = null;
-			}
-			if (ButtonSeeAllLeadsTable != null) {
-				ButtonSeeAllLeadsTable.Dispose ();
-				ButtonSeeAllLeadsTable = null;
 			}
 			if (ButtonSeeAllPreviousMeetings != null) {
 				ButtonSeeAllPreviousMeetings.Dispose ();
@@ -112,6 +108,14 @@ namespace donow.iOS
 				LabelCustomerName.Dispose ();
 				LabelCustomerName = null;
 			}
+			if (LabelIndustry != null) {
+				LabelIndustry.Dispose ();
+				LabelIndustry = null;
+			}
+			if (LabelLineOfBusiness != null) {
+				LabelLineOfBusiness.Dispose ();
+				LabelLineOfBusiness = null;
+			}
 			if (ScrollViewCustomerProfile != null) {
 				ScrollViewCustomerProfile.Dispose ();
 				ScrollViewCustomerProfile = null;
@@ -127,10 +131,6 @@ namespace donow.iOS
 			if (TableViewMeetings != null) {
 				TableViewMeetings.Dispose ();
 				TableViewMeetings = null;
-			}
-			if (TableViewNewLeads != null) {
-				TableViewNewLeads.Dispose ();
-				TableViewNewLeads = null;
 			}
 			if (TableViewPreviousMeetings != null) {
 				TableViewPreviousMeetings.Dispose ();

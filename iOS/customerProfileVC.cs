@@ -40,21 +40,17 @@ namespace donow.iOS
 
 			int brokerWorkingWith = AppDelegate.brokerBL.GetBrokerForProspect (customer.LeadId).Where(X => X.Status ==4).ToList().Count;
 
-			DealMakersImage1.Hidden = brokerWorkingWith > 0 ? true : false;
-			
-			ButtonSeeAllLeadsTable.TouchUpInside += (object sender, EventArgs e) =>  {
+			DealMakersImage1.Hidden = brokerWorkingWith > 0 ? true : false;			
+			LabelIndustry.Text = customer.CompanyInfo;
+			LabelLineOfBusiness.Text = customer.BusinessNeeds;
 
-				TableSeeAllClicked = true;
-				TableViewNewLeads.ReloadData ();
-
-			};
 			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
 
 				TableSeeAllClicked = true;
 				TableViewMeetings.ReloadData ();
-
 			};
-
+			
+			
 			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {
 				var url = new NSUrl ("tel://" + customer.Phone);
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
@@ -100,7 +96,6 @@ namespace donow.iOS
 
 		void LoadScreenData()
 		{
-
 
 			List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
 

@@ -275,6 +275,8 @@
     <Compile Include="ChangePassword.designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActiveLeadsMyProfileCell.cs" />
+    <Compile Include="ReferralRequestsMadeMyProfileCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

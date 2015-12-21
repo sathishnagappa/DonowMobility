@@ -238,7 +238,6 @@ namespace donow.iOS
 //						where leaditem.LEAD_ID == item.LeadId
 //					select leaditem;
 
-				
 					meeetingEndDate = DateTime.Parse (item.EndDate);
 					TimeSpan span = meeetingEndDate.Subtract(DateTime.Now);
 
