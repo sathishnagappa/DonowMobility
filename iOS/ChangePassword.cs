@@ -3,6 +3,8 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 using donow.Util;
+using Xamarin;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
@@ -40,6 +42,10 @@ namespace donow.iOS
 				{					
 					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxNewPassword.Text); 
 					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
+					//Xamarin Insights tracking
+					Insights.Track("Change Password", new Dictionary <string,string>{
+						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
+					});
 					//SendMail(AppDelegate.UserDetails.Email, newPassword);
 					UIAlertView alert = new UIAlertView () { 
 						Title = "", 

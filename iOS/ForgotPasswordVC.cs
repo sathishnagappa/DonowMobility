@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -79,7 +80,9 @@ namespace donow.iOS
 				alert.Show ();
 
 			}
-			catch(Exception ex) {
+			catch(Exception ex) 
+			{
+				Insights.Report(ex);
 				alert = new UIAlertView () {
 					Title = "Email Error", 
 					Message = "Coundn't send email."
