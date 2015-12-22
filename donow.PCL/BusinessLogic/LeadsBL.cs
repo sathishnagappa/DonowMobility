@@ -62,10 +62,6 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		// UpdateLeadStatus()
-		// UpdateIntialFeedBack()
-		// UpdateF2FFeedBack()
-		// GetNewLeads() 
 
 		public string SaveMeetingEvent(UserMeetings userMeetings)
 		{
@@ -95,12 +91,14 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public LeadF2FFeedBack GetLeadF2FFeedBack(int leadId)
+		public List<LeadF2FFeedBack> GetLeadF2FFeedBack(int leadId)
+		//public LeadF2FFeedBack GetLeadF2FFeedBack(int leadId)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadF2FFeedback +  "?id=" + leadId;
 			string response =  restSevice.GetData (leadsApicall);
-			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<LeadF2FFeedBack>(response.ToString());
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadF2FFeedBack>>(response.ToString());
+			//var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<LeadF2FFeedBack>(response.ToString());
 			return parsedResponse;
 		}
 

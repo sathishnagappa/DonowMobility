@@ -98,9 +98,9 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-			ImageViewLeadImage.Frame = new CGRect (10, 35, 100, 100);
-			LabelLeadName.Frame = new CGRect (140, 38, 180, 30);
-			LabelCompanyName.Frame = new CGRect (140, 63, 200, 25);
+			ImageViewLeadImage.Frame = new CGRect (35, 30, 70, 70);
+			LabelLeadName.Frame = new CGRect (140, 30, 180, 30);
+			LabelCompanyName.Frame = new CGRect (140, 55, 200, 25);
 			LabelCityAndState.Frame = new CGRect (140, 83, 200, 25);
 			LabelScore.Frame = new CGRect (140, 118, 120, 25);
 			LabelScoreDigit.Frame = new CGRect (270, 117, 25, 25);

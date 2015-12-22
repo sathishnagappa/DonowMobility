@@ -37,6 +37,8 @@ namespace donow.iOS
 		public static UserBL userBL;
 		public static bool IsUserSeller;
 		public static BrokerBL brokerBL;
+		public static ReferralRequest CurrentRR;
+		public static bool IsFromRR;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }

@@ -129,7 +129,8 @@ namespace donow.iOS
 			ButtonRequestMeeting.TouchUpInside += (object sender, EventArgs e) => {
 
 				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
-				// if (calendarHomeDV != null)
+				AppDelegate.IsFromRR = true;
+				AppDelegate.CurrentRR = refferalRequests;
 				this.NavigationController.PushViewController(calendarHomeDV, true);
 
 			};

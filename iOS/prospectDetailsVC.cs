@@ -37,7 +37,9 @@ namespace donow.iOS
 			btn.Title = "Leads";
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				this.NavigationController.PopViewController(false);
+				LandingLeadsVC landingleads = this.Storyboard.InstantiateViewController("LandingLeadsVC") as LandingLeadsVC;
+				if(landingleads != null)
+					this.NavigationController.PushViewController(landingleads,true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
@@ -80,6 +82,14 @@ namespace donow.iOS
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+				if(localLeads.LEAD_SOURCE ==2)
+				{
+					InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+					if (interactionLeadUpdateVC != null) {
+						interactionLeadUpdateVC.leadObj = localLeads;
+						this.PresentViewController (interactionLeadUpdateVC, true, null);
+					}
+				}
 			};
 
 
@@ -101,6 +111,15 @@ namespace donow.iOS
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
+						if(localLeads.LEAD_SOURCE ==2)
+						{
+						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+										if (interactionLeadUpdateVC != null) {
+							interactionLeadUpdateVC.leadObj = localLeads;
+												this.PresentViewController (interactionLeadUpdateVC, true, null);
+						}
+						}
+
 					};
 
 					this.PresentViewController (mailController, true, null);

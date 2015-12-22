@@ -5,6 +5,9 @@ using System;
 using Foundation;
 using UIKit;
 using donow.PCL;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace donow.iOS
 {
@@ -48,7 +51,7 @@ namespace donow.iOS
 				rrnew.Prospect = AppDelegate.CurrentLead.LEAD_NAME;
 				rrnew.BusinessNeeds = AppDelegate.CurrentLead.BUSINESS_NEED;
 				rrnew.BrokerID = brokerObj.BrokerID;
-				rrnew.BrokerUserID = (int)brokerObj.BrokerID;
+				rrnew.BrokerUserID = brokerObj.BrokerUserID;
 				rrnew.Status = 1;
 				rrnew.CreatedOn = DateTime.Now.ToString();
 				rrnew.SellerUserID = AppDelegate.UserDetails.UserId;
@@ -56,6 +59,21 @@ namespace donow.iOS
 				rrnew.CompanyName = AppDelegate.UserDetails.Company;
 				rrnew.LeadEmailID = AppDelegate.CurrentLead.EMAILID;
 				AppDelegate.referralRequestBL.SaveReferralRequest(rrnew);
+
+				MailMessage mail=new MailMessage();
+				SmtpClient SmtpServer=new SmtpClient("smtp.gmail.com");
+				mail.From=new MailAddress("vaibhav22barchhiha@gmail.com");
+				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
+				mail.Subject = "Need Referral for " + AppDelegate.CurrentLead.LEAD_NAME;
+				mail.Body = "Here is an opportunity for you refer and earn. Please download the donow app and join the donow network.";
+				SmtpServer.Port = 587;
+				SmtpServer.Credentials=new System.Net.NetworkCredential("vaibhav22barchhiha","mastercard22_");
+				SmtpServer.EnableSsl=true;
+				ServicePointManager.ServerCertificateValidationCallback=delegate(object sender1, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors) {
+					return true;
+				};
+				SmtpServer.Send(mail);
+
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
 			};
@@ -66,7 +84,7 @@ namespace donow.iOS
 
 			LabelBrokerScore.Text = "Broker Score \n" + brokerObj.BrokerScore;
 			LabelBrokerFee.Text = "Broker Fee \n" + brokerObj.BrokerFee;
-			LabelTotalEarnings.Text = "Total Earnings \n" + brokerObj.BrokerTotalEarning;
+			LabelTotalEarnings.Text = "# of Deals made \n" + "0"; //brokerObj.BrokerTotalEarning;
 			LabelCompanyInfoDescription.Text = brokerObj.Industry;
 			labelConnectionToLead.Text = brokerObj.ConnectionLead;
 

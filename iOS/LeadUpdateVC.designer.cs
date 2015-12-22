@@ -72,6 +72,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelConformMeeting { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewF2F { get; set; }
 
 		[Outlet]
@@ -151,6 +155,10 @@ namespace donow.iOS
 			if (ButtonSubmit != null) {
 				ButtonSubmit.Dispose ();
 				ButtonSubmit = null;
+			}
+			if (LabelConformMeeting != null) {
+				LabelConformMeeting.Dispose ();
+				LabelConformMeeting = null;
 			}
 			if (ScrollViewF2F != null) {
 				ScrollViewF2F.Dispose ();

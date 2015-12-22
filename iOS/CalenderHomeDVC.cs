@@ -195,17 +195,29 @@ namespace donow.iOS
 			void AddEvent(EKEvent calendarEvent)
 			{
 				UserMeetings userMeetings = new UserMeetings ();
-				userMeetings.Id = 0;
-				userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
-				userMeetings.UserId = AppDelegate.UserDetails.UserId;
-				userMeetings.Subject = calendarEvent.Title;
-				userMeetings.StartDate = calendarEvent.StartDate.ToString();
-				userMeetings.EndDate = calendarEvent.EndDate.ToString();
-				userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
-				userMeetings.City = AppDelegate.CurrentLead.CITY;
-				userMeetings.State = AppDelegate.CurrentLead.STATE;
-				LeadsBL leadsbl = new LeadsBL ();
-				leadsbl.SaveMeetingEvent (userMeetings);
+				if (!AppDelegate.IsFromRR) {
+					userMeetings.Id = 0;
+					userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
+					userMeetings.UserId = AppDelegate.UserDetails.UserId;
+					userMeetings.Subject = calendarEvent.Title;
+					userMeetings.StartDate = calendarEvent.StartDate.ToString ();
+					userMeetings.EndDate = calendarEvent.EndDate.ToString ();
+					userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
+					userMeetings.City = AppDelegate.CurrentLead.CITY;
+					userMeetings.State = AppDelegate.CurrentLead.STATE;
+				} else {
+					userMeetings.Id = 0;
+					userMeetings.LeadId = (int) AppDelegate.CurrentRR.LeadID;
+					userMeetings.UserId = AppDelegate.CurrentRR.SellerUserID;
+					userMeetings.Subject = calendarEvent.Title;
+					userMeetings.StartDate = calendarEvent.StartDate.ToString ();
+					userMeetings.EndDate = calendarEvent.EndDate.ToString ();
+					userMeetings.CustomerName = AppDelegate.CurrentRR.Prospect;
+					userMeetings.City = AppDelegate.CurrentRR.City;
+					userMeetings.State = AppDelegate.CurrentRR.State;
+					
+				}
+				AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);
 				//Xamarin Insights tracking
 				Insights.Track ("SaveMeetingEvent", new Dictionary <string,string> {
 					{ "LeadId", userMeetings.LeadId.ToString () },

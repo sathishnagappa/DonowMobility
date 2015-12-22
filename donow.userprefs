@@ -1,24 +1,26 @@
 ﻿<Properties StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.2" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/InteractionLeadUpdateVC.cs">
     <Files>
-      <File FileName="iOS/MyMeetingsVC.cs" Line="62" Column="47" />
-      <File FileName="donow.PCL/Util/TwitterUtil.cs" Line="72" Column="1" />
-      <File FileName="iOS/AccountManagementVC.cs" Line="143" Column="44" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="65" Column="3" />
-      <File FileName="iOS/Main.cs" Line="15" Column="32" />
+      <File FileName="iOS/LeadUpdateVC.cs" Line="194" Column="22" />
+      <File FileName="iOS/LeadDetailVC.cs" Line="195" Column="33" />
+      <File FileName="iOS/ScrollReq.cs" Line="132" Column="33" />
+      <File FileName="iOS/CalenderHomeDVC.cs" Line="210" Column="63" />
+      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="94" Column="44" />
+      <File FileName="donow.PCL/Model/LeadF2FFeedBack.cs" Line="9" Column="31" />
+      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="108" Column="4" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="236" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="donow" expanded="True">
             <Node name="donow.iOS" expanded="True" selected="True">
-              <Node name="ComponentReferenceFolder" expanded="True" />
+              <Node name="customerProfileVC.cs" expanded="True" />
             </Node>
             <Node name="donow.PCL" expanded="True">
               <Node name="BusinessLogic" expanded="True" />
               <Node name="Model" expanded="True" />
-              <Node name="Util" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -26,7 +28,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/LeadUpdateVC.cs" line="200" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -36,7 +36,7 @@ namespace donow.iOS
 //			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
-
+		 
 		public void UpdateControls (string Parameter, string TableType)
 		{
 			if (TableType == "ReasonForPass") {
@@ -64,7 +64,7 @@ namespace donow.iOS
 
 			ScrollViewF2F.ContentSize = new CGSize (414f, 1450.0f); 
 			ViewF2FMeetingDown.Hidden = true;
-
+			LabelConformMeeting.Text = "Confirm Your Meeting w/" + meetingObj.CustomerName; 
 			IList<string> ListThumbsDownReason = new List<string>
 			{
 				"Customer Cancelled",
@@ -90,17 +90,26 @@ namespace donow.iOS
 				"Purist"
 			};
 
+
+			List<LeadF2FFeedBack> leadf2ffeedbacklist = AppDelegate.leadsBL.GetLeadF2FFeedBack (meetingObj.LeadId);	
+			LeadF2FFeedBack leadf2ffeedbackLast = leadf2ffeedbacklist.Count > 0 ? leadf2ffeedbacklist[leadf2ffeedbacklist.Count -1 ] : null;
+
+
+
 			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonConfirmMeetingSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localConfirmMeeting = "UP";
 				ViewF2FMeetingDown.Hidden = true;
+				localReasonForDown = "";
 				TableViewInteractionDislikeReason.Hidden = true;
 			};
 
 			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				ButtonConfirmMeetingSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localConfirmMeeting = "DOWN";
 				ViewF2FMeetingDown.Hidden = false;
 			};
@@ -108,13 +117,16 @@ namespace donow.iOS
 			ButtonConfirmMeetingSide.TouchUpInside+= (object sender, EventArgs e) => {
 				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonConfirmMeetingSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
 				localConfirmMeeting = "SIDE";
+				localReasonForDown = "";
 				ViewF2FMeetingDown.Hidden = true;
 			};
 
 			ButtonLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeMeetingInfoHelpful.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonMeetingInfoSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "UP";
 
 			};
@@ -122,6 +134,7 @@ namespace donow.iOS
 			ButtonDisLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				ButtonMeetingInfoSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "DOWN";
 
 
@@ -129,50 +142,67 @@ namespace donow.iOS
 			ButtonMeetingInfoSide.TouchUpInside+= (object sender, EventArgs e) => {
 				ButtonLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeMeetingInfoHelpful.SetImage (UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonMeetingInfoSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
 				localMeetingInfoHelpFull = "SIDE";
 			};
 
-			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
-				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
-				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
-				localLeadAdvanced = "UP";
-			};
+//			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
+//				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+//				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
+//				localLeadAdvanced = "UP";
+//			};
 
 			ButtonLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeLeadAdvanced.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonLeadAdvancedSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localLeadAdvanced = "UP";
+				if(leadf2ffeedbackLast != null && leadf2ffeedbackLast.LeadAdvanced == "UP")
+				{
+					UIAlertView alert = new UIAlertView () { 
+					Title = "", 
+					Message = "Looks like things are going well. Would you like to update your sales stage?"
+					};
+					alert.AddButton ("OK");
+					alert.Show ();
+				}
 			};
 
 			ButtonDisLikeLeadAdvanced.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				ButtonLeadAdvancedSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localLeadAdvanced = "DOWN";
 			};
 			ButtonLeadAdvancedSide.TouchUpInside+= (object sender, EventArgs e) => {
 				ButtonLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeLeadAdvanced.SetImage (UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonLeadAdvancedSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
 				localLeadAdvanced = "SIDE";
 			};
 
 			TableViewInteractionDislikeReason.Hidden = true;
 			TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this,"ReasonForPass");
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				localReasonForDown = "Customer Cancelled";
 				TableViewInteractionDislikeReason.Hidden = false;
 			};
 
 			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
 			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				localSalesStage = "(1) Acquire Lead";
 				TableViewSalesStage.Hidden = false;
 			};
 
 			TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this, "CustomerCategorisation");
 			ButtonCustomerCategorizationDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
+				localCustomerCategorization = "Dreamer";
 				TableViewCustomerCategorization.Hidden = false;
 			};
 
 			TableViewNextSteps.Source = new TableSource (ListNextStep, this, "NextStep");
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
+				localNextSteps = "Get Product Info";
 				TableViewNextSteps.Hidden = false;
 			};
 

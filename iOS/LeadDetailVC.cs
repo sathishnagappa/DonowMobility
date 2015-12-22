@@ -156,8 +156,7 @@ namespace donow.iOS
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
-						args.Controller.DismissViewController (true, null);
-		
+						args.Controller.DismissViewController (true, null);		
 					};
 						 
 					this.PresentViewController (mailController, true, null);

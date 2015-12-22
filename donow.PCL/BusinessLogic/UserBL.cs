@@ -85,6 +85,15 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
+		public UserDetails GetUserByID(int userid)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.UserCreation + "?id=" + userid;
+			string response = restSevice.GetData (restUrl);
+			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
+			return parsedResponse;
+		}
+
 		public List<UserMeetings> GetMeetingsByUserName(int userid)
 		//public UserMeetings GetMeetingsByUserName(int userid)
 		{

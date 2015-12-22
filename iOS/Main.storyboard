@@ -2979,7 +2979,7 @@ Manager in the tech industry for...</string>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="en9-PS-53h">
                                                         <rect key="frame" x="-1" y="321" width="414" height="200"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-													</tableView>
+                                                    </tableView>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-RS-EiW">
                                                         <rect key="frame" x="0.0" y="521" width="414" height="373"/>
                                                         <subviews>
@@ -3118,8 +3118,8 @@ Manager in the tech industry for...</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAT-N9-Qjd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="334"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Your Meeting w/Scott" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-bF-PBI">
-                                                <rect key="frame" x="50" y="24" width="286" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Your Meeting w/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-bF-PBI">
+                                                <rect key="frame" x="20" y="24" width="381" height="23"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3480,6 +3480,7 @@ Manager in the tech industry for...</string>
                         <outlet property="TableViewNextSteps" destination="SkO-cc-TUe" id="name-outlet-SkO-cc-TUe"/>
                         <outlet property="TableViewSalesStage" destination="ql4-rQ-ppa" id="name-outlet-ql4-rQ-ppa"/>
                         <outlet property="ViewF2FMeetingDown" destination="9gy-FR-o3Z" id="name-outlet-9gy-FR-o3Z"/>
+                        <outlet property="LabelConformMeeting" destination="c6a-bF-PBI" id="name-outlet-c6a-bF-PBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdt-IL-yiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3504,8 +3505,8 @@ Manager in the tech industry for...</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2D-Il-LHs">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="334"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Interaction With Scott" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvG-qD-6lc">
-                                                <rect key="frame" x="50" y="24" width="265" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Interaction With " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvG-qD-6lc">
+                                                <rect key="frame" x="28" y="24" width="358" height="23"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3699,6 +3700,7 @@ Manager in the tech industry for...</string>
                         <outlet property="TextViewComments" destination="wtM-0d-c0V" id="name-outlet-wtM-0d-c0V"/>
                         <outlet property="ViewInteractionThumbsDown" destination="PGV-UB-hS0" id="name-outlet-PGV-UB-hS0"/>
                         <outlet property="ScrollViewInteractionPage" destination="ayn-q7-p8M" id="name-outlet-ayn-q7-p8M"/>
+                        <outlet property="LabelInteractionTitle" destination="CvG-qD-6lc" id="name-outlet-CvG-qD-6lc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6G-Xe-wyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4516,7 +4518,7 @@ Manager in the tech industry for...</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onw-G3-c2C">
-                                                        <rect key="frame" x="11" y="37" width="182" height="21"/>
+                                                        <rect key="frame" x="11" y="37" width="182" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -4534,7 +4536,7 @@ Manager in the tech industry for...</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggo-d2-dCh">
-                                                        <rect key="frame" x="8" y="37" width="188" height="21"/>
+                                                        <rect key="frame" x="8" y="37" width="188" height="29"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -4989,6 +4991,7 @@ Manager in the tech industry for...</string>
         <image name="Navigation Back Icon.png" width="18" height="36"/>
         <image name="Previous Meeting Thumb.png" width="80" height="70"/>
         <image name="Icon.png" width="57" height="57"/>
+        <image name="Thumbs Side White.png" width="78" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jyY-bd-t4A"/>

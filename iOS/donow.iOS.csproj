@@ -27,7 +27,7 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>591bad58-c59e-4462-9973-2facec7a5852</CodesignProvision>
+    <CodesignProvision>851efc58-29f4-4c78-b649-65d56cdcb886</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -38,7 +38,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
-    <CodesignProvision>c2a83380-39cf-4763-b678-73c5749eb4f7</CodesignProvision>
+    <CodesignProvision>851efc58-29f4-4c78-b649-65d56cdcb886</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -368,6 +368,7 @@
     <BundleResource Include="Resources\Navigation Back Icon.png" />
     <BundleResource Include="Resources\Previous Meeting Thumb.png" />
     <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Thumbs Side White.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

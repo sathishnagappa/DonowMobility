@@ -9,6 +9,7 @@ using donow.Util;
 using CoreGraphics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace donow.iOS
 {
@@ -16,7 +17,7 @@ namespace donow.iOS
 	{
 		LoadingOverlay loadingOverlay;
 		List<Leads> leads;
-		LeadsBL leadsbl;
+
 		public LandingLeadsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -63,7 +64,7 @@ namespace donow.iOS
 //			GetLeadUpdatePage ();
 		}
 
-		public override void ViewDidLoad ()
+		public async override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
@@ -71,10 +72,10 @@ namespace donow.iOS
 			this.NavigationItem.SetHidesBackButton (true, false);
 //			this.NavigationItem.SetLeftBarButtonItem(null, true);
 
-			leads = GetLeads ();
+			leads =  await GetLeads ();
 			if (leads.Count > 0) {
 				this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString ();
-				TableViewLeads.Source = new TableSource (leads.OrderByDescending(X => X.LEAD_SCORE).ToList(), this);
+				TableViewLeads.Source = new TableSource (leads, this);
 			} else {
 				AlertView.Hidden = false;
 			}
@@ -98,9 +99,9 @@ namespace donow.iOS
 				AlertView.Hidden = true;
 			};
 
-			ButtonRequestNewLead.TouchUpInside += (object sender, EventArgs e) => {
+			ButtonRequestNewLead.TouchUpInside += async (object sender, EventArgs e) => {
 			//View.Add (loadingOverlay);
-				leads = GetLeads();
+				leads = await GetLeads();
 				if (leads.Count > 0) {					
 					this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString();
 				TableViewLeads.Source = new TableSource (leads, this);
@@ -108,12 +109,12 @@ namespace donow.iOS
 				//loadingOverlay.Hide ();
 				} else {
 					AlertView.Hidden = false;
-					UIAlertView alert = new UIAlertView () { 
-						Title = "", 
-						Message = "We are gathering your leads for you! \n Check Back Shortly."
-					};
-					alert.AddButton ("OK");
-					alert.Show ();
+//					UIAlertView alert = new UIAlertView () { 
+//						Title = "", 
+//						Message = "We are gathering your leads for you! \n Check Back Shortly."
+//					};
+//					alert.AddButton ("OK");
+//					alert.Show ();
 				}
 
 			};
@@ -121,7 +122,7 @@ namespace donow.iOS
 			//loadingOverlay.Hide ();
 		}
 
-		List<Leads> GetLeads()
+		async Task<List<Leads>> GetLeads()
 		{
 			LeadsBL leadsbl = new LeadsBL ();
 			leads = leadsbl.GetAllLeads (AppDelegate.UserDetails.UserId);

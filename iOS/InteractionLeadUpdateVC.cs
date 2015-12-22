@@ -7,6 +7,7 @@ using UIKit;
 using System.Collections.Generic;
 using donow.PCL;
 using CoreGraphics;
+using donow.PCL.Model;
 
 namespace donow.iOS
 {
@@ -21,6 +22,7 @@ namespace donow.iOS
 		}
 
 		public UserMeetings userMeetings;
+		public Leads leadObj;
 		string Interaction = string.Empty;
 		string CustomerAcknowledge = string.Empty;
 		public override void ViewWillAppear (bool animated)
@@ -46,12 +48,14 @@ namespace donow.iOS
 				"Customer Not Interested"
 			};
 
+			LabelInteractionTitle.Text = "Your Interaction With " + leadObj.LEAD_NAME;
 			ButtonSubmit.Layer.CornerRadius = 5.0f;
 			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
 			{
 				CustomerAcknowledge = "UP";
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 			};
 
 			TextViewComments.Layer.BorderWidth = 2.0f;
@@ -62,18 +66,21 @@ namespace donow.iOS
 				CustomerAcknowledge = "DOWN";
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 			};
 			ButtonAcknowledgementSide.TouchUpInside+= (object sender, EventArgs e) => 
 			{
 				CustomerAcknowledge = "SIDE";
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
 
 			TableViewInteractionDislikerReason.Hidden = true;
 
 			ButtonInteractionDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				//ButtonInteractionDislikeReasonDropDown.CurrentTitle = "Wasn't Prepared";
 				TableViewInteractionDislikerReason.Hidden = false;
 			};
 
@@ -82,35 +89,39 @@ namespace donow.iOS
 				Interaction = "DOWN";
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
+				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
 				Interaction = "UP";
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
+				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
+
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
 			{
 				Interaction = "SIDE";
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
+				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
 			};
 
 			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
 				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
-				leadfeedback.LeadID = userMeetings.LeadId;
+				leadfeedback.LeadID = leadObj.LEAD_ID;
 				leadfeedback.UserID = AppDelegate.UserDetails.UserId;
 				leadfeedback.ReasonForDown = ButtonInteractionDislikeReasonDropDown.CurrentTitle;
 				leadfeedback.InteractionFeedBack = Interaction;
 				leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
 				leadfeedback.Comments = TextViewComments.Text;
-				leadfeedback.MeetingID = userMeetings.Id;
+				leadfeedback.MeetingID = AppDelegate.UserDetails.UserId;
 				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
 
-				UserMeetings usermeeting = new UserMeetings();
-				usermeeting.Id = userMeetings.Id;
-				usermeeting.Status="Done";
-				AppDelegate.userBL.UpdateMeetingList(usermeeting);
+//				UserMeetings usermeeting = new UserMeetings();
+//				usermeeting.Id = userMeetings.Id;
+//				usermeeting.Status="Done";
+//				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 
 				DismissViewController(true,null);
 			};
