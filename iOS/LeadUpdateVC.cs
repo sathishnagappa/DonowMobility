@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using CoreGraphics;
 using donow.PCL;
 using donow.PCL.Model;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -187,14 +188,24 @@ namespace donow.iOS
 				leadf2ffeedback.LeadAdvanced = localLeadAdvanced;
 				leadf2ffeedback.NextSteps = localNextSteps;
 				leadf2ffeedback.SalesStage = localSalesStage;
-				//leadf2ffeedback.MeetingID = meetingObj.Id.ToString();
+				leadf2ffeedback.MeetingID = meetingObj.Id;
 				AppDelegate.leadsBL.SaveLeadF2FFeedBack (leadf2ffeedback);
+				//Xamarin Insights tracking
+				Insights.Track("Save LeadF2F FeedBack", new Dictionary <string,string>{
+					{"UserId", leadf2ffeedback.UserID.ToString()},
+					{"LeadID", leadf2ffeedback.LeadID.ToString()},
+					{"MeetingID", leadf2ffeedback.MeetingID.ToString()}
+				});
 
 				UserMeetings usermeeting = new UserMeetings();
-				usermeeting.LeadId = meetingObj.Id;
+				usermeeting.Id = meetingObj.Id;
 				usermeeting.Status="Done";
-				UserBL userbl = new UserBL();
-				userbl.UpdateMeetingList(usermeeting);
+				AppDelegate.userBL.UpdateMeetingList(usermeeting);
+				//Xamarin Insights tracking
+				Insights.Track("Update MeetingList", new Dictionary <string,string>{
+					{"Id", usermeeting.Id.ToString()},
+					{"Status", usermeeting.Status}
+				});
 
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
@@ -214,6 +225,12 @@ namespace donow.iOS
 					dealHistory.CustomerName = meetingObj.CustomerName;
 					dealHistory.LeadId = meetingObj.LeadId;
 					AppDelegate.customerBL.SaveDealHistory(dealHistory);
+					//Xamarin Insights tracking
+					Insights.Track("Save DealHistory", new Dictionary <string,string>{
+						{"UserId", dealHistory.UserId.ToString()},
+						{"CustomerName", dealHistory.CustomerName},
+						{"LeadId",dealHistory.LeadId.ToString()}
+					});
 				}
 				AppDelegate.IsUpdateLeadDone = true;
 				DismissViewController(true,null);

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using donow.PCL.Model;
 using MessageUI;
 using System.Linq;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -80,6 +81,12 @@ namespace donow.iOS
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+				//Xamarin Insights tracking
+				Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+					{"UserId", customerinteract.UserId.ToString()},
+					{"CustomerName", customerinteract.CustomerName},
+					{"Type", "Phone"}
+				});
 			};
 
 
@@ -101,6 +108,12 @@ namespace donow.iOS
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
+						//Xamarin Insights tracking
+						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+							{"UserId", customerinteract.UserId.ToString()},
+							{"CustomerName", customerinteract.CustomerName},
+							{"Type", "Email"}
+						});
 					};
 
 					this.PresentViewController (mailController, true, null);

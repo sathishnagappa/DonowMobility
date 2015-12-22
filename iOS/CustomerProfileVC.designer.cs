@@ -62,7 +62,6 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewCustomerProfile { get; set; }
 
-
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewDealHistory { get; set; }

@@ -9,6 +9,7 @@ using CoreGraphics;
 using donow.Services;
 using MessageUI;
 using System.Linq;
+using Xamarin;
 
 namespace donow.iOS
 
@@ -66,6 +67,11 @@ namespace donow.iOS
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+				//Xamarin Insights tracking
+				Insights.Track("SaveCutomerInteraction", new Dictionary <string,string>{
+					{"UserId", customerinteract.UserId.ToString()},
+					{"CustomerName", customerinteract.CustomerName}
+				});
 			};
 
 			ButtonMail.TouchUpInside += (object sender, EventArgs e) => {
@@ -97,7 +103,6 @@ namespace donow.iOS
 		{
 
 			List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
-
 
 			List<UserMeetings> listMeeting = new List<UserMeetings> ();
 			listMeeting = AppDelegate.userBL.GetMeetings(customer.Name);

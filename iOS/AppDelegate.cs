@@ -22,7 +22,7 @@ namespace donow.iOS
 		public static bool IsCalendarClicked;
 		public static bool IsLeadAccepted;
 		public static List<CalenderEvent> CalendarList;
-		public static bool IsNewUser;
+		//public static bool IsNewUser;
 		public static Leads CurrentLead;
 		public static bool IsFromProspect;
 		public static bool IsProspectVisited;
