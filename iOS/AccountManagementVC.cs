@@ -58,12 +58,22 @@ namespace donow.iOS
 			
 			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
 			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCustomers)) 
 				ButtonInfoCustomersDropDown.SetTitle (" Select", UIControlState.Normal);
 			else
 				ButtonInfoCustomersDropDown.SetTitle (AppDelegate.UserDetails.PreferredCustomers, UIControlState.Normal);
 			
 
+<<<<<<< HEAD
+=======
+			ButtonInfoCustomersDropDown.SetTitle ("", UIControlState.Normal);
+
+>>>>>>> origin/master
 			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
 			if (AppDelegate.UserDetails.UserId != 0) {
@@ -155,6 +165,10 @@ namespace donow.iOS
 						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
 					});
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 				if(isFromSignUp && AppDelegate.UserDetails.UserId != 0) {
 					WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;

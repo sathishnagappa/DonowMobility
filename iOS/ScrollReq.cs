@@ -7,6 +7,7 @@ using System.Drawing;
 using MessageUI;
 using donow.PCL;
 using System.Collections.Generic;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -69,7 +70,18 @@ namespace donow.iOS
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
 			
 				AppDelegate.brokerBL.UpdateBrokerStatus(refferalRequests.BrokerID,4,refferalRequests.LeadID);
+				//Xamarin Insights tracking
+				Insights.Track("Update BrokerStatus", new Dictionary <string,string>{
+					{"BrokerID", refferalRequests.BrokerID.ToString()},
+					{"Status", "4"},
+					{"LeadID", refferalRequests.LeadID.ToString()}
+				});
 				AppDelegate.referralRequestBL.UpdateReferralRequest(refferalRequests.ID,2);
+				//Xamarin Insights tracking
+				Insights.Track("Update ReferralRequest", new Dictionary <string,string>{
+					{"ReferralReqId", refferalRequests.ID.ToString()},
+					{"Status", "2"}
+				});
 
 				PassView.Hidden = true;
 				MakeView.Hidden = false;
@@ -149,12 +161,23 @@ namespace donow.iOS
 						AlertSubView.Hidden=true;
 						//PagingSendMail.BackgroundColor=UIColor.Red;
 						AppDelegate.referralRequestBL.UpdateReferralRequest(refferalRequests.BrokerUserID,4);
+						//Xamarin Insights tracking
+						Insights.Track("Update ReferralRequest", new Dictionary <string,string>{
+							{"BrokerUserID", refferalRequests.BrokerUserID.ToString()},
+							{"Status", "4"}
+						});
 						CustomerInteraction customerinteract = new CustomerInteraction();
 						customerinteract.CustomerName =  refferalRequests.Prospect;
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+						//Xamarin Insights tracking
+						Insights.Track("Update ReferralRequest", new Dictionary <string,string>{
+							{"UserId", customerinteract.UserId.ToString()},
+							{"CustomerName", customerinteract.CustomerName},
+							{"Type","Email"}
+						});
 						AlertViewRequestMeeting.Hidden=false;
 						AlertSubViewRequestMeeting.Hidden=false;
 

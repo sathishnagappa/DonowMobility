@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using Xamarin;
+using System.Collections.Generic;
 
 namespace donow.iOS
 {
@@ -47,7 +48,11 @@ namespace donow.iOS
 					AppDelegate.UserDetails.Password = Crypto.Encrypt(newPassword); 
 					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
 					SendMail(AppDelegate.UserDetails.Email, newPassword);
-
+					//Xamarin Insights tracking
+					Insights.Track("Forgot Password", new Dictionary <string,string>{
+						{"UserId", AppDelegate.UserDetails.UserId.ToString()},
+						{Insights.Traits.Email, AppDelegate.UserDetails.Email}
+					});
 				}
 			};
 		}
