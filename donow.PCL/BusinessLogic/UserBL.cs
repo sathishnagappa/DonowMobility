@@ -101,7 +101,7 @@ namespace donow.PCL
 
 		RestService restSevice = new RestService ();	
 		string postData = Newtonsoft.Json.JsonConvert.SerializeObject(userMeetings);
-			string response = restSevice.PostData (Constants.MeetingUpdate, postData);
+		string response = restSevice.PostData (Constants.MeetingUpdate, postData);
 		int parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 		return parsedResponse;
 			

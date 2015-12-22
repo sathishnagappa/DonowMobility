@@ -22,7 +22,7 @@ namespace donow.iOS
 		//
 		//			ButtonNext.TitleLabel.Text = title;
 		//		}
-
+		public bool isFromAM;
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Sign Up: User Info";
@@ -31,8 +31,7 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				signUpLoginDetailsVC signUpPage = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
-				this.NavigationController.PushViewController(signUpPage,true);
+				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
@@ -93,7 +92,9 @@ namespace donow.iOS
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
 			};
 
-
+//			TextBoxLineOfBusiness.TouchUpOutside+= (object sender, EventArgs e) => {
+//				TableViewIndustry.Hidden = true;
+//			};
 
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
 				TableViewIndustry.Frame = new CGRect(47,275,320,122);

@@ -16,6 +16,14 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonLeadExpansion { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonRefrralExpension { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCityAndState { get; set; }
 
 		[Outlet]
@@ -36,6 +44,18 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewMyProfile { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewActiveLeads { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewReferralRequests { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewActiveLeads { get; set; }
 
 		[Outlet]
@@ -44,6 +64,14 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonLeadExpansion != null) {
+				ButtonLeadExpansion.Dispose ();
+				ButtonLeadExpansion = null;
+			}
+			if (ButtonRefrralExpension != null) {
+				ButtonRefrralExpension.Dispose ();
+				ButtonRefrralExpension = null;
+			}
 			if (LabelCityAndState != null) {
 				LabelCityAndState.Dispose ();
 				LabelCityAndState = null;
@@ -63,6 +91,18 @@ namespace donow.iOS
 			if (LabelSellerScore != null) {
 				LabelSellerScore.Dispose ();
 				LabelSellerScore = null;
+			}
+			if (ScrollViewMyProfile != null) {
+				ScrollViewMyProfile.Dispose ();
+				ScrollViewMyProfile = null;
+			}
+			if (TableViewActiveLeads != null) {
+				TableViewActiveLeads.Dispose ();
+				TableViewActiveLeads = null;
+			}
+			if (TableViewReferralRequests != null) {
+				TableViewReferralRequests.Dispose ();
+				TableViewReferralRequests = null;
 			}
 			if (ViewActiveLeads != null) {
 				ViewActiveLeads.Dispose ();

@@ -35,8 +35,7 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				LandingRefferalRequestVC referralPage = this.Storyboard.InstantiateViewController ("landingRefferalRequestVC") as LandingRefferalRequestVC;
-				this.NavigationController.PushViewController(referralPage,true);
+				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 

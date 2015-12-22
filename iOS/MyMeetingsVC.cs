@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using CoreGraphics;
 using donow.PCL;
 using System.Collections;
+using System.Threading.Tasks;
 
 namespace donow.iOS
 {
@@ -17,7 +18,7 @@ namespace donow.iOS
 		{
 		}
 
-		public override void ViewDidLoad ()
+		public override async void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			this.Title = "Meeting Info";
@@ -25,27 +26,48 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				customerProfileVC customerPage = this.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
-				this.NavigationController.PushViewController(customerPage,true);
+				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
+
+			LabelMeetingHeader.Text = "Meeting W/" + meetingObj.CustomerName;
+			LabelDateAndTime.Text = DateTime.Parse(meetingObj.StartDate).ToString("MMM. dd, yyyy  hh:mm tt");
+			LabelCityState.Text = meetingObj.City + ", " + meetingObj.State;
+			//if (string.IsNullOrEmpty (LabelNotes.Text)) {
+				//LabelNotesDate.Text = DateTime.Parse (meetingObj.EndDate).ToString ();
+				//LabelNotes.Text = 
+			//}
+
+
 			ScrollViewMeeting.ContentSize = new CGSize (414f, 1350f);
+			await LoadMeetingData ();
+
+		}
+
+		async Task LoadMeetingData()
+		{
 			//var meetingList = AppDelegate.CalendarList[0];
-			string[] TakingPoints =  {"&#8226; What is the dream solution if \n pricing was not a problem?", "* How do you want to maintain \n this solution long term?",
-				"&#8226; What else are you willing to \n look into?","* Would you mind telling me about your current situation?","* Who do you currently use for this service?",
-				"&#8226; What’s working for you?","* What’s not working?","* What are your main frustrations?","* What would you like to change about things?",
-				"&#8226; Ask your prospect if they’d like to know more about how you could answer their needs?","* Does this sound like something that can solve your problems/make you feel better/address your issues?",
-				"&#8226; I feel really good about this, I know this is going to work well for us. What’s the best way to get things underway?",
-				"&#8226; I could email you an order when I get back to the office… or I could just get it from you now. What works best for you?"};
-			string[] LastestCustomerInfo =  {"&#8226; What is the dream solution if \n pricing was not a problem?", "&#8226; How do you want to maintain \n this solution long term?"};
-//			string[] LatestIndustryInfo =  {"HR Tech Tools Optimized for\nBest Results", "HR Management: How Top\nCompanies are Strategizing",
-//				"HR Tools to Compare: How do\nyou stack up?"};
-			CustomerBL customerBL = new CustomerBL();
-			List<BingResult>  bingResult = customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
-			TalkingPointTable.Source = new TableSource(TakingPoints, this);
-			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(LastestCustomerInfo, this);
+			string[] TakingPoints =  {"●  What is the dream solution if \n  pricing was not a problem?", "●  How do you want to maintain \n  this solution long term?",
+				"●  What else are you willing to \n  look into?","●  Would you mind telling me about your current situation?","●  Who do you currently use for this service?",
+				"●  What’s working for you?","• What’s not working?","●  What are your main frustrations?","●  What would you like to change about things?",
+				"●  Ask your prospect if they’d like to know more about how you could answer their needs?","●  Does this sound like something that can solve your problems/make you feel better/address your issues?",
+				"●  I feel really good about this, I know this is going to work well for us. What’s the best way to get things underway?",
+				"●  I could email you an order when I get back to the office or I could just get it from you now. What works best for you?"};
+
+			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
+			TalkingPointTable.Source = new TableSource(TakingPoints);
 			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(bingResult, this);
+			List<TwitterStream>  twitterStream =  await TwitterUtil.Search ("Business");
+			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(twitterStream);
+			LatestCustomerInfoTable.ReloadData ();
+		}
+
+		static UIImage FromUrl (string uri)
+		{
+			using (var url = new NSUrl (uri))
+			using (var data = NSData.FromUrl (url))
+				return UIImage.LoadFromData (data);
 		}
 
 		public class TableSource : UITableViewSource {
@@ -53,12 +75,9 @@ namespace donow.iOS
 			string[] TableItems;
 			string CellIdentifier = "TableCell";
 
-			MyMeetingsVC owner;
-
-			public TableSource (string[] meetingList, MyMeetingsVC owner)
+			public TableSource (string[] meetingList)
 			{
 				TableItems = meetingList;
-				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -97,34 +116,31 @@ namespace donow.iOS
 
 		public class CustomerInfoTableSource : UITableViewSource {
 
-			string[] TableItems;
-			string CellIdentifier = "TableCell";
+			List<TwitterStream> TableItems;
+			string CellIdentifier = "TableCellCusomerInfo";
 
-			MyMeetingsVC owner;
-
-			public CustomerInfoTableSource (string[] meetingList, MyMeetingsVC owner)
+			public CustomerInfoTableSource (List<TwitterStream> twitterstream)
 			{
-				TableItems = meetingList;
-				this.owner = owner;
+				TableItems = twitterstream;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				return TableItems.Length;
+				return TableItems.Count;
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 			{
 				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				string item = TableItems[indexPath.Row];
+				TwitterStream item = TableItems[indexPath.Row];
 
 				//---- if there are no cells to reuse, create a new one
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
-				cell.ImageView.Image = UIImage.FromBundle("Twitter Thumb.png"); 
-				cell.TextLabel.Text = item;
+				cell.ImageView.Image = FromUrl(item.profile_image_url);
+				cell.TextLabel.Text = item.text;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
 				cell.TextLabel.Lines = 0;
 
@@ -143,6 +159,8 @@ namespace donow.iOS
 			}
 
 		}
+
+
 
 		public class CustomerIndustryTableSource : UITableViewSource {
 

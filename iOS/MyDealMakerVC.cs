@@ -12,8 +12,7 @@ using System.Linq;
 namespace donow.iOS
 {
 	partial class MyDealMakerVC : UIViewController
-	{
-		LoadingOverlay loadingOverlay;
+	{		
 		public MyDealMakerVC (IntPtr handle) : base (handle)
 		{
 		}

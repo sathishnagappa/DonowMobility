@@ -2,6 +2,10 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 using UIKit;
+using donow.PCL;
+using System.Collections.Generic;
+using donow.PCL.Model;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -21,9 +25,7 @@ namespace donow.iOS
 			if (isReferring)
 				this.SelectedIndex = 3;
 			else
-				this.SelectedIndex = 2;
-
-
+				this.SelectedIndex = 2;		
 		}
 	}
 }

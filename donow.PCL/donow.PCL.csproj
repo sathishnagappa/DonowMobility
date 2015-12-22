@@ -80,6 +80,7 @@
     <Compile Include="Model\CustomerInteraction.cs" />
     <Compile Include="Model\Referrals.cs" />
     <Compile Include="Util\TwitterUtil.cs" />
+    <Compile Include="Model\TwitterStream.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

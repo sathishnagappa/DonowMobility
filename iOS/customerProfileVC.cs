@@ -9,6 +9,7 @@ using CoreGraphics;
 using donow.Services;
 using MessageUI;
 using System.Linq;
+using Xamarin;
 
 namespace donow.iOS
 
@@ -26,60 +27,30 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			//Leads = AppDelegate.leadsBL.GetLeadsDetails (customer.CustomerId);
-
-			CustomerBL customerbl = new CustomerBL ();
-			List<CustomerInteraction> customerInteractionList = customerbl.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
-
-
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
-			btn.Clicked += (sender , e)=>{
-				LandingCustomerVC customerPage = this.Storyboard.InstantiateViewController ("landingCustomerVC") as LandingCustomerVC;
-				this.NavigationController.PushViewController(customerPage,true);
+			btn.Clicked += (sender , e)=>{				
+				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
 			this.Title = "Customer";
-			UserBL userbl = new UserBL ();
-			List<UserMeetings> listMeeting = new List<UserMeetings> ();
-			listMeeting =  userbl.GetMeetings(customer.Name);
 
-			List<UserMeetings> UpComingMeetings = (from item in listMeeting
-					where DateTime.Compare (DateTime.Parse(item.EndDate), DateTime.Now) >= 0
-				select item).ToList();
+			LoadScreenData ();
 
-			List<UserMeetings> PreviousMeetings = (from item in listMeeting
-					where DateTime.Compare (DateTime.Parse(item.EndDate), DateTime.Now) < 0
-				select item).ToList();
+			int brokerWorkingWith = AppDelegate.brokerBL.GetBrokerForProspect (customer.LeadId).Where(X => X.Status ==4).ToList().Count;
 
-			List<DealHistroy> listDealHistory = new List<DealHistroy> ();
-			listDealHistory = customerbl.GetDealHistroy (customer.Name, AppDelegate.UserDetails.UserId);
+			DealMakersImage1.Hidden = brokerWorkingWith > 0 ? true : false;			
+			LabelIndustry.Text = customer.CompanyInfo;
+			LabelLineOfBusiness.Text = customer.BusinessNeeds;
 
-			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);
-
-			TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerInteractionList, this);
-			//TableViewDealHistory.Source = new TableSourceDealHistory (listDealHistory,this);
-			TableViewMeetings.Source = new TableSourceupComingMeetings (UpComingMeetings,this);
-			TableViewPreviousMeetings.Source = new TableSourcePreviousMeetings (PreviousMeetings,this);
-
-			LabelCompanyName.Text = customer.Company;
-			LabelCustomerName.Text = customer.Name;
-			LabelCityAndState.Text = customer.City + ", " + customer.State;
-
-			ButtonSeeAllLeadsTable.TouchUpInside += (object sender, EventArgs e) =>  {
-
-				TableSeeAllClicked = true;
-				TableViewNewLeads.ReloadData ();
-
-			};
 			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
 
 				TableSeeAllClicked = true;
 				TableViewMeetings.ReloadData ();
-
 			};
-
+			
+			
 			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {
 				var url = new NSUrl ("tel://" + customer.Phone);
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
@@ -96,6 +67,11 @@ namespace donow.iOS
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+				//Xamarin Insights tracking
+				Insights.Track("SaveCutomerInteraction", new Dictionary <string,string>{
+					{"UserId", customerinteract.UserId.ToString()},
+					{"CustomerName", customerinteract.CustomerName}
+				});
 			};
 
 			ButtonMail.TouchUpInside += (object sender, EventArgs e) => {
@@ -121,6 +97,45 @@ namespace donow.iOS
 					this.PresentViewController (mailController, true, null);
 				}
 			};
+		}
+
+		void LoadScreenData()
+		{
+
+			List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
+
+			List<UserMeetings> listMeeting = new List<UserMeetings> ();
+			listMeeting = AppDelegate.userBL.GetMeetings(customer.Name);
+			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
+			List<UserMeetings> PreviousMeetingsList = new List<UserMeetings>(); 
+
+			foreach(var item in listMeeting)
+			{
+				if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
+					UCommingMeetinglist.Add (item);
+				} else {
+					PreviousMeetingsList.Add (item);
+				}
+
+			}	
+
+			List<DealHistroy> listDealHistory = new List<DealHistroy> ();
+			listDealHistory = AppDelegate.customerBL.GetDealHistroy (customer.LeadId, AppDelegate.UserDetails.UserId);
+
+			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);
+
+			if(customerInteractionList.Count !=0)
+				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerInteractionList, this);
+			if(listDealHistory.Count !=0)
+				TableViewDealHistory.Source = new TableSourceDealHistory(listDealHistory,this);
+			if(UCommingMeetinglist.Count != 0)
+				TableViewMeetings.Source = new TableSourceupComingMeetings (UCommingMeetinglist,this);
+			if(PreviousMeetingsList.Count !=0)
+				TableViewPreviousMeetings.Source = new TableSourcePreviousMeetings (PreviousMeetingsList,this);
+
+			LabelCompanyName.Text = customer.Company;
+			LabelCustomerName.Text = customer.Name;
+			LabelCityAndState.Text = customer.City + ", " + customer.State;
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {
@@ -219,18 +234,18 @@ namespace donow.iOS
 
 		public class TableSourceupComingMeetings : UITableViewSource {
 			string CellIdentifier = "upComingMeetingsCell";
-			List<UserMeetings> items;
+			List<UserMeetings> TableItems;
 			customerProfileVC owner;
 				
 			public TableSourceupComingMeetings (List<UserMeetings> items, customerProfileVC owner)
 			{
-				items = items;
+				TableItems = items;
 				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				return items.Count;
+				return TableItems.Count;
 
 			}
 
@@ -242,7 +257,7 @@ namespace donow.iOS
 					cell = new CustomerViewTableCellUpcomingMeetings (CellIdentifier);
 				}
 
-				cell.UpdateCell(items[indexPath.Row]);
+				cell.UpdateCell(TableItems[indexPath.Row]);
 				return cell;
 			}
 
@@ -252,7 +267,7 @@ namespace donow.iOS
 				tableView.DeselectRow (indexPath, true);
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
-					myMeetingsObj.meetingObj = items[indexPath.Row];
+					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
@@ -265,30 +280,30 @@ namespace donow.iOS
 
 		public class TableSourcePreviousMeetings : UITableViewSource {
 			string CellIdentifier = "PreviousMeetingsCell";
-			List<UserMeetings> items;
+			List<UserMeetings> TableItems;
 			customerProfileVC owner;
 
 			public TableSourcePreviousMeetings (List<UserMeetings> items, customerProfileVC owner)
 			{
-				items = items;
+				TableItems = items;
 				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				return items.Count;
+				return TableItems.Count;
 
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{				
-				var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewTableCellUpcomingMeetings;
+				var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewPreviousMeetings;
 
 				if (cell == null) {
-					cell = new CustomerViewTableCellUpcomingMeetings (CellIdentifier);
+					cell = new CustomerViewPreviousMeetings (CellIdentifier);
 				}
 
-				cell.UpdateCell(items[indexPath.Row]);
+				cell.UpdateCell(TableItems[indexPath.Row]);
 				return cell;
 			}
 
@@ -298,7 +313,7 @@ namespace donow.iOS
 				tableView.DeselectRow (indexPath, true);
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
-					myMeetingsObj.meetingObj = items[indexPath.Row];
+					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
@@ -330,14 +345,14 @@ namespace donow.iOS
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{				
-				var cell = tableView.DequeueReusableCell (CellIdentifier) as Customer360TableCell;
+				var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewDealHistory;
 
 				if (cell == null) {
-					cell = new Customer360TableCell (CellIdentifier);
+					cell = new CustomerViewDealHistory (CellIdentifier);
 				}
 
 
-				//cell.UpdateCell(leadsObj);
+				cell.UpdateCell(TableItems[indexPath.Row]);
 				return cell;
 			}
 

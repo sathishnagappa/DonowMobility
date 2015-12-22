@@ -10,6 +10,7 @@ using UIKit;
 using EventKit;
 using donow.PCL.Model;
 using donow.PCL;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -205,7 +206,13 @@ namespace donow.iOS
 				userMeetings.State = AppDelegate.CurrentLead.STATE;
 				LeadsBL leadsbl = new LeadsBL ();
 				leadsbl.SaveMeetingEvent (userMeetings);
-
+				//Xamarin Insights tracking
+				Insights.Track ("SaveMeetingEvent", new Dictionary <string,string> {
+					{ "LeadId", userMeetings.LeadId.ToString () },
+					{ "UserId", userMeetings.UserId.ToString () },
+					{ "Subject", userMeetings.Subject },
+					{ "CustomerName", userMeetings.CustomerName }
+				});
 //				var notification = new UILocalNotification();
 //
 //				notification.AlertBody = AppDelegate.CurrentLead.LEAD_ID.ToString();

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Net;
 using donow.Services;
 using donow.PCL;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -151,10 +152,23 @@ namespace donow.iOS
 
 				var auth0 = new Auth0Client(
 					"donow.auth0.com",
-					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");				
+					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
+				
+				Auth0User user = null;
+				try
+				{
 
-
-				var user = await auth0.LoginAsync(this,"linkedin");
+				user = await auth0.LoginAsync(this,"linkedin");
+			
+				}
+				catch (AggregateException ex)
+			{
+				//this.SetResultText(e.Flatten().Message);
+				}
+				catch (Exception ex)
+			{
+				//this.SetResultText(e.Message);
+				}
 
 				if(user != null)
 				{
@@ -204,7 +218,7 @@ namespace donow.iOS
 		bool ValidateCredentials()
 		{
 			UIAlertView alert = null;
-			AppDelegate.IsNewUser = false;
+			//AppDelegate.IsNewUser = false;
 			UserBL userBL = new UserBL ();
 
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
@@ -212,6 +226,19 @@ namespace donow.iOS
 				AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
 				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
+					#region This code block is used for Insight tracking
+					var userInfos = new Dictionary<string,string> {
+						{ Insights.Traits.Email, AppDelegate.UserDetails.Email },
+						{ Insights.Traits.Name, AppDelegate.UserDetails.FullName},
+						{ "Title",AppDelegate.UserDetails.Title},
+						{ "Company",AppDelegate.UserDetails.Company},
+						{ "Industry",AppDelegate.UserDetails.Industry},
+						{ Insights.Traits.Address,AppDelegate.UserDetails.OfficeAddress},
+						{ Insights.Traits.Phone,AppDelegate.UserDetails.Phone}
+					};
+					#endregion
+					Insights.Identify(AppDelegate.UserDetails.UserId.ToString(), userInfos);
+
 					return true;
 				}
 				else {

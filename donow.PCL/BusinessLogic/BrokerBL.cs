@@ -39,6 +39,15 @@ namespace donow.PCL
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
 			return parsedResponse;
 		}
+
+		public List<Broker> GetBrokerForStatus(long leadID,int UserId,int status)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.DealMaker + "?id=" +  leadID + "&UserId=" + UserId + "&status=" + status;
+			string response =  restSevice.GetData (leadsApicall);
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
+			return parsedResponse;
+		}
 	}
 }
 

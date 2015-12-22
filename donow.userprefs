@@ -1,31 +1,39 @@
-<Properties StartupItem="iOS/donow.iOS.csproj">
+﻿<Properties StartupItem="iOS/donow.iOS.csproj">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.0" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/ForgotPasswordVC.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="iOS/ForgotPasswordVC.cs" Line="46" Column="4" />
-      <File FileName="iOS/LandingCustomerVC.cs" Line="200" Column="49" />
-      <File FileName="iOS/ScrollReq.cs" Line="91" Column="54" />
-      <File FileName="iOS/customerProfileVC.cs" Line="131" Column="4" />
-      <File FileName="iOS/prospectDetailsVC.cs" Line="119" Column="1" />
-      <File FileName="iOS/ReferralRequestDetails.cs" Line="83" Column="4" />
-      <File FileName="iOS/CalenderHomeDVC.cs" Line="196" Column="53" />
-      <File FileName="donow.PCL/Services/RestService.cs" Line="72" Column="27" />
-      <File FileName="donow.PCL/BusinessLogic/BrokerBL.cs" Line="12" Column="8" />
-      <File FileName="iOS/MyMeetingsVC.cs" Line="39" Column="48" />
-      <File FileName="iOS/ForgotPasswordVC.cs" Line="45" Column="68" />
-      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="38" Column="24" />
-      <File FileName="donow.PCL/Util/Crypto.cs" Line="12" Column="31" />
-      <File FileName="iOS/loginPageViewController.cs" Line="154" Column="44" />
-      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="108" Column="10" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="23" Column="46" />
-      <File FileName="iOS/LandingRefferalRequestVC.cs" Line="132" Column="6" />
+      <File FileName="iOS/ForgotPasswordVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingCustomerVC.cs" Line="1" Column="1" />
+
+      <File FileName="iOS/MyMeetingsVC.cs" Line="62" Column="47" />
+      <File FileName="donow.PCL/Util/TwitterUtil.cs" Line="72" Column="1" />
+      <File FileName="iOS/AccountManagementVC.cs" Line="143" Column="44" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="65" Column="3" />
+      <File FileName="iOS/Main.cs" Line="15" Column="32" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="donow" expanded="True">
+            <Node name="donow.iOS" expanded="True" selected="True">
+              <Node name="ComponentReferenceFolder" expanded="True" />
+            </Node>
+            <Node name="donow.PCL" expanded="True">
+              <Node name="BusinessLogic" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Util" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/brillio/Documents/doNow/DonowMobility/iOS/LeadDetailVC.cs" line="76" column="1" />
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/MyDealMakerDetailVC.cs" line="57" column="1" />
     </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

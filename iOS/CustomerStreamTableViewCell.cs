@@ -14,7 +14,7 @@ namespace donow.iOS
 		public CustomerStreamTableViewCell  (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			LabelCustomerName = new UILabel () {
-				Font = UIFont.FromName ("Arial-BoldMT", 24f),
+				Font = UIFont.FromName ("Arial-BoldMT", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
 				Lines = 0,
 				//BackgroundColor = UIColor.clear
@@ -23,7 +23,7 @@ namespace donow.iOS
 
 			LabelPlaceName = new UILabel () {
 				
-				Font = UIFont.FromName ("Arial", 22f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
 				Lines = 0,
 				//BackgroundColor = UIColor.clear
@@ -35,7 +35,7 @@ namespace donow.iOS
 
 			LabelDesc = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 22f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
 				Text="Michelle is celebrating 5 years at\n Northwest Pacific Tech",
 				Lines = 0,
@@ -80,10 +80,10 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-			LabelCustomerName.Frame = new CGRect (83, 8, 189,21);
+			LabelCustomerName.Frame = new CGRect (83, 8, 310,21);
 			LabelPlaceName.Frame = new CGRect (83, 35, 300, 21);
 //			LabelHourText.Frame = new CGRect (330,8,20,15);
-			LabelDesc.Frame = new CGRect (16, 80, 400, 30);
+			LabelDesc.Frame = new CGRect (16, 65, 390, 30);
 			ImageViewCustomerImage.Frame = new CGRect (16, 8, 42, 48);
 //			ImageViewClockImage.Frame = new CGRect (300, 8, 20, 20);
 

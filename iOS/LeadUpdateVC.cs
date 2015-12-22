@@ -187,14 +187,13 @@ namespace donow.iOS
 				leadf2ffeedback.LeadAdvanced = localLeadAdvanced;
 				leadf2ffeedback.NextSteps = localNextSteps;
 				leadf2ffeedback.SalesStage = localSalesStage;
-				//leadf2ffeedback.MeetingID = meetingObj.Id.ToString();
+				leadf2ffeedback.MeetingID = meetingObj.Id;
 				AppDelegate.leadsBL.SaveLeadF2FFeedBack (leadf2ffeedback);
 
 				UserMeetings usermeeting = new UserMeetings();
-				usermeeting.LeadId = meetingObj.Id;
+				usermeeting.Id = meetingObj.Id;
 				usermeeting.Status="Done";
-				UserBL userbl = new UserBL();
-				userbl.UpdateMeetingList(usermeeting);
+				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{

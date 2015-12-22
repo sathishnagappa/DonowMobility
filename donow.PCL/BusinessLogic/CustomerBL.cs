@@ -74,10 +74,10 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public List<DealHistroy> GetDealHistroy(string customerName, int userID)
+		public List<DealHistroy> GetDealHistroy(long leadID, int userID)
 		{
 			RestService restSevice = new RestService ();
-			string restUrl = Constants.DealHistory + "?CustomerName=" + customerName + "&UserId=" + userID;
+			string restUrl = Constants.DealHistory + "?LeadID=" + leadID + "&UserID=" + userID;
 			string response = restSevice.GetData (restUrl);
 			List<DealHistroy> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DealHistroy>>(response.ToString());
 			return parsedResponse;

@@ -88,7 +88,9 @@ namespace donow.iOS
 			//loadingOverlay = new LoadingOverlay (bounds);
 			//View.Add (loadingOverlay);
 
-
+			if (!AppDelegate.UserDetails.IsNewLeadNotificationRequired)
+				ButtonRequestNewLead.Enabled = false;
+			
 			LabelAlertView.Layer.CornerRadius = 5.0f;
 			ButtonOk.Layer.CornerRadius = 5.0f;
 
@@ -157,25 +159,7 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				
-//				tableView.DeselectRow (indexPath, true);
-//				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-//				if (TableItems [indexPath.Row].STATUS == "NEW" && TableItems [indexPath.Row].LEAD_SOURCE != 1) 
-//				{
-//					LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
-//					if (leadDetailVC != null) {
-//						leadDetailVC.leadObj = TableItems [indexPath.Row];
-//						owner.NavigationController.PushViewController (leadDetailVC, true);
-//					}
-//				} else if (TableItems [indexPath.Row].STATUS != "Accepted") {
-//					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
-//					if (prospectVC != null) {
-//						prospectVC.localLeads = TableItems [indexPath.Row];
-//						owner.NavigationController.PushViewController (prospectVC, true);
-//					}
-//					
-//				}
+			{				
 				tableView.DeselectRow (indexPath, true);
 				AppDelegate.CurrentLead = TableItems [indexPath.Row];
 				if ((TableItems [indexPath.Row].USER_LEAD_STATUS == 1 || TableItems [indexPath.Row].USER_LEAD_STATUS == 2) && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
@@ -236,9 +220,8 @@ namespace donow.iOS
 //						where leaditem.LEAD_ID == item.LeadId
 //					select leaditem;
 
-				
 					meeetingEndDate = DateTime.Parse (item.EndDate);
-					TimeSpan span = DateTime.UtcNow.Subtract (meeetingEndDate);
+					TimeSpan span = meeetingEndDate.Subtract(DateTime.Now);
 
 					if (DateTime.Compare (meeetingEndDate, DateTime.Now) > 0) {
 						Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
@@ -258,6 +241,12 @@ namespace donow.iOS
 							leadUpdateVC.meetingObj = item;
 							this.PresentViewController (leadUpdateVC, true, null);
 						}
+//												InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+//												if (interactionLeadUpdateVC != null) {
+//													interactionLeadUpdateVC.userMeetings = item;
+//													this.PresentViewController (interactionLeadUpdateVC, true, null);
+//												} 
+
 						//}
 					}
 				}

@@ -35,16 +35,15 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelTime});
 
 			ImageViewEmail = new UIImageView () {
-				Image = UIImage.FromBundle("New Meeting Thumb.png")
+				Image = UIImage.FromBundle("Deal History Thumb.png")
 			};
 			ContentView.AddSubviews(new UIView[] {ImageViewEmail});
 		}
 
-		public void UpdateCell (DealHistroy meetingsInfo)
+		public void UpdateCell (DealHistroy dealHistory)
 		{
-			LabelSentEmail.Text = "Sent Email: Checking In..";
-			LabelDate.Text = "Sept. 15, 2015";
-			LabelTime.Text =  "12:30 pm";
+			LabelSentEmail.Text = DateTime.Parse(dealHistory.Date).ToString("MMM. dd, yyyy  hh:mm tt");
+			LabelDate.Text = "Location:" + dealHistory.City + "," + dealHistory.State;
 		}
 
 		public override void LayoutSubviews ()
@@ -53,7 +52,7 @@ namespace donow.iOS
 
 			ImageViewEmail.Frame = new CGRect (35, 23, 60, 55);
 			LabelSentEmail.Frame = new CGRect (122, 17, 272, 32);
-			LabelDate.Frame = new CGRect (124,57,127,21);
+			LabelDate.Frame = new CGRect (124,57,280,21);
 			LabelTime.Frame = new CGRect (264,57,127,21);
 		}
 	}
