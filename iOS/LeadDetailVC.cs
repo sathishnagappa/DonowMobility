@@ -9,6 +9,7 @@ using EventKit;
 using CoreGraphics;
 using System.Drawing;
 using donow.PCL;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -81,6 +82,12 @@ namespace donow.iOS
 				AppDelegate.IsLeadAccepted = true;
 				leadsBL = new LeadsBL();
 				leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
+
+				//Xamarin Insights tracking
+				Insights.Track("Lead Update Status", new Dictionary <string,string>{
+					{"LEAD ID", leadObj.LEAD_ID.ToString()},
+					{"Update Status", "4"}
+				});
 			};
 
 			ButtonPass.Layer.BorderWidth = 2.0f;
@@ -138,6 +145,13 @@ namespace donow.iOS
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+
+				//Xamarin Insights tracking
+				Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+					{"UserId", customerinteract.UserId.ToString()},
+					{"CustomerName", customerinteract.CustomerName},
+					{"Type", "Phone"}
+				});
 			};
 
 			ButtonEmailAcceptView.TouchUpInside += (object sender, EventArgs e) =>  {
@@ -157,7 +171,12 @@ namespace donow.iOS
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
-		
+						//Xamarin Insights tracking
+						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+							{"UserId", customerinteract.UserId.ToString()},
+							{"CustomerName", customerinteract.CustomerName},
+							{"Type", "Email"}
+						});
 					};
 						 
 					this.PresentViewController (mailController, true, null);

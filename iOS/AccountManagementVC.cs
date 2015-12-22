@@ -58,16 +58,16 @@ namespace donow.iOS
 			
 			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
-<<<<<<< HEAD
+
 
 			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCustomers)) 
 				ButtonInfoCustomersDropDown.SetTitle (" Select", UIControlState.Normal);
 			else
 				ButtonInfoCustomersDropDown.SetTitle (AppDelegate.UserDetails.PreferredCustomers, UIControlState.Normal);
 			
-=======
+
 			ButtonInfoCustomersDropDown.SetTitle ("", UIControlState.Normal);
->>>>>>> origin/master
+
 			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
 			if (AppDelegate.UserDetails.UserId != 0) {
@@ -144,13 +144,8 @@ namespace donow.iOS
 				 
 				//AppDelegate.UserDetails.UserId = 7;
 				if(AppDelegate.UserDetails.UserId == 0)
-<<<<<<< HEAD
-					AppDelegate.UserDetails.UserId = AppDelegate.userBL.CreateUser(AppDelegate.UserDetails);
-				else
-					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
-=======
 				{
-					AppDelegate.UserDetails.UserId = userBL.CreateUser(AppDelegate.UserDetails);
+					AppDelegate.UserDetails.UserId = AppDelegate.userBL.CreateUser(AppDelegate.UserDetails);
 					//Xamarin Insight tracking code
 					Insights.Track("CreateUser", new Dictionary <string,string>{
 						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
@@ -158,13 +153,13 @@ namespace donow.iOS
 				}
 				else
 				{
-					userBL.UpdateUserDetails(AppDelegate.UserDetails);
+					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
 					//Xamarin Insight tracking code
 					Insights.Track("UpdateUserDetails", new Dictionary <string,string>{
 						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
 					});
 				}
->>>>>>> origin/master
+
 
 				if(isFromSignUp && AppDelegate.UserDetails.UserId != 0) {
 					WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
