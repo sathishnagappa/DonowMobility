@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="iOS/donow.iOS.csproj">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.0" />
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="iOS/ForgotPasswordVC.cs" Line="1" Column="1" />
       <File FileName="iOS/LandingCustomerVC.cs" Line="1" Column="1" />
-
       <File FileName="iOS/MyMeetingsVC.cs" Line="62" Column="47" />
       <File FileName="donow.PCL/Util/TwitterUtil.cs" Line="72" Column="1" />
       <File FileName="iOS/AccountManagementVC.cs" Line="143" Column="44" />
