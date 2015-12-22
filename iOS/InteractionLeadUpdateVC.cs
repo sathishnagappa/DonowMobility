@@ -7,6 +7,7 @@ using UIKit;
 using System.Collections.Generic;
 using donow.PCL;
 using CoreGraphics;
+using Xamarin;
 
 namespace donow.iOS
 {
@@ -113,6 +114,11 @@ namespace donow.iOS
 				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 
 				DismissViewController(true,null);
+				//Xamarin Insights tracking
+				Insights.Track("Save Lead FeedBack", new Dictionary <string,string>{
+					{"LeadID", leadfeedback.LeadID.ToString()},
+					{"UserID", leadfeedback.UserID.ToString()}
+				});
 			};
 
 		}
