@@ -9,6 +9,7 @@ namespace donow.PCL
 			public string Description { get; set; }
 			public string Title { get; set; }
 			public string Url { get; set; }
+			public DateTime?  Date { get; set; }
 	}
 }
 

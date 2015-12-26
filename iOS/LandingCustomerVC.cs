@@ -13,14 +13,13 @@ namespace donow.iOS
 	{
 		private Dictionary<string,List<Customer>> custDictionary;
 
-		protected int sectionHit;
+		//protected int sectionHit;
 		private static int cellIndexCount;
 
 
 		public LandingCustomerVC (IntPtr handle) : base (handle)
 		{
-			custDictionary = new Dictionary<string, List<Customer>> ();
-			cellIndexCount = 0;
+
 
 		}
 
@@ -32,15 +31,33 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+			custDictionary = new Dictionary<string, List<Customer>> ();
+			cellIndexCount = 0;
+			LoadCustomers ();
+
+		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			TableViewCustomerList.Source = null;
+			custDictionary = null;
+			base.ViewWillDisappear (animated);
 
 		}
 
 		public override void ViewDidLoad ()
 		{
-		
-			CustomerBL customerBL = new CustomerBL ();
-			List<Customer> cusotmerList = customerBL.GetAllCustomers ().OrderBy (x => x.Name).ToList ();
-			//            custDictionary = new Dictionary<string, List<Customer>> ();
+
+			//LoadCustomers ();
+			this.Title = "Customers";
+			this.NavigationItem.SetHidesBackButton (true, false);
+			this.NavigationItem.SetLeftBarButtonItem(null, true);
+		}
+
+		void LoadCustomers()
+		{
+			
+			List<Customer> cusotmerList =  AppDelegate.customerBL.GetAllCustomers ().OrderBy (x => x.Name).ToList ();
 
 			for (char c = 'A'; c <= 'Z'; c++)
 			{
@@ -48,10 +65,7 @@ namespace donow.iOS
 			} 
 
 			TableViewCustomerList.Source = new TableSource (custDictionary, this);
-			this.Title = "Customers";
-
-			this.NavigationItem.SetHidesBackButton (true, false);
-			this.NavigationItem.SetLeftBarButtonItem(null, true);
+			
 		}
 
 		public class TableSource : UITableViewSource {
@@ -163,22 +177,6 @@ namespace donow.iOS
 			}
 
 		
-//			public override UIView GetViewForHeader (UITableView tableView, nint section)
-//			{
-//				
-//				UIView headerView = new UIView ();
-//				headerView.Frame = new CoreGraphics.CGRect (10, 20, 100, 10);
-//				headerView.BackgroundColor = UIColor.LightGray; 
-//
-//
-//				UILabel headerLabel = new UILabel ();
-//				headerLabel.Frame = new CoreGraphics.CGRect (10, 20, 10, 10);
-//				// Set the frame size you need
-//				headerLabel.TextColor = UIColor.White; // Set your color
-//
-//				headerView.AddSubview (headerLabel);
-//				return headerView;
-//			}
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 
@@ -194,8 +192,8 @@ namespace donow.iOS
 			public override string[] SectionIndexTitles (UITableView tableView)
 			{
 
-				string[] _arrayString = new string[26];
-				return _arrayString=headerArray.ToArray();
+				//string[] _arrayString = new string[26];
+				return headerArray.ToArray();
 
 			}
 

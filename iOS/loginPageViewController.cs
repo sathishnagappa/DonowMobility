@@ -14,12 +14,14 @@ using System.Net;
 using donow.Services;
 using donow.PCL;
 using Xamarin;
+using System.Threading.Tasks;
+using BigTed;
 
 namespace donow.iOS
 {
 	partial class loginPageViewController : UIViewController
 	{
-		LoadingOverlay loadingOverlay;
+		//LoadingOverlay loadingOverlay;
 		public loginPageViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -53,99 +55,33 @@ namespace donow.iOS
 			this.NavigationItem.SetHidesBackButton (true, false);
 	
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
-			TextBoxUserName.ShouldReturn = delegate {
-				TextBoxUserName.ResignFirstResponder ();
-				return true;
-			};
 
-			TextBoxPassword.ShouldReturn = delegate {
-				TextBoxPassword.ResignFirstResponder ();
-				return true;
-			};
-
-			LabelUserName.Layer.CornerRadius = 5.0f;
-			LabelUserName.Layer.BorderWidth = 1.0f;
-			LabelUserName.Layer.BorderColor = UIColor.DarkGray.CGColor;
-
-			LabelPassword.Layer.CornerRadius = 5.0f;
-			LabelPassword.Layer.BorderWidth = 1.0f;
-			LabelPassword.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			SetUILayOut ();
 
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start ();
 			#endif
-			//AppDelegate.UserDetails.UserName = "sathish";
-			//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
-
-				//				RestService rs = new RestService();
-				//				string content = rs.SFDCAuthentication();
-				//				await rs.UpdateSFDCData(content);
 
 
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+				
+				
+//				InvokeOnMainThread(() =>
+//					{
+//						BTProgressHUD.Show("loading...");
+						if ( await ValidateCredentials ()) {			
 
+							// Call to Get user details and validate credentials
+							LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+							if (landingVC != null) {
+								this.NavigationController.PushViewController(landingVC, true);
+							}
 
-				//LeadsBL leadbl = new LeadsBL();
-				//leadbl.UpdateStatus(125960876,"Accepted");
-				//leadbl.UpdateReasonForPass(125960876,"Client Not interested");
-
-
-//				UserMeetings usermeeting = new UserMeetings();
-//				usermeeting.LeadId = 4;
-//				usermeeting.State="Done";
-//				UserBL userbl = new UserBL();
-//				userbl.UpdateMeetingList(usermeeting);
-
-
-				//ReferralRequestBL rrbl = new ReferralRequestBL();
-				//rrbl.GetReferralRequest();
-
-//				ReferralRequest rr = new ReferralRequest();
-//				rr.AcceptorId = 1;
-//				rr.LeadId = 1;
-//				rr.SenderId = 1;
-//				rr.Status = "Accepted";
-//				rrbl.SaveReferralRequest(rr);
-
-//				leadfeedback.LeadID = 1211;
-//				leadfeedback.QuestionNo = 1;
-//				leadfeedback.Options = 2;
-//				leadfeedback.AnswerType = 2;
-//				leadfeedback.Comments = "";
-//				leadbl.SaveLeadF2FFeedBack(leadfeedback);
-
-//				BrokerBL brokerbl = new BrokerBL();
-//				brokerbl.UpdateBrokerStatus(125960876,"Acceptance Pending");
-
-//				UserDetails userdetails = new UserDetails();
-//				userdetails.Password = "test";
-//				userdetails.UserId = 10;
-//				UserBL userbl = new UserBL();
-//				userbl.UpdateUserDetails(userdetails);
-					
-//				CustomerBL customerbl = new CustomerBL();
-//				CustomerInteraction customerinteract = new CustomerInteraction();
-//				customerinteract.CustomerName = "Scott Anders";
-//				customerinteract.UserId = 12121;
-//				customerinteract.Type = "Email";
-//				customerinteract.DateNTime = DateTime.Now.ToString();
-//				customerbl.SaveCutomerInteraction(customerinteract);
-
-				ButtonLogin.TouchUpInside += (object sender, EventArgs e) => {
-				if (ValidateCredentials ()) {
-					var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
-					if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
-						bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
-					}
-					loadingOverlay = new LoadingOverlay (bounds);
-					View.Add (loadingOverlay);
-					// Call to Get user details and validate credentials
-					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-					if (landingVC != null) {
-						this.NavigationController.PushViewController(landingVC, true);
-					}
-					loadingOverlay.Hide ();
-				}
+						}
+//					});
+//				
+				//BTProgressHUD.Dismiss();
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
@@ -215,15 +151,35 @@ namespace donow.iOS
 
 		}
 
-		bool ValidateCredentials()
+		void SetUILayOut()
 		{
+			TextBoxUserName.ShouldReturn = delegate {
+				TextBoxUserName.ResignFirstResponder ();
+				return true;
+			};
+
+			TextBoxPassword.ShouldReturn = delegate {
+				TextBoxPassword.ResignFirstResponder ();
+				return true;
+			};
+
+			LabelUserName.Layer.CornerRadius = 5.0f;
+			LabelUserName.Layer.BorderWidth = 1.0f;
+			LabelUserName.Layer.BorderColor = UIColor.DarkGray.CGColor;
+
+			LabelPassword.Layer.CornerRadius = 5.0f;
+			LabelPassword.Layer.BorderWidth = 1.0f;
+			LabelPassword.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			
+		}
+
+		async Task<bool> ValidateCredentials()
+		{
+
+			
 			UIAlertView alert = null;
-			//AppDelegate.IsNewUser = false;
-			UserBL userBL = new UserBL ();
-
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
-
-				AppDelegate.UserDetails = userBL.GetUserDetails (TextBoxUserName.Text);
+				AppDelegate.UserDetails =  await AppDelegate.userBL.GetUserDetails (TextBoxUserName.Text);
 				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					#region This code block is used for Insight tracking

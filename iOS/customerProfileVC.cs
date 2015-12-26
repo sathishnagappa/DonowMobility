@@ -23,6 +23,16 @@ namespace donow.iOS
 		public Customer customer;
 		public bool TableSeeAllClicked = false;
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			//TableViewEmails.Source = null;
+			//TableViewDealHistory.Source = null;
+			//TableViewMeetings.Source = null;
+			//TableViewPreviousMeetings.Source = null;
+			base.ViewWillDisappear (animated);
+
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -38,9 +48,10 @@ namespace donow.iOS
 
 			LoadScreenData ();
 
-			int brokerWorkingWith = AppDelegate.brokerBL.GetBrokerForProspect (customer.LeadId).Where(X => X.Status ==4).ToList().Count;
+			//int brokerWorkingWith = AppDelegate.brokerBL.GetBrokerForProspect (customer.LeadId).Where(X => X.Status ==4).ToList().Count;
+			int  brokerWorkingWith =  AppDelegate.brokerBL.GetBrokerForStatus(customer.LeadId,4).Count;
 
-			DealMakersImage1.Hidden = brokerWorkingWith > 0 ? true : false;			
+			DealMakersImage1.Hidden = brokerWorkingWith > 0 ? false : true;			
 			LabelIndustry.Text = customer.CompanyInfo;
 			LabelLineOfBusiness.Text = customer.BusinessNeeds;
 
@@ -90,13 +101,17 @@ namespace donow.iOS
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
-						Console.WriteLine (args.Result.ToString ());
 						args.Controller.DismissViewController (true, null);
 					};
 
 					this.PresentViewController (mailController, true, null);
 				}
 			};
+		}
+
+		protected override void Dispose (bool disposing)
+		{
+			base.Dispose (disposing);
 		}
 
 		void LoadScreenData()
@@ -194,12 +209,12 @@ namespace donow.iOS
 
 			string CellIdentifier = "InteractionWithCustomer";
 			List<CustomerInteraction> TableItems;
-			customerProfileVC owner;
+			//customerProfileVC owner;
 
 			public TableSourceInteractionWithCustomer (List<CustomerInteraction> items, customerProfileVC owner)
 			{
 				TableItems = items;
-				this.owner = owner;
+				//this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -268,6 +283,7 @@ namespace donow.iOS
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
 					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
+					myMeetingsObj.customer = owner.customer;
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
@@ -314,6 +330,7 @@ namespace donow.iOS
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
 					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
+					myMeetingsObj.customer = owner.customer;
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
@@ -328,12 +345,12 @@ namespace donow.iOS
 
 			string CellIdentifier = "LeadsTableCell";
 			List<DealHistroy> TableItems;
-			customerProfileVC owner;
+			//customerProfileVC owner;
 
 			public TableSourceDealHistory (List<DealHistroy> items, customerProfileVC owner)
 			{
 				TableItems = items;
-				this.owner = owner;
+				//this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using donow.PCL.Model;
 using donow.Util;
 using CoreGraphics;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -27,61 +28,76 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
+
+			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingNewsResult(AppDelegate.UserDetails.Industry + " + Customers");
+
+			TableViewCustomerStream.Source= new CustomerIndustryTableSource(bingResult.OrderByDescending(X => X.Date).ToList(), this);
+		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			TableViewCustomerStream.Source = null;
+			base.ViewWillDisappear (animated);
 		}
 
 		public override void ViewDidLoad ()
 		{
 			this.Title = "Customer Stream";
 
-
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
-			CustomerBL customerBL = new CustomerBL ();
-			//List<Feed> feedlist = customerBL.GetCustomerFeed ();
-			List<Customer> customerList = customerBL.GetAllCustomers();
-
-			TableViewCustomerStream.Source= new TableSource(customerList, this);
 
 		}
 
-		public class TableSource : UITableViewSource {
+		public class CustomerIndustryTableSource : UITableViewSource {
+
+			List<BingResult> TableItems;
 			string CellIdentifier = "TableCell";
-			IList<Customer> TableItems;
+
 			LandingCustomerStreamVC owner;
 
-//			public List<String> headerArray = new List <String>
-//			{
-//				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
-//				"P","Q", "R", "S", "T", "U", "V","W", "X", "Y", "Z"
-//			};
-
-			public TableSource (IList<Customer> items, LandingCustomerStreamVC owner)
+			public CustomerIndustryTableSource (List<BingResult> meetingList, LandingCustomerStreamVC owner)
 			{
-				this.TableItems = items;
+				TableItems = meetingList;
 				this.owner = owner;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-							return TableItems.Count;
+				return TableItems.Count;
 			}
 
-			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 			{
-				var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerStreamTableViewCell;
-				Customer customerObj = TableItems[indexPath.Row];
+				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+				BingResult item = TableItems[indexPath.Row];
 
-				if (cell == null) {
-					cell = new CustomerStreamTableViewCell(CellIdentifier);
-				}
+				//---- if there are no cells to reuse, create a new one
+				if (cell == null)
+				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
-				cell.UpdateCell(customerObj);
+				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
+				cell.TextLabel.Text = item.Title; //+ " - " + getDate(item.Date);
+				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+				cell.TextLabel.Lines = 0;
+
 				return cell;
-
 			}
+
+//			int getDate(DateTime? date)
+//			{
+//				var hours = Math.Round((DateTime.Now - DateTime.Parse (date.ToString())).TotalHours);
+//				return hours;
+//			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
+				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+				if (bingSearchVC != null) {
+					bingSearchVC.webURL = TableItems [indexPath.Row].Url;
+					//owner.View.AddSubview (leadDetailVC.View);
+					owner.NavigationController.PushViewController (bingSearchVC, true);
+				}
 				tableView.DeselectRow (indexPath, true);
 			}
 
@@ -89,6 +105,7 @@ namespace donow.iOS
 			{
 				return 105.0f;
 			}
+
 		}
 
 	}

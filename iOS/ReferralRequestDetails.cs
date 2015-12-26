@@ -10,7 +10,7 @@ namespace donow.iOS
 	partial class ReferralRequestDetails : UIViewController
 	{
 		public string referralRequestType = string.Empty;
-		public List<ReferralRequest> referralRequests;
+		//public List<ReferralRequest> referralRequests;
 		public ReferralRequestDetails (IntPtr handle) : base (handle)
 		{
 		}
@@ -35,7 +35,12 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				this.NavigationController.PopViewController(false);
+//				this.NavigationController.PopViewController(false);
+				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController("landingRefferalRequestVC") as LandingRefferalRequestVC;
+				if (landingRefferalRequestVC != null)
+				{
+					this.NavigationController.PushViewController(landingRefferalRequestVC, true);
+				} 
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
@@ -64,7 +69,7 @@ namespace donow.iOS
 				LabelRRTitle.Text = "Completed Requests";
 			}
 				
-			TableViewRR.Source = new TableSource (referralRequests, this);			
+			TableViewRR.Source = new TableSource (AppDelegate.CurrentRRList, this);			
 			//}
 			
 		}
@@ -107,6 +112,7 @@ namespace donow.iOS
 					ScrollReq ScrollReqProf = owner.Storyboard.InstantiateViewController ("ScrollReqProf") as ScrollReq;
 					if (ScrollReqProf != null) {
 						ScrollReqProf.refferalRequests = TableItems [indexPath.Row];
+						ScrollReqProf.referralRequestType = owner.referralRequestType;
 						owner.NavigationController.PushViewController (ScrollReqProf, true);
 					}
 				}

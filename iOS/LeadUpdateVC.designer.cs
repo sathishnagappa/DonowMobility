@@ -98,6 +98,18 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewF2FMeetingDown { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewFirst { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewFirstDropDown { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewSecond { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonConfirmMeetingSide != null) {
@@ -183,6 +195,18 @@ namespace donow.iOS
 			if (ViewF2FMeetingDown != null) {
 				ViewF2FMeetingDown.Dispose ();
 				ViewF2FMeetingDown = null;
+			}
+			if (ViewFirst != null) {
+				ViewFirst.Dispose ();
+				ViewFirst = null;
+			}
+			if (ViewFirstDropDown != null) {
+				ViewFirstDropDown.Dispose ();
+				ViewFirstDropDown = null;
+			}
+			if (ViewSecond != null) {
+				ViewSecond.Dispose ();
+				ViewSecond = null;
 			}
 		}
 	}

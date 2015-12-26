@@ -28,8 +28,9 @@ namespace donow.iOS
 
 			List<Broker> brokerList;
 			BrokerBL brokerBL = new BrokerBL ();
-			if(!AppDelegate.IsFromProspect)				
-				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry,AppDelegate.UserDetails.LineOfBusiness).OrderByDescending(X => X.BrokerScore).ToList();
+			if (!AppDelegate.IsFromProspect) {				
+				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness).OrderByDescending (X => X.BrokerScore).ToList ();
+			}
 			else
 				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
@@ -45,7 +46,7 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-//				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
+			//	HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
 				this.NavigationController.PopViewController(true);
 			};
 

@@ -44,6 +44,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSalesStageDropDown { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSubmit { get; set; }
 
 		[Outlet]
@@ -60,11 +64,23 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewSalesStage { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextView TextViewComments { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewFirst { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewInteractionThumbsDown { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewSecond { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -96,6 +112,10 @@ namespace donow.iOS
 				ButtonLikeInteraction.Dispose ();
 				ButtonLikeInteraction = null;
 			}
+			if (ButtonSalesStageDropDown != null) {
+				ButtonSalesStageDropDown.Dispose ();
+				ButtonSalesStageDropDown = null;
+			}
 			if (ButtonSubmit != null) {
 				ButtonSubmit.Dispose ();
 				ButtonSubmit = null;
@@ -112,13 +132,25 @@ namespace donow.iOS
 				TableViewInteractionDislikerReason.Dispose ();
 				TableViewInteractionDislikerReason = null;
 			}
+			if (TableViewSalesStage != null) {
+				TableViewSalesStage.Dispose ();
+				TableViewSalesStage = null;
+			}
 			if (TextViewComments != null) {
 				TextViewComments.Dispose ();
 				TextViewComments = null;
 			}
+			if (ViewFirst != null) {
+				ViewFirst.Dispose ();
+				ViewFirst = null;
+			}
 			if (ViewInteractionThumbsDown != null) {
 				ViewInteractionThumbsDown.Dispose ();
 				ViewInteractionThumbsDown = null;
+			}
+			if (ViewSecond != null) {
+				ViewSecond.Dispose ();
+				ViewSecond = null;
 			}
 		}
 	}

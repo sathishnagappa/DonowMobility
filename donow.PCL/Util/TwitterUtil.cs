@@ -52,7 +52,7 @@ namespace donow.PCL
 //			}
 
 			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=100&q=wpdev");
-			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=10&q=%23" + paramter +"&result_type=recent");
+			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=50&q=%23" + paramter +"&result_type=recent");
 
 			requestSearch.Headers.Add("Authorization", "Bearer " + accessToken);
 			HttpResponseMessage responseSearch = await httpClient.SendAsync(requestSearch);

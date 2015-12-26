@@ -63,7 +63,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewF2F.ContentSize = new CGSize (414f, 1450.0f); 
+			ScrollViewF2F.ContentSize = new CGSize (414f, 1330.0f); 
 			ViewF2FMeetingDown.Hidden = true;
 			LabelConformMeeting.Text = "Confirm Your Meeting w/" + meetingObj.CustomerName; 
 			IList<string> ListThumbsDownReason = new List<string>
@@ -105,6 +105,8 @@ namespace donow.iOS
 				ViewF2FMeetingDown.Hidden = true;
 				localReasonForDown = "";
 				TableViewInteractionDislikeReason.Hidden = true;
+				ViewSecond.Frame = new CGRect (0, 193, 414, 1134);
+//				ViewFirst.Frame = new CGRect (0, 0, 414, 193);
 			};
 
 			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
@@ -113,6 +115,10 @@ namespace donow.iOS
 				ButtonConfirmMeetingSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localConfirmMeeting = "DOWN";
 				ViewF2FMeetingDown.Hidden = false;
+//				ViewFirstDropDown.Frame = new CGRect(0,70,414,334);
+//				ViewFirst.Frame = new CGRect (0, 0, 414, 334);
+				ViewSecond.Frame = new CGRect (0, 327, 414, 1134);
+				ButtonMeetingDislikeReasonDropDown.Enabled = true;
 			};
 
 			ButtonConfirmMeetingSide.TouchUpInside+= (object sender, EventArgs e) => {
@@ -122,6 +128,9 @@ namespace donow.iOS
 				localConfirmMeeting = "SIDE";
 				localReasonForDown = "";
 				ViewF2FMeetingDown.Hidden = true;
+				ViewSecond.Frame = new CGRect (0, 193, 414, 1134);
+				TableViewInteractionDislikeReason.Hidden = true;
+
 			};
 
 			ButtonLikeMeetingInfoHelpful.TouchUpInside += (object sender, EventArgs e) => {
@@ -186,22 +195,26 @@ namespace donow.iOS
 			TableViewInteractionDislikeReason.Source = new TableSource (ListThumbsDownReason, this,"ReasonForPass");
 			ButtonMeetingDislikeReasonDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				localReasonForDown = "Customer Cancelled";
+
+//				ViewFirst.Frame = 
 				TableViewInteractionDislikeReason.Hidden = false;
 			};
 
 			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
+			localSalesStage = "(1) Acquire Lead";
 			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
-				localSalesStage = "(1) Acquire Lead";
 				TableViewSalesStage.Hidden = false;
 			};
 
 			TableViewCustomerCategorization.Source = new TableSource (ListCustomerCategorisation, this, "CustomerCategorisation");
+			localCustomerCategorization = "Dreamer";
 			ButtonCustomerCategorizationDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				localCustomerCategorization = "Dreamer";
 				TableViewCustomerCategorization.Hidden = false;
 			};
 
 			TableViewNextSteps.Source = new TableSource (ListNextStep, this, "NextStep");
+			localNextSteps = "Get Product Info";
 			ButtonNextStepsDropDown.TouchUpInside += (object sender, EventArgs e) =>  {
 				localNextSteps = "Get Product Info";
 				TableViewNextSteps.Hidden = false;
@@ -241,8 +254,9 @@ namespace donow.iOS
 				{
 				  AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication();
 				}
-
-				AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,meetingObj.LeadId,localSalesStage);
+				string[] salesStageArray = localSalesStage.Split(' ');
+				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
+					AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,meetingObj.LeadId,salesStatus);
 
 				if(localSalesStage == "(4) Close Sale")
 				{

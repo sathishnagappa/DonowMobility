@@ -18,14 +18,14 @@ namespace donow.PCL
 		{
 		}
 
-		public List<Leads> GetAllLeads(int UserID)
+		public async Task<List<Leads>> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&type=user";
 			var parsedResponse = new List<Leads>();
 			try
 			{
-			   string response =  restSevice.GetData (leadsApicall);
+				string response =  await restSevice.GetDataForLogin (leadsApicall);
 			   parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
 			}
 			catch {

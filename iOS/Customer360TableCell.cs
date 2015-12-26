@@ -16,28 +16,32 @@ namespace donow.iOS
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelLeadStory = new UILabel () {
 				Font = UIFont.FromName("Arial", 22f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadStory});
 
 			LabelLeadScore = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadScore});
 
 			LabelLeadSource = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadSource});
 
 			LabelLeadHours = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				Text = "Lead Score:",
 				BackgroundColor = UIColor.Clear
 			};

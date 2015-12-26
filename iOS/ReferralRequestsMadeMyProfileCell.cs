@@ -41,7 +41,7 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = obj.SellerName;
 			LabelCompanyName.Text = obj.CompanyName;
-			LabelHourText.Text = DateTime.Parse(obj.CreatedOn).ToString("MMM dd");
+			LabelHourText.Text =  string.IsNullOrEmpty(obj.CreatedOn)? "" : DateTime.Parse(obj.CreatedOn).ToString("MMM dd");
 		}
 
 		public override void LayoutSubviews ()

@@ -32,6 +32,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelBrokerJobTitle { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelBrokerScore { get; set; }
 
 		[Outlet]
@@ -79,6 +83,10 @@ namespace donow.iOS
 			if (LabelBrokerFee != null) {
 				LabelBrokerFee.Dispose ();
 				LabelBrokerFee = null;
+			}
+			if (LabelBrokerJobTitle != null) {
+				LabelBrokerJobTitle.Dispose ();
+				LabelBrokerJobTitle = null;
 			}
 			if (LabelBrokerScore != null) {
 				LabelBrokerScore.Dispose ();

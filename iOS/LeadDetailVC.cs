@@ -51,8 +51,11 @@ namespace donow.iOS
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
-			btn.Clicked += (sender , e)=>{				
-				this.NavigationController.PopViewController(false);
+			btn.Clicked += (sender , e)=>{
+				LandingLeadsVC leadPage = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+				if(leadPage != null)
+				this.NavigationController.PushViewController(leadPage,true);
+				//this.NavigationController.PopViewController(false);
 
 			};
 			NavigationItem.LeftBarButtonItem = btn;
@@ -170,9 +173,6 @@ namespace donow.iOS
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
-<<<<<<< HEAD
-						args.Controller.DismissViewController (true, null);		
-=======
 						args.Controller.DismissViewController (true, null);
 						//Xamarin Insights tracking
 						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
@@ -180,7 +180,6 @@ namespace donow.iOS
 							{"CustomerName", customerinteract.CustomerName},
 							{"Type", "Email"}
 						});
->>>>>>> origin/master
 					};
 						 
 					this.PresentViewController (mailController, true, null);

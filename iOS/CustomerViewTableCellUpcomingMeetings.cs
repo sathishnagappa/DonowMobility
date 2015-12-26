@@ -7,7 +7,7 @@ namespace donow.iOS
 {
 	public class CustomerViewTableCellUpcomingMeetings : UITableViewCell
 	{
-		UILabel LabelMeetingWith, LabelMeetingDate, LabelMeetingTime, LabelMeetingLocation;
+		UILabel LabelMeetingWith, LabelMeetingDate, LabelMeetingLocation;
 		UIImageView ImageViewMeeting;
 
 		public CustomerViewTableCellUpcomingMeetings (string cellId) : base (UITableViewCellStyle.Default, cellId)
@@ -15,14 +15,16 @@ namespace donow.iOS
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelMeetingWith = new UILabel () {
 				Font = UIFont.FromName("Arial", 22f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingWith});
 
 			LabelMeetingDate = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingDate});
@@ -36,7 +38,8 @@ namespace donow.iOS
 
 			LabelMeetingLocation = new UILabel () {
 				Font = UIFont.FromName("Arial", 14f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingLocation});
@@ -60,7 +63,7 @@ namespace donow.iOS
 
 			ImageViewMeeting.Frame = new CGRect (35, 26, 60, 55);
 			LabelMeetingWith.Frame = new CGRect (117, 17, 272, 32);
-			LabelMeetingDate.Frame = new CGRect (117,57,290,21);
+			LabelMeetingDate.Frame = new CGRect (117,47,290,21);
 //			LabelMeetingTime.Frame = new CGRect (270,57,80,21);
 			LabelMeetingLocation.Frame = new CGRect (117,80,290,25);
 		}

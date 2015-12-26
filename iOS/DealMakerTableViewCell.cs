@@ -80,13 +80,20 @@ namespace donow.iOS
 
 		public void UpdateCell (Broker brokerObj)
 		{
-			LabelDealMakerScoreName.Text = "Maker Score: ";
+			if (AppDelegate.IsFromProspect) {
+				LabelDealMakerScoreName.Text = "Maker Score: ";
+				LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
+			}
+			
+			
 			LabelDealMakerIndustry.Text = "Industry: ";
 			LabelDealMakerLocation.Text = "Location: " ;
-			LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
+			//LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
 			LabelDealMakerIndustryDiscription.Text = brokerObj.Industry;
 			LabelDealMakerLocationDescription.Text = brokerObj.City; //+ ", " + brokerObj.State;
 			LabelLeadStatus.Text = GetStatus(brokerObj.Status);
+			if (!AppDelegate.IsFromProspect)
+				LabelLeadStatus.Hidden = true;
 //				ImageViewDealMakerImage.Image = 
 		}
 
@@ -115,12 +122,23 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewDealMakerImage.Frame = new CGRect (35,29,60,60);
-			LabelDealMakerScoreName.Frame = new CGRect (120,29,150,21);
-			LabelDealMakerIndustry.Frame = new CGRect (120,56,150,21);
-			LabelDealMakerLocation.Frame = new CGRect (120,88,150,21);
-			LabelDealMakerScoreDigit.Frame = new CGRect (250,29,100,21);
-			LabelDealMakerIndustryDiscription.Frame = new CGRect (250,56,150,21);
-			LabelDealMakerLocationDescription.Frame = new CGRect (250,88,150,21);
+
+			if (!AppDelegate.IsFromProspect) {
+				LabelDealMakerScoreName.Hidden = true;
+				LabelDealMakerScoreDigit.Hidden = true;
+				LabelDealMakerIndustry.Frame = new CGRect (120, 29, 150, 21);
+				LabelDealMakerIndustryDiscription.Frame = new CGRect (250, 29, 160, 21);
+				LabelDealMakerLocation.Frame = new CGRect (120,56,150,21);
+				LabelDealMakerLocationDescription.Frame = new CGRect (250,56,150,21);
+			} else {
+				LabelDealMakerScoreName.Frame = new CGRect (120, 29, 150, 21);
+				LabelDealMakerScoreDigit.Frame = new CGRect (250, 29, 100, 21);
+				LabelDealMakerIndustry.Frame = new CGRect (120, 56, 150, 21);
+				LabelDealMakerIndustryDiscription.Frame = new CGRect (250, 56, 160, 21);
+				LabelDealMakerLocation.Frame = new CGRect (120,88,150,21);
+				LabelDealMakerLocationDescription.Frame = new CGRect (250,88,150,21);
+			}
+
 			LabelLeadStatus.Frame = new CGRect (241,5,160,21);
 		}
 	}

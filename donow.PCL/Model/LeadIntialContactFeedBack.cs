@@ -12,6 +12,7 @@ namespace donow.PCL
 		public string CustomerAcknowledged { get; set;}	
 		public string Comments { get; set;}
 		public int MeetingID { get; set;}
+		public string SalesStage { get; set;}
 	}
 }
 

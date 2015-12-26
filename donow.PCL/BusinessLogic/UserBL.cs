@@ -50,11 +50,11 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 		
-		public UserDetails GetUserDetails(string userName)
+		public async Task<UserDetails> GetUserDetails(string userName)
 		{
 			RestService restSevice = new RestService ();
 			string restUrl = Constants.UserCreation + "?name=" + userName;
-			string response = restSevice.GetData (restUrl);
+			string response =  await restSevice.GetDataForLogin (restUrl);
 			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
 			return parsedResponse;
 		}
@@ -116,7 +116,61 @@ namespace donow.PCL
 			
 		}
 
+		//AppDelegate.UserDetails.UserName = "sathish";
+		//AppDelegate.UserDetails.Password = Crypto.Encrypt("sathish");
 
+		//				RestService rs = new RestService();
+		//				string content = rs.SFDCAuthentication();
+		//				await rs.UpdateSFDCData(content);
+
+
+
+
+		//LeadsBL leadbl = new LeadsBL();
+		//leadbl.UpdateStatus(125960876,"Accepted");
+		//leadbl.UpdateReasonForPass(125960876,"Client Not interested");
+
+
+		//				UserMeetings usermeeting = new UserMeetings();
+		//				usermeeting.LeadId = 4;
+		//				usermeeting.State="Done";
+		//				UserBL userbl = new UserBL();
+		//				userbl.UpdateMeetingList(usermeeting);
+
+
+		//ReferralRequestBL rrbl = new ReferralRequestBL();
+		//rrbl.GetReferralRequest();
+
+		//				ReferralRequest rr = new ReferralRequest();
+		//				rr.AcceptorId = 1;
+		//				rr.LeadId = 1;
+		//				rr.SenderId = 1;
+		//				rr.Status = "Accepted";
+		//				rrbl.SaveReferralRequest(rr);
+
+		//				leadfeedback.LeadID = 1211;
+		//				leadfeedback.QuestionNo = 1;
+		//				leadfeedback.Options = 2;
+		//				leadfeedback.AnswerType = 2;
+		//				leadfeedback.Comments = "";
+		//				leadbl.SaveLeadF2FFeedBack(leadfeedback);
+
+		//				BrokerBL brokerbl = new BrokerBL();
+		//				brokerbl.UpdateBrokerStatus(125960876,"Acceptance Pending");
+
+		//				UserDetails userdetails = new UserDetails();
+		//				userdetails.Password = "test";
+		//				userdetails.UserId = 10;
+		//				UserBL userbl = new UserBL();
+		//				userbl.UpdateUserDetails(userdetails);
+
+		//				CustomerBL customerbl = new CustomerBL();
+		//				CustomerInteraction customerinteract = new CustomerInteraction();
+		//				customerinteract.CustomerName = "Scott Anders";
+		//				customerinteract.UserId = 12121;
+		//				customerinteract.Type = "Email";
+		//				customerinteract.DateNTime = DateTime.Now.ToString();
+		//				customerbl.SaveCutomerInteraction(customerinteract);
 	}
 }
 

@@ -7,11 +7,8 @@ using UIKit;
 using System.Collections.Generic;
 using donow.PCL;
 using CoreGraphics;
-<<<<<<< HEAD
 using donow.PCL.Model;
-=======
 using Xamarin;
->>>>>>> origin/master
 
 namespace donow.iOS
 {
@@ -29,6 +26,7 @@ namespace donow.iOS
 		public Leads leadObj;
 		string Interaction = string.Empty;
 		string CustomerAcknowledge = string.Empty;
+		string salesStage = string.Empty;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -42,7 +40,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			//ScrollViewInteractionPage.ContentSize = new CGSize (414.0f,815.0f);
+			ScrollViewInteractionPage.ContentSize = new CGSize (414.0f,850.0f);
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
@@ -50,6 +48,14 @@ namespace donow.iOS
 				"Wasn't Prepared",
 				"Did Not Have Enough Info",
 				"Customer Not Interested"
+			};
+
+			IList<string> ListSalesStages = new List<string>
+			{
+				"(1) Acquire Lead",
+				"(2) Proposal",
+				"(3) Follow Up",
+				"(4) Close Sale"
 			};
 
 			LabelInteractionTitle.Text = "Your Interaction With " + leadObj.LEAD_NAME;
@@ -78,8 +84,9 @@ namespace donow.iOS
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
+				ViewSecond.Frame = new CGRect (0, 193, 414, 1000);
 			};
-			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this);
+			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this,"Interaction");
 
 			TableViewInteractionDislikerReason.Hidden = true;
 
@@ -94,6 +101,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
+				ViewSecond.Frame = new CGRect (0, 334, 414, 1000);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
@@ -101,7 +109,8 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-
+				ViewSecond.Frame = new CGRect (0, 193, 414, 1000);
+				TableViewInteractionDislikerReason.Hidden = true;
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
 			{
@@ -109,23 +118,33 @@ namespace donow.iOS
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
+				TableViewInteractionDislikerReason.Hidden = true;
 			};
 
 			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
 				LeadIntialContactFeedBack leadfeedback = new LeadIntialContactFeedBack();
 				leadfeedback.LeadID = leadObj.LEAD_ID;
 				leadfeedback.UserID = AppDelegate.UserDetails.UserId;
-				leadfeedback.ReasonForDown = ButtonInteractionDislikeReasonDropDown.CurrentTitle;
+				leadfeedback.ReasonForDown = Interaction == "DOWN" ? ButtonInteractionDislikeReasonDropDown.CurrentTitle : "";
 				leadfeedback.InteractionFeedBack = Interaction;
 				leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
 				leadfeedback.Comments = TextViewComments.Text;
 				leadfeedback.MeetingID = AppDelegate.UserDetails.UserId;
+				leadfeedback.SalesStage = salesStage;
 				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
 
 //				UserMeetings usermeeting = new UserMeetings();
 //				usermeeting.Id = userMeetings.Id;
 //				usermeeting.Status="Done";
 //				AppDelegate.userBL.UpdateMeetingList(usermeeting);
+
+				if(string.IsNullOrEmpty(AppDelegate.accessToken))
+				{
+					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication();
+				}
+				string[] salesStageArray = salesStage.Split(' ');
+				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
+				AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,leadObj.LEAD_ID,salesStatus);
 
 				DismissViewController(true,null);
 				//Xamarin Insights tracking
@@ -135,23 +154,43 @@ namespace donow.iOS
 				});
 			};
 
+			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
+			TableViewSalesStage.Hidden = true;
+			salesStage = "(1) Acquire Lead";
+			ButtonSalesStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
+				salesStage = "(1) Acquire Lead";
+				TableViewSalesStage.Hidden = false;
+			};
 		}
 
-		void updateCell (string parameter) {
-			ButtonInteractionDislikeReasonDropDown.SetTitle (parameter, UIControlState.Normal);
+		void updateCell (string parameter, string tabletype) {
+
+
+
+
+			if (tabletype == "Interaction") {
+				ButtonInteractionDislikeReasonDropDown.SetTitle (parameter, UIControlState.Normal);
+				TableViewInteractionDislikerReason.Hidden = true;
+			} else {
+				TableViewSalesStage.Hidden = true;
+				salesStage = parameter;
+				ButtonSalesStageDropDown.SetTitle ("  " + parameter, UIControlState.Normal);
+			}
 		}
 
 		public class TableSource : UITableViewSource {
 
 			IList<string> TableItems;
 			string CellIdentifier = "TableCell";
+			string tableType = string.Empty;
 
 			InteractionLeadUpdateVC owner;
 
-			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC)
+			public TableSource (IList<string> items, InteractionLeadUpdateVC interactionLeadUpdateVC, string tabletype)
 			{
 				this.owner = interactionLeadUpdateVC;
 				TableItems = items;
+				tableType = tabletype;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -177,7 +216,7 @@ namespace donow.iOS
 			public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 			{
 				tableView.DeselectRow (indexPath, true);
-				owner.updateCell (TableItems[indexPath.Row]);
+				owner.updateCell (TableItems[indexPath.Row],tableType);
 			}
 
 		}

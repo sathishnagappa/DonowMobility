@@ -40,14 +40,33 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public List<Broker> GetBrokerForStatus(long leadID,int UserId,int status)
+//		public List<Broker> GetBrokerForStatus(long leadID,int UserId,int status)
+//		{
+//			RestService restSevice = new RestService ();
+//			string leadsApicall = Constants.DealMaker + "?id=" +  leadID + "&UserId=" + UserId + "&status=" + status;
+//			string response =  restSevice.GetData (leadsApicall);
+//			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
+//			return parsedResponse;
+//		}
+
+		public List<Broker> GetBrokerForStatus(long leadID,int status)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.DealMaker + "?id=" +  leadID + "&UserId=" + UserId + "&status=" + status;
-			string response =  restSevice.GetData (leadsApicall);
-			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
+			string leadsApicall = Constants.DealMaker + "?LeadID=" + leadID + "&BrokerStatus=" + status;
+			string response = restSevice.GetData (leadsApicall);
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>> (response.ToString ());
 			return parsedResponse;
 		}
+
+		public List<Broker> GetBrokerFromID(int UserID)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.DealMaker + "?BrokerID=" + UserID + "&IDType=broker";
+			string response = restSevice.GetData (leadsApicall);
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>> (response.ToString ());
+			return parsedResponse;
+		}
+
 	}
 }
 

@@ -21,22 +21,28 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
+			ButtonSendRequest.Enabled = true;
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-//				MyDealMakerVC leadPage = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-				this.NavigationController.PopViewController(true);
+				MyDealMakerVC dealMaker = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+				this.NavigationController.PushViewController(dealMaker,true);
+				//this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 			this.Title = "Deal Maker";
 			ViewBackgroundTransparent.Hidden = true;
 			ViewSendRequestView.Hidden = true;
+			if (!AppDelegate.IsFromProspect) {
+				ButtonSendRequest.Hidden = true;
+				ButtonCancel.Hidden = true;
+			}
 
 			ViewSendRequestView.Layer.CornerRadius = 10.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 5.0f;
 			LabelNameDealMaker.Text = brokerObj.City + " Deal Maker";
+			LabelBrokerJobTitle.Text = brokerObj.BrokerTitle;
 
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
 				
@@ -76,6 +82,7 @@ namespace donow.iOS
 
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
+				ButtonSendRequest.Enabled = false;
 			};
 			ButtonOkSendRequestView.TouchUpInside += (object sender, EventArgs e) => {
 				ViewBackgroundTransparent.Hidden = true;

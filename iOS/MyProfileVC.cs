@@ -29,9 +29,10 @@ namespace donow.iOS
 
 		}
 
-		public override void ViewDidLoad ()
+		public override async void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			this.Title = "Seller Profile";
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
@@ -46,8 +47,7 @@ namespace donow.iOS
 			LabelSellerScore.Text = "";
 
 
-		    List<Leads> tableItems = AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
-			tableItems = tableItems.Where (x => x.USER_LEAD_STATUS == 3 || x.USER_LEAD_STATUS == 4).ToList();
+			List<Leads> tableItems = await AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
 			LabelLeadsReceived.Text = tableItems.Where (x => x.USER_LEAD_STATUS != 3).ToList().Count.ToString();
 
 			List<ReferralRequest> referralRequestList = AppDelegate.referralRequestBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
@@ -72,6 +72,11 @@ namespace donow.iOS
 				ReferralExpanded = true;
 //				TableViewActiveLeads.Frame = new CGRect(35, 70, 325, (tableItems.Count * 65.0f));
 			};
+		}
+
+		void LoadData()
+		{
+			
 		}
 
 		public class ActiveLeadsTableSource : UITableViewSource {

@@ -15,6 +15,7 @@ namespace donow.iOS
 	{
 		public bool Accepted=false;
 		public ReferralRequest refferalRequests;
+		public string referralRequestType;
 		public ScrollReq (IntPtr handle) : base (handle)
 		{
 		}
@@ -27,7 +28,11 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				this.NavigationController.PopViewController(false);
+				//this.NavigationController.PopViewController(false);
+				ReferralRequestDetails referralRequestDetails = this.Storyboard.InstantiateViewController("ReferralRequestDetails") as ReferralRequestDetails;
+				if(referralRequestDetails != null)
+					referralRequestDetails.referralRequestType = referralRequestType;
+					this.NavigationController.PushViewController(referralRequestDetails,true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;		
 
@@ -85,6 +90,7 @@ namespace donow.iOS
 
 				PassView.Hidden = true;
 				MakeView.Hidden = false;
+				AppDelegate.CurrentRRList.Remove(refferalRequests);
 			};
 				
 			ButtonReferLater.TouchUpInside += (object sender, EventArgs e) => {
@@ -143,6 +149,8 @@ namespace donow.iOS
 				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
 				AppDelegate.IsFromRR = true;
 				AppDelegate.CurrentRR = refferalRequests;
+				if(AppDelegate.CurrentRRList.Contains(refferalRequests))
+					AppDelegate.CurrentRRList.Remove(refferalRequests);
 				this.NavigationController.PushViewController(calendarHomeDV, true);
 
 			};
@@ -153,7 +161,7 @@ namespace donow.iOS
 					mailController = new MFMailComposeViewController ();
 					mailController.SetToRecipients (new string[]{refferalRequests.LeadEmailID});
 					mailController.SetSubject ("Quick request");
-					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
+					mailController.SetMessageBody ("", false);
 
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
 						args.Controller.DismissViewController (true, null);
@@ -180,6 +188,9 @@ namespace donow.iOS
 						});
 						AlertViewRequestMeeting.Hidden=false;
 						AlertSubViewRequestMeeting.Hidden=false;
+						if(AppDelegate.CurrentRRList.Contains(refferalRequests))
+							AppDelegate.CurrentRRList.Remove(refferalRequests);
+						
 
 					};
 

@@ -35,17 +35,33 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			TextBoxEmail.Text = string.Empty;
-			TextBoxCompany.Text = string.Empty;
-			TextBoxTitle.Text = string.Empty;
-			TextBoxFullName.Text = string.Empty;
-			TextBoxIndustry.Text = string.Empty;
-			TextBoxZip.Text = string.Empty;
-			TextBoxPhone.Text = string.Empty;
-			TextBoxOfficeAddress.Text = string.Empty;
-			TextBoxCity.Text = string.Empty;
-			TextBoxState.Text = string.Empty;
-			TextBoxLineOfBusiness.Text = string.Empty;
+			if (AppDelegate.UserDetails.UserId != 0) {
+				TextBoxEmail.Text = AppDelegate.UserDetails.Email;
+				TextBoxCompany.Text = AppDelegate.UserDetails.Company;
+				TextBoxTitle.Text = AppDelegate.UserDetails.Title;
+				TextBoxFullName.Text = AppDelegate.UserDetails.FullName;
+				TextBoxIndustry.Text = AppDelegate.UserDetails.Industry;
+				TextBoxZip.Text = AppDelegate.UserDetails.Zip;
+				TextBoxPhone.Text = AppDelegate.UserDetails.Phone;
+				TextBoxOfficeAddress.Text = AppDelegate.UserDetails.OfficeAddress;
+				TextBoxCity.Text = AppDelegate.UserDetails.City;
+				TextBoxState.Text = AppDelegate.UserDetails.State;
+				TextBoxLineOfBusiness.Text = AppDelegate.UserDetails.LineOfBusiness;
+			}
+			else
+			{
+				TextBoxEmail.Text = string.Empty;
+				TextBoxCompany.Text = string.Empty;
+				TextBoxTitle.Text = string.Empty;
+				TextBoxFullName.Text = string.Empty;
+				TextBoxIndustry.Text = string.Empty;
+				TextBoxZip.Text = string.Empty;
+				TextBoxPhone.Text = string.Empty;
+				TextBoxOfficeAddress.Text = string.Empty;
+				TextBoxCity.Text = string.Empty;
+				TextBoxState.Text = string.Empty;
+				TextBoxLineOfBusiness.Text = string.Empty;
+			}
 			
 			TextBoxShouldReturn ();
 			if (AppDelegate.UserProfile.name != null) {

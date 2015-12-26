@@ -15,28 +15,32 @@ namespace donow.iOS
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelMeetingWith = new UILabel () {
 				Font = UIFont.FromName("Arial", 22f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingWith});
 
 			LabelMeetingDate = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingDate});
 
 			LabelMeetingTime = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingTime});
 
 			LabelMeetingLocation = new UILabel () {
 				Font = UIFont.FromName("Arial", 14f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingLocation});

@@ -28,9 +28,10 @@ namespace donow.PCL
 			var bing = new BingSearchContainer(
 				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
 			{ Credentials = new NetworkCredential(bingKey, bingKey) };
-			var query = bing.Web(parameter, null, null, null, null, null, null, null);
-			//var query = bing.News("Market trends", null, null, null, null, null, null, null, null);
+		
+			var	query = bing.Web(parameter, null, null, null, null, null, null, null);
 			var results = query.Execute();
+
 			List<BingResult> binglist = new List<BingResult> ();
 			foreach (var result in results)
 			{
@@ -39,6 +40,31 @@ namespace donow.PCL
 				bingResult.Url = result.Url;
 				bingResult.Description = result.Description;
 				bingResult.DisplayUrl = result.DisplayUrl;
+				bingResult.Title = result.Title;
+				binglist.Add (bingResult);				 
+			}
+			return binglist;
+
+		}
+
+		public List<BingResult> GetBingNewsResult(string parameter)
+		{
+			const string bingKey = "9F3eqLyfmNP0PInNOmS13FdSlPoajoJqLvrbvndqZFM";
+			var bing = new BingSearchContainer(
+				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
+			{ Credentials = new NetworkCredential(bingKey, bingKey) };
+
+			var	query = bing.News(parameter, null, null, null, null, null, null, null,"Date");
+			var results = query.Execute();
+
+			List<BingResult> binglist = new List<BingResult> ();
+			foreach (var result in results)
+			{
+				BingResult bingResult = new BingResult ();
+				bingResult.ID = result.ID;
+				bingResult.Url = result.Url;
+				bingResult.Description = result.Description;
+				bingResult.Date = result.Date;
 				bingResult.Title = result.Title;
 				binglist.Add (bingResult);				 
 			}

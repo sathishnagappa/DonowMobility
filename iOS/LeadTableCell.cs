@@ -22,7 +22,7 @@ namespace donow.iOS
 
 			LabelCompanyName = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-//				TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
+				//                TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
 				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
@@ -30,7 +30,7 @@ namespace donow.iOS
 
 			LabelCityAndState = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-//				TextColor = Color 35.0f, 31.0f, 32.0f),
+				//                TextColor = Color 35.0f, 31.0f, 32.0f),
 				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
@@ -38,7 +38,7 @@ namespace donow.iOS
 
 			LabelScore = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-//				TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
+				//                TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
 				TextColor = UIColor.Black,
 				Text = "Lead Score:",
 				BackgroundColor = UIColor.Clear
@@ -47,7 +47,7 @@ namespace donow.iOS
 
 			LabelScoreDigit = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-//				TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
+				//                TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
 				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
@@ -72,7 +72,8 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = lead.LEAD_NAME;
 			LabelCompanyName.Text = lead.COMPANY_NAME;
-			LabelCityAndState.Text = lead.CITY + ", " + lead.STATE; 
+			string coma = string.IsNullOrEmpty (lead.CITY) ? "" : ", ";
+			LabelCityAndState.Text = lead.CITY + coma + lead.STATE; 
 			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
 			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS) ;
 		}
@@ -101,21 +102,13 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-<<<<<<< HEAD
 			ImageViewLeadImage.Frame = new CGRect (35, 30, 70, 70);
-			LabelLeadName.Frame = new CGRect (140, 30, 180, 30);
+			LabelLeadName.Frame = new CGRect (140, 30, 220, 30);
 			LabelCompanyName.Frame = new CGRect (140, 55, 200, 25);
-			LabelCityAndState.Frame = new CGRect (140, 83, 200, 25);
-			LabelScore.Frame = new CGRect (140, 118, 120, 25);
-=======
-			ImageViewLeadImage.Frame = new CGRect (10, 35, 50, 50);
-			LabelLeadName.Frame = new CGRect (85, 38, 220, 30);
-			LabelCompanyName.Frame = new CGRect (85, 63, 200, 25);
-			LabelCityAndState.Frame = new CGRect (85, 83, 200, 25);
-			LabelScore.Frame = new CGRect (85, 118, 120, 25);
->>>>>>> origin/master
-			LabelScoreDigit.Frame = new CGRect (270, 117, 25, 25);
-			LabelNewLead.Frame = new CGRect (330, 20, 80, 25);
+			LabelCityAndState.Frame = new CGRect (140, 75, 200, 25);
+			LabelScore.Frame = new CGRect (140, 110, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 110, 25, 25);
+			LabelNewLead.Frame = new CGRect (310, 20, 80, 25);
 		}
 	}
 }

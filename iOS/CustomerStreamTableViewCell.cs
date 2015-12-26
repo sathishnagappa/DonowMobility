@@ -37,7 +37,7 @@ namespace donow.iOS
 
 				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (77,72,73),
-				Text="Michelle is celebrating 5 years at\n Northwest Pacific Tech",
+				//Text="Michelle is celebrating 5 years at\n Northwest Pacific Tech",
 				Lines = 0,
 				//BackgroundColor = UIColor.clear
 			};

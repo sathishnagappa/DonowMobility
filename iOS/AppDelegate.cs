@@ -39,6 +39,7 @@ namespace donow.iOS
 		public static BrokerBL brokerBL;
 		public static ReferralRequest CurrentRR;
 		public static bool IsFromRR;
+		public static List<ReferralRequest> CurrentRRList;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }
@@ -63,6 +64,7 @@ namespace donow.iOS
 			customerBL = new CustomerBL ();
 			IsUpdateLeadDone = false;
 			referralRequestBL = new ReferralRequestBL ();
+			CurrentRRList = new List<ReferralRequest> ();
 			userBL = new UserBL ();
 			brokerBL = new BrokerBL ();
 

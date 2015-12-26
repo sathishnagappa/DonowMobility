@@ -59,25 +59,25 @@ namespace donow.iOS
 						RequestAccess (EKEntityType.Event, () => {
 							LaunchCreateNewEvent ();
 						});
-					}),
-				new StyledStringElement ("Modify Event",
-					() => {
-						RequestAccess (EKEntityType.Event, () => {
-							LaunchModifyEvent ();
-						});
-					}),
-				new StyledStringElement ("Save and Retrieve Event",
-					() => {
-						RequestAccess (EKEntityType.Event, () => {
-							SaveAndRetrieveEvent ();
-						});
-					}),
-				new StyledStringElement ("Get Events via Query",
-					() => {
-						RequestAccess (EKEntityType.Event, () => {
-							GetEventsViaQuery ();
-						});
-					})
+					})//,
+//				new StyledStringElement ("Modify Event",
+//					() => {
+//						RequestAccess (EKEntityType.Event, () => {
+//							LaunchModifyEvent ();
+//						});
+//					})//,
+//				new StyledStringElement ("Save and Retrieve Event",
+//					() => {
+//						RequestAccess (EKEntityType.Event, () => {
+//							SaveAndRetrieveEvent ();
+//						});
+//					}),
+//				new StyledStringElement ("Get Events via Query",
+//					() => {
+//						RequestAccess (EKEntityType.Event, () => {
+//							GetEventsViaQuery ();
+//						});
+//					})
 			});
 			// reminders
 			Root.Add (new Section ("Reminders") {
@@ -200,21 +200,23 @@ namespace donow.iOS
 					userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
 					userMeetings.UserId = AppDelegate.UserDetails.UserId;
 					userMeetings.Subject = calendarEvent.Title;
-					userMeetings.StartDate = calendarEvent.StartDate.ToString ();
-					userMeetings.EndDate = calendarEvent.EndDate.ToString ();
+					userMeetings.StartDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.StartDate.ToString()),DateTimeKind.Local).ToString();
+					userMeetings.EndDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.EndDate.ToString()),DateTimeKind.Local).ToString();
 					userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
 					userMeetings.City = AppDelegate.CurrentLead.CITY;
 					userMeetings.State = AppDelegate.CurrentLead.STATE;
+					userMeetings.Status = "";
 				} else {
 					userMeetings.Id = 0;
 					userMeetings.LeadId = (int) AppDelegate.CurrentRR.LeadID;
 					userMeetings.UserId = AppDelegate.CurrentRR.SellerUserID;
 					userMeetings.Subject = calendarEvent.Title;
-					userMeetings.StartDate = calendarEvent.StartDate.ToString ();
-					userMeetings.EndDate = calendarEvent.EndDate.ToString ();
+					userMeetings.StartDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.StartDate.ToString()),DateTimeKind.Local).ToString();
+					userMeetings.EndDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.EndDate.ToString()),DateTimeKind.Local).ToString();
 					userMeetings.CustomerName = AppDelegate.CurrentRR.Prospect;
 					userMeetings.City = AppDelegate.CurrentRR.City;
 					userMeetings.State = AppDelegate.CurrentRR.State;
+					userMeetings.Status = "";
 					
 				}
 				AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);

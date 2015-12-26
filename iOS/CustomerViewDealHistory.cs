@@ -15,21 +15,24 @@ namespace donow.iOS
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelSentEmail = new UILabel () {
 				Font = UIFont.FromName("Arial", 22f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelSentEmail});
 
 			LabelDate = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelDate});
 
 			LabelTime = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
-				TextColor = UIColor.FromRGB (127, 51, 0),
+				//TextColor = UIColor.FromRGB (127, 51, 0),
+				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelTime});
