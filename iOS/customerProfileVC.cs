@@ -21,6 +21,7 @@ namespace donow.iOS
 		}
 
 		public Customer customer;
+		CustomerDetails customerDetails;
 		public bool TableSeeAllClicked = false;
 
 		public override void ViewWillDisappear (bool animated)
@@ -49,11 +50,12 @@ namespace donow.iOS
 			LoadScreenData ();
 
 			//int brokerWorkingWith = AppDelegate.brokerBL.GetBrokerForProspect (customer.LeadId).Where(X => X.Status ==4).ToList().Count;
-			int  brokerWorkingWith =  AppDelegate.brokerBL.GetBrokerForStatus(customer.LeadId,4).Count;
+			 
+			//int  brokerWorkingWith =  AppDelegate.brokerBL.GetBrokerForStatus(customer.LeadId,4).Count;
 
-			DealMakersImage1.Hidden = brokerWorkingWith > 0 ? false : true;			
-			LabelIndustry.Text = customer.CompanyInfo;
-			LabelLineOfBusiness.Text = customer.BusinessNeeds;
+			DealMakersImage1.Hidden = customerDetails.broker != null ? false : true;			
+			LabelIndustry.Text = customerDetails.CompanyInfo;
+			LabelLineOfBusiness.Text = customerDetails.BusinessNeeds;
 
 			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
 
@@ -63,7 +65,7 @@ namespace donow.iOS
 			
 			
 			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {
-				var url = new NSUrl ("tel://" + customer.Phone);
+				var url = new NSUrl ("tel://" + customerDetails.Phone);
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
 					var av = new UIAlertView ("Not supported",
 						"Scheme 'tel:' is not supported on this device",
@@ -73,7 +75,7 @@ namespace donow.iOS
 					av.Show ();
 				};
 				CustomerInteraction customerinteract = new CustomerInteraction();
-				customerinteract.CustomerName =  customer.Name;
+				customerinteract.CustomerName =  customerDetails.Name;
 				customerinteract.UserId = AppDelegate.UserDetails.UserId;
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
@@ -90,13 +92,13 @@ namespace donow.iOS
 				if (MFMailComposeViewController.CanSendMail) {
 					// do mail operations here
 					mailController = new MFMailComposeViewController ();
-					mailController.SetToRecipients (new string[]{customer.Email});
+					mailController.SetToRecipients (new string[]{customerDetails.Email});
 					mailController.SetSubject ("Quick request");
 					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
 
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
 						CustomerInteraction customerinteract = new CustomerInteraction();
-						customerinteract.CustomerName =  customer.Name;
+						customerinteract.CustomerName =  customerDetails.Name;
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
@@ -116,11 +118,12 @@ namespace donow.iOS
 
 		void LoadScreenData()
 		{
+			customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.LeadId,AppDelegate.UserDetails.UserId);
+			//List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
 
-			List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
-
-			List<UserMeetings> listMeeting = new List<UserMeetings> ();
-			listMeeting = AppDelegate.userBL.GetMeetings(customer.Name);
+			//List<UserMeetings> listMeeting = new List<UserMeetings> ();
+			//listMeeting = AppDelegate.userBL.GetMeetings(customer.Name);
+			List<UserMeetings> listMeeting = customerDetails.UserMeetingList;
 			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
 			List<UserMeetings> PreviousMeetingsList = new List<UserMeetings>(); 
 
@@ -134,23 +137,23 @@ namespace donow.iOS
 
 			}	
 
-			List<DealHistroy> listDealHistory = new List<DealHistroy> ();
-			listDealHistory = AppDelegate.customerBL.GetDealHistroy (customer.LeadId, AppDelegate.UserDetails.UserId);
+			//List<DealHistroy> listDealHistory = new List<DealHistroy> ();
+			//listDealHistory = AppDelegate.customerBL.GetDealHistroy (customer.LeadId, AppDelegate.UserDetails.UserId);
 
 			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);
 
-			if(customerInteractionList.Count !=0)
-				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerInteractionList, this);
-			if(listDealHistory.Count !=0)
-				TableViewDealHistory.Source = new TableSourceDealHistory(listDealHistory,this);
+			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
+				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);
+			if(customerDetails.dealHistoryList != null && customerDetails.dealHistoryList.Count !=0)
+				TableViewDealHistory.Source = new TableSourceDealHistory(customerDetails.dealHistoryList,this); 
 			if(UCommingMeetinglist.Count != 0)
 				TableViewMeetings.Source = new TableSourceupComingMeetings (UCommingMeetinglist,this);
 			if(PreviousMeetingsList.Count !=0)
 				TableViewPreviousMeetings.Source = new TableSourcePreviousMeetings (PreviousMeetingsList,this);
 
-			LabelCompanyName.Text = customer.Company;
-			LabelCustomerName.Text = customer.Name;
-			LabelCityAndState.Text = customer.City + ", " + customer.State;
+			LabelCompanyName.Text = customerDetails.Company;
+			LabelCustomerName.Text = customerDetails.Name;
+			LabelCityAndState.Text = customerDetails.City + ", " + customerDetails.State;
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {
@@ -290,7 +293,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 120.0f;
 			}
 		}
 
@@ -337,7 +340,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 100.0f;
 			}
 		}
 

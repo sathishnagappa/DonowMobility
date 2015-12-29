@@ -31,6 +31,7 @@ namespace donow.iOS
 		public static LeadsBL leadsBL;
 		public static string accessToken;
 		public static CustomerBL customerBL;
+		public static IndustryBL industryBL;
 		public static bool IsUpdateLeadDone;
 		public static bool IsTabIndex;
 		public static ReferralRequestBL referralRequestBL;
@@ -67,7 +68,7 @@ namespace donow.iOS
 			CurrentRRList = new List<ReferralRequest> ();
 			userBL = new UserBL ();
 			brokerBL = new BrokerBL ();
-
+			industryBL = new IndustryBL ();
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();

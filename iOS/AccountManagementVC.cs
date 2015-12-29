@@ -77,8 +77,7 @@ namespace donow.iOS
 			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
 			TableViewCustomerStreamActivity.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
-			IndustryBL industry = new IndustryBL ();
-			List<String> industryList = industry.GetIndustry ();
+			List<String> industryList = AppDelegate.industryBL.GetIndustry ();
 
 			ButtonInfoIndustryDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;
@@ -87,8 +86,8 @@ namespace donow.iOS
 				TableViewCustomerStreamActivity.ReloadData();
 			};
 
-			CustomerBL customer = new CustomerBL ();
-			List<Customer> CompanyList = customer.GetAllCustomers();
+
+			List<Customer> CompanyList = AppDelegate.customerBL.GetAllCustomers();
 
 			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;

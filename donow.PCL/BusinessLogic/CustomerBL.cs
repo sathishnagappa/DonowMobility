@@ -22,6 +22,15 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
+		public CustomerDetails GetCustomersDetails(long leadID, int userID)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.CustomerDetails + "?LeadID=" + leadID + "&UserID=" + userID;
+			string response = restSevice.GetData (restUrl);
+			CustomerDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerDetails>(response.ToString());
+			return parsedResponse;
+		}
+
 		public List<BingResult> GetBingResult(string parameter)
 		{
 			const string bingKey = "9F3eqLyfmNP0PInNOmS13FdSlPoajoJqLvrbvndqZFM";

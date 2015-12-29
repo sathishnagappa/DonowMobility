@@ -71,9 +71,9 @@ namespace donow.iOS
 		public void UpdateCell (Customer obj)
 		{
 			//			ImageViewLeadImage.Image = UIImage.FromBundle ();
-			LabelCustomerName.Text = obj.Name;
-			LabelPlaceName.Text = obj.Company;
-			LabelDesc.Text = obj.CompanyInfo;
+			//LabelCustomerName.Text = obj.Name;
+			//LabelPlaceName.Text = obj.Company;
+			//LabelDesc.Text = obj.CompanyInfo;
 		}
 
 		public override void LayoutSubviews ()

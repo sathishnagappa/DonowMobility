@@ -2,6 +2,7 @@
 using UIKit;
 using donow.PCL.Model;
 using CoreGraphics;
+using donow.PCL;
 
 namespace donow.iOS
 {
@@ -68,7 +69,7 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {ImageViewLeadImage});
 		}
 
-		public void UpdateCell (Leads lead)
+		public void UpdateCell (LeadMaster lead)
 		{
 			LabelLeadName.Text = lead.LEAD_NAME;
 			LabelCompanyName.Text = lead.COMPANY_NAME;

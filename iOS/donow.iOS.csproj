@@ -60,14 +60,13 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignKey>iPhone Developer: Lashmi Narayanan (TP5FJS8KV4)</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <IpaPackageName>
     </IpaPackageName>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
-    <CodesignProvision>4ee7568d-edd6-42a6-9a6b-b846b10fcee7</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -94,9 +93,6 @@
     </Reference>
     <Reference Include="PLCrashReporterUnifiedBinding">
       <HintPath>..\packages\Xamarin.Insights.1.10.6\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
-    </Reference>
-    <Reference Include="BTProgressHUD">
-      <HintPath>..\Components\btprogresshud-1.20\lib\ios-unified\BTProgressHUD.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +230,6 @@
       <DependentUpon>ReferralRequestDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="ReferralRequestTableCell.cs" />
-    <Compile Include="Customer360TableCell.cs" />
     <Compile Include="CustomerViewTableCellLeads.cs" />
     <Compile Include="CustomerViewTableCellUpcomingMeetings.cs" />
     <Compile Include="CustomerViewTableCellinteractionWithCustomerCell.cs" />
@@ -372,6 +367,7 @@
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\Thumbs Side White.png" />
     <BundleResource Include="Resources\DoNow Logo_New.png" />
+    <BundleResource Include="Resources\DoNowLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />
@@ -385,10 +381,6 @@
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
       <Version>0.5.0</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="btprogresshud">
-      <Version>1.20</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

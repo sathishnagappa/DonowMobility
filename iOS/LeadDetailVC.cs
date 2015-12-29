@@ -27,8 +27,6 @@ namespace donow.iOS
 			"Too Busy", "Score Lead too Low", "Not Right Fit"
 		};
 
-
-
 		public override void ViewWillAppear (bool animated)
 		{
  			base.ViewWillAppear (animated);

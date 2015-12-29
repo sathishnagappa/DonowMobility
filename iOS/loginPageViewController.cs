@@ -15,7 +15,7 @@ using donow.Services;
 using donow.PCL;
 using Xamarin;
 using System.Threading.Tasks;
-using BigTed;
+//using BigTed;
 
 namespace donow.iOS
 {
@@ -29,7 +29,6 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
 			this.NavigationController.SetNavigationBarHidden (true, false);
 
 		}
@@ -37,8 +36,6 @@ namespace donow.iOS
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-
-
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
@@ -64,45 +61,31 @@ namespace donow.iOS
 			#endif
 
 
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
-				
-				
-//				InvokeOnMainThread(() =>
-//					{
-//						BTProgressHUD.Show("loading...");
-						if ( await ValidateCredentials ()) {			
-
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {		
+						if ( await ValidateCredentials ()) {
 							// Call to Get user details and validate credentials
 							LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 							if (landingVC != null) {
 								this.NavigationController.PushViewController(landingVC, true);
 							}
-
 						}
-//					});
-//				
-				//BTProgressHUD.Dismiss();
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
 
-				var auth0 = new Auth0Client(
-					"donow.auth0.com",
-					"1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
+				var auth0 = new Auth0Client("donow.auth0.com","1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
 				
 				Auth0User user = null;
 				try
 				{
-
-				user = await auth0.LoginAsync(this,"linkedin");
-			
+					user = await auth0.LoginAsync(this,"linkedin");			
 				}
 				catch (AggregateException ex)
-			{
+				{
 				//this.SetResultText(e.Flatten().Message);
 				}
 				catch (Exception ex)
-			{
+				{
 				//this.SetResultText(e.Message);
 				}
 
@@ -123,9 +106,9 @@ namespace donow.iOS
 						}
 						else
 						{
-						signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
-						if (signUpVC != null) {
-							this.NavigationController.PushViewController(signUpVC, true);
+							signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
+							if (signUpVC != null) {
+								this.NavigationController.PushViewController(signUpVC, true);
 						}
 						}
 

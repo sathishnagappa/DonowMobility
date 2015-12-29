@@ -47,7 +47,7 @@ namespace donow.iOS
 			LabelSellerScore.Text = "";
 
 
-			List<Leads> tableItems = await AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
+			List<LeadMaster> tableItems = await AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
 			LabelLeadsReceived.Text = tableItems.Where (x => x.USER_LEAD_STATUS != 3).ToList().Count.ToString();
 
 			List<ReferralRequest> referralRequestList = AppDelegate.referralRequestBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
@@ -81,10 +81,10 @@ namespace donow.iOS
 
 		public class ActiveLeadsTableSource : UITableViewSource {
 			string CellIdentifier = "TableCell";
-			List<Leads> TableItems;
+			List<LeadMaster> TableItems;
 //			MyProfileVC owner;
 
-			public ActiveLeadsTableSource (List<Leads> items, MyProfileVC myProfileVC)
+			public ActiveLeadsTableSource (List<LeadMaster> items, MyProfileVC myProfileVC)
 			{
 				TableItems = items;
 //				this.owner = owner;
@@ -98,7 +98,7 @@ namespace donow.iOS
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				var cell = tableView.DequeueReusableCell (CellIdentifier) as ActiveLeadsMyProfileCell;
-				Leads leadObj = TableItems[indexPath.Row];
+				LeadMaster leadObj = TableItems[indexPath.Row];
 
 				if (cell == null) {
 					cell = new ActiveLeadsMyProfileCell(CellIdentifier);

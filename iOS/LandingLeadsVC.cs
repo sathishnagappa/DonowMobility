@@ -16,8 +16,8 @@ namespace donow.iOS
 	partial class LandingLeadsVC : UIViewController
 	{
 		LoadingOverlay loadingOverlay;
-		List<Leads> leads;
-
+		List<LeadMaster> leads;
+		Leads leadDetails;
 		public LandingLeadsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -111,7 +111,7 @@ namespace donow.iOS
 			//loadingOverlay.Hide ();
 		}
 
-		async Task<List<Leads>> GetLeads()
+		async Task<List<LeadMaster>> GetLeads()
 		{
 			leads =  await AppDelegate.leadsBL.GetAllLeads (AppDelegate.UserDetails.UserId);
 			return leads;
@@ -119,10 +119,10 @@ namespace donow.iOS
 
 		public class TableSource : UITableViewSource {
 			string CellIdentifier = "TableCell";
-			List<Leads> TableItems;
+			List<LeadMaster> TableItems;
 			LandingLeadsVC owner;
 
-			public TableSource (List<Leads> items, LandingLeadsVC owner)
+			public TableSource (List<LeadMaster> items, LandingLeadsVC owner)
 			{
 				TableItems = items;
 				this.owner = owner;
@@ -136,7 +136,7 @@ namespace donow.iOS
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
 			{
 				var cell = tableView.DequeueReusableCell (CellIdentifier) as LeadTableCell;
-				Leads leadObj = TableItems[indexPath.Row];
+				LeadMaster leadObj = TableItems[indexPath.Row];
 
 				if (cell == null) {
 					cell = new LeadTableCell(CellIdentifier);
@@ -150,13 +150,15 @@ namespace donow.iOS
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{				
 				tableView.DeselectRow (indexPath, true);
-				AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				if ((TableItems [indexPath.Row].USER_LEAD_STATUS == 1 || TableItems [indexPath.Row].USER_LEAD_STATUS == 2) && TableItems [indexPath.Row].LEAD_SOURCE == 1) 
+				//AppDelegate.CurrentLead = TableItems [indexPath.Row];
+				owner.leadDetails = AppDelegate.leadsBL.GetLeadsDetails (TableItems [indexPath.Row].LEAD_ID);
+				AppDelegate.CurrentLead = owner.leadDetails;
+				if ((owner.leadDetails.USER_LEAD_STATUS == 1 || owner.leadDetails.USER_LEAD_STATUS == 2) && owner.leadDetails.LEAD_SOURCE == 1) 
 				{
-					if (TableItems [indexPath.Row].STATUS.ToUpper() != "ACCEPTED") {
+					if (owner.leadDetails.STATUS.ToUpper() != "ACCEPTED") {
 						LeadDetailVC leadDetailVC = owner.Storyboard.InstantiateViewController ("LeadDetailVC") as LeadDetailVC;
 						if (leadDetailVC != null) {
-							leadDetailVC.leadObj = TableItems [indexPath.Row];
+							leadDetailVC.leadObj = owner.leadDetails;
 							owner.NavigationController.PushViewController (leadDetailVC, true);
 						}
 					}
@@ -172,10 +174,10 @@ namespace donow.iOS
 
 					}
 
-				} else if (TableItems [indexPath.Row].USER_LEAD_STATUS != 5) {
+				} else if (owner.leadDetails.USER_LEAD_STATUS != 5) {
 					prospectDetailsVC prospectVC = owner.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
-						prospectVC.localLeads = TableItems [indexPath.Row];
+						prospectVC.localLeads = owner.leadDetails;
 						owner.NavigationController.PushViewController (prospectVC, true);
 					}
 

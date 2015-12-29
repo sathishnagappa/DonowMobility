@@ -37,11 +37,11 @@ namespace donow.iOS
 
 		}
 
-		public void UpdateCell (Leads obj)
+		public void UpdateCell (LeadMaster obj)
 		{
 			LabelLeadName.Text = obj.LEAD_NAME;
 			LabelCompanyName.Text = obj.COMPANY_NAME;
-			LabelHourText.Text = DateTime.Parse (obj.LEAD_CREATE_TIME).ToString ("MMM dd");
+			//LabelHourText.Text = DateTime.Parse (obj.LEAD_CREATE_TIME).ToString ("MMM dd");
 		}
 
 		public override void LayoutSubviews ()

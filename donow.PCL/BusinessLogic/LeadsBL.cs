@@ -18,32 +18,48 @@ namespace donow.PCL
 		{
 		}
 
-		public async Task<List<Leads>> GetAllLeads(int UserID)
+//		public async Task<List<Leads>> GetAllLeads(int UserID)
+//		{
+//			RestService restSevice = new RestService ();
+//			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&type=user";
+//			var parsedResponse = new List<Leads>();
+//			try
+//			{
+//				string response =  await restSevice.GetDataForLogin (leadsApicall);
+//			   parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
+//			}
+//			catch {
+//				
+//			}
+//			return parsedResponse;
+//		}
+
+
+		public async Task<List<LeadMaster>> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&type=user";
-			var parsedResponse = new List<Leads>();
+			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
+			var parsedResponse = new List<LeadMaster>();
 			try
 			{
 				string response =  await restSevice.GetDataForLogin (leadsApicall);
-			   parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
+				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadMaster>>(response.ToString());
 			}
 			catch {
-				
+
 			}
 			return parsedResponse;
 		}
 
-
-		public List<Leads> GetLeadsDetails(int Leadid)
+		public Leads GetLeadsDetails(int Leadid)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&type=lead";
-			var parsedResponse = new List<Leads>();
+			var parsedResponse = new Leads();
 			try
 			{
 				string response =  restSevice.GetData (leadsApicall);
-				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
+				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
 			}
 			catch {
 
@@ -51,16 +67,16 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-
-		public Leads GetLeadDetails(int leadId)
-		{
-			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?leadid=" + leadId ;
-
-			string response =  restSevice.GetData (leadsApicall);
-			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
-			return parsedResponse;
-		}
+//
+//		public Leads GetLeadDetails(int leadId)
+//		{
+//			RestService restSevice = new RestService ();
+//			string leadsApicall = Constants.LeadsAPI + "?leadid=" + leadId ;
+//
+//			string response =  restSevice.GetData (leadsApicall);
+//			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
+//			return parsedResponse;
+//		}
 
 
 		public string SaveMeetingEvent(UserMeetings userMeetings)

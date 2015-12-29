@@ -57,7 +57,7 @@ namespace donow.iOS
 		void LoadCustomers()
 		{
 			
-			List<Customer> cusotmerList =  AppDelegate.customerBL.GetAllCustomers ().OrderBy (x => x.Name).ToList ();
+			List<Customer> cusotmerList =  AppDelegate.customerBL.GetAllCustomers ();
 
 			for (char c = 'A'; c <= 'Z'; c++)
 			{
@@ -111,7 +111,7 @@ namespace donow.iOS
 
 				if (cell == null) 
 				{
-					cell = new CustomerViewTableCellLeads(null);
+					cell = new CustomerViewTableCellLeads(CellIdentifier);
 				}
 
 				if (tappedCellIndex != indexPath.Section)
