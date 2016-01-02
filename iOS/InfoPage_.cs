@@ -26,7 +26,6 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
@@ -34,7 +33,7 @@ namespace donow.iOS
 				this.NavigationController.PushViewController(hambergerVC,true);
 			};
 
-			ScrollViewInfoPage.ContentSize = new CGSize (414.0f, 1362.0f);
+			ScrollViewInfoPage.ContentSize = new CGSize (375.0f, 1227.0f);
 		}
 	}
 }

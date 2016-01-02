@@ -6,17 +6,27 @@ using donow.PCL;
 using System.Collections.Generic;
 using CoreGraphics;
 using System.Linq;
+using System.Drawing;
+using MessageUI;
+
 
 namespace donow.iOS
 {
 	partial class LandingCustomerVC : UIViewController
 	{
-		private Dictionary<string,List<Customer>> custDictionary;
-
+		//private Dictionary<string,List<Customer>> custDictionary;
+		public  bool isSearchStarted;
 		//protected int sectionHit;
 		private static int cellIndexCount;
+		public static List<Customer> CustomerList { get; set; }
+		public string txtSearched;
+		public UITableView searchTableView;
+		public static string tempStr = "";
+		//public static string txtEntered;
+		public static List<Customer> cusotmerList;
 
-
+		public static int searchCount=0;
+		public bool flag;
 		public LandingCustomerVC (IntPtr handle) : base (handle)
 		{
 
@@ -31,17 +41,26 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-			custDictionary = new Dictionary<string, List<Customer>> ();
+			//custDictionary = new Dictionary<string, List<Customer>> ();
 			cellIndexCount = 0;
 			LoadCustomers ();
 
+			searchBarCustomer.Hidden=true;
+
 		}
 
+
+		//        FKXGJKOPFXZ
 		public override void ViewWillDisappear (bool animated)
 		{
 			TableViewCustomerList.Source = null;
-			custDictionary = null;
+			//custDictionary = null;
 			base.ViewWillDisappear (animated);
+
+			if (searchTableView == null) {
+
+				TableViewCustomerList.ReloadData ();
+			}
 
 		}
 
@@ -52,30 +71,222 @@ namespace donow.iOS
 			this.Title = "Customers";
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
+
+			searchBarCustomer.Delegate = new SearchDelegate (this, isSearchStarted,searchTableView);
+
+			searchCount=0;
+
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Magnifying Glass_small.png");
+			btn.Clicked += (sender , e)=>{
+//				this.NavigationController.PopViewController(false);
+
+
+				if (flag==true) {
+					flag=false;
+
+					searchBarCustomer.Hidden=true;
+
+
+					this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+
+				}
+				else
+				{
+					flag=true;
+
+
+					searchBarCustomer.Hidden=false;
+
+
+					this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+
+
+				}
+
+			};
+//			};
+			NavigationItem.RightBarButtonItem = btn;
+
+
+//			SearchButton.TouchUpInside += (object sender, EventArgs e) => {
+
+			
+
+//			this.NavigationItem.SetRightBarButtonItem(
+//				new UIBarButtonItem(UIImage.FromFile("Magnifying Glass.png")
+//					, UIBarButtonItemStyle.Plain
+//					, (sender,args) => {
+//
+//
+//						if (flag==true) {
+//							flag=false;
+//
+//							searchBarCustomer.Hidden=true;
+//
+//
+//							this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+//
+//						}
+//						else
+//						{
+//							flag=true;
+//
+//
+//							searchBarCustomer.Hidden=false;
+//
+//
+//							this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+//
+//
+//						}
+//						//                        searchCount=0;
+//						//                        searchCount++;
+//
+//					})
+//				, true);
+
+			txtSearched = searchBarCustomer.Text;
+			if (searchBarCustomer.Hidden == true) {
+				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+			}
+			else if(searchBarCustomer.Hidden == false)
+			{
+				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+
+			}
 		}
 
+		public void changeText (List<Customer> PerformSearch) {
+			TableViewCustomerList.Source = new TableSource(PerformSearch,isSearchStarted,this);
+			TableViewCustomerList.ReloadData ();
+		}
+
+		public class SearchDelegate : UISearchBarDelegate {
+			LandingCustomerVC owner;
+			//static bool isSearchStarted;
+			UITableView _localSearchTableView;
+
+			public SearchDelegate (LandingCustomerVC owner, bool isSearchStarted,UITableView _searchTableView)
+			{
+				_localSearchTableView=_searchTableView;
+				this.owner=owner;
+			}
+
+			[Foundation.Export("searchBarShouldBeginEditing:")]
+			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
+			{
+				owner.isSearchStarted = true;
+				return true;
+			}
+
+			[Foundation.Export("searchBarShouldEndEditing:")]
+			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
+			{
+				//_localSearchTableView.RemoveFromSuperview ();
+				return true;
+			}
+
+			[Foundation.Export("searchBar:textDidChange:")]
+			public virtual void TextChanged (UISearchBar searchBar, String searchText)
+			{
+				List<Customer> PerformSearch = LandingCustomerVC.CustomerList.Where (x => x.Name.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+
+				if (searchBar.Text.Length > 0) {
+					if (_localSearchTableView == null) {
+						_localSearchTableView = new UITableView ();                    
+						_localSearchTableView.Frame = new CGRect (0, 50, 375, 667);
+						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
+
+						owner.View.AddSubview (_localSearchTableView);
+					}
+					_localSearchTableView.Hidden = false;
+					_localSearchTableView.Source = new SearchTableSource (PerformSearch, owner);
+					_localSearchTableView.ReloadData ();
+
+				} else {
+					if (_localSearchTableView != null)
+						_localSearchTableView.Hidden = true;
+
+					if (owner.searchBarCustomer.Hidden == true) {
+						owner.TableViewCustomerList.Frame =new CGRect (owner.TableViewCustomerList.Frame.X, 0, owner.TableViewCustomerList.Frame.Size.Width, owner.TableViewCustomerList.Frame.Size.Height);
+					}
+					else if(owner.searchBarCustomer.Hidden == false)
+					{
+						owner.TableViewCustomerList.Frame =new CGRect (owner.TableViewCustomerList.Frame.X, 45, owner.TableViewCustomerList.Frame.Size.Width, owner.TableViewCustomerList.Frame.Size.Height);
+
+					}
+
+				}
+			}
+		}
+
+
+		public class SearchTableSource: UITableViewSource
+		{
+			List<Customer> _searchList;
+			LandingCustomerVC customerVC;
+			string CellIdentifier = "TableCell";
+
+			public SearchTableSource (List<Customer> items, LandingCustomerVC owner)
+			{
+				_searchList = items;
+				customerVC = owner;
+			}
+
+			public override nint RowsInSection (UITableView tableview, nint section)
+			{
+				return _searchList.Count;
+			}
+			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+			{
+				tableView.DeselectRow (indexPath, true);
+				customerProfileVC customerDetailVC = customerVC.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
+				if (customerDetailVC != null) {
+					customerDetailVC.customer = _searchList[indexPath.Row];
+					customerVC.NavigationController.PushViewController(customerDetailVC,true);
+				}
+			}
+			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+			{
+				var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewTableCellLeads;
+				//Customer customerObj = TableItems[indexPath.Row];
+
+				if (cell == null) {
+					cell = new CustomerViewTableCellLeads (CellIdentifier);
+				}
+
+				cell.UpdateCell(_searchList[indexPath.Row]);
+
+
+				return cell;
+			}
+			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+			{
+				return 100.0f;
+			}
+		}
 		void LoadCustomers()
 		{
-			
-			List<Customer> cusotmerList =  AppDelegate.customerBL.GetAllCustomers ();
 
-			for (char c = 'A'; c <= 'Z'; c++)
-			{
-				custDictionary.Add (c.ToString(), cusotmerList.FindAll (x => x.Name.StartsWith (c.ToString())));
-			} 
+			cusotmerList =  AppDelegate.customerBL.GetAllCustomers (AppDelegate.UserDetails.UserId);
+			CustomerList = cusotmerList;
+		   TableViewCustomerList.Source = new TableSource (cusotmerList,isSearchStarted,  this);
 
-			TableViewCustomerList.Source = new TableSource (custDictionary, this);
-			
 		}
 
 		public class TableSource : UITableViewSource {
-			//List<Customer> _list;
+			//List<Customer> _searchList;
 
+			//string txtSearchedLocal;
 			//protected int TappedIndex;
 			string[] _arraySectionTitle;
 			string CellIdentifier = "TableCell";
-			Dictionary<string,List<Customer>> TableItemsDictionary;
+
+			//bool isSearchStarted;
+			Dictionary<string,List<Customer>> TableItemsDictionary,custDictionary;
 			LandingCustomerVC owner;
+
 			public List<string> headerArray = new List <string>
 			{
 				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
@@ -83,12 +294,24 @@ namespace donow.iOS
 			};
 
 
-			public TableSource ( Dictionary<string,List<Customer>> items, LandingCustomerVC owner)
+
+			public TableSource (List<Customer> items,bool isSearchStarted1, LandingCustomerVC owner)
 			{
+				//isSearchStarted=isSearchStarted1;
+				custDictionary=new Dictionary<string, List<Customer>>();
+				//txtSearchedLocal=txtSearched;
+				for (char c = 'A'; c <= 'Z'; c++)
+				{
+					custDictionary.Add (c.ToString(), items.FindAll (x => x.Name.StartsWith (c.ToString())));
+				} 
 				//string[] TableItems;
 				TableItemsDictionary=new Dictionary<string, List<Customer>>();
-				TableItemsDictionary = items;
+				TableItemsDictionary = custDictionary;
+				//_searchList = items;
+
 				this.owner = owner;
+
+
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -96,9 +319,9 @@ namespace donow.iOS
 				int unicode = Convert.ToInt32(section) + 65;
 				char character = (char) unicode;
 				string text = character.ToString();
-//				int str=Convert.ToInt32(section);
-//				TappedIndex = Convert.ToInt32 (str);
-//				string indexValue = headerArray [Convert.ToInt32 (section)];
+				//                int str=Convert.ToInt32(section);
+				//                TappedIndex = Convert.ToInt32 (str);
+				//                string indexValue = headerArray [Convert.ToInt32 (section)];
 				var sectionRowCount=TableItemsDictionary.Where(x=>x.Key==text).FirstOrDefault().Value.Count();
 				return sectionRowCount;
 			}
@@ -117,29 +340,25 @@ namespace donow.iOS
 				if (tappedCellIndex != indexPath.Section)
 					cellIndexCount = 0;
 				tappedCellIndex = indexPath.Section;
-				var result=TableItemsDictionary.Values;
+				var result = TableItemsDictionary.Values;
 				List<Customer> _list = new List<Customer> ();
 				string tappedKey = _arraySectionTitle [indexPath.Section];
 
-				if (TableItemsDictionary.ContainsKey (tappedKey)) 
-				{
+				if (TableItemsDictionary.ContainsKey (tappedKey)) {
 					_list = TableItemsDictionary.FirstOrDefault (x => x.Key == tappedKey).Value;
 					//_list = TableItemsDictionary.FirstOrDefault (x => x.Key.Equals("K"));
 				}
-//				if (cellIndexCount > _list.Count)
-//					return null;
-		
+
 				if (_list != null && _list.Any ()) {
-					
-					if (cellIndexCount < _list.Count) 
-						{
-							cell.UpdateCell (_list [cellIndexCount++]);//check
-						}
+
+					if (cellIndexCount < _list.Count) {
+						cell.UpdateCell (_list [cellIndexCount++]);//check
+					}
 
 				}
 				return cell;
 			}
-		
+
 			public override nint NumberOfSections (UITableView tableView)
 			{
 				var result=TableItemsDictionary.Keys;
@@ -152,9 +371,9 @@ namespace donow.iOS
 
 				var result=TableItemsDictionary.Keys;
 				_arraySectionTitle=result.ToArray ();
-		
-//				string str=(section).ToString();
-//				TappedIndex = Convert.ToInt32 (str);
+
+				//                string str=(section).ToString();
+				//                TappedIndex = Convert.ToInt32 (str);
 
 				return _arraySectionTitle[section];
 
@@ -176,7 +395,7 @@ namespace donow.iOS
 				return headerView;
 			}
 
-		
+
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
 
@@ -188,7 +407,7 @@ namespace donow.iOS
 					owner.NavigationController.PushViewController(customerDetailVC,true);
 				}
 			}
-		
+
 			public override string[] SectionIndexTitles (UITableView tableView)
 			{
 
@@ -201,8 +420,6 @@ namespace donow.iOS
 			{
 				return 100.0f;
 			}
-
-
 		}
 	}
 }

@@ -46,8 +46,7 @@ namespace donow.iOS
 
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
 				
-				BrokerBL brokerbl = new BrokerBL();
-				brokerbl.UpdateBrokerStatus(brokerObj.BrokerID, 2,brokerObj.LeadID);
+				AppDelegate.brokerBL.UpdateBrokerStatus(brokerObj.BrokerID, 2,brokerObj.LeadID);
 				ReferralRequest rrnew = new ReferralRequest ();
 				rrnew.ID = 0;
 				rrnew.SellerName = AppDelegate.UserDetails.FullName;
@@ -67,18 +66,18 @@ namespace donow.iOS
 				AppDelegate.referralRequestBL.SaveReferralRequest(rrnew);
 
 				MailMessage mail=new MailMessage();
-				SmtpClient SmtpServer=new SmtpClient("smtp.gmail.com");
-				mail.From=new MailAddress("vaibhav22barchhiha@gmail.com");
+				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
+				mail.From=new MailAddress("support@donowx.com");
 				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
 				mail.Subject = "Need Referral for " + AppDelegate.CurrentLead.LEAD_NAME;
 				mail.Body = "Here is an opportunity for you refer and earn. Please download the donow app and join the donow network.";
 				SmtpServer.Port = 587;
-				SmtpServer.Credentials=new System.Net.NetworkCredential("vaibhav22barchhiha","mastercard22_");
+				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
 				SmtpServer.EnableSsl=true;
 				ServicePointManager.ServerCertificateValidationCallback=delegate(object sender1, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors) {
 					return true;
 				};
-				SmtpServer.Send(mail);
+				SmtpServer.SendAsync(mail,null);
 
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
@@ -105,7 +104,7 @@ namespace donow.iOS
 			ButtonCancel.TouchUpInside += (object sender, EventArgs e) =>  {
 				this.NavigationController.PopViewController(true);
 			};
-//			ScrollViewDealMakerDetails.ContentSize = new CGSize (414, 633.0f);
+//			ScrollViewDealMakerDetails.ContentSize = new CGSize (375, 633.0f);
 		}
 	}
 }

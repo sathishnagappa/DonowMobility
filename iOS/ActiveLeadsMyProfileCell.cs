@@ -13,24 +13,24 @@ namespace donow.iOS
 		public ActiveLeadsMyProfileCell  (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			LabelLeadName = new UILabel () {
-				Font = UIFont.FromName ("Arial", 15f),
-				TextColor = UIColor.Black,
+				Font = UIFont.FromName ("Arial", 18f),
+				TextColor = UIColor.FromRGB(73,73,73),
 				Lines = 0,
 			};
 			ContentView.AddSubviews (new UIView[]{ LabelLeadName });
 
 			LabelCompanyName = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 15f),
-				TextColor = UIColor.Black,
+				Font = UIFont.FromName ("Arial", 18f),
+				TextColor = UIColor.FromRGB(73,73,73),
 				Lines = 0,
 			};
 			ContentView.AddSubviews (new UIView[]{ LabelCompanyName });
 
 			LabelHourText = new UILabel () {
 
-				Font = UIFont.FromName ("Arial-BoldMT", 12f),
-				TextColor = UIColor.LightGray,
+				Font = UIFont.FromName ("Arial", 18f),
+				TextColor = UIColor.FromRGB(152,152,152),
 				Lines = 0,
 			};
 			ContentView.AddSubviews (new UIView[]{ LabelHourText });
@@ -41,19 +41,18 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = obj.LEAD_NAME;
 			LabelCompanyName.Text = obj.COMPANY_NAME;
-			//LabelHourText.Text = DateTime.Parse (obj.LEAD_CREATE_TIME).ToString ("MMM dd");
+//			LabelHourText.Text = DateTime.Parse (obj.LEAD_CREATE_TIME).ToString ("MMM dd");
 		}
 
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
 
-			LabelLeadName.Frame = new CGRect (14, 0, 175,30);
-			LabelCompanyName.Frame = new CGRect (14, 25, 175, 30);
-			LabelHourText.Frame = new CGRect (265,25,150,30);
+			LabelLeadName.Frame = new CGRect (0, 0, 175,30);
+			LabelCompanyName.Frame = new CGRect (0, 25, 300, 30);
+			LabelHourText.Frame = new CGRect (260,25,150,30);
 		}
 
 	}
 }
-
 

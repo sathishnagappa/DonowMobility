@@ -53,6 +53,17 @@ namespace donow.Services
 
 		}
 
+//		private bool CheckInternetAccess()
+//		{
+//			try
+//			{
+//				ConnectionProfile 
+//			    	
+//			}
+//			catch {
+//			}
+//		}
+
 
 		public string PostData(string RestURL, string postData)
 		{

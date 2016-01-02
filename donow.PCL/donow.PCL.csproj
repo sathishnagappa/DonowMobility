@@ -83,6 +83,7 @@
     <Compile Include="Model\TwitterStream.cs" />
     <Compile Include="Model\LeadMaster.cs" />
     <Compile Include="Model\CustomerDetails.cs" />
+    <Compile Include="Model\SFDCCredentails.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

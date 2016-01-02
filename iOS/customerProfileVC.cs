@@ -45,7 +45,7 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			this.Title = "Customer";
+			this.Title = "Customer Profile";
 
 			LoadScreenData ();
 
@@ -94,7 +94,7 @@ namespace donow.iOS
 					mailController = new MFMailComposeViewController ();
 					mailController.SetToRecipients (new string[]{customerDetails.Email});
 					mailController.SetSubject ("Quick request");
-					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
+					mailController.SetMessageBody ("", false);
 
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
 						CustomerInteraction customerinteract = new CustomerInteraction();
@@ -140,7 +140,7 @@ namespace donow.iOS
 			//List<DealHistroy> listDealHistory = new List<DealHistroy> ();
 			//listDealHistory = AppDelegate.customerBL.GetDealHistroy (customer.LeadId, AppDelegate.UserDetails.UserId);
 
-			ScrollViewCustomerProfile.ContentSize = new CGSize (414.0f, 2074.0f);
+			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 1700.0f);
 
 			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
 				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);
@@ -246,7 +246,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 100.0f;
+				return 80.0f;
 			}
 		}
 
@@ -293,7 +293,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 120.0f;
+				return 100.0f;
 			}
 		}
 
@@ -385,7 +385,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 80.0f;
 			}
 		}
 	}

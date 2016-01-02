@@ -22,8 +22,8 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			this.ParentViewController.NavigationController.SetNavigationBarHidden (false, false);
-			this.NavigationController.SetNavigationBarHidden (true, false);
+			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+//			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
@@ -31,7 +31,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "More";
+			this.NavigationItem.Title = "More";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
 			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page"};
 			table.Source = new TableSource(tableItems, imageIcons, this);
@@ -76,6 +76,8 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
+				tableView.DeselectRow (indexPath, true);
+
 				switch (TableItems [indexPath.Row]) {
 				case "My Profile": 
 					MyProfileVC myProfileVC = owner.Storyboard.InstantiateViewController ("MyProfileVC") as MyProfileVC;
@@ -125,7 +127,7 @@ namespace donow.iOS
 					break;
 				}
 
-				tableView.DeselectRow (indexPath, true);
+
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

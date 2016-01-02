@@ -34,7 +34,7 @@ namespace donow.iOS
 
 		public override void ViewDidLoad ()
 		{
-			this.Title = "Sign Up";
+			this.NavigationItem.Title = "Sign Up";
 
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
@@ -88,8 +88,6 @@ namespace donow.iOS
 		private bool Validation()
 		{
 			UIAlertView alert = null;
-			UserBL userBL = new UserBL ();
-
 			if (string.IsNullOrEmpty(TextBoxUserName.Text)) {
 				alert = new UIAlertView () { 
 					Title = "User Name is blank", 
@@ -117,7 +115,7 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
-			if(userBL.CheckUserExist(TextBoxUserName.Text))
+			if(AppDelegate.userBL.CheckUserExist(TextBoxUserName.Text))
 			{
 				alert = new UIAlertView () { 
 					Title = "Error", 

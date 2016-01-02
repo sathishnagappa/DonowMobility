@@ -51,10 +51,10 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public Leads GetLeadsDetails(int Leadid)
+		public Leads GetLeadsDetails(int Leadid, int userID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&type=lead";
+			string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&userid=" + userID;
 			var parsedResponse = new Leads();
 			try
 			{
@@ -165,18 +165,26 @@ namespace donow.PCL
 			string response =  restSevice.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
-
 		}
 
-		public string SFDCAuthentication ()
+		public string SFDCAuthentication (int userID)
 		{
-
-			var request = HttpWebRequest.Create("https://ap2.salesforce.com//services/oauth2/token");
+			SFDCCredentails sfdcobj = GetSFDCCredentails (userID);
+//			SFDCCredentails sfdcobj = new SFDCCredentails ();
+//			sfdcobj.UserID = 2;
+//			sfdcobj.Url = "https://ap2.salesforce.com//services/oauth2/token";
+//			sfdcobj.UserName = "DoNow_dev2@brillio.com";
+//			sfdcobj.Password = "donow@dev2";
+//			sfdcobj.SecurityCode = "k9n6IQFyBYvDeGM2g0nVmFHpg";
+//			sfdcobj.ClientID = "3MVG9ZL0ppGP5UrC4rjQFkEhUnYTSNP_Tvanu8b30_TqkLH7cOg8UC9zHKCsX.mgW_hFVY2J0jRyO.Ev_VsH0";
+//			sfdcobj.ClientSecret = "1975032834009986449";
+//
+			var request = HttpWebRequest.Create(sfdcobj.Url);
 			request.ContentType = "application/x-www-form-urlencoded";
 			request.Headers.Add ("X-PrettyPrint", "1");
 			request.Method = "POST";
 
-			var postData = "grant_type=password&username=DoNow_dev2@brillio.com&password=donow@dev2k9n6IQFyBYvDeGM2g0nVmFHpg&client_id=3MVG9ZL0ppGP5UrC4rjQFkEhUnYTSNP_Tvanu8b30_TqkLH7cOg8UC9zHKCsX.mgW_hFVY2J0jRyO.Ev_VsH0&client_secret=1975032834009986449";
+			var postData = "grant_type=password&username="+ sfdcobj.UserName + "&password="+ sfdcobj.Password  + sfdcobj.SecurityCode + "&client_id=" + sfdcobj.ClientID + "&client_secret=" + sfdcobj.ClientSecret + "";
 
 			var data = Encoding.ASCII.GetBytes(postData);
 			request.ContentLength = data.Length;
@@ -202,13 +210,22 @@ namespace donow.PCL
 
 		}
 
+		public SFDCCredentails GetSFDCCredentails(int userID)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.SFDCCrendentails +  "?Id=" + userID;
+			string response =  restSevice.GetData (leadsApicall);
+			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<SFDCCredentails>(response.ToString());
+			return parsedResponse;
+		}
+
 		public async Task<string> UpdateSFDCData (string accessCode,long leadid,string status)
 		{
 
 			HttpClient queryClient3 = new HttpClient ();
-			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/sobjects/Lead/" + leadid + "?_HttpMethod=PATCH";
+			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/so bjects/Lead/" + leadid + "?_HttpMethod=PATCH";
 
-			string insertPacket = "{ \"Status\": \"Jack\" }";
+			string insertPacket = "{ \"Status\": " + status + " }";
 
 			StringContent insertString = new StringContent(insertPacket,Encoding.UTF8,"application/json");
 			HttpRequestMessage request3 = new HttpRequestMessage(HttpMethod.Post, serviceURL3);
@@ -219,8 +236,6 @@ namespace donow.PCL
 			HttpResponseMessage response3 = await queryClient3.SendAsync(request3);
 			string result = await response3.Content.ReadAsStringAsync();
 			return result;
-
-
 
 		}
 	}

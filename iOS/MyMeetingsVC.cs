@@ -44,7 +44,7 @@ namespace donow.iOS
 			//}
 
 
-			ScrollViewMeeting.ContentSize = new CGSize (414f, 1350f);
+			ScrollViewMeeting.ContentSize = new CGSize (375.0f, 1350f);
 			await LoadMeetingData ();
 
 		}
@@ -96,6 +96,7 @@ namespace donow.iOS
 				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
 					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
 					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
+//			twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business")).ToList();	
 			
 			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
 			TalkingPointTable.RowHeight = UITableView.AutomaticDimension;
@@ -147,6 +148,8 @@ namespace donow.iOS
 				if (indexPath.Section == 0) {
 					CellIdentifier = oldCellIdentifier;
 					item = TableItems [indexPath.Row];
+
+
 				} else if (indexPath.Section == 1) {
 					CellIdentifier = NewCellIdentifier;
 					item = NewTableIttems [indexPath.Row];
@@ -258,7 +261,7 @@ namespace donow.iOS
 				//---- if there are no cells to reuse, create a new one
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
-
+				cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
 				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
 				cell.TextLabel.Text = item.Title;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;

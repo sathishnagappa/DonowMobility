@@ -44,6 +44,18 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel CompanyLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel CustomerLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel industryLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewAccountManager { get; set; }
 
 		[Outlet]
@@ -99,6 +111,18 @@ namespace donow.iOS
 			if (ButtonUserInfo != null) {
 				ButtonUserInfo.Dispose ();
 				ButtonUserInfo = null;
+			}
+			if (CompanyLabel != null) {
+				CompanyLabel.Dispose ();
+				CompanyLabel = null;
+			}
+			if (CustomerLabel != null) {
+				CustomerLabel.Dispose ();
+				CustomerLabel = null;
+			}
+			if (industryLabel != null) {
+				industryLabel.Dispose ();
+				industryLabel = null;
 			}
 			if (ScrollViewAccountManager != null) {
 				ScrollViewAccountManager.Dispose ();

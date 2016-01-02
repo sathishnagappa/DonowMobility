@@ -17,7 +17,8 @@ namespace donow.iOS
 	{
 		public Leads leadObj;
 		bool isLeadAccepted = false;
-		LeadsBL leadsBL;
+		public string reasonForPass = string.Empty;
+
 		public LeadDetailVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -58,6 +59,7 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
+			ScrollViewLeadDetails.ContentSize = new CGSize (375f, 700.0f);
 			this.Title = "Lead Details";
 
 			LabelTitleName.Text = leadObj.LEAD_NAME;
@@ -69,11 +71,6 @@ namespace donow.iOS
 			LabelLocation.Text = leadObj.CITY + "," + leadObj.STATE;
 			LabelBusinessNeeds.Text = leadObj.BUSINESS_NEED;
 
-
-			ButtonOptionPassView.TouchUpInside += (object sender, EventArgs e) =>  {
-				TableViewPassView.Hidden = false;
-			};
-
 			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 
 			ButtonAccept.TouchUpInside += (object sender, EventArgs e) => {
@@ -81,8 +78,7 @@ namespace donow.iOS
 				ViewAccept.Hidden = false;
 				isLeadAccepted = true;
 				AppDelegate.IsLeadAccepted = true;
-				leadsBL = new LeadsBL();
-				leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
+				AppDelegate.leadsBL.UpdateStatus(leadObj.LEAD_ID,4);
 
 				//Xamarin Insights tracking
 				Insights.Track("Lead Update Status", new Dictionary <string,string>{
@@ -100,13 +96,6 @@ namespace donow.iOS
 				ViewPass.Hidden = false;
 				isLeadAccepted = false;
 			};
-
-//			ButtonSubmitPassView.TouchUpInside += (object sender, EventArgs e) => {
-//				leadsBL = new LeadsBL();
-//				string text = ButtonOptionPassView.TitleLabel.Text;
-//				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
-//				this.NavigationController.PopViewController(false);
-//			};
 
 			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {
 
@@ -201,33 +190,6 @@ namespace donow.iOS
 				//				label.AdjustsFontSizeToFitWidth = false;
 			};
 
-
-			ButtonOptionPassView.TouchUpInside+= (object sender, EventArgs e) => {
-				TableViewPassView.Hidden = false;
-			};
-
-			ButtonSubmitPassView.TouchUpInside += (object sender, EventArgs e) =>  {
-				ButtonBackgroundView.Hidden = true;
-				ViewPass.Hidden = true;
-				leadsBL = new LeadsBL();
-				string text = ButtonOptionPassView.TitleLabel.Text;
-				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
-//				this.NavigationController.PopViewController(false);
-								LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-								if (landingLeadsVC != null) {
-									this.NavigationController.PushViewController(landingLeadsVC, true);
-								}				
-						
-			};
-
-//			ButtonPass.TouchUpInside+= (object sender, EventArgs e) => {
-//				leadsBL = new LeadsBL();
-//				string text = ButtonOptionPassView.TitleLabel.Text;
-//				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
-//				this.NavigationController.PopViewController(false);
-//			};
-
-
 			ButtonCompanyInfoExpand.TouchUpInside += (object sender, EventArgs e) =>  {
 			
 				var maxHeight = 500.0f;
@@ -246,9 +208,7 @@ namespace donow.iOS
 			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
 				ViewPass.Hidden = true;
 				ButtonBackgroundView.Hidden = true;
-				leadsBL = new LeadsBL();
-				string text = ButtonOptionPassView.TitleLabel.Text;
-				leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,text);
+				AppDelegate.leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,reasonForPass);
 				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
 				if (landingLeadsVC != null) {
 					this.NavigationController.PushViewController(landingLeadsVC, true);
@@ -256,21 +216,13 @@ namespace donow.iOS
 				
 			};
 			TableViewPassView.Layer.BorderWidth = 1.0f;
-
-//			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
-//				ViewPass.Hidden = true;
-//				ButtonBackgroundView.Hidden = true;
-//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-//				if (landingLeadsVC != null) {
-//					this.NavigationController.PushViewController(landingLeadsVC, true);
-//				}				
-//			};
+			TableViewPassView.Layer.BorderColor = UIColor.LightGray.CGColor;
 		}
 
 		public void UpdateControls (string Parameter)
 		{
-			ButtonOptionPassView.SetTitle (Parameter, UIControlState.Normal);
-			TableViewPassView.Hidden = true;
+			reasonForPass = Parameter;
+//			TableViewPassView.Hidden = true;
 		}
 	}
 
@@ -307,12 +259,12 @@ namespace donow.iOS
 
 		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 		{
-			return 35.0f;
+			return 50.0f;
 		}
 
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			tableView.DeselectRow (indexPath, true);
+//			tableView.DeselectRow (indexPath, true);
 			leadDetailsVC.UpdateControls(TableItems[indexPath.Row]);
 		}
 	}

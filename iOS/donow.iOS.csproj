@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -129,6 +129,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <Compile Include="MyDealMakerVC.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -136,14 +137,6 @@
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="signUpRootViewController.cs" />
-    <Compile Include="signUpRootViewController.designer.cs">
-      <DependentUpon>signUpRootViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="signUpSocialLinksVC.cs" />
-    <Compile Include="signUpSocialLinksVC.designer.cs">
-      <DependentUpon>signUpSocialLinksVC.cs</DependentUpon>
     </Compile>
     <Compile Include="loginPageViewController.cs" />
     <Compile Include="loginPageViewController.designer.cs">
@@ -172,10 +165,6 @@
     <Compile Include="HambergerMenuVC .cs" />
     <Compile Include="HambergerMenuVC .designer.cs">
       <DependentUpon>HambergerMenuVC .cs</DependentUpon>
-    </Compile>
-    <Compile Include="NotificationsVC.cs" />
-    <Compile Include="NotificationsVC.designer.cs">
-      <DependentUpon>NotificationsVC.cs</DependentUpon>
     </Compile>
     <Compile Include="MyProfileVC.cs" />
     <Compile Include="MyProfileVC.designer.cs">
@@ -256,7 +245,6 @@
     <Compile Include="InfoPage_.designer.cs">
       <DependentUpon>InfoPage_.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyDealMakerVC.cs" />
     <Compile Include="MyDealMakerVC.designer.cs">
       <DependentUpon>MyDealMakerVC.cs</DependentUpon>
     </Compile>
@@ -362,12 +350,19 @@
     <BundleResource Include="Resources\DoNow Logo_Small.png" />
     <BundleResource Include="Resources\Contact Us Logo_Small.png" />
     <BundleResource Include="Resources\Salesperson Logo_Small.png" />
-    <BundleResource Include="Resources\Navigation Back Icon.png" />
     <BundleResource Include="Resources\Previous Meeting Thumb.png" />
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\Thumbs Side White.png" />
     <BundleResource Include="Resources\DoNow Logo_New.png" />
     <BundleResource Include="Resources\DoNowLogo.png" />
+    <BundleResource Include="Resources\Logo57x57.png" />
+    <BundleResource Include="Resources\Logo114x114.png" />
+    <BundleResource Include="Resources\Logo120x120.png" />
+    <BundleResource Include="Resources\Logo1024x1024.png" />
+    <BundleResource Include="Resources\Magnifying Glass_small.png" />
+    <BundleResource Include="Resources\Navigation Back Icon.png" />
+    <BundleResource Include="Resources\download.png" />
+    <BundleResource Include="Resources\Magnifying Glass%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

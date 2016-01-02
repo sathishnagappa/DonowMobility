@@ -13,14 +13,18 @@ namespace donow.iOS
 		public ChangePassword (IntPtr handle) : base (handle)
 		{
 		}
-
+		//public bool isFromSignUp;
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			this.NavigationController.SetNavigationBarHidden (false, false);
+//			if (!isFromSignUp)
+//				this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+//			//this.NavigationController.SetNavigationBarHidden (false, false);
 		}
 		public  override void ViewDidLoad ()
 		{
+			base.ViewDidLoad ();
+
 			this.Title = "Change Password";
 
 			ButtonChangePassword.Layer.CornerRadius = 5.0f;
@@ -39,7 +43,7 @@ namespace donow.iOS
 
 
 				if(Validation())
-				{					
+				{						
 					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxNewPassword.Text); 
 					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
 					//Xamarin Insights tracking

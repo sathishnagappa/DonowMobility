@@ -24,6 +24,8 @@ namespace donow.PCL
 		public int BrokerUserID { get; set; }
 		public string BrokerLOB { get; set; }
 		public long LeadID { get; set; }
-}
+//		public string StartTime { get; set; }
+//		public string EndTime { get; set; }
+	}
 }
 

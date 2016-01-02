@@ -27,12 +27,11 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 			List<Broker> brokerList;
-			BrokerBL brokerBL = new BrokerBL ();
 			if (!AppDelegate.IsFromProspect) {				
-				brokerList = brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness).OrderByDescending (X => X.BrokerScore).ToList ();
+				brokerList = AppDelegate.brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness).OrderByDescending (X => X.BrokerScore).ToList ();
 			}
 			else
-				brokerList = brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
+				brokerList = AppDelegate.brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
 
 			TableViewDealMaker.Source = new TableSource (brokerList,this);
@@ -53,6 +52,15 @@ namespace donow.iOS
 			NavigationItem.LeftBarButtonItem = btn;
 			this.Title = "Deal Makers";
 
+			// ************ Search Button to be added *****************//
+
+			UIBarButtonItem rightBtn = new UIBarButtonItem ();
+			rightBtn.Image = UIImage.FromFile("Magnifying Glass_small.png");
+			rightBtn.Clicked += (sender, e) => {
+			};
+			NavigationItem.RightBarButtonItem = rightBtn;
+
+			// ************ Search Button to be added *****************//
 		}
 
 		public class TableSource : UITableViewSource {

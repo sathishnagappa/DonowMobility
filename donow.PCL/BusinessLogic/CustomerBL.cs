@@ -13,10 +13,10 @@ namespace donow.PCL
 		{
 		}
 
-		public List<Customer> GetAllCustomers()
+		public List<Customer> GetAllCustomers(long userID)
 		{
 			RestService restSevice = new RestService ();
-			string restUrl = Constants.CustomerDetails;
+			string restUrl = Constants.CustomerDetails + "?UserID=" + userID;
 			string response = restSevice.GetData (restUrl);
 			List<Customer> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Customer>>(response.ToString());
 			return parsedResponse;

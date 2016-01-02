@@ -8,6 +8,7 @@ using donow.PCL.Model;
 using MessageUI;
 using System.Linq;
 using Xamarin;
+using CoreGraphics;
 
 namespace donow.iOS
 {
@@ -44,6 +45,7 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
+			ScrollViewProspectDetails.ContentSize = new CGSize (375f, 650f);
 
 			AppDelegate.CurrentLead = localLeads;
 			LabelProspectName.Text = localLeads.LEAD_NAME;
@@ -52,8 +54,7 @@ namespace donow.iOS
 			LabelLeadScore.Text = localLeads.LEAD_SCORE.ToString();
 			LabelLeadSource.Text = localLeads.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
 
-			BrokerBL brokerBL = new BrokerBL ();
-			brokerList = brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
+			brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
 			showBrokerImage (brokerList.Count);
 
@@ -68,7 +69,8 @@ namespace donow.iOS
 			}
 
 			ButtonPhoneProspect.TouchUpInside += (object sender, EventArgs e) => {
-				var url = new NSUrl ("tel://" + localLeads.PHONE);
+				var phone = string.IsNullOrEmpty(localLeads.PHONE.Trim()) == true ? "0" : localLeads.PHONE;
+				var url = new NSUrl ("tel://" + phone);
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
 					var av = new UIAlertView ("Not supported",
 						"Scheme 'tel:' is not supported on this device",

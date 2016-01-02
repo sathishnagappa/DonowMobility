@@ -41,23 +41,32 @@ namespace donow.iOS
 			//AppDelegate.IsNewUser = true;
 			TableViewCustomerStreamActivity.Hidden = true;
 
-			ScrollViewAccountManager.ContentSize = new CGSize (414.0f, 920.0f);
+			ScrollViewAccountManager.ContentSize = new CGSize (375.0f, 950.0f);
 
-			ButtonInfoIndustryDropDown.Layer.BorderWidth = 2.0f;
+			industryLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
+			industryLabel.Layer.BorderWidth = 2.0f;
+
+			CompanyLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
+			CompanyLabel.Layer.BorderWidth = 2.0f;
+
+			CustomerLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
+			CustomerLabel.Layer.BorderWidth = 2.0f;
+
+//			ButtonInfoIndustryDropDown.Layer.BorderWidth = 2.0f;
 			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredIndustry)) 
 				ButtonInfoIndustryDropDown.SetTitle (" Select", UIControlState.Normal);
 			else
 				ButtonInfoIndustryDropDown.SetTitle (AppDelegate.UserDetails.PreferredIndustry, UIControlState.Normal);
 			
 			ButtonInfoIndustryDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
-			ButtonInfoCompanyDropDown.Layer.BorderWidth = 2.0f;
+//			ButtonInfoCompanyDropDown.Layer.BorderWidth = 2.0f;
 			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCompany)) 
 				ButtonInfoCompanyDropDown.SetTitle (" Select", UIControlState.Normal);
 			else
 				ButtonInfoCompanyDropDown.SetTitle (AppDelegate.UserDetails.PreferredCompany, UIControlState.Normal);
 			
 			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
-			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
+//			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
 			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCustomers)) 
 				ButtonInfoCustomersDropDown.SetTitle (" Select", UIControlState.Normal);
 			else
@@ -87,7 +96,7 @@ namespace donow.iOS
 			};
 
 
-			List<Customer> CompanyList = AppDelegate.customerBL.GetAllCustomers();
+			List<Customer> CompanyList = AppDelegate.customerBL.GetAllCustomers(AppDelegate.UserDetails.UserId);
 
 			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;
@@ -111,6 +120,12 @@ namespace donow.iOS
 					if(userInfo != null)
 						this.NavigationController.PushViewController (userInfo, true);					
 				}
+			};
+
+			buttonChangePassword.TouchUpInside += (object sender, EventArgs e) =>  {
+			   ChangePassword changePassword = this.Storyboard.InstantiateViewController ("ChangePassword") as ChangePassword;
+					if(changePassword != null)
+						this.NavigationController.PushViewController (changePassword, true);			
 			};
 			SwitchNewLeads.ValueChanged+= (object sender, EventArgs e) => {
 				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
@@ -169,15 +184,15 @@ namespace donow.iOS
 		{
 			if (TableType == "Industry") {
 				TableViewCustomerStreamActivity.Hidden = true;
-				ButtonInfoIndustryDropDown.SetTitle (Parameter, UIControlState.Normal);
+				ButtonInfoIndustryDropDown.SetTitle (" "+Parameter, UIControlState.Normal);
 				AppDelegate.UserDetails.PreferredIndustry = Parameter;
 			} else if (TableType == "Company") {
 				TableViewCustomerStreamActivity.Hidden = true;
-				ButtonInfoCompanyDropDown.SetTitle(Parameter,UIControlState.Normal);
+				ButtonInfoCompanyDropDown.SetTitle(" "+Parameter,UIControlState.Normal);
 				AppDelegate.UserDetails.PreferredCompany = Parameter;
 			} else {
 				TableViewCustomerStreamActivity.Hidden = true;
-				ButtonInfoCustomersDropDown.SetTitle(Parameter,UIControlState.Normal);
+				ButtonInfoCustomersDropDown.SetTitle(" "+Parameter,UIControlState.Normal);
 				AppDelegate.UserDetails.PreferredCustomers = Parameter;
 			}
 		}

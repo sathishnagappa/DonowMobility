@@ -16,31 +16,28 @@ namespace donow.iOS
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelLeadName = new UILabel () {
 				Font = UIFont.FromName("Arial-BoldMT", 19f),
-				TextColor = UIColor.Black,
+				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadName});
 
 			LabelCompanyName = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-				//                TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
-				TextColor = UIColor.Black,
+				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCompanyName});
 
 			LabelCityAndState = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-				//                TextColor = Color 35.0f, 31.0f, 32.0f),
-				TextColor = UIColor.Black,
+				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCityAndState});
 
 			LabelScore = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-				//                TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
-				TextColor = UIColor.Black,
+				TextColor = UIColor.FromRGB (35, 31, 32),
 				Text = "Lead Score:",
 				BackgroundColor = UIColor.Clear
 			};
@@ -48,8 +45,7 @@ namespace donow.iOS
 
 			LabelScoreDigit = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
-				//                TextColor = UIColor.FromRGB (35.0f, 31.0f, 32.0f),
-				TextColor = UIColor.Black,
+				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScoreDigit});
@@ -57,8 +53,8 @@ namespace donow.iOS
 			LabelNewLead = new UILabel () {
 				Font = UIFont.FromName("Arial-BoldMT", 15f),
 				BackgroundColor = UIColor.Clear,
-				TextColor = UIColor.Black,
-				TextAlignment = UITextAlignment.Center
+				TextColor = UIColor.FromRGB (35, 31, 32),
+				TextAlignment = UITextAlignment.Right
 			};
 			ContentView.AddSubviews(new UIView[] {LabelNewLead});
 
@@ -73,7 +69,7 @@ namespace donow.iOS
 		{
 			LabelLeadName.Text = lead.LEAD_NAME;
 			LabelCompanyName.Text = lead.COMPANY_NAME;
-			string coma = string.IsNullOrEmpty (lead.CITY) ? "" : ", ";
+			string coma = (string.IsNullOrEmpty (lead.CITY) || string.IsNullOrEmpty (lead.STATE)) ? "" : ", ";
 			LabelCityAndState.Text = lead.CITY + coma + lead.STATE; 
 			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
 			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS) ;
@@ -103,13 +99,13 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-			ImageViewLeadImage.Frame = new CGRect (35, 30, 70, 70);
-			LabelLeadName.Frame = new CGRect (140, 30, 220, 30);
-			LabelCompanyName.Frame = new CGRect (140, 55, 200, 25);
-			LabelCityAndState.Frame = new CGRect (140, 75, 200, 25);
-			LabelScore.Frame = new CGRect (140, 110, 120, 25);
-			LabelScoreDigit.Frame = new CGRect (270, 110, 25, 25);
-			LabelNewLead.Frame = new CGRect (310, 20, 80, 25);
+			ImageViewLeadImage.Frame = new CGRect (25, 25, 50, 50);
+			LabelLeadName.Frame = new CGRect (100, 23, 220, 30);
+			LabelCompanyName.Frame = new CGRect (100, 47, 200, 25);
+			LabelCityAndState.Frame = new CGRect (100, 67, 200, 25);
+			LabelScore.Frame = new CGRect (100, 95, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 95, 25, 25);
+			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 100, 10, 80, 25);
 		}
 	}
 }

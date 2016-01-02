@@ -49,6 +49,12 @@ namespace donow.iOS
 			}
 			loadingOverlay.Hidden = true;
 
+			//GetLeadUpdatePage ();
+		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
 			GetLeadUpdatePage ();
 		}
 
@@ -86,7 +92,18 @@ namespace donow.iOS
 
 //			if (!AppDelegate.UserDetails.IsNewLeadNotificationRequired)
 //				ButtonRequestNewLead.Enabled = false;
-			
+
+
+			// ************ Search Button to be added *****************//
+
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Magnifying Glass_small.png");
+			btn.Clicked += (sender, e) => {
+			};
+			NavigationItem.RightBarButtonItem = btn;
+
+			// ************ Search Button to be added *****************//
+
 			LabelAlertView.Layer.CornerRadius = 5.0f;
 			ButtonOk.Layer.CornerRadius = 5.0f;
 
@@ -151,7 +168,7 @@ namespace donow.iOS
 			{				
 				tableView.DeselectRow (indexPath, true);
 				//AppDelegate.CurrentLead = TableItems [indexPath.Row];
-				owner.leadDetails = AppDelegate.leadsBL.GetLeadsDetails (TableItems [indexPath.Row].LEAD_ID);
+				owner.leadDetails = AppDelegate.leadsBL.GetLeadsDetails (TableItems [indexPath.Row].LEAD_ID,AppDelegate.UserDetails.UserId);
 				AppDelegate.CurrentLead = owner.leadDetails;
 				if ((owner.leadDetails.USER_LEAD_STATUS == 1 || owner.leadDetails.USER_LEAD_STATUS == 2) && owner.leadDetails.LEAD_SOURCE == 1) 
 				{

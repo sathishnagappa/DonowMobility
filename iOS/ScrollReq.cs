@@ -23,7 +23,10 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 			this.Title = "Seller Profile";
-			ScrollViewRR.ContentSize=new CGSize (400f, 1300);
+			ScrollViewRR.ContentSize=new CGSize (375f, 1100f);
+
+			ButtonReferLater.Layer.BorderWidth = 2.0f;
+			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (44, 145, 188).CGColor;
 
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");

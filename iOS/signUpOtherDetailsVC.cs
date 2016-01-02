@@ -23,9 +23,19 @@ namespace donow.iOS
 		//			ButtonNext.TitleLabel.Text = title;
 		//		}
 		public bool isFromAM;
+		List<LineOfBusiness> listLOB;
+		List<string> Industries;
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			this.NavigationController.SetNavigationBarHidden (false, false);
+
+		}
+
 		public override void ViewDidLoad ()
 		{
-			this.Title = "Sign Up: User Info";
+			this.NavigationItem.Title = "Sign Up: User Info";
 
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
@@ -35,7 +45,40 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			if (AppDelegate.UserDetails.UserId != 0) {
+
+			
+			TextBoxShouldReturn ();
+			if (AppDelegate.UserProfile.name != null) {
+				LoadUserDetails ();
+			}
+			TableViewState.Hidden = true;
+			ButtonLineOfBusiness.Enabled = false;
+			TextBoxLineOfBusiness.UserInteractionEnabled = false;
+
+			IList<string> States = new List<string>
+			{
+				"AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
+				"MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
+				"UT","VT","VA","WA","WV","WI","WY"
+			};
+
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (350.0f, 1119.0f);
+			ButtonNext.Layer.CornerRadius = 5.0f;
+			TableViewState.Source = new TableSource(States,this , "States");
+			TableViewState.ContentSize = new SizeF (100f,50f);
+			ButtonState.TouchUpInside += (object sender, EventArgs e) =>  {
+				TableViewState.Hidden = false;
+			};
+
+			TableViewIndustry.Hidden = true;
+//			IList<string> Industries = new List<string>
+//			{
+//				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
+//				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
+//				"Shipping","Technology","Telecommunications","Transportation","Utilities"
+//			};
+//
+			if (AppDelegate.UserDetails != null && AppDelegate.UserDetails.UserId != 0) {
 				TextBoxEmail.Text = AppDelegate.UserDetails.Email;
 				TextBoxCompany.Text = AppDelegate.UserDetails.Company;
 				TextBoxTitle.Text = AppDelegate.UserDetails.Title;
@@ -62,66 +105,25 @@ namespace donow.iOS
 				TextBoxState.Text = string.Empty;
 				TextBoxLineOfBusiness.Text = string.Empty;
 			}
-			
-			TextBoxShouldReturn ();
-			if (AppDelegate.UserProfile.name != null) {
-				LoadUserDetails ();
-			}
-			TableViewState.Hidden = true;
-			IList<string> States = new List<string>
-			{
-				"AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
-				"MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
-				"UT","VT","VA","WA","WV","WI","WY"
-			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (415f, 1100);
-			ButtonNext.Layer.CornerRadius = 5.0f;
-			TableViewState.Source = new TableSource(States,this , "States");
-			TableViewState.ContentSize = new SizeF (100f,50f);
-			ButtonState.TouchUpInside += (object sender, EventArgs e) =>  {
-				TableViewState.Hidden = false;
-			};
+			Industries = AppDelegate.industryBL.GetIndustry ();
+			listLOB = AppDelegate.industryBL.GetLOB();
 
-			TableViewIndustry.Hidden = true;
-//			IList<string> Industries = new List<string>
-//			{
-//				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
-//				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
-//				"Shipping","Technology","Telecommunications","Transportation","Utilities"
-//			};
-//
-
-			IndustryBL industryBL = new IndustryBL();
-			List<LineOfBusiness> listLOB = industryBL.GetLOB();
-			List<string> Industries = industryBL.GetIndustry ();
 
 			TableViewIndustry.Layer.BorderColor=UIColor.FromRGB(169,169,169).CGColor;
 			//TableViewIndustry.ContentSize = new SizeF (100f,50f);
 			ButtonIndustry.TouchUpInside += (object sender, EventArgs e) =>  {
 				TextBoxLineOfBusiness.Text = string.Empty;
-				TableViewIndustry.Frame = new CGRect(47,215,320,122);
-
-
-				//TableViewIndustry.layer setBorderColor:[[UIColor colorWithWhite: 0.8 alpha: 1.0] CGColor];
+				TableViewIndustry.Frame = new CGRect(25,245,325,122);
 				TableViewIndustry.Hidden = false;
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
+				TableViewIndustry.ReloadData ();
 			};
 
-//			TextBoxLineOfBusiness.TouchUpOutside+= (object sender, EventArgs e) => {
-//				TableViewIndustry.Hidden = true;
-//			};
-
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
-				TableViewIndustry.Frame = new CGRect(47,275,320,122);
-
-
-
+			TableViewIndustry.Frame = new CGRect(25,310,325,122);
 				TableViewIndustry.Hidden = false;
-				List<string> lob =  (from item in listLOB
-					where item.IndustryName == TextBoxIndustry.Text
-					select item.LineofBusiness).ToList();
-				TableViewIndustry.Source = new TableSource(lob,this, "LOB");
+				TableViewIndustry.ReloadData ();
 			};
 
 			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {
@@ -297,6 +299,15 @@ namespace donow.iOS
 			} else if (TableType == "Industry") {
 				TableViewIndustry.Hidden = true;
 				TextBoxIndustry.Text = Parameter;
+				List<string> lob =  (from item in listLOB
+					where item.IndustryName == TextBoxIndustry.Text
+					select item.LineofBusiness).ToList();
+				if (lob.Count > 0) {
+					ButtonLineOfBusiness.Enabled = true;
+					TableViewIndustry.Source = new TableSource (lob, this, "LOB");
+				}
+				else
+					ButtonLineOfBusiness.Enabled = false;
 
 			} else {
 				TableViewIndustry.Hidden = true;

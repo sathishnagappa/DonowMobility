@@ -14,29 +14,26 @@ namespace donow.iOS
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelSentEmail = new UILabel () {
-				Font = UIFont.FromName("Arial", 22f),
-				//TextColor = UIColor.FromRGB (127, 51, 0),
+				Font = UIFont.FromName("Arial", 16f),
 				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelSentEmail});
 
 			LabelDate = new UILabel () {
-				Font = UIFont.FromName("Arial", 18f),
-				//TextColor = UIColor.FromRGB (127, 51, 0),
+				Font = UIFont.FromName("Arial", 14f),
 				TextColor = UIColor.Black,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelDate});
 
-			LabelTime = new UILabel () {
-				Font = UIFont.FromName("Arial", 18f),
-				//TextColor = UIColor.FromRGB (127, 51, 0),
-				TextColor = UIColor.Black,
-				BackgroundColor = UIColor.Clear
-			};
-			ContentView.AddSubviews(new UIView[] {LabelTime});
-		
+			//			LabelTime = new UILabel () {
+			//				Font = UIFont.FromName("Arial", 18f),
+			//				TextColor = UIColor.FromRGB (127, 51, 0),
+			//				BackgroundColor = UIColor.Clear
+			//			};
+			//			ContentView.AddSubviews(new UIView[] {LabelTime});
+
 			ImageViewEmail = new UIImageView () {
 				Image = UIImage.FromBundle("New Meeting Thumb.png")
 			};
@@ -58,10 +55,10 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-			ImageViewEmail.Frame = new CGRect (35, 23, 60, 55);
-			LabelSentEmail.Frame = new CGRect (122, 17, 272, 32);
-			LabelDate.Frame = new CGRect (124,57,272,21);
-			LabelTime.Frame = new CGRect (264,57,127,21);
+			ImageViewEmail.Frame = new CGRect (25, 19, 40, 35);
+			LabelSentEmail.Frame = new CGRect (85, 10, 272, 32);
+			LabelDate.Frame = new CGRect (85,35,280,21);
+			//			LabelTime.Frame = new CGRect (264,57,127,21);
 		}
 	}
 }

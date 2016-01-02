@@ -142,6 +142,11 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		 UIScrollView ScrollViewLeadDetails { get; set; }
+
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
@@ -271,6 +276,11 @@ namespace donow.iOS
 			if (ViewPass != null) {
 				ViewPass.Dispose ();
 				ViewPass = null;
+			}
+
+			if (ScrollViewLeadDetails != null) {
+				ScrollViewLeadDetails.Dispose ();
+				ScrollViewLeadDetails = null;
 			}
 		}
 	}

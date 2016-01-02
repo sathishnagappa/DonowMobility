@@ -40,7 +40,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewInteractionPage.ContentSize = new CGSize (414.0f,850.0f);
+			ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,850.0f);
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
@@ -84,7 +84,7 @@ namespace donow.iOS
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 193, 414, 1000);
+				ViewSecond.Frame = new CGRect (0, 183, 375, 1000);
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this,"Interaction");
 
@@ -101,7 +101,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 334, 414, 1000);
+				ViewSecond.Frame = new CGRect (0, 325, 375, 1000);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
@@ -109,7 +109,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 193, 414, 1000);
+				ViewSecond.Frame = new CGRect (0, 183, 375, 1000);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
@@ -140,7 +140,7 @@ namespace donow.iOS
 
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
-					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication();
+					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
 				}
 				string[] salesStageArray = salesStage.Split(' ');
 				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];

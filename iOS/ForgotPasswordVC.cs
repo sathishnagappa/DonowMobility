@@ -63,18 +63,18 @@ namespace donow.iOS
 			try
 			{
 				MailMessage mail=new MailMessage();
-				SmtpClient SmtpServer=new SmtpClient("smtp.gmail.com");
-				mail.From=new MailAddress("vaibhav22barchhiha@gmail.com");
+				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
+				mail.From=new MailAddress("support@donowx.com");
 				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
 				mail.Subject = "New Password";
 				mail.Body = "Here is your New password " + newPassword;
 				SmtpServer.Port = 587;
-				SmtpServer.Credentials=new System.Net.NetworkCredential("vaibhav22barchhiha","mastercard22_");
+				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
 				SmtpServer.EnableSsl=true;
 				ServicePointManager.ServerCertificateValidationCallback=delegate(object sender, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors) {
 					return true;
 				};
-				SmtpServer.Send(mail);
+				SmtpServer.SendAsync(mail,null);
 
 				alert = new UIAlertView () {
 					Title = "", 

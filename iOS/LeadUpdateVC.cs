@@ -252,7 +252,7 @@ namespace donow.iOS
 
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
-				  AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication();
+					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
 				}
 				string[] salesStageArray = localSalesStage.Split(' ');
 				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];

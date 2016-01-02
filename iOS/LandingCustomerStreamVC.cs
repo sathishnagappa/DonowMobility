@@ -47,6 +47,16 @@ namespace donow.iOS
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
 
+			// ************ Search Button to be added *****************//
+
+			UIBarButtonItem btn = new UIBarButtonItem ();
+			btn.Image = UIImage.FromFile("Magnifying Glass_small.png");
+			btn.Clicked += (sender, e) => {
+			};
+			NavigationItem.RightBarButtonItem = btn;
+
+			// ************ Search Button to be added *****************//
+
 		}
 
 		public class CustomerIndustryTableSource : UITableViewSource {

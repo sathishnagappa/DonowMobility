@@ -44,6 +44,16 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
+			// ************ Search Button to be added *****************//
+
+			UIBarButtonItem rightBtn = new UIBarButtonItem ();
+			rightBtn.Image = UIImage.FromFile("Magnifying Glass_small.png");
+			rightBtn.Clicked += (sender, e) => {
+			};
+			NavigationItem.RightBarButtonItem = rightBtn;
+
+			// ************ Search Button to be added *****************//
+
 			SetImageAndTitle ();
 
 		}

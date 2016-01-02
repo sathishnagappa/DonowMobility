@@ -58,7 +58,9 @@
 	</dict>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>DoNowLogo</string>
+		<string>Logo57x57</string>
+		<string>Logo114x114</string>
+		<string>Logo120x120</string>
 	</array>
 </dict>
 </plist>

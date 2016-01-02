@@ -28,14 +28,14 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelCustomerCompany});
 
 			LabelCustomerSince = new UILabel () {
-				Font = UIFont.FromName("Arial-BoldMT", 15f),
-				TextColor = UIColor.FromRGB (134,133,133),
+				Font = UIFont.FromName("Arial", 15f),
+				TextColor = UIColor.LightGray,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCustomerSince});
 
 			ImageViewCustomerImage = new UIImageView () {
-				Image = UIImage.FromBundle("Salesperson Logo_Small.png")
+				Image = UIImage.FromBundle("Scott Anders_Large.png")
 			};
 			ContentView.AddSubviews(new UIView[] {ImageViewCustomerImage});
 
@@ -49,16 +49,17 @@ namespace donow.iOS
 		{
 			LabelCustomerName.Text = customerInfo.Name;
 			LabelCustomerCompany.Text = customerInfo.Company;
-			//LabelCustomerSince.Text =  "Customer since May 2012";
+			LabelCustomerSince.Text =  "Customer since"; //+ customerInfo.;
 		}
 
 		public override void LayoutSubviews ()
 		{
 			base.LayoutSubviews ();
 
-			ImageViewCustomerImage.Frame = new CGRect (20, 20, 60, 60);
-			ImageViewDummyLeadImage.Frame = new CGRect (350, 10, 30, 30);
-			LabelCustomerName.Frame = new CGRect (100,12,245,25);
+			ImageViewCustomerImage.Frame = new CGRect (25, 22, 50, 50);
+//			ImageViewDummyLeadImage.Frame = new CGRect (316, 10, 20, 20);
+			ImageViewDummyLeadImage.Frame = new CGRect ( this.Bounds.Size.Width - 60 , 10, 20, 20);
+			LabelCustomerName.Frame = new CGRect (100,22,245,25);
 			LabelCustomerCompany.Frame = new CGRect (100,40,200,25);
 			LabelCustomerSince.Frame = new CGRect (100,62,220,25);
 		}

@@ -16,10 +16,26 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar searchBarCustomer { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIBarButtonItem SearchButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewCustomerList { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (searchBarCustomer != null) {
+				searchBarCustomer.Dispose ();
+				searchBarCustomer = null;
+			}
+			if (SearchButton != null) {
+				SearchButton.Dispose ();
+				SearchButton = null;
+			}
 			if (TableViewCustomerList != null) {
 				TableViewCustomerList.Dispose ();
 				TableViewCustomerList = null;

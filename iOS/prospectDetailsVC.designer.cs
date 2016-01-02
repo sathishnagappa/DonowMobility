@@ -78,6 +78,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelScoreThirdBroker { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewProspectDetails { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ButtonMailProspect != null) {
@@ -143,6 +147,10 @@ namespace donow.iOS
 			if (LabelScoreThirdBroker != null) {
 				LabelScoreThirdBroker.Dispose ();
 				LabelScoreThirdBroker = null;
+			}
+			if (ScrollViewProspectDetails != null) {
+				ScrollViewProspectDetails.Dispose ();
+				ScrollViewProspectDetails = null;
 			}
 		}
 	}
