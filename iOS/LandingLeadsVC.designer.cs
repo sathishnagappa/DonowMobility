@@ -32,7 +32,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar searchBarLeads { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewLeads { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView topView { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -52,9 +60,17 @@ namespace donow.iOS
 				LabelAlertView.Dispose ();
 				LabelAlertView = null;
 			}
+			if (searchBarLeads != null) {
+				searchBarLeads.Dispose ();
+				searchBarLeads = null;
+			}
 			if (TableViewLeads != null) {
 				TableViewLeads.Dispose ();
 				TableViewLeads = null;
+			}
+			if (topView != null) {
+				topView.Dispose ();
+				topView = null;
 			}
 		}
 	}

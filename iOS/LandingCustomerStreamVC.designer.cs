@@ -16,10 +16,18 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar SearchBarCustomerStream { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewCustomerStream { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (SearchBarCustomerStream != null) {
+				SearchBarCustomerStream.Dispose ();
+				SearchBarCustomerStream = null;
+			}
 			if (TableViewCustomerStream != null) {
 				TableViewCustomerStream.Dispose ();
 				TableViewCustomerStream = null;
