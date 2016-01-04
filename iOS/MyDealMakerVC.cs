@@ -13,6 +13,10 @@ namespace donow.iOS
 {
 	partial class MyDealMakerVC : UIViewController
 	{		
+		public bool flag = false;
+		public UITableView searchTableView;
+		public List<Broker> brokerList;
+
 		public MyDealMakerVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -26,7 +30,6 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
-			List<Broker> brokerList;
 			if (!AppDelegate.IsFromProspect) {				
 				brokerList = AppDelegate.brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness).OrderByDescending (X => X.BrokerScore).ToList ();
 			}
@@ -37,6 +40,17 @@ namespace donow.iOS
 			TableViewDealMaker.Source = new TableSource (brokerList,this);
 
 		}
+
+		public override void ViewWillDisappear (bool animated)
+		{
+			TableViewDealMaker.Source = null;
+			base.ViewWillDisappear (animated);
+			if (searchTableView == null) {
+
+				TableViewDealMaker.ReloadData ();
+			}
+		}
+
 
 		public override void ViewDidLoad ()
 		{
@@ -57,10 +71,80 @@ namespace donow.iOS
 			UIBarButtonItem rightBtn = new UIBarButtonItem ();
 			rightBtn.Image = UIImage.FromFile("Magnifying Glass_small.png");
 			rightBtn.Clicked += (sender, e) => {
+				if (flag==true) {
+					flag=false;
+					searchBarDealMaker.Hidden=true;
+					TableViewDealMaker.Frame =new CGRect (0, 0, this.View.Bounds.Size.Width, 667);
+				}
+				else
+				{
+					flag=true;
+					searchBarDealMaker.Hidden=false;
+					TableViewDealMaker.Frame =new CGRect (0, 44, this.View.Bounds.Size.Width, 623);
+				}
 			};
 			NavigationItem.RightBarButtonItem = rightBtn;
 
+			searchBarDealMaker.Delegate = new SearchDelegate (this, searchTableView);
+
 			// ************ Search Button to be added *****************//
+		}
+
+		public class SearchDelegate : UISearchBarDelegate {
+			MyDealMakerVC owner;
+			//static bool isSearchStarted;
+			UITableView _localSearchTableView;
+
+			public SearchDelegate (MyDealMakerVC owner, UITableView _searchTableView)
+			{
+				_localSearchTableView=_searchTableView;
+				this.owner=owner;
+			}
+
+			[Foundation.Export("searchBarShouldBeginEditing:")]
+			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
+			{
+//				owner.isSearchStarted = true;
+				return true;
+			}
+
+			[Foundation.Export("searchBarShouldEndEditing:")]
+			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
+			{
+				//_localSearchTableView.RemoveFromSuperview ();
+				return true;
+			}
+
+			[Foundation.Export("searchBar:textDidChange:")]
+			public virtual void TextChanged (UISearchBar searchBar, String searchText)
+			{
+				List<Broker> PerformSearch =owner.brokerList.Where (x => x.BrokerName.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+
+				if (searchBar.Text.Length > 0) {
+					if (_localSearchTableView == null) {
+						_localSearchTableView = new UITableView ();                    
+						_localSearchTableView.Frame = new CGRect (0, 44, owner.View.Bounds.Size.Width, 623);
+						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
+
+						owner.View.AddSubview (_localSearchTableView);
+					}
+					_localSearchTableView.Hidden = false;
+					_localSearchTableView.Source = new TableSource (PerformSearch, owner);
+					_localSearchTableView.ReloadData ();
+
+				} else {
+					if (_localSearchTableView != null)
+						_localSearchTableView.Hidden = true;
+
+					if (owner.searchBarDealMaker.Hidden == true) {
+						owner.TableViewDealMaker.Frame =new CGRect (0, 0, owner.View.Bounds.Size.Width, 667);
+					}
+					else if(owner.searchBarDealMaker.Hidden == false)
+					{
+						owner.TableViewDealMaker.Frame =new CGRect (0, 44, owner.View.Bounds.Size.Width, 623);
+					}
+				}
+			}
 		}
 
 		public class TableSource : UITableViewSource {
@@ -90,7 +174,6 @@ namespace donow.iOS
 
 				cell.UpdateCell(brokerobj);
 				return cell;
-
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)

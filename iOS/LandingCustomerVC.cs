@@ -46,11 +46,9 @@ namespace donow.iOS
 			LoadCustomers ();
 
 			searchBarCustomer.Hidden=true;
-
+			TableViewCustomerList.Frame =new CGRect (0, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
 		}
 
-
-		//        FKXGJKOPFXZ
 		public override void ViewWillDisappear (bool animated)
 		{
 			TableViewCustomerList.Source = null;
@@ -58,10 +56,8 @@ namespace donow.iOS
 			base.ViewWillDisappear (animated);
 
 			if (searchTableView == null) {
-
 				TableViewCustomerList.ReloadData ();
 			}
-
 		}
 
 		public override void ViewDidLoad ()

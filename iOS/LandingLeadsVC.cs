@@ -16,8 +16,13 @@ namespace donow.iOS
 	partial class LandingLeadsVC : UIViewController
 	{
 		LoadingOverlay loadingOverlay;
-		List<LeadMaster> leads;
+		public static List<LeadMaster> leads;
 		Leads leadDetails;
+		public bool flag = false;
+//		public static List<LeadMaster> CustomerList { get; set; }
+		public string txtSearched = string.Empty;
+		public UITableView searchTableView;
+
 		public LandingLeadsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -29,8 +34,6 @@ namespace donow.iOS
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.Title = "Lead";
-//			if(this.NavigationController.NavigationItem.BackBarButtonItem != null)
-//			this.NavigationController.NavigationItem.BackBarButtonItem.Enabled = false;
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
@@ -62,7 +65,10 @@ namespace donow.iOS
 		{
 			TableViewLeads.Source = null;
 			base.ViewWillDisappear (animated);
+			if (searchTableView == null) {
 
+				TableViewLeads.ReloadData ();
+			}
 		}
 
 		public override void ViewDidLoad ()
@@ -99,10 +105,25 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Magnifying Glass_small.png");
 			btn.Clicked += (sender, e) => {
+				if (flag==true) {
+					flag=false;
+					searchBarLeads.Hidden=true;
+					topView.Frame = new CGRect (0,0,topView.Frame.Size.Width,124);
+					this.TableViewLeads.Frame =new CGRect (0, 124, TableViewLeads.Frame.Size.Width, 480);
+				}
+				else
+				{
+					flag=true;
+					searchBarLeads.Hidden=false;				
+					topView.Frame = new CGRect (0, 44, topView.Frame.Size.Width, 124);
+					this.TableViewLeads.Frame =new CGRect (0, 168, TableViewLeads.Frame.Size.Width, 436);
+				}
 			};
 			NavigationItem.RightBarButtonItem = btn;
 
 			// ************ Search Button to be added *****************//
+
+			searchBarLeads.Delegate = new SearchDelegate (this, searchTableView);
 
 			LabelAlertView.Layer.CornerRadius = 5.0f;
 			ButtonOk.Layer.CornerRadius = 5.0f;
@@ -126,6 +147,65 @@ namespace donow.iOS
 			};
 
 			//loadingOverlay.Hide ();
+		}
+
+		public class SearchDelegate : UISearchBarDelegate {
+			LandingLeadsVC owner;
+			//static bool isSearchStarted;
+			UITableView _localSearchTableView;
+
+			public SearchDelegate (LandingLeadsVC owner, UITableView _searchTableView)
+			{
+				_localSearchTableView=_searchTableView;
+				this.owner=owner;
+			}
+
+			[Foundation.Export("searchBarShouldBeginEditing:")]
+			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
+			{
+//				owner.isSearchStarted = true;
+				return true;
+			}
+
+			[Foundation.Export("searchBarShouldEndEditing:")]
+			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
+			{
+				//_localSearchTableView.RemoveFromSuperview ();
+				return true;
+			}
+
+			[Foundation.Export("searchBar:textDidChange:")]
+			public virtual void TextChanged (UISearchBar searchBar, String searchText)
+			{
+				List<LeadMaster> PerformSearch = LandingLeadsVC.leads.Where (x => x.LEAD_NAME.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+
+				if (searchBar.Text.Length > 0) {
+					if (_localSearchTableView == null) {
+						_localSearchTableView = new UITableView ();                    
+						_localSearchTableView.Frame = new CGRect (0, 168, owner.View.Bounds.Size.Width, 480);
+						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
+
+						owner.View.AddSubview (_localSearchTableView);
+					}
+					_localSearchTableView.Hidden = false;
+					_localSearchTableView.Source = new TableSource (PerformSearch, owner);
+					_localSearchTableView.ReloadData ();
+
+				} else {
+					if (_localSearchTableView != null)
+						_localSearchTableView.Hidden = true;
+
+					if (owner.searchBarLeads.Hidden == true) {
+						owner.topView.Frame = new CGRect (0,0,owner.topView.Frame.Size.Width,124);
+						owner.TableViewLeads.Frame =new CGRect (0, 124, owner.TableViewLeads.Frame.Size.Width, 480);
+					}
+					else if(owner.searchBarLeads.Hidden == false)
+					{
+						owner.topView.Frame = new CGRect (0, 44, owner.topView.Frame.Size.Width, 124);
+						owner.TableViewLeads.Frame =new CGRect (0, 168, owner.TableViewLeads.Frame.Size.Width, 436);
+					}
+				}
+			}
 		}
 
 		async Task<List<LeadMaster>> GetLeads()

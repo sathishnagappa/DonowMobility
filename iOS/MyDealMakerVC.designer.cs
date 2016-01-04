@@ -16,10 +16,18 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar searchBarDealMaker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewDealMaker { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (searchBarDealMaker != null) {
+				searchBarDealMaker.Dispose ();
+				searchBarDealMaker = null;
+			}
 			if (TableViewDealMaker != null) {
 				TableViewDealMaker.Dispose ();
 				TableViewDealMaker = null;
