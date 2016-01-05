@@ -143,14 +143,14 @@ namespace donow.iOS
 //				, true);
 
 			txtSearched = searchBarCustomer.Text;
-			if (searchBarCustomer.Hidden == true) {
-				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-			}
-			else if(searchBarCustomer.Hidden == false)
-			{
-				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-
-			}
+//			if (searchBarCustomer.Hidden == true) {
+//				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+//			}
+//			else if(searchBarCustomer.Hidden == false)
+//			{
+//				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+//
+//			}
 		}
 
 		public void changeText (List<Customer> PerformSearch) {
@@ -236,6 +236,7 @@ namespace donow.iOS
 			}
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
+				tableView.Hidden = true;
 				tableView.DeselectRow (indexPath, true);
 				customerProfileVC customerDetailVC = customerVC.Storyboard.InstantiateViewController ("customerProfileVC") as customerProfileVC;
 				if (customerDetailVC != null) {

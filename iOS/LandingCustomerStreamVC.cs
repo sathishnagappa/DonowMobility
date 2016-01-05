@@ -43,7 +43,6 @@ namespace donow.iOS
 			TableViewCustomerStream.Source = null;
 			base.ViewWillDisappear (animated);
 			if (searchTableView == null) {
-
 				TableViewCustomerStream.ReloadData ();
 			}
 		}
@@ -74,68 +73,65 @@ namespace donow.iOS
 			};
 			NavigationItem.RightBarButtonItem = btn;
 
-//			SearchBarCustomerStream.Delegate = new SearchDelegate (this, searchTableView);
+			SearchBarCustomerStream.Delegate = new SearchDelegate (this, searchTableView);
 
 			// ************ Search Button to be added *****************//
-
 		}
 
-//		public class SearchDelegate : UISearchBarDelegate {
-//			LandingCustomerStreamVC owner;
-//			//static bool isSearchStarted;
-//			UITableView _localSearchTableView;
-//
-//			public SearchDelegate (LandingCustomerStreamVC owner, UITableView _searchTableView)
-//			{
-//				_localSearchTableView=_searchTableView;
-//				this.owner=owner;
-//			}
-//
-//			[Foundation.Export("searchBarShouldBeginEditing:")]
-//			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
-//			{
-//				//				owner.isSearchStarted = true;
-//				return true;
-//			}
-//
-//			[Foundation.Export("searchBarShouldEndEditing:")]
-//			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
-//			{
-//				//_localSearchTableView.RemoveFromSuperview ();
-//				return true;
-//			}
-//
-//			[Foundation.Export("searchBar:textDidChange:")]
-//			public virtual void TextChanged (UISearchBar searchBar, String searchText)
-//			{
-//				List<BingResult> PerformSearch =owner.brokerList.Where (x => x.BrokerName.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
-//
-//				if (searchBar.Text.Length > 0) {
-//					if (_localSearchTableView == null) {
-//						_localSearchTableView = new UITableView ();                    
-//						_localSearchTableView.Frame = new CGRect (0, 44, owner.View.Bounds.Size.Width, 623);
-//						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
-//
-//						owner.View.AddSubview (_localSearchTableView);
-//					}
-//					_localSearchTableView.Hidden = false;
-//					_localSearchTableView.Source = new TableSource (PerformSearch, owner);
-//					_localSearchTableView.ReloadData ();
-//
-//				} else {
-//					if (_localSearchTableView != null)
-//						_localSearchTableView.Hidden = true;
-//
-//					if (owner.searchBarDealMaker.Hidden == true) {
-//						owner.TableViewDealMaker.Frame =new CGRect (0, 0, owner.View.Bounds.Size.Width, 667);
-//					}
-//					else if(owner.searchBarDealMaker.Hidden == false)
-//					{
-//						owner.TableViewDealMaker.Frame =new CGRect (0, 44, owner.View.Bounds.Size.Width, 623);
-//					}
-//				}
-//			}
-//		}
+		public class SearchDelegate : UISearchBarDelegate {
+			LandingCustomerStreamVC owner;
+			//static bool isSearchStarted;
+			UITableView _localSearchTableView;
+
+			public SearchDelegate (LandingCustomerStreamVC owner, UITableView _searchTableView)
+			{
+				_localSearchTableView=_searchTableView;
+				this.owner=owner;
+			}
+
+			[Foundation.Export("searchBarShouldBeginEditing:")]
+			public override Boolean ShouldBeginEditing (UISearchBar searchBar)
+			{
+				//				owner.isSearchStarted = true;
+				return true;
+			}
+
+			[Foundation.Export("searchBarShouldEndEditing:")]
+			public override Boolean ShouldEndEditing (UISearchBar searchBar)
+			{
+				//_localSearchTableView.RemoveFromSuperview ();
+				return true;
+			}
+
+			[Foundation.Export("searchBar:textDidChange:")]
+			public override void TextChanged (UISearchBar searchBar, String searchText)
+			{
+				List<BingResult> PerformSearch = owner.bingResult.Where (x => x.Title.ToLower().Contains (searchBar.Text.ToLower())).ToList ();
+
+				if (searchBar.Text.Length > 0) {
+					if (_localSearchTableView == null) {
+						_localSearchTableView = new UITableView ();                    
+						_localSearchTableView.Frame = new CGRect (0, 44, owner.View.Bounds.Size.Width, 623);
+						owner.View.AddSubview (_localSearchTableView);
+					}
+					_localSearchTableView.Hidden = false;
+					_localSearchTableView.Source = new CustomerIndustryTableSource (PerformSearch, owner);
+					_localSearchTableView.ReloadData ();
+
+				} else {
+					if (_localSearchTableView != null)
+						_localSearchTableView.Hidden = true;
+
+					if (owner.SearchBarCustomerStream.Hidden == true) {
+						owner.TableViewCustomerStream.Frame =new CGRect (0, 0, owner.View.Bounds.Size.Width, 667);
+					}
+					else if(owner.SearchBarCustomerStream.Hidden == false)
+					{
+						owner.TableViewCustomerStream.Frame =new CGRect (0, 44, owner.View.Bounds.Size.Width, 623);
+					}
+				}
+			}
+		}
 
 		public class CustomerIndustryTableSource : UITableViewSource {
 

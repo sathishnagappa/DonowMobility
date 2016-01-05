@@ -24,7 +24,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar searchBarReferral { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewRR { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView topView { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -36,9 +44,17 @@ namespace donow.iOS
 				LabelRRTitle.Dispose ();
 				LabelRRTitle = null;
 			}
+			if (searchBarReferral != null) {
+				searchBarReferral.Dispose ();
+				searchBarReferral = null;
+			}
 			if (TableViewRR != null) {
 				TableViewRR.Dispose ();
 				TableViewRR = null;
+			}
+			if (topView != null) {
+				topView.Dispose ();
+				topView = null;
 			}
 		}
 	}

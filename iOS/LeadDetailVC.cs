@@ -115,8 +115,6 @@ namespace donow.iOS
 				}
 			};
 
-
-
 			ButtonPhoneAcceptView.TouchUpInside += (object sender, EventArgs e) => {
 
 				var url = new NSUrl ("tel://" + leadObj.PHONE);

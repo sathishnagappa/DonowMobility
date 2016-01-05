@@ -4,12 +4,17 @@ using System.CodeDom.Compiler;
 using UIKit;
 using donow.PCL;
 using System.Collections.Generic;
+using CoreGraphics;
+using System.Linq;
 
 namespace donow.iOS
 {
 	partial class ReferralRequestDetails : UIViewController
 	{
 		public string referralRequestType = string.Empty;
+		public bool flag = false;
+		public string txtSearched = string.Empty;
+		public UITableView searchTableView;
 		//public List<ReferralRequest> referralRequests;
 		public ReferralRequestDetails (IntPtr handle) : base (handle)
 		{
@@ -49,14 +54,88 @@ namespace donow.iOS
 			UIBarButtonItem rightBtn = new UIBarButtonItem ();
 			rightBtn.Image = UIImage.FromFile("Magnifying Glass_small.png");
 			rightBtn.Clicked += (sender, e) => {
+				if (flag==true) {
+					flag=false;
+					searchBarReferral.Hidden=true;
+					topView.Frame = new CGRect (0,0,topView.Frame.Size.Width,124);
+					this.TableViewRR.Frame =new CGRect (0, 77, this.View.Bounds.Size.Width, 480);
+				}
+				else
+				{
+					flag=true;
+					searchBarReferral.Hidden=false;				
+					topView.Frame = new CGRect (0, 44, topView.Frame.Size.Width, 124);
+					this.TableViewRR.Frame =new CGRect (0, 121, this.View.Bounds.Size.Width, 436);
+				}
 			};
 			NavigationItem.RightBarButtonItem = rightBtn;
 
+			searchBarReferral.Delegate = new SearchDelegate (this, searchTableView);
 			// ************ Search Button to be added *****************//
 
 			SetImageAndTitle ();
 
 		}
+
+		public class SearchDelegate : UISearchBarDelegate {
+			ReferralRequestDetails owner;
+			//static bool isSearchStarted;
+			UITableView _localSearchTableView;
+
+			public SearchDelegate (ReferralRequestDetails owner, UITableView _searchTableView)
+			{
+				_localSearchTableView=_searchTableView;
+				this.owner=owner;
+			}
+
+			[Foundation.Export("searchBarShouldBeginEditing:")]
+			public override Boolean ShouldBeginEditing (UISearchBar searchBar)
+			{
+				//				owner.isSearchStarted = true;
+				return true;
+			}
+
+			[Foundation.Export("searchBarShouldEndEditing:")]
+			public override Boolean ShouldEndEditing (UISearchBar searchBar)
+			{
+				//_localSearchTableView.RemoveFromSuperview ();
+				return true;
+			}
+
+			[Foundation.Export("searchBar:textDidChange:")]
+			public override void TextChanged (UISearchBar searchBar, String searchText)
+			{
+				List<ReferralRequest> PerformSearch = AppDelegate.CurrentRRList.Where (x => x.SellerName.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+
+				if (searchBar.Text.Length > 0) {
+					if (_localSearchTableView == null) {
+						_localSearchTableView = new UITableView ();                    
+						_localSearchTableView.Frame = new CGRect (0, 121, owner.View.Bounds.Size.Width, 480);
+						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
+
+						owner.View.AddSubview (_localSearchTableView);
+					}
+					_localSearchTableView.Hidden = false;
+					_localSearchTableView.Source = new TableSource (PerformSearch, owner);
+					_localSearchTableView.ReloadData ();
+
+				} else {
+					if (_localSearchTableView != null)
+						_localSearchTableView.Hidden = true;
+
+					if (owner.searchBarReferral.Hidden == true) {
+						owner.topView.Frame = new CGRect (0,0,owner.topView.Frame.Size.Width,124);
+						owner.TableViewRR.Frame =new CGRect (0, 77, owner.View.Bounds.Size.Width, 480);
+					}
+					else if(owner.searchBarReferral.Hidden == false)
+					{
+						owner.topView.Frame = new CGRect (0, 44, owner.topView.Frame.Size.Width, 124);
+						owner.TableViewRR.Frame =new CGRect (0, 121, owner.View.Bounds.Size.Width, 436);
+					}
+				}
+			}
+		}
+
 
 		void SetImageAndTitle()
 		{

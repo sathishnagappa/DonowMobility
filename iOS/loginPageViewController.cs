@@ -29,7 +29,8 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			this.NavigationController.SetNavigationBarHidden (true, false);
+			if(NavigationController != null)
+				this.NavigationController.SetNavigationBarHidden (true, false);
 
 		}
 
@@ -48,9 +49,7 @@ namespace donow.iOS
 		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-			this.NavigationItem.SetHidesBackButton (true, false);
-	
+			this.NavigationItem.SetHidesBackButton (true, false);	
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
 
 			SetUILayOut ();
@@ -61,14 +60,14 @@ namespace donow.iOS
 			#endif
 
 
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {		
-						if ( await ValidateCredentials ()) {
-							// Call to Get user details and validate credentials
-							LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-							if (landingVC != null) {
-								this.NavigationController.PushViewController(landingVC, true);
-							}
-						}
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {				
+				if ( await ValidateCredentials ()) {
+					// Call to Get user details and validate credentials
+					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
+					if (landingVC != null) {						
+						this.NavigationController.PushViewController(landingVC, true);
+					}
+				}
 			};
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
@@ -109,7 +108,7 @@ namespace donow.iOS
 							signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
 							if (signUpVC != null) {
 								this.NavigationController.PushViewController(signUpVC, true);
-						}
+							}
 						}
 
 					}
