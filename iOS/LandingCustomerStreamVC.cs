@@ -64,6 +64,7 @@ namespace donow.iOS
 					flag=false;
 					SearchBarCustomerStream.Hidden=true;
 					TableViewCustomerStream.Frame =new CGRect (0, 0, this.View.Bounds.Size.Width, 604);
+					SearchBarCustomerStream.ResignFirstResponder ();
 				}
 				else
 				{

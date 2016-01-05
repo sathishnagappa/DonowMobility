@@ -83,7 +83,7 @@ namespace donow.iOS
 
 					searchBarCustomer.Hidden=true;
 
-
+					searchBarCustomer.ResignFirstResponder();
 					this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
 
 				}
@@ -203,6 +203,8 @@ namespace donow.iOS
 				} else {
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
+
+					searchBar.ResignFirstResponder ();
 
 					if (owner.searchBarCustomer.Hidden == true) {
 						owner.TableViewCustomerList.Frame =new CGRect (owner.TableViewCustomerList.Frame.X, 0, owner.TableViewCustomerList.Frame.Size.Width, owner.TableViewCustomerList.Frame.Size.Height);

@@ -110,6 +110,7 @@ namespace donow.iOS
 					searchBarLeads.Hidden=true;
 					topView.Frame = new CGRect (0,0,topView.Frame.Size.Width,124);
 					this.TableViewLeads.Frame =new CGRect (0, 124, TableViewLeads.Frame.Size.Width, 480);
+					searchBarLeads.ResignFirstResponder();
 				}
 				else
 				{
@@ -194,10 +195,13 @@ namespace donow.iOS
 				} else {
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
+					
+					searchBar.ResignFirstResponder ();
 
 					if (owner.searchBarLeads.Hidden == true) {
 						owner.topView.Frame = new CGRect (0,0,owner.topView.Frame.Size.Width,124);
 						owner.TableViewLeads.Frame =new CGRect (0, 124, owner.TableViewLeads.Frame.Size.Width, 480);
+
 					}
 					else if(owner.searchBarLeads.Hidden == false)
 					{
