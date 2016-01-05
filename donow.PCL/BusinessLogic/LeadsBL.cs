@@ -67,6 +67,22 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
+		public async Task<List<LeadMaster>> GetNewLeads(int UserID)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
+			var parsedResponse = new List<LeadMaster>();
+			try
+			{
+				string response =  await restSevice.GetDataForLogin (leadsApicall);
+				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadMaster>>(response.ToString());
+			}
+			catch {
+
+			}
+			return parsedResponse;
+		}
+
 //
 //		public Leads GetLeadDetails(int leadId)
 //		{

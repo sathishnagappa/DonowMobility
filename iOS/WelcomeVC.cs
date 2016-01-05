@@ -25,12 +25,14 @@ namespace donow.iOS
 			ButtonStartSelling.TouchUpInside += (object sender, EventArgs e) => {
 				LandingTabBarVC landingPage = this.Storyboard.InstantiateViewController("LandingTabBarVC") as LandingTabBarVC;
 				landingPage.isReferring = false;
+				AppDelegate.IsDealMaker = false;
 				this.NavigationController.PushViewController(landingPage,false);
 			};
 
 			ButtonStartReferring.TouchUpInside += (object sender, EventArgs e) => {
 				LandingTabBarVC landingPage = this.Storyboard.InstantiateViewController("LandingTabBarVC") as LandingTabBarVC;
 				landingPage.isReferring = true;
+				AppDelegate.IsDealMaker = true;
 				this.NavigationController.PushViewController(landingPage,false);
 			};
 		}

@@ -135,7 +135,7 @@ namespace donow.iOS
 
 			ButtonRequestNewLead.TouchUpInside += async (object sender, EventArgs e) => {
 			//View.Add (loadingOverlay);
-				leads =  await GetLeads();
+				leads =  await GetNewLeads();
 				if (leads.Count > 0) {					
 					this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString();
 				TableViewLeads.Source = new TableSource (leads, this);
@@ -215,6 +215,12 @@ namespace donow.iOS
 		async Task<List<LeadMaster>> GetLeads()
 		{
 			leads =  await AppDelegate.leadsBL.GetAllLeads (AppDelegate.UserDetails.UserId);
+			return leads;
+		}
+
+		async Task<List<LeadMaster>> GetNewLeads()
+		{
+			leads =  await AppDelegate.leadsBL.GetNewLeads(AppDelegate.UserDetails.UserId);
 			return leads;
 		}
 

@@ -44,7 +44,11 @@ namespace donow.iOS
 					this.NavigationController.PushViewController(landingleads,true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-
+			if(localLeads.LEAD_TYPE == "Y")
+				this.NavigationItem.Title = "Lead Prospect";
+			else 
+				this.NavigationItem.Title = "Prospect";
+			
 			ScrollViewProspectDetails.ContentSize = new CGSize (375f, 650f);
 
 			AppDelegate.CurrentLead = localLeads;

@@ -35,7 +35,13 @@ namespace donow.iOS
 
 	public override void ViewDidLoad ()
 		{
-			this.NavigationItem.Title = "My Deals";
+			if (AppDelegate.IsDealMaker) {
+				this.NavigationItem.Title = "My Deals";
+				this.NavigationController.TabBarItem.Title = "My Deals";
+			} else {
+				this.NavigationItem.Title = "Referral Requests";
+				this.NavigationController.TabBarItem.Title = "Referral Requests";
+			}
 
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
