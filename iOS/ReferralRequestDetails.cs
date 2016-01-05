@@ -35,7 +35,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Deal Maker";
+			this.Title = "Deal Requests";
 
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
@@ -143,7 +143,7 @@ namespace donow.iOS
 
 			if (referralRequestType == "New") {
 				ImageRR.Image = UIImage.FromBundle ("New Referral Request Icon.png");
-				LabelRRTitle.Text = "New Referral Requests";
+				LabelRRTitle.Text = "New Deal Requests";
 			} else if (referralRequestType == "Accepted") {
 
 				ImageRR.Image = UIImage.FromBundle ("Referral Action Pending Icon.png");

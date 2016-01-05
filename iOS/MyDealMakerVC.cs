@@ -75,6 +75,7 @@ namespace donow.iOS
 					flag=false;
 					searchBarDealMaker.Hidden=true;
 					TableViewDealMaker.Frame =new CGRect (0, 0, this.View.Bounds.Size.Width, 667);
+					searchBarDealMaker.ResignFirstResponder();
 				}
 				else
 				{
@@ -118,7 +119,7 @@ namespace donow.iOS
 			[Foundation.Export("searchBar:textDidChange:")]
 			public virtual void TextChanged (UISearchBar searchBar, String searchText)
 			{
-				List<Broker> PerformSearch =owner.brokerList.Where (x => x.BrokerName.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+				List<Broker> PerformSearch =owner.brokerList.Where (x => x.City.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
 
 				if (searchBar.Text.Length > 0) {
 					if (_localSearchTableView == null) {
@@ -135,6 +136,8 @@ namespace donow.iOS
 				} else {
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
+
+					searchBar.ResignFirstResponder ();
 
 					if (owner.searchBarDealMaker.Hidden == true) {
 						owner.TableViewDealMaker.Frame =new CGRect (0, 0, owner.View.Bounds.Size.Width, 667);

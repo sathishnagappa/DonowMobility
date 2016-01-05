@@ -35,7 +35,7 @@ namespace donow.iOS
 
 	public override void ViewDidLoad ()
 		{
-			this.NavigationItem.Title = "Referral Requests";
+			this.NavigationItem.Title = "My Deals";
 
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
@@ -52,7 +52,7 @@ namespace donow.iOS
 			LabelCompany.Text = AppDelegate.UserDetails.Company;
 			LabelCityState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;
 
-			ReferralRequestScrollView.ContentSize =  new SizeF (375,700);
+			ReferralRequestScrollView.ContentSize =  new SizeF (375,752);
 			ReferralRequestDetails referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
 			List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
 			rrdetails = AppDelegate.referralRequestBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
@@ -77,7 +77,7 @@ namespace donow.iOS
 				PassedRequestView.Frame = new CGRect (0,375,375,155);
 				AcceptedRequestView.Frame = new CGRect (0,220,375,155);
 				NewRequestView.Hidden = true;
-				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+//				ReferralRequestScrollView.ContentSize = new CGSize (414,736);
 			} else {	
 				this.NavigationController.TabBarItem.BadgeValue = newrequest.Count.ToString ();
 				NewRequestView.Hidden = false;
