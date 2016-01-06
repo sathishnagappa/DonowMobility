@@ -22,7 +22,11 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Requestor Profile";
+			//this.Title = "Requestor Profile";
+			if(AppDelegate.IsDealMaker)
+				this.Title = "Requestor Profile";
+			else
+				this.Title = "Seller Profile";
 			ScrollViewRR.ContentSize=new CGSize (375f, 1100f);
 
 			ButtonReferLater.Layer.BorderWidth = 2.0f;

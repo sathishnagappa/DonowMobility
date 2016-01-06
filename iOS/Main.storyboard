@@ -4577,12 +4577,12 @@ Manager in the tech industry for...</string>
             </objects>
             <point key="canvasLocation" x="-1346.5" y="2805.5"/>
         </scene>
-        <!--My Deals-->
+        <!--Referral Requests-->
         <scene sceneID="x5a-at-s6t">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YdC-eA-s54" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" tag="4" title="My Deals" image="Referral Requests Icon_25x25px.png" id="3iL-9I-lM3"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Referral Requests" image="Referral Requests Icon_25x25px.png" id="3iL-9I-lM3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="As7-bn-v1c">
                         <rect key="frame" x="0.0" y="20" width="430" height="44"/>

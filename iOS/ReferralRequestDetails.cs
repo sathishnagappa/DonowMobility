@@ -35,8 +35,12 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			this.Title = "Deal Requests";
-
+			//this.Title = "Deal Requests";
+			if(AppDelegate.IsDealMaker)
+				this.Title = "Deal Requests";
+			else
+				this.Title = "Referral Requests";
+			
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
