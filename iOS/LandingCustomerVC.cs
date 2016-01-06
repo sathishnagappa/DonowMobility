@@ -191,7 +191,7 @@ namespace donow.iOS
 				if (searchBar.Text.Length > 0) {
 					if (_localSearchTableView == null) {
 						_localSearchTableView = new UITableView ();                    
-						_localSearchTableView.Frame = new CGRect (0, 44, 375, 623);
+						_localSearchTableView.Frame = new CGRect (0, 44, owner.TableViewCustomerList.Frame.Size.Width, owner.TableViewCustomerList.Frame.Size.Height);
 						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
 
 						owner.View.AddSubview (_localSearchTableView);
