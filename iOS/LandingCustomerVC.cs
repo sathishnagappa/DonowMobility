@@ -170,28 +170,28 @@ namespace donow.iOS
 			}
 
 			[Foundation.Export("searchBarShouldBeginEditing:")]
-			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
+			public override Boolean ShouldBeginEditing (UISearchBar searchBar)
 			{
 				owner.isSearchStarted = true;
 				return true;
 			}
 
 			[Foundation.Export("searchBarShouldEndEditing:")]
-			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
+			public override Boolean ShouldEndEditing (UISearchBar searchBar)
 			{
 				//_localSearchTableView.RemoveFromSuperview ();
 				return true;
 			}
 
 			[Foundation.Export("searchBar:textDidChange:")]
-			public virtual void TextChanged (UISearchBar searchBar, String searchText)
+			public override void TextChanged (UISearchBar searchBar, String searchText)
 			{
-				List<Customer> PerformSearch = LandingCustomerVC.CustomerList.Where (x => x.Name.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+				List<Customer> PerformSearch = LandingCustomerVC.CustomerList.Where (x => x.Company.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
 
 				if (searchBar.Text.Length > 0) {
 					if (_localSearchTableView == null) {
 						_localSearchTableView = new UITableView ();                    
-						_localSearchTableView.Frame = new CGRect (0, 50, 375, 667);
+						_localSearchTableView.Frame = new CGRect (0, 44, 375, 623);
 						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
 
 						owner.View.AddSubview (_localSearchTableView);
@@ -212,9 +212,7 @@ namespace donow.iOS
 					else if(owner.searchBarCustomer.Hidden == false)
 					{
 						owner.TableViewCustomerList.Frame =new CGRect (owner.TableViewCustomerList.Frame.X, 45, owner.TableViewCustomerList.Frame.Size.Width, owner.TableViewCustomerList.Frame.Size.Height);
-
 					}
-
 				}
 			}
 		}

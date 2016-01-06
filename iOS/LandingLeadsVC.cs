@@ -44,11 +44,13 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay (bounds);
 			View.Add (loadingOverlay);
 			leads = await GetLeads ();
+
 			if (leads.Count > 0) {
 				this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
 			} else {
 				AlertView.Hidden = false;
+				LabelAlertView.Hidden = false;
 			}
 			loadingOverlay.Hidden = true;
 
@@ -143,6 +145,7 @@ namespace donow.iOS
 				//loadingOverlay.Hide ();
 				} else {
 					AlertView.Hidden = false;
+					LabelAlertView.Hidden = false;
 				}
 
 			};
@@ -162,23 +165,23 @@ namespace donow.iOS
 			}
 
 			[Foundation.Export("searchBarShouldBeginEditing:")]
-			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
+			public override Boolean ShouldBeginEditing (UISearchBar searchBar)
 			{
 //				owner.isSearchStarted = true;
 				return true;
 			}
 
 			[Foundation.Export("searchBarShouldEndEditing:")]
-			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
+			public override Boolean ShouldEndEditing (UISearchBar searchBar)
 			{
 				//_localSearchTableView.RemoveFromSuperview ();
 				return true;
 			}
 
 			[Foundation.Export("searchBar:textDidChange:")]
-			public virtual void TextChanged (UISearchBar searchBar, String searchText)
+			public override void TextChanged (UISearchBar searchBar, String searchText)
 			{
-				List<LeadMaster> PerformSearch = LandingLeadsVC.leads.Where (x => x.LEAD_NAME.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
+				List<LeadMaster> PerformSearch = LandingLeadsVC.leads.Where (x => x.COMPANY_NAME.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
 
 				if (searchBar.Text.Length > 0) {
 					if (_localSearchTableView == null) {
@@ -201,7 +204,6 @@ namespace donow.iOS
 					if (owner.searchBarLeads.Hidden == true) {
 						owner.topView.Frame = new CGRect (0,0,owner.topView.Frame.Size.Width,124);
 						owner.TableViewLeads.Frame =new CGRect (0, 124, owner.TableViewLeads.Frame.Size.Width, 480);
-
 					}
 					else if(owner.searchBarLeads.Hidden == false)
 					{
