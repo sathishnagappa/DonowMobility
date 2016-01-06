@@ -1,10 +1,25 @@
 ﻿<Properties StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Brillio Mac Mini 5’s iPhone" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.iPhone6" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="donow.PCL/BusinessLogic/UserBL.cs">
     <Files>
-      <File FileName="iOS/AccountManagementVC.cs" Line="204" Column="53" />
-      <File FileName="iOS/AppDelegate.cs" Line="71" Column="14" />
-      <File FileName="donow.PCL/Services/RestService.cs" Line="57" Column="6" />
+      <File FileName="iOS/LandingRefferalRequestVC.cs" Line="40" Column="4" />
+      <File FileName="iOS/ReferralRequestDetails.cs" Line="35" Column="31" />
+      <File FileName="iOS/signUpLoginDetailsVC.cs" Line="108" Column="5" />
+      <File FileName="iOS/CustomerViewTableCellUpcomingMeetings.cs" Line="1" Column="1" />
+      <File FileName="iOS/CustomerViewPreviousMeetings.cs" Line="10" Column="29" />
+      <File FileName="iOS/CustomerViewTableCellinteractionWithCustomerCell.cs" Line="28" Column="54" />
+      <File FileName="iOS/prospectDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/customerProfileVC.cs" Line="75" Column="17" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="196" Column="6" />
+      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="70" Column="50" />
+      <File FileName="iOS/BingSearchVC.cs" Line="23" Column="38" />
+      <File FileName="iOS/MyDealMakerVC.cs" Line="140" Column="55" />
+      <File FileName="iOS/LandingCustomerVC.cs" Line="207" Column="54" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="114" Column="28" />
+      <File FileName="iOS/ScrollReq.cs" Line="26" Column="23" />
+      <File FileName="donow.PCL/BusinessLogic/UserBL.cs" Line="25" Column="49" />
+      <File FileName="iOS/Main.cs" Line="16" Column="31" />
+      <File FileName="iOS/loginPageViewController.cs" Line="164" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

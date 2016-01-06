@@ -57,11 +57,11 @@ namespace donow.iOS
 			LabelIndustry.Text = customerDetails.CompanyInfo;
 			LabelLineOfBusiness.Text = customerDetails.BusinessNeeds;
 
-			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
-
-				TableSeeAllClicked = true;
-				TableViewMeetings.ReloadData ();
-			};
+//			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
+//
+//				TableSeeAllClicked = true;
+//				TableViewMeetings.ReloadData ();
+//			};
 			
 			
 			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {

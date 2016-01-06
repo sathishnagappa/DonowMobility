@@ -70,7 +70,7 @@ namespace donow.PCL
 		public async Task<List<LeadMaster>> GetNewLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
+			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&update=Y";
 			var parsedResponse = new List<LeadMaster>();
 			try
 			{

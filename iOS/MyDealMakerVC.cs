@@ -137,7 +137,7 @@ namespace donow.iOS
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
 
-					searchBar.ResignFirstResponder ();
+					owner.searchBarDealMaker.ResignFirstResponder ();
 
 					if (owner.searchBarDealMaker.Hidden == true) {
 						owner.TableViewDealMaker.Frame =new CGRect (0, 0, owner.View.Bounds.Size.Width, 667);

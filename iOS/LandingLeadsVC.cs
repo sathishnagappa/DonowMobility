@@ -193,11 +193,11 @@ namespace donow.iOS
 					_localSearchTableView.ReloadData ();
 
 				} else {
+					   owner.searchBarLeads.ResignFirstResponder ();
+
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
 					
-					searchBar.ResignFirstResponder ();
-
 					if (owner.searchBarLeads.Hidden == true) {
 						owner.topView.Frame = new CGRect (0,0,owner.topView.Frame.Size.Width,124);
 						owner.TableViewLeads.Frame =new CGRect (0, 124, owner.TableViewLeads.Frame.Size.Width, 480);
@@ -321,7 +321,7 @@ namespace donow.iOS
 					meeetingEndDate = DateTime.Parse (item.EndDate);
 					TimeSpan span = meeetingEndDate.Subtract(DateTime.Now);
 
-					if (DateTime.Compare (meeetingEndDate, DateTime.Now) > 0) {
+					if (DateTime.Compare (meeetingEndDate, DateTime.Now) > 0 && span.Days < 50) {
 						Timer timer = new Timer (timerDelegate, item, span, Timeout.InfiniteTimeSpan);
 					}
 					if ((DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) <= 0) && item.Status != "Done") {

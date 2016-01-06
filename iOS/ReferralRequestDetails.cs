@@ -35,12 +35,8 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			//this.Title = "Deal Requests";
-			if(AppDelegate.IsDealMaker)
-				this.Title = "Deal Requests";
-			else
-				this.Title = "Referral Requests";
-			
+			this.Title = "Deal Requests";
+
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
@@ -61,15 +57,16 @@ namespace donow.iOS
 				if (flag==true) {
 					flag=false;
 					searchBarReferral.Hidden=true;
-					topView.Frame = new CGRect (0,0,topView.Frame.Size.Width,124);
-					this.TableViewRR.Frame =new CGRect (0, 77, this.View.Bounds.Size.Width, 480);
+					topView.Frame = new CGRect (0,0,topView.Frame.Size.Width,77);
+					this.TableViewRR.Frame =new CGRect (0, 77, this.View.Bounds.Size.Width, 590);
+					searchBarReferral.ResignFirstResponder();
 				}
 				else
 				{
 					flag=true;
 					searchBarReferral.Hidden=false;				
-					topView.Frame = new CGRect (0, 44, topView.Frame.Size.Width, 124);
-					this.TableViewRR.Frame =new CGRect (0, 121, this.View.Bounds.Size.Width, 436);
+					topView.Frame = new CGRect (0, 44, topView.Frame.Size.Width, 77);
+					this.TableViewRR.Frame =new CGRect (0, 121, this.View.Bounds.Size.Width, 546);
 				}
 			};
 			NavigationItem.RightBarButtonItem = rightBtn;
@@ -114,7 +111,7 @@ namespace donow.iOS
 				if (searchBar.Text.Length > 0) {
 					if (_localSearchTableView == null) {
 						_localSearchTableView = new UITableView ();                    
-						_localSearchTableView.Frame = new CGRect (0, 121, owner.View.Bounds.Size.Width, 480);
+						_localSearchTableView.Frame = new CGRect (0, 121, owner.View.Bounds.Size.Width, 546);
 						//                        _localSearchTableView.BackgroundColor = UIColor.Red;
 
 						owner.View.AddSubview (_localSearchTableView);
@@ -124,17 +121,18 @@ namespace donow.iOS
 					_localSearchTableView.ReloadData ();
 
 				} else {
+					owner.searchBarReferral.ResignFirstResponder();
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
 
 					if (owner.searchBarReferral.Hidden == true) {
 						owner.topView.Frame = new CGRect (0,0,owner.topView.Frame.Size.Width,124);
-						owner.TableViewRR.Frame =new CGRect (0, 77, owner.View.Bounds.Size.Width, 480);
+						owner.TableViewRR.Frame =new CGRect (0, 77, owner.View.Bounds.Size.Width, 590);
 					}
 					else if(owner.searchBarReferral.Hidden == false)
 					{
-						owner.topView.Frame = new CGRect (0, 44, owner.topView.Frame.Size.Width, 124);
-						owner.TableViewRR.Frame =new CGRect (0, 121, owner.View.Bounds.Size.Width, 436);
+						owner.topView.Frame = new CGRect (0, 44, owner.topView.Frame.Size.Width, 77);
+						owner.TableViewRR.Frame =new CGRect (0, 121, owner.View.Bounds.Size.Width, 546);
 					}
 				}
 			}

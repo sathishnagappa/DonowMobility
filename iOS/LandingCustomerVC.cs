@@ -204,7 +204,7 @@ namespace donow.iOS
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
 
-					searchBar.ResignFirstResponder ();
+					owner.searchBarCustomer.ResignFirstResponder ();
 
 					if (owner.searchBarCustomer.Hidden == true) {
 						owner.TableViewCustomerList.Frame =new CGRect (owner.TableViewCustomerList.Frame.X, 0, owner.TableViewCustomerList.Frame.Size.Width, owner.TableViewCustomerList.Frame.Size.Height);

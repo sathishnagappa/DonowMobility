@@ -120,6 +120,8 @@ namespace donow.iOS
 					_localSearchTableView.ReloadData ();
 
 				} else {
+					owner.SearchBarCustomerStream.ResignFirstResponder ();
+
 					if (_localSearchTableView != null)
 						_localSearchTableView.Hidden = true;
 

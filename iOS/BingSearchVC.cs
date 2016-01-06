@@ -17,6 +17,7 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 			BingWebView.LoadRequest(new NSUrlRequest(new NSUrl(webURL)));
+			BingWebView.ScalesPageToFit = true;
 		}
 
 		public override void ViewDidLoad ()
@@ -25,7 +26,7 @@ namespace donow.iOS
 
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
-			btn.Clicked += (sender , e)=>{				
+			btn.Clicked += (sender , e)=>{
 				this.NavigationController.PopViewController(false);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
