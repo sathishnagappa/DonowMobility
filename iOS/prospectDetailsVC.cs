@@ -89,14 +89,14 @@ namespace donow.iOS
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
-			    if(localLeads.LEAD_SOURCE ==2)
-				{
+			    //if(localLeads.LEAD_SOURCE ==2)
+				//{
 					InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 					if (interactionLeadUpdateVC != null) {
 						interactionLeadUpdateVC.leadObj = localLeads;
 						this.PresentViewController (interactionLeadUpdateVC, true, null);
 					}
-				}
+				//}
 				//Xamarin Insights tracking
 				Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
 					{"UserId", customerinteract.UserId.ToString()},
@@ -124,14 +124,14 @@ namespace donow.iOS
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
-						if(localLeads.LEAD_SOURCE ==2)
-						{
+						//if(localLeads.LEAD_SOURCE ==2)
+						//{
 						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
 										if (interactionLeadUpdateVC != null) {
 							interactionLeadUpdateVC.leadObj = localLeads;
 												this.PresentViewController (interactionLeadUpdateVC, true, null);
 						}
-						}
+						//}
 
 						//Xamarin Insights tracking
 						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{

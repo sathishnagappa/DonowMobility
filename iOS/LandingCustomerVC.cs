@@ -64,9 +64,10 @@ namespace donow.iOS
 		{
 
 			//LoadCustomers ();
-			this.Title = "Customers";
+			this.NavigationItem.Title = "Customers";
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
+
 
 			searchBarCustomer.Delegate = new SearchDelegate (this, isSearchStarted,searchTableView);
 

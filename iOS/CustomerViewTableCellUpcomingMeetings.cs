@@ -49,7 +49,7 @@ namespace donow.iOS
 
 		public void UpdateCell (UserMeetings userMeetings)
 		{
-			LabelMeetingWith.Text = "Meeting W/" + userMeetings.CustomerName ;
+			LabelMeetingWith.Text = userMeetings.Subject ;
 			LabelMeetingDate.Text = DateTime.Parse(userMeetings.StartDate).ToString("MMM. dd, yyyy  hh:mm tt");
 			LabelMeetingLocation.Text = "Location: " + userMeetings.City + ", " + userMeetings.State;
 		}

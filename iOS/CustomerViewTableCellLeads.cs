@@ -35,7 +35,7 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelCustomerSince});
 
 			ImageViewCustomerImage = new UIImageView () {
-				Image = UIImage.FromBundle("Scott Anders_Large.png")
+				Image = UIImage.FromBundle("Salesperson Logo_Small.png")
 			};
 			ContentView.AddSubviews(new UIView[] {ImageViewCustomerImage});
 
