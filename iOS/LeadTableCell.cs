@@ -8,7 +8,7 @@ namespace donow.iOS
 {
 	public class LeadTableCell : UITableViewCell  {
 		
-		UILabel LabelLeadName, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead;
+		UILabel LabelLeadName, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead,LeadIndustry;
 		UIImageView ImageViewLeadImage;
 
 		public LeadTableCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
@@ -42,6 +42,16 @@ namespace donow.iOS
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScore});
+
+
+			LeadIndustry = new UILabel () {
+				Font = UIFont.FromName("Arial", 19f),
+				TextColor = UIColor.FromRGB (35, 31, 32),
+				Text = "Industry:",
+				BackgroundColor = UIColor.Clear
+			};
+			ContentView.AddSubviews(new UIView[] {LeadIndustry});
+
 
 			LabelScoreDigit = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
@@ -103,8 +113,9 @@ namespace donow.iOS
 			LabelLeadName.Frame = new CGRect (100, 23, 220, 30);
 			LabelCompanyName.Frame = new CGRect (100, 47, 200, 25);
 			LabelCityAndState.Frame = new CGRect (100, 67, 200, 25);
-			LabelScore.Frame = new CGRect (100, 95, 120, 25);
-			LabelScoreDigit.Frame = new CGRect (270, 95, 25, 25);
+			LeadIndustry.Frame = new CGRect (100, 90, 150,25);
+			LabelScore.Frame = new CGRect (100, 115, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 115, 25, 25);
 			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 100, 10, 80, 25);
 		}
 	}

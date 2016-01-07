@@ -15,7 +15,7 @@ namespace donow.iOS
 
 		IList<string> imageIcons = new List<string>
 		{
-			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png"//, "Info Page Icon.png"
+			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png", "Info Page Icon.png"
 		};
 
 		public override void ViewWillAppear (bool animated)
@@ -33,7 +33,7 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 			this.NavigationItem.Title = "More";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page"};//,"Log Out"};
+			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page","Log Out"};
 			table.Source = new TableSource(tableItems, imageIcons, this);
 			View.Add (table);
 		}
@@ -108,12 +108,13 @@ namespace donow.iOS
 					}
 					break;
 
-//				case "Log Out":
-//					loginPageViewController login = owner.Storyboard.InstantiateViewController ("loginPageViewController") as loginPageViewController;
-//					if (login != null) {
-//						owner.NavigationController.PopToViewController (login, true);
-//					}
-//					break;
+				case "Log Out":
+					loginPageViewController login = owner.Storyboard.InstantiateViewController ("loginPageViewController") as loginPageViewController;
+					if (login != null) {
+						owner.PresentViewController (login, true,null);
+
+					}
+					break;
 
 				default:
 					UIAlertController okAlertController = UIAlertController.Create ("Row Touched", TableItems [indexPath.Row], UIAlertControllerStyle.Alert);
