@@ -1336,7 +1336,7 @@ Manager in the tech industry for...</string>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5gy-Tu-z7F">
-                                                <rect key="frame" x="338.00000187077961" y="109" width="15" height="22"/>
+                                                <rect key="frame" x="338" y="109" width="15" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="down-arrow.png"/>
                                             </button>
@@ -1351,7 +1351,7 @@ Manager in the tech industry for...</string>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="1xK-oq-l72">
-                                        <rect key="frame" x="0.0" y="357" width="375.00000072665398" height="143"/>
+                                        <rect key="frame" x="0.0" y="357" width="375.00000072667422" height="143"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection to Lead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2FE-vj-DZG">
@@ -1369,12 +1369,12 @@ Manager in the tech industry for...</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" id="Fgg-mL-Vbx">
-                                                <rect key="frame" x="0.0" y="142" width="375.00000072665398" height="1"/>
+                                                <rect key="frame" x="0.0" y="142" width="375.00000072667422" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ryj-2h-79Z">
-                                                <rect key="frame" x="340.00000072665398" y="98" width="13" height="22"/>
+                                                <rect key="frame" x="340.00000072667427" y="98" width="13" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="down-arrow.png"/>
                                             </button>
@@ -1382,7 +1382,7 @@ Manager in the tech industry for...</string>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="Vc3-KJ-WnY">
-                                        <rect key="frame" x="0.0" y="500" width="374.99999990087457" height="150"/>
+                                        <rect key="frame" x="0.0" y="500" width="374.99999990087184" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domain Expertise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NW8-Lv-70S">
@@ -1400,12 +1400,12 @@ Manager in the tech industry for...</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" id="FYj-zj-eaI">
-                                                <rect key="frame" x="0.0" y="145" width="374.99999990087457" height="1"/>
+                                                <rect key="frame" x="0.0" y="145" width="374.99999990087184" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qpy-eZ-Srl">
-                                                <rect key="frame" x="339.99999990087451" y="98" width="13" height="22"/>
+                                                <rect key="frame" x="339.99999990087179" y="98" width="13" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="down-arrow.png"/>
                                             </button>
@@ -1965,14 +1965,15 @@ Manager in the tech industry for...</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nbH-vL-dUe">
                                                         <rect key="frame" x="0.0" y="8" width="185" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0jz-Nq-8fH">
-                                                        <rect key="frame" x="57" y="37" width="87" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comming Soon..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0jz-Nq-8fH">
+                                                        <rect key="frame" x="0.0" y="28" width="185" height="41"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1986,7 +1987,7 @@ Manager in the tech industry for...</string>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leads Received" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUv-kE-uPL">
                                                         <rect key="frame" x="0.0" y="8" width="185" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -2604,7 +2605,7 @@ Manager in the tech industry for...</string>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Ab-u1-kxu">
-                                                <rect key="frame" x="195.9999993981555" y="28" width="154" height="45"/>
+                                                <rect key="frame" x="195.99999921970146" y="28" width="154" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="28"/>
@@ -2906,7 +2907,7 @@ Manager in the tech industry for...</string>
                                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redmond, WA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2nt-5S-Fd0">
-                                                <rect key="frame" x="251.00000041248705" y="165" width="111" height="22"/>
+                                                <rect key="frame" x="251.00000052503026" y="165" width="111" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                 <nil key="highlightedColor"/>
@@ -3079,7 +3080,7 @@ Manager in the tech industry for...</string>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar Icon_Small.png" id="Pj0-8w-O34">
-                                                        <rect key="frame" x="309.99999974209726" y="31" width="29" height="29"/>
+                                                        <rect key="frame" x="310.0000011483038" y="31" width="29" height="29"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous Meetings with this Customers" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MtX-rS-okR">
@@ -3098,11 +3099,11 @@ Manager in the tech industry for...</string>
                                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="UEj-hV-qk3">
-                                                <rect key="frame" x="0.0" y="2" width="374.99999830651274" height="74"/>
+                                                <rect key="frame" x="0.0" y="2" width="374.99999989454881" height="74"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="i1x-UJ-0LB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374.99999830651274" height="1"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374.99999989454881" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
@@ -3114,11 +3115,11 @@ Manager in the tech industry for...</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar Icon_Small.png" id="ezg-EZ-brf">
-                                                        <rect key="frame" x="309.99999830651268" y="22" width="29" height="29"/>
+                                                        <rect key="frame" x="309.99999989454875" y="22" width="29" height="29"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" id="v87-to-Qa0">
-                                                        <rect key="frame" x="-1" y="73" width="374.99999830651274" height="1"/>
+                                                        <rect key="frame" x="-1" y="73" width="374.99999989454881" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
@@ -3126,24 +3127,24 @@ Manager in the tech industry for...</string>
                                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="LE4-ft-1sd">
-                                                <rect key="frame" x="0.0" y="473" width="375.00000013081586" height="707"/>
+                                                <rect key="frame" x="0.0" y="473" width="375.00000016987718" height="707"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="ek0-ed-RcB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374.00000013081586" height="64"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374.00000016987718" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" id="6PO-Gd-ZcQ">
-                                                                <rect key="frame" x="0.0" y="1" width="375.00000013081586" height="1"/>
+                                                                <rect key="frame" x="0.0" y="1" width="375.00000016987718" height="1"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deal History Icon_Small.png" id="4tI-WR-eDf">
-                                                                <rect key="frame" x="309.99999974209726" y="17" width="29" height="29"/>
+                                                                <rect key="frame" x="310.0000011483038" y="17" width="29" height="29"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" id="5r4-r9-ndq">
-                                                                <rect key="frame" x="0.0" y="62" width="375.00000013081586" height="1"/>
+                                                                <rect key="frame" x="0.0" y="62" width="375.00000016987718" height="1"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
@@ -3162,7 +3163,7 @@ Manager in the tech industry for...</string>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Interactions Icon_Small.png" id="CE2-vE-gaq">
-                                                                <rect key="frame" x="309.99999974209726" y="27" width="29" height="29"/>
+                                                                <rect key="frame" x="310.0000011483038" y="27" width="29" height="29"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Interactions with this customer" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ez4-wR-GFz">
@@ -3181,29 +3182,29 @@ Manager in the tech industry for...</string>
                                                         <color key="backgroundColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="en9-PS-53h">
-                                                        <rect key="frame" x="0.0" y="262" width="375.00000013081586" height="250"/>
+                                                        <rect key="frame" x="0.0" y="262" width="375.00000016987718" height="250"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" id="bRV-RS-EiW">
-                                                        <rect key="frame" x="0.0" y="511" width="374.00000015302822" height="196"/>
+                                                        <rect key="frame" x="0.0" y="511" width="374.00000011396696" height="196"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" id="mdT-sF-LdO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="376.00000015302822" height="74"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="376.00000011396696" height="74"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Between Icon_Small.png" id="EuE-4P-r8Z">
-                                                                        <rect key="frame" x="309.99999974209726" y="20" width="29" height="29"/>
+                                                                        <rect key="frame" x="310.0000011483038" y="20" width="29" height="29"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                     <view contentMode="scaleToFill" id="jPJ-KN-yOb">
-                                                                        <rect key="frame" x="0.0" y="73" width="375.00000015302822" height="1"/>
+                                                                        <rect key="frame" x="0.0" y="73" width="375.00000011396696" height="1"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" id="qzD-wn-DJv">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="375.00000015302822" height="1"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375.00000011396696" height="1"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </view>
@@ -3218,12 +3219,12 @@ Manager in the tech industry for...</string>
                                                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                             </view>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="Gup-r9-vv2">
-                                                                <rect key="frame" x="0.0" y="75" width="375.00000015302822" height="121"/>
+                                                                <rect key="frame" x="0.0" y="75" width="375.00000011396696" height="121"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </tableView>
                                                             <view alpha="0.75" contentMode="scaleToFill" id="8ep-jL-vtN">
-                                                                <rect key="frame" x="0.0" y="75" width="375.00000015302822" height="121"/>
+                                                                <rect key="frame" x="0.0" y="75" width="375.00000011396696" height="121"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
@@ -3239,12 +3240,12 @@ Manager in the tech industry for...</string>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="RpC-Zr-BKq">
-                                                        <rect key="frame" x="0.0" y="176" width="375.00000013081586" height="1"/>
+                                                        <rect key="frame" x="0.0" y="176" width="375.00000016987718" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cKB-Am-OVq">
-                                                        <rect key="frame" x="0.0" y="65" width="376.00000013081586" height="111"/>
+                                                        <rect key="frame" x="0.0" y="65" width="376.00000016987718" height="111"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </tableView>
@@ -3544,11 +3545,11 @@ Manager in the tech industry for...</string>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="gVw-oS-e1a">
-                                                                <rect key="frame" x="320" y="46" width="30" height="30"/>
+                                                                <rect key="frame" x="320.00000068296987" y="46" width="30" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug2-Z8-5hl">
-                                                                <rect key="frame" x="25" y="46" width="325" height="30"/>
+                                                                <rect key="frame" x="25" y="46" width="325.00000068296987" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" title="Dreamer">
                                                                     <color key="titleColor" red="0.13725490200000001" green="0.1215686275" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -3941,11 +3942,11 @@ Manager in the tech industry for...</string>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="mEj-gf-aUw">
-                                                                <rect key="frame" x="320.00000068296987" y="39" width="30" height="30"/>
+                                                                <rect key="frame" x="320.00000141472333" y="39" width="30" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LK3-sf-zdM">
-                                                                <rect key="frame" x="25" y="39" width="325.00000068296987" height="30"/>
+                                                                <rect key="frame" x="25" y="39" width="325.00000141472327" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" title="  (1) Acquire Lead">
                                                                     <color key="titleColor" red="0.13725490200000001" green="0.1215686275" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -4236,7 +4237,7 @@ Manager in the tech industry for...</string>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" id="9YS-5Q-jpB">
-                                                <rect key="frame" x="230.00000068296987" y="28" width="120" height="50"/>
+                                                <rect key="frame" x="230.0000014147233" y="28" width="120" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.21176470589999999" green="0.58823529409999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <userDefinedRuntimeAttributes>
@@ -4246,7 +4247,7 @@ Manager in the tech industry for...</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VNj-fG-Rdc">
-                                                <rect key="frame" x="230.00000068296987" y="28" width="120" height="50"/>
+                                                <rect key="frame" x="230.0000014147233" y="28" width="120" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -4378,14 +4379,14 @@ Manager in the tech industry for...</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DoNow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b5j-4o-mWQ">
-                                                <rect key="frame" x="164.99999661681443" y="49" width="102" height="21"/>
+                                                <rect key="frame" x="164.99999477500381" y="49" width="102" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xef-xU-rYF">
-                                                <rect key="frame" x="164.99999661681443" y="77" width="102" height="21"/>
+                                                <rect key="frame" x="164.99999477500381" y="77" width="102" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -4538,42 +4539,42 @@ Manager in the tech industry for...</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acquire Lead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yzi-eL-mQe">
-                                                <rect key="frame" x="24" y="92" width="52" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="37" y="92" width="52" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LifeCycle_Acquire Lead Highlight.png" id="Ie5-Kb-1O4">
-                                                <rect key="frame" x="25" y="52" width="290" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <view contentMode="scaleToFill" id="ajq-8o-slT">
                                                 <rect key="frame" x="0.0" y="135" width="375" height="1"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proposal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lOQ-kw-Mzu">
-                                                <rect key="frame" x="107" y="92" width="52" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="120" y="92" width="52" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow Up" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="71F-sf-ZKC">
-                                                <rect key="frame" x="190" y="92" width="52" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="203" y="92" width="52" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close Sale" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1SF-n3-GOV">
-                                                <rect key="frame" x="273" y="92" width="52" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="286" y="92" width="52" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LifeCycle_Acquire Lead Highlight.png" id="Ie5-Kb-1O4">
+                                                <rect key="frame" x="42" y="49" width="290" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
