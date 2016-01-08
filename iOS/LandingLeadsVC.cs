@@ -48,7 +48,7 @@ namespace donow.iOS
 			if (leads.Count > 0) {
 				this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString ();
 				TableViewLeads.Source = new TableSource (leads, this);
-			} else {
+			} else if(AppDelegate.IsFromSignUp) {
 				AlertView.Hidden = false;
 				LabelAlertView.Hidden = false;
 			}
@@ -133,6 +133,7 @@ namespace donow.iOS
 
 			ButtonOk.TouchUpInside += (object sender, EventArgs e) =>  {
 				AlertView.Hidden = true;
+				LabelAlertView.Hidden = true;
 			};
 
 			ButtonRequestNewLead.TouchUpInside += async (object sender, EventArgs e) => {

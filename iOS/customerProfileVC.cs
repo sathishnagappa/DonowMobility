@@ -140,7 +140,7 @@ namespace donow.iOS
 			//List<DealHistroy> listDealHistory = new List<DealHistroy> ();
 			//listDealHistory = AppDelegate.customerBL.GetDealHistroy (customer.LeadId, AppDelegate.UserDetails.UserId);
 
-			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 1700.0f);
+			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 1850.0f);
 
 			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
 				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);

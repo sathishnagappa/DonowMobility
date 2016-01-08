@@ -54,7 +54,8 @@ namespace donow.iOS
 			AppDelegate.CurrentLead = localLeads;
 			LabelProspectName.Text = localLeads.LEAD_NAME;
 			LabelProspectCompanyName.Text = localLeads.COMPANY_NAME;
-			LabelProspectCityandState.Text = localLeads.CITY + ", " + localLeads.STATE;
+			string coma = (string.IsNullOrEmpty (localLeads.CITY) || string.IsNullOrEmpty (localLeads.STATE)) ? "" : ", ";
+			LabelProspectCityandState.Text = localLeads.CITY + coma + localLeads.STATE;
 			LabelLeadScore.Text = localLeads.LEAD_SCORE.ToString();
 			LabelLeadSource.Text = localLeads.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
 

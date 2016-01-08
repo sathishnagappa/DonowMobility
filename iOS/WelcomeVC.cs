@@ -21,7 +21,7 @@ namespace donow.iOS
 			NavigationItem.LeftBarButtonItem = btn;
 
 			this.Title = @"Get Started";
-		
+			AppDelegate.IsFromSignUp = true;
 			ButtonStartSelling.TouchUpInside += (object sender, EventArgs e) => {
 				LandingTabBarVC landingPage = this.Storyboard.InstantiateViewController("LandingTabBarVC") as LandingTabBarVC;
 				landingPage.isReferring = false;

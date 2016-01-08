@@ -42,7 +42,7 @@ namespace donow.iOS
 
 		public void UpdateCell (CustomerInteraction meetingsInfo)
 		{
-			LabelSentEmail.Text = meetingsInfo.Type == "Email" ? "Sent Email To" + meetingsInfo.CustomerName : "Phone Call";
+			LabelSentEmail.Text = meetingsInfo.Type == "Email" ? "Sent Email To " + meetingsInfo.CustomerName : "Phone Call";
 			LabelDate.Text =  DateTime.Parse(meetingsInfo.DateNTime).ToString("MMM dd, yyyy  hh:mm tt");
 			if(meetingsInfo.Type == "Email")
 				ImageViewEmail.Image = UIImage.FromBundle ("Email Sent Thumb.png"); 
