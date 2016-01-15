@@ -117,7 +117,7 @@ namespace donow.iOS
 					mailController.SetSubject ("Quick request");
 					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
 
-					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
+					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {						
 						CustomerInteraction customerinteract = new CustomerInteraction();
 						customerinteract.CustomerName =  localLeads.LEAD_NAME;
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
@@ -125,14 +125,6 @@ namespace donow.iOS
 						customerinteract.DateNTime = DateTime.Now.ToString();
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
-						//if(localLeads.LEAD_SOURCE ==2)
-						//{
-						InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
-										if (interactionLeadUpdateVC != null) {
-							interactionLeadUpdateVC.leadObj = localLeads;
-												this.PresentViewController (interactionLeadUpdateVC, true, null);
-						}
-						//}
 
 						//Xamarin Insights tracking
 						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{

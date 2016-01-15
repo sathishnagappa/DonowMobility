@@ -24,14 +24,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllEmails { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllPreviousMeetings { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView DealMakersImage1 { get; set; }
 
 		[Outlet]
@@ -52,11 +44,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLineOfBusiness { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelScore { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelLineOfBusiness { get; set; }
+		UILabel LabelSource { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -69,7 +65,7 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewEmails { get; set; }
-	
+
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewMeetings { get; set; }
@@ -87,14 +83,6 @@ namespace donow.iOS
 			if (ButtonPhone != null) {
 				ButtonPhone.Dispose ();
 				ButtonPhone = null;
-			}
-			if (ButtonSeeAllEmails != null) {
-				ButtonSeeAllEmails.Dispose ();
-				ButtonSeeAllEmails = null;
-			}
-			if (ButtonSeeAllPreviousMeetings != null) {
-				ButtonSeeAllPreviousMeetings.Dispose ();
-				ButtonSeeAllPreviousMeetings = null;
 			}
 			if (DealMakersImage1 != null) {
 				DealMakersImage1.Dispose ();
@@ -119,6 +107,14 @@ namespace donow.iOS
 			if (LabelLineOfBusiness != null) {
 				LabelLineOfBusiness.Dispose ();
 				LabelLineOfBusiness = null;
+			}
+			if (LabelScore != null) {
+				LabelScore.Dispose ();
+				LabelScore = null;
+			}
+			if (LabelSource != null) {
+				LabelSource.Dispose ();
+				LabelSource = null;
 			}
 			if (ScrollViewCustomerProfile != null) {
 				ScrollViewCustomerProfile.Dispose ();

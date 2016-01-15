@@ -51,14 +51,20 @@ namespace donow.iOS
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			TableViewCustomerList.Source = null;
-			//custDictionary = null;
 			base.ViewWillDisappear (animated);
-
+			//this.Dispose ();
 			if (searchTableView == null) {
 				TableViewCustomerList.ReloadData ();
 			}
 		}
+
+//		protected override void Dispose (bool disposing)
+//		{
+//			if (TableViewCustomerList.Source != null)
+//				TableViewCustomerList.Source.Dispose ();
+//			base.Dispose (disposing);
+//		}
+
 
 		public override void ViewDidLoad ()
 		{
@@ -106,52 +112,10 @@ namespace donow.iOS
 			NavigationItem.RightBarButtonItem = btn;
 
 
-//			SearchButton.TouchUpInside += (object sender, EventArgs e) => {
 
-			
-
-//			this.NavigationItem.SetRightBarButtonItem(
-//				new UIBarButtonItem(UIImage.FromFile("Magnifying Glass.png")
-//					, UIBarButtonItemStyle.Plain
-//					, (sender,args) => {
-//
-//
-//						if (flag==true) {
-//							flag=false;
-//
-//							searchBarCustomer.Hidden=true;
-//
-//
-//							this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-//
-//						}
-//						else
-//						{
-//							flag=true;
-//
-//
-//							searchBarCustomer.Hidden=false;
-//
-//
-//							this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-//
-//
-//						}
-//						//                        searchCount=0;
-//						//                        searchCount++;
-//
-//					})
-//				, true);
 
 			txtSearched = searchBarCustomer.Text;
-//			if (searchBarCustomer.Hidden == true) {
-//				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-//			}
-//			else if(searchBarCustomer.Hidden == false)
-//			{
-//				this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-//
-//			}
+
 		}
 
 		public void changeText (List<Customer> PerformSearch) {

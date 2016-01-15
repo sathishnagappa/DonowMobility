@@ -18,6 +18,8 @@ namespace donow.PCL
 		public List<UserMeetings> UserMeetingList { get; set; }
 		public List<DealHistroy> dealHistoryList { get; set; }
 		public Broker broker { get; set; }
+		public int LeadSource  { get; set; }
+		public int LeadScore { get; set; }
 	}
 }
 

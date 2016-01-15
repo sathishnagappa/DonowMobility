@@ -265,9 +265,11 @@ namespace donow.iOS
 					dealHistory.State = meetingObj.State;
 				    dealHistory.City = meetingObj.City;
 				    dealHistory.Date = meetingObj.EndDate;
-					dealHistory.country = "USA";
+					//dealHistory.country = "USA";
 					dealHistory.CustomerName = meetingObj.CustomerName;
 					dealHistory.LeadId = meetingObj.LeadId;
+					dealHistory.BrokerID = 0;
+					dealHistory.Lead_Industry = AppDelegate.UserDetails.Industry;
 					AppDelegate.customerBL.SaveDealHistory(dealHistory);
 					//Xamarin Insights tracking
 					Insights.Track("Save DealHistory", new Dictionary <string,string>{

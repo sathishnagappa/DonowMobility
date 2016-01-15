@@ -30,8 +30,7 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 			if(this.NavigationController != null)			
-				this.NavigationController.SetNavigationBarHidden (true, false);		
-				
+				this.NavigationController.SetNavigationBarHidden (true, false);					
 
 		}
 
@@ -49,7 +48,7 @@ namespace donow.iOS
 		
 		}
 
-		public  override void ViewDidLoad ()
+		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			this.NavigationItem.SetHidesBackButton (true, false);	
@@ -64,10 +63,10 @@ namespace donow.iOS
 
 			AppDelegate.IsFromSignUp = false;
 			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {				
-				if ( await ValidateCredentials ()) {
+				if ( ValidateCredentials ()) {
 					// Call to Get user details and validate credentials
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
-					if (landingVC != null) {
+					if (landingVC != null) {						
 						this.NavigationController.PushViewController(landingVC, true);
 					}
 				}
@@ -80,7 +79,8 @@ namespace donow.iOS
 				Auth0User user = null;
 				try
 				{
-					user = await auth0.LoginAsync(this,"linkedin");			
+					user = await auth0.LoginAsync(this,"linkedin");	
+
 				}
 				catch (AggregateException ex)
 				{
@@ -93,10 +93,12 @@ namespace donow.iOS
 
 				if(user != null)
 				{
+					LoadingOverlay loadingOverlay;
 					AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
 
 					if(AppDelegate.UserProfile.email_verified == true)
 					{
+
 						AppDelegate.UserDetails =  AppDelegate.userBL.GetUserFromEmail(AppDelegate.UserProfile.email);
 
 						if(AppDelegate.UserDetails != null)
@@ -110,7 +112,14 @@ namespace donow.iOS
 						{
 							signUpOtherDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
 							if (signUpVC != null) {
+//								signUpVC.NavigationItem.SetHidesBackButton (true, false);	
+//								signUpVC.NavigationItem.SetLeftBarButtonItem(null, true);
+
+						
+								signUpVC.NavigationItem.SetHidesBackButton (true, false);
+
 								this.NavigationController.PushViewController(signUpVC, true);
+
 							}
 						}
 
@@ -158,13 +167,13 @@ namespace donow.iOS
 			
 		}
 
-		async Task<bool> ValidateCredentials()
+		bool ValidateCredentials()
 		{
 
 			
 			UIAlertView alert = null;
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
-				AppDelegate.UserDetails =  await AppDelegate.userBL.GetUserDetails (TextBoxUserName.Text);
+				AppDelegate.UserDetails =  AppDelegate.userBL.GetUserDetails (TextBoxUserName.Text);
 				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					#region This code block is used for Insight tracking

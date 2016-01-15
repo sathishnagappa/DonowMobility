@@ -12,7 +12,7 @@ namespace donow.Util
 			public LoadingOverlay (CGRect frame) : base (frame)
 			{
 				// configurable bits
-				BackgroundColor = UIColor.Black;
+			BackgroundColor = UIColor.Gray;
 				Alpha = 0.75f;
 				AutoresizingMask = UIViewAutoresizing.All;
 

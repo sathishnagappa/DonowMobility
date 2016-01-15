@@ -29,7 +29,7 @@ namespace donow.iOS
 
 		}
 
-		public override async void ViewDidLoad ()
+		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			this.Title = "Seller Profile";
@@ -44,12 +44,12 @@ namespace donow.iOS
 			LabelCompanyName.Text = AppDelegate.UserDetails.Company;
 			LabelCityAndState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;
 
-			LabelSellerScore.Text = "";
+			LabelSellerScore.Text = "Comming Soon";
 
 
-			List<LeadMaster> tableItems = await AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
+			List<LeadMaster> tableItems = AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
 			if (tableItems.Count > 0) {
-				LabelLeadsReceived.Text = tableItems.Where (x => x.USER_LEAD_STATUS != 3).ToList ().Count.ToString ();
+				LabelLeadsReceived.Text = tableItems.Where (x => (x.USER_LEAD_STATUS != 3 || x.USER_LEAD_STATUS != 5)).ToList ().Count.ToString ();
 				TableViewActiveLeads.Source = new ActiveLeadsTableSource (tableItems, this);
 			}
 			else

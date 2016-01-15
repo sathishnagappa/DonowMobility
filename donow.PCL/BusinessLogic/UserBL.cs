@@ -50,11 +50,11 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 		
-		public async Task<UserDetails> GetUserDetails(string userName)
+		public UserDetails GetUserDetails(string userName)
 		{
 			RestService restSevice = new RestService ();
 			string restUrl = Constants.UserCreation + "?name=" + userName;
-			string response =  await restSevice.GetDataForLogin (restUrl);
+			string response =  restSevice.GetData (restUrl);
 			UserDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetails>(response.ToString());
 			return parsedResponse;
 		}

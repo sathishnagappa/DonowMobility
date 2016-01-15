@@ -44,6 +44,11 @@ namespace donow.iOS
 			LabelNameDealMaker.Text = brokerObj.City + " Deal Maker";
 			LabelBrokerJobTitle.Text = brokerObj.BrokerTitle;
 
+			if (brokerObj.Status == 2) {
+				ButtonSendRequest.Hidden = true;
+				ButtonCancel.Hidden = true;
+			}
+				
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
 				
 				AppDelegate.brokerBL.UpdateBrokerStatus(brokerObj.BrokerID, 2,brokerObj.LeadID);
@@ -64,13 +69,32 @@ namespace donow.iOS
 				rrnew.CompanyName = AppDelegate.UserDetails.Company;
 				rrnew.LeadEmailID = AppDelegate.CurrentLead.EMAILID;
 				AppDelegate.referralRequestBL.SaveReferralRequest(rrnew);
-
+				string[] nameArray;
+				string greetings;
+				if(!string.IsNullOrEmpty(brokerObj.BrokerName)) {
+					nameArray = brokerObj.BrokerName.Split(' ');
+					greetings = "Hi " + nameArray[0] + ",";
+				}
+				else
+				{
+					greetings = "Hi,";
+				}
 				MailMessage mail=new MailMessage();
 				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
 				mail.From=new MailAddress("support@donowx.com");
-				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
-				mail.Subject = "Need Referral for " + AppDelegate.CurrentLead.LEAD_NAME;
-				mail.Body = "Here is an opportunity for you refer and earn. Please download the donow app and join the donow network.";
+				//mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
+				//mail.To.Add(new MailAddress("prateek.arora@brillio.com"));
+				mail.To.Add(new MailAddress("sarathy@donowx.com"));
+				mail.To.Add(new MailAddress("barbieto@donowx.com"));
+				mail.Subject = "Please Serve as a Dealmaker and Monetize Your Network";
+				mail.Body = greetings + "\n\nYou are invited to join our growing donow network that connects sellers and prospects across the industries.  " +
+					"You have been identified as an individual that can potentially help one of our sellers connect with a prospect based on your profile. " +
+					"\n\nPlease join our network to evaluate the opportunity and make the connection.  You will be provided information on both the seller and " +
+					"prospect that allows you to make an informed decision on serving as a dealmaker. \n\nAs a dealmaker, you will be paid funds based on the " +
+					"connections you make.  The more connections you make, the better your score will be and the more money you will earn.  It’s that easy.  " +
+					"As a member of our donow network, you will also have the ability to benefit from our other seller services such as lead generation and curated " +
+					"information that connects you to customers faster. \n\nPlease click the link here to download the app and join the network.\n\n" +
+					"Thank you for considering!";
 				SmtpServer.Port = 587;
 				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
 				SmtpServer.EnableSsl=true;
@@ -88,8 +112,8 @@ namespace donow.iOS
 				ViewSendRequestView.Hidden = true;
 			};
 
-			LabelBrokerScore.Text = "Broker Score \n" + brokerObj.BrokerScore;
-			LabelBrokerFee.Text = "Broker Fee \n" + brokerObj.BrokerFee;
+			LabelBrokerScore.Text = "Score \n" + brokerObj.BrokerScore;
+			LabelBrokerFee.Text = "Fee \n" + brokerObj.BrokerFee;
 			LabelTotalEarnings.Text = "# of Deals made \n" + "0"; //brokerObj.BrokerTotalEarning;
 			LabelCompanyInfoDescription.Text = brokerObj.Industry;
 			labelConnectionToLead.Text = brokerObj.ConnectionLead;

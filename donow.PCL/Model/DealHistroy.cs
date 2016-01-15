@@ -10,7 +10,9 @@ namespace donow.PCL
 		public string City { get; set; }
 		public string State { get; set; }
 		public string CustomerName { get; set; }
-		public object country { get; set; }
+		//public object country { get; set; }
+		public int BrokerID {get; set;} 
+		public string Lead_Industry {get; set;} 
 	}
 }
 

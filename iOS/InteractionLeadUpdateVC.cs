@@ -138,6 +138,25 @@ namespace donow.iOS
 //				usermeeting.Status="Done";
 //				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 
+//				if(salesStage == "(4) Close Sale")
+//				{
+//					DealHistroy dealHistory = new DealHistroy();
+//					dealHistory.UserId = AppDelegate.UserDetails.UserId;
+//					dealHistory.State = userMeetings.State;
+//					dealHistory.City = userMeetings.City;
+//					dealHistory.Date = userMeetings.EndDate;
+//					//dealHistory.country = "USA";
+//					dealHistory.CustomerName = userMeetings.CustomerName;
+//					dealHistory.LeadId = userMeetings.LeadId;
+//					AppDelegate.customerBL.SaveDealHistory(dealHistory);
+//					//Xamarin Insights tracking
+//					Insights.Track("Save DealHistory", new Dictionary <string,string>{
+//						{"UserId", dealHistory.UserId.ToString()},
+//						{"CustomerName", dealHistory.CustomerName},
+//						{"LeadId",dealHistory.LeadId.ToString()}
+//					});
+//				}
+
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
 					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);

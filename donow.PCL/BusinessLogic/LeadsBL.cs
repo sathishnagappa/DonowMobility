@@ -35,14 +35,14 @@ namespace donow.PCL
 //		}
 
 
-		public async Task<List<LeadMaster>> GetAllLeads(int UserID)
+		public List<LeadMaster> GetAllLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
 			var parsedResponse = new List<LeadMaster>();
 			try
 			{
-				string response =  await restSevice.GetDataForLogin (leadsApicall);
+				string response =  restSevice.GetData (leadsApicall);
 				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadMaster>>(response.ToString());
 			}
 			catch {
@@ -67,14 +67,14 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public async Task<List<LeadMaster>> GetNewLeads(int UserID)
+		public List<LeadMaster> GetNewLeads(int UserID)
 		{
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&update=Y";
 			var parsedResponse = new List<LeadMaster>();
 			try
 			{
-				string response =  await restSevice.GetDataForLogin (leadsApicall);
+				string response =  restSevice.GetData (leadsApicall);
 				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadMaster>>(response.ToString());
 			}
 			catch {
@@ -154,12 +154,13 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public int UpdateStatus(int leadid,int status)
+		public int UpdateStatus(int leadid,int status,int userID)
 		{
 			Leads leads = new Leads ();
 			leads.LEAD_ID = leadid;
 			leads.USER_LEAD_STATUS = status;
 			leads.REASON_FOR_PASS = "";
+			leads.USER_ID = userID;
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leads);
@@ -169,12 +170,13 @@ namespace donow.PCL
 			
 		}
 
-		public int UpdateReasonForPass(int leadid, string reasonForPass)
+		public int UpdateReasonForPass(int leadid, string reasonForPass,int userID)
 		{
 			Leads leads = new Leads ();
 			leads.LEAD_ID = leadid;
 			leads.USER_LEAD_STATUS = 5;
 			leads.REASON_FOR_PASS = reasonForPass;
+			leads.USER_ID = userID;
 			RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leads);

@@ -62,5 +62,7 @@
 		<string>Logo114x114</string>
 		<string>Logo120x120</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

@@ -83,6 +83,8 @@ namespace donow.iOS
 			LabelCityAndState.Text = lead.CITY + coma + lead.STATE; 
 			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
 			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS) ;
+			LabelNewLead.TextAlignment = UITextAlignment.Right;
+			LeadIndustry.Text = lead.LeadIndustry;
 		}
 
 		string  GetStatus(int Status)
@@ -111,12 +113,13 @@ namespace donow.iOS
 
 			ImageViewLeadImage.Frame = new CGRect (25, 25, 50, 50);
 			LabelLeadName.Frame = new CGRect (100, 23, 220, 30);
-			LabelCompanyName.Frame = new CGRect (100, 47, 200, 25);
-			LabelCityAndState.Frame = new CGRect (100, 67, 200, 25);
-			LeadIndustry.Frame = new CGRect (100, 90, 150,25);
+			LabelCompanyName.Frame = new CGRect (100, 47, 280, 25);
+			LabelCityAndState.Frame = new CGRect (100, 67, 280, 25);
+			LeadIndustry.Frame = new CGRect (100, 90, 300,25);
+
 			LabelScore.Frame = new CGRect (100, 115, 120, 25);
 			LabelScoreDigit.Frame = new CGRect (270, 115, 25, 25);
-			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 100, 10, 80, 25);
+			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 170, 10, 150, 25);
 		}
 	}
 }

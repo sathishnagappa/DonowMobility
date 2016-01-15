@@ -363,6 +363,7 @@
     <BundleResource Include="Resources\Navigation Back Icon.png" />
     <BundleResource Include="Resources\download.png" />
     <BundleResource Include="Resources\Magnifying Glass%402x.png" />
+    <BundleResource Include="Resources\LogOutIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

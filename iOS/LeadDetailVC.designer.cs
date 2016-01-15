@@ -48,10 +48,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonOptionPassView { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonPass { get; set; }
 
 		[Outlet]
@@ -77,10 +73,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageProfile { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelBusinessNeeds { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -128,6 +120,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewLeadDetails { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewPassView { get; set; }
 
 		[Outlet]
@@ -136,16 +132,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextView txtFieldCompanyInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextView txtViewBusinessNeeds { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewAccept { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		 UIScrollView ScrollViewLeadDetails { get; set; }
-
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -181,10 +180,6 @@ namespace donow.iOS
 				ButtonLeadMetricesExpand.Dispose ();
 				ButtonLeadMetricesExpand = null;
 			}
-			if (ButtonOptionPassView != null) {
-				ButtonOptionPassView.Dispose ();
-				ButtonOptionPassView = null;
-			}
 			if (ButtonPass != null) {
 				ButtonPass.Dispose ();
 				ButtonPass = null;
@@ -212,10 +207,6 @@ namespace donow.iOS
 			if (ImageProfile != null) {
 				ImageProfile.Dispose ();
 				ImageProfile = null;
-			}
-			if (LabelBusinessNeeds != null) {
-				LabelBusinessNeeds.Dispose ();
-				LabelBusinessNeeds = null;
 			}
 			if (LabelCompanyInfo != null) {
 				LabelCompanyInfo.Dispose ();
@@ -261,6 +252,10 @@ namespace donow.iOS
 				lineViewCompanyInfo.Dispose ();
 				lineViewCompanyInfo = null;
 			}
+			if (ScrollViewLeadDetails != null) {
+				ScrollViewLeadDetails.Dispose ();
+				ScrollViewLeadDetails = null;
+			}
 			if (TableViewPassView != null) {
 				TableViewPassView.Dispose ();
 				TableViewPassView = null;
@@ -269,6 +264,14 @@ namespace donow.iOS
 				TitleView.Dispose ();
 				TitleView = null;
 			}
+			if (txtFieldCompanyInfo != null) {
+				txtFieldCompanyInfo.Dispose ();
+				txtFieldCompanyInfo = null;
+			}
+			if (txtViewBusinessNeeds != null) {
+				txtViewBusinessNeeds.Dispose ();
+				txtViewBusinessNeeds = null;
+			}
 			if (ViewAccept != null) {
 				ViewAccept.Dispose ();
 				ViewAccept = null;
@@ -276,11 +279,6 @@ namespace donow.iOS
 			if (ViewPass != null) {
 				ViewPass.Dispose ();
 				ViewPass = null;
-			}
-
-			if (ScrollViewLeadDetails != null) {
-				ScrollViewLeadDetails.Dispose ();
-				ScrollViewLeadDetails = null;
 			}
 		}
 	}

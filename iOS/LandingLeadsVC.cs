@@ -27,7 +27,7 @@ namespace donow.iOS
 		{
 		}
 
-		public override async void ViewWillAppear (bool animated)
+		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
@@ -37,13 +37,13 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
-			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
-			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
-				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
-			}
-			loadingOverlay = new LoadingOverlay (bounds);
+//			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
+//			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
+//				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
+//			}
+			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
 			View.Add (loadingOverlay);
-			leads = await GetLeads ();
+			leads = GetLeads ();
 
 			if (leads.Count > 0) {
 				this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString ();
@@ -65,13 +65,21 @@ namespace donow.iOS
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			TableViewLeads.Source = null;
 			base.ViewWillDisappear (animated);
 			if (searchTableView == null) {
 
 				TableViewLeads.ReloadData ();
 			}
+			//this.Dispose ();
+
 		}
+
+//		protected override void Dispose (bool disposing)
+//		{
+//			if (TableViewLeads.Source != null)
+//				TableViewLeads.Source.Dispose ();
+//			base.Dispose (disposing);
+//		}
 
 		public override void ViewDidLoad ()
 		{
@@ -138,7 +146,7 @@ namespace donow.iOS
 
 			ButtonRequestNewLead.TouchUpInside += async (object sender, EventArgs e) => {
 			//View.Add (loadingOverlay);
-				leads =  await GetNewLeads();
+				leads =  GetNewLeads();
 				if (leads.Count > 0) {					
 					this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString();
 				TableViewLeads.Source = new TableSource (leads, this);
@@ -215,15 +223,15 @@ namespace donow.iOS
 			}
 		}
 
-		async Task<List<LeadMaster>> GetLeads()
+		List<LeadMaster> GetLeads()
 		{
-			leads =  await AppDelegate.leadsBL.GetAllLeads (AppDelegate.UserDetails.UserId);
+			leads =  AppDelegate.leadsBL.GetAllLeads (AppDelegate.UserDetails.UserId);
 			return leads;
 		}
 
-		async Task<List<LeadMaster>> GetNewLeads()
+		List<LeadMaster> GetNewLeads()
 		{
-			leads =  await AppDelegate.leadsBL.GetNewLeads(AppDelegate.UserDetails.UserId);
+			leads =  AppDelegate.leadsBL.GetNewLeads(AppDelegate.UserDetails.UserId);
 			return leads;
 		}
 

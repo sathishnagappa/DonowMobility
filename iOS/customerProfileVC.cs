@@ -26,10 +26,11 @@ namespace donow.iOS
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			//TableViewEmails.Source = null;
-			//TableViewDealHistory.Source = null;
-			//TableViewMeetings.Source = null;
-			//TableViewPreviousMeetings.Source = null;
+//				TableViewEmails.Dispose ();
+//				TableViewDealHistory.Dispose ();
+//				TableViewMeetings.Dispose ();
+//				TableViewPreviousMeetings.Dispose ();
+			
 			base.ViewWillDisappear (animated);
 
 		}
@@ -154,6 +155,9 @@ namespace donow.iOS
 			LabelCompanyName.Text = customerDetails.Company;
 			LabelCustomerName.Text = customerDetails.Name;
 			LabelCityAndState.Text = customerDetails.City + ", " + customerDetails.State;
+			LabelScore.Text = customerDetails.LeadScore.ToString();
+			LabelSource.Text = customerDetails.LeadSource == 2 ? "SFDC" : "DoNow" ;
+
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {

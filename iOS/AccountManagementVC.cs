@@ -169,7 +169,7 @@ namespace donow.iOS
 					});
 				}
 
-				if(isFromSignUp && AppDelegate.UserDetails.UserId != 0) {
+				if(isFromSignUp && AppDelegate.UserDetails.UserId >= 0) {
 					WelcomeVC welcomeVC = this.Storyboard.InstantiateViewController ("WelcomeVC") as WelcomeVC;
 					if (welcomeVC != null) {
 						this.NavigationController.PushViewController (welcomeVC, true);

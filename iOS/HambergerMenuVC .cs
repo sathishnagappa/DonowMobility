@@ -15,7 +15,7 @@ namespace donow.iOS
 
 		IList<string> imageIcons = new List<string>
 		{
-			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png", "Info Page Icon.png"
+			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png", "LogOutIcon.png"
 		};
 
 		public override void ViewWillAppear (bool animated)
@@ -111,7 +111,8 @@ namespace donow.iOS
 				case "Log Out":
 					loginPageViewController login = owner.Storyboard.InstantiateViewController ("loginPageViewController") as loginPageViewController;
 					if (login != null) {
-						owner.PresentViewController (login, true,null);
+						login.HidesBottomBarWhenPushed = true;
+						owner.NavigationController.PushViewController (login, true);
 
 					}
 					break;

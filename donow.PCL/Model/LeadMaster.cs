@@ -11,6 +11,8 @@ namespace donow.PCL
 		public string CITY { get; set; }
 		public int LEAD_SCORE { get; set; }
 		public int USER_LEAD_STATUS { get; set; }
+		public string LeadIndustry { get; set; }
+		public string CreatedOn { get; set; }
 	}
 }
 

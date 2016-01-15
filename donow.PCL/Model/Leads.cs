@@ -22,6 +22,7 @@ namespace donow.PCL.Model
 		public string PHONE { get; set; }
 		public string EMAILID { get; set; }
 		public int USER_LEAD_STATUS { get; set; }
+		public int USER_ID { get; set; }
 
 		}	
 }

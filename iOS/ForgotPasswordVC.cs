@@ -38,7 +38,7 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			ButtonChange.TouchUpInside += (object sender, EventArgs e) =>  {
+			ButtonChange.TouchUpInside +=  (object sender, EventArgs e) =>  {
 
 
 				if(Validation())

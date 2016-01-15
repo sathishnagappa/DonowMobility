@@ -34,13 +34,16 @@ namespace donow.Services
 
 		}
 
-		public async Task<string> GetDataForLogin (string RestURL)
+
+
+
+		public async Task<string> GetDataAsync (string RestURL)
 		{
 			var request = HttpWebRequest.Create(RestURL);
 			request.ContentType = "application/json";
 			request.Method = "GET";
 
-			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+			using (HttpWebResponse response = await request.GetResponseAsync() as HttpWebResponse)
 			{
 				if (response.StatusCode != HttpStatusCode.OK)
 					Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);

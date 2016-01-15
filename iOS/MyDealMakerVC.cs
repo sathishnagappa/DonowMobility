@@ -43,13 +43,22 @@ namespace donow.iOS
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			TableViewDealMaker.Source = null;
-			base.ViewWillDisappear (animated);
+
 			if (searchTableView == null) {
 
 				TableViewDealMaker.ReloadData ();
 			}
+			base.ViewWillDisappear (animated);
+
+
 		}
+
+//		protected override void Dispose (bool disposing)
+//		{
+//			if (TableViewDealMaker.Source != null)
+//				TableViewDealMaker.Source.Dispose ();
+//			base.Dispose (disposing);
+//		}
 
 
 		public override void ViewDidLoad ()

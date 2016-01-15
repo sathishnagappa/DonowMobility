@@ -40,12 +40,21 @@ namespace donow.iOS
 
 		public override void ViewWillDisappear (bool animated)
 		{
-			TableViewCustomerStream.Source = null;
+
 			base.ViewWillDisappear (animated);
+			//this.Dispose ();
 			if (searchTableView == null) {
 				TableViewCustomerStream.ReloadData ();
 			}
 		}
+
+//		protected override void Dispose (bool disposing)
+//		{
+//			if (TableViewCustomerStream.Source != null)
+//				TableViewCustomerStream.Source.Dispose ();
+//			base.Dispose (disposing);
+//		}
+
 
 		public override void ViewDidLoad ()
 		{

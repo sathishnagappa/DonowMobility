@@ -69,13 +69,15 @@ namespace donow.PCL
 			List<BingResult> binglist = new List<BingResult> ();
 			foreach (var result in results)
 			{
-				BingResult bingResult = new BingResult ();
-				bingResult.ID = result.ID;
-				bingResult.Url = result.Url;
-				bingResult.Description = result.Description;
-				bingResult.Date = result.Date;
-				bingResult.Title = result.Title;
-				binglist.Add (bingResult);				 
+				//if (!string.IsNullOrEmpty (result.Url)) {
+					BingResult bingResult = new BingResult ();
+					bingResult.ID = result.ID;
+					bingResult.Url = result.Url;
+					bingResult.Description = result.Description;
+					bingResult.Date = result.Date;
+					bingResult.Title = result.Title;
+					binglist.Add (bingResult);			
+				//}
 			}
 			return binglist;
 
@@ -112,7 +114,7 @@ namespace donow.PCL
 		public List<DealHistroy> GetDealHistroy(long leadID, int userID)
 		{
 			RestService restSevice = new RestService ();
-			string restUrl = Constants.DealHistory + "?LeadID=" + leadID + "&UserID=" + userID;
+			string restUrl  = Constants.DealHistory + "?LeadID=" + leadID + "&UserID=" + userID;
 			string response = restSevice.GetData (restUrl);
 			List<DealHistroy> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DealHistroy>>(response.ToString());
 			return parsedResponse;

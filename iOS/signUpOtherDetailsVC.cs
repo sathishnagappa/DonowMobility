@@ -8,6 +8,8 @@ using CoreGraphics;
 using donow.PCL;
 using System.Linq;
 using System.Text.RegularExpressions;
+using donow.Util;
+using donow.PCL.Model;
 
 namespace donow.iOS
 {
@@ -28,9 +30,20 @@ namespace donow.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
+//			LoadingOverlay loadingOverlay;
 			this.NavigationController.SetNavigationBarHidden (false, false);
+//			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
+//			View.Add(loadingOverlay);
+			Industries =  AppDelegate.industryBL.GetIndustry ();
+			listLOB = AppDelegate.industryBL.GetLOB();
+//			loadingOverlay.Hide();
+		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+			TableViewState.Dispose ();
+			TableViewIndustry.Dispose ();
 		}
 
 		public override void ViewDidLoad ()
@@ -45,12 +58,14 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
+			//***************************************** Hiding Back Button ***********************//
 
-			
+//			NavigationItem.SetHidesBackButton (true, false);	
+//			NavigationItem.SetLeftBarButtonItem(null, true);
 			TextBoxShouldReturn ();
-			if (AppDelegate.UserProfile.name != null) {
-				LoadUserDetails ();
-			}
+//			if (AppDelegate.UserProfile.name != null) {
+//				LoadUserDetails ();
+//			}
 			TableViewState.Hidden = true;
 			ButtonLineOfBusiness.Enabled = false;
 			TextBoxLineOfBusiness.UserInteractionEnabled = false;
@@ -71,43 +86,10 @@ namespace donow.iOS
 			};
 
 			TableViewIndustry.Hidden = true;
-//			IList<string> Industries = new List<string>
-//			{
-//				"Agriculture", "Apparel", "Auto","Banking/Finance",  "Biotechnology","Chemicals", "Communications","Construction", "Consulting","Education", "Electronics","Energy", "Engineering", 
-//				"Entertainment","Food and Beverage","Government","Healthcare","Hospitality","Insurance", "Machinery", "Manufacturing", "Media","Not for Profit","Other","Recreation", "Retail",
-//				"Shipping","Technology","Telecommunications","Transportation","Utilities"
-//			};
-//
-			if (AppDelegate.UserDetails != null && AppDelegate.UserDetails.UserId != 0) {
-				TextBoxEmail.Text = AppDelegate.UserDetails.Email;
-				TextBoxCompany.Text = AppDelegate.UserDetails.Company;
-				TextBoxTitle.Text = AppDelegate.UserDetails.Title;
-				TextBoxFullName.Text = AppDelegate.UserDetails.FullName;
-				TextBoxIndustry.Text = AppDelegate.UserDetails.Industry;
-				TextBoxZip.Text = AppDelegate.UserDetails.Zip;
-				TextBoxPhone.Text = AppDelegate.UserDetails.Phone;
-				TextBoxOfficeAddress.Text = AppDelegate.UserDetails.OfficeAddress;
-				TextBoxCity.Text = AppDelegate.UserDetails.City;
-				TextBoxState.Text = AppDelegate.UserDetails.State;
-				TextBoxLineOfBusiness.Text = AppDelegate.UserDetails.LineOfBusiness;
-			}
-			else
-			{
-				TextBoxEmail.Text = string.Empty;
-				TextBoxCompany.Text = string.Empty;
-				TextBoxTitle.Text = string.Empty;
-				TextBoxFullName.Text = string.Empty;
-				TextBoxIndustry.Text = string.Empty;
-				TextBoxZip.Text = string.Empty;
-				TextBoxPhone.Text = string.Empty;
-				TextBoxOfficeAddress.Text = string.Empty;
-				TextBoxCity.Text = string.Empty;
-				TextBoxState.Text = string.Empty;
-				TextBoxLineOfBusiness.Text = string.Empty;
-			}
+			LoadScreen ();
 
-			Industries = AppDelegate.industryBL.GetIndustry ();
-			listLOB = AppDelegate.industryBL.GetLOB();
+//			Industries =  AppDelegate.industryBL.GetIndustry ();
+//			listLOB = AppDelegate.industryBL.GetLOB();
 
 
 			TableViewIndustry.Layer.BorderColor=UIColor.FromRGB(169,169,169).CGColor;
@@ -136,6 +118,39 @@ namespace donow.iOS
 				}
 				}
 			};
+		}
+
+		void LoadScreen()
+		{
+			if (AppDelegate.UserDetails != null && AppDelegate.UserDetails.UserId != 0) {
+				TextBoxEmail.Text = AppDelegate.UserDetails.Email;
+				TextBoxCompany.Text = AppDelegate.UserDetails.Company;
+				TextBoxTitle.Text = AppDelegate.UserDetails.Title;
+				TextBoxFullName.Text = AppDelegate.UserDetails.FullName;
+				TextBoxIndustry.Text = AppDelegate.UserDetails.Industry;
+				TextBoxZip.Text = AppDelegate.UserDetails.Zip;
+				TextBoxPhone.Text = AppDelegate.UserDetails.Phone;
+				TextBoxOfficeAddress.Text = AppDelegate.UserDetails.OfficeAddress;
+				TextBoxCity.Text = AppDelegate.UserDetails.City;
+				TextBoxState.Text = AppDelegate.UserDetails.State;
+				TextBoxLineOfBusiness.Text = AppDelegate.UserDetails.LineOfBusiness;
+			} else if (AppDelegate.UserProfile != null && AppDelegate.UserProfile.name != null) {
+				LoadUserDetails ();
+			}
+			else
+			{
+				TextBoxEmail.Text = string.Empty;
+				TextBoxCompany.Text = string.Empty;
+				TextBoxTitle.Text = string.Empty;
+				TextBoxFullName.Text = string.Empty;
+				TextBoxIndustry.Text = string.Empty;
+				TextBoxZip.Text = string.Empty;
+				TextBoxPhone.Text = string.Empty;
+				TextBoxOfficeAddress.Text = string.Empty;
+				TextBoxCity.Text = string.Empty;
+				TextBoxState.Text = string.Empty;
+				TextBoxLineOfBusiness.Text = string.Empty;
+			}
 		}
 
 		public override void TouchesBegan (NSSet touches, UIEvent evt)
@@ -225,6 +240,10 @@ namespace donow.iOS
 
 		void SaveUserDetails()
 		{
+//			if (AppDelegate.UserDetails == null) {
+//				AppDelegate.UserDetails = new donow.PCL.Model.UserDetails ();
+//			}
+//			
 			AppDelegate.UserDetails.FullName = TextBoxFullName.Text;
 			AppDelegate.UserDetails.Title = TextBoxTitle.Text;
 			AppDelegate.UserDetails.Company = TextBoxCompany.Text;
@@ -284,6 +303,9 @@ namespace donow.iOS
 
 		void LoadUserDetails()
 		{
+			AppDelegate.UserDetails = new UserDetails();
+			AppDelegate.UserDetails.Name = AppDelegate.UserProfile.nickname;
+			AppDelegate.UserDetails.Password = "MOicgNmn7qm756+877Cr4Yee7ryr6Yme";
 			TextBoxEmail.Text = AppDelegate.UserProfile.email;
 			TextBoxCompany.Text = AppDelegate.UserProfile.positions.values [0].company.name;
 			TextBoxTitle.Text = AppDelegate.UserProfile.positions.values[0].title;
