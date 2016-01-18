@@ -15,6 +15,7 @@ namespace donow.iOS
 	partial class LandingCustomerVC : UIViewController
 	{
 		//private Dictionary<string,List<Customer>> custDictionary;
+		public bool isScrolledTop;
 		public  bool isSearchStarted;
 		//protected int sectionHit;
 		private static int cellIndexCount;
@@ -47,23 +48,28 @@ namespace donow.iOS
 
 			searchBarCustomer.Hidden=true;
 			TableViewCustomerList.Frame =new CGRect (0, 0, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
+//			TableViewCustomerList.ScrolledToTop += (object sender, EventArgs e) => 
+//			{
+//				isScrolledTop = true;
+//			};
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
 			//this.Dispose ();
+			TableViewCustomerList.Source = null;
 			if (searchTableView == null) {
 				TableViewCustomerList.ReloadData ();
 			}
 		}
 
-//		protected override void Dispose (bool disposing)
-//		{
-//			if (TableViewCustomerList.Source != null)
-//				TableViewCustomerList.Source.Dispose ();
-//			base.Dispose (disposing);
-//		}
+		protected override void Dispose (bool disposing)
+		{
+			if (TableViewCustomerList.Source != null)
+				TableViewCustomerList.Source.Dispose ();
+			base.Dispose (disposing);
+		}
 
 
 		public override void ViewDidLoad ()
@@ -115,6 +121,7 @@ namespace donow.iOS
 
 
 			txtSearched = searchBarCustomer.Text;
+
 
 		}
 
@@ -243,7 +250,7 @@ namespace donow.iOS
 			//string txtSearchedLocal;
 			//protected int TappedIndex;
 			string[] _arraySectionTitle;
-			string CellIdentifier = "TableCell";
+			string CellIdentifier = "TableCell1";
 
 			//bool isSearchStarted;
 			Dictionary<string,List<Customer>> TableItemsDictionary,custDictionary;
@@ -312,12 +319,10 @@ namespace donow.iOS
 				}
 
 				if (_list != null && _list.Any ()) {
-
-					if (cellIndexCount < _list.Count) {
-						cell.UpdateCell (_list [cellIndexCount++]);//check
+//					if (cellIndexCount < _list.Count) {						
+						cell.UpdateCell (_list [indexPath.Row]);//check		
+//						};
 					}
-
-				}
 				return cell;
 			}
 

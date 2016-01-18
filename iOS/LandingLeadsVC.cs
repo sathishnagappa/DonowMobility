@@ -46,7 +46,7 @@ namespace donow.iOS
 			leads = GetLeads ();
 
 			if (leads.Count > 0) {
-				this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString ();
+				this.NavigationController.TabBarItem.BadgeValue = leads.Where (x => x.USER_LEAD_STATUS == 1).ToList ().Count.ToString();
 				TableViewLeads.Source = new TableSource (leads, this);
 			} else if(AppDelegate.IsFromSignUp) {
 				AlertView.Hidden = false;
@@ -66,6 +66,7 @@ namespace donow.iOS
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
+			TableViewLeads.Source = null;
 			if (searchTableView == null) {
 
 				TableViewLeads.ReloadData ();
@@ -74,12 +75,12 @@ namespace donow.iOS
 
 		}
 
-//		protected override void Dispose (bool disposing)
-//		{
-//			if (TableViewLeads.Source != null)
-//				TableViewLeads.Source.Dispose ();
-//			base.Dispose (disposing);
-//		}
+		protected override void Dispose (bool disposing)
+		{
+			if (TableViewLeads.Source != null)
+				TableViewLeads.Source.Dispose ();
+			base.Dispose (disposing);
+		}
 
 		public override void ViewDidLoad ()
 		{
@@ -148,7 +149,7 @@ namespace donow.iOS
 			//View.Add (loadingOverlay);
 				leads =  GetNewLeads();
 				if (leads.Count > 0) {					
-					this.NavigationController.TabBarItem.BadgeValue = leads.Count.ToString();
+					this.NavigationController.TabBarItem.BadgeValue = leads.Where (x => x.USER_LEAD_STATUS == 1).ToList ().Count.ToString();
 				TableViewLeads.Source = new TableSource (leads, this);
 				TableViewLeads.ReloadData ();
 				//loadingOverlay.Hide ();

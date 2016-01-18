@@ -67,11 +67,11 @@ namespace donow.iOS
 			LabelTitleName.Text = leadObj.LEAD_NAME;
 			LabelScore.Text = leadObj.LEAD_SCORE.ToString();
 			LabelSourceName.Text = leadObj.LEAD_SOURCE == 2 ? "SFDC" : "DoNow" ;
-			txtFieldCompanyInfo.Text = leadObj.COMPANY_INFO; //+ " Testing - More significantly they expand the domain of research of the IS field by addressing new themes, such as the provision of ICT resources for a community";
+			txtFieldCompanyInfo.Text = leadObj.COMPANY_INFO + " Testing - More significantly they expand the domain of research of the IS field by addressing new themes, such as the provision of ICT resources for a community";
 //			LabelCompanyInfo.Text = "aaaaaa aaaaaaaaaaav vvvvvvv vvvvfff fffffff fffffbbb bbbbbbb bbffffff fffggggg gggggtttttt ttttdddd dddddaa aaa af";
 			LabelTitleCompany.Text = leadObj.COMPANY_NAME; 
 			LabelLocation.Text = leadObj.CITY + "," + leadObj.STATE;
-			txtViewBusinessNeeds.Text = leadObj.BUSINESS_NEED; //+ " Testing - More significantly they expand the domain of research of the IS field by addressing new themes, such as the provision of ICT resources for a community";
+			txtViewBusinessNeeds.Text = leadObj.BUSINESS_NEED + " Testing - More significantly they expand the domain of research of the IS field by addressing new themes, such as the provision of ICT resources for a community";
 
 			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 

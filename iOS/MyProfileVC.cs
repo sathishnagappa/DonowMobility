@@ -48,9 +48,10 @@ namespace donow.iOS
 
 
 			List<LeadMaster> tableItems = AppDelegate.leadsBL.GetAllLeads(AppDelegate.UserDetails.UserId);
-			if (tableItems.Count > 0) {
-				LabelLeadsReceived.Text = tableItems.Where (x => (x.USER_LEAD_STATUS != 3 || x.USER_LEAD_STATUS != 5)).ToList ().Count.ToString ();
-				TableViewActiveLeads.Source = new ActiveLeadsTableSource (tableItems, this);
+			List<LeadMaster> ActiveLeads = tableItems.Where (x => x.USER_LEAD_STATUS != 5).ToList ();
+			if (ActiveLeads.Count > 0) {
+				LabelLeadsReceived.Text = ActiveLeads.Count.ToString();
+				TableViewActiveLeads.Source = new ActiveLeadsTableSource (ActiveLeads, this);
 			}
 			else
 				LabelLeadsReceived.Text = "0";

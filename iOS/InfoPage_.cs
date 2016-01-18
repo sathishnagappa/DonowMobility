@@ -32,7 +32,7 @@ namespace donow.iOS
 				HambergerMenuVC hambergerVC = this.Storyboard.InstantiateViewController("HambergerMenuVC") as HambergerMenuVC;
 				this.NavigationController.PushViewController(hambergerVC,true);
 			};
-
+			NavigationItem.LeftBarButtonItem = btn;
 			ScrollViewInfoPage.ContentSize = new CGSize (375.0f, 1227.0f);
 		}
 	}

@@ -35,6 +35,19 @@ namespace donow.iOS
 
 		}
 
+		protected override void Dispose (bool disposing)
+		{
+			if (TableViewEmails.Source != null)
+				TableViewEmails.Source.Dispose ();
+			if (TableViewDealHistory.Source != null)
+				TableViewDealHistory.Source.Dispose ();
+			if (TableViewMeetings.Source != null)
+				TableViewMeetings.Source.Dispose ();
+			if (TableViewPreviousMeetings.Source != null)
+				TableViewPreviousMeetings.Source.Dispose ();
+			base.Dispose (disposing);
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
@@ -112,10 +125,7 @@ namespace donow.iOS
 			};
 		}
 
-		protected override void Dispose (bool disposing)
-		{
-			base.Dispose (disposing);
-		}
+
 
 		void LoadScreenData()
 		{
