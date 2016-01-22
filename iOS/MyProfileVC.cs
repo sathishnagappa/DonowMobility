@@ -64,22 +64,22 @@ namespace donow.iOS
 			}
 
 		
-			ScrollViewMyProfile.ContentSize = new CGSize (375.0f, 830.0f);
-			TableViewActiveLeads.ScrollEnabled = false;
-			TableViewReferralRequests.ScrollEnabled = false;
+			ScrollViewMyProfile.ContentSize = new CGSize (375.0f, 800.0f);
+			//TableViewActiveLeads.ScrollEnabled = false;
+			//TableViewReferralRequests.ScrollEnabled = false;
 
-			ButtonLeadExpansion.TouchUpInside += (object sender, EventArgs e) =>  {
-				TableViewActiveLeads.ScrollEnabled = true;
-				LeadExpanded = true;
-//				TableViewActiveLeads.Frame = new CGRect(35, 68, 325, (tableItems.Count * 65.0f));
-//				ScrollViewMyProfile.ContentSize = new CGSize (414.0f, );
-			};
-
-			ButtonRefrralExpension.TouchUpInside += (object sender, EventArgs e) =>  {
-				TableViewReferralRequests.ScrollEnabled = true;
-				ReferralExpanded = true;
-//				TableViewActiveLeads.Frame = new CGRect(35, 70, 325, (tableItems.Count * 65.0f));
-			};
+//			ButtonLeadExpansion.TouchUpInside += (object sender, EventArgs e) =>  {
+//				TableViewActiveLeads.ScrollEnabled = true;
+//				LeadExpanded = true;
+////				TableViewActiveLeads.Frame = new CGRect(35, 68, 325, (tableItems.Count * 65.0f));
+////				ScrollViewMyProfile.ContentSize = new CGSize (414.0f, );
+//			};
+//
+//			ButtonRefrralExpension.TouchUpInside += (object sender, EventArgs e) =>  {
+//				TableViewReferralRequests.ScrollEnabled = true;
+//				ReferralExpanded = true;
+////				TableViewActiveLeads.Frame = new CGRect(35, 70, 325, (tableItems.Count * 65.0f));
+//			};
 		}
 
 		void LoadData()

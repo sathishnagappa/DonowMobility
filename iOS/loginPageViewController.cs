@@ -174,6 +174,15 @@ namespace donow.iOS
 			UIAlertView alert = null;
 			if (!string.IsNullOrEmpty(TextBoxUserName.Text)  && !string.IsNullOrEmpty(TextBoxPassword.Text) ) {
 				AppDelegate.UserDetails =  AppDelegate.userBL.GetUserDetails (TextBoxUserName.Text);
+				if (!AppDelegate.UserDetails.ApiResponse) {
+					alert = new UIAlertView () { 
+						Title = "Error", 
+						Message = AppDelegate.UserDetails.ErrorMessage
+					};
+					alert.AddButton ("OK");
+					alert.Show ();
+					return false;
+				}
 				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
 					AppDelegate.UserDetails.Password != null && AppDelegate.UserDetails.Name.ToLower () == TextBoxUserName.Text.ToLower () && TextBoxPassword.Text == Crypto.Decrypt (AppDelegate.UserDetails.Password)) {
 					#region This code block is used for Insight tracking

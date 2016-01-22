@@ -38,6 +38,8 @@ namespace donow.iOS
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 		}
 		 
+
+
 		public void UpdateControls (string Parameter, string TableType)
 		{
 			if (TableType == "ReasonForPass") {
@@ -96,6 +98,13 @@ namespace donow.iOS
 			LeadF2FFeedBack leadf2ffeedbackLast = leadf2ffeedbacklist.Count > 0 ? leadf2ffeedbacklist[leadf2ffeedbacklist.Count -1 ] : null;
 
 
+			cancelButton.TouchUpInside += (object sender, EventArgs e) => {
+				UserMeetings usermeeting = new UserMeetings();
+				usermeeting.Id = meetingObj.Id;
+				usermeeting.Status="Done";
+				AppDelegate.userBL.UpdateMeetingList(usermeeting);
+				DismissViewController(true,null);
+			};
 
 			ButtonLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonLikeMeeting.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
@@ -105,7 +114,7 @@ namespace donow.iOS
 				ViewF2FMeetingDown.Hidden = true;
 				localReasonForDown = "";
 				TableViewInteractionDislikeReason.Hidden = true;
-				ViewSecond.Frame = new CGRect (0, 193, 414, 1134);
+				ViewSecond.Frame = new CGRect (0, 193, this.View.Bounds.Size.Width, 1134);
 //				ViewFirst.Frame = new CGRect (0, 0, 414, 193);
 			};
 
@@ -117,7 +126,7 @@ namespace donow.iOS
 				ViewF2FMeetingDown.Hidden = false;
 //				ViewFirstDropDown.Frame = new CGRect(0,70,414,334);
 //				ViewFirst.Frame = new CGRect (0, 0, 414, 334);
-				ViewSecond.Frame = new CGRect (0, 327, 414, 1134);
+				ViewSecond.Frame = new CGRect (0, 327, this.View.Bounds.Size.Width, 1134);
 				ButtonMeetingDislikeReasonDropDown.Enabled = true;
 			};
 
@@ -128,7 +137,7 @@ namespace donow.iOS
 				localConfirmMeeting = "SIDE";
 				localReasonForDown = "";
 				ViewF2FMeetingDown.Hidden = true;
-				ViewSecond.Frame = new CGRect (0, 193, 414, 1134);
+				ViewSecond.Frame = new CGRect (0, 193, this.View.Bounds.Size.Width, 1134);
 				TableViewInteractionDislikeReason.Hidden = true;
 
 			};

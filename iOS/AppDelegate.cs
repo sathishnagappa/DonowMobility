@@ -72,7 +72,7 @@ namespace donow.iOS
 			brokerBL = new BrokerBL ();
 			industryBL = new IndustryBL ();
 
-			UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
+			//UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();

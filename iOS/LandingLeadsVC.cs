@@ -289,8 +289,6 @@ namespace donow.iOS
 						};
 						alert.AddButton ("OK");
 						alert.Show ();
-						
-
 					}
 
 				} else if (owner.leadDetails.USER_LEAD_STATUS != 5) {
@@ -305,7 +303,7 @@ namespace donow.iOS
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 150.0f;
+				return 180.0f;
 			}
 
 

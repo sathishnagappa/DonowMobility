@@ -15,7 +15,8 @@ namespace donow.iOS
 	partial class prospectDetailsVC : UIViewController
 	{
 		public Leads localLeads;
-		List<Broker> brokerList;
+		//List<Broker> brokerList;
+		Prospect prospectDetails;
 
 		public prospectDetailsVC (IntPtr handle) : base (handle)
 		{
@@ -44,34 +45,12 @@ namespace donow.iOS
 					this.NavigationController.PushViewController(landingleads,true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-			if(localLeads.LEAD_TYPE == "Y")
-				this.NavigationItem.Title = "Lead Prospect";
-			else 
-				this.NavigationItem.Title = "Prospect";
+//			if(localLeads.LEAD_TYPE == "Y")
+//				this.NavigationItem.Title = "Lead Prospect";
+//			else 
+				this.NavigationItem.Title = "Lead Details";
 			
-			ScrollViewProspectDetails.ContentSize = new CGSize (375f, 650f);
-
-			AppDelegate.CurrentLead = localLeads;
-			LabelProspectName.Text = localLeads.LEAD_NAME;
-			LabelProspectCompanyName.Text = localLeads.COMPANY_NAME;
-			string coma = (string.IsNullOrEmpty (localLeads.CITY) || string.IsNullOrEmpty (localLeads.STATE)) ? "" : ", ";
-			LabelProspectCityandState.Text = localLeads.CITY + coma + localLeads.STATE;
-			LabelLeadScore.Text = localLeads.LEAD_SCORE.ToString();
-			LabelLeadSource.Text = localLeads.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
-
-			brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
-
-			showBrokerImage (brokerList.Count);
-
-			if (localLeads.LEAD_STATUS.Equals(1)) {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Close Sale Highlight.png");
-			} else if (localLeads.LEAD_STATUS.Equals(2)) {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Proposal Highlight.png");
-			} else if (localLeads.LEAD_STATUS.Equals(3)) {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Follow Up Highlight.png");
-			} else {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Acquire Lead Highlight.png");
-			}
+			LoadData ();
 
 			ButtonPhoneProspect.TouchUpInside += (object sender, EventArgs e) => {
 				var phone = string.IsNullOrEmpty(localLeads.PHONE.Trim()) == true ? "0" : localLeads.PHONE;
@@ -148,6 +127,86 @@ namespace donow.iOS
 					this.NavigationController.PushViewController(myDealMaker,true);					
 				}
 			};
+
+//			ButtonPass.TouchUpInside += (object sender, EventArgs e) => {
+//				//ButtonBackgroundView.Hidden = false;
+//				//ViewPass.Hidden = false;
+//				//isLeadAccepted = false;
+//			};
+
+//			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
+//				ViewPass.Hidden = true;
+//				ButtonBackgroundView.Hidden = true;
+//				AppDelegate.leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,reasonForPass,AppDelegate.UserDetails.UserId);
+//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
+//				if (landingLeadsVC != null) {
+//					this.NavigationController.PushViewController(landingLeadsVC, true);
+//				}
+//
+//			};
+		}
+
+		protected override void Dispose (bool disposing)
+		{
+			if (TableViewEmails.Source != null)
+				TableViewEmails.Source.Dispose ();
+			if (TableViewMeetings.Source != null)
+				TableViewMeetings.Source.Dispose ();
+			if (TableViewPreviousMeetings.Source != null)
+				TableViewPreviousMeetings.Source.Dispose ();
+			base.Dispose (disposing);
+		}
+
+		void LoadData()
+		{
+			ScrollViewProspectDetails.ContentSize = new CGSize (375f, 1900f);
+
+			prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId);
+
+			List<UserMeetings> listMeeting = prospectDetails.UserMeetingList;
+			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
+			List<UserMeetings> PreviousMeetingsList = new List<UserMeetings>(); 
+
+			foreach(var item in listMeeting)
+			{
+				if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
+					UCommingMeetinglist.Add (item);
+				} else {
+					PreviousMeetingsList.Add (item);
+				}
+
+			}
+
+			if(prospectDetails.customerInteractionList  != null && prospectDetails.customerInteractionList.Count !=0)
+				TableViewEmails.Source = new TableSourceInteractionWithCustomer (prospectDetails.customerInteractionList , this);
+			if(UCommingMeetinglist.Count != 0)
+				TableViewMeetings.Source = new TableSourceupComingMeetings (UCommingMeetinglist,this);
+			if(PreviousMeetingsList.Count !=0)
+				TableViewPreviousMeetings.Source = new TableSourcePreviousMeetings (PreviousMeetingsList,this);
+
+			AppDelegate.CurrentLead = localLeads;
+			LabelProspectName.Text = prospectDetails.LEAD_NAME;
+			LabelProspectCompanyName.Text = prospectDetails.COMPANY_NAME;
+			string coma = (string.IsNullOrEmpty (prospectDetails.CITY) || string.IsNullOrEmpty (prospectDetails.STATE)) ? "" : ", ";
+			LabelProspectCityandState.Text = prospectDetails.CITY + coma + prospectDetails.STATE;
+			LabelLeadScore.Text = prospectDetails.LEAD_SCORE.ToString();
+			LabelLeadSource.Text = prospectDetails.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
+			labelIndustry.Text = prospectDetails.INDUSTRY_INFO;
+			LabelLineOfBussiness.Text = prospectDetails.BUSINESS_NEED;
+
+			//brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
+
+			showBrokerImage (prospectDetails.brokerList.Count);
+
+			if (localLeads.LEAD_STATUS.Equals("(4) Close Sale")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Close Sale Highlight.png");
+			} else if (localLeads.LEAD_STATUS.Equals("(2) Proposal")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Proposal Highlight.png");
+			} else if (localLeads.LEAD_STATUS.Equals("(3) Follow Up")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Follow Up Highlight.png");
+			} else {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Acquire Lead Highlight.png");
+			}
 		}
 
 		void showBrokerImage (int count) {
@@ -163,14 +222,14 @@ namespace donow.iOS
 				break;
 			case 1:
 				ButtonSeeAllBrokers.Hidden = false;
-				LabelScoreFirstBroker.Text = "Score: " + brokerList [0].BrokerScore;
+				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
 				ImageSecondBroker.Hidden = true; LabelScoreSecondBroker.Hidden = true;
 				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
 				break;
 			case 2:
 				ButtonSeeAllBrokers.Hidden = false;
-				LabelScoreFirstBroker.Text = "Score: " + brokerList [0].BrokerScore;
-				LabelScoreSecondBroker.Text = "Score: " + brokerList [1].BrokerScore;
+				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
+				LabelScoreSecondBroker.Text = "Score: " + prospectDetails.brokerList[1].BrokerScore;
 				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
 				break;
 			default:
@@ -178,12 +237,153 @@ namespace donow.iOS
 				LabelScoreFirstBroker.Hidden = false;
 				LabelScoreSecondBroker.Hidden = false;
 				LabelScoreThirdBroker.Hidden = false;
-				LabelScoreFirstBroker.Text = "Score: " + brokerList[0].BrokerScore;
-				LabelScoreSecondBroker.Text = "Score: " + brokerList [1].BrokerScore;
-				LabelScoreThirdBroker.Text = "Score: " + brokerList [2].BrokerScore;
+				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
+				LabelScoreSecondBroker.Text = "Score: " + prospectDetails.brokerList[1].BrokerScore;
+				LabelScoreThirdBroker.Text = "Score: " + prospectDetails.brokerList[2].BrokerScore;
 				break;
 			}
 		}
+
+	public class TableSourceInteractionWithCustomer : UITableViewSource {
+
+		string CellIdentifier = "InteractionWithCustomer";
+		List<CustomerInteraction> TableItems;
+		//customerProfileVC owner;
+
+		public TableSourceInteractionWithCustomer (List<CustomerInteraction> items, prospectDetailsVC owner)
+		{
+			TableItems = items;
+			//this.owner = owner;
+		}
+
+		public override nint RowsInSection (UITableView tableview, nint section)
+		{
+			return TableItems.Count;
+		}
+
+		public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+		{				
+			var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewTableCellinteractionWithCustomerCell;
+
+			if (cell == null) {
+				cell = new CustomerViewTableCellinteractionWithCustomerCell (CellIdentifier);
+			}
+
+			//				Leads leadsObj = TableItems[indexPath.Row];
+			cell.UpdateCell(TableItems[indexPath.Row]);
+			return cell;
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			tableView.DeselectRow (indexPath, true);
+
+		}
+
+		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return 80.0f;
+		}
+	}
+	public class TableSourceupComingMeetings : UITableViewSource {
+		string CellIdentifier = "upComingMeetingsCell";
+		List<UserMeetings> TableItems;
+		prospectDetailsVC owner;
+
+		public TableSourceupComingMeetings (List<UserMeetings> items, prospectDetailsVC owner)
+		{
+			TableItems = items;
+			this.owner = owner;
+		}
+
+		public override nint RowsInSection (UITableView tableview, nint section)
+		{
+			return TableItems.Count;
+
+		}
+
+		public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+		{                
+			var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewTableCellUpcomingMeetings;
+
+			if (cell == null) {
+				cell = new CustomerViewTableCellUpcomingMeetings (CellIdentifier);
+			}
+
+			cell.UpdateCell(TableItems[indexPath.Row]);
+			return cell;
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+
+			tableView.DeselectRow (indexPath, true);
+			MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
+			if (myMeetingsObj != null) {
+				myMeetingsObj.meetingObj = TableItems[indexPath.Row];
+					myMeetingsObj.customer = new Customer();
+					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
+					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
+					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
+				owner.NavigationController.PushViewController(myMeetingsObj,true);
+			}
+		}
+
+		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return 100.0f;
+		}
+	}
+
+	public class TableSourcePreviousMeetings : UITableViewSource {
+		string CellIdentifier = "PreviousMeetingsCell";
+		List<UserMeetings> TableItems;
+		prospectDetailsVC owner;
+
+		public TableSourcePreviousMeetings (List<UserMeetings> items, prospectDetailsVC owner)
+		{
+			TableItems = items;
+			this.owner = owner;
+		}
+
+		public override nint RowsInSection (UITableView tableview, nint section)
+		{
+			return TableItems.Count;
+
+		}
+
+		public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+		{                
+			var cell = tableView.DequeueReusableCell (CellIdentifier) as CustomerViewPreviousMeetings;
+
+			if (cell == null) {
+				cell = new CustomerViewPreviousMeetings (CellIdentifier);
+			}
+
+			cell.UpdateCell(TableItems[indexPath.Row]);
+			return cell;
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+
+			tableView.DeselectRow (indexPath, true);
+			MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
+			if (myMeetingsObj != null) {
+				myMeetingsObj.meetingObj = TableItems[indexPath.Row];
+					myMeetingsObj.customer = new Customer();
+					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
+					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
+					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
+				owner.NavigationController.PushViewController(myMeetingsObj,true);
+			}
+		}
+
+		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return 100.0f;
+		}
+	}
 	}
 }
 

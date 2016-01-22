@@ -34,21 +34,22 @@ namespace donow.iOS
 			this.Title = "Deal Maker";
 			ViewBackgroundTransparent.Hidden = true;
 			ViewSendRequestView.Hidden = true;
+
 			if (!AppDelegate.IsFromProspect) {
 				ButtonSendRequest.Hidden = true;
 				ButtonCancel.Hidden = true;
 			}
 
-			ViewSendRequestView.Layer.CornerRadius = 10.0f;
+			if (brokerObj.Status != 1) {
+				ButtonSendRequest.Hidden = true;
+				//ButtonCancel.Hidden = true;
+			}
+
+      		ViewSendRequestView.Layer.CornerRadius = 10.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 5.0f;
 			LabelNameDealMaker.Text = brokerObj.City + " Deal Maker";
 			LabelBrokerJobTitle.Text = brokerObj.BrokerTitle;
 
-			if (brokerObj.Status == 2) {
-				ButtonSendRequest.Hidden = true;
-				ButtonCancel.Hidden = true;
-			}
-				
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
 				
 				AppDelegate.brokerBL.UpdateBrokerStatus(brokerObj.BrokerID, 2,brokerObj.LeadID);
@@ -105,7 +106,9 @@ namespace donow.iOS
 
 				ViewBackgroundTransparent.Hidden = false;
 				ViewSendRequestView.Hidden = false;
-				ButtonSendRequest.Enabled = false;
+				//ButtonSendRequest.Enabled = false;
+				ButtonSendRequest.Hidden = true;
+				//ButtonCancel.Hidden = true;
 			};
 			ButtonOkSendRequestView.TouchUpInside += (object sender, EventArgs e) => {
 				ViewBackgroundTransparent.Hidden = true;

@@ -22,7 +22,7 @@ namespace donow.iOS
 		{
 		}
 
-		public UserMeetings userMeetings;
+		//public UserMeetings userMeetings;
 		public Leads leadObj;
 		string Interaction = string.Empty;
 		string CustomerAcknowledge = string.Empty;
@@ -58,6 +58,14 @@ namespace donow.iOS
 				"(4) Close Sale"
 			};
 
+
+
+			cancelButton.TouchUpInside += (object sender, EventArgs e) => {
+
+				DismissViewController(true,null);
+
+			};
+
 			LabelInteractionTitle.Text = "Your Interaction With " + leadObj.LEAD_NAME;
 			ButtonSubmit.Layer.CornerRadius = 5.0f;
 			ButtonLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
@@ -84,7 +92,7 @@ namespace donow.iOS
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, 375, 1000);
+				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 1000);
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this,"Interaction");
 
@@ -101,7 +109,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 325, 375, 1000);
+				ViewSecond.Frame = new CGRect (0, 325, this.View.Bounds.Size.Width, 1000);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
@@ -109,7 +117,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, 375, 1000);
+				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 1000);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
@@ -128,42 +136,40 @@ namespace donow.iOS
 				leadfeedback.ReasonForDown = Interaction == "DOWN" ? ButtonInteractionDislikeReasonDropDown.CurrentTitle : "";
 				leadfeedback.InteractionFeedBack = Interaction;
 				leadfeedback.CustomerAcknowledged = CustomerAcknowledge;
-				leadfeedback.Comments = TextViewComments.Text;
+				leadfeedback.Comments = TextViewComments.Text == "Enter comments here..." ? "" : TextViewComments.Text ;
 				leadfeedback.MeetingID = AppDelegate.UserDetails.UserId;
 				leadfeedback.SalesStage = salesStage;
 				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
 
-//				UserMeetings usermeeting = new UserMeetings();
-//				usermeeting.Id = userMeetings.Id;
-//				usermeeting.Status="Done";
-//				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 
-//				if(salesStage == "(4) Close Sale")
-//				{
-//					DealHistroy dealHistory = new DealHistroy();
-//					dealHistory.UserId = AppDelegate.UserDetails.UserId;
-//					dealHistory.State = userMeetings.State;
-//					dealHistory.City = userMeetings.City;
-//					dealHistory.Date = userMeetings.EndDate;
-//					//dealHistory.country = "USA";
-//					dealHistory.CustomerName = userMeetings.CustomerName;
-//					dealHistory.LeadId = userMeetings.LeadId;
-//					AppDelegate.customerBL.SaveDealHistory(dealHistory);
-//					//Xamarin Insights tracking
-//					Insights.Track("Save DealHistory", new Dictionary <string,string>{
-//						{"UserId", dealHistory.UserId.ToString()},
-//						{"CustomerName", dealHistory.CustomerName},
-//						{"LeadId",dealHistory.LeadId.ToString()}
-//					});
-//				}
+				if(salesStage == "(4) Close Sale")
+				{
+					DealHistroy dealHistory = new DealHistroy();
+					dealHistory.UserId = AppDelegate.UserDetails.UserId;
+					dealHistory.State = leadObj.STATE;
+					dealHistory.City = leadObj.CITY;
+					dealHistory.Date = DateTime.Now.ToString();
+					//dealHistory.country = "USA";
+					dealHistory.CustomerName = leadObj.LEAD_NAME;
+					dealHistory.LeadId = leadObj.LEAD_ID;
+					dealHistory.BrokerID = 0; 
+					dealHistory.Lead_Industry = AppDelegate.UserDetails.Industry;
+					AppDelegate.customerBL.SaveDealHistory(dealHistory);
+					//Xamarin Insights tracking
+					Insights.Track("Save DealHistory", new Dictionary <string,string>{
+						{"UserId", dealHistory.UserId.ToString()},
+						{"CustomerName", dealHistory.CustomerName},
+						{"LeadId",dealHistory.LeadId.ToString()}
+					});
+				}
 
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
 					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
 				}
-				string[] salesStageArray = salesStage.Split(' ');
-				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
-				AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,leadObj.LEAD_ID,salesStatus);
+				//string[] salesStageArray = salesStage.Split(' ');
+				//string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
+				AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,leadObj.LEAD_ID,salesStage);
 
 				DismissViewController(true,null);
 				//Xamarin Insights tracking
@@ -183,10 +189,6 @@ namespace donow.iOS
 		}
 
 		void updateCell (string parameter, string tabletype) {
-
-
-
-
 			if (tabletype == "Interaction") {
 				ButtonInteractionDislikeReasonDropDown.SetTitle (parameter, UIControlState.Normal);
 				TableViewInteractionDislikerReason.Hidden = true;

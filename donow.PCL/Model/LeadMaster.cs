@@ -13,6 +13,7 @@ namespace donow.PCL
 		public int USER_LEAD_STATUS { get; set; }
 		public string LeadIndustry { get; set; }
 		public string CreatedOn { get; set; }
+		public string LEAD_TYPE { get; set; }
 	}
 }
 

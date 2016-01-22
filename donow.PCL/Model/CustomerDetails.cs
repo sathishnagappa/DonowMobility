@@ -20,6 +20,7 @@ namespace donow.PCL
 		public Broker broker { get; set; }
 		public int LeadSource  { get; set; }
 		public int LeadScore { get; set; }
+
 	}
 }
 

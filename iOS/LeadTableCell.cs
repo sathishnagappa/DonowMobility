@@ -8,7 +8,7 @@ namespace donow.iOS
 {
 	public class LeadTableCell : UITableViewCell  {
 		
-		UILabel LabelLeadName, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead,LeadIndustry;
+		UILabel LabelLeadName, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead,LeadIndustry,LeadType;
 		UIImageView ImageViewLeadImage;
 
 		public LeadTableCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
@@ -68,6 +68,13 @@ namespace donow.iOS
 			};
 			ContentView.AddSubviews(new UIView[] {LabelNewLead});
 
+			LeadType = new UILabel () {
+				Font = UIFont.FromName("Arial", 19f),
+				TextColor = UIColor.FromRGB (35, 31, 32),
+				BackgroundColor = UIColor.Clear
+			};
+			ContentView.AddSubviews(new UIView[] {LeadType});
+
 			ImageViewLeadImage = new UIImageView () {
 				Image = UIImage.FromBundle("Salesperson Logo_Small.png")
 			};
@@ -85,6 +92,8 @@ namespace donow.iOS
 			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS) ;
 			LabelNewLead.TextAlignment = UITextAlignment.Right;
 			LeadIndustry.Text = lead.LeadIndustry;
+			LeadType.Text = lead.LEAD_TYPE == "Y" ? "Existing Customer" : "Prospect";
+
 		}
 
 		string  GetStatus(int Status)
@@ -116,9 +125,9 @@ namespace donow.iOS
 			LabelCompanyName.Frame = new CGRect (100, 47, 280, 25);
 			LabelCityAndState.Frame = new CGRect (100, 67, 280, 25);
 			LeadIndustry.Frame = new CGRect (100, 90, 300,25);
-
-			LabelScore.Frame = new CGRect (100, 115, 120, 25);
-			LabelScoreDigit.Frame = new CGRect (270, 115, 25, 25);
+			LeadType.Frame = new CGRect (100, 115, 280, 25);
+			LabelScore.Frame = new CGRect (100, 140, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 140, 25, 25);
 			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 170, 10, 150, 25);
 		}
 	}

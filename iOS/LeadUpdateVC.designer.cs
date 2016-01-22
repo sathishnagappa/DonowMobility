@@ -72,6 +72,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton cancelButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelConformMeeting { get; set; }
 
 		[Outlet]
@@ -167,6 +171,10 @@ namespace donow.iOS
 			if (ButtonSubmit != null) {
 				ButtonSubmit.Dispose ();
 				ButtonSubmit = null;
+			}
+			if (cancelButton != null) {
+				cancelButton.Dispose ();
+				cancelButton = null;
 			}
 			if (LabelConformMeeting != null) {
 				LabelConformMeeting.Dispose ();

@@ -48,11 +48,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel labelIndustry { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelLeadScore { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelLeadSource { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLineOfBussiness { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -81,6 +89,18 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewProspectDetails { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewEmails { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewMeetings { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewPreviousMeetings { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -116,6 +136,10 @@ namespace donow.iOS
 				ImageThirdBroker.Dispose ();
 				ImageThirdBroker = null;
 			}
+			if (labelIndustry != null) {
+				labelIndustry.Dispose ();
+				labelIndustry = null;
+			}
 			if (LabelLeadScore != null) {
 				LabelLeadScore.Dispose ();
 				LabelLeadScore = null;
@@ -123,6 +147,10 @@ namespace donow.iOS
 			if (LabelLeadSource != null) {
 				LabelLeadSource.Dispose ();
 				LabelLeadSource = null;
+			}
+			if (LabelLineOfBussiness != null) {
+				LabelLineOfBussiness.Dispose ();
+				LabelLineOfBussiness = null;
 			}
 			if (LabelProspectCityandState != null) {
 				LabelProspectCityandState.Dispose ();
@@ -151,6 +179,18 @@ namespace donow.iOS
 			if (ScrollViewProspectDetails != null) {
 				ScrollViewProspectDetails.Dispose ();
 				ScrollViewProspectDetails = null;
+			}
+			if (TableViewEmails != null) {
+				TableViewEmails.Dispose ();
+				TableViewEmails = null;
+			}
+			if (TableViewMeetings != null) {
+				TableViewMeetings.Dispose ();
+				TableViewMeetings = null;
+			}
+			if (TableViewPreviousMeetings != null) {
+				TableViewPreviousMeetings.Dispose ();
+				TableViewPreviousMeetings = null;
 			}
 		}
 	}

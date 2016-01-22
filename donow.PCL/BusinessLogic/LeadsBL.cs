@@ -256,6 +256,22 @@ namespace donow.PCL
 			return result;
 
 		}
+
+		public Prospect GetProspectDetails(int Leadid, int userID)
+		{
+			RestService restSevice = new RestService ();
+			string leadsApicall = Constants.LeadsAPI + "?LeadID=" + Leadid + "&UserID=" + userID + "&Type=Prospect";
+			var parsedResponse = new Prospect();
+			try
+			{
+				string response =  restSevice.GetData (leadsApicall);
+				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Prospect>(response.ToString());
+			}
+			catch {
+
+			}
+			return parsedResponse;
+		}
 	}
 }
 

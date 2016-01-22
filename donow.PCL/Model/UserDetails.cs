@@ -28,6 +28,8 @@ namespace donow.PCL.Model
 		public bool IsMeetingRemindersRequired { get; set; }
 		public bool IsBusinessUpdatesRequired { get; set; }
 		public string ImageUrl { get; set; }
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 	}
 }
 

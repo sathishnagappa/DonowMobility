@@ -25,12 +25,7 @@ namespace donow.iOS
 		public bool TableSeeAllClicked = false;
 
 		public override void ViewWillDisappear (bool animated)
-		{
-//				TableViewEmails.Dispose ();
-//				TableViewDealHistory.Dispose ();
-//				TableViewMeetings.Dispose ();
-//				TableViewPreviousMeetings.Dispose ();
-			
+		{			
 			base.ViewWillDisappear (animated);
 
 		}
@@ -130,10 +125,7 @@ namespace donow.iOS
 		void LoadScreenData()
 		{
 			customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.LeadId,AppDelegate.UserDetails.UserId);
-			//List<CustomerInteraction> customerInteractionList = AppDelegate.customerBL.GetCustomerInteraction (customer.Name,AppDelegate.UserDetails.UserId);
 
-			//List<UserMeetings> listMeeting = new List<UserMeetings> ();
-			//listMeeting = AppDelegate.userBL.GetMeetings(customer.Name);
 			List<UserMeetings> listMeeting = customerDetails.UserMeetingList;
 			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
 			List<UserMeetings> PreviousMeetingsList = new List<UserMeetings>(); 
@@ -148,10 +140,7 @@ namespace donow.iOS
 
 			}	
 
-			//List<DealHistroy> listDealHistory = new List<DealHistroy> ();
-			//listDealHistory = AppDelegate.customerBL.GetDealHistroy (customer.LeadId, AppDelegate.UserDetails.UserId);
-
-			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 1850.0f);
+			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 1900.0f);
 
 			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
 				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);
