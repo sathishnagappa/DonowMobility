@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="iOS/donow.iOS.csproj">
+<Properties StartupItem="iOS/donow.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.iPhone 6 plus" />
   <MonoDevelop.Ide.Workbench ActiveDocument="iOS/customerProfileVC.cs">
     <Files>
@@ -14,11 +14,13 @@
       <File FileName="iOS/LandingLeadsVC.cs" Line="69" Column="33" />
       <File FileName="iOS/LeadDetailVC.cs" Line="158" Column="50" />
       <File FileName="iOS/LandingCustomerVC.cs" Line="68" Column="1" />
+
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/customerProfileVC.cs" line="162" column="1" />
+
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -11,7 +11,10 @@ using MessageUI;
 using System.Linq;
 using Xamarin;
 using System.Threading.Tasks;
+<<<<<<< HEAD
 using donow.Util;
+=======
+>>>>>>> origin/master
 
 namespace donow.iOS
 
@@ -29,22 +32,35 @@ namespace donow.iOS
 		public override void ViewWillDisappear (bool animated)
 		{			
 			base.ViewWillDisappear (animated);
+<<<<<<< HEAD
 			//this.Dispose ();
+=======
+			this.Dispose ();
+>>>>>>> origin/master
 		}
 
 		protected override void Dispose (bool disposing)
 		{
-			if (TableViewEmails.Source != null)
+			if (TableViewEmails.Source != null) {
 				TableViewEmails.Source.Dispose ();
-			if (TableViewDealHistory.Source != null)
+				TableViewEmails.Source = null;
+			}
+			if (TableViewDealHistory.Source != null) {
 				TableViewDealHistory.Source.Dispose ();
-			if (TableViewMeetings.Source != null)
+				TableViewDealHistory.Source = null;
+			}
+			if (TableViewMeetings.Source != null) {
 				TableViewMeetings.Source.Dispose ();
-			if (TableViewPreviousMeetings.Source != null)
+				TableViewMeetings.Source = null;
+			}
+			if (TableViewPreviousMeetings.Source != null) {
 				TableViewPreviousMeetings.Source.Dispose ();
+				TableViewPreviousMeetings.Source = null;
+			}
 			base.Dispose (disposing);
 		}
 
+<<<<<<< HEAD
 //		public override void ViewDidUnload ()
 //		{
 //			if (TableViewEmails.Source != null)
@@ -59,6 +75,9 @@ namespace donow.iOS
 //		}
 
 		public async override void ViewDidLoad ()
+=======
+		public override  async void ViewDidLoad ()
+>>>>>>> origin/master
 		{
 			base.ViewDidLoad ();
 
@@ -140,16 +159,26 @@ namespace donow.iOS
 			};
 
 			await LoadCustomerAndMeetingInfo ();
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
 		}
 
 		async Task LoadCustomerAndMeetingInfo () {
 
+<<<<<<< HEAD
 			List<BingResult>  bingResult =  AppDelegate.customerBL.GetBingResult (customerDetails.Company + " + Products");
 			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
 
 			string[] customerNameArray = customerDetails.Company.Split ();
+=======
+			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
+			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
+
+			string[] customerNameArray = customer.Company.Split ();
+>>>>>>> origin/master
 			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
 			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
@@ -157,10 +186,16 @@ namespace donow.iOS
 				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
 					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
 					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
+<<<<<<< HEAD
 
 			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
 			TableViewLatestCustomerInfo.ReloadData ();
 			loadingOverlay.Hide();
+=======
+			//			twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business")).ToList();	
+
+			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
+>>>>>>> origin/master
 		}
 
 		static UIImage FromUrl (string uri)
@@ -185,7 +220,6 @@ namespace donow.iOS
 				} else {
 					PreviousMeetingsList.Add (item);
 				}
-
 			}	
 
 			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 2600.0f);
@@ -193,7 +227,7 @@ namespace donow.iOS
 			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
 				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);
 			if(customerDetails.dealHistoryList != null && customerDetails.dealHistoryList.Count !=0)
-				TableViewDealHistory.Source = new TableSourceDealHistory(customerDetails.dealHistoryList,this); 
+				TableViewDealHistory.Source = new TableSourceDealHistory(customerDetails.dealHistoryList); 
 			if(UCommingMeetinglist.Count != 0)
 				TableViewMeetings.Source = new TableSourceupComingMeetings (UCommingMeetinglist,this);
 			if(PreviousMeetingsList.Count !=0)
@@ -399,9 +433,8 @@ namespace donow.iOS
 
 			string CellIdentifier = "LeadsTableCell";
 			List<DealHistroy> TableItems;
-			//customerProfileVC owner;
 
-			public TableSourceDealHistory (List<DealHistroy> items, customerProfileVC owner)
+			public TableSourceDealHistory (List<DealHistroy> items)
 			{
 				TableItems = items;
 				//this.owner = owner;
@@ -409,9 +442,7 @@ namespace donow.iOS
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-	
-					return TableItems.Count;
-
+				return TableItems.Count;
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)

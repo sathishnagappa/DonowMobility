@@ -43,7 +43,7 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 			//custDictionary = new Dictionary<string, List<Customer>> ();
-			cellIndexCount = 0;
+//			cellIndexCount = 0;
 			LoadCustomers ();
 
 			searchBarCustomer.Hidden=true;
@@ -102,26 +102,13 @@ namespace donow.iOS
 				else
 				{
 					flag=true;
-
-
 					searchBarCustomer.Hidden=false;
-
-
 					this.TableViewCustomerList.Frame =new CGRect (this.TableViewCustomerList.Frame.X, 45, this.TableViewCustomerList.Frame.Size.Width, this.TableViewCustomerList.Frame.Size.Height);
-
-
 				}
-
 			};
 //			};
 			NavigationItem.RightBarButtonItem = btn;
-
-
-
-
 			txtSearched = searchBarCustomer.Text;
-
-
 		}
 
 		public void changeText (List<Customer> PerformSearch) {

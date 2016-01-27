@@ -142,6 +142,7 @@ namespace donow.iOS
 		void SetImageAndTitle()
 		{
 			//switch (referralRequestType) {
+			LabelRRTitle.LineBreakMode = UILineBreakMode.WordWrap;
 
 			if (referralRequestType == "New") {
 				ImageRR.Image = UIImage.FromBundle ("New Referral Request Icon.png");

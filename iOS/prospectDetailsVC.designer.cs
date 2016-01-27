@@ -48,7 +48,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel labelIndustry { get; set; }
+		UITextView labelIndustry { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -60,7 +60,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelLineOfBussiness { get; set; }
+		UITextView LabelLineOfBussiness { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

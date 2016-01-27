@@ -23,8 +23,7 @@ namespace donow.iOS
 		}
 
 		public override void ViewWillAppear (bool animated)
-		{
-			
+		{			
 			base.ViewWillAppear (animated);
 			//AppDelegate.IsProspectVisited = true;
 			//UpdateSalesStage();
@@ -172,6 +171,7 @@ namespace donow.iOS
 
 			if(listMeeting != null)
 			{
+<<<<<<< HEAD
 				foreach (var item in listMeeting) {
 					if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
 						UCommingMeetinglist.Add (item);
@@ -179,6 +179,12 @@ namespace donow.iOS
 						PreviousMeetingsList.Add (item);
 					}
 
+=======
+				if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
+					UCommingMeetinglist.Add (item);
+				} else {
+					PreviousMeetingsList.Add (item);
+>>>>>>> origin/master
 				}
 			}
 
