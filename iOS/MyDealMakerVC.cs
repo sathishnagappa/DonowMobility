@@ -112,21 +112,21 @@ namespace donow.iOS
 			}
 
 			[Foundation.Export("searchBarShouldBeginEditing:")]
-			public virtual Boolean ShouldBeginEditing (UISearchBar searchBar)
+			public override Boolean ShouldBeginEditing (UISearchBar searchBar)
 			{
 //				owner.isSearchStarted = true;
 				return true;
 			}
 
 			[Foundation.Export("searchBarShouldEndEditing:")]
-			public virtual Boolean ShouldEndEditing (UISearchBar searchBar)
+			public override Boolean ShouldEndEditing (UISearchBar searchBar)
 			{
 				//_localSearchTableView.RemoveFromSuperview ();
 				return true;
 			}
 
 			[Foundation.Export("searchBar:textDidChange:")]
-			public virtual void TextChanged (UISearchBar searchBar, String searchText)
+			public override void TextChanged (UISearchBar searchBar, String searchText)
 			{
 				List<Broker> PerformSearch =owner.brokerList.Where (x => x.City.ToLower().StartsWith (searchBar.Text.ToLower())).ToList ();
 

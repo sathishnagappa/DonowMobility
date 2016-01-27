@@ -24,7 +24,8 @@ namespace donow.iOS
 			LabelIndustryName = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
-				BackgroundColor = UIColor.Clear
+				BackgroundColor = UIColor.Clear,
+				LineBreakMode = UILineBreakMode.WordWrap
 			};
 			ContentView.AddSubviews(new UIView[] {LabelIndustryName});
 
@@ -52,7 +53,8 @@ namespace donow.iOS
 			LabelBusinessNeeds = new UILabel () {
 				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
-				BackgroundColor = UIColor.Clear
+				BackgroundColor = UIColor.Clear,
+				LineBreakMode = UILineBreakMode.WordWrap
 			};
 			ContentView.AddSubviews(new UIView[] {LabelBusinessNeeds});
 
@@ -90,12 +92,12 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewLeadImage.Frame = new CGRect (25, 22, 50, 50);
-			LabelSellerName.Frame = new CGRect (100, 20, 180, 30);
-			LabelIndustryName.Frame = new CGRect (100, 50, 180, 25);
-			LabelLocation.Frame = new CGRect (100, 70, 180, 25);
+			LabelSellerName.Frame = new CGRect (100, 20, 250, 30);
+			LabelIndustryName.Frame = new CGRect (100, 50, 250, 25);
+			LabelLocation.Frame = new CGRect (100, 70, 250, 25);
 			ViewSeperator.Frame = new CGRect (100, 105, 414,1);
 
-			LabelProspect.Frame = new CGRect (100, 133, 180, 25);
+			LabelProspect.Frame = new CGRect (100, 133, 250, 25);
 			LabelBusinessNeeds.Frame = new CGRect (100, 153, 250, 25);
 			LabelNewRequest.Frame = new CGRect (40, 150, 60, 25);
 

@@ -23,8 +23,7 @@ namespace donow.iOS
 		}
 
 		public override void ViewWillAppear (bool animated)
-		{
-			
+		{			
 			base.ViewWillAppear (animated);
 			AppDelegate.IsProspectVisited = true;
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
@@ -174,7 +173,6 @@ namespace donow.iOS
 				} else {
 					PreviousMeetingsList.Add (item);
 				}
-
 			}
 
 			if(prospectDetails.customerInteractionList  != null && prospectDetails.customerInteractionList.Count !=0)

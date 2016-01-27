@@ -28,19 +28,27 @@ namespace donow.iOS
 		public override void ViewWillDisappear (bool animated)
 		{			
 			base.ViewWillDisappear (animated);
-
+			this.Dispose ();
 		}
 
 		protected override void Dispose (bool disposing)
 		{
-			if (TableViewEmails.Source != null)
+			if (TableViewEmails.Source != null) {
 				TableViewEmails.Source.Dispose ();
-			if (TableViewDealHistory.Source != null)
+				TableViewEmails.Source = null;
+			}
+			if (TableViewDealHistory.Source != null) {
 				TableViewDealHistory.Source.Dispose ();
-			if (TableViewMeetings.Source != null)
+				TableViewDealHistory.Source = null;
+			}
+			if (TableViewMeetings.Source != null) {
 				TableViewMeetings.Source.Dispose ();
-			if (TableViewPreviousMeetings.Source != null)
+				TableViewMeetings.Source = null;
+			}
+			if (TableViewPreviousMeetings.Source != null) {
 				TableViewPreviousMeetings.Source.Dispose ();
+				TableViewPreviousMeetings.Source = null;
+			}
 			base.Dispose (disposing);
 		}
 

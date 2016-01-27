@@ -21,11 +21,11 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386</MtouchArch>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>Full</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
+    <CodesignKey>iPhone Developer: Manish Billore (Y5624HZJVF)</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <CodesignProvision>851efc58-29f4-4c78-b649-65d56cdcb886</CodesignProvision>
+    <CodesignProvision>ac0abd4c-70d1-4c43-af6e-cbf8529ba79f</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
