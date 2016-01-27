@@ -32,18 +32,6 @@ namespace donow.iOS
 			LabelDomainExpertise.Text = brokerObj.DomainExpertise;
 
 			ScrollViewDealMaker.ContentSize = new CGSize (375, 760);
-
-			ButtonBrokerExpand.TouchUpInside += (object sender, EventArgs e) =>  {
-
-			};
-
-			ButtonConnectionToLEadExpand.TouchUpInside += (object sender, EventArgs e) =>  {
-
-			};
-
-			ButtonDomainExpertiseExpand.TouchUpInside += (object sender, EventArgs e) =>  {
-
-			};
 		}
 	}
 }

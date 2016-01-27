@@ -16,19 +16,7 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonBrokerExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonConnectionToLEadExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonDomainExpertiseExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelBrokerInfo { get; set; }
+		UITextView LabelBrokerInfo { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -44,7 +32,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelConnectionsToLead { get; set; }
+		UITextView LabelConnectionsToLead { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -52,7 +40,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelDomainExpertise { get; set; }
+		UITextView LabelDomainExpertise { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -72,18 +60,6 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ButtonBrokerExpand != null) {
-				ButtonBrokerExpand.Dispose ();
-				ButtonBrokerExpand = null;
-			}
-			if (ButtonConnectionToLEadExpand != null) {
-				ButtonConnectionToLEadExpand.Dispose ();
-				ButtonConnectionToLEadExpand = null;
-			}
-			if (ButtonDomainExpertiseExpand != null) {
-				ButtonDomainExpertiseExpand.Dispose ();
-				ButtonDomainExpertiseExpand = null;
-			}
 			if (LabelBrokerInfo != null) {
 				LabelBrokerInfo.Dispose ();
 				LabelBrokerInfo = null;

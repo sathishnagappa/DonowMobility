@@ -68,6 +68,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewLatestCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableViewLatestNews { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewMeetings { get; set; }
 
 		[Outlet]
@@ -127,6 +135,14 @@ namespace donow.iOS
 			if (TableViewEmails != null) {
 				TableViewEmails.Dispose ();
 				TableViewEmails = null;
+			}
+			if (TableViewLatestCustomerInfo != null) {
+				TableViewLatestCustomerInfo.Dispose ();
+				TableViewLatestCustomerInfo = null;
+			}
+			if (TableViewLatestNews != null) {
+				TableViewLatestNews.Dispose ();
+				TableViewLatestNews = null;
 			}
 			if (TableViewMeetings != null) {
 				TableViewMeetings.Dispose ();

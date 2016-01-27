@@ -1,7 +1,0 @@
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/bin/Release/donow.UITests.dll.mdb
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/bin/Release/donow.UITests.dll
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/obj/Release/donow.UITests.dll
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/obj/Release/donow.UITests.dll.mdb
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/bin/Release/Xamarin.UITest.dll
-/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/UITests/bin/Release/nunit.framework.dll

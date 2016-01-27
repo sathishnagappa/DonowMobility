@@ -17,7 +17,7 @@ namespace donow.iOS
 	{
 		public UserMeetings meetingObj;
 		public Customer customer;
-		LoadingOverlay loadingOverlay;
+//		LoadingOverlay loadingOverlay;
 		public MyMeetingsVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -34,7 +34,6 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-
 			LabelMeetingHeader.Text = "Meeting W/" + meetingObj.CustomerName;
 			LabelDateAndTime.Text = DateTime.Parse(meetingObj.StartDate).ToString("MMM. dd, yyyy  hh:mm tt");
 			LabelCityState.Text = meetingObj.City + ", " + meetingObj.State;
@@ -43,24 +42,22 @@ namespace donow.iOS
 				//LabelNotes.Text = 
 			//}
 
-
-			ScrollViewMeeting.ContentSize = new CGSize (375.0f, 1350f);
+			ScrollViewMeeting.ContentSize = new CGSize (375.0f, 824f);
 			await LoadMeetingData ();
-
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			TalkingPointTable.Source = null;
-			LatestCustomerInfoTable.Source = null;
-			LatestIndustryNewsTable.Source = null;
+//			LatestCustomerInfoTable.Source = null;
+//			LatestIndustryNewsTable.Source = null;
 			base.ViewWillDisappear (animated);
 		}
 
 		async Task LoadMeetingData()
 		{
 			//var meetingList = AppDelegate.CalendarList[0];
-			string[] TakingPoints = {
+			string[] TalkingPoints = {
 				"●  What is the dream solution if pricing was not a problem?",
 				"●  How do you want to maintain this solution long term?",
 				"●  What else are you willing to look into?",
@@ -72,14 +69,15 @@ namespace donow.iOS
 				"●  What would you like to change about things?"
 			};
 
-			string[] NewTakingPoints = {"●  Ask your prospect if they’d like to know more about how you could answer their needs?",
+			string[] NewTalkingPoints = {"●  Ask your prospect if they’d like to know more about how you could answer their needs?",
 				"●  Does this sound like something that can solve your problems/make you feel better/address your issues?",
 				"●  I feel really good about this, I know this is going to work well for us. What’s the best way to get things underway?",
 				"●  I could email you an order when I get back to the office or I could just get it from you now. What works best for you?"};
 
-			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
-			TalkingPointTable.Source = new TableSource(TakingPoints,NewTakingPoints);
-			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(bingResult, this);
+			TalkingPointTable.Source = new TableSource(TalkingPoints,NewTalkingPoints);
+
+//			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
+//			LatestIndustryNewsTable.Source = new CustomerIndustryTableSource(bingResult, this);
 
 //			var bounds = UIScreen.MainScreen.Bounds; // portrait bounds
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
@@ -88,20 +86,20 @@ namespace donow.iOS
 //			loadingOverlay = new LoadingOverlay (bounds);
 //			View.Add (loadingOverlay);
 
-			string[] customerNameArray = customer.Company.Split ();
-			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
-			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
-			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
-			if(twitterStream.Count > 0)
-				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
-					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
-					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
-//			twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business")).ToList();	
-			
-			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
-			TalkingPointTable.RowHeight = UITableView.AutomaticDimension;
-			//TalkingPointTable.EstimatedRowHeight = 100; 
-			LatestCustomerInfoTable.ReloadData ();
+//			string[] customerNameArray = customer.Company.Split ();
+//			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
+//			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
+//			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
+//			if(twitterStream.Count > 0)
+//				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
+//					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
+//					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
+////			twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business")).ToList();	
+//			
+//			LatestCustomerInfoTable.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
+//			TalkingPointTable.RowHeight = UITableView.AutomaticDimension;
+//			//TalkingPointTable.EstimatedRowHeight = 100; 
+//			LatestCustomerInfoTable.ReloadData ();
 			//loadingOverlay.Hide ();
 		}
 
@@ -149,7 +147,6 @@ namespace donow.iOS
 					CellIdentifier = oldCellIdentifier;
 					item = TableItems [indexPath.Row];
 
-
 				} else if (indexPath.Section == 1) {
 					CellIdentifier = NewCellIdentifier;
 					item = NewTableIttems [indexPath.Row];
@@ -187,105 +184,105 @@ namespace donow.iOS
 
 		}
 
-		public class CustomerInfoTableSource : UITableViewSource {
-
-			List<TwitterStream> TableItems;
-			string CellIdentifier = "TableCellCusomerInfo";
-
-			public CustomerInfoTableSource (List<TwitterStream> twitterstream)
-			{
-				TableItems = twitterstream;
-			}
-
-			public override nint RowsInSection (UITableView tableview, nint section)
-			{
-				return TableItems.Count;
-			}
-
-			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
-			{
-				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				TwitterStream item = TableItems[indexPath.Row];
-
-				//---- if there are no cells to reuse, create a new one
-				if (cell == null)
-				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
-
-				//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
-				cell.ImageView.Image = FromUrl(item.profile_image_url);
-				cell.TextLabel.Text = item.text;
-				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
-				cell.TextLabel.Lines = 0;
-
-				return cell;
-			}
-
-			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{			
-
-				tableView.DeselectRow (indexPath, true);
-			}
-
-			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
-			{
-				return 100.0f;
-			}
-
-		}
-
-
-
-		public class CustomerIndustryTableSource : UITableViewSource {
-
-			List<BingResult> TableItems;
-			string CellIdentifier = "TableCell";
-
-			MyMeetingsVC owner;
-
-			public CustomerIndustryTableSource (List<BingResult> meetingList, MyMeetingsVC owner)
-			{
-				TableItems = meetingList;
-				this.owner = owner;
-			}
-
-			public override nint RowsInSection (UITableView tableview, nint section)
-			{
-				return 5;
-			}
-
-			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
-			{
-				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				BingResult item = TableItems[indexPath.Row];
-
-				//---- if there are no cells to reuse, create a new one
-				if (cell == null)
-				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
-				cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
-				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
-				cell.TextLabel.Text = item.Title;
-				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
-				cell.TextLabel.Lines = 0;
-
-				return cell;
-			}
-
-			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
-				if (bingSearchVC != null) {
-					bingSearchVC.webURL = TableItems [indexPath.Row].Url;
-					//owner.View.AddSubview (leadDetailVC.View);
-					owner.NavigationController.PushViewController (bingSearchVC, true);
-				}
-				tableView.DeselectRow (indexPath, true);
-			}
-
-			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
-			{
-				return 105.0f;
-			}
-
-		}
+//		public class CustomerInfoTableSource : UITableViewSource {
+//
+//			List<TwitterStream> TableItems;
+//			string CellIdentifier = "TableCellCusomerInfo";
+//
+//			public CustomerInfoTableSource (List<TwitterStream> twitterstream)
+//			{
+//				TableItems = twitterstream;
+//			}
+//
+//			public override nint RowsInSection (UITableView tableview, nint section)
+//			{
+//				return TableItems.Count;
+//			}
+//
+//			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+//				TwitterStream item = TableItems[indexPath.Row];
+//
+//				//---- if there are no cells to reuse, create a new one
+//				if (cell == null)
+//				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+//
+//				//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
+//				cell.ImageView.Image = FromUrl(item.profile_image_url);
+//				cell.TextLabel.Text = item.text;
+//				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+//				cell.TextLabel.Lines = 0;
+//
+//				return cell;
+//			}
+//
+//			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+//			{			
+//
+//				tableView.DeselectRow (indexPath, true);
+//			}
+//
+//			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				return 100.0f;
+//			}
+//
+//		}
+//
+//
+//
+//		public class CustomerIndustryTableSource : UITableViewSource {
+//
+//			List<BingResult> TableItems;
+//			string CellIdentifier = "TableCell";
+//
+//			MyMeetingsVC owner;
+//
+//			public CustomerIndustryTableSource (List<BingResult> meetingList, MyMeetingsVC owner)
+//			{
+//				TableItems = meetingList;
+//				this.owner = owner;
+//			}
+//
+//			public override nint RowsInSection (UITableView tableview, nint section)
+//			{
+//				return 5;
+//			}
+//
+//			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+//				BingResult item = TableItems[indexPath.Row];
+//
+//				//---- if there are no cells to reuse, create a new one
+//				if (cell == null)
+//				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+//				cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
+//				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
+//				cell.TextLabel.Text = item.Title;
+//				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+//				cell.TextLabel.Lines = 0;
+//
+//				return cell;
+//			}
+//
+//			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+//				if (bingSearchVC != null) {
+//					bingSearchVC.webURL = TableItems [indexPath.Row].Url;
+//					//owner.View.AddSubview (leadDetailVC.View);
+//					owner.NavigationController.PushViewController (bingSearchVC, true);
+//				}
+//				tableView.DeselectRow (indexPath, true);
+//			}
+//
+//			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				return 105.0f;
+//			}
+//
+//		}
 	}
 }

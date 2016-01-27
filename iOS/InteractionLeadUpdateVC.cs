@@ -92,7 +92,7 @@ namespace donow.iOS
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 1000);
+				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this,"Interaction");
 
@@ -117,7 +117,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 1000);
+				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 

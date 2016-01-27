@@ -10,6 +10,7 @@ using donow.Services;
 using MessageUI;
 using System.Linq;
 using Xamarin;
+using System.Threading.Tasks;
 
 namespace donow.iOS
 
@@ -43,7 +44,7 @@ namespace donow.iOS
 			base.Dispose (disposing);
 		}
 
-		public override void ViewDidLoad ()
+		public override  async void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
@@ -118,9 +119,34 @@ namespace donow.iOS
 					this.PresentViewController (mailController, true, null);
 				}
 			};
+
+			await LoadCustomerAndMeetingInfo ();
 		}
 
+		async Task LoadCustomerAndMeetingInfo () {
 
+			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
+			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
+
+			string[] customerNameArray = customer.Company.Split ();
+			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
+			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
+			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
+			if(twitterStream.Count > 0)
+				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
+					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
+					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
+			//			twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business")).ToList();	
+
+			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
+		}
+
+		static UIImage FromUrl (string uri)
+		{
+			using (var url = new NSUrl (uri))
+			using (var data = NSData.FromUrl (url))
+				return UIImage.LoadFromData (data);
+		}
 
 		void LoadScreenData()
 		{
@@ -137,15 +163,14 @@ namespace donow.iOS
 				} else {
 					PreviousMeetingsList.Add (item);
 				}
-
 			}	
 
-			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 1900.0f);
+			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 2600.0f);
 
 			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
 				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);
 			if(customerDetails.dealHistoryList != null && customerDetails.dealHistoryList.Count !=0)
-				TableViewDealHistory.Source = new TableSourceDealHistory(customerDetails.dealHistoryList,this); 
+				TableViewDealHistory.Source = new TableSourceDealHistory(customerDetails.dealHistoryList); 
 			if(UCommingMeetinglist.Count != 0)
 				TableViewMeetings.Source = new TableSourceupComingMeetings (UCommingMeetinglist,this);
 			if(PreviousMeetingsList.Count !=0)
@@ -351,9 +376,8 @@ namespace donow.iOS
 
 			string CellIdentifier = "LeadsTableCell";
 			List<DealHistroy> TableItems;
-			//customerProfileVC owner;
 
-			public TableSourceDealHistory (List<DealHistroy> items, customerProfileVC owner)
+			public TableSourceDealHistory (List<DealHistroy> items)
 			{
 				TableItems = items;
 				//this.owner = owner;
@@ -361,9 +385,7 @@ namespace donow.iOS
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-	
-					return TableItems.Count;
-
+				return TableItems.Count;
 			}
 
 			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
@@ -389,6 +411,104 @@ namespace donow.iOS
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
 				return 80.0f;
+			}
+		}
+
+		public class CustomerInfoTableSource : UITableViewSource {
+
+			List<TwitterStream> TableItems;
+			string CellIdentifier = "TableCellCusomerInfo";
+
+			public CustomerInfoTableSource (List<TwitterStream> twitterstream)
+			{
+				TableItems = twitterstream;
+			}
+
+			public override nint RowsInSection (UITableView tableview, nint section)
+			{
+				return TableItems.Count;
+			}
+
+			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+			{
+				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+				TwitterStream item = TableItems[indexPath.Row];
+
+				//---- if there are no cells to reuse, create a new one
+				if (cell == null)
+				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+
+				//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
+				cell.ImageView.Image = FromUrl(item.profile_image_url);
+				cell.TextLabel.Text = item.text;
+				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+				cell.TextLabel.Lines = 0;
+
+				return cell;
+			}
+
+			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+			{			
+
+				tableView.DeselectRow (indexPath, true);
+			}
+
+			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+			{
+				return 100.0f;
+			}
+
+		}
+
+		public class CustomerIndustryTableSource : UITableViewSource {
+
+			List<BingResult> TableItems;
+			string CellIdentifier = "TableCell";
+
+			customerProfileVC owner;
+
+			public CustomerIndustryTableSource (List<BingResult> meetingList, customerProfileVC owner)
+			{
+				TableItems = meetingList;
+				this.owner = owner;
+			}
+
+			public override nint RowsInSection (UITableView tableview, nint section)
+			{
+				return 5;
+			}
+
+			public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+			{
+				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+				BingResult item = TableItems[indexPath.Row];
+
+				//---- if there are no cells to reuse, create a new one
+				if (cell == null)
+				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+				cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
+				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
+				cell.TextLabel.Text = item.Title;
+				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+				cell.TextLabel.Lines = 0;
+
+				return cell;
+			}
+
+			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+			{
+				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+				if (bingSearchVC != null) {
+					bingSearchVC.webURL = TableItems [indexPath.Row].Url;
+					//owner.View.AddSubview (leadDetailVC.View);
+					owner.NavigationController.PushViewController (bingSearchVC, true);
+				}
+				tableView.DeselectRow (indexPath, true);
+			}
+
+			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+			{
+				return 105.0f;
 			}
 		}
 	}

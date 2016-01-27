@@ -40,11 +40,11 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelCompanyInfoDescription { get; set; }
+		UITextView LabelCompanyInfoDescription { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel labelConnectionToLead { get; set; }
+		UITextView labelConnectionToLead { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

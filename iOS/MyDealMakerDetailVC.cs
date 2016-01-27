@@ -51,7 +51,13 @@ namespace donow.iOS
 			LabelBrokerJobTitle.Text = brokerObj.BrokerTitle;
 
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {
-				
+
+				ViewBackgroundTransparent.Hidden = false;
+				ViewSendRequestView.Hidden = false;
+				//ButtonSendRequest.Enabled = false;
+				ButtonSendRequest.Hidden = true;
+				//ButtonCancel.Hidden = true;
+
 				AppDelegate.brokerBL.UpdateBrokerStatus(brokerObj.BrokerID, 2,brokerObj.LeadID);
 				ReferralRequest rrnew = new ReferralRequest ();
 				rrnew.ID = 0;
@@ -103,12 +109,6 @@ namespace donow.iOS
 					return true;
 				};
 				SmtpServer.SendAsync(mail,null);
-
-				ViewBackgroundTransparent.Hidden = false;
-				ViewSendRequestView.Hidden = false;
-				//ButtonSendRequest.Enabled = false;
-				ButtonSendRequest.Hidden = true;
-				//ButtonCancel.Hidden = true;
 			};
 			ButtonOkSendRequestView.TouchUpInside += (object sender, EventArgs e) => {
 				ViewBackgroundTransparent.Hidden = true;
