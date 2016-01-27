@@ -4,6 +4,7 @@ using donow.Util;
 using donow.Services;
 using Bing;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace donow.PCL
 {
@@ -17,6 +18,15 @@ namespace donow.PCL
 		{
 			RestService restSevice = new RestService ();
 			string restUrl = Constants.CustomerDetails + "?UserID=" + userID;
+			string response = restSevice.GetData (restUrl);
+			List<Customer> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Customer>>(response.ToString());
+			return parsedResponse;
+		}
+
+		public List<Customer> GetCustomersMaster()
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.CustomerDetails;
 			string response = restSevice.GetData (restUrl);
 			List<Customer> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Customer>>(response.ToString());
 			return parsedResponse;

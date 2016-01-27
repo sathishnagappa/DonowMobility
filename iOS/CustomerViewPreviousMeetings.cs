@@ -7,18 +7,18 @@ namespace donow.iOS
 {
 	public class CustomerViewPreviousMeetings : UITableViewCell
 	{
-		UILabel LabelMeetingDate, LabelMeetingLocation;
+		UILabel LabelMeetingWith,LabelMeetingDate, LabelMeetingLocation;
 		UIImageView ImageViewMeeting;
 
 		public CustomerViewPreviousMeetings (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
-			//			LabelMeetingWith = new UILabel () {
-			//				Font = UIFont.FromName("Arial", 22f),
-			//				TextColor = UIColor.FromRGB (127, 51, 0),
-			//				BackgroundColor = UIColor.Clear
-			//			};
-			//			ContentView.AddSubviews(new UIView[] {LabelMeetingWith});
+						LabelMeetingWith = new UILabel () {
+							Font = UIFont.FromName("Arial", 16f),
+							TextColor = UIColor.Black,
+							BackgroundColor = UIColor.Clear
+						};
+						ContentView.AddSubviews(new UIView[] {LabelMeetingWith});
 
 			LabelMeetingDate = new UILabel () {
 				Font = UIFont.FromName("Arial", 16f),
@@ -35,8 +35,8 @@ namespace donow.iOS
 			//			ContentView.AddSubviews(new UIView[] {LabelMeetingTime});
 
 			LabelMeetingLocation = new UILabel () {
-				Font = UIFont.FromName("Arial", 14f),
-				TextColor = UIColor.Black,
+				Font = UIFont.FromName("Arial", 13f),
+				TextColor = UIColor.LightGray,
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelMeetingLocation});
@@ -49,7 +49,7 @@ namespace donow.iOS
 
 		public void UpdateCell (UserMeetings userMeetings)
 		{
-			//LabelMeetingWith.Text = userMeetings.CustomerName ;
+			LabelMeetingWith.Text = userMeetings.Subject ;
 			LabelMeetingDate.Text = DateTime.Parse(userMeetings.StartDate).ToString("MMM. dd, yyyy  hh:mm tt");
 			LabelMeetingLocation.Text = "Location: " + userMeetings.City + ", " + userMeetings.State;
 		} 
@@ -59,10 +59,10 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewMeeting.Frame = new CGRect (25, 19, 40, 35);
-			//LabelMeetingWith.Frame = new CGRect (117, 17, 272, 32);
-			LabelMeetingDate.Frame = new CGRect (85, 10, 272, 32);
+			LabelMeetingWith.Frame = new CGRect (85, 10, 272, 32);
+			LabelMeetingDate.Frame = new CGRect (85,35,290,21);
 			//			LabelMeetingTime.Frame = new CGRect (270,57,80,21);
-			LabelMeetingLocation.Frame = new CGRect (85,35,290,21);
+			LabelMeetingLocation.Frame = new CGRect (85,65,290,25);
 		}
 	}
 }

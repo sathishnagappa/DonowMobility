@@ -58,7 +58,6 @@ namespace donow.iOS
 		{
 			base.ViewWillDisappear (animated);
 			//this.Dispose ();
-			TableViewCustomerList.Source = null;
 			if (searchTableView == null) {
 				TableViewCustomerList.ReloadData ();
 			}

@@ -43,6 +43,7 @@ namespace donow.iOS
 		public static List<ReferralRequest> CurrentRRList;
 		public static bool IsDealMaker;
 		public static bool IsFromSignUp;
+		public static string LeadSalesStage;
 		public static EKEventStore EventStore
 		{
 			get { return eventStore; }

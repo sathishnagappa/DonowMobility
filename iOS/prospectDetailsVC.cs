@@ -26,7 +26,8 @@ namespace donow.iOS
 		{
 			
 			base.ViewWillAppear (animated);
-			AppDelegate.IsProspectVisited = true;
+			//AppDelegate.IsProspectVisited = true;
+			//UpdateSalesStage();
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
 		}
 
@@ -68,6 +69,7 @@ namespace donow.iOS
 				customerinteract.UserId = AppDelegate.UserDetails.UserId;
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
+				customerinteract.LeadID = localLeads.LEAD_ID;
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 			    //if(localLeads.LEAD_SOURCE ==2)
 				//{
@@ -102,6 +104,7 @@ namespace donow.iOS
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
+						customerinteract.LeadID = localLeads.LEAD_ID;
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
 
@@ -167,14 +170,16 @@ namespace donow.iOS
 			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
 			List<UserMeetings> PreviousMeetingsList = new List<UserMeetings>(); 
 
-			foreach(var item in listMeeting)
+			if(listMeeting != null)
 			{
-				if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
-					UCommingMeetinglist.Add (item);
-				} else {
-					PreviousMeetingsList.Add (item);
-				}
+				foreach (var item in listMeeting) {
+					if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
+						UCommingMeetinglist.Add (item);
+					} else {
+						PreviousMeetingsList.Add (item);
+					}
 
+				}
 			}
 
 			if(prospectDetails.customerInteractionList  != null && prospectDetails.customerInteractionList.Count !=0)
@@ -197,12 +202,18 @@ namespace donow.iOS
 			//brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
 			showBrokerImage (prospectDetails.brokerList.Count);
+			UpdateSalesStage ();
+			//AppDelegate.LeadSalesStage 
 
-			if (localLeads.LEAD_STATUS.Equals("(4) Close Sale")) {
+		}
+
+		void UpdateSalesStage()
+		{
+			if (prospectDetails.LEAD_STATUS.Equals("(4) Close Sale")) {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Close Sale Highlight.png");
-			} else if (localLeads.LEAD_STATUS.Equals("(2) Proposal")) {
+			} else if (prospectDetails.LEAD_STATUS.Equals("(2) Proposal")) {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Proposal Highlight.png");
-			} else if (localLeads.LEAD_STATUS.Equals("(3) Follow Up")) {
+			} else if (prospectDetails.LEAD_STATUS.Equals("(3) Follow Up")) {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Follow Up Highlight.png");
 			} else {
 				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Acquire Lead Highlight.png");

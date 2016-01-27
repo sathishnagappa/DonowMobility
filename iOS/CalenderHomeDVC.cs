@@ -189,7 +189,6 @@ namespace donow.iOS
 			{
 				// save our controller reference
 				this.eventController = eventController;
-
 			}
 
 			void AddEvent(EKEvent calendarEvent)

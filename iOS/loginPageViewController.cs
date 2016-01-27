@@ -128,7 +128,8 @@ namespace donow.iOS
 
 			};
 
-			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {				
+			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {	
+				AppDelegate.UserProfile = null;
 				signUpLoginDetailsVC signUpVC = this.Storyboard.InstantiateViewController ("signUpLoginDetailsVC") as signUpLoginDetailsVC;
 				if (signUpVC != null) {
 					this.NavigationController.PushViewController(signUpVC, true);
@@ -176,7 +177,7 @@ namespace donow.iOS
 				AppDelegate.UserDetails =  AppDelegate.userBL.GetUserDetails (TextBoxUserName.Text);
 				if (!AppDelegate.UserDetails.ApiResponse) {
 					alert = new UIAlertView () { 
-						Title = "Error", 
+						Title = "Network Error", 
 						Message = AppDelegate.UserDetails.ErrorMessage
 					};
 					alert.AddButton ("OK");

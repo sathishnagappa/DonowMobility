@@ -182,6 +182,7 @@ namespace donow.iOS
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
+						customerinteract.LeadID = (int)refferalRequests.LeadID;
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						//Xamarin Insights tracking
 						Insights.Track("Update ReferralRequest", new Dictionary <string,string>{

@@ -8,6 +8,8 @@ namespace donow.PCL
 		public string CustomerName { get; set; }
 		public string Type { get; set; }
 		public string DateNTime { get; set; }
+		public int LeadID { get; set; }
+
 	}
 }
 

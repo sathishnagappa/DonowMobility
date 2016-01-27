@@ -136,6 +136,7 @@ namespace donow.iOS
 				customerinteract.UserId = AppDelegate.UserDetails.UserId;
 				customerinteract.Type = "Phone";
 				customerinteract.DateNTime = DateTime.Now.ToString();
+				customerinteract.LeadID = leadObj.LEAD_ID;
 				AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 
 				//Xamarin Insights tracking
@@ -160,6 +161,7 @@ namespace donow.iOS
 						customerinteract.UserId = AppDelegate.UserDetails.UserId;
 						customerinteract.Type = "Email";
 						customerinteract.DateNTime = DateTime.Now.ToString();
+						customerinteract.LeadID = leadObj.LEAD_ID;
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
 						//Xamarin Insights tracking

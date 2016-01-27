@@ -23,6 +23,8 @@ namespace donow.Services
 			request.Method = "GET";
 
 			if (CheckInternetAccess ()) {
+				try
+				{
 				using (HttpWebResponse response = request.GetResponse () as HttpWebResponse) {
 					if (response.StatusCode != HttpStatusCode.OK)
 						Console.Out.WriteLine ("Error fetching data. Server returned status code: {0}", response.StatusCode);
@@ -30,6 +32,10 @@ namespace donow.Services
 						var content = reader.ReadToEnd ();
 						return content;
 					}
+				}
+				}
+				catch(Exception Ex) {
+					return "false";
 				}
 			}
 			else				

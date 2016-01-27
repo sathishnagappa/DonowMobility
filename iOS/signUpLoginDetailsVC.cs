@@ -35,7 +35,7 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			this.NavigationItem.Title = "Sign Up";
-
+		
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");

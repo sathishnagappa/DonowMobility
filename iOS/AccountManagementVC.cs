@@ -95,8 +95,14 @@ namespace donow.iOS
 				TableViewCustomerStreamActivity.ReloadData();
 			};
 
-
-			List<Customer> CompanyList = AppDelegate.customerBL.GetAllCustomers(AppDelegate.UserDetails.UserId);
+			List<Customer> CompanyList = null;
+			if (AppDelegate.UserDetails.UserId != 0)
+				//CompanyList = AppDelegate.customerBL.GetCustomersMaster ();
+				CompanyList = new List<Customer>();
+			else
+				CompanyList = new List<Customer> ();
+		
+				
 
 			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;

@@ -305,8 +305,6 @@ namespace donow.iOS
 			{
 				return 180.0f;
 			}
-
-
 		}
 
 		void GetLeadUpdatePage()

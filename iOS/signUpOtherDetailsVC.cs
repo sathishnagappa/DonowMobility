@@ -226,6 +226,18 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
+
+			UserDetails userDetails =  AppDelegate.userBL.GetUserFromEmail(TextBoxEmail.Text);
+
+			if (userDetails != null) {
+				alert = new UIAlertView () { 
+					Title = "Email ID", 
+					Message = "A profile with this email address is already registered."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+				return false;
+			}
 //			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
 //				alert = new UIAlertView () { 
 //					Title = "Mandatory Field", 

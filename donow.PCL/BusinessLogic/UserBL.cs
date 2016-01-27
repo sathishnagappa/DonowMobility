@@ -62,7 +62,7 @@ namespace donow.PCL
 			} else {
 				parsedResponse = new UserDetails ();
 				parsedResponse.ApiResponse = false;
-				parsedResponse.ErrorMessage = "Network UnAvailable.";
+				parsedResponse.ErrorMessage = "Please check your netwok connection.";
 			}
 			return parsedResponse;
 			
