@@ -61,7 +61,7 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			ScrollViewLeadDetails.ContentSize = new CGSize (375f, 680.0f);
+			ScrollViewLeadDetails.ContentSize = new CGSize (375f, 760.0f);
 			this.Title = "Lead Details";
 
 			LabelTitleName.Text = leadObj.LEAD_NAME;

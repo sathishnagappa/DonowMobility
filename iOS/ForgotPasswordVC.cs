@@ -39,20 +39,29 @@ namespace donow.iOS
 			NavigationItem.LeftBarButtonItem = btn;
 
 			ButtonChange.TouchUpInside +=  (object sender, EventArgs e) =>  {
-
-
+				
 				if(Validation())
 				{
 					AppDelegate.UserDetails =  AppDelegate.userBL.GetUserFromEmail(TextBoxEmailID.Text);
-					string newPassword = RandomString();
-					AppDelegate.UserDetails.Password = Crypto.Encrypt(newPassword); 
-					AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
-					SendMail(AppDelegate.UserDetails.Email, newPassword);
-					//Xamarin Insights tracking
-					Insights.Track("Forgot Password", new Dictionary <string,string>{
-						{"UserId", AppDelegate.UserDetails.UserId.ToString()},
-						{Insights.Traits.Email, AppDelegate.UserDetails.Email}
-					});
+					//null check 
+					if (AppDelegate.UserDetails != null) {
+						string newPassword = RandomString();
+						AppDelegate.UserDetails.Password = Crypto.Encrypt(newPassword); 
+						AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
+						SendMail(AppDelegate.UserDetails.Email, newPassword);
+						//Xamarin Insights tracking
+						Insights.Track("Forgot Password", new Dictionary <string,string>{
+							{"UserId", AppDelegate.UserDetails.UserId.ToString()},
+							{Insights.Traits.Email, AppDelegate.UserDetails.Email}
+						});
+					} else {
+						UIAlertView alert = new UIAlertView () {
+							Title = "Alert", 
+							Message = "Mail-id is not Registered."
+						};
+						alert.AddButton ("OK");
+						alert.Show ();
+					}
 				}
 			};
 		}
