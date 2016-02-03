@@ -12,7 +12,8 @@ namespace donow.PCL
 		public string CustomerName { get; set; }
 		//public object country { get; set; }
 		public int BrokerID {get; set;} 
-		public string Lead_Industry {get; set;} 
+		public string LeadIndustry {get; set;} 
+		public string BrokerName {get; set;} 
 	}
 }
 

@@ -11,10 +11,8 @@ using MessageUI;
 using System.Linq;
 using Xamarin;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 using donow.Util;
-=======
->>>>>>> origin/master
+
 
 namespace donow.iOS
 
@@ -32,11 +30,8 @@ namespace donow.iOS
 		public override void ViewWillDisappear (bool animated)
 		{			
 			base.ViewWillDisappear (animated);
-<<<<<<< HEAD
 			//this.Dispose ();
-=======
-			this.Dispose ();
->>>>>>> origin/master
+
 		}
 
 		protected override void Dispose (bool disposing)
@@ -60,7 +55,6 @@ namespace donow.iOS
 			base.Dispose (disposing);
 		}
 
-<<<<<<< HEAD
 //		public override void ViewDidUnload ()
 //		{
 //			if (TableViewEmails.Source != null)
@@ -75,9 +69,6 @@ namespace donow.iOS
 //		}
 
 		public async override void ViewDidLoad ()
-=======
-		public override  async void ViewDidLoad ()
->>>>>>> origin/master
 		{
 			base.ViewDidLoad ();
 
@@ -102,6 +93,7 @@ namespace donow.iOS
 			DealMakersImage1.Hidden = customerDetails.broker != null ? false : true;			
 			LabelIndustry.Text = customerDetails.CompanyInfo;
 			LabelLineOfBusiness.Text = customerDetails.BusinessNeeds;
+//			LabelCustomerVsProspect.Text = customerDetails == "Y" ? "Existing Customer" : "New Prospect" ;
 
 //			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
 //
@@ -159,26 +151,14 @@ namespace donow.iOS
 			};
 
 			await LoadCustomerAndMeetingInfo ();
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/master
 		}
 
 		async Task LoadCustomerAndMeetingInfo () {
 
-<<<<<<< HEAD
-			List<BingResult>  bingResult =  AppDelegate.customerBL.GetBingResult (customerDetails.Company + " + Products");
+			List<BingResult>  bingResult =  AppDelegate.customerBL.GetBingResult (customerDetails.Name + " News");
 			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
 
 			string[] customerNameArray = customerDetails.Company.Split ();
-=======
-			List<BingResult>  bingResult = AppDelegate.customerBL.GetBingResult (AppDelegate.UserDetails.Company + " + Products");
-			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
-
-			string[] customerNameArray = customer.Company.Split ();
->>>>>>> origin/master
 			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
 			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
@@ -186,23 +166,17 @@ namespace donow.iOS
 				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
 					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
 					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
-<<<<<<< HEAD
 
 			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
 			TableViewLatestCustomerInfo.ReloadData ();
 			loadingOverlay.Hide();
-=======
-			//			twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business")).ToList();	
-
-			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
->>>>>>> origin/master
 		}
 
 		static UIImage FromUrl (string uri)
 		{
 			using (var url = new NSUrl (uri))
 			using (var data = NSData.FromUrl (url))
-				return UIImage.LoadFromData (data);
+				return UIImage.LoadFromData (data); 
 		}
 
 		void LoadScreenData()
@@ -467,7 +441,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 80.0f;
+				return 110.0f;
 			}
 		}
 

@@ -40,7 +40,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,850.0f);
+			ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,885.0f);
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
@@ -92,7 +92,6 @@ namespace donow.iOS
 				ButtonLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDisLikeCustomerAcknowledge.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonAcknowledgementSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
 			};
 			TableViewInteractionDislikerReason.Source = new TableSource (InteractionDislikerReason, this,"Interaction");
 
@@ -109,7 +108,8 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 325, this.View.Bounds.Size.Width, 1000);
+				ViewSecond.Frame = new CGRect (0, 325, this.View.Bounds.Size.Width, ViewSecond.Frame.Height);
+				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,979.0f);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
@@ -118,6 +118,7 @@ namespace donow.iOS
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
+				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,845.0f);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};
 			ButtonInteractionSide.TouchUpInside+= (object sender, EventArgs e) => 
@@ -126,6 +127,8 @@ namespace donow.iOS
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
+				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
+				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,845.0f);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};
 
@@ -153,7 +156,7 @@ namespace donow.iOS
 					dealHistory.CustomerName = leadObj.LEAD_NAME;
 					dealHistory.LeadId = leadObj.LEAD_ID;
 					dealHistory.BrokerID = 0; 
-					dealHistory.Lead_Industry = AppDelegate.UserDetails.Industry;
+					dealHistory.LeadIndustry = AppDelegate.UserDetails.Industry;
 					AppDelegate.customerBL.SaveDealHistory(dealHistory);
 					//Xamarin Insights tracking
 					Insights.Track("Save DealHistory", new Dictionary <string,string>{

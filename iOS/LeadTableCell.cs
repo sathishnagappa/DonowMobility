@@ -121,13 +121,18 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewLeadImage.Frame = new CGRect (25, 25, 50, 50);
+
 			LabelLeadName.Frame = new CGRect (100, 23, 220, 30);
+
 			LabelCompanyName.Frame = new CGRect (100, 47, 280, 25);
-			LabelCityAndState.Frame = new CGRect (100, 67, 280, 25);
-			LeadIndustry.Frame = new CGRect (100, 90, 300,25);
-			LeadType.Frame = new CGRect (100, 115, 280, 25);
-			LabelScore.Frame = new CGRect (100, 140, 120, 25);
-			LabelScoreDigit.Frame = new CGRect (270, 140, 25, 25);
+			LeadType.Frame = new CGRect (100, 67, 280, 25);
+
+			LabelCityAndState.Frame = new CGRect (100, 87, 300,25);
+			LeadIndustry.Frame = new CGRect (100, 107, 280, 25);
+
+			LabelScore.Frame = new CGRect (100, 127, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 127, 25, 25);
+
 			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 170, 10, 150, 25);
 		}
 	}

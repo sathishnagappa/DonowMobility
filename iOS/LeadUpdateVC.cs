@@ -278,7 +278,7 @@ namespace donow.iOS
 					dealHistory.CustomerName = meetingObj.CustomerName;
 					dealHistory.LeadId = meetingObj.LeadId;
 					dealHistory.BrokerID = 0;
-					dealHistory.Lead_Industry = AppDelegate.UserDetails.Industry;
+					dealHistory.LeadIndustry = AppDelegate.UserDetails.Industry;
 					AppDelegate.customerBL.SaveDealHistory(dealHistory);
 					//Xamarin Insights tracking
 					Insights.Track("Save DealHistory", new Dictionary <string,string>{

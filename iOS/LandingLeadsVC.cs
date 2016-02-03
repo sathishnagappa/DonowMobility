@@ -41,8 +41,7 @@ namespace donow.iOS
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 //				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
 //			}
-			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
-			View.Add (loadingOverlay);
+
 			leads = GetLeads ();
 
 			if (leads.Count > 0) {
@@ -52,7 +51,7 @@ namespace donow.iOS
 				AlertView.Hidden = false;
 				LabelAlertView.Hidden = false;
 			}
-			loadingOverlay.Hidden = true;
+
 
 			//GetLeadUpdatePage ();
 		}
@@ -61,6 +60,9 @@ namespace donow.iOS
 		{
 			base.ViewDidAppear (animated);
 			GetLeadUpdatePage ();
+
+			if(loadingOverlay != null)
+			loadingOverlay.Hidden = true;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -86,6 +88,9 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
+			loadingOverlay = new LoadingOverlay (this.View.Bounds);
+			View.Add (loadingOverlay);
+
 			this.NavigationItem.Title = "Leads";
 			this.NavigationItem.SetHidesBackButton (true, false);
 //			this.NavigationItem.SetLeftBarButtonItem(null, true);
@@ -104,8 +109,6 @@ namespace donow.iOS
 			//if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 			//	bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
 			//}
-			//loadingOverlay = new LoadingOverlay (bounds);
-			//View.Add (loadingOverlay);
 
 //			if (!AppDelegate.UserDetails.IsNewLeadNotificationRequired)
 //				ButtonRequestNewLead.Enabled = false;
@@ -160,7 +163,7 @@ namespace donow.iOS
 
 			};
 
-			//loadingOverlay.Hide ();
+//			loadingOverlay.Hide ();
 		}
 
 		public class SearchDelegate : UISearchBarDelegate {
@@ -303,7 +306,7 @@ namespace donow.iOS
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 180.0f;
+				return 160.0f;
 			}
 		}
 
@@ -357,6 +360,7 @@ namespace donow.iOS
 					}
 				}
 			}
+//			loadingOverlay.Hidden = true;
 		}
 
 		void CheckStatus(Object userMeeting) {

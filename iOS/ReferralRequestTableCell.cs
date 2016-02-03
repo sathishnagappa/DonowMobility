@@ -93,12 +93,12 @@ namespace donow.iOS
 
 			ImageViewLeadImage.Frame = new CGRect (25, 22, 50, 50);
 			LabelSellerName.Frame = new CGRect (100, 20, 250, 30);
-			LabelIndustryName.Frame = new CGRect (100, 50, 250, 25);
+			LabelIndustryName.Frame = new CGRect (100, 50, 280, 25);
 			LabelLocation.Frame = new CGRect (100, 70, 250, 25);
 			ViewSeperator.Frame = new CGRect (100, 105, 414,1);
 
 			LabelProspect.Frame = new CGRect (100, 133, 250, 25);
-			LabelBusinessNeeds.Frame = new CGRect (100, 153, 250, 25);
+			LabelBusinessNeeds.Frame = new CGRect (100, 153, 280, 25);
 			LabelNewRequest.Frame = new CGRect (40, 150, 60, 25);
 
 		}

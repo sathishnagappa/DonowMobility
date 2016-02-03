@@ -44,7 +44,11 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView labelConnectionToLead { get; set; }
+		UILabel LabelCompanyName { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextView LabelConnectionToLead { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -96,9 +100,13 @@ namespace donow.iOS
 				LabelCompanyInfoDescription.Dispose ();
 				LabelCompanyInfoDescription = null;
 			}
-			if (labelConnectionToLead != null) {
-				labelConnectionToLead.Dispose ();
-				labelConnectionToLead = null;
+			if (LabelCompanyName != null) {
+				LabelCompanyName.Dispose ();
+				LabelCompanyName = null;
+			}
+			if (LabelConnectionToLead != null) {
+				LabelConnectionToLead.Dispose ();
+				LabelConnectionToLead = null;
 			}
 			if (LabelNameDealMaker != null) {
 				LabelNameDealMaker.Dispose ();

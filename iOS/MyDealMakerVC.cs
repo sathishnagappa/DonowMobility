@@ -31,10 +31,10 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
 			if (!AppDelegate.IsFromProspect) {				
-				brokerList = AppDelegate.brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness).OrderByDescending (X => X.BrokerScore).ToList ();
+				brokerList = AppDelegate.brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness,AppDelegate.UserDetails.UserId).OrderByDescending (X => X.BrokerScore).ToList ();
 			}
 			else
-				brokerList = AppDelegate.brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
+				brokerList = AppDelegate.brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID,AppDelegate.UserDetails.UserId).OrderByDescending(X => X.BrokerScore).ToList();
 
 
 			TableViewDealMaker.Source = new TableSource (brokerList,this);
@@ -43,7 +43,9 @@ namespace donow.iOS
 
 		public override void ViewWillDisappear (bool animated)
 		{
-
+			if(TableViewDealMaker.Source != null)
+			TableViewDealMaker.Source = null;
+			
 			if (searchTableView == null) {
 
 				TableViewDealMaker.ReloadData ();
@@ -212,7 +214,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 120.0f;
+				return 130.0f;
 			}
 		}
 	}

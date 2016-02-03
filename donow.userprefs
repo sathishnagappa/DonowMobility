@@ -1,27 +1,31 @@
-<Properties StartupItem="iOS/donow.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.iPhone 6 plus" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/customerProfileVC.cs">
+﻿<Properties StartupItem="iOS/donow.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6Plus.9.2" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="donow.PCL/Util/Constants.cs">
     <Files>
-      <File FileName="iOS/MyMeetingsVC.cs" Line="99" Column="69" />
-      <File FileName="iOS/MyMeetingsVC.designer.cs" Line="94" Column="1" />
-      <File FileName="iOS/customerProfileVC.cs" Line="54" Column="41" />
-      <File FileName="iOS/customerProfileVC.designer.cs" Line="158" Column="1" />
-      <File FileName="iOS/prospectDetailsVC.cs" Line="163" Column="18" />
-      <File FileName="iOS/BingSearchVC.cs" Line="39" Column="5" />
-      <File FileName="donow.PCL/BusinessLogic/CustomerBL.cs" Line="56" Column="5" />
-      <File FileName="donow.PCL/Util/BingSearchContainer.cs" Line="657" Column="9" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="69" Column="33" />
-      <File FileName="iOS/LeadDetailVC.cs" Line="158" Column="50" />
-      <File FileName="iOS/LandingCustomerVC.cs" Line="68" Column="1" />
-
+      <File FileName="iOS/MyDealMakerVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/DealMakerTableViewCell.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingLeadsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LeadTableCell.cs" Line="1" Column="1" />
+      <File FileName="iOS/CustomerViewDealHistory.cs" Line="1" Column="1" />
+      <File FileName="iOS/InteractionLeadUpdateVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/CustomerViewTableCellinteractionWithCustomerCell.cs" Line="1" Column="1" />
+      <File FileName="iOS/CustomerViewPreviousMeetings.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingLeadsVC.designer.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/Util/BingSearchContainer.cs" Line="1" Column="1" />
+      <File FileName="iOS/LandingCustomerStreamVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/customerProfileVC.cs" Line="175" Column="38" />
+      <File FileName="iOS/prospectDetailsVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/LeadDetailVC.cs" Line="1" Column="1" />
+      <File FileName="iOS/loginPageViewController.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/BusinessLogic/CustomerBL.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="donow.PCL/Util/Constants.cs" Line="35" Column="20" />
+      <File FileName="iOS/MyDealMakerDetailVC.cs" Line="96" Column="57" />
+      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/admin/Projects/donowx/donowmobility.git/DonowMobility/DonowMobility/iOS/customerProfileVC.cs" line="162" column="1" />
-
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

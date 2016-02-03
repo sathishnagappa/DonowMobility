@@ -61,7 +61,7 @@ namespace donow.iOS
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 
-			ScrollViewLeadDetails.ContentSize = new CGSize (375f, 700.0f);
+			ScrollViewLeadDetails.ContentSize = new CGSize (375f, 680.0f);
 			this.Title = "Lead Details";
 
 			LabelTitleName.Text = leadObj.LEAD_NAME;
@@ -72,6 +72,7 @@ namespace donow.iOS
 			LabelTitleCompany.Text = leadObj.COMPANY_NAME; 
 			LabelLocation.Text = leadObj.CITY + "," + leadObj.STATE;
 			txtViewBusinessNeeds.Text = leadObj.BUSINESS_NEED;// + " Testing - More significantly they expand the domain of research of the IS field by addressing new themes, such as the provision of ICT resources for a community";
+			LabelCustomerVsProspect.Text = leadObj.LEAD_TYPE == "Y" ? "Existing Customer" : "New Prospect" ;
 
 			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 
@@ -156,20 +157,23 @@ namespace donow.iOS
 					mailController.SetSubject ("Quick request");
 					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
-						CustomerInteraction customerinteract = new CustomerInteraction();
-						customerinteract.CustomerName =  leadObj.LEAD_NAME;
-						customerinteract.UserId = AppDelegate.UserDetails.UserId;
-						customerinteract.Type = "Email";
-						customerinteract.DateNTime = DateTime.Now.ToString();
-						customerinteract.LeadID = leadObj.LEAD_ID;
-						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
-						args.Controller.DismissViewController (true, null);
-						//Xamarin Insights tracking
-						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
-							{"UserId", customerinteract.UserId.ToString()},
-							{"CustomerName", customerinteract.CustomerName},
-							{"Type", "Email"}
-						});
+//						if(args.Result.ToString().Equals("2")) {
+							CustomerInteraction customerinteract = new CustomerInteraction();
+							customerinteract.CustomerName =  leadObj.LEAD_NAME;
+							customerinteract.UserId = AppDelegate.UserDetails.UserId;
+							customerinteract.Type = "Email";
+							customerinteract.DateNTime = DateTime.Now.ToString();
+							customerinteract.LeadID = leadObj.LEAD_ID;
+							AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+						
+							args.Controller.DismissViewController (true, null);
+							//Xamarin Insights tracking
+							Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+								{"UserId", customerinteract.UserId.ToString()},
+								{"CustomerName", customerinteract.CustomerName},
+								{"Type", "Email"}
+							});
+//						}
 					};
 						 
 					this.PresentViewController (mailController, true, null);

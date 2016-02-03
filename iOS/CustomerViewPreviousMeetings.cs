@@ -35,7 +35,7 @@ namespace donow.iOS
 			//			ContentView.AddSubviews(new UIView[] {LabelMeetingTime});
 
 			LabelMeetingLocation = new UILabel () {
-				Font = UIFont.FromName("Arial", 13f),
+				Font = UIFont.FromName("Arial", 14f),
 				TextColor = UIColor.LightGray,
 				BackgroundColor = UIColor.Clear
 			};

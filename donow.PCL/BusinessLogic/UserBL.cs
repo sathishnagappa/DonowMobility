@@ -128,6 +128,13 @@ namespace donow.PCL
 			
 		}
 
+		public string OpenConnection()
+		{
+			RestService restSevice = new RestService ();
+			string response = restSevice.GetData (Constants.OpenConnection);
+			return response;
+		}
+
 	}
 }
 

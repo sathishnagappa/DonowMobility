@@ -24,19 +24,18 @@ namespace donow.iOS
 		//
 		//			ButtonNext.TitleLabel.Text = title;
 		//		}
+
 		public bool isFromAM;
 		List<LineOfBusiness> listLOB;
 		List<string> Industries;
+		LoadingOverlay loadingOverlay;
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-//			LoadingOverlay loadingOverlay;
 			this.NavigationController.SetNavigationBarHidden (false, false);
-//			loadingOverlay = new LoadingOverlay (UIScreen.MainScreen.Bounds);
-//			View.Add(loadingOverlay);
 			Industries =  AppDelegate.industryBL.GetIndustry ();
 			listLOB = AppDelegate.industryBL.GetLOB();
-//			loadingOverlay.Hide();
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -49,6 +48,9 @@ namespace donow.iOS
 		public override void ViewDidLoad ()
 		{
 			this.NavigationItem.Title = "Sign Up: User Info";
+
+			loadingOverlay = new LoadingOverlay(this.View.Bounds);
+			this.View.Add(loadingOverlay);
 
 			// Navigation
 			UIBarButtonItem btn = new UIBarButtonItem ();
@@ -118,6 +120,7 @@ namespace donow.iOS
 				}
 				}
 			};
+			loadingOverlay.Hide ();
 		}
 
 		void LoadScreen()

@@ -5,6 +5,7 @@ using donow.PCL.Model;
 using EventKit;
 using System.Collections.Generic;
 using donow.PCL;
+using System;
 
 namespace donow.iOS
 {
@@ -73,6 +74,18 @@ namespace donow.iOS
 			brokerBL = new BrokerBL ();
 			industryBL = new IndustryBL ();
 
+			string response = userBL.OpenConnection ();
+			UIAlertView alert = null;
+			if (response != "1") {
+				alert = new UIAlertView () { 
+					Title = "Network Error", 
+					Message = "Please check your network connection."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+
+				return false;
+			}
 			//UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD

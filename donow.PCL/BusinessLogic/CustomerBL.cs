@@ -43,7 +43,8 @@ namespace donow.PCL
 
 		public List<BingResult> GetBingResult(string parameter)
 		{
-			const string bingKey = "9F3eqLyfmNP0PInNOmS13FdSlPoajoJqLvrbvndqZFM";
+			//const string bingKey = "9F3eqLyfmNP0PInNOmS13FdSlPoajoJqLvrbvndqZFM";
+			const string bingKey = "wHln8JsLTWNIEDHZTxU3mTjnIr9T7HCGZPZ86BPYZKg";
 			var bing = new BingSearchContainer(
 				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
 			{ Credentials = new NetworkCredential(bingKey, bingKey) };
@@ -68,7 +69,8 @@ namespace donow.PCL
 
 		public List<BingResult> GetBingNewsResult(string parameter)
 		{
-			const string bingKey = "9F3eqLyfmNP0PInNOmS13FdSlPoajoJqLvrbvndqZFM";
+			//const string bingKey = "9F3eqLyfmNP0PInNOmS13FdSlPoajoJqLvrbvndqZFM";
+			const string bingKey = "wHln8JsLTWNIEDHZTxU3mTjnIr9T7HCGZPZ86BPYZKg";
 			var bing = new BingSearchContainer(
 				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
 			{ Credentials = new NetworkCredential(bingKey, bingKey) };
@@ -138,9 +140,7 @@ namespace donow.PCL
 			string response =  restSevice.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
-		}
-
-			
+		}			
 
 
 	}

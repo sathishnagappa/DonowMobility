@@ -21,7 +21,9 @@ namespace donow.iOS
 {
 	partial class loginPageViewController : UIViewController
 	{
-		//LoadingOverlay loadingOverlay;
+		LoadingOverlay loadingOverlay;
+//		public bool isFromSignUpDetailsPage;
+
 		public loginPageViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -30,8 +32,10 @@ namespace donow.iOS
 		{
 			base.ViewWillAppear (animated);
 			if(this.NavigationController != null)			
-				this.NavigationController.SetNavigationBarHidden (true, false);					
+				this.NavigationController.SetNavigationBarHidden (true, false);
 
+//			if (isFromSignUpDetailsPage == true && loadingOverlay != null)
+//				loadingOverlay.Hide ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -45,7 +49,9 @@ namespace donow.iOS
 //			this.NavigationController.NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem(UIImage.FromBundle("Navigation_Back_Icon.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
 //				this.NavigationController.PopViewController(true);
 //			}), true);
-		
+
+			if (loadingOverlay != null)
+			loadingOverlay.Hide ();
 		}
 
 		public override void ViewDidLoad ()
@@ -62,7 +68,11 @@ namespace donow.iOS
 			#endif
 
 			AppDelegate.IsFromSignUp = false;
-			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {				
+			ButtonLogin.TouchUpInside +=  async (object sender, EventArgs e) => {
+				
+				loadingOverlay = new LoadingOverlay(this.View.Bounds);
+				this.View.Add(loadingOverlay);
+
 				if ( ValidateCredentials ()) {
 					// Call to Get user details and validate credentials
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
@@ -74,8 +84,8 @@ namespace donow.iOS
 
 			ButtonLinkedInLogin.TouchUpInside += async (object sender, EventArgs e) => {
 
-				var auth0 = new Auth0Client("donow.auth0.com","1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
-				
+				//var auth0 = new Auth0Client("donow.auth0.com","1ghdA3NFkpT9V7ibOuIKp8QK3oF49RId");
+				var auth0 = new Auth0Client("donowx.auth0.com","T2GQGMUwY1jxHHD2sKTGtiX865rynYQh");
 				Auth0User user = null;
 				try
 				{
@@ -92,8 +102,10 @@ namespace donow.iOS
 				}
 
 				if(user != null)
-				{
-					LoadingOverlay loadingOverlay;
+				{					
+					loadingOverlay = new LoadingOverlay(this.View.Bounds);
+					this.View.Add(loadingOverlay);
+					
 					AppDelegate.UserProfile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(user.Profile.ToString());
 
 					if(AppDelegate.UserProfile.email_verified == true)
@@ -103,6 +115,7 @@ namespace donow.iOS
 
 						if(AppDelegate.UserDetails != null)
 						{
+							
 							LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 							if (landingVC != null) {
 								this.NavigationController.PushViewController(landingVC, true);
@@ -115,17 +128,14 @@ namespace donow.iOS
 //								signUpVC.NavigationItem.SetHidesBackButton (true, false);	
 //								signUpVC.NavigationItem.SetLeftBarButtonItem(null, true);
 
-						
-								signUpVC.NavigationItem.SetHidesBackButton (true, false);
-
+								if (signUpVC != null) {
+									signUpVC.NavigationItem.SetHidesBackButton (true, false);
+								}
 								this.NavigationController.PushViewController(signUpVC, true);
-
 							}
 						}
-
 					}
 				}
-
 			};
 
 			ButtonSignUp.TouchUpInside += (object sender, EventArgs e) => {	
@@ -182,6 +192,10 @@ namespace donow.iOS
 					};
 					alert.AddButton ("OK");
 					alert.Show ();
+
+					if(loadingOverlay != null)
+					loadingOverlay.Hide ();
+					
 					return false;
 				}
 				if (AppDelegate.UserDetails != null && !string.IsNullOrEmpty(AppDelegate.UserDetails.Name) && 
@@ -208,6 +222,10 @@ namespace donow.iOS
 					};
 					alert.AddButton ("OK");
 					alert.Show ();
+
+					if(loadingOverlay != null)
+						loadingOverlay.Hide ();
+					
 					return false;
 				}
 			} else {
@@ -217,6 +235,10 @@ namespace donow.iOS
 				};
 				alert.AddButton ("OK");
 				alert.Show ();
+
+				if(loadingOverlay != null)
+					loadingOverlay.Hide ();
+				
 				return false;
 			}
 		}

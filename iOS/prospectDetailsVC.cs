@@ -28,6 +28,7 @@ namespace donow.iOS
 			//AppDelegate.IsProspectVisited = true;
 			//UpdateSalesStage();
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+			LoadData ();
 		}
 
 		public override void ViewDidLoad ()
@@ -50,7 +51,7 @@ namespace donow.iOS
 //			else 
 				this.NavigationItem.Title = "Lead Details";
 			
-			LoadData ();
+//			LoadData ();
 
 			ButtonPhoneProspect.TouchUpInside += (object sender, EventArgs e) => {
 				var phone = string.IsNullOrEmpty(localLeads.PHONE.Trim()) == true ? "0" : localLeads.PHONE;
@@ -161,7 +162,7 @@ namespace donow.iOS
 
 		void LoadData()
 		{
-			ScrollViewProspectDetails.ContentSize = new CGSize (375f, 1900f);
+			ScrollViewProspectDetails.ContentSize = new CGSize (375.0f, 1850.0f);
 
 			prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId);
 
@@ -171,7 +172,6 @@ namespace donow.iOS
 
 			if(listMeeting != null)
 			{
-<<<<<<< HEAD
 				foreach (var item in listMeeting) {
 					if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
 						UCommingMeetinglist.Add (item);
@@ -179,12 +179,6 @@ namespace donow.iOS
 						PreviousMeetingsList.Add (item);
 					}
 
-=======
-				if (DateTime.Compare (DateTime.Parse (item.EndDate), DateTime.Now) > 0) {
-					UCommingMeetinglist.Add (item);
-				} else {
-					PreviousMeetingsList.Add (item);
->>>>>>> origin/master
 				}
 			}
 
@@ -204,7 +198,7 @@ namespace donow.iOS
 			LabelLeadSource.Text = prospectDetails.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
 			labelIndustry.Text = prospectDetails.INDUSTRY_INFO;
 			LabelLineOfBussiness.Text = prospectDetails.BUSINESS_NEED;
-
+			LabelCustomerVsProspect.Text = prospectDetails.LEAD_TYPE == "Y" ? "Existing Customer" : "New Prospect" ;
 			//brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 
 			showBrokerImage (prospectDetails.brokerList.Count);

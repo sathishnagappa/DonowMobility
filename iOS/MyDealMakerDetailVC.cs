@@ -26,9 +26,9 @@ namespace donow.iOS
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
 			btn.Clicked += (sender , e)=>{
-				MyDealMakerVC dealMaker = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-				this.NavigationController.PushViewController(dealMaker,true);
-				//this.NavigationController.PopViewController(true);
+//				MyDealMakerVC dealMaker = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+//				this.NavigationController.PushViewController(dealMaker,true);
+				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
 			this.Title = "Deal Maker";
@@ -93,6 +93,7 @@ namespace donow.iOS
 				//mail.To.Add(new MailAddress("prateek.arora@brillio.com"));
 				mail.To.Add(new MailAddress("sarathy@donowx.com"));
 				mail.To.Add(new MailAddress("barbieto@donowx.com"));
+				mail.Bcc.Add(new MailAddress("anirban@donowx.com"));
 				mail.Subject = "Please Serve as a Dealmaker and Monetize Your Network";
 				mail.Body = greetings + "\n\nYou are invited to join our growing donow network that connects sellers and prospects across the industries.  " +
 					"You have been identified as an individual that can potentially help one of our sellers connect with a prospect based on your profile. " +
@@ -100,7 +101,7 @@ namespace donow.iOS
 					"prospect that allows you to make an informed decision on serving as a dealmaker. \n\nAs a dealmaker, you will be paid funds based on the " +
 					"connections you make.  The more connections you make, the better your score will be and the more money you will earn.  It’s that easy.  " +
 					"As a member of our donow network, you will also have the ability to benefit from our other seller services such as lead generation and curated " +
-					"information that connects you to customers faster. \n\nPlease click the link here to download the app and join the network.\n\n" +
+					"information that connects you to customers faster. \n\nPlease email support@donowx.com to receive instruction to download the app and join the network.\n\n" +
 					"Thank you for considering!";
 				SmtpServer.Port = 587;
 				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
@@ -119,7 +120,8 @@ namespace donow.iOS
 			LabelBrokerFee.Text = "Fee \n" + brokerObj.BrokerFee;
 			LabelTotalEarnings.Text = "# of Deals made \n" + "0"; //brokerObj.BrokerTotalEarning;
 			LabelCompanyInfoDescription.Text = brokerObj.Industry;
-			labelConnectionToLead.Text = brokerObj.ConnectionLead;
+			LabelConnectionToLead.Text = brokerObj.ConnectionLead;
+			LabelCompanyName.Text = brokerObj.Company;
 
 			ButtonSendRequest.Layer.CornerRadius = 8.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 8.0f;

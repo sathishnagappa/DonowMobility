@@ -146,6 +146,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCustomerVsProspect { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
@@ -155,6 +159,10 @@ namespace donow.iOS
 			if (ButtonAccept != null) {
 				ButtonAccept.Dispose ();
 				ButtonAccept = null;
+			}
+			if (LabelCustomerVsProspect != null) {
+				LabelCustomerVsProspect.Dispose ();
+				LabelCustomerVsProspect = null;
 			}
 			if (ButtonBackgroundView != null) {
 				ButtonBackgroundView.Dispose ();

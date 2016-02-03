@@ -22,19 +22,19 @@ namespace donow.PCL
 
 		}
 
-		public List<Broker> GetAllBrokers(string IndustryName,string LOB)
+		public List<Broker> GetAllBrokers(string IndustryName,string LOB, int UserID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.DealMaker + "?IndustryName=" + IndustryName + "&LOB=" + LOB;
+			string leadsApicall = Constants.DealMaker + "?IndustryName=" + IndustryName + "&LOB=" + LOB + "&UserId=" + UserID;
 			string response =  restSevice.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
 			return parsedResponse;
 		}
 
-		public List<Broker> GetBrokerForProspect(long leadID)
+		public List<Broker> GetBrokerForProspect(long leadID, int UserID)
 		{
 			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.DealMaker + "?id=" +  leadID;
+			string leadsApicall = Constants.DealMaker + "?id=" +  leadID + "&UserId=" + UserID + "&type=lead";
 			string response =  restSevice.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Broker>>(response.ToString());
 			return parsedResponse;

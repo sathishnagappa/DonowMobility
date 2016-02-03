@@ -82,8 +82,16 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewPreviousMeetings { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCustomerVsProspect { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (LabelCustomerVsProspect != null) {
+				LabelCustomerVsProspect.Dispose ();
+				LabelCustomerVsProspect = null;
+			}
 			if (ButtonMail != null) {
 				ButtonMail.Dispose ();
 				ButtonMail = null;
