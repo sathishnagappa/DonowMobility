@@ -14,6 +14,7 @@ namespace donow.PCL
 		public string LeadIndustry { get; set; }
 		public string CreatedOn { get; set; }
 		public string LEAD_TYPE { get; set; }
+		public string LEAD_TITLE { get; set; }
 	}
 }
 

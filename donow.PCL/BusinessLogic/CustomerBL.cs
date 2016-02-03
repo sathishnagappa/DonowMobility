@@ -32,10 +32,10 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public CustomerDetails GetCustomersDetails(long leadID, int userID)
+		public CustomerDetails GetCustomersDetails(string LeadName, int userID)
 		{
 			RestService restSevice = new RestService ();
-			string restUrl = Constants.CustomerDetails + "?LeadID=" + leadID + "&UserID=" + userID;
+			string restUrl = Constants.CustomerDetails + "?LeadName=" + LeadName + "&UserID=" + userID;
 			string response = restSevice.GetData (restUrl);
 			CustomerDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerDetails>(response.ToString());
 			return parsedResponse;

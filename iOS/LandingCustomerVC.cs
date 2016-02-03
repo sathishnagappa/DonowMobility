@@ -271,9 +271,10 @@ namespace donow.iOS
 
 			public override nint RowsInSection (UITableView tableview, nint section)
 			{
-				int unicode = Convert.ToInt32(section) + 65;
-				char character = (char) unicode;
-				string text = character.ToString();
+				//int unicode = Convert.ToInt32(section) + 65;
+				//char character = (char) unicode;
+				//string text = character.ToString();
+				string text = _arraySectionTitle [section];
 				//                int str=Convert.ToInt32(section);
 				//                TappedIndex = Convert.ToInt32 (str);
 				//                string indexValue = headerArray [Convert.ToInt32 (section)];
@@ -315,37 +316,52 @@ namespace donow.iOS
 			public override nint NumberOfSections (UITableView tableView)
 			{
 				var result=TableItemsDictionary.Keys;
-				_arraySectionTitle=result.ToArray ();
+				List<string> sectionlist = new List<string> ();
+				foreach (var item in TableItemsDictionary.Keys) {
+					if (TableItemsDictionary.FirstOrDefault (x => x.Key == item).Value.Count > 0)
+						sectionlist.Add (item);
+				}
+				//var values = TableItemsDictionary.Values.Where (x => x.Count > 0);
+				//_arraySectionTitle=result.ToArray ();
+				//return _arraySectionTitle.Count();
+				_arraySectionTitle=sectionlist.ToArray ();
 				return _arraySectionTitle.Count();
 			}
-			public override string TitleForHeader (UITableView tableView, nint section)
-			{
+			//public override string TitleForHeader (UITableView tableView, nint section)
+			//{
 
 
-				var result=TableItemsDictionary.Keys;
-				_arraySectionTitle=result.ToArray ();
+//				var result=TableItemsDictionary.Keys;
+//				var values = TableItemsDictionary.FirstOrDefault (x => x.Key == _arraySectionTitle[section]).Value;
+//				_arraySectionTitle=result.ToArray ();
+//
+//				//                string str=(section).ToString();
+//				//                TappedIndex = Convert.ToInt32 (str);
+//
+//				return _arraySectionTitle[section];
 
-				//                string str=(section).ToString();
-				//                TappedIndex = Convert.ToInt32 (str);
-
-				return _arraySectionTitle[section];
-
-			}
+			//}
 
 			public override UIView GetViewForHeader(UITableView tableView, nint section)
 			{
-				UIView headerView = new UIView ();
-				headerView.Frame=new CoreGraphics.CGRect (10, 0, 414, 53);
-				headerView.BackgroundColor = UIColor.FromRGB(232,231,231);
+				//var values = TableItemsDictionary.FirstOrDefault (x => x.Key == _arraySectionTitle[section]).Value;
 
-				UILabel headerLabel = new UILabel ();
-				headerLabel.Frame = new CoreGraphics.CGRect (36, 10, 150, 30);
-				headerLabel.TextColor = UIColor.Black; // Set your color
-				headerLabel.Font=UIFont.FromName("Arial-BoldMT",25f);
-				headerLabel.Text = _arraySectionTitle[section];
+				//if (values.Count > 0) {
+					UIView headerView = new UIView ();
+					headerView.Frame = new CoreGraphics.CGRect (10, 0, 414, 50);
+					headerView.BackgroundColor = UIColor.FromRGB (232, 231, 231);
 
-				headerView.AddSubview (headerLabel);
-				return headerView;
+					UILabel headerLabel = new UILabel ();
+					headerLabel.Frame = new CoreGraphics.CGRect (36, 0, 20, 50);
+					headerLabel.TextColor = UIColor.Black; // Set your color
+					headerLabel.Font = UIFont.FromName ("Arial-BoldMT", 25f);
+					headerLabel.Text = _arraySectionTitle [section];
+					headerLabel.TextAlignment = UITextAlignment.Center;
+
+					headerView.AddSubview (headerLabel);
+					return headerView;
+				//} else
+				//	return null;
 			}
 
 
@@ -361,13 +377,13 @@ namespace donow.iOS
 				}
 			}
 
-			public override string[] SectionIndexTitles (UITableView tableView)
-			{
-
-				//string[] _arrayString = new string[26];
-				return headerArray.ToArray();
-
-			}
+//			public override string[] SectionIndexTitles (UITableView tableView)
+//			{
+//
+//				//string[] _arrayString = new string[26];
+//				return headerArray.ToArray();
+//
+//			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{

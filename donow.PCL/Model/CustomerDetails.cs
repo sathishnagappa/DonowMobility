@@ -18,9 +18,10 @@ namespace donow.PCL
 		public List<CustomerInteraction> customerInteractionList { get; set; }
 		public List<UserMeetings> UserMeetingList { get; set; }
 		public List<DealHistroy> dealHistoryList { get; set; }
-		public Broker broker { get; set; }
+		public Broker dealMaker { get; set; }
 		public int LeadSource  { get; set; }
 		public int LeadScore { get; set; }
+		public string LeadTitle { get; set; }
 
 	}
 }

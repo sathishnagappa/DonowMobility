@@ -23,6 +23,7 @@ namespace donow.PCL
 		public string REASON_FOR_PASS { get; set; }
 		public int USER_LEAD_STATUS { get; set; }
 		public int USER_ID { get; set; }
+		public string LEAD_TITLE { get; set; }
 		public List<CustomerInteraction> customerInteractionList { get; set; }
 		public List<UserMeetings> UserMeetingList { get; set; }
 		public List<Broker> brokerList { get; set; }

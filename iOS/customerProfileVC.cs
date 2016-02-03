@@ -90,7 +90,7 @@ namespace donow.iOS
 			 
 			//int  brokerWorkingWith =  AppDelegate.brokerBL.GetBrokerForStatus(customer.LeadId,4).Count;
 
-			DealMakersImage1.Hidden = customerDetails.broker != null ? false : true;			
+			DealMakersImage1.Hidden = customerDetails.dealMaker != null ? false : true;			
 			LabelIndustry.Text = customerDetails.CompanyInfo;
 			LabelLineOfBusiness.Text = customerDetails.BusinessNeeds;
 //			LabelCustomerVsProspect.Text = customerDetails == "Y" ? "Existing Customer" : "New Prospect" ;
@@ -181,7 +181,7 @@ namespace donow.iOS
 
 		void LoadScreenData()
 		{
-			customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.LeadId,AppDelegate.UserDetails.UserId);
+			customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.Name,AppDelegate.UserDetails.UserId);
 
 			List<UserMeetings> listMeeting = customerDetails.UserMeetingList;
 			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
