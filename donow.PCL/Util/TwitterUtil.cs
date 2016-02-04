@@ -16,8 +16,10 @@ namespace donow.PCL
 		{
 			List<TwitterStream> _return = new List<TwitterStream>();
 
-			const string oauthConsumerKey = "AyKQbgOrgmHOii41sXqkfLWdz";  //for testing bUYWCEojQ3Ob0iyqz6xPP9V6O
-			const string oauthConsumerSecret = "cgv3d0JR9F8irOnT2UVLGDCelztVAufyp5Yt9pURwyrTKdawhC"; //for testing Bes8uI7pSaLmsL3ME9nYa0W7QrU9Uxdy2fjXcO0pZift3FGBco
+			//const string oauthConsumerKey = "AyKQbgOrgmHOii41sXqkfLWdz";  //for testing bUYWCEojQ3Ob0iyqz6xPP9V6O
+			//const string oauthConsumerSecret = "cgv3d0JR9F8irOnT2UVLGDCelztVAufyp5Yt9pURwyrTKdawhC"; //for testing Bes8uI7pSaLmsL3ME9nYa0W7QrU9Uxdy2fjXcO0pZift3FGBco
+			const string oauthConsumerKey = "xPw5UAX0AhVPP1wIdFm7oWz28";  //for testing bUYWCEojQ3Ob0iyqz6xPP9V6O
+			const string oauthConsumerSecret = "7SHZBl4k2R8LHVYrV9kkpFe3hnso9RUjLCVAgs9mWcU2M9kD7q"; //for testing Bes8uI7pSaLmsL3ME9nYa0W7QrU9Uxdy2fjXcO0pZift3FGBco
 			string accessToken;
 
 			// get authentication token
@@ -52,8 +54,8 @@ namespace donow.PCL
 //			}
 
 			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=100&q=wpdev");
+			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=50&q=%23" + paramter +"&result_type=recent");
 			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=50&q=%23" + paramter +"&result_type=recent");
-
 			requestSearch.Headers.Add("Authorization", "Bearer " + accessToken);
 			HttpResponseMessage responseSearch = await httpClient.SendAsync(requestSearch);
 			var returnJsonSearch = JValue.Parse(await responseSearch.Content.ReadAsStringAsync());

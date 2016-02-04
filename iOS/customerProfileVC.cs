@@ -160,12 +160,16 @@ namespace donow.iOS
 
 			string[] customerNameArray = customerDetails.Company.Split ();
 			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
+			//string[] customerNameArray = customerDetails.Name.Split ();
+			//string searchText = customerNameArray.Count() == 1 ? customerNameArray [0] : (customerNameArray [0] + customerNameArray [1]);
+			//List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
 			if(twitterStream.Count > 0)
 				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
 					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
-					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();		
+					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();	
+				//  twitterStreamwithKeyword =	twitterStream;	
 
 			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
 			TableViewLatestCustomerInfo.ReloadData ();

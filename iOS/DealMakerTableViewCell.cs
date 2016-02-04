@@ -20,22 +20,22 @@ namespace donow.iOS
 			};
 			ContentView.AddSubviews (new UIView[]{ LabelDealMakerScoreName });
 
-			LabelDealMakerIndustry = new UILabel () {
+//			LabelDealMakerIndustry = new UILabel () {
+//
+//				Font = UIFont.FromName ("Arial", 19f),
+//				TextColor = UIColor.FromRGB (35, 31, 32),
+//				BackgroundColor = UIColor.Clear
+//			};
+//			ContentView.AddSubviews (new UIView[]{ LabelDealMakerIndustry });
 
-				Font = UIFont.FromName ("Arial", 19f),
-				TextColor = UIColor.FromRGB (35, 31, 32),
-				BackgroundColor = UIColor.Clear
-			};
-			ContentView.AddSubviews (new UIView[]{ LabelDealMakerIndustry });
 
-
-			LabelDealMakerLocation = new UILabel () {
-
-				Font = UIFont.FromName ("Arial", 19f),
-				TextColor = UIColor.FromRGB (35, 31, 32),
-				BackgroundColor = UIColor.Clear
-			};
-			ContentView.AddSubviews (new UIView[]{ LabelDealMakerLocation });
+//			LabelDealMakerLocation = new UILabel () {
+//
+//				Font = UIFont.FromName ("Arial", 19f),
+//				TextColor = UIColor.FromRGB (35, 31, 32),
+//				BackgroundColor = UIColor.Clear
+//			};
+//			ContentView.AddSubviews (new UIView[]{ LabelDealMakerLocation });
 
 
 			LabelDealMakerScoreDigit = new UILabel () {
@@ -71,13 +71,13 @@ namespace donow.iOS
 			};
 			ContentView.AddSubviews (new UIView[]{ LabelLeadStatus });
 
-			LabelTitleHeading = new UILabel () {
-
-				Font = UIFont.FromName ("Arial", 19f),
-				TextColor = UIColor.FromRGB (35, 31, 32),
-				BackgroundColor = UIColor.Clear
-			};
-			ContentView.AddSubviews (new UIView[]{ LabelTitleHeading });
+//			LabelTitleHeading = new UILabel () {
+//
+//				Font = UIFont.FromName ("Arial", 19f),
+//				TextColor = UIColor.FromRGB (35, 31, 32),
+//				BackgroundColor = UIColor.Clear
+//			};
+//			ContentView.AddSubviews (new UIView[]{ LabelTitleHeading });
 
 			LabelTitle = new UILabel () {
 
@@ -97,13 +97,13 @@ namespace donow.iOS
 		public void UpdateCell (Broker brokerObj)
 		{
 			LabelDealMakerScoreName.Text = "Maker Score: ";
-			LabelDealMakerIndustry.Text = "Industry: ";
-			LabelDealMakerLocation.Text = "Location: " ;
+//			LabelDealMakerIndustry.Text = "Industry: ";
+//			LabelDealMakerLocation.Text = "Location: " ;
 			LabelDealMakerScoreDigit.Text = brokerObj.BrokerScore;
 			LabelDealMakerIndustryDiscription.Text = brokerObj.Industry;
 			LabelDealMakerLocationDescription.Text = brokerObj.City; //+ ", " + brokerObj.State;
 			LabelLeadStatus.Text = GetStatus(brokerObj.Status);
-			LabelTitleHeading.Text = "Title: ";
+//			LabelTitleHeading.Text = "Title: ";
 			LabelTitle.Text = brokerObj.BrokerTitle;				
 			//				ImageViewDealMakerImage.Image = 
 		}
@@ -134,14 +134,14 @@ namespace donow.iOS
 
 			ImageViewDealMakerImage.Frame = new CGRect (25,45,50,50);
 
-			LabelTitleHeading.Frame = new CGRect (100,25,150,25);
-			LabelTitle.Frame = new CGRect (180, 25, 220, 25);
+//			LabelTitleHeading.Frame = new CGRect (100,25,150,25);
+			LabelTitle.Frame = new CGRect (100, 25, 220, 25);
 
-			LabelDealMakerIndustry.Frame = new CGRect (100,50,150,25);
-			LabelDealMakerIndustryDiscription.Frame = new CGRect (180,50,220,25);
+//			LabelDealMakerIndustry.Frame = new CGRect (100,50,150,25);
+			LabelDealMakerIndustryDiscription.Frame = new CGRect (100,50,275,25);
 
-			LabelDealMakerLocation.Frame = new CGRect (100, 75, 150, 25);
-			LabelDealMakerLocationDescription.Frame = new CGRect (180,75,220,25);
+//			LabelDealMakerLocation.Frame = new CGRect (100, 75, 150, 25);
+			LabelDealMakerLocationDescription.Frame = new CGRect (100,75,220,25);
 
 			LabelDealMakerScoreName.Frame = new CGRect (100,100,150,25);
 			LabelDealMakerScoreDigit.Frame = new CGRect (220,100,220,25);
