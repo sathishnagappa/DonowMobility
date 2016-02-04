@@ -76,6 +76,8 @@ namespace donow.iOS
 
 			TableViewPassView.Source = new PassViewTableSource (OptionsPassView, this);
 
+			LeadTitle.Text = "("+leadObj.LEAD_TITLE + ")";
+
 			ButtonAccept.TouchUpInside += (object sender, EventArgs e) => {
 				ButtonAccept.Hidden=true;
 				ButtonPass.Hidden = true;

@@ -68,15 +68,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageLocation { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageProfile { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCompanyInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCustomerVsProspect { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -109,6 +109,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelTitleName { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LeadTitle { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -146,10 +150,6 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelCustomerVsProspect { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
 			if (BusinessNeedsView != null) {
@@ -159,10 +159,6 @@ namespace donow.iOS
 			if (ButtonAccept != null) {
 				ButtonAccept.Dispose ();
 				ButtonAccept = null;
-			}
-			if (LabelCustomerVsProspect != null) {
-				LabelCustomerVsProspect.Dispose ();
-				LabelCustomerVsProspect = null;
 			}
 			if (ButtonBackgroundView != null) {
 				ButtonBackgroundView.Dispose ();
@@ -208,10 +204,6 @@ namespace donow.iOS
 				CompanyInfoView.Dispose ();
 				CompanyInfoView = null;
 			}
-			if (ImageLocation != null) {
-				ImageLocation.Dispose ();
-				ImageLocation = null;
-			}
 			if (ImageProfile != null) {
 				ImageProfile.Dispose ();
 				ImageProfile = null;
@@ -219,6 +211,10 @@ namespace donow.iOS
 			if (LabelCompanyInfo != null) {
 				LabelCompanyInfo.Dispose ();
 				LabelCompanyInfo = null;
+			}
+			if (LabelCustomerVsProspect != null) {
+				LabelCustomerVsProspect.Dispose ();
+				LabelCustomerVsProspect = null;
 			}
 			if (LabelLeadMetrics != null) {
 				LabelLeadMetrics.Dispose ();
@@ -251,6 +247,10 @@ namespace donow.iOS
 			if (LabelTitleName != null) {
 				LabelTitleName.Dispose ();
 				LabelTitleName = null;
+			}
+			if (LeadTitle != null) {
+				LeadTitle.Dispose ();
+				LeadTitle = null;
 			}
 			if (lineViewBusinessNeeds != null) {
 				lineViewBusinessNeeds.Dispose ();

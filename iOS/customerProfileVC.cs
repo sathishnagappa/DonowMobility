@@ -212,7 +212,7 @@ namespace donow.iOS
 			LabelCityAndState.Text = customerDetails.City + ", " + customerDetails.State;
 			LabelScore.Text = customerDetails.LeadScore.ToString();
 			LabelSource.Text = customerDetails.LeadSource == 2 ? "SFDC" : "DoNow" ;
-
+			CustomerTitle.Text = "("+customerDetails.LeadTitle+")";
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {

@@ -200,7 +200,7 @@ namespace donow.iOS
 			LabelLineOfBussiness.Text = prospectDetails.BUSINESS_NEED;
 			LabelCustomerVsProspect.Text = prospectDetails.LEAD_TYPE == "Y" ? "Existing Customer" : "New Prospect" ;
 			//brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
-
+			ProspectTitle.Text = "("+prospectDetails.LEAD_TITLE+")";
 			showBrokerImage (prospectDetails.brokerList.Count);
 			UpdateSalesStage ();
 			//AppDelegate.LeadSalesStage 

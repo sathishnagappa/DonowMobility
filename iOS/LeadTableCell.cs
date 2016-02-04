@@ -8,7 +8,7 @@ namespace donow.iOS
 {
 	public class LeadTableCell : UITableViewCell  {
 		
-		UILabel LabelLeadName, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead,LeadIndustry,LeadType;
+		UILabel LabelLeadName, LabelTitle, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead,LeadIndustry,LeadType;
 		UIImageView ImageViewLeadImage;
 
 		public LeadTableCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
@@ -20,6 +20,13 @@ namespace donow.iOS
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadName});
+
+			LabelTitle = new UILabel () {
+				Font = UIFont.FromName("Arial", 19f),
+				TextColor = UIColor.FromRGB (35, 31, 32),
+				BackgroundColor = UIColor.Clear
+			};
+			ContentView.AddSubviews(new UIView[] {LabelTitle});
 
 			LabelCompanyName = new UILabel () {
 				Font = UIFont.FromName("Arial", 19f),
@@ -85,6 +92,7 @@ namespace donow.iOS
 		public void UpdateCell (LeadMaster lead)
 		{
 			LabelLeadName.Text = lead.LEAD_NAME;
+			LabelTitle.Text = lead.LEAD_TITLE;
 			LabelCompanyName.Text = lead.COMPANY_NAME;
 			string coma = (string.IsNullOrEmpty (lead.CITY) || string.IsNullOrEmpty (lead.STATE)) ? "" : ", ";
 			LabelCityAndState.Text = lead.CITY + coma + lead.STATE; 
@@ -120,18 +128,19 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-			ImageViewLeadImage.Frame = new CGRect (25, 25, 50, 50);
+			ImageViewLeadImage.Frame = new CGRect (25, 75, 50, 50);
 
 			LabelLeadName.Frame = new CGRect (100, 23, 220, 30);
+			LabelTitle.Frame = new CGRect (100, 47, 280, 25);
 
-			LabelCompanyName.Frame = new CGRect (100, 47, 280, 25);
-			LeadType.Frame = new CGRect (100, 67, 280, 25);
+			LabelCompanyName.Frame = new CGRect (100, 67, 280, 25);
+			LeadType.Frame = new CGRect (100, 87, 300,25);
 
-			LabelCityAndState.Frame = new CGRect (100, 87, 300,25);
-			LeadIndustry.Frame = new CGRect (100, 107, 280, 25);
+			LabelCityAndState.Frame = new CGRect (100, 107, 280, 25);
+			LeadIndustry.Frame = new CGRect (100, 127, 280, 25);
 
-			LabelScore.Frame = new CGRect (100, 127, 120, 25);
-			LabelScoreDigit.Frame = new CGRect (270, 127, 25, 25);
+			LabelScore.Frame = new CGRect (100, 147, 120, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 147, 25, 25);
 
 			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 170, 10, 150, 25);
 		}

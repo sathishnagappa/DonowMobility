@@ -48,6 +48,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCustomerVsProspect { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextView labelIndustry { get; set; }
 
 		[Outlet]
@@ -88,6 +92,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel ProspectTitle { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewProspectDetails { get; set; }
 
 		[Outlet]
@@ -102,16 +110,8 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewPreviousMeetings { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelCustomerVsProspect { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (LabelCustomerVsProspect != null) {
-				LabelCustomerVsProspect.Dispose ();
-				LabelCustomerVsProspect = null;
-			}
 			if (ButtonMailProspect != null) {
 				ButtonMailProspect.Dispose ();
 				ButtonMailProspect = null;
@@ -143,6 +143,10 @@ namespace donow.iOS
 			if (ImageThirdBroker != null) {
 				ImageThirdBroker.Dispose ();
 				ImageThirdBroker = null;
+			}
+			if (LabelCustomerVsProspect != null) {
+				LabelCustomerVsProspect.Dispose ();
+				LabelCustomerVsProspect = null;
 			}
 			if (labelIndustry != null) {
 				labelIndustry.Dispose ();
@@ -183,6 +187,10 @@ namespace donow.iOS
 			if (LabelScoreThirdBroker != null) {
 				LabelScoreThirdBroker.Dispose ();
 				LabelScoreThirdBroker = null;
+			}
+			if (ProspectTitle != null) {
+				ProspectTitle.Dispose ();
+				ProspectTitle = null;
 			}
 			if (ScrollViewProspectDetails != null) {
 				ScrollViewProspectDetails.Dispose ();
