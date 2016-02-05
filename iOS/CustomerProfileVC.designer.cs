@@ -24,6 +24,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel CustomerTitle { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView DealMakersImage1 { get; set; }
 
 		[Outlet]
@@ -37,6 +41,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCustomerName { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCustomerVsProspect { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -82,16 +90,8 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewPreviousMeetings { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelCustomerVsProspect { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (LabelCustomerVsProspect != null) {
-				LabelCustomerVsProspect.Dispose ();
-				LabelCustomerVsProspect = null;
-			}
 			if (ButtonMail != null) {
 				ButtonMail.Dispose ();
 				ButtonMail = null;
@@ -99,6 +99,10 @@ namespace donow.iOS
 			if (ButtonPhone != null) {
 				ButtonPhone.Dispose ();
 				ButtonPhone = null;
+			}
+			if (CustomerTitle != null) {
+				CustomerTitle.Dispose ();
+				CustomerTitle = null;
 			}
 			if (DealMakersImage1 != null) {
 				DealMakersImage1.Dispose ();
@@ -115,6 +119,10 @@ namespace donow.iOS
 			if (LabelCustomerName != null) {
 				LabelCustomerName.Dispose ();
 				LabelCustomerName = null;
+			}
+			if (LabelCustomerVsProspect != null) {
+				LabelCustomerVsProspect.Dispose ();
+				LabelCustomerVsProspect = null;
 			}
 			if (LabelIndustry != null) {
 				LabelIndustry.Dispose ();

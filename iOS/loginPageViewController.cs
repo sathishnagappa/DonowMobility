@@ -77,7 +77,7 @@ namespace donow.iOS
 					// Call to Get user details and validate credentials
 					LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;
 					if (landingVC != null) {						
-						this.NavigationController.PushViewController(landingVC, true);
+						await this.NavigationController.PushViewController(landingVC, true);
 					}
 				}
 			};
