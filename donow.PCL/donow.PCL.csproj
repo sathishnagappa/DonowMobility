@@ -85,6 +85,7 @@
     <Compile Include="Model\CustomerDetails.cs" />
     <Compile Include="Model\SFDCCredentails.cs" />
     <Compile Include="Model\Prospect.cs" />
+    <Compile Include="Model\Dashboard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

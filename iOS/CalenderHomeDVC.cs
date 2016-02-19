@@ -32,7 +32,7 @@ namespace donow.iOS
 		public CalenderHomeDVC () : base (UITableViewStyle.Grouped, null)
 		{
 			this.NavigationItem.SetLeftBarButtonItem(
-				new UIBarButtonItem(UIImage.FromBundle("Navigation_Back_Icon.png"),UIBarButtonItemStyle.Plain, (sender,args) => {
+				new UIBarButtonItem(UIImage.FromBundle("Navigation Back Icon.png"),UIBarButtonItemStyle.Plain, (sender,args) => {
 					this.NavigationController.PopViewController(true);
 				})
 				, true);
@@ -249,8 +249,7 @@ namespace donow.iOS
 
 			// completed is called when a user eith
 			public override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
-			{
-				AddEvent(controller.Event);
+			{				
 				eventController.DismissViewController (true, null);
 
 				// action tells you what the user did in the dialog, so you can optionally
@@ -267,6 +266,7 @@ namespace donow.iOS
 					// if you wanted to modify the event you could do so here, and then
 					// save:
 					//AppDelegate.EventStore.SaveEvent ( controller.Event, )
+					AddEvent(controller.Event);
 					break;
 				}
 			}

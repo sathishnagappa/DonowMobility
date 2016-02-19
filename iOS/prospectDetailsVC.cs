@@ -120,33 +120,43 @@ namespace donow.iOS
 				}
 			};
 
-			ButtonSeeAllBrokers.TouchUpInside += (object sender, EventArgs e) => 
-			{
-				MyDealMakerVC myDealMaker = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-
-				if(myDealMaker!=null)
-				{				
-					AppDelegate.IsFromProspect = true;
-					this.NavigationController.PushViewController(myDealMaker,true);					
+			ButtonUpdateProspect.TouchUpInside += (object sender, EventArgs e) => {
+				InteractionLeadUpdateVC interactionLeadUpdateVC = this.Storyboard.InstantiateViewController ("InteractionLeadUpdateVC") as InteractionLeadUpdateVC;
+				if (interactionLeadUpdateVC != null) {
+					interactionLeadUpdateVC.leadObj = localLeads;
+					this.PresentViewController (interactionLeadUpdateVC, true, null);
 				}
 			};
 
-//			ButtonPass.TouchUpInside += (object sender, EventArgs e) => {
-//				//ButtonBackgroundView.Hidden = false;
-//				//ViewPass.Hidden = false;
-//				//isLeadAccepted = false;
-//			};
+			ButtonSeeAllBrokers.TouchUpInside += (object sender, EventArgs e) => 
+			{
+				callDealMakerList();
+			};
 
-//			ButtonSubmitPassView.TouchUpInside+= (object sender, EventArgs e) => {
-//				ViewPass.Hidden = true;
-//				ButtonBackgroundView.Hidden = true;
-//				AppDelegate.leadsBL.UpdateReasonForPass(leadObj.LEAD_ID,reasonForPass,AppDelegate.UserDetails.UserId);
-//				LandingLeadsVC landingLeadsVC = this.Storyboard.InstantiateViewController ("LandingLeadsVC") as LandingLeadsVC;
-//				if (landingLeadsVC != null) {
-//					this.NavigationController.PushViewController(landingLeadsVC, true);
-//				}
-//
-//			};
+			ButtonFirstDealMaker.TouchUpInside += (object sender, EventArgs e) =>  {
+				callDealMakerList();
+			};
+
+			ButtonSecondDealMaker.TouchUpInside += (object sender, EventArgs e) =>  {
+				callDealMakerList();
+			};
+			ButtonThirdDealMaker.TouchUpInside += (object sender, EventArgs e) =>  {
+				callDealMakerList();
+			};
+
+			ButtonCalendarEvent.TouchUpInside += (object sender, EventArgs e) => {
+				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+				this.NavigationController.PushViewController(calendarHomeDV, true);
+			};
+		}
+
+		void callDealMakerList () {
+			MyDealMakerVC myDealMaker = this.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
+
+			if (myDealMaker != null) {				
+				AppDelegate.IsFromProspect = true;
+				this.NavigationController.PushViewController (myDealMaker, true);					
+			}
 		}
 
 		protected override void Dispose (bool disposing)
@@ -162,7 +172,7 @@ namespace donow.iOS
 
 		void LoadData()
 		{
-			ScrollViewProspectDetails.ContentSize = new CGSize (375.0f, 1850.0f);
+			ScrollViewProspectDetails.ContentSize = new CGSize (375.0f, 1801.0f);
 
 			prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId);
 
@@ -178,7 +188,6 @@ namespace donow.iOS
 					} else {
 						PreviousMeetingsList.Add (item);
 					}
-
 				}
 			}
 
@@ -193,18 +202,56 @@ namespace donow.iOS
 			LabelProspectName.Text = prospectDetails.LEAD_NAME;
 			LabelProspectCompanyName.Text = prospectDetails.COMPANY_NAME;
 			string coma = (string.IsNullOrEmpty (prospectDetails.CITY) || string.IsNullOrEmpty (prospectDetails.STATE)) ? "" : ", ";
+
 			LabelProspectCityandState.Text = prospectDetails.CITY + coma + prospectDetails.STATE;
 			LabelLeadScore.Text = prospectDetails.LEAD_SCORE.ToString();
 			LabelLeadSource.Text = prospectDetails.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
-			labelIndustry.Text = prospectDetails.INDUSTRY_INFO;
-			LabelLineOfBussiness.Text = prospectDetails.BUSINESS_NEED;
 			LabelCustomerVsProspect.Text = prospectDetails.LEAD_TYPE == "Y" ? "Existing Customer" : "New Prospect" ;
 			//brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
-			ProspectTitle.Text = "("+prospectDetails.LEAD_TITLE+")";
+			if (!string.IsNullOrEmpty (prospectDetails.LEAD_TITLE))
+				ProspectTitle.Text = "("+prospectDetails.LEAD_TITLE+")";
+			else
+				ProspectTitle.Text = "";
+			
 			showBrokerImage (prospectDetails.brokerList.Count);
-			UpdateSalesStage ();
-			//AppDelegate.LeadSalesStage 
 
+			LabelStreetCustomerInfo.Text = EvaluateString (prospectDetails.ADDRESS,prospectDetails.COUNTY);
+			LabelCityStateCustomerInfo.Text = EvaluateString (prospectDetails.CITY,prospectDetails.STATE);
+			LabelZipCodeCountryCustomerInfo.Text = EvaluateString (prospectDetails.ZIPCODE,prospectDetails.COUNTRY);
+			LabelMobileNumberCustomerInfo.Text = "Tel: " + prospectDetails.PHONE;
+
+			LabelIndustry.Text = prospectDetails.INDUSTRY_INFO;
+			LabelFinancials.Text = "Revenue : "+ evaluateAmount(prospectDetails.REVENUE);
+			LabelFiscalYear.Text = prospectDetails.FISCALYE;
+			LabelLOBCustomerInfo.Text = prospectDetails.BUSINESS_NEED;
+			LabelNetIncome.Text = prospectDetails.NETINCOME;
+			LabelTotalEmployees.Text = prospectDetails.EMPLOYEES;
+			LabelMarketValueCustomerInfo.Text = evaluateAmount (prospectDetails.MARKETVALUE);
+			LabelYearFoundedCustomerInfo.Text = prospectDetails.YEARFOUNDED;
+			LabelIndustryRiskScoreCustomerInfo.Text = prospectDetails.INDUSTRYRISK;
+
+//			LabelWebsite.Text = "<html><body><a href=" + prospectDetails.WebAddress + ">" + prospectDetails.WebAddress + "</a></body></html>";
+			LabelWebsite.Text = prospectDetails.WebAddress;
+			CustomerInfoScrollView.ContentSize = new CGSize (this.View.Bounds.Size.Width, 600);
+			AppDelegate.CurrentLead = new Leads () { LEAD_ID = prospectDetails.LEAD_ID, LEAD_NAME = prospectDetails.LEAD_NAME, 
+				CITY = prospectDetails.CITY, STATE = prospectDetails.STATE
+			};
+			UpdateSalesStage ();
+		}
+
+		string EvaluateString (string firstString, string secondString) {
+
+			if (!string.IsNullOrEmpty(firstString) && !string.IsNullOrEmpty(secondString))
+				return (firstString + ", " + secondString);
+			else
+				return (firstString + secondString);
+		}
+
+		string evaluateAmount (string firstString){
+			if (string.IsNullOrEmpty(firstString) || firstString == "NA")
+				return (firstString);
+			else
+				return ("$" + firstString + " M");
 		}
 
 		void UpdateSalesStage()
@@ -223,25 +270,25 @@ namespace donow.iOS
 		void showBrokerImage (int count) {
 			switch (count) {
 			case 0:
-				ImageFirstBroker.Hidden = true;
+				ButtonFirstDealMaker.Hidden = true;
 				LabelScoreFirstBroker.Hidden = true;
-				ImageSecondBroker.Hidden = true;
+				ButtonSecondDealMaker.Hidden = true;
 				LabelScoreSecondBroker.Hidden = true;
-				ImageThirdBroker.Hidden = true;
+				ButtonThirdDealMaker.Hidden = true;
 				LabelScoreThirdBroker.Hidden = true;
 				ButtonSeeAllBrokers.Hidden = true;
 				break;
 			case 1:
 				ButtonSeeAllBrokers.Hidden = false;
 				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
-				ImageSecondBroker.Hidden = true; LabelScoreSecondBroker.Hidden = true;
-				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
+				ButtonSecondDealMaker.Hidden = true; LabelScoreSecondBroker.Hidden = true;
+				ButtonThirdDealMaker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
 				break;
 			case 2:
 				ButtonSeeAllBrokers.Hidden = false;
 				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
 				LabelScoreSecondBroker.Text = "Score: " + prospectDetails.brokerList[1].BrokerScore;
-				ImageThirdBroker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
+				ButtonThirdDealMaker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
 				break;
 			default:
 				ButtonSeeAllBrokers.Hidden = false;
@@ -332,17 +379,17 @@ namespace donow.iOS
 			MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 			if (myMeetingsObj != null) {
 				myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-					myMeetingsObj.customer = new Customer();
-					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
-					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
-					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
+//					myMeetingsObj.customer = new Customer();
+//					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
+//					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
+//					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
 				owner.NavigationController.PushViewController(myMeetingsObj,true);
 			}
 		}
 
 		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 		{
-			return 100.0f;
+			return 90.0f;
 		}
 	}
 
@@ -382,17 +429,17 @@ namespace donow.iOS
 			MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 			if (myMeetingsObj != null) {
 				myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-					myMeetingsObj.customer = new Customer();
-					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
-					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
-					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
+//					myMeetingsObj.customer = new Customer();
+//					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
+//					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
+//					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
 				owner.NavigationController.PushViewController(myMeetingsObj,true);
 			}
 		}
 
 		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 		{
-			return 100.0f;
+			return 90.0f;
 		}
 	}
 	}

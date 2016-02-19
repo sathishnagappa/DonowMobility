@@ -28,6 +28,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelAddress { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelBrokerFee { get; set; }
 
 		[Outlet]
@@ -40,7 +44,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView LabelCompanyInfoDescription { get; set; }
+		UILabel LabelCityState { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -52,11 +56,63 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelEmployees { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelFinancials { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelFiscalYear { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelIndustry { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelIndustryRiskScore { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelLOB { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelMarketValue { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelNameDealMaker { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelNetIncome { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelPhone { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelTotalEarnings { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelWebsite { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelYearFounded { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelZipCodeCountry { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewCompanyInfo { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -84,6 +140,10 @@ namespace donow.iOS
 				ButtonSendRequest.Dispose ();
 				ButtonSendRequest = null;
 			}
+			if (LabelAddress != null) {
+				LabelAddress.Dispose ();
+				LabelAddress = null;
+			}
 			if (LabelBrokerFee != null) {
 				LabelBrokerFee.Dispose ();
 				LabelBrokerFee = null;
@@ -96,9 +156,9 @@ namespace donow.iOS
 				LabelBrokerScore.Dispose ();
 				LabelBrokerScore = null;
 			}
-			if (LabelCompanyInfoDescription != null) {
-				LabelCompanyInfoDescription.Dispose ();
-				LabelCompanyInfoDescription = null;
+			if (LabelCityState != null) {
+				LabelCityState.Dispose ();
+				LabelCityState = null;
 			}
 			if (LabelCompanyName != null) {
 				LabelCompanyName.Dispose ();
@@ -108,13 +168,65 @@ namespace donow.iOS
 				LabelConnectionToLead.Dispose ();
 				LabelConnectionToLead = null;
 			}
+			if (LabelEmployees != null) {
+				LabelEmployees.Dispose ();
+				LabelEmployees = null;
+			}
+			if (LabelFinancials != null) {
+				LabelFinancials.Dispose ();
+				LabelFinancials = null;
+			}
+			if (LabelFiscalYear != null) {
+				LabelFiscalYear.Dispose ();
+				LabelFiscalYear = null;
+			}
+			if (LabelIndustry != null) {
+				LabelIndustry.Dispose ();
+				LabelIndustry = null;
+			}
+			if (LabelIndustryRiskScore != null) {
+				LabelIndustryRiskScore.Dispose ();
+				LabelIndustryRiskScore = null;
+			}
+			if (LabelLOB != null) {
+				LabelLOB.Dispose ();
+				LabelLOB = null;
+			}
+			if (LabelMarketValue != null) {
+				LabelMarketValue.Dispose ();
+				LabelMarketValue = null;
+			}
 			if (LabelNameDealMaker != null) {
 				LabelNameDealMaker.Dispose ();
 				LabelNameDealMaker = null;
 			}
+			if (LabelNetIncome != null) {
+				LabelNetIncome.Dispose ();
+				LabelNetIncome = null;
+			}
+			if (LabelPhone != null) {
+				LabelPhone.Dispose ();
+				LabelPhone = null;
+			}
 			if (LabelTotalEarnings != null) {
 				LabelTotalEarnings.Dispose ();
 				LabelTotalEarnings = null;
+			}
+			if (LabelWebsite != null) {
+				LabelWebsite.Dispose ();
+				LabelWebsite = null;
+			}
+			if (LabelYearFounded != null) {
+				LabelYearFounded.Dispose ();
+				LabelYearFounded = null;
+			}
+			if (LabelZipCodeCountry != null) {
+				LabelZipCodeCountry.Dispose ();
+				LabelZipCodeCountry = null;
+			}
+			if (ScrollViewCompanyInfo != null) {
+				ScrollViewCompanyInfo.Dispose ();
+				ScrollViewCompanyInfo = null;
 			}
 			if (ScrollViewDealMakerDetails != null) {
 				ScrollViewDealMakerDetails.Dispose ();

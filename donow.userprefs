@@ -1,24 +1,8 @@
 ﻿<Properties StartupItem="iOS/donow.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/ForgotPasswordVC.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/MyDealMakerVC.cs">
     <Files>
-      <File FileName="iOS/LandingCustomerVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/LandingLeadsVC.cs" Line="276" Column="50" />
-      <File FileName="iOS/LeadTableCell.cs" Line="91" Column="54" />
-      <File FileName="iOS/LeadDetailVC.cs" Line="1" Column="1" />
-      <File FileName="iOS/customerProfileVC.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/LeadMaster.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/Leads.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/Broker.cs" Line="19" Column="35" />
-      <File FileName="donow.PCL/Util/Constants.cs" Line="27" Column="50" />
-      <File FileName="donow.PCL/BusinessLogic/CustomerBL.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/Model/CustomerDetails.cs" Line="1" Column="1" />
-      <File FileName="iOS/prospectDetailsVC.cs" Line="167" Column="51" />
-      <File FileName="donow.PCL/Model/Prospect.cs" Line="1" Column="1" />
-      <File FileName="donow.PCL/BusinessLogic/LeadsBL.cs" Line="84" Column="4" />
-      <File FileName="donow.PCL/Services/RestService.cs" Line="28" Column="83" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="iOS/ForgotPasswordVC.cs" Line="35" Column="59" />
+      <File FileName="iOS/MyDealMakerVC.cs" Line="182" Column="102" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

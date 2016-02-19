@@ -16,7 +16,19 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonCalendarEvent { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonFirstDealMaker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonMailProspect { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonPassProspect { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -24,7 +36,23 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSecondDealMaker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonSeeAllBrokers { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonThirdDealMaker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonUpdateProspect { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView CustomerInfoScrollView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -32,19 +60,11 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageFirstBroker { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageProspect { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageSecondBroker { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView ImageThirdBroker { get; set; }
+		UILabel LabelCityStateCustomerInfo { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -52,7 +72,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView labelIndustry { get; set; }
+		UILabel LabelFinancials { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelFiscalYear { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelIndustry { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelIndustryRiskScoreCustomerInfo { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -64,7 +96,19 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView LabelLineOfBussiness { get; set; }
+		UILabel LabelLOBCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelMarketValueCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelMobileNumberCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelNetIncome { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -92,6 +136,26 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelStreetCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelTotalEmployees { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelWebsite { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelYearFoundedCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelZipCodeCountryCustomerInfo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel ProspectTitle { get; set; }
 
 		[Outlet]
@@ -112,45 +176,77 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonCalendarEvent != null) {
+				ButtonCalendarEvent.Dispose ();
+				ButtonCalendarEvent = null;
+			}
+			if (ButtonFirstDealMaker != null) {
+				ButtonFirstDealMaker.Dispose ();
+				ButtonFirstDealMaker = null;
+			}
 			if (ButtonMailProspect != null) {
 				ButtonMailProspect.Dispose ();
 				ButtonMailProspect = null;
+			}
+			if (ButtonPassProspect != null) {
+				ButtonPassProspect.Dispose ();
+				ButtonPassProspect = null;
 			}
 			if (ButtonPhoneProspect != null) {
 				ButtonPhoneProspect.Dispose ();
 				ButtonPhoneProspect = null;
 			}
+			if (ButtonSecondDealMaker != null) {
+				ButtonSecondDealMaker.Dispose ();
+				ButtonSecondDealMaker = null;
+			}
 			if (ButtonSeeAllBrokers != null) {
 				ButtonSeeAllBrokers.Dispose ();
 				ButtonSeeAllBrokers = null;
+			}
+			if (ButtonThirdDealMaker != null) {
+				ButtonThirdDealMaker.Dispose ();
+				ButtonThirdDealMaker = null;
+			}
+			if (ButtonUpdateProspect != null) {
+				ButtonUpdateProspect.Dispose ();
+				ButtonUpdateProspect = null;
+			}
+			if (CustomerInfoScrollView != null) {
+				CustomerInfoScrollView.Dispose ();
+				CustomerInfoScrollView = null;
 			}
 			if (ImageBackgroundAcquireLead != null) {
 				ImageBackgroundAcquireLead.Dispose ();
 				ImageBackgroundAcquireLead = null;
 			}
-			if (ImageFirstBroker != null) {
-				ImageFirstBroker.Dispose ();
-				ImageFirstBroker = null;
-			}
 			if (ImageProspect != null) {
 				ImageProspect.Dispose ();
 				ImageProspect = null;
 			}
-			if (ImageSecondBroker != null) {
-				ImageSecondBroker.Dispose ();
-				ImageSecondBroker = null;
-			}
-			if (ImageThirdBroker != null) {
-				ImageThirdBroker.Dispose ();
-				ImageThirdBroker = null;
+			if (LabelCityStateCustomerInfo != null) {
+				LabelCityStateCustomerInfo.Dispose ();
+				LabelCityStateCustomerInfo = null;
 			}
 			if (LabelCustomerVsProspect != null) {
 				LabelCustomerVsProspect.Dispose ();
 				LabelCustomerVsProspect = null;
 			}
-			if (labelIndustry != null) {
-				labelIndustry.Dispose ();
-				labelIndustry = null;
+			if (LabelFinancials != null) {
+				LabelFinancials.Dispose ();
+				LabelFinancials = null;
+			}
+			if (LabelFiscalYear != null) {
+				LabelFiscalYear.Dispose ();
+				LabelFiscalYear = null;
+			}
+			if (LabelIndustry != null) {
+				LabelIndustry.Dispose ();
+				LabelIndustry = null;
+			}
+			if (LabelIndustryRiskScoreCustomerInfo != null) {
+				LabelIndustryRiskScoreCustomerInfo.Dispose ();
+				LabelIndustryRiskScoreCustomerInfo = null;
 			}
 			if (LabelLeadScore != null) {
 				LabelLeadScore.Dispose ();
@@ -160,9 +256,21 @@ namespace donow.iOS
 				LabelLeadSource.Dispose ();
 				LabelLeadSource = null;
 			}
-			if (LabelLineOfBussiness != null) {
-				LabelLineOfBussiness.Dispose ();
-				LabelLineOfBussiness = null;
+			if (LabelLOBCustomerInfo != null) {
+				LabelLOBCustomerInfo.Dispose ();
+				LabelLOBCustomerInfo = null;
+			}
+			if (LabelMarketValueCustomerInfo != null) {
+				LabelMarketValueCustomerInfo.Dispose ();
+				LabelMarketValueCustomerInfo = null;
+			}
+			if (LabelMobileNumberCustomerInfo != null) {
+				LabelMobileNumberCustomerInfo.Dispose ();
+				LabelMobileNumberCustomerInfo = null;
+			}
+			if (LabelNetIncome != null) {
+				LabelNetIncome.Dispose ();
+				LabelNetIncome = null;
 			}
 			if (LabelProspectCityandState != null) {
 				LabelProspectCityandState.Dispose ();
@@ -187,6 +295,26 @@ namespace donow.iOS
 			if (LabelScoreThirdBroker != null) {
 				LabelScoreThirdBroker.Dispose ();
 				LabelScoreThirdBroker = null;
+			}
+			if (LabelStreetCustomerInfo != null) {
+				LabelStreetCustomerInfo.Dispose ();
+				LabelStreetCustomerInfo = null;
+			}
+			if (LabelTotalEmployees != null) {
+				LabelTotalEmployees.Dispose ();
+				LabelTotalEmployees = null;
+			}
+			if (LabelWebsite != null) {
+				LabelWebsite.Dispose ();
+				LabelWebsite = null;
+			}
+			if (LabelYearFoundedCustomerInfo != null) {
+				LabelYearFoundedCustomerInfo.Dispose ();
+				LabelYearFoundedCustomerInfo = null;
+			}
+			if (LabelZipCodeCountryCustomerInfo != null) {
+				LabelZipCodeCountryCustomerInfo.Dispose ();
+				LabelZipCodeCountryCustomerInfo = null;
 			}
 			if (ProspectTitle != null) {
 				ProspectTitle.Dispose ();

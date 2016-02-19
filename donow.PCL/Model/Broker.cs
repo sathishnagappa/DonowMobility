@@ -24,6 +24,19 @@ namespace donow.PCL
 		public int BrokerUserID { get; set; }
 		public string BrokerLOB { get; set; }
 		public long LeadID { get; set; }
+		public int DealsClosed { get; set; }
+		public string ADDRESS { get; set; }
+		public string ZIPCODE { get; set; }
+		public string COUNTRY { get; set; }
+		public string FISCALYE { get; set; }
+		public string REVENUE { get; set; }
+		public string NETINCOME { get; set; }
+		public string EMPLOYEES { get; set; }
+		public string MARKETVALUE { get; set; }
+		public string YEARFOUNDED { get; set; }
+		public string INDUSTRYRISK { get; set; }
+		public string COUNTY { get; set; }
+		public string WebAddress { get; set; }
 //		public string StartTime { get; set; }
 //		public string EndTime { get; set; }
 	}

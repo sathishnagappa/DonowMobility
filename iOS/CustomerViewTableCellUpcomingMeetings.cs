@@ -61,8 +61,7 @@ namespace donow.iOS
 			ImageViewMeeting.Frame = new CGRect (25, 19, 40, 35);
 			LabelMeetingWith.Frame = new CGRect (85, 10, 272, 32);
 			LabelMeetingDate.Frame = new CGRect (85,35,290,21);
-			//			LabelMeetingTime.Frame = new CGRect (270,57,80,21);
-			LabelMeetingLocation.Frame = new CGRect (85,65,290,25);
+			LabelMeetingLocation.Frame = new CGRect (85,55,290,21);
 		}
 	}
 }

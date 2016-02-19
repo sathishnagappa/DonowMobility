@@ -53,7 +53,7 @@ namespace donow.iOS
 			LabelCompany.Text = AppDelegate.UserDetails.Company;
 			LabelCityState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;
 
-			ReferralRequestScrollView.ContentSize =  new SizeF (375,752);
+//			ReferralRequestScrollView.ContentSize =  new SizeF (375,752);
 			ReferralRequestDetails referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
 			List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
 			rrdetails = AppDelegate.referralRequestBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
@@ -74,37 +74,37 @@ namespace donow.iOS
 													 select item).ToList();
 
 			if (newrequest.Count == 0) {
-				CompletedRequestView.Frame = new CGRect (0,530,375,155);
-				PassedRequestView.Frame = new CGRect (0,375,375,155);
-				AcceptedRequestView.Frame = new CGRect (0,220,375,155);
+				CompletedRequestView.Frame = new CGRect (0,347,this.View.Bounds.Size.Width,70);
+				PassedRequestView.Frame = new CGRect (0,277,this.View.Bounds.Size.Width,70);
+				AcceptedRequestView.Frame = new CGRect (0,207,this.View.Bounds.Size.Width,70);
 				NewRequestView.Hidden = true;
 //				ReferralRequestScrollView.ContentSize = new CGSize (414,736);
 			} else {	
 				this.NavigationController.TabBarItem.BadgeValue = newrequest.Count.ToString ();
 				NewRequestView.Hidden = false;
-				TextNewSellerName.Text = newrequest [0].SellerName;
-				TextNewIndustry.Text = newrequest [0].Industry;
+//				TextNewSellerName.Text = newrequest [0].SellerName;
+//				TextNewIndustry.Text = newrequest [0].Industry;
 			}
 			
 			if (acceptedRequest.Count == 0) {
-				CompletedRequestView.Frame = new CGRect (0,530,375,155);
-				PassedRequestView.Frame = new CGRect (0,375,375,155);
+				CompletedRequestView.Frame = new CGRect (0,347,this.View.Bounds.Size.Width,70);
+				PassedRequestView.Frame = new CGRect (0,277,this.View.Bounds.Size.Width,70);
 				AcceptedRequestView.Hidden = true;
 				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
 			} else {				
 				AcceptedRequestView.Hidden = false;
-				TextAcceptedSellerName.Text = acceptedRequest [0].SellerName;
-				TextAcceptedIndustry.Text = acceptedRequest [0].Industry;
+//				TextAcceptedSellerName.Text = acceptedRequest [0].SellerName;
+//				TextAcceptedIndustry.Text = acceptedRequest [0].Industry;
 			}
 
 			if (passedRequest.Count == 0) {
-				CompletedRequestView.Frame =  new CGRect (0,530,375,155);
+				CompletedRequestView.Frame =  new CGRect (0,347,this.View.Bounds.Size.Width,70);
 				PassedRequestView.Hidden = true;
 				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
 			} else {
 				PassedRequestView.Hidden = false;
-				TextPassedSellerName.Text = passedRequest [0].SellerName;
-				TextPassedIndustry.Text = passedRequest [0].Industry;
+//				TextPassedSellerName.Text = passedRequest [0].SellerName;
+//				TextPassedIndustry.Text = passedRequest [0].Industry;
 			}
 
 			if (completedRequest.Count == 0) {
@@ -112,8 +112,8 @@ namespace donow.iOS
 				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
 			} else {
 				CompletedRequestView.Hidden = false;
-				TextCompletedSellerName.Text = completedRequest [0].SellerName;
-				TextCompletedIndusty.Text = completedRequest [0].Industry;
+//				TextCompletedSellerName.Text = completedRequest [0].SellerName;
+//				TextCompletedIndusty.Text = completedRequest [0].Industry;
 			}
 
 			if ((newrequest.Count == 0) && (acceptedRequest.Count == 0) && (passedRequest.Count == 0) && (completedRequest.Count == 0)) {

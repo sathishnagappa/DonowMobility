@@ -24,6 +24,18 @@ namespace donow.PCL
 		public int USER_LEAD_STATUS { get; set; }
 		public int USER_ID { get; set; }
 		public string LEAD_TITLE { get; set; }
+		public string ADDRESS { get; set; }
+		public string ZIPCODE { get; set; }
+		public string COUNTRY { get; set; }
+		public string FISCALYE { get; set; }
+		public string REVENUE { get; set; }
+		public string NETINCOME { get; set; }
+		public string EMPLOYEES { get; set; }
+		public string MARKETVALUE { get; set; }
+		public string YEARFOUNDED { get; set; }
+		public string INDUSTRYRISK { get; set; }
+		public string COUNTY { get; set; }
+		public string WebAddress { get; set; }
 		public List<CustomerInteraction> customerInteractionList { get; set; }
 		public List<UserMeetings> UserMeetingList { get; set; }
 		public List<Broker> brokerList { get; set; }

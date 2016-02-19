@@ -135,6 +135,15 @@ namespace donow.PCL
 			return response;
 		}
 
+		public Dashboard GetDashBoardDetails(int UserID)
+		{
+			RestService restSevice = new RestService ();
+			string restUrl = Constants.Dashboard + "?id=" + UserID;
+			string response = restSevice.GetData (restUrl);
+			Dashboard parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Dashboard>(response.ToString());
+			return parsedResponse;
+		}
+
 	}
 }
 

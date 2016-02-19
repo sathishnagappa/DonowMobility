@@ -104,10 +104,9 @@ namespace donow.iOS
 				isLeadAccepted = false;
 			};
 
-			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {
-
-				ButtonBackgroundView.Hidden = true;
+			ButtonBackgroundView.TouchUpInside += (object sender, EventArgs e) =>  {				
 				if (isLeadAccepted) {
+					ButtonBackgroundView.Hidden = true;
 					ViewAccept.Hidden = true;
 					prospectDetailsVC prospectVC = this.Storyboard.InstantiateViewController ("dummyViewController") as prospectDetailsVC;
 					if (prospectVC != null) {
@@ -117,10 +116,9 @@ namespace donow.iOS
 //						this.PresentViewController (dummyVC, true, null);
 						this.NavigationController.PushViewController(prospectVC, true);
 					}
-				} else {
-					ViewPass.Hidden = true;
 				}
 			};
+
 
 			ButtonPhoneAcceptView.TouchUpInside += (object sender, EventArgs e) => {
 

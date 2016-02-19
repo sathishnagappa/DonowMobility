@@ -91,19 +91,16 @@ namespace donow.iOS
 			//int  brokerWorkingWith =  AppDelegate.brokerBL.GetBrokerForStatus(customer.LeadId,4).Count;
 
 			DealMakersImage1.Hidden = customerDetails.dealMaker != null ? false : true;			
-			LabelIndustry.Text = customerDetails.CompanyInfo;
-			LabelLineOfBusiness.Text = customerDetails.BusinessNeeds;
 //			LabelCustomerVsProspect.Text = customerDetails == "Y" ? "Existing Customer" : "New Prospect" ;
-
 //			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
 //
 //				TableSeeAllClicked = true;
 //				TableViewMeetings.ReloadData ();
-//			};
-			
+//			};			
 			
 			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {
-				var url = new NSUrl ("tel://" + customerDetails.Phone);
+				var phone = string.IsNullOrEmpty(customerDetails.Phone.Trim()) == true ? "0" : customerDetails.Phone;
+				var url = new NSUrl ("tel://" + phone);
 				if (!UIApplication.SharedApplication.OpenUrl (url)) {
 					var av = new UIAlertView ("Not supported",
 						"Scheme 'tel:' is not supported on this device",
@@ -145,11 +142,14 @@ namespace donow.iOS
 						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
 						args.Controller.DismissViewController (true, null);
 					};
-
 					this.PresentViewController (mailController, true, null);
 				}
 			};
 
+			ButtonCalendarEvent.TouchUpInside += (object sender, EventArgs e) => {
+				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+				this.NavigationController.PushViewController(calendarHomeDV, true);
+			};
 			await LoadCustomerAndMeetingInfo ();
 		}
 
@@ -166,10 +166,10 @@ namespace donow.iOS
 			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
 			if(twitterStream.Count > 0)
-				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
-					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
-					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();	
-				//  twitterStreamwithKeyword =	twitterStream;	
+//				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
+//					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
+//					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();	
+				  twitterStreamwithKeyword =	twitterStream;	
 
 			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
 			TableViewLatestCustomerInfo.ReloadData ();
@@ -200,7 +200,7 @@ namespace donow.iOS
 				}
 			}	
 
-			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 2600.0f);
+			ScrollViewCustomerProfile.ContentSize = new CGSize (375.0f, 2255.0f);
 
 			if(customerDetails.customerInteractionList  != null && customerDetails.customerInteractionList.Count !=0)
 				TableViewEmails.Source = new TableSourceInteractionWithCustomer (customerDetails.customerInteractionList , this);
@@ -216,7 +216,47 @@ namespace donow.iOS
 			LabelCityAndState.Text = customerDetails.City + ", " + customerDetails.State;
 			LabelScore.Text = customerDetails.LeadScore.ToString();
 			LabelSource.Text = customerDetails.LeadSource == 2 ? "SFDC" : "DoNow" ;
-			CustomerTitle.Text = "("+customerDetails.LeadTitle+")";
+			if (!string.IsNullOrEmpty (customerDetails.LeadTitle))
+				CustomerTitle.Text = "(" + customerDetails.LeadTitle + ")";
+			else
+				CustomerTitle.Text = "";
+
+			ScrollViewCompanyInfo.ContentSize = new CGSize (this.View.Bounds.Size.Width, 600);
+
+			LabelStreet.Text = EvaluateString (customerDetails.ADDRESS, customerDetails.COUNTY);
+			LabelCityState.Text = EvaluateString (customerDetails.City, customerDetails.State);
+			LabelZipCodeCountry.Text = EvaluateString (customerDetails.ZIPCODE, customerDetails.COUNTRY);
+			LabelPhone.Text = "Tel: " + customerDetails.Phone; 
+
+			LabelIndustry.Text = customerDetails.CompanyInfo;
+			LabelFinancials.Text = "Revenue : " + evaluateAmount(customerDetails.REVENUE);
+			LabelFiscalYear.Text = customerDetails.FISCALYE;
+			LabelLOB.Text = customerDetails.BusinessNeeds;
+			LabelNetIncome.Text = customerDetails.NETINCOME;
+			LabelEmployees.Text = customerDetails.EMPLOYEES;
+			LabelMarketValue.Text = evaluateAmount(customerDetails.MARKETVALUE);
+			LabelYearFounded.Text = customerDetails.YEARFOUNDED;
+			LabelIndustryRiskScore.Text = customerDetails.INDUSTRYRISK;
+			LabelWebsite.Text = customerDetails.WebAddress;
+
+			AppDelegate.CurrentLead = new Leads () { LEAD_ID = customerDetails.LeadId, LEAD_NAME = customerDetails.Name, 
+				CITY = customerDetails.City, STATE = customerDetails.State
+			};
+		}
+
+		string EvaluateString (string firstString, string secondString) {
+
+			if (!string.IsNullOrEmpty(firstString) && !string.IsNullOrEmpty(secondString))
+				return (firstString + ", " + secondString);
+			else
+				return (firstString + secondString);
+		}
+
+		string evaluateAmount (string firstString){
+			if (string.IsNullOrEmpty(firstString) || firstString == "NA")
+				return (firstString);
+			else
+				return ("$" + firstString + " M");
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {
@@ -349,14 +389,14 @@ namespace donow.iOS
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
 					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-					myMeetingsObj.customer = owner.customer;
+					//myMeetingsObj.customer = owner.customer;
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 100.0f;
+				return 90.0f;
 			}
 		}
 
@@ -396,14 +436,14 @@ namespace donow.iOS
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
 					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-					myMeetingsObj.customer = owner.customer;
+					//myMeetingsObj.customer = owner.customer;
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 100.0f;
+				return 90.0f;
 			}
 		}
 
@@ -474,7 +514,8 @@ namespace donow.iOS
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
 
 				//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
-				cell.ImageView.Image = FromUrl(item.profile_image_url);
+				cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
+				cell.ImageView.Image = UIImage.FromBundle("twitter_icon.png");
 				cell.TextLabel.Text = item.text;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
 				cell.TextLabel.Lines = 0;
@@ -521,8 +562,8 @@ namespace donow.iOS
 				//---- if there are no cells to reuse, create a new one
 				if (cell == null)
 				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+				cell.ImageView.Image = UIImage.FromBundle("bing_icon.png");
 				cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
-				cell.ImageView.Image = UIImage.FromBundle("Article 1 Thumb.png");
 				cell.TextLabel.Text = item.Title;
 				cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
 				cell.TextLabel.Lines = 0;

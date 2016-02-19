@@ -65,7 +65,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewF2F.ContentSize = new CGSize (414f, 1330.0f); 
+			ScrollViewF2F.ContentSize = new CGSize (414f, 1113.0f); 
 			ViewF2FMeetingDown.Hidden = true;
 			LabelConformMeeting.Text = "Confirm Your Meeting w/" + meetingObj.CustomerName; 
 			IList<string> ListThumbsDownReason = new List<string>
@@ -114,8 +114,8 @@ namespace donow.iOS
 				ViewF2FMeetingDown.Hidden = true;
 				localReasonForDown = "";
 				TableViewInteractionDislikeReason.Hidden = true;
-				ViewSecond.Frame = new CGRect (0, 193, this.View.Bounds.Size.Width, 1134);
-//				ViewFirst.Frame = new CGRect (0, 0, 414, 193);
+				ViewSecond.Frame = new CGRect (0, 173, this.View.Bounds.Size.Width, 1113);
+				ScrollViewF2F.ContentSize = new CGSize (375.0f,910.0f);
 			};
 
 			ButtonDisLikeMeeting.TouchUpInside += (object sender, EventArgs e) => {
@@ -124,9 +124,7 @@ namespace donow.iOS
 				ButtonConfirmMeetingSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
 				localConfirmMeeting = "DOWN";
 				ViewF2FMeetingDown.Hidden = false;
-//				ViewFirstDropDown.Frame = new CGRect(0,70,414,334);
-//				ViewFirst.Frame = new CGRect (0, 0, 414, 334);
-				ViewSecond.Frame = new CGRect (0, 327, this.View.Bounds.Size.Width, 1134);
+				ViewSecond.Frame = new CGRect (0, 307, this.View.Bounds.Size.Width, 1250);
 				ButtonMeetingDislikeReasonDropDown.Enabled = true;
 			};
 
@@ -137,7 +135,7 @@ namespace donow.iOS
 				localConfirmMeeting = "SIDE";
 				localReasonForDown = "";
 				ViewF2FMeetingDown.Hidden = true;
-				ViewSecond.Frame = new CGRect (0, 193, this.View.Bounds.Size.Width, 1134);
+				ViewSecond.Frame = new CGRect (0, 173, this.View.Bounds.Size.Width, 1113.0f);
 				TableViewInteractionDislikeReason.Hidden = true;
 
 			};

@@ -45,6 +45,7 @@ namespace donow.Util
 		public static string ReferralRequestsUpdate=ConnectionBase + "ReferralRequestsUpdate";
 		public static string SFDCCrendentails=ConnectionBase + "SFDC";
 		public static string OpenConnection=ConnectionBase + "Connection";
+		public static string Dashboard=ConnectionBase + "Dashboard";
 	}
 }
 

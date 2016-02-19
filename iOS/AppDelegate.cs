@@ -74,6 +74,8 @@ namespace donow.iOS
 			brokerBL = new BrokerBL ();
 			industryBL = new IndustryBL ();
 
+//			UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
+
 //			string response = userBL.OpenConnection ();
 //			UIAlertView alert = null;
 //			if (response != "1") {
@@ -86,7 +88,7 @@ namespace donow.iOS
 //
 //				return false;
 //			}
-			//UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
+
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();

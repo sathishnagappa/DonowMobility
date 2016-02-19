@@ -23,10 +23,12 @@ namespace donow.iOS
 //			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 //			this.NavigationController.NavigationBar.TitleTextAttributes.ForegroundColor = UIColor.White;
 
-			if (isReferring)
-				this.SelectedIndex = 3;
-			else
-				this.SelectedIndex = 2;		
+			this.SelectedIndex = 0;
+
+//			if (isReferring)
+//				this.SelectedIndex = 3;
+//			else
+//				this.SelectedIndex = 2;		
 		}
 	}
 }

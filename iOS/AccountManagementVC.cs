@@ -76,11 +76,11 @@ namespace donow.iOS
 
 			if (AppDelegate.UserDetails.UserId != 0) {
 
-				SwitchNewLeads.On = AppDelegate.UserDetails.IsNewLeadNotificationRequired;
-				SwitchBusinessUpdates.On = AppDelegate.UserDetails.IsBusinessUpdatesRequired;
-				SwitchFollowUp.On = AppDelegate.UserDetails.IsCustomerFollowUpRequired;
-				SwitchReferralRequests.On = AppDelegate.UserDetails.IsReferralRequestRequired;
-				SwitchMeetingReminders.On = AppDelegate.UserDetails.IsMeetingRemindersRequired;
+//				SwitchNewLeads.On = AppDelegate.UserDetails.IsNewLeadNotificationRequired;
+//				SwitchBusinessUpdates.On = AppDelegate.UserDetails.IsBusinessUpdatesRequired;
+//				SwitchFollowUp.On = AppDelegate.UserDetails.IsCustomerFollowUpRequired;
+//				SwitchReferralRequests.On = AppDelegate.UserDetails.IsReferralRequestRequired;
+//				SwitchMeetingReminders.On = AppDelegate.UserDetails.IsMeetingRemindersRequired;
 			}
 
 			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
@@ -124,7 +124,8 @@ namespace donow.iOS
 				} else {
 					signUpOtherDetailsVC userInfo = this.Storyboard.InstantiateViewController ("signUpOtherDetailsVC") as signUpOtherDetailsVC;
 					if(userInfo != null)
-						this.NavigationController.PushViewController (userInfo, true);					
+						userInfo.isFromDashBoard = true;
+					this.NavigationController.PresentViewController (userInfo, true, null);					
 				}
 			};
 
@@ -133,29 +134,29 @@ namespace donow.iOS
 					if(changePassword != null)
 						this.NavigationController.PushViewController (changePassword, true);			
 			};
-			SwitchNewLeads.ValueChanged+= (object sender, EventArgs e) => {
-				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
-			};
-			SwitchBusinessUpdates.ValueChanged+= (object sender, EventArgs e) => {
-				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.On;
-			};
-			SwitchFollowUp.ValueChanged+= (object sender, EventArgs e) => {
-				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.On;
-			};
-			SwitchReferralRequests.ValueChanged+= (object sender, EventArgs e) => {
-				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.On;
-			};
-			SwitchMeetingReminders.ValueChanged+= (object sender, EventArgs e) => {
-				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.On;
-			};
+//			SwitchNewLeads.ValueChanged+= (object sender, EventArgs e) => {
+//				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
+//			};
+//			SwitchBusinessUpdates.ValueChanged+= (object sender, EventArgs e) => {
+//				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.On;
+//			};
+//			SwitchFollowUp.ValueChanged+= (object sender, EventArgs e) => {
+//				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.On;
+//			};
+//			SwitchReferralRequests.ValueChanged+= (object sender, EventArgs e) => {
+//				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.On;
+//			};
+//			SwitchMeetingReminders.ValueChanged+= (object sender, EventArgs e) => {
+//				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.On;
+//			};
 
 			ButtonFinish.TouchUpInside += (object sender, EventArgs e) => {
 
-				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
-				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.On;
-				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.On;
-				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.On;
-				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.On;
+//				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
+//				AppDelegate.UserDetails.IsBusinessUpdatesRequired = SwitchBusinessUpdates.On;
+//				AppDelegate.UserDetails.IsCustomerFollowUpRequired = SwitchFollowUp.On;
+//				AppDelegate.UserDetails.IsReferralRequestRequired = SwitchReferralRequests.On;
+//				AppDelegate.UserDetails.IsMeetingRemindersRequired = SwitchMeetingReminders.On;
 				 
 				//AppDelegate.UserDetails.UserId = 7;
 				if(AppDelegate.UserDetails.UserId == 0)

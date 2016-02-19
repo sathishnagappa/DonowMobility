@@ -8,6 +8,7 @@ using donow.PCL;
 using System.Net.Mail;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using CoreGraphics;
 
 namespace donow.iOS
 {
@@ -75,6 +76,7 @@ namespace donow.iOS
 				rrnew.CompanyInfo = AppDelegate.UserDetails.Company;
 				rrnew.CompanyName = AppDelegate.UserDetails.Company;
 				rrnew.LeadEmailID = AppDelegate.CurrentLead.EMAILID;
+				rrnew.LeadID = AppDelegate.CurrentLead.LEAD_ID;
 				AppDelegate.referralRequestBL.SaveReferralRequest(rrnew);
 				string[] nameArray;
 				string greetings;
@@ -118,22 +120,56 @@ namespace donow.iOS
 
 			LabelBrokerScore.Text = "Score \n" + brokerObj.BrokerScore;
 			LabelBrokerFee.Text = "Fee \n" + brokerObj.BrokerFee;
-			LabelTotalEarnings.Text = "# of Deals made \n" + "0"; //brokerObj.BrokerTotalEarning;
-			LabelCompanyInfoDescription.Text = brokerObj.Industry;
+			LabelTotalEarnings.Text = "# of Deals made \n" + brokerObj.DealsClosed.ToString();
 			LabelConnectionToLead.Text = brokerObj.ConnectionLead;
 			LabelCompanyName.Text = brokerObj.Company;
 
-			ButtonSendRequest.Layer.CornerRadius = 8.0f;
+			ButtonSendRequest.Layer.CornerRadius = 3.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 8.0f;
 
 			ButtonCancel.Layer.BorderWidth = 2.0f;
 			ButtonCancel.Layer.BorderColor = UIColor.FromRGB (45, 125, 177).CGColor;
-			ButtonCancel.Layer.CornerRadius = 8.0f;
+			ButtonCancel.Layer.CornerRadius = 3.0f;
 
 			ButtonCancel.TouchUpInside += (object sender, EventArgs e) =>  {
 				this.NavigationController.PopViewController(true);
 			};
-//			ScrollViewDealMakerDetails.ContentSize = new CGSize (375, 633.0f);
+
+			ScrollViewDealMakerDetails.ContentSize = new CGSize (this.View.Bounds.Size.Width, 685.0f);
+
+			ScrollViewCompanyInfo.ContentSize = new CGSize (this.View.Bounds.Size.Width, 600);
+
+			LabelAddress.Text = EvaluateString (brokerObj.ADDRESS, brokerObj.COUNTY);
+			LabelCityState.Text = EvaluateString (brokerObj.City, brokerObj.State);
+			LabelZipCodeCountry.Text = EvaluateString (brokerObj.ZIPCODE, brokerObj.COUNTRY);
+			LabelPhone.Text = "Tel: " + brokerObj.Phone;
+
+			LabelIndustry.Text = brokerObj.Industry;
+			LabelFinancials.Text = "Revenue : "+ evaluateAmount(brokerObj.REVENUE);
+			LabelFiscalYear.Text = brokerObj.FISCALYE;
+			LabelLOB.Text = brokerObj.BrokerLOB;
+			LabelNetIncome.Text = brokerObj.NETINCOME;
+			LabelEmployees.Text = brokerObj.EMPLOYEES;
+			LabelMarketValue.Text = evaluateAmount(brokerObj.MARKETVALUE);
+			LabelYearFounded.Text = brokerObj.YEARFOUNDED;
+			LabelIndustryRiskScore.Text = brokerObj.INDUSTRYRISK;
+			LabelWebsite.Text = brokerObj.WebAddress;
+		
+		}
+
+		string EvaluateString (string firstString, string secondString) {
+
+			if (!string.IsNullOrEmpty(firstString) && !string.IsNullOrEmpty(secondString))
+				return (firstString + ", " + secondString);
+			else
+				return (firstString + secondString);
+		}
+
+		string evaluateAmount (string firstString){
+			if (string.IsNullOrEmpty(firstString) || firstString == "NA")
+				return (firstString);
+			else
+				return ("$" + firstString + " M");
 		}
 	}
 }

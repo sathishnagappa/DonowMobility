@@ -40,7 +40,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,885.0f);
+			ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,761.0f);
 
 			ViewInteractionThumbsDown.Hidden = true;
 			IList<string> InteractionDislikerReason = new List<string>
@@ -108,8 +108,8 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down White.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 325, this.View.Bounds.Size.Width, ViewSecond.Frame.Height);
-				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,979.0f);
+				ViewSecond.Frame = new CGRect (0, 312, this.View.Bounds.Size.Width, ViewSecond.Frame.Height);
+				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,910.0f);
 			};
 			ButtonLikeInteraction.TouchUpInside += (object sender, EventArgs e) => {
 				ViewInteractionThumbsDown.Hidden = true;
@@ -117,7 +117,7 @@ namespace donow.iOS
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up White.png"), UIControlState.Normal);
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Grey Neutral.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
+				ViewSecond.Frame = new CGRect (0, 163, this.View.Bounds.Size.Width, 875);
 				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,845.0f);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};
@@ -127,7 +127,7 @@ namespace donow.iOS
 				ButtonDislikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Down Grey.png"), UIControlState.Normal);
 				ButtonLikeInteraction.SetImage(UIImage.FromBundle ("Thumbs Up Grey.png"), UIControlState.Normal);
 				ButtonInteractionSide.SetImage(UIImage.FromBundle ("Thumbs Side White.png"), UIControlState.Normal);
-				ViewSecond.Frame = new CGRect (0, 183, this.View.Bounds.Size.Width, 875);
+				ViewSecond.Frame = new CGRect (0, 163, this.View.Bounds.Size.Width, 875);
 				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,845.0f);
 				TableViewInteractionDislikerReason.Hidden = true;
 			};

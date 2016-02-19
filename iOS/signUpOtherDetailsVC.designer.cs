@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonCancel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonIndustry { get; set; }
 
 		[Outlet]
@@ -29,6 +33,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonState { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSubmit { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -96,6 +104,10 @@ namespace donow.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonCancel != null) {
+				ButtonCancel.Dispose ();
+				ButtonCancel = null;
+			}
 			if (ButtonIndustry != null) {
 				ButtonIndustry.Dispose ();
 				ButtonIndustry = null;
@@ -111,6 +123,10 @@ namespace donow.iOS
 			if (ButtonState != null) {
 				ButtonState.Dispose ();
 				ButtonState = null;
+			}
+			if (ButtonSubmit != null) {
+				ButtonSubmit.Dispose ();
+				ButtonSubmit = null;
 			}
 			if (ScrollViewSignUpDetails != null) {
 				ScrollViewSignUpDetails.Dispose ();

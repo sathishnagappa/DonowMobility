@@ -34,7 +34,7 @@ namespace donow.iOS
 				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-			ScrollViewInfoPage.ContentSize = new CGSize (375.0f, 1227.0f);
+			ScrollViewInfoPage.ContentSize = new CGSize (375.0f, 1133.0f);
 		}
 	}
 }

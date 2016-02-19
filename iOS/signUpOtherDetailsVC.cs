@@ -25,17 +25,30 @@ namespace donow.iOS
 		//			ButtonNext.TitleLabel.Text = title;
 		//		}
 
-		public bool isFromAM;
 		List<LineOfBusiness> listLOB;
 		List<string> Industries;
 		LoadingOverlay loadingOverlay;
+		public bool isFromDashBoard;
 
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			this.NavigationController.SetNavigationBarHidden (false, false);
+
 			Industries =  AppDelegate.industryBL.GetIndustry ();
 			listLOB = AppDelegate.industryBL.GetLOB();
+
+			if (isFromDashBoard == true) {
+				ButtonNext.Hidden = true;
+				ButtonCancel.Hidden = false;
+//				ButtonNext.SetTitle ("Submit", UIControlState.Normal);
+//				ButtonNext.Frame = new CGRect (this.View.Bounds.Size.Width/2 +10, 10, 154, 40);
+				ButtonSubmit.Hidden = false;
+				ScrollViewSignUpDetails.ContentSize = new SizeF (350.0f, 825.0f);
+			} else {
+				ButtonCancel.Hidden = true;
+				ButtonSubmit.Hidden = true;
+				this.NavigationController.SetNavigationBarHidden (false, false);
+			}
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -79,8 +92,12 @@ namespace donow.iOS
 				"UT","VT","VA","WA","WV","WI","WY"
 			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (350.0f, 1119.0f);
-			ButtonNext.Layer.CornerRadius = 5.0f;
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (350.0f, 836.0f);
+
+			ButtonCancel.Layer.CornerRadius = 3.0f;
+			ButtonNext.Layer.CornerRadius = 3.0f;
+			ButtonSubmit.Layer.CornerRadius = 3.0f;
+
 			TableViewState.Source = new TableSource(States,this , "States");
 			TableViewState.ContentSize = new SizeF (100f,50f);
 			ButtonState.TouchUpInside += (object sender, EventArgs e) =>  {
@@ -110,17 +127,34 @@ namespace donow.iOS
 				TableViewIndustry.ReloadData ();
 			};
 
-			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {
-				if(Validation()) {	
-				SaveUserDetails();
-				AccountManagementVC accountManagementVC = this.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
-				if (accountManagementVC != null) {
-					accountManagementVC.isFromSignUp = true;
-					this.NavigationController.PushViewController (accountManagementVC, true);
+			ButtonNext.TouchUpInside += (object sender, EventArgs e) => {	
+				
+				if(isFromDashBoard == false && Validation()) {	
+					SaveUserDetails();
+					AccountManagementVC accountManagementVC = this.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
+					if (accountManagementVC != null) {
+						accountManagementVC.isFromSignUp = true;
+						this.NavigationController.PushViewController (accountManagementVC, true);
+					}
 				}
-				}
+//				}else if (isFromDashBoard == true && Validation()) {
+//					SaveUserDetails();
+//					DismissViewController(true,null);
+//				}
 			};
 			loadingOverlay.Hide ();
+
+			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) =>  {
+				if (isFromDashBoard == true && Validation()) {
+				SaveUserDetails();
+				AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);	
+				DismissViewController(true,null);
+				}
+			};
+
+			ButtonCancel.TouchUpInside += (object sender, EventArgs e) => {
+				DismissViewController (true, null);
+			};
 		}
 
 		void LoadScreen()
@@ -230,16 +264,18 @@ namespace donow.iOS
 				return false;
 			}
 
-			UserDetails userDetails =  AppDelegate.userBL.GetUserFromEmail(TextBoxEmail.Text);
+			if (isFromDashBoard == false || AppDelegate.UserDetails.Email != TextBoxEmail.Text) {
+				UserDetails userDetails = AppDelegate.userBL.GetUserFromEmail (TextBoxEmail.Text);
 
-			if (userDetails != null) {
-				alert = new UIAlertView () { 
-					Title = "Email ID", 
-					Message = "A profile with this email address is already registered."
-				};
-				alert.AddButton ("OK");
-				alert.Show ();
-				return false;
+				if (userDetails != null) {
+					alert = new UIAlertView () { 
+						Title = "Email ID", 
+						Message = "A profile with this email address is already registered."
+					};
+					alert.AddButton ("OK");
+					alert.Show ();
+					return false;
+				}
 			}
 //			if (string.IsNullOrEmpty (TextBoxLineOfBusiness.Text)) {
 //				alert = new UIAlertView () { 
@@ -255,10 +291,6 @@ namespace donow.iOS
 
 		void SaveUserDetails()
 		{
-//			if (AppDelegate.UserDetails == null) {
-//				AppDelegate.UserDetails = new donow.PCL.Model.UserDetails ();
-//			}
-//			
 			AppDelegate.UserDetails.FullName = TextBoxFullName.Text;
 			AppDelegate.UserDetails.Title = TextBoxTitle.Text;
 			AppDelegate.UserDetails.Company = TextBoxCompany.Text;
@@ -269,6 +301,7 @@ namespace donow.iOS
 			AppDelegate.UserDetails.Email = TextBoxEmail.Text;
 			AppDelegate.UserDetails.Phone = TextBoxPhone.Text;
 			AppDelegate.UserDetails.LineOfBusiness = TextBoxLineOfBusiness.Text;
+			AppDelegate.UserDetails.State = TextBoxState.Text;
 
 		}
 
@@ -392,10 +425,7 @@ namespace donow.iOS
 
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			//			signupVC.ButtonState.TitleLabel.Text = TableItems[indexPath.Row].ToString();
-			//			signupVC.TableViewState.Hidden = true;
 			signupOtherDetailsVC.UpdateControls(TableItems[indexPath.Row], TSTableType);
-			//			signupVC.changeTitle(TableItems[indexPath.Row]);
 		}
 
 	}

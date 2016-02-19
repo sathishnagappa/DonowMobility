@@ -23,7 +23,7 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 			this.Title = "Requestor Profile";
-			ScrollViewRR.ContentSize=new CGSize (375f, 1100f);
+			ScrollViewRR.ContentSize=new CGSize (375.0f, 1200.0f);
 
 			ButtonReferLater.Layer.BorderWidth = 2.0f;
 			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (44, 145, 188).CGColor;
@@ -37,7 +37,7 @@ namespace donow.iOS
 					referralRequestDetails.referralRequestType = referralRequestType;
 					this.NavigationController.PushViewController(referralRequestDetails,true);
 			};
-			NavigationItem.LeftBarButtonItem = btn;		
+			NavigationItem.LeftBarButtonItem = btn;
 
 			AlertSubView.Layer.CornerRadius = 15.0f;
 			AlertSubView.Layer.MasksToBounds = true;
@@ -56,28 +56,54 @@ namespace donow.iOS
 
 			ButtonReferLater.Layer.BorderWidth = 2.0f;
 			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (50, 135, 172).CGColor;
-			LabelSellerName.Text = refferalRequests.SellerName;
-			LabelCompany.Text = refferalRequests.CompanyName;
-			LabelCityState.Text = refferalRequests.City + "," + refferalRequests.State; 
-			LabelCompanyInfo.Text = refferalRequests.CompanyInfo;
-			LabelProspect.Text = refferalRequests.Prospect;
-			LabelBusinessNeeds.Text = refferalRequests.BusinessNeeds;
-			LabelLocation.Text = refferalRequests.City;
-			LabelIndustry.Text = refferalRequests.Industry;
-			LabelSellerProfile.Text = "Coming Soon";
+
+
+			LabelNameSeller.Text = refferalRequests.SellerName;
+			LabelTitleSeller.Text = refferalRequests.SellerTitle;
+			LabelIndustrySeller.Text = refferalRequests.SellerCompany;
+			LabelCityState.Text = EvaluateString (refferalRequests.SellerCity,refferalRequests.SellerState);
+
+			LabelComapnyNameSeller.Text = refferalRequests.SellerIndustry;
+			LabelStreetSeller.Text = refferalRequests.SellerOfficeAddress;
+			LabelCityStateSeller.Text = EvaluateString (refferalRequests.City,refferalRequests.State);
+			LabelZipCodeCountrySeller.Text = EvaluateString (refferalRequests.SellerZipCode,"United State");
+			LabelPhoneSeller.Text = "Tel: " + refferalRequests.SellerPhone;
+			LabelLOBSeller.Text = refferalRequests.SellerLOB;
+
+			LabelNameProspect.Text = refferalRequests.Prospect;
+			LabelTitleProspect.Text = refferalRequests.LEAD_TITLE;
+			LabelIndustryProspect.Text = refferalRequests.COMPANY_NAME;
+			LabelCityStateProspectProfile.Text = EvaluateString (refferalRequests.LEAD_CITY,refferalRequests.LEAD_STATE);
+
+			LabelStreetProspect.Text = EvaluateString (refferalRequests.LEAD_COMP_ADDRESS,refferalRequests.County);
+			LabelCityStateProspect.Text = EvaluateString (refferalRequests.LEAD_CITY,refferalRequests.LEAD_STATE);
+			LabelZipCountryProspect.Text = EvaluateString (refferalRequests.LEAD_COMP_ZIPCODE,refferalRequests.LEAD_COMP_COUNTRY);
+			LabelPhoneProspect.Text = "Tel: " + refferalRequests.LEAD_PHONE;
+
+			LabelFinancialsProspect.Text = "Revenue : "+ evaluateAmount(refferalRequests.Revenue);
+			LabelFiscalYearProspect.Text = refferalRequests.FiscalYE;
+			LabelLOBProspect.Text = refferalRequests.LEAD_LOB;
+			LabelNetIncomeProspect.Text = refferalRequests.NetIncome;
+			LabelEmployeesProspect.Text = refferalRequests.Employees;
+			LabelMarketValueProspect.Text = evaluateAmount (refferalRequests.MarketValue);
+			LabelMYearFoundedProspect.Text = refferalRequests.YearFounded;
+			LabelIndustryRiskProspect.Text = refferalRequests.IndustryRiskScore;
+			LabelWebsiteProspect.Text = refferalRequests.WebAddress;
 
 			if (refferalRequests.Status == 2) {
 				PassView.Hidden = true;
 				MakeView.Hidden = false;
-			}
-			else if (refferalRequests.Status == 4) {
+			} else if (refferalRequests.Status == 4) {
 				PassView.Hidden = true;
 				MakeView.Hidden = true;
+			} else if (refferalRequests.Status == 1)  {
+				LabelNameSeller.Hidden = true;			
 			}
 
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
 			
 				AppDelegate.brokerBL.UpdateBrokerStatus(refferalRequests.BrokerID,4,refferalRequests.LeadID);
+				LabelNameSeller.Hidden = false;
 				//Xamarin Insights tracking
 				Insights.Track("Update BrokerStatus", new Dictionary <string,string>{
 					{"BrokerID", refferalRequests.BrokerID.ToString()},
@@ -205,6 +231,21 @@ namespace donow.iOS
 
 			};
 
+		}
+
+		string EvaluateString (string firstString, string secondString) {
+
+			if (!string.IsNullOrEmpty(firstString) && !string.IsNullOrEmpty(secondString))
+				return (firstString + ", " + secondString);
+			else
+				return (firstString + secondString);
+		}
+
+		string evaluateAmount (string firstString){
+			if (string.IsNullOrEmpty(firstString) || firstString == "NA")
+				return (firstString);
+			else
+				return ("$" + firstString + " M");
 		}
 	}
 }

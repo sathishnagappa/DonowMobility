@@ -41,6 +41,8 @@ namespace donow.iOS
 //			if (UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeLeft || UIApplication.SharedApplication.StatusBarOrientation == UIInterfaceOrientation.LandscapeRight) {
 //				bounds.Size = new CGSize (bounds.Size.Height, bounds.Size.Width);
 //			}
+//			loadingOverlay = new LoadingOverlay (this.View.Bounds);
+//			View.Add (loadingOverlay);
 
 			leads = GetLeads ();
 
@@ -59,10 +61,9 @@ namespace donow.iOS
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
+//			if(loadingOverlay != null)
+//				loadingOverlay.Hidden = true;			
 			GetLeadUpdatePage ();
-
-			if(loadingOverlay != null)
-			loadingOverlay.Hidden = true;
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -88,8 +89,8 @@ namespace donow.iOS
 		{
 			base.ViewDidLoad ();
 
-			loadingOverlay = new LoadingOverlay (this.View.Bounds);
-			View.Add (loadingOverlay);
+//			loadingOverlay = new LoadingOverlay (this.View.Bounds);
+//			View.Add (loadingOverlay);
 
 			this.NavigationItem.Title = "Leads";
 			this.NavigationItem.SetHidesBackButton (true, false);
@@ -306,7 +307,7 @@ namespace donow.iOS
 	
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 180.0f;
+				return 140.0f;
 			}
 		}
 

@@ -33,10 +33,10 @@ namespace donow.iOS
 			LabelBrokerName.Text = brokerObj.BrokerName;
 //			LabelDesignation.Text = brokerObj.BrokerDesignation;
 			LabelCompanyName.Text = brokerObj.Company;
-			LabelIndustryType.Text = "Industry: " + brokerObj.Industry;
+			LabelIndustryType.Text = brokerObj.Industry;
 			LabelCityAndState.Text = brokerObj.City + ", " + brokerObj.State;
 			LabelScore.Text = brokerObj.BrokerScore;
-			LabelReferralMade.Text = "0";
+			LabelReferralMade.Text = brokerObj.DealsClosed.ToString();
 			LabelBrokerInfo.Text = brokerObj.Company + "\n" + brokerObj.Industry;
 			LabelConnectionToLead.Text = brokerObj.ConnectionLead;
 			LabelDomainExpertise.Text = brokerObj.DomainExpertise;

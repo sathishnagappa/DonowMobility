@@ -83,6 +83,11 @@ namespace donow.iOS
 				}
 			};	
 
+
+//			MyText.Editable= false;
+//			MyText.DataDetectorTypes = UIDataDetectorType.Link;
+//			MyText.Selectable = false;
+//			MyText.Selectable = true;
 		}
 
 		private bool Validation()

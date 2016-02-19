@@ -148,15 +148,12 @@ namespace donow.iOS
 				ImageRR.Image = UIImage.FromBundle ("New Referral Request Icon.png");
 				LabelRRTitle.Text = "New Deal Requests";
 			} else if (referralRequestType == "Accepted") {
-
 				ImageRR.Image = UIImage.FromBundle ("Referral Action Pending Icon.png");
 				LabelRRTitle.Text = "Accepted Requests (Action Pending)";
 			} else if (referralRequestType == "Passed") {
-
 				ImageRR.Image = UIImage.FromBundle ("Passed Requests Icon.png");
 				LabelRRTitle.Text = "Passed Requests";
 			} else if (referralRequestType == "Completed") {
-			
 				ImageRR.Image = UIImage.FromBundle ("Completed Requests Icon.png");
 				LabelRRTitle.Text = "Completed Requests";
 			}
@@ -212,7 +209,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 200.0f;
+				return 160.0f;
 			}
 		}
 	}

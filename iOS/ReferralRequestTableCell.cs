@@ -7,7 +7,7 @@ namespace donow.iOS
 {
 	public class ReferralRequestTableCell : UITableViewCell  {
 
-		UILabel LabelSellerName, LabelIndustryName, LabelLocation, LabelProspect, LabelBusinessNeeds,LabelNewRequest;
+		UILabel LabelSellerName, LabelSellerTitle, LabelSellerCompany, LabelProspectName, LabelProspectCompany, LabelProspectTitle;
 		UIImageView ImageViewLeadImage;
 		UIView ViewSeperator;
 
@@ -21,28 +21,28 @@ namespace donow.iOS
 			};
 			ContentView.AddSubviews(new UIView[] {LabelSellerName});
 
-			LabelIndustryName = new UILabel () {
-				Font = UIFont.FromName("Arial", 18f),
+			LabelSellerCompany = new UILabel () {
+				Font = UIFont.FromName("Arial", 16f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear,
 				LineBreakMode = UILineBreakMode.WordWrap
 			};
-			ContentView.AddSubviews(new UIView[] {LabelIndustryName});
+			ContentView.AddSubviews(new UIView[] {LabelSellerCompany});
 
-			LabelLocation = new UILabel () {
-				Font = UIFont.FromName("Arial", 18f),
+			LabelSellerTitle = new UILabel () {
+				Font = UIFont.FromName("Arial", 16f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				Text = "Lead Score:",
 				BackgroundColor = UIColor.Clear
 			};
-			ContentView.AddSubviews(new UIView[] {LabelLocation});
+			ContentView.AddSubviews(new UIView[] {LabelSellerTitle});
 
-			LabelProspect = new UILabel () {
+			LabelProspectName = new UILabel () {
 				Font = UIFont.FromName("Arial-BoldMT", 18f),   
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
-			ContentView.AddSubviews(new UIView[] {LabelProspect});
+			ContentView.AddSubviews(new UIView[] {LabelProspectName});
 
 			ViewSeperator = new UIView () {
 				BackgroundColor = UIColor.FromRGB (147, 149, 151)
@@ -50,13 +50,21 @@ namespace donow.iOS
 
 			ContentView.AddSubviews(new UIView[] {ViewSeperator});
 
-			LabelBusinessNeeds = new UILabel () {
-				Font = UIFont.FromName("Arial", 18f),
+			LabelProspectCompany = new UILabel () {
+				Font = UIFont.FromName("Arial", 16f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear,
-				LineBreakMode = UILineBreakMode.WordWrap
 			};
-			ContentView.AddSubviews(new UIView[] {LabelBusinessNeeds});
+			ContentView.AddSubviews(new UIView[] {LabelProspectCompany});
+
+			LabelProspectTitle = new UILabel () {
+				Font = UIFont.FromName("Arial", 16f),
+				TextColor = UIColor.FromRGB (35, 31, 32),
+				BackgroundColor = UIColor.Clear,
+//				Lines = 0,
+//				LineBreakMode = UILineBreakMode.WordWrap
+			};
+			ContentView.AddSubviews(new UIView[] {LabelProspectTitle});
 
 			ImageViewLeadImage = new UIImageView () {
 				Image = UIImage.FromBundle("Salesperson Logo_Small.png")
@@ -75,13 +83,15 @@ namespace donow.iOS
 		}
 
 		public void UpdateCell (ReferralRequest rrObj)
-		{
-
+		{	
+			if(rrObj.Status != 1)
 			LabelSellerName.Text = "Seller: " + rrObj.SellerName;
-			LabelIndustryName.Text = "Industry:" + rrObj.Industry;
-			LabelLocation.Text = "Location:"+ rrObj.City + ", " + rrObj.State;
-			LabelProspect.Text = "Prospect: "+ rrObj.Prospect;
-			LabelBusinessNeeds.Text =  "Business Needs:" + rrObj.BusinessNeeds;
+			
+			LabelSellerCompany.Text = rrObj.CompanyName;
+			LabelSellerTitle.Text = rrObj.SellerTitle;
+			LabelProspectName.Text = "Prospect: "+ rrObj.Prospect;
+			LabelProspectTitle.Text = rrObj.LEAD_TITLE;
+			LabelProspectCompany.Text = rrObj.COMPANY_NAME;
 //			if (rrObj.Status == 1)
 //				LabelNewRequest.Hidden = false;
 //			else
@@ -92,16 +102,17 @@ namespace donow.iOS
 			base.LayoutSubviews ();
 
 			ImageViewLeadImage.Frame = new CGRect (25, 22, 50, 50);
-			LabelSellerName.Frame = new CGRect (100, 20, 250, 25);
-			LabelIndustryName.Frame = new CGRect (100, 40, 280, 25);
-			LabelLocation.Frame = new CGRect (100, 60, 250, 25);
 
-			ViewSeperator.Frame = new CGRect (100, 95, 414,1);
+			LabelSellerName.Frame = new CGRect (100, 22, 270, 25);
+			LabelSellerTitle.Frame = new CGRect (100, 40, 270, 25);
+			LabelSellerCompany.Frame = new CGRect (100, 58, this.Frame.Width - 100, 25);
 
-			LabelProspect.Frame = new CGRect (100, 105, 250, 25);
-			LabelBusinessNeeds.Frame = new CGRect (100, 125, 280, 25);
+			ViewSeperator.Frame = new CGRect (90, 88, this.Frame.Width - 20,1);
+
+			LabelProspectName.Frame = new CGRect (100, 90, 270, 25);
+			LabelProspectTitle.Frame = new CGRect (100, 108, 270, 21);
+			LabelProspectCompany.Frame = new CGRect (100, 126, this.Frame.Width -100, 21);
 //			LabelNewRequest.Frame = new CGRect (40, 150, 60, 25);
-
 		}
 	}
 }

@@ -365,6 +365,13 @@
     <BundleResource Include="Resources\Magnifying Glass%402x.png" />
     <BundleResource Include="Resources\LogOutIcon.png" />
     <BundleResource Include="Resources\letter x1.png" />
+    <BundleResource Include="Resources\twitter_icon.png" />
+    <BundleResource Include="Resources\bing_icon.png" />
+    <BundleResource Include="Resources\deal.png" />
+    <BundleResource Include="Resources\lead.png" />
+    <BundleResource Include="Resources\calendar.png" />
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\company-info.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />
