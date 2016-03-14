@@ -8,13 +8,13 @@ namespace donow.iOS
 {
 	public class DealMakerTableViewCell : UITableViewCell
 	{
-		UILabel LabelTitleHeading,LabelTitle, LabelDealMakerScoreName,LabelDealMakerIndustry,LabelDealMakerLocation,LabelDealMakerScoreDigit, LabelDealMakerIndustryDiscription, LabelDealMakerLocationDescription, LabelLeadStatus;
+		UILabel LabelTitle, LabelDealMakerScoreName,LabelDealMakerScoreDigit, LabelDealMakerIndustryDiscription, LabelDealMakerLocationDescription, LabelLeadStatus;
 		UIImageView ImageViewDealMakerImage;
 
 		public DealMakerTableViewCell  (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			LabelDealMakerScoreName = new UILabel () {
-				Font = UIFont.FromName ("Arial", 19f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
@@ -22,7 +22,7 @@ namespace donow.iOS
 
 //			LabelDealMakerIndustry = new UILabel () {
 //
-//				Font = UIFont.FromName ("Arial", 19f),
+//				Font = UIFont.FromName ("Arial", 18f),
 //				TextColor = UIColor.FromRGB (35, 31, 32),
 //				BackgroundColor = UIColor.Clear
 //			};
@@ -31,7 +31,7 @@ namespace donow.iOS
 
 //			LabelDealMakerLocation = new UILabel () {
 //
-//				Font = UIFont.FromName ("Arial", 19f),
+//				Font = UIFont.FromName ("Arial", 18f),
 //				TextColor = UIColor.FromRGB (35, 31, 32),
 //				BackgroundColor = UIColor.Clear
 //			};
@@ -40,7 +40,7 @@ namespace donow.iOS
 
 			LabelDealMakerScoreDigit = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 19f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
@@ -48,7 +48,7 @@ namespace donow.iOS
 
 			LabelDealMakerIndustryDiscription = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 19f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
@@ -56,7 +56,7 @@ namespace donow.iOS
 
 			LabelDealMakerLocationDescription = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 19f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
@@ -64,7 +64,7 @@ namespace donow.iOS
 
 			LabelLeadStatus = new UILabel () {
 
-				Font = UIFont.FromName ("Arial-BoldMT", 15f),
+				Font = UIFont.FromName ("Arial-BoldMT", 16f),
 				TextColor = UIColor.Black,
 				//				BackgroundColor = UIColor.Black,
 				TextAlignment = UITextAlignment.Right
@@ -73,7 +73,7 @@ namespace donow.iOS
 
 //			LabelTitleHeading = new UILabel () {
 //
-//				Font = UIFont.FromName ("Arial", 19f),
+//				Font = UIFont.FromName ("Arial", 18f),
 //				TextColor = UIColor.FromRGB (35, 31, 32),
 //				BackgroundColor = UIColor.Clear
 //			};
@@ -81,7 +81,7 @@ namespace donow.iOS
 
 			LabelTitle = new UILabel () {
 
-				Font = UIFont.FromName ("Arial", 19f),
+				Font = UIFont.FromName ("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
@@ -132,19 +132,18 @@ namespace donow.iOS
 		{
 			base.LayoutSubviews ();
 
-			ImageViewDealMakerImage.Frame = new CGRect (25,45,50,50);
+			ImageViewDealMakerImage.Frame = new CGRect (25,22,50,50);
 
 //			LabelTitleHeading.Frame = new CGRect (100,25,150,25);
-			LabelTitle.Frame = new CGRect (100, 25, 220, 25);
+			LabelTitle.Frame = new CGRect (100, 22, 260, 25);
 
-//			LabelDealMakerIndustry.Frame = new CGRect (100,50,150,25);
-			LabelDealMakerIndustryDiscription.Frame = new CGRect (100,50,275,25);
+			LabelDealMakerIndustryDiscription.Frame = new CGRect (100,42,275,25);
 
 //			LabelDealMakerLocation.Frame = new CGRect (100, 75, 150, 25);
-			LabelDealMakerLocationDescription.Frame = new CGRect (100,75,220,25);
+			LabelDealMakerLocationDescription.Frame = new CGRect (100,62,220,25);
 
-			LabelDealMakerScoreName.Frame = new CGRect (100,100,150,25);
-			LabelDealMakerScoreDigit.Frame = new CGRect (220,100,220,25);
+			LabelDealMakerScoreName.Frame = new CGRect (100,82,150,25);
+			LabelDealMakerScoreDigit.Frame = new CGRect (220,82,220,25);
 
 			LabelLeadStatus.Frame = new CGRect (this.Bounds.Size.Width - 170, 5, 150, 25);
 		}

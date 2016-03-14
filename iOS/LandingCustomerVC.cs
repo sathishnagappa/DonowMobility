@@ -58,6 +58,7 @@ namespace donow.iOS
 		{
 			base.ViewWillDisappear (animated);
 			//this.Dispose ();
+			TableViewCustomerList.Source = null;
 			if (searchTableView == null) {
 				TableViewCustomerList.ReloadData ();
 			}
@@ -218,7 +219,7 @@ namespace donow.iOS
 			}
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 100.0f;
+				return 80.0f;
 			}
 		}
 		void LoadCustomers()

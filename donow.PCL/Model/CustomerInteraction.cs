@@ -9,6 +9,8 @@ namespace donow.PCL
 		public string Type { get; set; }
 		public string DateNTime { get; set; }
 		public int LeadID { get; set; }
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 
 	}
 }

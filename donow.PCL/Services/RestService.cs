@@ -11,16 +11,32 @@ using donow.PCL;
 using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 
+
 namespace donow.Services
 {
 	public class RestService
 	{
+		static RestService instance;
+		RestService() {}
+		public static RestService Instance
+		{
+			get 
+			{
+				if (instance == null)
+				{
+					instance = new RestService();
+				}
+				return instance;
+			}
+		}
 
 		public string GetData (string RestURL)
 		{
 			var request = HttpWebRequest.Create(RestURL);
 			request.ContentType = "application/json";
 			request.Method = "GET";
+
+
 
 			if (CheckInternetAccess ()) {
 				try
@@ -139,7 +155,14 @@ namespace donow.Services
 //			}
 //		}
 
-
+//		public static RestService GetServiceObject()
+//		{
+//			if(restService == null)
+//			{
+//				restService = new RestService();
+//			}
+//			return restService;
+//		}
 
 	}
 }

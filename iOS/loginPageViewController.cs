@@ -111,9 +111,10 @@ namespace donow.iOS
 					if(AppDelegate.UserProfile.email_verified == true)
 					{
 
-						AppDelegate.UserDetails =  AppDelegate.userBL.GetUserFromEmail(AppDelegate.UserProfile.email);
+						//AppDelegate.UserDetails =  AppDelegate.userBL.GetUserFromEmail(AppDelegate.UserProfile.email);
+						AppDelegate.UserDetails =  AppDelegate.userBL.GetUserDetails(AppDelegate.UserProfile.email);
 
-						if(AppDelegate.UserDetails != null)
+						if(AppDelegate.UserDetails != null && AppDelegate.UserDetails.UserId > 0)
 						{
 							
 							LandingTabBarVC landingVC = this.Storyboard.InstantiateViewController ("LandingTabBarVC") as LandingTabBarVC;

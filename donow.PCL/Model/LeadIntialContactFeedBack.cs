@@ -13,6 +13,8 @@ namespace donow.PCL
 		public string Comments { get; set;}
 		public int MeetingID { get; set;}
 		public string SalesStage { get; set;}
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 	}
 }
 

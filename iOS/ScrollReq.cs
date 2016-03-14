@@ -19,11 +19,21 @@ namespace donow.iOS
 		public ScrollReq (IntPtr handle) : base (handle)
 		{
 		}
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			base.ViewDidDisappear (animated);
+			//refferalRequests = null;
+		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			this.Title = "Requestor Profile";
 			ScrollViewRR.ContentSize=new CGSize (375.0f, 1200.0f);
+
+			if (referralRequestType == "Completed")
+				ScrollViewRR.Frame = new CGRect (0, 0, this.View.Bounds.Size.Width, this.View.Bounds.Size.Height);
 
 			ButtonReferLater.Layer.BorderWidth = 2.0f;
 			ButtonReferLater.Layer.BorderColor = UIColor.FromRGB (44, 145, 188).CGColor;
@@ -47,7 +57,6 @@ namespace donow.iOS
 
 			AlertSubViewLater.Layer.CornerRadius = 15.0f;
 			AlertSubViewLater.Layer.MasksToBounds = true;
-
 
 			ButtonEmailAcceptView.Layer.CornerRadius = 5.0f;
 			ButtonLaterView.Layer.CornerRadius = 5.0f;
@@ -97,7 +106,7 @@ namespace donow.iOS
 				PassView.Hidden = true;
 				MakeView.Hidden = true;
 			} else if (refferalRequests.Status == 1)  {
-				LabelNameSeller.Hidden = true;			
+				LabelNameSeller.Hidden = true;
 			}
 
 			ButtonAccepRR.TouchUpInside += (object sender, EventArgs e) => {
@@ -123,13 +132,11 @@ namespace donow.iOS
 			};
 				
 			ButtonReferLater.TouchUpInside += (object sender, EventArgs e) => {
-
 				AlertViewLater.Hidden=false;
 				AlertSubViewLater.Hidden=false;
-
 			};
-			ButtonLaterView.TouchUpInside += (object sender, EventArgs e) => {
 
+			ButtonLaterView.TouchUpInside += (object sender, EventArgs e) => {
 				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController("landingRefferalRequestVC") as LandingRefferalRequestVC;
 				if (landingRefferalRequestVC != null)
 				{
@@ -139,18 +146,16 @@ namespace donow.iOS
 			};
 
 			ButtonPassRR.TouchUpInside += (object sender, EventArgs e) => {
-
 				AppDelegate.referralRequestBL.UpdateReferralRequest(refferalRequests.ID,3);
 				AppDelegate.brokerBL.UpdateBrokerStatus(refferalRequests.BrokerID,3,refferalRequests.LeadID);
 				LandingRefferalRequestVC landingRefferalRequestVC = this.Storyboard.InstantiateViewController("landingRefferalRequestVC") as LandingRefferalRequestVC;
 				if (landingRefferalRequestVC != null)
-			{
+				{
 					//landingRefferalRequestVC.CaseID = GetCurrentCaseID();
 					this.NavigationController.PushViewController(landingRefferalRequestVC, true);
-			}  
-
-
+				}
 			};
+
 			ButtonMakeReferal.TouchUpInside += (object sender, EventArgs e) => {
 				AlertView.Hidden=false;
 				AlertSubView.Hidden=false;
@@ -161,28 +166,25 @@ namespace donow.iOS
 				AlertSubViewLater.Hidden=true;
 			};
 
-			DisableReqMeetScroll.TouchUpInside += (object sender, EventArgs e) => {
-			
+			DisableReqMeetScroll.TouchUpInside += (object sender, EventArgs e) => {			
 				AlertViewRequestMeeting.Hidden=true;
 				AlertSubViewRequestMeeting.Hidden=true;
 			};
 
-			ButtonScroll_.TouchUpInside += (object sender, EventArgs e) => {
-		
+			ButtonScroll_.TouchUpInside += (object sender, EventArgs e) => {		
 				AlertView.Hidden=true;
 				AlertSubView.Hidden=true;		
 			};
 
 			ButtonRequestMeeting.TouchUpInside += (object sender, EventArgs e) => {
-
 				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
 				AppDelegate.IsFromRR = true;
 				AppDelegate.CurrentRR = refferalRequests;
 				if(AppDelegate.CurrentRRList.Contains(refferalRequests))
 					AppDelegate.CurrentRRList.Remove(refferalRequests);
 				this.NavigationController.PushViewController(calendarHomeDV, true);
-
 			};
+
 			ButtonEmailAcceptView.TouchUpInside += (object sender, EventArgs e) =>  {
 				MFMailComposeViewController mailController;
 				if (MFMailComposeViewController.CanSendMail) {
@@ -198,6 +200,7 @@ namespace donow.iOS
 						AlertSubView.Hidden=true;
 						//PagingSendMail.BackgroundColor=UIColor.Red;
 						AppDelegate.referralRequestBL.UpdateReferralRequest(refferalRequests.BrokerUserID,4);
+						//AppDelegate.brokerBL.UpdateBrokerStatus(refferalRequests.BrokerID,5,refferalRequests.LeadID);
 						//Xamarin Insights tracking
 						Insights.Track("Update ReferralRequest", new Dictionary <string,string>{
 							{"BrokerUserID", refferalRequests.BrokerUserID.ToString()},
@@ -220,21 +223,13 @@ namespace donow.iOS
 						AlertSubViewRequestMeeting.Hidden=false;
 						if(AppDelegate.CurrentRRList.Contains(refferalRequests))
 							AppDelegate.CurrentRRList.Remove(refferalRequests);
-						
-
 					};
-
 					this.PresentViewController (mailController, true, null);
-
-					//					Device.OpenUri(new Uri("mailto:ryan.hatfield@test.com"));
 				}
-
 			};
-
 		}
 
 		string EvaluateString (string firstString, string secondString) {
-
 			if (!string.IsNullOrEmpty(firstString) && !string.IsNullOrEmpty(secondString))
 				return (firstString + ", " + secondString);
 			else

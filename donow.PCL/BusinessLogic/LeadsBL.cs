@@ -20,12 +20,12 @@ namespace donow.PCL
 
 //		public async Task<List<Leads>> GetAllLeads(int UserID)
 //		{
-//			RestService restSevice = new RestService ();
+//			//RestService restSevice = new RestService ();
 //			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&type=user";
 //			var parsedResponse = new List<Leads>();
 //			try
 //			{
-//				string response =  await restSevice.GetDataForLogin (leadsApicall);
+//				string response =  await RestService.Instance.GetDataForLogin (leadsApicall);
 //			   parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Leads>>(response.ToString());
 //			}
 //			catch {
@@ -34,15 +34,14 @@ namespace donow.PCL
 //			return parsedResponse;
 //		}
 
-
 		public List<LeadMaster> GetAllLeads(int UserID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID;
 			var parsedResponse = new List<LeadMaster>();
 			try
 			{
-				string response =  restSevice.GetData (leadsApicall);
+				string response =  RestService.Instance.GetData (leadsApicall);
 				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadMaster>>(response.ToString());
 			}
 			catch {
@@ -51,14 +50,16 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		public Leads GetLeadsDetails(int Leadid, int userID)
+		public Leads GetLeadsDetails(int Leadid, int userID,int LeadSource)
+		//public Leads GetLeadsDetails(int Leadid, int userID)
 		{
-			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&userid=" + userID;
+			//RestService restSevice = new RestService ();
+			string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&userid=" + userID + "&LeadSource=" + LeadSource;
+			//string leadsApicall = Constants.LeadsAPI + "?id=" + Leadid + "&userid=" + userID;
 			var parsedResponse = new Leads();
 			try
 			{
-				string response =  restSevice.GetData (leadsApicall);
+				string response =  RestService.Instance.GetData (leadsApicall);
 				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
 			}
 			catch {
@@ -69,12 +70,12 @@ namespace donow.PCL
 
 		public List<LeadMaster> GetNewLeads(int UserID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI + "?id=" + UserID + "&update=Y";
 			var parsedResponse = new List<LeadMaster>();
 			try
 			{
-				string response =  restSevice.GetData (leadsApicall);
+				string response =  RestService.Instance.GetData (leadsApicall);
 				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadMaster>>(response.ToString());
 			}
 			catch {
@@ -86,10 +87,10 @@ namespace donow.PCL
 //
 //		public Leads GetLeadDetails(int leadId)
 //		{
-//			RestService restSevice = new RestService ();
+//			//RestService restSevice = new RestService ();
 //			string leadsApicall = Constants.LeadsAPI + "?leadid=" + leadId ;
 //
-//			string response =  restSevice.GetData (leadsApicall);
+//			string response =  RestService.Instance.GetData (leadsApicall);
 //			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Leads>(response.ToString());
 //			return parsedResponse;
 //		}
@@ -97,9 +98,9 @@ namespace donow.PCL
 
 		public string SaveMeetingEvent(UserMeetings userMeetings)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(userMeetings);
-			string response = restSevice.PostData (Constants.MeetingList, postData);
+			string response = RestService.Instance.PostData (Constants.MeetingList, postData);
 			string parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(response.ToString());
 			return parsedResponse;
 			
@@ -107,18 +108,18 @@ namespace donow.PCL
 
 		public List<UserMeetings> GetMeetingEvents(string customername)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.MeetingList + "?customername=" + customername ;
-			string response =  restSevice.GetData (leadsApicall);
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserMeetings>>(response.ToString());
 			return parsedResponse;
 		}
 
 		public LeadIntialContactFeedBack GetLeadIntialFeedBack(int leadId)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadFeedback +  "?id=" + leadId;
-			string response =  restSevice.GetData (leadsApicall);
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<LeadIntialContactFeedBack>(response.ToString());
 			return parsedResponse;
 		}
@@ -126,9 +127,9 @@ namespace donow.PCL
 		public List<LeadF2FFeedBack> GetLeadF2FFeedBack(int leadId)
 		//public LeadF2FFeedBack GetLeadF2FFeedBack(int leadId)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadF2FFeedback +  "?id=" + leadId;
-			string response =  restSevice.GetData (leadsApicall);
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LeadF2FFeedBack>>(response.ToString());
 			//var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<LeadF2FFeedBack>(response.ToString());
 			return parsedResponse;
@@ -136,20 +137,20 @@ namespace donow.PCL
 
 		public int SaveLeadFeedBack(LeadIntialContactFeedBack leadfeeback)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadFeedback;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leadfeeback);
-			string response =  restSevice.PostData (leadsApicall, postData);
+			string response =  RestService.Instance.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}
 
 		public int SaveLeadF2FFeedBack(LeadF2FFeedBack leadfeedback)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadF2FFeedback;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leadfeedback);
-			string response =  restSevice.PostData (leadsApicall, postData);
+			string response =  RestService.Instance.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}
@@ -161,10 +162,10 @@ namespace donow.PCL
 			leads.USER_LEAD_STATUS = status;
 			leads.REASON_FOR_PASS = "";
 			leads.USER_ID = userID;
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leads);
-			string response =  restSevice.PostData (leadsApicall, postData);
+			string response =  RestService.Instance.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 			
@@ -177,16 +178,18 @@ namespace donow.PCL
 			leads.USER_LEAD_STATUS = 5;
 			leads.REASON_FOR_PASS = reasonForPass;
 			leads.USER_ID = userID;
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LeadsAPI;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(leads);
-			string response =  restSevice.PostData (leadsApicall, postData);
+			string response =  RestService.Instance.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}
 
+		//public string SFDCAuthentication (string companyName)
 		public string SFDCAuthentication (int userID)
 		{
+			//SFDCCredentails sfdcobj = GetSFDCCredentails (companyName);
 			SFDCCredentails sfdcobj = GetSFDCCredentails (userID);
 //			SFDCCredentails sfdcobj = new SFDCCredentails ();
 //			sfdcobj.UserID = 2;
@@ -227,12 +230,13 @@ namespace donow.PCL
 			return sfdcAuthObj.access_token;
 
 		}
-
+		//public SFDCCredentails GetSFDCCredentails(string companyName)
 		public SFDCCredentails GetSFDCCredentails(int userID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.SFDCCrendentails +  "?Id=" + userID;
-			string response =  restSevice.GetData (leadsApicall);
+			//string leadsApicall = Constants.SFDCCrendentails +  "?compnayName=" + companyName;
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<SFDCCredentails>(response.ToString());
 			return parsedResponse;
 		}
@@ -241,7 +245,7 @@ namespace donow.PCL
 		{
 
 			HttpClient queryClient3 = new HttpClient ();
-			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/so bjects/Lead/" + leadid + "?_HttpMethod=PATCH";
+			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/sobjects/Lead/" + leadid + "?_HttpMethod=PATCH";
 
 			string insertPacket = "{ \"Status\": " + status + " }";
 
@@ -256,15 +260,16 @@ namespace donow.PCL
 			return result;
 
 		}
-
-		public Prospect GetProspectDetails(int Leadid, int userID)
+		public Prospect GetProspectDetails(int Leadid, int userID, int LeadSource)
+		//public Prospect GetProspectDetails(int Leadid, int userID)
 		{
-			RestService restSevice = new RestService ();
-			string leadsApicall = Constants.LeadsAPI + "?LeadID=" + Leadid + "&UserID=" + userID + "&Type=Prospect";
+			//RestService restSevice = new RestService ();
+			//string leadsApicall = Constants.LeadsAPI + "?LeadID=" + Leadid + "&UserID=" + userID + "&Type=Prospect";
+			string leadsApicall = Constants.LeadsAPI + "?LeadID=" + Leadid + "&UserID=" + userID + "&Type=Prospect&LeadSource=" + LeadSource;
 			var parsedResponse = new Prospect();
 			try
 			{
-				string response =  restSevice.GetData (leadsApicall);
+				string response =  RestService.Instance.GetData (leadsApicall);
 				parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<Prospect>(response.ToString());
 			}
 			catch {

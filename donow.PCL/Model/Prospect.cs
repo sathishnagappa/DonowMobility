@@ -39,6 +39,8 @@ namespace donow.PCL
 		public List<CustomerInteraction> customerInteractionList { get; set; }
 		public List<UserMeetings> UserMeetingList { get; set; }
 		public List<Broker> brokerList { get; set; }
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 
 	}
 }

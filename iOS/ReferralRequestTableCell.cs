@@ -22,7 +22,7 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelSellerName});
 
 			LabelSellerCompany = new UILabel () {
-				Font = UIFont.FromName("Arial", 16f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear,
 				LineBreakMode = UILineBreakMode.WordWrap
@@ -30,7 +30,7 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelSellerCompany});
 
 			LabelSellerTitle = new UILabel () {
-				Font = UIFont.FromName("Arial", 16f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				Text = "Lead Score:",
 				BackgroundColor = UIColor.Clear
@@ -51,14 +51,14 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {ViewSeperator});
 
 			LabelProspectCompany = new UILabel () {
-				Font = UIFont.FromName("Arial", 16f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear,
 			};
 			ContentView.AddSubviews(new UIView[] {LabelProspectCompany});
 
 			LabelProspectTitle = new UILabel () {
-				Font = UIFont.FromName("Arial", 16f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear,
 //				Lines = 0,
@@ -104,15 +104,14 @@ namespace donow.iOS
 			ImageViewLeadImage.Frame = new CGRect (25, 22, 50, 50);
 
 			LabelSellerName.Frame = new CGRect (100, 22, 270, 25);
-			LabelSellerTitle.Frame = new CGRect (100, 40, 270, 25);
-			LabelSellerCompany.Frame = new CGRect (100, 58, this.Frame.Width - 100, 25);
+			LabelSellerTitle.Frame = new CGRect (100, 42, 270, 25);
+			LabelSellerCompany.Frame = new CGRect (100, 62, this.Frame.Width - 100, 25);
 
 			ViewSeperator.Frame = new CGRect (90, 88, this.Frame.Width - 20,1);
 
-			LabelProspectName.Frame = new CGRect (100, 90, 270, 25);
-			LabelProspectTitle.Frame = new CGRect (100, 108, 270, 21);
-			LabelProspectCompany.Frame = new CGRect (100, 126, this.Frame.Width -100, 21);
-//			LabelNewRequest.Frame = new CGRect (40, 150, 60, 25);
+			LabelProspectName.Frame = new CGRect (100, 92, 270, 25);
+			LabelProspectTitle.Frame = new CGRect (100, 112, 270, 25);
+			LabelProspectCompany.Frame = new CGRect (100, 132, this.Frame.Width -100, 25);
 		}
 	}
 }

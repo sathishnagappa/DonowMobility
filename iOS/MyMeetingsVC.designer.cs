@@ -16,6 +16,10 @@ namespace donow.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonSaveNotes { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCityState { get; set; }
 
 		[Outlet]
@@ -36,22 +40,18 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView LatestCustomerInfoTable { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView LatestIndustryNewsTable { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewMeeting { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView TalkingPointTable { get; set; }
+		UITextView TextViewTalkingPoints { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (ButtonSaveNotes != null) {
+				ButtonSaveNotes.Dispose ();
+				ButtonSaveNotes = null;
+			}
 			if (LabelCityState != null) {
 				LabelCityState.Dispose ();
 				LabelCityState = null;
@@ -72,21 +72,13 @@ namespace donow.iOS
 				LabelNotesDate.Dispose ();
 				LabelNotesDate = null;
 			}
-			if (LatestCustomerInfoTable != null) {
-				LatestCustomerInfoTable.Dispose ();
-				LatestCustomerInfoTable = null;
-			}
-			if (LatestIndustryNewsTable != null) {
-				LatestIndustryNewsTable.Dispose ();
-				LatestIndustryNewsTable = null;
-			}
 			if (ScrollViewMeeting != null) {
 				ScrollViewMeeting.Dispose ();
 				ScrollViewMeeting = null;
 			}
-			if (TalkingPointTable != null) {
-				TalkingPointTable.Dispose ();
-				TalkingPointTable = null;
+			if (TextViewTalkingPoints != null) {
+				TextViewTalkingPoints.Dispose ();
+				TextViewTalkingPoints = null;
 			}
 		}
 	}

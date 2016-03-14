@@ -12,6 +12,8 @@ namespace donow.PCL
 		public string Industry { get; set; }
 		public string BusiessNeeds { get; set; }
 		public string UserName { get; set; }
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 	}
 }
 

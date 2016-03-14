@@ -9,6 +9,7 @@ using MessageUI;
 using System.Linq;
 using Xamarin;
 using CoreGraphics;
+using EventKit;
 
 namespace donow.iOS
 {
@@ -17,6 +18,11 @@ namespace donow.iOS
 		public Leads localLeads;
 		//List<Broker> brokerList;
 		Prospect prospectDetails;
+		protected CreateEventEditViewDelegate eventControllerDelegate;
+
+		public List<UserMeetings> listMeeting;
+		public List<UserMeetings> UCommingMeetinglist;
+		public List<UserMeetings> PreviousMeetingsList;
 
 		public prospectDetailsVC (IntPtr handle) : base (handle)
 		{
@@ -128,25 +134,15 @@ namespace donow.iOS
 				}
 			};
 
-			ButtonSeeAllBrokers.TouchUpInside += (object sender, EventArgs e) => 
-			{
-				callDealMakerList();
-			};
-
-			ButtonFirstDealMaker.TouchUpInside += (object sender, EventArgs e) =>  {
-				callDealMakerList();
-			};
-
-			ButtonSecondDealMaker.TouchUpInside += (object sender, EventArgs e) =>  {
-				callDealMakerList();
-			};
-			ButtonThirdDealMaker.TouchUpInside += (object sender, EventArgs e) =>  {
+			ButtonNumberOfDealmakers.TouchUpInside += (object sender, EventArgs e) =>  {
 				callDealMakerList();
 			};
 
 			ButtonCalendarEvent.TouchUpInside += (object sender, EventArgs e) => {
-				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
-				this.NavigationController.PushViewController(calendarHomeDV, true);
+				//CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+				//this.NavigationController.PushViewController(calendarHomeDV, true);
+					LaunchCreateNewEvent();
+			
 			};
 		}
 
@@ -170,15 +166,27 @@ namespace donow.iOS
 			base.Dispose (disposing);
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+
+			TableViewEmails.Source = null;
+			TableViewMeetings.Source = null;
+			TableViewPreviousMeetings.Source = null;
+			listMeeting = null;
+			UCommingMeetinglist = null;
+			PreviousMeetingsList = null;
+		}
+
 		void LoadData()
 		{
 			ScrollViewProspectDetails.ContentSize = new CGSize (375.0f, 1801.0f);
+			prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId,localLeads.LEAD_SOURCE);
+			//prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId);
 
-			prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId);
-
-			List<UserMeetings> listMeeting = prospectDetails.UserMeetingList;
-			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
-			List<UserMeetings> PreviousMeetingsList = new List<UserMeetings>(); 
+			listMeeting = prospectDetails.UserMeetingList;
+			UCommingMeetinglist = new List<UserMeetings>();
+			PreviousMeetingsList = new List<UserMeetings>(); 
 
 			if(listMeeting != null)
 			{
@@ -268,38 +276,42 @@ namespace donow.iOS
 		}
 
 		void showBrokerImage (int count) {
-			switch (count) {
-			case 0:
-				ButtonFirstDealMaker.Hidden = true;
-				LabelScoreFirstBroker.Hidden = true;
-				ButtonSecondDealMaker.Hidden = true;
-				LabelScoreSecondBroker.Hidden = true;
-				ButtonThirdDealMaker.Hidden = true;
-				LabelScoreThirdBroker.Hidden = true;
-				ButtonSeeAllBrokers.Hidden = true;
-				break;
-			case 1:
-				ButtonSeeAllBrokers.Hidden = false;
-				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
-				ButtonSecondDealMaker.Hidden = true; LabelScoreSecondBroker.Hidden = true;
-				ButtonThirdDealMaker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
-				break;
-			case 2:
-				ButtonSeeAllBrokers.Hidden = false;
-				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
-				LabelScoreSecondBroker.Text = "Score: " + prospectDetails.brokerList[1].BrokerScore;
-				ButtonThirdDealMaker.Hidden = true; LabelScoreThirdBroker.Hidden = true;
-				break;
-			default:
-				ButtonSeeAllBrokers.Hidden = false;
-				LabelScoreFirstBroker.Hidden = false;
-				LabelScoreSecondBroker.Hidden = false;
-				LabelScoreThirdBroker.Hidden = false;
-				LabelScoreFirstBroker.Text = "Score: " + prospectDetails.brokerList[0].BrokerScore;
-				LabelScoreSecondBroker.Text = "Score: " + prospectDetails.brokerList[1].BrokerScore;
-				LabelScoreThirdBroker.Text = "Score: " + prospectDetails.brokerList[2].BrokerScore;
-				break;
+			if (count > 0) {
+				ButtonNumberOfDealmakers.Hidden = false;
+				ImageShowMore.Hidden = false;
+			} else {
+				ButtonNumberOfDealmakers.Hidden = true;
+				ImageShowMore.Hidden = true;
 			}
+			LabelNumberOfDealMaker.Text = "No. of Dealmakers Found: " + count.ToString ();
+		}
+
+		protected void LaunchCreateNewEvent ()
+		{
+			// create a new EKEventEditViewController. This controller is built in an allows
+			// the user to create a new, or edit an existing event.
+			AppDelegate.EventStore.RequestAccess (EKEntityType.Event, (bool granted, NSError e) => {
+
+				EventKitUI.EKEventEditViewController eventController =
+					new EventKitUI.EKEventEditViewController ();
+				InvokeOnMainThread (() => { 
+//					EKEvent newEvent = EKEvent.FromStore (AppDelegate.EventStore);
+//					newEvent.Title = "Get outside and do some exercise!";
+//					newEvent.Notes = "This is your motivational event to go and do 30 minutes of exercise. Super important. Do this.";
+//					newEvent.Location = "Seattle,WA";
+				// set the controller's event store - it needs to know where/how to save the event
+				eventController.EventStore = AppDelegate.EventStore;
+//					eventController.Event = newEvent;
+				// wire up a delegate to handle events from the controller
+				eventControllerDelegate = new CreateEventEditViewDelegate (eventController);
+				eventController.EditViewDelegate = eventControllerDelegate;
+
+				// show the event controller
+				PresentViewController (eventController, true, null);
+				});
+				//NavigationController.PushViewController (calendarListScreen, true);
+			});
+
 		}
 
 	public class TableSourceInteractionWithCustomer : UITableViewSource {
@@ -379,10 +391,6 @@ namespace donow.iOS
 			MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 			if (myMeetingsObj != null) {
 				myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-//					myMeetingsObj.customer = new Customer();
-//					myMeetingsObj.customer.Company = owner.localLeads.COMPANY_NAME;
-//					myMeetingsObj.customer.LeadId = owner.localLeads.LEAD_ID;
-//					myMeetingsObj.customer.Name = owner.localLeads.LEAD_NAME;
 				owner.NavigationController.PushViewController(myMeetingsObj,true);
 			}
 		}
@@ -442,6 +450,82 @@ namespace donow.iOS
 			return 90.0f;
 		}
 	}
+	}
+	public class CreateEventEditViewDelegate : EventKitUI.EKEventEditViewDelegate
+	{
+		// we need to keep a reference to the controller so we can dismiss it
+		protected EventKitUI.EKEventEditViewController eventController;
+
+		public CreateEventEditViewDelegate (EventKitUI.EKEventEditViewController eventController)
+		{
+			// save our controller reference
+			this.eventController = eventController;
+		}
+
+		void AddEvent(EKEvent calendarEvent)
+		{
+			UserMeetings userMeetings = new UserMeetings ();
+			if (!AppDelegate.IsFromRR) {
+				userMeetings.Id = 0;
+				userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
+				userMeetings.UserId = AppDelegate.UserDetails.UserId;
+				userMeetings.Subject = calendarEvent.Title;
+				userMeetings.StartDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.StartDate.ToString()),DateTimeKind.Local).ToString();
+				userMeetings.EndDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.EndDate.ToString()),DateTimeKind.Local).ToString();
+				userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
+				userMeetings.City = AppDelegate.CurrentLead.CITY;
+				userMeetings.State = AppDelegate.CurrentLead.STATE;
+				userMeetings.Status = "";
+				userMeetings.Comments = "";
+			} else {
+				userMeetings.Id = 0;
+				userMeetings.LeadId = (int) AppDelegate.CurrentRR.LeadID;
+				userMeetings.UserId = AppDelegate.CurrentRR.SellerUserID;
+				userMeetings.Subject = calendarEvent.Title;
+				userMeetings.StartDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.StartDate.ToString()),DateTimeKind.Local).ToString();
+				userMeetings.EndDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.EndDate.ToString()),DateTimeKind.Local).ToString();
+				userMeetings.CustomerName = AppDelegate.CurrentRR.Prospect;
+				userMeetings.City = AppDelegate.CurrentRR.City;
+				userMeetings.State = AppDelegate.CurrentRR.State;
+				userMeetings.Status = "";
+				userMeetings.Comments = "";
+
+			}
+			AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);
+			AppDelegate.UserDetails.MeetingCount = AppDelegate.UserDetails.MeetingCount + 1;
+			//Xamarin Insights tracking
+			Insights.Track ("SaveMeetingEvent", new Dictionary <string,string> {
+				{ "LeadId", userMeetings.LeadId.ToString () },
+				{ "UserId", userMeetings.UserId.ToString () },
+				{ "Subject", userMeetings.Subject },
+				{ "CustomerName", userMeetings.CustomerName }
+			});
+		}
+
+
+		// completed is called when a user eith
+		public override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
+		{				
+			eventController.DismissViewController (true, null);
+
+			// action tells you what the user did in the dialog, so you can optionally
+			// do things based on what their action was. additionally, you can get the
+			// Event from the controller.Event property, so for instance, you could
+			// modify the event and then resave if you'd like.
+			switch (action) {
+
+			case EventKitUI.EKEventEditViewAction.Canceled:
+				break;
+			case EventKitUI.EKEventEditViewAction.Deleted:
+				break;
+			case EventKitUI.EKEventEditViewAction.Saved:
+				// if you wanted to modify the event you could do so here, and then
+				// save:
+				//AppDelegate.EventStore.SaveEvent ( controller.Event, )
+				AddEvent(controller.Event);
+				break;
+			}
+		}
 	}
 }
 

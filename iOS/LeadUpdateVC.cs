@@ -22,7 +22,7 @@ namespace donow.iOS
 		string localCustomerCategorization;
 		string localSalesStage;
 		string localNextSteps;
-		string localMeetingID;
+//		string localMeetingID;
 
 		public LeadUpdateVC (IntPtr handle) : base (handle)
 		{
@@ -102,6 +102,7 @@ namespace donow.iOS
 				UserMeetings usermeeting = new UserMeetings();
 				usermeeting.Id = meetingObj.Id;
 				usermeeting.Status="Done";
+				usermeeting.Comments = meetingObj.Comments;
 				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 				DismissViewController(true,null);
 			};
@@ -250,6 +251,7 @@ namespace donow.iOS
 				UserMeetings usermeeting = new UserMeetings();
 				usermeeting.Id = meetingObj.Id;
 				usermeeting.Status="Done";
+				usermeeting.Comments = meetingObj.Comments;
 				AppDelegate.userBL.UpdateMeetingList(usermeeting);
 				//Xamarin Insights tracking
 				Insights.Track("Update MeetingList", new Dictionary <string,string>{
@@ -257,9 +259,13 @@ namespace donow.iOS
 					{"Status", usermeeting.Status}
 				});
 
+//				string[] domainArr = AppDelegate.UserDetails.Email.Split('@');
+//				string[] companynameArr = domainArr[1].Split('.');
+
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
 					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
+					//AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(companynameArr[0]);
 				}
 				string[] salesStageArray = localSalesStage.Split(' ');
 				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];

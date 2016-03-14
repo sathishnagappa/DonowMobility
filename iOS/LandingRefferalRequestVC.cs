@@ -13,6 +13,10 @@ namespace donow.iOS
 	partial class LandingRefferalRequestVC : UIViewController
 	{
 		//List<ReferralRequest> rrList;
+		Broker brokerprofile;
+		ReferralRequestDetails referralRequestVC;
+		List<ReferralRequest> newrequest, acceptedRequest, passedRequest, completedRequest, rrdetails;
+
 		public LandingRefferalRequestVC (IntPtr handle) : base (handle)
 		{
 		}
@@ -25,101 +29,139 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
+			this.NavigationItem.SetHidesBackButton (true, false);
+
 			//ReferralRequestBL rrBL = new ReferralRequestBL ();
 			//rrList = rrBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
 //			this.NavigationController.TabBarItem.BadgeValue = .ToString ()
 
+			brokerprofile =  AppDelegate.brokerBL.GetBrokerFromID(AppDelegate.UserDetails.UserId).FirstOrDefault();
+			loadView ();		
 		}
 
-	
-
-	public override void ViewDidLoad ()
+		public override void ViewWillDisappear (bool animated)
 		{
+			base.ViewWillDisappear (animated);
 
-		    this.NavigationItem.Title = "My Deals";
-			this.NavigationController.TabBarItem.Title = "My Deals";
-			this.NavigationItem.SetHidesBackButton (true, false);
-			this.NavigationItem.SetLeftBarButtonItem(null, true);
+			brokerprofile = null;
+			rrdetails = null;
+		}
 
-			Broker brokerprofile =  AppDelegate.brokerBL.GetBrokerFromID(AppDelegate.UserDetails.UserId).FirstOrDefault();
+		void loadView () 
+		{
 
 			if (brokerprofile != null) {
 				LabelBrokerScore.Text = brokerprofile.BrokerScore;
 				LabelTotalEarnings.Text = brokerprofile.BrokerTotalEarning;
 			}
+
 			LabelTitle.Text = AppDelegate.UserDetails.Title;
 			LabelUserName.Text = AppDelegate.UserDetails.FullName;
 			LabelIndustry.Text = AppDelegate.UserDetails.Industry;
 			LabelCompany.Text = AppDelegate.UserDetails.Company;
 			LabelCityState.Text = AppDelegate.UserDetails.City + "," + AppDelegate.UserDetails.State;
 
-//			ReferralRequestScrollView.ContentSize =  new SizeF (375,752);
-			ReferralRequestDetails referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
-			List<ReferralRequest> rrdetails = new List<ReferralRequest> ();
+			//			ReferralRequestScrollView.ContentSize =  new SizeF (375,752);
+			referralRequestVC = this.Storyboard.InstantiateViewController ("ReferralRequestDetails") as ReferralRequestDetails;
+			rrdetails = new List<ReferralRequest> ();
 			rrdetails = AppDelegate.referralRequestBL.GetReferralRequest (AppDelegate.UserDetails.UserId);
 
+			newrequest = (from item in rrdetails
+				where item.Status == 1
+				select item).ToList();			
+			acceptedRequest = (from item in rrdetails
+				where item.Status == 2
+				select item).ToList();
+			passedRequest = (from item in rrdetails
+				where item.Status == 3
+				select item).ToList();
+			completedRequest = (from item in rrdetails
+				where item.Status == 4
+				select item).ToList();
 
-
-			List<ReferralRequest> newrequest = (from item in rrdetails
-			                                    where item.Status == 1
-												select item).ToList();			
-			List<ReferralRequest> acceptedRequest = (from item in rrdetails
-													where item.Status == 2
-													select item).ToList();
-			List<ReferralRequest> passedRequest = (from item in rrdetails
-													where item.Status == 3
-													select item).ToList();
-			List<ReferralRequest> completedRequest = (from item in rrdetails
-													 where item.Status == 4
-													 select item).ToList();
-
+//			if (newrequest.Count == 0) {
+//				CompletedRequestView.Frame = new CGRect (0,347,this.View.Bounds.Size.Width,70);
+//				PassedRequestView.Frame = new CGRect (0,277,this.View.Bounds.Size.Width,70);
+//				AcceptedRequestView.Frame = new CGRect (0,207,this.View.Bounds.Size.Width,70);
+//				NewRequestView.Hidden = true;
+//				//				ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+//			} else {	
+//				this.NavigationController.TabBarItem.BadgeValue = newrequest.Count.ToString ();
+//				NewRequestView.Hidden = false;
+//				//				TextNewSellerName.Text = newrequest [0].SellerName;
+//				//				TextNewIndustry.Text = newrequest [0].Industry;
+//			}
+//
+//			if (acceptedRequest.Count == 0) {
+//				CompletedRequestView.Frame = new CGRect (0,347,this.View.Bounds.Size.Width,70);
+//				PassedRequestView.Frame = new CGRect (0,277,this.View.Bounds.Size.Width,70);
+//				AcceptedRequestView.Hidden = true;
+//				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+//			} else {				
+//				AcceptedRequestView.Hidden = false;
+//				//				TextAcceptedSellerName.Text = acceptedRequest [0].SellerName;
+//				//				TextAcceptedIndustry.Text = acceptedRequest [0].Industry;
+//			}
+//
+//			if (passedRequest.Count == 0) {
+//				CompletedRequestView.Frame =  new CGRect (0,347,this.View.Bounds.Size.Width,70);
+//				PassedRequestView.Hidden = true;
+//				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+//			} else {
+//				PassedRequestView.Hidden = false;
+//				//				TextPassedSellerName.Text = passedRequest [0].SellerName;
+//				//				TextPassedIndustry.Text = passedRequest [0].Industry;
+//			}
+//
+//			if (completedRequest.Count == 0) {
+//				CompletedRequestView.Hidden = true;
+//				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+//			} else {
+//				CompletedRequestView.Hidden = false;
+//				//				TextCompletedSellerName.Text = completedRequest [0].SellerName;
+//				//				TextCompletedIndusty.Text = completedRequest [0].Industry;
+//			}
+			this.NavigationController.TabBarItem.BadgeValue = newrequest.Count.ToString ();
 			if (newrequest.Count == 0) {
-				CompletedRequestView.Frame = new CGRect (0,347,this.View.Bounds.Size.Width,70);
-				PassedRequestView.Frame = new CGRect (0,277,this.View.Bounds.Size.Width,70);
-				AcceptedRequestView.Frame = new CGRect (0,207,this.View.Bounds.Size.Width,70);
 				NewRequestView.Hidden = true;
-//				ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+				NewRequestView.Frame = new CGRect (0,0,this.View.Bounds.Size.Width, 0);
 			} else {	
-				this.NavigationController.TabBarItem.BadgeValue = newrequest.Count.ToString ();
+				NewRequestView.Frame = new CGRect (0,0,this.View.Bounds.Size.Width, 70);
 				NewRequestView.Hidden = false;
-//				TextNewSellerName.Text = newrequest [0].SellerName;
-//				TextNewIndustry.Text = newrequest [0].Industry;
 			}
-			
+				
+
 			if (acceptedRequest.Count == 0) {
-				CompletedRequestView.Frame = new CGRect (0,347,this.View.Bounds.Size.Width,70);
-				PassedRequestView.Frame = new CGRect (0,277,this.View.Bounds.Size.Width,70);
 				AcceptedRequestView.Hidden = true;
-				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+				AcceptedRequestView.Frame= new CGRect (0,NewRequestView.Frame.Y + NewRequestView.Bounds.Size.Height,this.View.Bounds.Size.Width,0);
 			} else {				
+				AcceptedRequestView.Frame = new CGRect (0,NewRequestView.Frame.Y + NewRequestView.Bounds.Size.Height,this.View.Bounds.Size.Width,70);
 				AcceptedRequestView.Hidden = false;
-//				TextAcceptedSellerName.Text = acceptedRequest [0].SellerName;
-//				TextAcceptedIndustry.Text = acceptedRequest [0].Industry;
 			}
-
+				
 			if (passedRequest.Count == 0) {
-				CompletedRequestView.Frame =  new CGRect (0,347,this.View.Bounds.Size.Width,70);
 				PassedRequestView.Hidden = true;
-				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+				PassedRequestView.Frame= new CGRect (0,AcceptedRequestView.Frame.Y + AcceptedRequestView.Bounds.Size.Height,this.View.Bounds.Size.Width, 0);
 			} else {
+				PassedRequestView.Frame = new CGRect (0,AcceptedRequestView.Frame.Y + AcceptedRequestView.Bounds.Size.Height,this.View.Bounds.Size.Width,70);
 				PassedRequestView.Hidden = false;
-//				TextPassedSellerName.Text = passedRequest [0].SellerName;
-//				TextPassedIndustry.Text = passedRequest [0].Industry;
 			}
-
+				
 			if (completedRequest.Count == 0) {
 				CompletedRequestView.Hidden = true;
-				//ReferralRequestScrollView.ContentSize = new CGSize (414,736);
+				CompletedRequestView.Frame = new CGRect (0,PassedRequestView.Frame.Y + PassedRequestView.Bounds.Size.Height,this.View.Bounds.Size.Width, 0);
 			} else {
+				CompletedRequestView.Frame = new CGRect (0,PassedRequestView.Frame.Y + PassedRequestView.Bounds.Size.Height,this.View.Bounds.Size.Width,70);
 				CompletedRequestView.Hidden = false;
-//				TextCompletedSellerName.Text = completedRequest [0].SellerName;
-//				TextCompletedIndusty.Text = completedRequest [0].Industry;
 			}
 
 			if ((newrequest.Count == 0) && (acceptedRequest.Count == 0) && (passedRequest.Count == 0) && (completedRequest.Count == 0)) {
 				LabelNoReferralRequest.Hidden = false;
 			}
+		}
 
+		public override void ViewDidLoad ()
+		{
 			ButtonNewRequest.TouchUpInside += (object sender, EventArgs e) => {
 				referralRequestVC.referralRequestType = "New";
 				AppDelegate.CurrentRRList = newrequest;

@@ -16,27 +16,30 @@ namespace donow.PCL
 
 		public List<Customer> GetAllCustomers(long userID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string restUrl = Constants.CustomerDetails + "?UserID=" + userID;
-			string response = restSevice.GetData (restUrl);
+			string response = RestService.Instance.GetData (restUrl);
 			List<Customer> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Customer>>(response.ToString());
 			return parsedResponse;
 		}
 
 		public List<Customer> GetCustomersMaster()
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string restUrl = Constants.CustomerDetails;
-			string response = restSevice.GetData (restUrl);
+			string response = RestService.Instance.GetData (restUrl);
 			List<Customer> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Customer>>(response.ToString());
 			return parsedResponse;
 		}
 
-		public CustomerDetails GetCustomersDetails(string LeadName, int userID)
+		public CustomerDetails GetCustomersDetails(string LeadName, int userID,int LeadSource)
+		//public CustomerDetails GetCustomersDetails(string LeadName, int userID)
 		{
-			RestService restSevice = new RestService ();
-			string restUrl = Constants.CustomerDetails + "?LeadName=" + LeadName + "&UserID=" + userID;
-			string response = restSevice.GetData (restUrl);
+			//RestService restSevice = new RestService ();
+
+			string restUrl = Constants.CustomerDetails + "?LeadName=" + LeadName + "&UserID=" + userID + "&LeadSource=" + LeadSource;
+			//string restUrl = Constants.CustomerDetails + "?LeadName=" + LeadName + "&UserID=" + userID;
+			string response = RestService.Instance.GetData (restUrl);
 			CustomerDetails parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerDetails>(response.ToString());
 			return parsedResponse;
 		}
@@ -49,7 +52,7 @@ namespace donow.PCL
 				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
 			{ Credentials = new NetworkCredential(bingKey, bingKey) };
 		
-			var	query = bing.Web(parameter, null, null, null, null, null, null, null);
+			var	query = bing.Web(parameter, null, null, "en-US", null, null, null, null);
 			var results = query.Execute();
 
 			List<BingResult> binglist = new List<BingResult> ();
@@ -75,7 +78,7 @@ namespace donow.PCL
 				new Uri("https://api.datamarket.azure.com/Bing/Search/"))
 			{ Credentials = new NetworkCredential(bingKey, bingKey) };
 
-			var	query = bing.News(parameter, null, null, null, null, null, null, null,"Date");
+			var	query = bing.News(parameter, null, "en-US", null, null, null, null, "rt_Business","Date");
 			var results = query.Execute();
 
 			List<BingResult> binglist = new List<BingResult> ();
@@ -97,47 +100,47 @@ namespace donow.PCL
 
 		public int SaveCutomerInteraction(CustomerInteraction customerInteraction)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.CustomerInteraction;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(customerInteraction);
-			string response =  restSevice.PostData (leadsApicall, postData);
+			string response =  RestService.Instance.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}
 
-		public List<Feed> GetCustomerFeed()
-		{
-			RestService restSevice = new RestService ();
-			string restUrl = Constants.CustomerFeed;
-			string response = restSevice.GetData (restUrl);
-			List<Feed> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(response.ToString());
-			return parsedResponse;
-		}
+//		public List<Feed> GetCustomerFeed()
+//		{
+//			//RestService restSevice = new RestService ();
+//			string restUrl = Constants.CustomerFeed;
+//			string response = RestService.Instance.GetData (restUrl);
+//			List<Feed> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(response.ToString());
+//			return parsedResponse;
+//		}
 
 		public List<CustomerInteraction> GetCustomerInteraction(string customerName, int userID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string restUrl = Constants.CustomerInteraction + "?CustomerName=" + customerName + "&UserId=" + userID;
-			string response = restSevice.GetData (restUrl);
+			string response = RestService.Instance.GetData (restUrl);
 			List<CustomerInteraction> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CustomerInteraction>>(response.ToString());
 			return parsedResponse;
 		}
 
 		public List<DealHistroy> GetDealHistroy(long leadID, int userID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string restUrl  = Constants.DealHistory + "?LeadID=" + leadID + "&UserID=" + userID;
-			string response = restSevice.GetData (restUrl);
+			string response = RestService.Instance.GetData (restUrl);
 			List<DealHistroy> parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DealHistroy>>(response.ToString());
 			return parsedResponse;
 		}
 
 		public int SaveDealHistory(DealHistroy dealHistroy)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.DealHistory;
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(dealHistroy);
-			string response =  restSevice.PostData (leadsApicall, postData);
+			string response =  RestService.Instance.PostData (leadsApicall, postData);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<int>(response.ToString());
 			return parsedResponse;
 		}			

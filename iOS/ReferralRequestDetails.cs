@@ -74,7 +74,7 @@ namespace donow.iOS
 			searchBarReferral.Delegate = new SearchDelegate (this, searchTableView);
 			// ************ Search Button to be added *****************//
 
-			SetImageAndTitle ();
+			//SetImageAndTitle ();
 
 		}
 
@@ -85,7 +85,7 @@ namespace donow.iOS
 
 			public SearchDelegate (ReferralRequestDetails owner, UITableView _searchTableView)
 			{
-				_localSearchTableView=_searchTableView;
+				_localSearchTableView = _searchTableView;
 				this.owner=owner;
 			}
 
@@ -149,13 +149,13 @@ namespace donow.iOS
 				LabelRRTitle.Text = "New Deal Requests";
 			} else if (referralRequestType == "Accepted") {
 				ImageRR.Image = UIImage.FromBundle ("Referral Action Pending Icon.png");
-				LabelRRTitle.Text = "Accepted Requests (Action Pending)";
+				LabelRRTitle.Text = "Accepted Requests";
 			} else if (referralRequestType == "Passed") {
 				ImageRR.Image = UIImage.FromBundle ("Passed Requests Icon.png");
 				LabelRRTitle.Text = "Passed Requests";
 			} else if (referralRequestType == "Completed") {
 				ImageRR.Image = UIImage.FromBundle ("Completed Requests Icon.png");
-				LabelRRTitle.Text = "Completed Requests";
+				LabelRRTitle.Text = "Completed Deals";
 			}
 				
 			TableViewRR.Source = new TableSource (AppDelegate.CurrentRRList, this);			

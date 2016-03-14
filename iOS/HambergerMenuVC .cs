@@ -15,7 +15,7 @@ namespace donow.iOS
 
 		IList<string> imageIcons = new List<string>
 		{
-			"My Profile Icon.png","My Deal Makers Icon.png","Account Mgmt Icon.png","Info Page Icon.png", "LogOutIcon.png"
+			"Account Mgmt Icon.png","help.png", "LogOutIcon.png"
 		};
 
 		public override void ViewWillAppear (bool animated)
@@ -33,7 +33,7 @@ namespace donow.iOS
 			base.ViewDidLoad ();
 			this.NavigationItem.Title = "More";
 			var table = new UITableView(View.Bounds); // defaults to Plain style
-			string[] tableItems = new string[] {"My Profile","My Deal Makers","Account Management", "Info Page","Log Out"};
+			string[] tableItems = new string[] {"Account Management", "Help","Log Out"};
 			table.Source = new TableSource(tableItems, imageIcons, this);
 			View.Add (table);
 		}
@@ -43,7 +43,6 @@ namespace donow.iOS
 			string[] TableItems;
 			string CellIdentifier = "TableCell";
 			IList<string> imageIcons;
-
 			HambergerMenuVC owner;
 
 			public TableSource (string[] items, IList<string> imageIcons, HambergerMenuVC owner)
@@ -79,20 +78,7 @@ namespace donow.iOS
 				tableView.DeselectRow (indexPath, true);
 
 				switch (TableItems [indexPath.Row]) {
-				case "My Profile": 
-					MyProfileVC myProfileVC = owner.Storyboard.InstantiateViewController ("MyProfileVC") as MyProfileVC;
-					if (myProfileVC != null) {
-						owner.NavigationController.PushViewController (myProfileVC, true);
-					}
-					break;
-				case "My Deal Makers": 
-					MyDealMakerVC dealMakerVC = owner.Storyboard.InstantiateViewController ("MyDealMakerVC") as MyDealMakerVC;
-
-					if (dealMakerVC != null) {
-						AppDelegate.IsFromProspect = false;
-						owner.NavigationController.PushViewController (dealMakerVC, true);
-					}
-					break;
+				//				
 				case "Account Management":  
 					AccountManagementVC accountManagementVC = owner.Storyboard.InstantiateViewController ("AccountManagementVC") as AccountManagementVC;
 					if (accountManagementVC != null) {
@@ -101,7 +87,8 @@ namespace donow.iOS
 						//owner.PresentViewController(accountManagementVC,);
 					}
 					break;
-				case "Info Page": 
+
+				case "Help": 
 					InfoPage infoVC = owner.Storyboard.InstantiateViewController ("InfoPage") as InfoPage;
 					if (infoVC != null) {
 						owner.NavigationController.PushViewController (infoVC, true);
@@ -113,7 +100,6 @@ namespace donow.iOS
 					if (login != null) {
 						login.HidesBottomBarWhenPushed = true;
 						owner.NavigationController.PushViewController (login, true);
-
 					}
 					break;
 

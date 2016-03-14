@@ -8,42 +8,42 @@ namespace donow.iOS
 {
 	public class LeadTableCell : UITableViewCell  {
 		
-		UILabel LabelLeadName, LabelTitle, LabelCompanyName, LabelCityAndState, LabelScoreDigit, LabelScore, LabelNewLead,LeadIndustry,LeadType;
+		UILabel LabelLeadName, LabelTitle, LabelCompanyName, LabelScoreDigit, LabelScore, LabelNewLead,LeadType;
 		UIImageView ImageViewLeadImage;
 
 		public LeadTableCell (string cellId) : base (UITableViewCellStyle.Default, cellId)
 		{
 			SelectionStyle = UITableViewCellSelectionStyle.Gray;ContentView.BackgroundColor = UIColor.White;
 			LabelLeadName = new UILabel () {
-				Font = UIFont.FromName("Arial-BoldMT", 19f),
+				Font = UIFont.FromName("Arial-BoldMT", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelLeadName});
 
 			LabelTitle = new UILabel () {
-				Font = UIFont.FromName("Arial", 19f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelTitle});
 
 			LabelCompanyName = new UILabel () {
-				Font = UIFont.FromName("Arial", 19f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelCompanyName});
 
 //			LabelCityAndState = new UILabel () {
-//				Font = UIFont.FromName("Arial", 19f),
+//				Font = UIFont.FromName("Arial", 18f),
 //				TextColor = UIColor.FromRGB (35, 31, 32),
 //				BackgroundColor = UIColor.Clear
 //			};
 //			ContentView.AddSubviews(new UIView[] {LabelCityAndState});
 
 			LabelScore = new UILabel () {
-				Font = UIFont.FromName("Arial", 19f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				Text = "Lead Score:",
 				BackgroundColor = UIColor.Clear
@@ -52,7 +52,7 @@ namespace donow.iOS
 
 
 //			LeadIndustry = new UILabel () {
-//				Font = UIFont.FromName("Arial", 19f),
+//				Font = UIFont.FromName("Arial", 18f),
 //				TextColor = UIColor.FromRGB (35, 31, 32),
 //				Text = "Industry:",
 //				BackgroundColor = UIColor.Clear
@@ -61,14 +61,14 @@ namespace donow.iOS
 
 
 			LabelScoreDigit = new UILabel () {
-				Font = UIFont.FromName("Arial", 19f),
+				Font = UIFont.FromName("Arial", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
 			ContentView.AddSubviews(new UIView[] {LabelScoreDigit});
 
 			LabelNewLead = new UILabel () {
-				Font = UIFont.FromName("Arial-BoldMT", 15f),
+				Font = UIFont.FromName("Arial-BoldMT", 16f),
 				BackgroundColor = UIColor.Clear,
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				TextAlignment = UITextAlignment.Right
@@ -76,7 +76,7 @@ namespace donow.iOS
 			ContentView.AddSubviews(new UIView[] {LabelNewLead});
 
 			LeadType = new UILabel () {
-				Font = UIFont.FromName("Arial-BoldMT", 19f),
+				Font = UIFont.FromName("Arial-BoldMT", 18f),
 				TextColor = UIColor.FromRGB (35, 31, 32),
 				BackgroundColor = UIColor.Clear
 			};
@@ -94,10 +94,10 @@ namespace donow.iOS
 			LabelLeadName.Text = lead.LEAD_NAME;
 			LabelTitle.Text = lead.LEAD_TITLE;
 			LabelCompanyName.Text = lead.COMPANY_NAME;
-			string coma = (string.IsNullOrEmpty (lead.CITY) || string.IsNullOrEmpty (lead.STATE)) ? "" : ", ";
+//			string coma = (string.IsNullOrEmpty (lead.CITY) || string.IsNullOrEmpty (lead.STATE)) ? "" : ", ";
 //			LabelCityAndState.Text = lead.CITY + coma + lead.STATE; 
-			LabelScoreDigit.Text = lead.LEAD_SCORE.ToString();
-			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS) ;
+			LabelScoreDigit.Text = lead.LEAD_SCORE == 0 ? "3" : lead.LEAD_SCORE.ToString();
+			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS);
 			LabelNewLead.TextAlignment = UITextAlignment.Right;
 //			LeadIndustry.Text = lead.LeadIndustry;
 			LeadType.Text = lead.LEAD_TYPE == "Y" ? "Existing Customer" : "Prospect";
@@ -114,7 +114,7 @@ namespace donow.iOS
 				return "Acceptance Pending";
 			case 3:
 				return "CRM";
-			case 4:
+			case 4:				
 				return "Accepted";
 			case 5:
 				return "Passed";
@@ -142,7 +142,7 @@ namespace donow.iOS
 			LabelScore.Frame = new CGRect (100, 107, 120, 25);
 			LabelScoreDigit.Frame = new CGRect (270, 107, 25, 25);
 
-			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 170, 10, 150, 25);
+			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 220, 10, 200, 25);
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace donow.iOS
 {
 	public class CustomerViewTableCellUpcomingMeetings : UITableViewCell
 	{
-		UILabel LabelMeetingWith, LabelMeetingDate, LabelMeetingTime, LabelMeetingLocation;
+		UILabel LabelMeetingWith, LabelMeetingDate, LabelMeetingLocation;
 		UIImageView ImageViewMeeting;
 
 		public CustomerViewTableCellUpcomingMeetings (string cellId) : base (UITableViewCellStyle.Default, cellId)

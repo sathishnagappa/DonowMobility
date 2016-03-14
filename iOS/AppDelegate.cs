@@ -76,7 +76,6 @@ namespace donow.iOS
 
 //			UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
 
-//			string response = userBL.OpenConnection ();
 //			UIAlertView alert = null;
 //			if (response != "1") {
 //				alert = new UIAlertView () { 

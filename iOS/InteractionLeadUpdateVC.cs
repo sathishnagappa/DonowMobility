@@ -78,6 +78,22 @@ namespace donow.iOS
 
 			TextViewComments.Layer.BorderWidth = 2.0f;
 			TextViewComments.Layer.BorderColor = UIColor.DarkGray.CGColor;
+			TextViewComments.ShouldBeginEditing = delegate {
+				ScrollViewInteractionPage.SetContentOffset ( new CGPoint(0,300),true);
+				return true;	
+			};
+
+			TextViewComments.ShouldChangeText = (text, range, replacementString) =>
+			{
+				if (replacementString.Equals("\n"))	{
+					TextViewComments.EndEditing(true);
+					ScrollViewInteractionPage.SetContentOffset ( new CGPoint(0,0),true);
+					return false;
+				}
+				else {
+					return true;
+				}
+			};
 
 			ButtonDisLikeCustomerAcknowledge.TouchUpInside += (object sender, EventArgs e) => 
 			{
@@ -130,6 +146,8 @@ namespace donow.iOS
 				ViewSecond.Frame = new CGRect (0, 163, this.View.Bounds.Size.Width, 875);
 				ScrollViewInteractionPage.ContentSize = new CGSize (375.0f,845.0f);
 				TableViewInteractionDislikerReason.Hidden = true;
+
+
 			};
 
 			ButtonSubmit.TouchUpInside += (object sender, EventArgs e) => {
@@ -166,6 +184,8 @@ namespace donow.iOS
 					});
 				}
 
+//				string[] domainArr = AppDelegate.UserDetails.Email.Split('@');
+//				string[] companynameArr = domainArr[1].Split('.');
 				if(string.IsNullOrEmpty(AppDelegate.accessToken))
 				{
 					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);

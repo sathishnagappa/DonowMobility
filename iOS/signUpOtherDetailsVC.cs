@@ -20,11 +20,6 @@ namespace donow.iOS
 
 		}
 
-		//		public void changeTitle ( String title ) {
-		//
-		//			ButtonNext.TitleLabel.Text = title;
-		//		}
-
 		List<LineOfBusiness> listLOB;
 		List<string> Industries;
 		LoadingOverlay loadingOverlay;
@@ -43,7 +38,7 @@ namespace donow.iOS
 //				ButtonNext.SetTitle ("Submit", UIControlState.Normal);
 //				ButtonNext.Frame = new CGRect (this.View.Bounds.Size.Width/2 +10, 10, 154, 40);
 				ButtonSubmit.Hidden = false;
-				ScrollViewSignUpDetails.ContentSize = new SizeF (350.0f, 825.0f);
+				ScrollViewSignUpDetails.ContentSize = new SizeF (350.0f, 1030.0f);
 			} else {
 				ButtonCancel.Hidden = true;
 				ButtonSubmit.Hidden = true;
@@ -54,13 +49,17 @@ namespace donow.iOS
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-			TableViewState.Dispose ();
-			TableViewIndustry.Dispose ();
+			TableViewState.Source = null;
+			TableViewIndustry.Source = null;
+			listLOB = null;
+			Industries = null;
 		}
 
 		public override void ViewDidLoad ()
 		{
 			this.NavigationItem.Title = "Sign Up: User Info";
+
+			this.View.UserInteractionEnabled = true;
 
 			loadingOverlay = new LoadingOverlay(this.View.Bounds);
 			this.View.Add(loadingOverlay);
@@ -92,7 +91,13 @@ namespace donow.iOS
 				"UT","VT","VA","WA","WV","WI","WY"
 			};
 
-			ScrollViewSignUpDetails.ContentSize =  new SizeF (350.0f, 836.0f);
+			ScrollViewSignUpDetails.ContentSize =  new SizeF (350.0f, 1050.0f);
+
+			ScrollViewSignUpDetails.Scrolled += delegate {
+				TableViewState.Hidden = true;
+				TableViewIndustry.Hidden = true;
+				TextBoxZip.ResignFirstResponder ();
+			};
 
 			ButtonCancel.Layer.CornerRadius = 3.0f;
 			ButtonNext.Layer.CornerRadius = 3.0f;
@@ -110,19 +115,18 @@ namespace donow.iOS
 //			Industries =  AppDelegate.industryBL.GetIndustry ();
 //			listLOB = AppDelegate.industryBL.GetLOB();
 
-
 			TableViewIndustry.Layer.BorderColor=UIColor.FromRGB(169,169,169).CGColor;
 			//TableViewIndustry.ContentSize = new SizeF (100f,50f);
 			ButtonIndustry.TouchUpInside += (object sender, EventArgs e) =>  {
 				TextBoxLineOfBusiness.Text = string.Empty;
-				TableViewIndustry.Frame = new CGRect(25,245,325,122);
+				TableViewIndustry.Frame = new CGRect(25,345,this.View.Bounds.Size.Width - 50,122);
 				TableViewIndustry.Hidden = false;
 				TableViewIndustry.Source = new TableSource(Industries,this, "Industry");
 				TableViewIndustry.ReloadData ();
 			};
 
 			ButtonLineOfBusiness.TouchUpInside+= (object sender, EventArgs e) => {
-			TableViewIndustry.Frame = new CGRect(25,310,325,122);
+				TableViewIndustry.Frame = new CGRect(25,435,this.View.Bounds.Size.Width - 50,122);
 				TableViewIndustry.Hidden = false;
 				TableViewIndustry.ReloadData ();
 			};
@@ -187,19 +191,6 @@ namespace donow.iOS
 				TextBoxCity.Text = string.Empty;
 				TextBoxState.Text = string.Empty;
 				TextBoxLineOfBusiness.Text = string.Empty;
-			}
-		}
-
-		public override void TouchesBegan (NSSet touches, UIEvent evt)
-		{
-			base.TouchesBegan (touches, evt);
-			UITouch touch = touches.AnyObject as UITouch;
-			if (touch != null) {
-				if (ScrollViewSignUpDetails.Frame.Contains(touch.LocationInView(ScrollViewSignUpDetails)))
-				{
-					TableViewState.Hidden = true;
-					TableViewIndustry.Hidden = true;
-				}
 			}
 		}
 
@@ -352,13 +343,13 @@ namespace donow.iOS
 		void LoadUserDetails()
 		{
 			AppDelegate.UserDetails = new UserDetails();
-			AppDelegate.UserDetails.Name = AppDelegate.UserProfile.nickname;
+			AppDelegate.UserDetails.Name = AppDelegate.UserProfile.email;
 			AppDelegate.UserDetails.Password = "MOicgNmn7qm756+877Cr4Yee7ryr6Yme";
 			TextBoxEmail.Text = AppDelegate.UserProfile.email;
 			TextBoxCompany.Text = AppDelegate.UserProfile.positions.values [0].company.name;
 			TextBoxTitle.Text = AppDelegate.UserProfile.positions.values[0].title;
 			TextBoxFullName.Text = AppDelegate.UserProfile.name;
-			TextBoxIndustry.Text = AppDelegate.UserProfile.industry;
+			//TextBoxIndustry.Text = AppDelegate.UserProfile.industry;
 		}
 
 		public void UpdateControls (string Parameter, string TableType)

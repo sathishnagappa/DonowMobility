@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using donow.Util;
 using CoreGraphics;
 using System.Linq;
+using UIKit;
 
 namespace donow.iOS
 {
@@ -30,10 +31,10 @@ namespace donow.iOS
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
-			if (!AppDelegate.IsFromProspect) {				
-				brokerList = AppDelegate.brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness,AppDelegate.UserDetails.UserId).OrderByDescending (X => X.BrokerScore).ToList ();
-			}
-			else
+//			if (!AppDelegate.IsFromProspect) {				
+//				brokerList = AppDelegate.brokerBL.GetAllBrokers (AppDelegate.UserDetails.Industry, AppDelegate.UserDetails.LineOfBusiness,AppDelegate.UserDetails.UserId).OrderByDescending (X => X.BrokerScore).ToList ();
+//			}
+//			else
 				brokerList = AppDelegate.brokerBL.GetBrokerForProspect (AppDelegate.CurrentLead.LEAD_ID,AppDelegate.UserDetails.UserId).OrderByDescending(X => X.BrokerScore).ToList();
 
 
@@ -46,6 +47,8 @@ namespace donow.iOS
 			if(TableViewDealMaker.Source != null)
 			TableViewDealMaker.Source = null;
 			
+			brokerList = null;
+
 			if (searchTableView == null) {
 
 				TableViewDealMaker.ReloadData ();
@@ -55,12 +58,12 @@ namespace donow.iOS
 
 		}
 
-		protected override void Dispose (bool disposing)
-		{
-			if (TableViewDealMaker.Source != null)
-				TableViewDealMaker.Source.Dispose ();
-			base.Dispose (disposing);
-		}
+//		protected override void Dispose (bool disposing)
+//		{
+//			if (TableViewDealMaker.Source != null)
+//				TableViewDealMaker.Source.Dispose ();
+//			base.Dispose (disposing);
+//		}
 
 
 		public override void ViewDidLoad ()
@@ -75,7 +78,7 @@ namespace donow.iOS
 			};
 
 			NavigationItem.LeftBarButtonItem = btn;
-			this.Title = "Deal Makers";
+			this.Title = "Dealmakers";
 
 			// ************ Search Button to be added *****************//
 
@@ -98,8 +101,6 @@ namespace donow.iOS
 			NavigationItem.RightBarButtonItem = rightBtn;
 
 			searchBarDealMaker.Delegate = new SearchDelegate (this, searchTableView);
-
-			// ************ Search Button to be added *****************//
 		}
 
 		public class SearchDelegate : UISearchBarDelegate {
@@ -194,27 +195,32 @@ namespace donow.iOS
 			{
 				tableView.DeselectRow (indexPath, true);
 
-				if (TableItems [indexPath.Row].Status == 1 || TableItems [indexPath.Row].Status == 2) {
-					tableView.DeselectRow (indexPath, true);
+//				if (TableItems [indexPath.Row].Status == 1 || TableItems [indexPath.Row].Status == 2) {
+//					tableView.DeselectRow (indexPath, true);
 					MyDealMakerDetailVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
 					if (dealmakerDetailObject != null) {
 						dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
 						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
 					}
-				}
-				else if (TableItems [indexPath.Row].Status == 4 || TableItems [indexPath.Row].Status == 5) 
-				{
-					DealMakerAcceptedReferralRequestlVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("DealMakerAcceptedReferralRequestlVC") as DealMakerAcceptedReferralRequestlVC;
-					if (dealmakerDetailObject != null) {
-					 dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
-						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
-					}
-				}
+//				}
+//				else if (TableItems [indexPath.Row].Status == 4 || TableItems [indexPath.Row].Status == 5) 
+//				{
+//					DealMakerAcceptedReferralRequestlVC dealmakerDetailObject = owner.Storyboard.InstantiateViewController ("DealMakerAcceptedReferralRequestlVC") as DealMakerAcceptedReferralRequestlVC;
+//					if (dealmakerDetailObject != null) {
+//					 dealmakerDetailObject.brokerObj = TableItems [indexPath.Row];
+//						owner.NavigationController.PushViewController (dealmakerDetailObject, true);
+//					}
+//				}
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 130.0f;
+				return 110.0f;
+			}
+
+			public override nfloat EstimatedHeight (UITableView tableView, NSIndexPath indexPath)
+			{
+				return 110.0f;
 			}
 		}
 	}

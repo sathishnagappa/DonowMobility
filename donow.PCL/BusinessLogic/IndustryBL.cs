@@ -10,9 +10,9 @@ namespace donow.PCL
 	{
 		public List<LineOfBusiness> GetLOB()
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.LOB;
-			string response =  restSevice.GetData (leadsApicall);
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LineOfBusiness>>(response.ToString());
 			return parsedResponse;
 
@@ -20,9 +20,9 @@ namespace donow.PCL
 
 		public List<string> GetIndustry()
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.Industry;
-			string response =  restSevice.GetData (leadsApicall);
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(response.ToString());
 			return parsedResponse;
 		}

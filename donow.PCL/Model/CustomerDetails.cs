@@ -33,6 +33,9 @@ namespace donow.PCL
 		public string INDUSTRYRISK { get; set; }
 		public string COUNTY { get; set; }
 		public string WebAddress { get; set; }
+		public string SFDC_LEADID  { get; set; }
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 	}
 }
 

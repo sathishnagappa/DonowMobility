@@ -41,7 +41,7 @@ namespace donow.iOS
 			//AppDelegate.IsNewUser = true;
 			TableViewCustomerStreamActivity.Hidden = true;
 
-			ScrollViewAccountManager.ContentSize = new CGSize (375.0f, 950.0f);
+			ScrollViewAccountManager.ContentSize = new CGSize (375.0f, 863.0f);
 
 			industryLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
 			industryLabel.Layer.BorderWidth = 2.0f;
@@ -74,14 +74,14 @@ namespace donow.iOS
 			
 			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
-			if (AppDelegate.UserDetails.UserId != 0) {
+//			if (AppDelegate.UserDetails.UserId != 0) {
 
 //				SwitchNewLeads.On = AppDelegate.UserDetails.IsNewLeadNotificationRequired;
 //				SwitchBusinessUpdates.On = AppDelegate.UserDetails.IsBusinessUpdatesRequired;
 //				SwitchFollowUp.On = AppDelegate.UserDetails.IsCustomerFollowUpRequired;
 //				SwitchReferralRequests.On = AppDelegate.UserDetails.IsReferralRequestRequired;
 //				SwitchMeetingReminders.On = AppDelegate.UserDetails.IsMeetingRemindersRequired;
-			}
+//			}
 
 			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
 			TableViewCustomerStreamActivity.Layer.BorderColor = UIColor.LightGray.CGColor; 
@@ -100,9 +100,7 @@ namespace donow.iOS
 				//CompanyList = AppDelegate.customerBL.GetCustomersMaster ();
 				CompanyList = new List<Customer>();
 			else
-				CompanyList = new List<Customer> ();
-		
-				
+				CompanyList = new List<Customer> ();				
 
 			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewCustomerStreamActivity.Hidden = false;
@@ -134,6 +132,7 @@ namespace donow.iOS
 					if(changePassword != null)
 						this.NavigationController.PushViewController (changePassword, true);			
 			};
+
 //			SwitchNewLeads.ValueChanged+= (object sender, EventArgs e) => {
 //				AppDelegate.UserDetails.IsNewLeadNotificationRequired = SwitchNewLeads.On;
 //			};

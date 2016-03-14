@@ -25,7 +25,10 @@ namespace donow.Util
 //		public static string OpenConnection="https://microsoft-apiapp73425ff2f5ca4ceea1463faaa349220f.azurewebsites.net/api/Connection";
 
 		//public static string ConnectionBase = "https://microsoft-apiapp60665ca869794ae8a2df4a7bf1126fd3.azurewebsites.net/api/";
+
 		public static string ConnectionBase = "https://donowapi.azurewebsites.net/api/";
+		//public static string ConnectionBase = "https://prod.donowapi.azurewebsites.net/api/";
+
 		public static string LeadsAPI = ConnectionBase + "LeadDetails";
 		public static string UserCreation=ConnectionBase + "UserDetails";
 		public static string UserUpdate=ConnectionBase + "UserUpdate";
@@ -36,7 +39,7 @@ namespace donow.Util
 		public static string ReferralRequests=ConnectionBase + "ReferralRequests";
 		public static string LeadFeedback=ConnectionBase + "LeadFeedback";
 		public static string LeadF2FFeedback=ConnectionBase + "LeadF2FFeedBack";
-		public static string CustomerFeed=ConnectionBase + "CustomerFeed";
+//		public static string CustomerFeed=ConnectionBase + "CustomerFeed";
 		public static string DealHistory=ConnectionBase + "DealHistory";
 		public static string LeadTakingPoints=ConnectionBase + "LeadTakingPoints";
 		public static string DealMaker=ConnectionBase + "Dealmaker";

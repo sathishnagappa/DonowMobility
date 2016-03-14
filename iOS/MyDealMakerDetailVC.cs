@@ -32,7 +32,7 @@ namespace donow.iOS
 				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-			this.Title = "Deal Maker";
+			this.Title = "Dealmaker";
 			ViewBackgroundTransparent.Hidden = true;
 			ViewSendRequestView.Hidden = true;
 
@@ -48,7 +48,13 @@ namespace donow.iOS
 
       		ViewSendRequestView.Layer.CornerRadius = 10.0f;
 			ButtonOkSendRequestView.Layer.CornerRadius = 5.0f;
-			LabelNameDealMaker.Text = brokerObj.City + " Deal Maker";
+
+			if (brokerObj.Status == 4 || brokerObj.Status == 5) {
+				LabelNameDealMaker.Text = brokerObj.BrokerName;
+			}
+			else
+			LabelNameDealMaker.Text = brokerObj.City + " Dealmaker";	
+			
 			LabelBrokerJobTitle.Text = brokerObj.BrokerTitle;
 
 			ButtonSendRequest.TouchUpInside += (object sender, EventArgs e) =>  {

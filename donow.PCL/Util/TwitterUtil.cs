@@ -55,7 +55,7 @@ namespace donow.PCL
 
 			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=100&q=wpdev");
 			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=50&q=%23" + paramter +"&result_type=recent");
-			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=50&q=%23" + paramter +"&result_type=recent");
+			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?lang=en&count=20&q=%23" + paramter +"&result_type=recent");
 			requestSearch.Headers.Add("Authorization", "Bearer " + accessToken);
 			HttpResponseMessage responseSearch = await httpClient.SendAsync(requestSearch);
 			var returnJsonSearch = JValue.Parse(await responseSearch.Content.ReadAsStringAsync());
@@ -67,6 +67,13 @@ namespace donow.PCL
 				twitterObject.user = token["user"]["name"].ToString();
 				twitterObject.profile_image_url = token["user"]["profile_image_url"].ToString();
 				twitterObject.text = token["text"].ToString();
+				//created_at
+				if(token["entities"]["urls"].Count() > 0 )
+					twitterObject.url = token["entities"]["urls"][0]["url"].ToString();
+				else if(token["user"]["entities"]["url"] != null && token["user"]["entities"]["url"]["urls"].Count() > 0)
+					twitterObject.url = token["user"]["entities"]["url"]["urls"][0]["url"].ToString();
+				else
+					twitterObject.url = "";
 				_return.Add(twitterObject);
 			}
 			//_return.Item1.FirstOrDefault();

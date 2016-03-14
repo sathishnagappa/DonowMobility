@@ -14,7 +14,8 @@ namespace donow.PCL
 		public string SalesStage { get; set;}
 		public string NextSteps { get; set;}
 		public int MeetingID { get; set;}
-
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 	}
 }
 

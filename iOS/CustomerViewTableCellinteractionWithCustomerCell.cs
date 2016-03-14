@@ -7,7 +7,7 @@ namespace donow.iOS
 {
 	public class CustomerViewTableCellinteractionWithCustomerCell : UITableViewCell
 	{
-		UILabel LabelSentEmail, LabelDate, LabelTime;
+		UILabel LabelSentEmail, LabelDate;
 		UIImageView ImageViewEmail;
 
 		public CustomerViewTableCellinteractionWithCustomerCell (string cellId) : base (UITableViewCellStyle.Default, cellId)

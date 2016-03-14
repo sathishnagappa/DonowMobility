@@ -166,10 +166,6 @@
     <Compile Include="HambergerMenuVC .designer.cs">
       <DependentUpon>HambergerMenuVC .cs</DependentUpon>
     </Compile>
-    <Compile Include="MyProfileVC.cs" />
-    <Compile Include="MyProfileVC.designer.cs">
-      <DependentUpon>MyProfileVC.cs</DependentUpon>
-    </Compile>
     <Compile Include="MyMeetingsVC.cs" />
     <Compile Include="MyMeetingsVC.designer.cs">
       <DependentUpon>MyMeetingsVC.cs</DependentUpon>
@@ -194,6 +190,7 @@
     <Compile Include="LandingLeadsVC.designer.cs">
       <DependentUpon>LandingLeadsVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyDealMakerDetailVC.cs" />
     <Compile Include="LandingTabBarVC.cs" />
     <Compile Include="LandingTabBarVC.designer.cs">
       <DependentUpon>LandingTabBarVC.cs</DependentUpon>
@@ -248,17 +245,12 @@
     <Compile Include="MyDealMakerVC.designer.cs">
       <DependentUpon>MyDealMakerVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyDealMakerDetailVC.cs" />
     <Compile Include="MyDealMakerDetailVC.designer.cs">
       <DependentUpon>MyDealMakerDetailVC.cs</DependentUpon>
     </Compile>
     <Compile Include="BingSearchVC.cs" />
     <Compile Include="BingSearchVC.designer.cs">
       <DependentUpon>BingSearchVC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DealMakerAcceptedReferralRequestlVC.cs" />
-    <Compile Include="DealMakerAcceptedReferralRequestlVC.designer.cs">
-      <DependentUpon>DealMakerAcceptedReferralRequestlVC.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerViewDealHistory.cs" />
     <Compile Include="CustomerViewPreviousMeetings.cs" />
@@ -372,6 +364,27 @@
     <BundleResource Include="Resources\calendar.png" />
     <BundleResource Include="Resources\add.png" />
     <BundleResource Include="Resources\company-info.png" />
+    <BundleResource Include="Resources\latest-news.png" />
+    <BundleResource Include="Resources\activity.png" />
+    <BundleResource Include="Resources\business.png" />
+    <BundleResource Include="Resources\connect_lead.png" />
+    <BundleResource Include="Resources\deal-maker.png" />
+    <BundleResource Include="Resources\lifecycle.png" />
+    <BundleResource Include="Resources\notification.png" />
+    <BundleResource Include="Resources\potential-deal-maker.png" />
+    <BundleResource Include="Resources\settings.png" />
+    <BundleResource Include="Resources\upcoming-meeting.png" />
+    <BundleResource Include="Resources\NEW-BUTTON.PNG" />
+    <BundleResource Include="Resources\connection_with_customer.png" />
+    <BundleResource Include="Resources\deal-history.png" />
+    <BundleResource Include="Resources\interaction-history.png" />
+    <BundleResource Include="Resources\latest_customer_info.png" />
+    <BundleResource Include="Resources\my_icon.png" />
+    <BundleResource Include="Resources\acquire-leads.png" />
+    <BundleResource Include="Resources\close-sale.png" />
+    <BundleResource Include="Resources\follow-up.png" />
+    <BundleResource Include="Resources\help.png" />
+    <BundleResource Include="Resources\proposal.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

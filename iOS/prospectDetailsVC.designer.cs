@@ -20,11 +20,11 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonFirstDealMaker { get; set; }
+		UIButton ButtonMailProspect { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonMailProspect { get; set; }
+		UIButton ButtonNumberOfDealmakers { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -33,18 +33,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonPhoneProspect { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSecondDealMaker { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonSeeAllBrokers { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonThirdDealMaker { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -61,6 +49,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView ImageProspect { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView ImageShowMore { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -112,6 +104,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelNumberOfDealMaker { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelProspectCityandState { get; set; }
 
 		[Outlet]
@@ -121,18 +117,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelProspectName { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelScoreFirstBroker { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelScoreSecondBroker { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel LabelScoreThirdBroker { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -180,13 +164,13 @@ namespace donow.iOS
 				ButtonCalendarEvent.Dispose ();
 				ButtonCalendarEvent = null;
 			}
-			if (ButtonFirstDealMaker != null) {
-				ButtonFirstDealMaker.Dispose ();
-				ButtonFirstDealMaker = null;
-			}
 			if (ButtonMailProspect != null) {
 				ButtonMailProspect.Dispose ();
 				ButtonMailProspect = null;
+			}
+			if (ButtonNumberOfDealmakers != null) {
+				ButtonNumberOfDealmakers.Dispose ();
+				ButtonNumberOfDealmakers = null;
 			}
 			if (ButtonPassProspect != null) {
 				ButtonPassProspect.Dispose ();
@@ -195,18 +179,6 @@ namespace donow.iOS
 			if (ButtonPhoneProspect != null) {
 				ButtonPhoneProspect.Dispose ();
 				ButtonPhoneProspect = null;
-			}
-			if (ButtonSecondDealMaker != null) {
-				ButtonSecondDealMaker.Dispose ();
-				ButtonSecondDealMaker = null;
-			}
-			if (ButtonSeeAllBrokers != null) {
-				ButtonSeeAllBrokers.Dispose ();
-				ButtonSeeAllBrokers = null;
-			}
-			if (ButtonThirdDealMaker != null) {
-				ButtonThirdDealMaker.Dispose ();
-				ButtonThirdDealMaker = null;
 			}
 			if (ButtonUpdateProspect != null) {
 				ButtonUpdateProspect.Dispose ();
@@ -223,6 +195,10 @@ namespace donow.iOS
 			if (ImageProspect != null) {
 				ImageProspect.Dispose ();
 				ImageProspect = null;
+			}
+			if (ImageShowMore != null) {
+				ImageShowMore.Dispose ();
+				ImageShowMore = null;
 			}
 			if (LabelCityStateCustomerInfo != null) {
 				LabelCityStateCustomerInfo.Dispose ();
@@ -272,6 +248,10 @@ namespace donow.iOS
 				LabelNetIncome.Dispose ();
 				LabelNetIncome = null;
 			}
+			if (LabelNumberOfDealMaker != null) {
+				LabelNumberOfDealMaker.Dispose ();
+				LabelNumberOfDealMaker = null;
+			}
 			if (LabelProspectCityandState != null) {
 				LabelProspectCityandState.Dispose ();
 				LabelProspectCityandState = null;
@@ -283,18 +263,6 @@ namespace donow.iOS
 			if (LabelProspectName != null) {
 				LabelProspectName.Dispose ();
 				LabelProspectName = null;
-			}
-			if (LabelScoreFirstBroker != null) {
-				LabelScoreFirstBroker.Dispose ();
-				LabelScoreFirstBroker = null;
-			}
-			if (LabelScoreSecondBroker != null) {
-				LabelScoreSecondBroker.Dispose ();
-				LabelScoreSecondBroker = null;
-			}
-			if (LabelScoreThirdBroker != null) {
-				LabelScoreThirdBroker.Dispose ();
-				LabelScoreThirdBroker = null;
 			}
 			if (LabelStreetCustomerInfo != null) {
 				LabelStreetCustomerInfo.Dispose ();

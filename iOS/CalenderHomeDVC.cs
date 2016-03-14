@@ -111,7 +111,7 @@ namespace donow.iOS
 		protected void RequestAccess (EKEntityType type, Action completion)
 		{
 			AppDelegate.EventStore.RequestAccess (type,
-				(bool granted, NSError e) => {
+				(bool granted, NSError e) => {					
 					InvokeOnMainThread (() => {
 						if (granted)
 							completion.Invoke ();
@@ -205,6 +205,7 @@ namespace donow.iOS
 					userMeetings.City = AppDelegate.CurrentLead.CITY;
 					userMeetings.State = AppDelegate.CurrentLead.STATE;
 					userMeetings.Status = "";
+					userMeetings.Comments = "";
 				} else {
 					userMeetings.Id = 0;
 					userMeetings.LeadId = (int) AppDelegate.CurrentRR.LeadID;
@@ -216,9 +217,11 @@ namespace donow.iOS
 					userMeetings.City = AppDelegate.CurrentRR.City;
 					userMeetings.State = AppDelegate.CurrentRR.State;
 					userMeetings.Status = "";
+					userMeetings.Comments = "";
 					
 				}
 				AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);
+				AppDelegate.UserDetails.MeetingCount = AppDelegate.UserDetails.MeetingCount + 1;
 				//Xamarin Insights tracking
 				Insights.Track ("SaveMeetingEvent", new Dictionary <string,string> {
 					{ "LeadId", userMeetings.LeadId.ToString () },

@@ -63,11 +63,7 @@
     <Compile Include="BusinessLogic\BrokerBL.cs" />
     <Compile Include="BusinessLogic\CustomerBL.cs" />
     <Compile Include="BusinessLogic\ReferralRequestBL.cs" />
-    <Compile Include="Model\Feed.cs" />
     <Compile Include="Model\UserMeetings.cs" />
-    <Compile Include="Model\BusinessRecomendations.cs" />
-    <Compile Include="Model\CustomerLatestInfo.cs" />
-    <Compile Include="Model\CustomerConnect.cs" />
     <Compile Include="Model\SFDCAuth.cs" />
     <Compile Include="Model\CalenderEvent.cs" />
     <Compile Include="Model\LineOfBusiness.cs" />
@@ -78,7 +74,6 @@
     <Compile Include="Model\LeadF2FFeedBack.cs" />
     <Compile Include="Model\DealHistroy.cs" />
     <Compile Include="Model\CustomerInteraction.cs" />
-    <Compile Include="Model\Referrals.cs" />
     <Compile Include="Util\TwitterUtil.cs" />
     <Compile Include="Model\TwitterStream.cs" />
     <Compile Include="Model\LeadMaster.cs" />

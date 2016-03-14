@@ -27,48 +27,34 @@ namespace donow.iOS
 		CustomerDetails customerDetails;
 		public bool TableSeeAllClicked = false;
 
-		public override void ViewWillDisappear (bool animated)
-		{			
-			base.ViewWillDisappear (animated);
-			//this.Dispose ();
-
-		}
-
-		protected override void Dispose (bool disposing)
+		public override async void ViewWillAppear (bool animated)
 		{
-			if (TableViewEmails.Source != null) {
-				TableViewEmails.Source.Dispose ();
-				TableViewEmails.Source = null;
+			base.ViewWillAppear (animated);
+			LoadScreenData ();
+			ButtonDealMakerUsed.Hidden = true;
+			//customerDetails.dealMaker != null 
+			if (customerDetails.dealMaker != null) {
+				LabelDealMakerUsed.Text = customerDetails.dealMaker.BrokerName;
+				ButtonDealMakerUsed.Hidden = false;
 			}
-			if (TableViewDealHistory.Source != null) {
-				TableViewDealHistory.Source.Dispose ();
-				TableViewDealHistory.Source = null;
-			}
-			if (TableViewMeetings.Source != null) {
-				TableViewMeetings.Source.Dispose ();
-				TableViewMeetings.Source = null;
-			}
-			if (TableViewPreviousMeetings.Source != null) {
-				TableViewPreviousMeetings.Source.Dispose ();
-				TableViewPreviousMeetings.Source = null;
-			}
-			base.Dispose (disposing);
+
+			List<BingResult> bingResult = AppDelegate.customerBL.GetBingResult (customerDetails.Name + " News");
+			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
+		    
+			await LoadCustomerAndMeetingInfo ();
 		}
 
-//		public override void ViewDidUnload ()
-//		{
-//			if (TableViewEmails.Source != null)
-//				TableViewEmails.Source.Dispose ();
-//			if (TableViewDealHistory.Source != null)
-//				TableViewDealHistory.Source.Dispose ();
-//			if (TableViewMeetings.Source != null)
-//				TableViewMeetings.Source.Dispose ();
-//			if (TableViewPreviousMeetings.Source != null)
-//				TableViewPreviousMeetings.Source.Dispose ();
-//			base.ViewDidUnload ();
-//		}
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
 
-		public async override void ViewDidLoad ()
+			TableViewEmails.Source = null;
+			TableViewDealHistory.Source = null;
+			TableViewMeetings.Source = null;
+			TableViewPreviousMeetings.Source = null;
+		}
+
+		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
@@ -84,19 +70,22 @@ namespace donow.iOS
 			loadingOverlay = new LoadingOverlay(this.View.Bounds);
 			this.View.Add(loadingOverlay);
 
-			LoadScreenData ();
-
-			//int brokerWorkingWith = AppDelegate.brokerBL.GetBrokerForProspect (customer.LeadId).Where(X => X.Status ==4).ToList().Count;
-			 
-			//int  brokerWorkingWith =  AppDelegate.brokerBL.GetBrokerForStatus(customer.LeadId,4).Count;
-
-			DealMakersImage1.Hidden = customerDetails.dealMaker != null ? false : true;			
-//			LabelCustomerVsProspect.Text = customerDetails == "Y" ? "Existing Customer" : "New Prospect" ;
-//			ButtonSeeAllPreviousMeetings.TouchUpInside += (object sender, EventArgs e) =>  {
-//
-//				TableSeeAllClicked = true;
-//				TableViewMeetings.ReloadData ();
-//			};			
+//			LoadScreenData ();
+//			ButtonDealMakerUsed.Hidden = true;
+//			//customerDetails.dealMaker != null 
+//			if (customerDetails.dealMaker != null) {
+//				LabelDealMakerUsed.Text = customerDetails.dealMaker.BrokerName;
+//				ButtonDealMakerUsed.Hidden = false;
+//			}
+			//DealMakersImage1.Hidden = customerDetails.dealMaker != null ? false : true;
+			//Add code to navigate to dealmaker details 
+			ButtonDealMakerUsed.TouchUpInside += (object sender, EventArgs e) => {
+				MyDealMakerDetailVC dealmakerDetailObject = this.Storyboard.InstantiateViewController ("MyDealMakerDetailVC") as MyDealMakerDetailVC;
+				if (dealmakerDetailObject != null) { 
+					dealmakerDetailObject.brokerObj = customerDetails.dealMaker;
+					this.NavigationController.PushViewController (dealmakerDetailObject, true);
+				}
+			};
 			
 			ButtonPhone.TouchUpInside += (object sender, EventArgs e) => {
 				var phone = string.IsNullOrEmpty(customerDetails.Phone.Trim()) == true ? "0" : customerDetails.Phone;
@@ -150,13 +139,13 @@ namespace donow.iOS
 				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
 				this.NavigationController.PushViewController(calendarHomeDV, true);
 			};
-			await LoadCustomerAndMeetingInfo ();
+			//await LoadCustomerAndMeetingInfo ();
 		}
 
 		async Task LoadCustomerAndMeetingInfo () {
 
-			List<BingResult>  bingResult =  AppDelegate.customerBL.GetBingResult (customerDetails.Name + " News");
-			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
+//			List<BingResult> bingResult = AppDelegate.customerBL.GetBingResult (customerDetails.Name + " News");
+//			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
 
 			string[] customerNameArray = customerDetails.Company.Split ();
 			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
@@ -169,9 +158,9 @@ namespace donow.iOS
 //				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
 //					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
 //					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();	
-				  twitterStreamwithKeyword =	twitterStream;	
+				  twitterStreamwithKeyword = twitterStream;	
 
-			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword);
+			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword,this);
 			TableViewLatestCustomerInfo.ReloadData ();
 			loadingOverlay.Hide();
 		}
@@ -185,7 +174,8 @@ namespace donow.iOS
 
 		void LoadScreenData()
 		{
-			customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.Name,AppDelegate.UserDetails.UserId);
+			customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.Name,AppDelegate.UserDetails.UserId,customer.Lead_Source);
+			//customerDetails = AppDelegate.customerBL.GetCustomersDetails(customer.Name,AppDelegate.UserDetails.UserId);
 
 			List<UserMeetings> listMeeting = customerDetails.UserMeetingList;
 			List<UserMeetings> UCommingMeetinglist = new List<UserMeetings>();
@@ -241,6 +231,8 @@ namespace donow.iOS
 
 			AppDelegate.CurrentLead = new Leads () { LEAD_ID = customerDetails.LeadId, LEAD_NAME = customerDetails.Name, 
 				CITY = customerDetails.City, STATE = customerDetails.State
+
+
 			};
 		}
 
@@ -389,7 +381,6 @@ namespace donow.iOS
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
 					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-					//myMeetingsObj.customer = owner.customer;
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
@@ -431,12 +422,10 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
-
 				tableView.DeselectRow (indexPath, true);
 				MyMeetingsVC myMeetingsObj = owner.Storyboard.InstantiateViewController ("MyMeetingsVC") as MyMeetingsVC;
 				if (myMeetingsObj != null) {
 					myMeetingsObj.meetingObj = TableItems[indexPath.Row];
-					//myMeetingsObj.customer = owner.customer;
 					owner.NavigationController.PushViewController(myMeetingsObj,true);
 				}
 			}
@@ -493,10 +482,12 @@ namespace donow.iOS
 
 			List<TwitterStream> TableItems;
 			string CellIdentifier = "TableCellCusomerInfo";
+			customerProfileVC owner;
 
-			public CustomerInfoTableSource (List<TwitterStream> twitterstream)
+			public CustomerInfoTableSource (List<TwitterStream> twitterstream,customerProfileVC customerProfileObj)
 			{
 				TableItems = twitterstream;
+				this.owner = customerProfileObj;
 			}
 
 			public override nint RowsInSection (UITableView tableview, nint section)
@@ -524,9 +515,19 @@ namespace donow.iOS
 			}
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{			
+			{		
 
 				tableView.DeselectRow (indexPath, true);
+				if (!string.IsNullOrEmpty (TableItems [indexPath.Row].url)) {
+					BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+					if (bingSearchVC != null) {					
+						bingSearchVC.webURL = TableItems [indexPath.Row].url;
+						owner.NavigationController.PushViewController (bingSearchVC, true);
+					}
+				} else { 
+					UIAlertView alert = new UIAlertView ("", "No link available for this feed.", null, "Ok", null);
+					alert.Show ();
+				}
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
@@ -573,13 +574,12 @@ namespace donow.iOS
 
 			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 			{
+				tableView.DeselectRow (indexPath, true);
 				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
 				if (bingSearchVC != null) {
 					bingSearchVC.webURL = TableItems [indexPath.Row].Url;
-					//owner.View.AddSubview (leadDetailVC.View);
 					owner.NavigationController.PushViewController (bingSearchVC, true);
 				}
-				tableView.DeselectRow (indexPath, true);
 			}
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)

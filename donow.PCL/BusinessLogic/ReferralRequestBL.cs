@@ -9,18 +9,18 @@ namespace donow.PCL
 	{
 		public List<ReferralRequest> GetReferralRequest(int userID)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string leadsApicall = Constants.ReferralRequests + "?BrokerUserID=" + userID;
-			string response =  restSevice.GetData (leadsApicall);
+			string response =  RestService.Instance.GetData (leadsApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ReferralRequest>>(response.ToString());
 			return parsedResponse;
 		}
 
 		public string SaveReferralRequest(ReferralRequest rrDetails)
 		{
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(rrDetails);
-			string response = restSevice.PostData (Constants.ReferralRequests, postData);
+			string response = RestService.Instance.PostData (Constants.ReferralRequests, postData);
 			return response;
 		}
 
@@ -29,9 +29,9 @@ namespace donow.PCL
 			ReferralRequest rrDetails = new ReferralRequest ();
 			rrDetails.ID = requestID;
 			rrDetails.Status = Status;
-			RestService restSevice = new RestService ();
+			//RestService restSevice = new RestService ();
 			string postData = Newtonsoft.Json.JsonConvert.SerializeObject(rrDetails);
-			string response = restSevice.PostData(Constants.ReferralRequestsUpdate, postData);
+			string response = RestService.Instance.PostData(Constants.ReferralRequestsUpdate, postData);
 			return response;
 		}
 

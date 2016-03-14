@@ -10,6 +10,8 @@ namespace donow.PCL.Model
 		public string Subject { get; set; }
 		public string StartDate { get; set; }
 		public string EndDate { get; set; }
+		public bool ApiResponse { get; set; }
+		public string ErrorMessage { get; set; }
 	}
 }
 

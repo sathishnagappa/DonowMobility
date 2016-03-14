@@ -20,11 +20,13 @@ namespace donow.iOS
 			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB (157, 50, 49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
-
 		}
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			this.NavigationItem.Title = "Help";
 
 			UIBarButtonItem btn = new UIBarButtonItem ();
 			btn.Image = UIImage.FromFile("Navigation Back Icon.png");
@@ -34,7 +36,7 @@ namespace donow.iOS
 				this.NavigationController.PopViewController(true);
 			};
 			NavigationItem.LeftBarButtonItem = btn;
-			ScrollViewInfoPage.ContentSize = new CGSize (375.0f, 1133.0f);
+			ScrollViewInfoPage.ContentSize = new CGSize (375.0f, 1120.0f);
 		}
 	}
 }

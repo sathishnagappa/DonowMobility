@@ -20,6 +20,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonDealMakerUsed { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonMail { get; set; }
 
 		[Outlet]
@@ -29,10 +33,6 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel CustomerTitle { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView DealMakersImage1 { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -53,6 +53,10 @@ namespace donow.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCustomerVsProspect { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDealMakerUsed { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -152,6 +156,10 @@ namespace donow.iOS
 				ButtonCalendarEvent.Dispose ();
 				ButtonCalendarEvent = null;
 			}
+			if (ButtonDealMakerUsed != null) {
+				ButtonDealMakerUsed.Dispose ();
+				ButtonDealMakerUsed = null;
+			}
 			if (ButtonMail != null) {
 				ButtonMail.Dispose ();
 				ButtonMail = null;
@@ -163,10 +171,6 @@ namespace donow.iOS
 			if (CustomerTitle != null) {
 				CustomerTitle.Dispose ();
 				CustomerTitle = null;
-			}
-			if (DealMakersImage1 != null) {
-				DealMakersImage1.Dispose ();
-				DealMakersImage1 = null;
 			}
 			if (LabelCityAndState != null) {
 				LabelCityAndState.Dispose ();
@@ -187,6 +191,10 @@ namespace donow.iOS
 			if (LabelCustomerVsProspect != null) {
 				LabelCustomerVsProspect.Dispose ();
 				LabelCustomerVsProspect = null;
+			}
+			if (LabelDealMakerUsed != null) {
+				LabelDealMakerUsed.Dispose ();
+				LabelDealMakerUsed = null;
 			}
 			if (LabelEmployees != null) {
 				LabelEmployees.Dispose ();
