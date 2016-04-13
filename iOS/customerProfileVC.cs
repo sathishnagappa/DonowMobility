@@ -12,6 +12,7 @@ using System.Linq;
 using Xamarin;
 using System.Threading.Tasks;
 using donow.Util;
+using EventKit;
 
 
 namespace donow.iOS
@@ -22,6 +23,7 @@ namespace donow.iOS
 		public customerProfileVC (IntPtr handle) : base (handle)
 		{
 		}
+		protected CreateEventEditViewDelegate eventControllerDelegate;
 		LoadingOverlay loadingOverlay;
 		public Customer customer;
 		CustomerDetails customerDetails;
@@ -32,13 +34,17 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 			LoadScreenData ();
 			ButtonDealMakerUsed.Hidden = true;
+			ImageMore.Hidden = false;
 			//customerDetails.dealMaker != null 
 			if (customerDetails.dealMaker != null) {
 				LabelDealMakerUsed.Text = customerDetails.dealMaker.BrokerName;
 				ButtonDealMakerUsed.Hidden = false;
+				ImageMore.Hidden = false;
 			}
+			else
+				LabelDealMakerUsed.Text = "NA";
 
-			List<BingResult> bingResult = AppDelegate.customerBL.GetBingResult (customerDetails.Name + " News");
+			List<BingResult> bingResult = AppDelegate.customerBL.GetBingResult (customerDetails.Company + " News");
 			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
 		    
 			await LoadCustomerAndMeetingInfo ();
@@ -120,24 +126,44 @@ namespace donow.iOS
 					mailController.SetToRecipients (new string[]{customerDetails.Email});
 					mailController.SetSubject ("Quick request");
 					mailController.SetMessageBody ("", false);
-
+					this.PresentViewController (mailController, true, null);
 					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
-						CustomerInteraction customerinteract = new CustomerInteraction();
-						customerinteract.CustomerName =  customerDetails.Name;
-						customerinteract.UserId = AppDelegate.UserDetails.UserId;
-						customerinteract.Type = "Email";
-						customerinteract.DateNTime = DateTime.Now.ToString();
-						customerinteract.LeadID = customerDetails.LeadId;
-						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
+						switch(args.Result)
+						{
+								case MFMailComposeResult.Cancelled: 							
+									break;
+								case MFMailComposeResult.Saved: 
+									break;
+								case MFMailComposeResult.Sent: 	
+									CustomerInteraction customerinteract = new CustomerInteraction();
+									customerinteract.CustomerName =  customerDetails.Name;
+									customerinteract.UserId = AppDelegate.UserDetails.UserId;
+									customerinteract.Type = "Email";
+									customerinteract.DateNTime = DateTime.Now.ToString();
+									customerinteract.LeadID = customerDetails.LeadId;
+									AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);				
+
+									// Xamarin Insights tracking
+									Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+										{"UserId", customerinteract.UserId.ToString()},
+										{"CustomerName", customerinteract.CustomerName},
+										{"Type", "Email"}
+									});
+									break;
+								case MFMailComposeResult.Failed: 
+									break;
+						}
 						args.Controller.DismissViewController (true, null);
 					};
-					this.PresentViewController (mailController, true, null);
+
+
 				}
 			};
 
 			ButtonCalendarEvent.TouchUpInside += (object sender, EventArgs e) => {
-				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
-				this.NavigationController.PushViewController(calendarHomeDV, true);
+//				CalenderHomeDVC calendarHomeDV = new CalenderHomeDVC ();
+//				this.NavigationController.PushViewController(calendarHomeDV, true);
+				LaunchCreateNewEvent();
 			};
 			//await LoadCustomerAndMeetingInfo ();
 		}
@@ -148,9 +174,8 @@ namespace donow.iOS
 //			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
 
 			string[] customerNameArray = customerDetails.Company.Split ();
-			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
-			//string[] customerNameArray = customerDetails.Name.Split ();
-			//string searchText = customerNameArray.Count() == 1 ? customerNameArray [0] : (customerNameArray [0] + customerNameArray [1]);
+			//string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
+			string searchText = customerNameArray.Count() == 1 ? customerNameArray [1] : (customerNameArray [0] + " " + customerNameArray [1]);
 			//List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
 			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
@@ -204,7 +229,7 @@ namespace donow.iOS
 			LabelCompanyName.Text = customerDetails.Company;
 			LabelCustomerName.Text = customerDetails.Name;
 			LabelCityAndState.Text = customerDetails.City + ", " + customerDetails.State;
-			LabelScore.Text = customerDetails.LeadScore.ToString();
+			LabelScore.Text = customerDetails.LeadSource == 2 ? (customerDetails.LeadScore == 0 ? "NA" : customerDetails.LeadScore.ToString()) : customerDetails.LeadScore.ToString(); 
 			LabelSource.Text = customerDetails.LeadSource == 2 ? "SFDC" : "DoNow" ;
 			if (!string.IsNullOrEmpty (customerDetails.LeadTitle))
 				CustomerTitle.Text = "(" + customerDetails.LeadTitle + ")";
@@ -230,9 +255,7 @@ namespace donow.iOS
 			LabelWebsite.Text = customerDetails.WebAddress;
 
 			AppDelegate.CurrentLead = new Leads () { LEAD_ID = customerDetails.LeadId, LEAD_NAME = customerDetails.Name, 
-				CITY = customerDetails.City, STATE = customerDetails.State
-
-
+				CITY = customerDetails.City, STATE = customerDetails.State , SFDCLEAD_ID = customerDetails.SFDCLEAD_ID
 			};
 		}
 
@@ -249,6 +272,97 @@ namespace donow.iOS
 				return (firstString);
 			else
 				return ("$" + firstString + " M");
+		}
+
+		protected void LaunchCreateNewEvent ()
+		{
+			// create a new EKEventEditViewController. This controller is built in an allows
+			// the user to create a new, or edit an existing event.
+			AppDelegate.EventStore.RequestAccess (EKEntityType.Event, (bool granted, NSError e) => {
+
+				EventKitUI.EKEventEditViewController eventController =
+					new EventKitUI.EKEventEditViewController ();
+				InvokeOnMainThread (() => { 
+					//					EKEvent newEvent = EKEvent.FromStore (AppDelegate.EventStore);
+					//					newEvent.Title = "Get outside and do some exercise!";
+					//					newEvent.Notes = "This is your motivational event to go and do 30 minutes of exercise. Super important. Do this.";
+					//					newEvent.Location = "Seattle,WA";
+					// set the controller's event store - it needs to know where/how to save the event
+					eventController.EventStore = AppDelegate.EventStore;
+					//					eventController.Event = newEvent;
+					// wire up a delegate to handle events from the controller
+					eventControllerDelegate = new CreateEventEditViewDelegate (eventController);
+					eventController.EditViewDelegate = eventControllerDelegate;
+
+					// show the event controller
+					PresentViewController (eventController, true, null);
+				});
+				//NavigationController.PushViewController (calendarListScreen, true);
+			});
+
+		}
+
+		public class CreateEventEditViewDelegate : EventKitUI.EKEventEditViewDelegate
+		{
+			// we need to keep a reference to the controller so we can dismiss it
+			protected EventKitUI.EKEventEditViewController eventController;
+
+			public CreateEventEditViewDelegate (EventKitUI.EKEventEditViewController eventController)
+			{
+				// save our controller reference
+				this.eventController = eventController;
+			}
+
+			void AddEvent(EKEvent calendarEvent)
+			{
+				UserMeetings userMeetings = new UserMeetings ();
+				userMeetings.Id = 0;
+				userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
+				userMeetings.UserId = AppDelegate.UserDetails.UserId;
+				userMeetings.Subject = calendarEvent.Title;
+				userMeetings.StartDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.StartDate.ToString()),DateTimeKind.Local).ToString();
+				userMeetings.EndDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.EndDate.ToString()),DateTimeKind.Local).ToString();
+				userMeetings.CustomerName = AppDelegate.CurrentLead.LEAD_NAME;
+				userMeetings.City = AppDelegate.CurrentLead.CITY;
+				userMeetings.State = AppDelegate.CurrentLead.STATE;
+				userMeetings.Status = "";
+				userMeetings.Comments = "";
+				userMeetings.SFDCLead_ID = AppDelegate.CurrentLead.SFDCLEAD_ID;
+
+				AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);
+				AppDelegate.UserDetails.MeetingCount = AppDelegate.UserDetails.MeetingCount + 1;
+				//Xamarin Insights tracking
+				Insights.Track ("SaveMeetingEvent", new Dictionary <string,string> {
+					{ "LeadId", userMeetings.LeadId.ToString () },
+					{ "UserId", userMeetings.UserId.ToString () },
+					{ "Subject", userMeetings.Subject },
+					{ "CustomerName", userMeetings.CustomerName }
+				});
+			}
+
+			// completed is called when a user eith
+			public override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
+			{				
+				eventController.DismissViewController (true, null);
+
+				// action tells you what the user did in the dialog, so you can optionally
+				// do things based on what their action was. additionally, you can get the
+				// Event from the controller.Event property, so for instance, you could
+				// modify the event and then resave if you'd like.
+				switch (action) {
+
+				case EventKitUI.EKEventEditViewAction.Canceled:
+					break;
+				case EventKitUI.EKEventEditViewAction.Deleted:
+					break;
+				case EventKitUI.EKEventEditViewAction.Saved:
+					// if you wanted to modify the event you could do so here, and then
+					// save:
+					//AppDelegate.EventStore.SaveEvent ( controller.Event, )
+					AddEvent(controller.Event);
+					break;
+				}
+			}
 		}
 
 //		public class TableSourceBtwnYouNCustomer : UITableViewSource {
@@ -584,7 +698,7 @@ namespace donow.iOS
 
 			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
 			{
-				return 105.0f;
+				return 50.0f;
 			}
 		}
 	}

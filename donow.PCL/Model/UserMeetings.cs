@@ -15,7 +15,7 @@ namespace donow.PCL
 		public string State { get; set; }
 		public string Status { get; set; }
 		public string Comments { get; set; }
-		public string SFDC_LeadID { get; set; }
+		public string SFDCLead_ID { get; set; }
 		public bool ApiResponse { get; set; }
 		public string ErrorMessage { get; set; }
 	}

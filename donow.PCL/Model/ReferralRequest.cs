@@ -48,6 +48,7 @@ namespace donow.PCL
 		public string IndustryRiskScore { get; set;}
 		public string County { get; set;}
 		public string WebAddress { get; set;}
+		public string SFDCLead_ID { get; set;}
 		public bool ApiResponse { get; set; }
 		public string ErrorMessage { get; set; }
 	}

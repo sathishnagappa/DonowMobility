@@ -44,7 +44,47 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCRMClosedWon { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCRMConnectionMade { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCRMNew { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCRMProposalNegotiation { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelCRMWorking { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCustomerName { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDonowClosedWon { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDonowConnectionMade { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDonowNew { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDonowProposalNegotiation { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelDonowWorking { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -64,15 +104,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView TextViewCRM { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextView TextViewDealMakers { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView TextViewDonow { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -108,9 +140,49 @@ namespace donow.iOS
 				LabelCompanyName.Dispose ();
 				LabelCompanyName = null;
 			}
+			if (LabelCRMClosedWon != null) {
+				LabelCRMClosedWon.Dispose ();
+				LabelCRMClosedWon = null;
+			}
+			if (LabelCRMConnectionMade != null) {
+				LabelCRMConnectionMade.Dispose ();
+				LabelCRMConnectionMade = null;
+			}
+			if (LabelCRMNew != null) {
+				LabelCRMNew.Dispose ();
+				LabelCRMNew = null;
+			}
+			if (LabelCRMProposalNegotiation != null) {
+				LabelCRMProposalNegotiation.Dispose ();
+				LabelCRMProposalNegotiation = null;
+			}
+			if (LabelCRMWorking != null) {
+				LabelCRMWorking.Dispose ();
+				LabelCRMWorking = null;
+			}
 			if (LabelCustomerName != null) {
 				LabelCustomerName.Dispose ();
 				LabelCustomerName = null;
+			}
+			if (LabelDonowClosedWon != null) {
+				LabelDonowClosedWon.Dispose ();
+				LabelDonowClosedWon = null;
+			}
+			if (LabelDonowConnectionMade != null) {
+				LabelDonowConnectionMade.Dispose ();
+				LabelDonowConnectionMade = null;
+			}
+			if (LabelDonowNew != null) {
+				LabelDonowNew.Dispose ();
+				LabelDonowNew = null;
+			}
+			if (LabelDonowProposalNegotiation != null) {
+				LabelDonowProposalNegotiation.Dispose ();
+				LabelDonowProposalNegotiation = null;
+			}
+			if (LabelDonowWorking != null) {
+				LabelDonowWorking.Dispose ();
+				LabelDonowWorking = null;
 			}
 			if (LabelTitle != null) {
 				LabelTitle.Dispose ();
@@ -128,17 +200,9 @@ namespace donow.iOS
 				ScrollViewDashboard.Dispose ();
 				ScrollViewDashboard = null;
 			}
-			if (TextViewCRM != null) {
-				TextViewCRM.Dispose ();
-				TextViewCRM = null;
-			}
 			if (TextViewDealMakers != null) {
 				TextViewDealMakers.Dispose ();
 				TextViewDealMakers = null;
-			}
-			if (TextViewDonow != null) {
-				TextViewDonow.Dispose ();
-				TextViewDonow = null;
 			}
 			if (TextViewNextMeeting != null) {
 				TextViewNextMeeting.Dispose ();

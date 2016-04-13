@@ -206,6 +206,7 @@ namespace donow.iOS
 					userMeetings.State = AppDelegate.CurrentLead.STATE;
 					userMeetings.Status = "";
 					userMeetings.Comments = "";
+					userMeetings.SFDCLead_ID = AppDelegate.CurrentLead.SFDCLEAD_ID;
 				} else {
 					userMeetings.Id = 0;
 					userMeetings.LeadId = (int) AppDelegate.CurrentRR.LeadID;
@@ -217,8 +218,8 @@ namespace donow.iOS
 					userMeetings.City = AppDelegate.CurrentRR.City;
 					userMeetings.State = AppDelegate.CurrentRR.State;
 					userMeetings.Status = "";
-					userMeetings.Comments = "";
-					
+					userMeetings.Comments = "";		
+					userMeetings.SFDCLead_ID = "";
 				}
 				AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);
 				AppDelegate.UserDetails.MeetingCount = AppDelegate.UserDetails.MeetingCount + 1;

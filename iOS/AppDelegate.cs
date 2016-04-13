@@ -76,17 +76,6 @@ namespace donow.iOS
 
 //			UIApplication.SharedApplication.SetStatusBarStyle (UIStatusBarStyle.LightContent, false);
 
-//			UIAlertView alert = null;
-//			if (response != "1") {
-//				alert = new UIAlertView () { 
-//					Title = "Network Error", 
-//					Message = "Please check your network connection."
-//				};
-//				alert.AddButton ("OK");
-//				alert.Show ();
-//
-//				return false;
-//			}
 
 			// Code to start the Xamarin Test Cloud Agent
 			#if ENABLE_TEST_CLOUD

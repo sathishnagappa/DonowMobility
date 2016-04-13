@@ -36,6 +36,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView ImageMore { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelCityAndState { get; set; }
 
 		[Outlet]
@@ -171,6 +175,10 @@ namespace donow.iOS
 			if (CustomerTitle != null) {
 				CustomerTitle.Dispose ();
 				CustomerTitle = null;
+			}
+			if (ImageMore != null) {
+				ImageMore.Dispose ();
+				ImageMore = null;
 			}
 			if (LabelCityAndState != null) {
 				LabelCityAndState.Dispose ();

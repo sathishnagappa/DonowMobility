@@ -32,6 +32,14 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonVideo { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonWebsite { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelPassword { get; set; }
 
 		[Outlet]
@@ -63,6 +71,14 @@ namespace donow.iOS
 			if (ButtonSignUp != null) {
 				ButtonSignUp.Dispose ();
 				ButtonSignUp = null;
+			}
+			if (ButtonVideo != null) {
+				ButtonVideo.Dispose ();
+				ButtonVideo = null;
+			}
+			if (ButtonWebsite != null) {
+				ButtonWebsite.Dispose ();
+				ButtonWebsite = null;
 			}
 			if (LabelPassword != null) {
 				LabelPassword.Dispose ();

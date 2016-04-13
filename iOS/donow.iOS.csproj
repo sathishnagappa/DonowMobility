@@ -10,6 +10,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>donow.iOS</AssemblyName>
     <XamarinInsightsApiKey>34feb972c36b74ccb19e33d0f8e23916f1513942</XamarinInsightsApiKey>
+    <ReleaseVersion>1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,9 +24,9 @@
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
+    <CodesignKey>iPhone Distribution: Sarathy Annamraju (52FB35L2A7)</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <CodesignProvision>851efc58-29f4-4c78-b649-65d56cdcb886</CodesignProvision>
+    <CodesignProvision>26181c41-4eee-4769-81ee-6cbdba09fe7c</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -35,8 +36,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Brillio Technologies Private Limited</CodesignKey>
-    <CodesignProvision>b6c6b5b7-566d-457d-aec6-e629d2db6f32</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Sarathy Annamraju (52FB35L2A7)</CodesignKey>
+    <CodesignProvision>26181c41-4eee-4769-81ee-6cbdba09fe7c</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -298,10 +299,6 @@
     <BundleResource Include="Resources\Leads Icon_25x25px.png" />
     <BundleResource Include="Resources\Referral Requests Icon_25x25px.png" />
     <BundleResource Include="Resources\down-arrow.png" />
-    <BundleResource Include="Resources\LifeCycle_Proposal Highlight.png" />
-    <BundleResource Include="Resources\LifeCycle_Acquire Lead Highlight.png" />
-    <BundleResource Include="Resources\LifeCycle_Close Sale Highlight.png" />
-    <BundleResource Include="Resources\LifeCycle_Follow Up Highlight.png" />
     <BundleResource Include="Resources\Aman Tankar_Small.png" />
     <BundleResource Include="Resources\Latest Customer Info.png" />
     <BundleResource Include="Resources\Latest Industry Thumb.png" />
@@ -385,6 +382,16 @@
     <BundleResource Include="Resources\follow-up.png" />
     <BundleResource Include="Resources\help.png" />
     <BundleResource Include="Resources\proposal.png" />
+    <BundleResource Include="Resources\LifeCycle_ConnectionMade.png" />
+    <BundleResource Include="Resources\LifeCycle_New.png" />
+    <BundleResource Include="Resources\LifeCycle_ProposalNegotiation.png" />
+    <BundleResource Include="Resources\LifeCycle_Working.png" />
+    <BundleResource Include="Resources\sales_metrics_1.png" />
+    <BundleResource Include="Resources\sales_metrics_2.png" />
+    <BundleResource Include="Resources\sales_metrics_3.png" />
+    <BundleResource Include="Resources\sales_metrics_4.png" />
+    <BundleResource Include="Resources\sales_metrics_5.png" />
+    <BundleResource Include="Resources\LifeCycle_ClosedWon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

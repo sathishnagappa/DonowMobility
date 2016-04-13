@@ -55,7 +55,7 @@ namespace donow.PCL
 
 			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=100&q=wpdev");
 			//HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?count=50&q=%23" + paramter +"&result_type=recent");
-			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?lang=en&count=20&q=%23" + paramter +"&result_type=recent");
+			HttpRequestMessage requestSearch = new HttpRequestMessage(HttpMethod.Get, "https://api.twitter.com/1.1/search/tweets.json?f=tweets&vertical=default&lang=en&count=10&q=" + paramter +"&src=sprv&result_type=recent");
 			requestSearch.Headers.Add("Authorization", "Bearer " + accessToken);
 			HttpResponseMessage responseSearch = await httpClient.SendAsync(requestSearch);
 			var returnJsonSearch = JValue.Parse(await responseSearch.Content.ReadAsStringAsync());

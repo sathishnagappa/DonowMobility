@@ -135,9 +135,9 @@ namespace donow.iOS
 			ImageViewDealMakerImage.Frame = new CGRect (25,22,50,50);
 
 //			LabelTitleHeading.Frame = new CGRect (100,25,150,25);
-			LabelTitle.Frame = new CGRect (100, 22, 260, 25);
+			LabelTitle.Frame = new CGRect (100, 22, this.Bounds.Size.Width - 120, 25);
 
-			LabelDealMakerIndustryDiscription.Frame = new CGRect (100,42,275,25);
+			LabelDealMakerIndustryDiscription.Frame = new CGRect (100,42,this.Bounds.Size.Width - 120,25);
 
 //			LabelDealMakerLocation.Frame = new CGRect (100, 75, 150, 25);
 			LabelDealMakerLocationDescription.Frame = new CGRect (100,62,220,25);
@@ -145,7 +145,7 @@ namespace donow.iOS
 			LabelDealMakerScoreName.Frame = new CGRect (100,82,150,25);
 			LabelDealMakerScoreDigit.Frame = new CGRect (220,82,220,25);
 
-			LabelLeadStatus.Frame = new CGRect (this.Bounds.Size.Width - 170, 5, 150, 25);
+			LabelLeadStatus.Frame = new CGRect (this.Bounds.Size.Width - 220, 5, 200, 25);
 		}
 	}
 }

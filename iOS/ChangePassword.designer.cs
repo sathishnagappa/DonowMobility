@@ -20,6 +20,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIScrollView ScrollViewChangePswd { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField TextBoxConfirmPassword { get; set; }
 
 		[Outlet]
@@ -39,6 +43,10 @@ namespace donow.iOS
 			if (ButtonChangePassword != null) {
 				ButtonChangePassword.Dispose ();
 				ButtonChangePassword = null;
+			}
+			if (ScrollViewChangePswd != null) {
+				ScrollViewChangePswd.Dispose ();
+				ScrollViewChangePswd = null;
 			}
 			if (TextBoxConfirmPassword != null) {
 				TextBoxConfirmPassword.Dispose ();

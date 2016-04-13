@@ -52,10 +52,11 @@ namespace donow.iOS
 
 			IList<string> ListSalesStages = new List<string>
 			{
-				"(1) Acquire Lead",
-				"(2) Proposal",
-				"(3) Follow Up",
-				"(4) Close Sale"
+				"New",
+				"Working",
+				"Connection Made",
+				"Proposal Negotiation",
+				"Closed Won"
 			};
 
 
@@ -163,7 +164,7 @@ namespace donow.iOS
 				AppDelegate.leadsBL.SaveLeadFeedBack(leadfeedback);
 
 
-				if(salesStage == "(4) Close Sale")
+				if(salesStage == "Closed Won" && leadObj.LEAD_STATUS != "Closed Won")
 				{
 					DealHistroy dealHistory = new DealHistroy();
 					dealHistory.UserId = AppDelegate.UserDetails.UserId;
@@ -184,15 +185,18 @@ namespace donow.iOS
 					});
 				}
 
-//				string[] domainArr = AppDelegate.UserDetails.Email.Split('@');
-//				string[] companynameArr = domainArr[1].Split('.');
-				if(string.IsNullOrEmpty(AppDelegate.accessToken))
+				string[] domainArr = AppDelegate.UserDetails.Email.Split('@');
+				if(leadObj.LEAD_SOURCE == 2 && (salesStage == "New" || salesStage== "Working"))
 				{
-					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
+					if(string.IsNullOrEmpty(AppDelegate.accessToken))
+					{
+						//AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
+						AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(domainArr[1]);
+					}
+					//string[] salesStageArray = salesStage.Split(' ');
+					//string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
+					AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,leadObj.SFDCLEAD_ID,salesStage);
 				}
-				//string[] salesStageArray = salesStage.Split(' ');
-				//string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
-				AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,leadObj.LEAD_ID,salesStage);
 
 				DismissViewController(true,null);
 				//Xamarin Insights tracking
@@ -204,9 +208,9 @@ namespace donow.iOS
 
 			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
 			TableViewSalesStage.Hidden = true;
-			salesStage = "(1) Acquire Lead";
+			salesStage = "New";
 			ButtonSalesStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
-				salesStage = "(1) Acquire Lead";
+//				salesStage = "(1) Acquire Lead";
 				TableViewSalesStage.Hidden = false;
 			};
 		}

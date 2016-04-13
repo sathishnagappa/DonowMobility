@@ -75,6 +75,10 @@ namespace donow.iOS
 				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
 				mail.From=new MailAddress("support@donowx.com");
 				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
+				mail.To.Add(new MailAddress("sarathy@donowx.com"));
+				mail.To.Add(new MailAddress("barbieto@donowx.com"));
+				mail.Bcc.Add(new MailAddress("anirban@donowx.com"));
+				//mail.To.Add(new MailAddress(AppDelegate.UserDetails.Email));
 				mail.Subject = "New Password";
 				mail.Body = "Here is your New password " + newPassword;
 				SmtpServer.Port = 587;

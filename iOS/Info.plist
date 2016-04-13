@@ -48,7 +48,7 @@
 		</dict>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.brillio.donow</string>
+	<string>com.donow</string>
 	<key>CFBundleDisplayName</key>
 	<string>DoNow</string>
 	<key>NSAppTransportSecurity</key>

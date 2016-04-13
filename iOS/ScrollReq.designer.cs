@@ -32,19 +32,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView AlertViewLater { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView AlertViewRequestMeeting { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonAccepRR { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonAlertViewDisable { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -68,15 +56,15 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton ButtonReferralRequestMade { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonRequestMeeting { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonScroll_ { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton DisableReqMeetScroll { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -168,6 +156,10 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel LabelReferralRequestMade { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel LabelStreetProspect { get; set; }
 
 		[Outlet]
@@ -206,6 +198,10 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ScrollViewRR { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ViewReferralRequestMade { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (AlertSubView != null) {
@@ -224,21 +220,9 @@ namespace donow.iOS
 				AlertView.Dispose ();
 				AlertView = null;
 			}
-			if (AlertViewLater != null) {
-				AlertViewLater.Dispose ();
-				AlertViewLater = null;
-			}
-			if (AlertViewRequestMeeting != null) {
-				AlertViewRequestMeeting.Dispose ();
-				AlertViewRequestMeeting = null;
-			}
 			if (ButtonAccepRR != null) {
 				ButtonAccepRR.Dispose ();
 				ButtonAccepRR = null;
-			}
-			if (ButtonAlertViewDisable != null) {
-				ButtonAlertViewDisable.Dispose ();
-				ButtonAlertViewDisable = null;
 			}
 			if (ButtonEmailAcceptView != null) {
 				ButtonEmailAcceptView.Dispose ();
@@ -260,6 +244,10 @@ namespace donow.iOS
 				ButtonReferLater.Dispose ();
 				ButtonReferLater = null;
 			}
+			if (ButtonReferralRequestMade != null) {
+				ButtonReferralRequestMade.Dispose ();
+				ButtonReferralRequestMade = null;
+			}
 			if (ButtonRequestMeeting != null) {
 				ButtonRequestMeeting.Dispose ();
 				ButtonRequestMeeting = null;
@@ -267,10 +255,6 @@ namespace donow.iOS
 			if (ButtonScroll_ != null) {
 				ButtonScroll_.Dispose ();
 				ButtonScroll_ = null;
-			}
-			if (DisableReqMeetScroll != null) {
-				DisableReqMeetScroll.Dispose ();
-				DisableReqMeetScroll = null;
 			}
 			if (ImageProspect != null) {
 				ImageProspect.Dispose ();
@@ -360,6 +344,10 @@ namespace donow.iOS
 				LabelPhoneSeller.Dispose ();
 				LabelPhoneSeller = null;
 			}
+			if (LabelReferralRequestMade != null) {
+				LabelReferralRequestMade.Dispose ();
+				LabelReferralRequestMade = null;
+			}
 			if (LabelStreetProspect != null) {
 				LabelStreetProspect.Dispose ();
 				LabelStreetProspect = null;
@@ -399,6 +387,10 @@ namespace donow.iOS
 			if (ScrollViewRR != null) {
 				ScrollViewRR.Dispose ();
 				ScrollViewRR = null;
+			}
+			if (ViewReferralRequestMade != null) {
+				ViewReferralRequestMade.Dispose ();
+				ViewReferralRequestMade = null;
 			}
 		}
 	}

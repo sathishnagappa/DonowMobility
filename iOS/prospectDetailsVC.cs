@@ -10,6 +10,7 @@ using System.Linq;
 using Xamarin;
 using CoreGraphics;
 using EventKit;
+using System.Threading.Tasks;
 
 namespace donow.iOS
 {
@@ -19,7 +20,6 @@ namespace donow.iOS
 		//List<Broker> brokerList;
 		Prospect prospectDetails;
 		protected CreateEventEditViewDelegate eventControllerDelegate;
-
 		public List<UserMeetings> listMeeting;
 		public List<UserMeetings> UCommingMeetinglist;
 		public List<UserMeetings> PreviousMeetingsList;
@@ -28,13 +28,15 @@ namespace donow.iOS
 		{
 		}
 
-		public override void ViewWillAppear (bool animated)
+		public override async void ViewWillAppear (bool animated)
 		{			
 			base.ViewWillAppear (animated);
 			//AppDelegate.IsProspectVisited = true;
 			//UpdateSalesStage();
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
+
 			LoadData ();
+			await LoadCustomerAndMeetingInfo ();
 		}
 
 		public override void ViewDidLoad ()
@@ -57,7 +59,7 @@ namespace donow.iOS
 //			else 
 				this.NavigationItem.Title = "Lead Details";
 			
-//			LoadData ();
+			ScrollViewProspectDetails.ContentSize = new CGSize (375.0f, 2300.0f);
 
 			ButtonPhoneProspect.TouchUpInside += (object sender, EventArgs e) => {
 				var phone = string.IsNullOrEmpty(localLeads.PHONE.Trim()) == true ? "0" : localLeads.PHONE;
@@ -103,26 +105,35 @@ namespace donow.iOS
 					mailController.SetToRecipients (new string[]{localLeads.EMAILID});
 					mailController.SetSubject ("Quick request");
 					mailController.SetMessageBody ("Hello <Insert Name>,\n\nMy name is [My Name] and I head up business development efforts with [My Company]. \n\nI am taking an educated stab here and based on your profile, you appear to be an appropriate person to connect with.\n\nI’d like to speak with someone from [Company] who is responsible for [handling something that's relevant to my product]\n\nIf that’s you, are you open to a fifteen minute call on _________ [time and date] to discuss ways the [Company Name] platform can specifically help your business? If not you, can you please put me in touch with the right person?\n\nI appreciate the help!\n\nBest,\n\n[Insert Name]", false);
-
-					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {						
-						CustomerInteraction customerinteract = new CustomerInteraction();
-						customerinteract.CustomerName =  localLeads.LEAD_NAME;
-						customerinteract.UserId = AppDelegate.UserDetails.UserId;
-						customerinteract.Type = "Email";
-						customerinteract.DateNTime = DateTime.Now.ToString();
-						customerinteract.LeadID = localLeads.LEAD_ID;
-						AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);
-						args.Controller.DismissViewController (true, null);
-
-						//Xamarin Insights tracking
-						Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
-							{"UserId", customerinteract.UserId.ToString()},
-							{"CustomerName", customerinteract.CustomerName},
-							{"Type", "Email"}
-						});
-					};
-
 					this.PresentViewController (mailController, true, null);
+					mailController.Finished += ( object s, MFComposeResultEventArgs args) => {
+						switch(args.Result)
+						{
+						case MFMailComposeResult.Cancelled: 							
+							break;
+						case MFMailComposeResult.Saved: 
+							break;
+						case MFMailComposeResult.Sent: 	
+											CustomerInteraction customerinteract = new CustomerInteraction();
+											customerinteract.CustomerName =  localLeads.LEAD_NAME;
+											customerinteract.UserId = AppDelegate.UserDetails.UserId;
+											customerinteract.Type = "Email";
+											customerinteract.DateNTime = DateTime.Now.ToString();
+											customerinteract.LeadID = localLeads.LEAD_ID;
+											AppDelegate.customerBL.SaveCutomerInteraction(customerinteract);				
+
+											// Xamarin Insights tracking
+											Insights.Track("Save CutomerInteraction", new Dictionary <string,string>{
+												{"UserId", customerinteract.UserId.ToString()},
+												{"CustomerName", customerinteract.CustomerName},
+												{"Type", "Email"}
+											});
+							break;
+						case MFMailComposeResult.Failed: 
+							break;
+						}
+						args.Controller.DismissViewController (true, null);
+					};
 				}
 			};
 
@@ -179,10 +190,12 @@ namespace donow.iOS
 		}
 
 		void LoadData()
-		{
-			ScrollViewProspectDetails.ContentSize = new CGSize (375.0f, 1801.0f);
+		{			
 			prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId,localLeads.LEAD_SOURCE);
 			//prospectDetails = AppDelegate.leadsBL.GetProspectDetails(localLeads.LEAD_ID,AppDelegate.UserDetails.UserId);
+
+			List<BingResult> bingResult = AppDelegate.customerBL.GetBingResult (prospectDetails.COMPANY_NAME + " News");
+			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
 
 			listMeeting = prospectDetails.UserMeetingList;
 			UCommingMeetinglist = new List<UserMeetings>();
@@ -210,12 +223,18 @@ namespace donow.iOS
 			LabelProspectName.Text = prospectDetails.LEAD_NAME;
 			LabelProspectCompanyName.Text = prospectDetails.COMPANY_NAME;
 			string coma = (string.IsNullOrEmpty (prospectDetails.CITY) || string.IsNullOrEmpty (prospectDetails.STATE)) ? "" : ", ";
-
+			if (prospectDetails.LEAD_SOURCE == 2) {
+				LabelLeadScore.Text = prospectDetails.LEAD_SCORE == 0 ? "NA" : prospectDetails.LEAD_SCORE.ToString(); 
+				LabelLeadSource.Text = "SFDC";
+				ButtonPassProspect.Hidden = true;
+				ButtonUpdateProspect.Frame = new CGRect (25, 2245, this.View.Bounds.Size.Width - 50, 40);
+			} else {
+				LabelLeadScore.Text = prospectDetails.LEAD_SCORE.ToString();
+				LabelLeadSource.Text = "DoNow";
+				ButtonPassProspect.Hidden =  false;
+			}
 			LabelProspectCityandState.Text = prospectDetails.CITY + coma + prospectDetails.STATE;
-			LabelLeadScore.Text = prospectDetails.LEAD_SCORE.ToString();
-			LabelLeadSource.Text = prospectDetails.LEAD_SOURCE == 2 ? "SFDC" : "DoNow";
 			LabelCustomerVsProspect.Text = prospectDetails.LEAD_TYPE == "Y" ? "Existing Customer" : "New Prospect" ;
-			//brokerList = AppDelegate.brokerBL.GetBrokerForProspect (localLeads.LEAD_ID).OrderByDescending(X => X.BrokerScore).ToList();
 			if (!string.IsNullOrEmpty (prospectDetails.LEAD_TITLE))
 				ProspectTitle.Text = "("+prospectDetails.LEAD_TITLE+")";
 			else
@@ -242,9 +261,33 @@ namespace donow.iOS
 			LabelWebsite.Text = prospectDetails.WebAddress;
 			CustomerInfoScrollView.ContentSize = new CGSize (this.View.Bounds.Size.Width, 600);
 			AppDelegate.CurrentLead = new Leads () { LEAD_ID = prospectDetails.LEAD_ID, LEAD_NAME = prospectDetails.LEAD_NAME, 
-				CITY = prospectDetails.CITY, STATE = prospectDetails.STATE
+				CITY = prospectDetails.CITY, STATE = prospectDetails.STATE, SFDCLEAD_ID = prospectDetails.SFDCLEAD_ID
 			};
+
 			UpdateSalesStage ();
+		}
+
+		async Task LoadCustomerAndMeetingInfo () {
+
+			//			List<BingResult> bingResult = AppDelegate.customerBL.GetBingResult (customerDetails.Name + " News");
+			//			TableViewLatestNews.Source = new CustomerIndustryTableSource(bingResult, this);
+
+			string[] customerNameArray = prospectDetails.COMPANY_NAME.Split ();
+			//string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : customerNameArray [0];
+			string searchText = customerNameArray [0].Length == 1 ? customerNameArray [1] : (customerNameArray [0] + " " + customerNameArray [1]);
+			//string searchText = customerNameArray.Count() == 1 ? customerNameArray [0] : (customerNameArray [0] + customerNameArray [1]);
+			//List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
+			List<TwitterStream>  twitterStream =  await TwitterUtil.Search (searchText.ToLower());
+			List<TwitterStream> twitterStreamwithKeyword = new List<TwitterStream>();
+			if(twitterStream.Count > 0)
+				//				twitterStreamwithKeyword =	twitterStream.Where(X => X.text.Contains("Business") || X.text.Contains("Sales") || X.text.Contains("Opportunities")
+				//					|| X.text.Contains("Organization") || X.text.Contains("Launch") || X.text.Contains("Money") || X.text.Contains("Tools") || X.text.Contains("Competition")
+				//					|| X.text.Contains("Interest") || X.text.Contains("Industry") || X.text.Contains("Learning")).ToList();	
+				twitterStreamwithKeyword = twitterStream;	
+
+			TableViewLatestCustomerInfo.Source = new CustomerInfoTableSource(twitterStreamwithKeyword,this);
+			TableViewLatestCustomerInfo.ReloadData ();
+			//loadingOverlay.Hide();
 		}
 
 		string EvaluateString (string firstString, string secondString) {
@@ -264,14 +307,16 @@ namespace donow.iOS
 
 		void UpdateSalesStage()
 		{
-			if (prospectDetails.LEAD_STATUS.Equals("(4) Close Sale")) {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Close Sale Highlight.png");
-			} else if (prospectDetails.LEAD_STATUS.Equals("(2) Proposal")) {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Proposal Highlight.png");
-			} else if (prospectDetails.LEAD_STATUS.Equals("(3) Follow Up")) {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Follow Up Highlight.png");
+			if (prospectDetails.LEAD_STATUS.Equals ("Closed Won")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_ClosedWon.png");
+			} else if (prospectDetails.LEAD_STATUS.Equals ("Proposal Negotiation")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_ProposalNegotiation.png");
+			}else if (prospectDetails.LEAD_STATUS.Equals("Connection Made")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_ConnectionMade.png");
+			} else if (prospectDetails.LEAD_STATUS.Equals("Working")) {
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Working.png");
 			} else {
-				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_Acquire Lead Highlight.png");
+				ImageBackgroundAcquireLead.Image = UIImage.FromBundle ("LifeCycle_New.png");
 			}
 		}
 
@@ -450,7 +495,117 @@ namespace donow.iOS
 			return 90.0f;
 		}
 	}
+
+	public class CustomerIndustryTableSource : UITableViewSource {
+
+		List<BingResult> TableItems;
+		string CellIdentifier = "TableCell";
+
+		prospectDetailsVC owner;
+
+		public CustomerIndustryTableSource (List<BingResult> meetingList, prospectDetailsVC owner)
+		{
+			TableItems = meetingList;
+			this.owner = owner;
+		}
+
+		public override nint RowsInSection (UITableView tableview, nint section)
+		{
+			return 5;
+		}
+
+		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+		{
+			UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+			BingResult item = TableItems[indexPath.Row];
+
+			//---- if there are no cells to reuse, create a new one
+			if (cell == null)
+			{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+			cell.ImageView.Image = UIImage.FromBundle("bing_icon.png");
+			cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
+			cell.TextLabel.Text = item.Title;
+			cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+			cell.TextLabel.Lines = 0;
+
+			return cell;
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			tableView.DeselectRow (indexPath, true);
+			BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+			if (bingSearchVC != null) {
+				bingSearchVC.webURL = TableItems [indexPath.Row].Url;
+				owner.NavigationController.PushViewController (bingSearchVC, true);
+			}
+		}
+
+		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return 50.0f;
+		}
 	}
+	public class CustomerInfoTableSource : UITableViewSource {
+
+		List<TwitterStream> TableItems;
+		string CellIdentifier = "TableCellCusomerInfo";
+		prospectDetailsVC owner;
+
+		public CustomerInfoTableSource (List<TwitterStream> twitterstream, prospectDetailsVC customerProfileObj)
+		{
+			TableItems = twitterstream;
+			this.owner = customerProfileObj;
+		}
+
+		public override nint RowsInSection (UITableView tableview, nint section)
+		{
+			return TableItems.Count;
+		}
+
+		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+		{
+			UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+			TwitterStream item = TableItems[indexPath.Row];
+
+			//---- if there are no cells to reuse, create a new one
+			if (cell == null)
+			{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+
+			//cell.ImageView.Frame = new CGRect (25, 5, 33, 33);
+			cell.ImageView.Frame = new CGRect (25, 15, 40, 35);
+			cell.ImageView.Image = UIImage.FromBundle("twitter_icon.png");
+			cell.TextLabel.Text = item.text;
+			cell.TextLabel.LineBreakMode = UILineBreakMode.WordWrap;
+			cell.TextLabel.Lines = 0;
+
+			return cell;
+		}
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{		
+
+			tableView.DeselectRow (indexPath, true);
+			if (!string.IsNullOrEmpty (TableItems [indexPath.Row].url)) {
+				BingSearchVC bingSearchVC = owner.Storyboard.InstantiateViewController ("BingSearchVC") as BingSearchVC;
+				if (bingSearchVC != null) {					
+					bingSearchVC.webURL = TableItems [indexPath.Row].url;
+					owner.NavigationController.PushViewController (bingSearchVC, true);
+				}
+			} else { 
+				UIAlertView alert = new UIAlertView ("", "No link available for this feed.", null, "Ok", null);
+				alert.Show ();
+			}
+		}
+
+		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return 100.0f;
+		}
+
+	}
+}
+
 	public class CreateEventEditViewDelegate : EventKitUI.EKEventEditViewDelegate
 	{
 		// we need to keep a reference to the controller so we can dismiss it
@@ -465,7 +620,6 @@ namespace donow.iOS
 		void AddEvent(EKEvent calendarEvent)
 		{
 			UserMeetings userMeetings = new UserMeetings ();
-			if (!AppDelegate.IsFromRR) {
 				userMeetings.Id = 0;
 				userMeetings.LeadId = AppDelegate.CurrentLead.LEAD_ID;
 				userMeetings.UserId = AppDelegate.UserDetails.UserId;
@@ -477,20 +631,8 @@ namespace donow.iOS
 				userMeetings.State = AppDelegate.CurrentLead.STATE;
 				userMeetings.Status = "";
 				userMeetings.Comments = "";
-			} else {
-				userMeetings.Id = 0;
-				userMeetings.LeadId = (int) AppDelegate.CurrentRR.LeadID;
-				userMeetings.UserId = AppDelegate.CurrentRR.SellerUserID;
-				userMeetings.Subject = calendarEvent.Title;
-				userMeetings.StartDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.StartDate.ToString()),DateTimeKind.Local).ToString();
-				userMeetings.EndDate = DateTime.SpecifyKind(DateTime.Parse(calendarEvent.EndDate.ToString()),DateTimeKind.Local).ToString();
-				userMeetings.CustomerName = AppDelegate.CurrentRR.Prospect;
-				userMeetings.City = AppDelegate.CurrentRR.City;
-				userMeetings.State = AppDelegate.CurrentRR.State;
-				userMeetings.Status = "";
-				userMeetings.Comments = "";
-
-			}
+				userMeetings.SFDCLead_ID = AppDelegate.CurrentLead.SFDCLEAD_ID;
+	    
 			AppDelegate.leadsBL.SaveMeetingEvent (userMeetings);
 			AppDelegate.UserDetails.MeetingCount = AppDelegate.UserDetails.MeetingCount + 1;
 			//Xamarin Insights tracking
@@ -501,7 +643,6 @@ namespace donow.iOS
 				{ "CustomerName", userMeetings.CustomerName }
 			});
 		}
-
 
 		// completed is called when a user eith
 		public override void Completed (EventKitUI.EKEventEditViewController controller, EventKitUI.EKEventEditViewAction action)
@@ -527,5 +668,5 @@ namespace donow.iOS
 			}
 		}
 	}
-}
 
+}

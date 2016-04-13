@@ -142,7 +142,6 @@ namespace donow.iOS
 			};
 
 			ScrollViewDealMakerDetails.ContentSize = new CGSize (this.View.Bounds.Size.Width, 685.0f);
-
 			ScrollViewCompanyInfo.ContentSize = new CGSize (this.View.Bounds.Size.Width, 600);
 
 			LabelAddress.Text = EvaluateString (brokerObj.ADDRESS, brokerObj.COUNTY);

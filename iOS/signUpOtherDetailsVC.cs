@@ -44,6 +44,7 @@ namespace donow.iOS
 				ButtonSubmit.Hidden = true;
 				this.NavigationController.SetNavigationBarHidden (false, false);
 			}
+		//	LoadScreen ();
 		}
 
 		public override void ViewWillDisappear (bool animated)
@@ -97,6 +98,7 @@ namespace donow.iOS
 				TableViewState.Hidden = true;
 				TableViewIndustry.Hidden = true;
 				TextBoxZip.ResignFirstResponder ();
+				TextBoxPhone.ResignFirstResponder ();
 			};
 
 			ButtonCancel.Layer.CornerRadius = 3.0f;
@@ -227,7 +229,7 @@ namespace donow.iOS
 				return false;
 			}
 
-			if (string.IsNullOrEmpty (TextBoxIndustry.Text)) {
+			if (string.IsNullOrEmpty (TextBoxCity.Text)) {
 				alert = new UIAlertView () { 
 					Title = "Mandatory Field", 
 					Message = "Please enter City."
@@ -293,7 +295,6 @@ namespace donow.iOS
 			AppDelegate.UserDetails.Phone = TextBoxPhone.Text;
 			AppDelegate.UserDetails.LineOfBusiness = TextBoxLineOfBusiness.Text;
 			AppDelegate.UserDetails.State = TextBoxState.Text;
-
 		}
 
 		void TextBoxShouldReturn()

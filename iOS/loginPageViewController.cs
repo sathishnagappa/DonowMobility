@@ -155,6 +155,29 @@ namespace donow.iOS
 				}
 			};
 
+			ButtonVideo.TouchUpInside += (object sender, EventArgs e) => {
+				var url = new NSUrl ("http://www.youtube.com/watch?v=I0N-4Dtog6E");
+				if (!UIApplication.SharedApplication.OpenUrl (url)) {
+					var av = new UIAlertView ("Error:",
+						"error in opening video link",
+						null,
+						"OK",
+						null);
+					av.Show ();
+				};
+			};
+
+			ButtonWebsite.TouchUpInside += (object sender, EventArgs e) => {
+				var url = new NSUrl ("http://donowx.com");
+				if (!UIApplication.SharedApplication.OpenUrl (url)) {
+					var av = new UIAlertView ("Error:",
+						"error in opening video link",
+						null,
+						"OK",
+						null);
+					av.Show ();
+				};
+			};
 		}
 
 		void SetUILayOut()

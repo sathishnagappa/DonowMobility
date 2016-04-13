@@ -82,10 +82,11 @@ namespace donow.iOS
 			};
 			IList<string> ListSalesStages = new List<string>
 			{
-				"(1) Acquire Lead",
-				"(2) Proposal",
-				"(3) Follow Up",
-				"(4) Close Sale"
+				"New",
+				"Working",
+				"Connection Made",
+				"Proposal Negotiation",
+				"Closed Won"
 			};
 			IList<string> ListNextStep = new List<string>
 			{
@@ -209,7 +210,7 @@ namespace donow.iOS
 			};
 
 			TableViewSalesStage.Source = new TableSource (ListSalesStages, this,"SalesStage");
-			localSalesStage = "(1) Acquire Lead";
+			localSalesStage = "New";
 			ButtonSaleStageDropDown.TouchUpInside += (object sender, EventArgs e) => {
 				TableViewSalesStage.Hidden = false;
 			};
@@ -259,19 +260,21 @@ namespace donow.iOS
 					{"Status", usermeeting.Status}
 				});
 
-//				string[] domainArr = AppDelegate.UserDetails.Email.Split('@');
-//				string[] companynameArr = domainArr[1].Split('.');
+			   string[] domainArr = AppDelegate.UserDetails.Email.Split('@');
 
-				if(string.IsNullOrEmpty(AppDelegate.accessToken))
+				if(!string.IsNullOrEmpty(meetingObj.SFDCLead_ID) && meetingObj.SFDCLead_ID != "N/A" && (localSalesStage == "New" || localSalesStage== "Working"))
 				{
-					AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
-					//AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(companynameArr[0]);
+					if(string.IsNullOrEmpty(AppDelegate.accessToken))
+					{
+						//AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(AppDelegate.UserDetails.UserId);
+						AppDelegate.accessToken = AppDelegate.leadsBL.SFDCAuthentication(domainArr[1]);
+					}
+//					string[] salesStageArray = localSalesStage.Split(' ');
+//					string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
+					AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,meetingObj.SFDCLead_ID,localSalesStage);
 				}
-				string[] salesStageArray = localSalesStage.Split(' ');
-				string salesStatus = salesStageArray.Length == 3 ? salesStageArray[1] + " " + salesStageArray[2] : salesStageArray[1];
-					AppDelegate.leadsBL.UpdateSFDCData(AppDelegate.accessToken,meetingObj.LeadId,salesStatus);
 
-				if(localSalesStage == "(4) Close Sale")
+				if(localSalesStage == "Closed Won")
 				{
 					DealHistroy dealHistory = new DealHistroy();
 					dealHistory.UserId = AppDelegate.UserDetails.UserId;
@@ -283,7 +286,12 @@ namespace donow.iOS
 					dealHistory.LeadId = meetingObj.LeadId;
 					dealHistory.BrokerID = 0;
 					dealHistory.LeadIndustry = AppDelegate.UserDetails.Industry;
-					AppDelegate.customerBL.SaveDealHistory(dealHistory);
+					try {
+						AppDelegate.customerBL.SaveDealHistory(dealHistory);
+					}
+					catch
+					{
+					}
 					//Xamarin Insights tracking
 					Insights.Track("Save DealHistory", new Dictionary <string,string>{
 						{"UserId", dealHistory.UserId.ToString()},

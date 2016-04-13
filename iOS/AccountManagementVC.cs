@@ -43,36 +43,36 @@ namespace donow.iOS
 
 			ScrollViewAccountManager.ContentSize = new CGSize (375.0f, 863.0f);
 
-			industryLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
-			industryLabel.Layer.BorderWidth = 2.0f;
-
-			CompanyLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
-			CompanyLabel.Layer.BorderWidth = 2.0f;
-
-			CustomerLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
-			CustomerLabel.Layer.BorderWidth = 2.0f;
+//			industryLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
+//			industryLabel.Layer.BorderWidth = 2.0f;
+//
+//			CompanyLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
+//			CompanyLabel.Layer.BorderWidth = 2.0f;
+//
+//			CustomerLabel.Layer.BorderColor=UIColor.LightGray.CGColor;
+//			CustomerLabel.Layer.BorderWidth = 2.0f;
 
 //			ButtonInfoIndustryDropDown.Layer.BorderWidth = 2.0f;
-			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredIndustry)) 
-				ButtonInfoIndustryDropDown.SetTitle (" Select", UIControlState.Normal);
-			else
-				ButtonInfoIndustryDropDown.SetTitle (AppDelegate.UserDetails.PreferredIndustry, UIControlState.Normal);
-			
-			ButtonInfoIndustryDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
-//			ButtonInfoCompanyDropDown.Layer.BorderWidth = 2.0f;
-			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCompany)) 
-				ButtonInfoCompanyDropDown.SetTitle (" Select", UIControlState.Normal);
-			else
-				ButtonInfoCompanyDropDown.SetTitle (AppDelegate.UserDetails.PreferredCompany, UIControlState.Normal);
-			
-			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
-//			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
-			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCustomers)) 
-				ButtonInfoCustomersDropDown.SetTitle (" Select", UIControlState.Normal);
-			else
-				ButtonInfoCustomersDropDown.SetTitle (AppDelegate.UserDetails.PreferredCustomers, UIControlState.Normal);
-			
-			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+//			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredIndustry)) 
+//				ButtonInfoIndustryDropDown.SetTitle (" Select", UIControlState.Normal);
+//			else
+//				ButtonInfoIndustryDropDown.SetTitle (AppDelegate.UserDetails.PreferredIndustry, UIControlState.Normal);
+//			
+//			ButtonInfoIndustryDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+////			ButtonInfoCompanyDropDown.Layer.BorderWidth = 2.0f;
+//			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCompany)) 
+//				ButtonInfoCompanyDropDown.SetTitle (" Select", UIControlState.Normal);
+//			else
+//				ButtonInfoCompanyDropDown.SetTitle (AppDelegate.UserDetails.PreferredCompany, UIControlState.Normal);
+//			
+//			ButtonInfoCompanyDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
+////			ButtonInfoCustomersDropDown.Layer.BorderWidth = 2.0f;
+//			if(string.IsNullOrEmpty(AppDelegate.UserDetails.PreferredCustomers)) 
+//				ButtonInfoCustomersDropDown.SetTitle (" Select", UIControlState.Normal);
+//			else
+//				ButtonInfoCustomersDropDown.SetTitle (AppDelegate.UserDetails.PreferredCustomers, UIControlState.Normal);
+//			
+//			ButtonInfoCustomersDropDown.Layer.BorderColor = UIColor.LightGray.CGColor; 
 
 //			if (AppDelegate.UserDetails.UserId != 0) {
 
@@ -83,38 +83,38 @@ namespace donow.iOS
 //				SwitchMeetingReminders.On = AppDelegate.UserDetails.IsMeetingRemindersRequired;
 //			}
 
-			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
-			TableViewCustomerStreamActivity.Layer.BorderColor = UIColor.LightGray.CGColor; 
+//			TableViewCustomerStreamActivity.Layer.BorderWidth = 2.0f;
+//			TableViewCustomerStreamActivity.Layer.BorderColor = UIColor.LightGray.CGColor; 
+//
+//			List<String> industryList = AppDelegate.industryBL.GetIndustry ();
+//
+//			ButtonInfoIndustryDropDown.TouchUpInside += (object sender, EventArgs e) => {
+//				TableViewCustomerStreamActivity.Hidden = false;
+//				TableViewCustomerStreamActivity.Frame = new CGRect (200,355,168,128);
+//				TableViewCustomerStreamActivity.Source = new IndustryTableSource (industryList, this);
+//				TableViewCustomerStreamActivity.ReloadData();
+//			};
 
-			List<String> industryList = AppDelegate.industryBL.GetIndustry ();
-
-			ButtonInfoIndustryDropDown.TouchUpInside += (object sender, EventArgs e) => {
-				TableViewCustomerStreamActivity.Hidden = false;
-				TableViewCustomerStreamActivity.Frame = new CGRect (200,355,168,128);
-				TableViewCustomerStreamActivity.Source = new IndustryTableSource (industryList, this);
-				TableViewCustomerStreamActivity.ReloadData();
-			};
-
-			List<Customer> CompanyList = null;
-			if (AppDelegate.UserDetails.UserId != 0)
-				//CompanyList = AppDelegate.customerBL.GetCustomersMaster ();
-				CompanyList = new List<Customer>();
-			else
-				CompanyList = new List<Customer> ();				
-
-			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
-				TableViewCustomerStreamActivity.Hidden = false;
-				TableViewCustomerStreamActivity.Frame = new CGRect (200,410,168,128);
-				TableViewCustomerStreamActivity.Source = new companyTableSource (CompanyList, this);
-				TableViewCustomerStreamActivity.ReloadData();
-			};
-				
-			ButtonInfoCustomersDropDown.TouchUpInside += (object sender, EventArgs e) => {
-				TableViewCustomerStreamActivity.Hidden = false;
-				TableViewCustomerStreamActivity.Frame = new CGRect (200,455,168,128);
-				TableViewCustomerStreamActivity.Source = new CustomerTableSource (CompanyList, this);
-				TableViewCustomerStreamActivity.ReloadData();
-			};
+//			List<Customer> CompanyList = null;
+//			if (AppDelegate.UserDetails.UserId != 0)
+//				//CompanyList = AppDelegate.customerBL.GetCustomersMaster ();
+//				CompanyList = new List<Customer>();
+//			else
+//				CompanyList = new List<Customer> ();				
+//
+//			ButtonInfoCompanyDropDown.TouchUpInside += (object sender, EventArgs e) => {
+//				TableViewCustomerStreamActivity.Hidden = false;
+//				TableViewCustomerStreamActivity.Frame = new CGRect (200,410,168,128);
+//				TableViewCustomerStreamActivity.Source = new companyTableSource (CompanyList, this);
+//				TableViewCustomerStreamActivity.ReloadData();
+//			};
+//				
+//			ButtonInfoCustomersDropDown.TouchUpInside += (object sender, EventArgs e) => {
+//				TableViewCustomerStreamActivity.Hidden = false;
+//				TableViewCustomerStreamActivity.Frame = new CGRect (200,455,168,128);
+//				TableViewCustomerStreamActivity.Source = new CustomerTableSource (CompanyList, this);
+//				TableViewCustomerStreamActivity.ReloadData();
+//			};
 
 			ButtonUserInfo.TouchUpInside += (object sender, EventArgs e) =>  {
 				if (isFromSignUp) {
@@ -185,150 +185,150 @@ namespace donow.iOS
 			};
 		}
 
-		public void UpdateControls (string Parameter, string TableType)
-		{
-			if (TableType == "Industry") {
-				TableViewCustomerStreamActivity.Hidden = true;
-				ButtonInfoIndustryDropDown.SetTitle (" "+Parameter, UIControlState.Normal);
-				AppDelegate.UserDetails.PreferredIndustry = Parameter;
-			} else if (TableType == "Company") {
-				TableViewCustomerStreamActivity.Hidden = true;
-				ButtonInfoCompanyDropDown.SetTitle(" "+Parameter,UIControlState.Normal);
-				AppDelegate.UserDetails.PreferredCompany = Parameter;
-			} else {
-				TableViewCustomerStreamActivity.Hidden = true;
-				ButtonInfoCustomersDropDown.SetTitle(" "+Parameter,UIControlState.Normal);
-				AppDelegate.UserDetails.PreferredCustomers = Parameter;
-			}
-		}
+//		public void UpdateControls (string Parameter, string TableType)
+//		{
+//			if (TableType == "Industry") {
+//				TableViewCustomerStreamActivity.Hidden = true;
+//				ButtonInfoIndustryDropDown.SetTitle (" "+Parameter, UIControlState.Normal);
+//				AppDelegate.UserDetails.PreferredIndustry = Parameter;
+//			} else if (TableType == "Company") {
+//				TableViewCustomerStreamActivity.Hidden = true;
+//				ButtonInfoCompanyDropDown.SetTitle(" "+Parameter,UIControlState.Normal);
+//				AppDelegate.UserDetails.PreferredCompany = Parameter;
+//			} else {
+//				TableViewCustomerStreamActivity.Hidden = true;
+//				ButtonInfoCustomersDropDown.SetTitle(" "+Parameter,UIControlState.Normal);
+//				AppDelegate.UserDetails.PreferredCustomers = Parameter;
+//			}
+//		}
 
-		public class companyTableSource : UITableViewSource {
-			string CellIdentifier = "TableCell";
-			List<Customer> TableItems;
-			AccountManagementVC owner;
-
-			public companyTableSource (List<Customer> items, AccountManagementVC owner)
-			{
-				this.TableItems = items;
-				this.owner = owner;
-			}
-
-			public override nint RowsInSection (UITableView tableview, nint section)
-			{
-				return TableItems.Count;
-			}
-
-			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
-			{
-				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				string item = TableItems[indexPath.Row].Company;
-
-				//---- if there are no cells to reuse, create a new one
-				if (cell == null)
-				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
-
-				cell.TextLabel.Text = item;
-				cell.TextLabel.TextColor = UIColor.DarkGray;
-				return cell;
-			}
-
-			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				tableView.DeselectRow (indexPath, true);
-				owner.UpdateControls(TableItems[indexPath.Row].Company,"Company");
-			}
-
-			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
-			{
-				return 25.0f;
-			}
-		}
-
-		public class IndustryTableSource : UITableViewSource {
-			string CellIdentifier = "TableCell";
-			IList<string> TableItems;
-			AccountManagementVC owner;
-
-			public IndustryTableSource (IList<string> items, AccountManagementVC owner)
-			{
-				this.TableItems = items;
-				this.owner = owner;
-			}
-
-			public override nint RowsInSection (UITableView tableview, nint section)
-			{
-				return TableItems.Count;
-			}
-
-			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
-			{
-				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				var item = TableItems[indexPath.Row];
-
-				//---- if there are no cells to reuse, create a new one
-				if (cell == null)
-				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
-
-				cell.TextLabel.Text = item;
-				cell.TextLabel.TextColor = UIColor.DarkGray;
-
-				return cell;
-			}
-
-			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				tableView.DeselectRow (indexPath, true);
-				owner.UpdateControls(TableItems[indexPath.Row],"Industry");
-			}
-
-			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
-			{
-				return 25.0f;
-			}
-		}
-
-		public class CustomerTableSource : UITableViewSource {
-			string CellIdentifier = "TableCell";
-			IList<Customer> TableItems;
-			AccountManagementVC owner;
-		
-			public CustomerTableSource (IList<Customer> items, AccountManagementVC owner)
-			{
-				this.TableItems = items;
-				this.owner = owner;
-			}
-
-			public override nint RowsInSection (UITableView tableview, nint section)
-			{
-				return TableItems.Count;
-			}
-
-			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
-			{
-				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
-				var item = TableItems[indexPath.Row];
-
-				//---- if there are no cells to reuse, create a new one
-				if (cell == null)
-				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
-
-				cell.TextLabel.Text = item.Name;
-				cell.TextLabel.TextColor = UIColor.DarkGray;
-
-				return cell;
-			}
-
-			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-			{
-				tableView.DeselectRow (indexPath, true);
-				owner.UpdateControls(TableItems[indexPath.Row].Name,"Customer");
-			}
-
-			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
-			{
-				return 25.0f;
-			}
-		}
+//		public class companyTableSource : UITableViewSource {
+//			string CellIdentifier = "TableCell";
+//			List<Customer> TableItems;
+//			AccountManagementVC owner;
+//
+//			public companyTableSource (List<Customer> items, AccountManagementVC owner)
+//			{
+//				this.TableItems = items;
+//				this.owner = owner;
+//			}
+//
+//			public override nint RowsInSection (UITableView tableview, nint section)
+//			{
+//				return TableItems.Count;
+//			}
+//
+//			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+//			{
+//				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+//				string item = TableItems[indexPath.Row].Company;
+//
+//				//---- if there are no cells to reuse, create a new one
+//				if (cell == null)
+//				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+//
+//				cell.TextLabel.Text = item;
+//				cell.TextLabel.TextColor = UIColor.DarkGray;
+//				return cell;
+//			}
+//
+//			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				tableView.DeselectRow (indexPath, true);
+//				owner.UpdateControls(TableItems[indexPath.Row].Company,"Company");
+//			}
+//
+//			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				return 25.0f;
+//			}
+//		}
+//
+//		public class IndustryTableSource : UITableViewSource {
+//			string CellIdentifier = "TableCell";
+//			IList<string> TableItems;
+//			AccountManagementVC owner;
+//
+//			public IndustryTableSource (IList<string> items, AccountManagementVC owner)
+//			{
+//				this.TableItems = items;
+//				this.owner = owner;
+//			}
+//
+//			public override nint RowsInSection (UITableView tableview, nint section)
+//			{
+//				return TableItems.Count;
+//			}
+//
+//			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+//			{
+//				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+//				var item = TableItems[indexPath.Row];
+//
+//				//---- if there are no cells to reuse, create a new one
+//				if (cell == null)
+//				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+//
+//				cell.TextLabel.Text = item;
+//				cell.TextLabel.TextColor = UIColor.DarkGray;
+//
+//				return cell;
+//			}
+//
+//			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				tableView.DeselectRow (indexPath, true);
+//				owner.UpdateControls(TableItems[indexPath.Row],"Industry");
+//			}
+//
+//			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				return 25.0f;
+//			}
+//		}
+//
+//		public class CustomerTableSource : UITableViewSource {
+//			string CellIdentifier = "TableCell";
+//			IList<Customer> TableItems;
+//			AccountManagementVC owner;
+//		
+//			public CustomerTableSource (IList<Customer> items, AccountManagementVC owner)
+//			{
+//				this.TableItems = items;
+//				this.owner = owner;
+//			}
+//
+//			public override nint RowsInSection (UITableView tableview, nint section)
+//			{
+//				return TableItems.Count;
+//			}
+//
+//			public override UITableViewCell GetCell (UITableView tableView, Foundation.NSIndexPath indexPath)
+//			{
+//				UITableViewCell cell = tableView.DequeueReusableCell (CellIdentifier);
+//				var item = TableItems[indexPath.Row];
+//
+//				//---- if there are no cells to reuse, create a new one
+//				if (cell == null)
+//				{ cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); }
+//
+//				cell.TextLabel.Text = item.Name;
+//				cell.TextLabel.TextColor = UIColor.DarkGray;
+//
+//				return cell;
+//			}
+//
+//			public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				tableView.DeselectRow (indexPath, true);
+//				owner.UpdateControls(TableItems[indexPath.Row].Name,"Customer");
+//			}
+//
+//			public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+//			{
+//				return 25.0f;
+//			}
+//		}
 
 	}
 }

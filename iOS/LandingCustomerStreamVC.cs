@@ -28,7 +28,7 @@ namespace donow.iOS
 			base.ViewWillAppear (animated);
 
 			this.ParentViewController.NavigationController.SetNavigationBarHidden (true, false);
-			this.NavigationController.SetNavigationBarHidden (false, false);
+//			this.NavigationController.SetNavigationBarHidden (false, false);
 			this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGB(157,50,49);
 			this.NavigationController.NavigationBar.TintColor = UIColor.White;
 
@@ -39,21 +39,33 @@ namespace donow.iOS
 			string nextMeeting = string.IsNullOrEmpty (dashboardObj.next_meeting) == true ? "" : DateTime.Parse (dashboardObj.next_meeting).ToString ("MMM. dd, yyyy  hh:mm tt");
 			string title = string.IsNullOrEmpty (dashboardObj.CustomerName) == true ? "NA" : "Meeting With " + dashboardObj.CustomerName;
 			TextViewNextMeeting.Text = title + "\n" + nextMeeting;
-			LabelTotalCustomers.Text = "Total Customers : " + dashboardObj.total_customers.ToString();
+			LabelTotalCustomers.Text = dashboardObj.total_customers.ToString();
 
-			TextViewCRM.Text = "Total Leads : " + dashboardObj.crm_total_leads.ToString() + "\n"
-				+ "Leads with DealMakers : " + dashboardObj.crm_leads_with_dealmakers.ToString() + "\n"
-				+ "Leads without DealMakers : " + dashboardObj.crm_leads_without_dealmakers.ToString();
+//			TextViewCRM.Text = "Total Leads : " + dashboardObj.crm_total_leads.ToString() + "\n"
+//				+ "Leads with DealMakers : " + dashboardObj.crm_leads_with_dealmakers.ToString() + "\n"
+//				+ "Leads without DealMakers : " + dashboardObj.crm_leads_without_dealmakers.ToString();
+//
+//			TextViewDonow.Text = "Total Requested : " + dashboardObj.dn_total_leads.ToString() + "\n"
+//				+ "Total Accepted : " + dashboardObj.dn_total_leads_accepted.ToString() + "\n"
+//				+ "Leads with DealMakers : " + dashboardObj.dn_leads_with_dealmakers.ToString() + "\n"
+//				+ "Leads without DealMakers : " + dashboardObj.dn_leads_without_dealmakers.ToString();
 
-			TextViewDonow.Text = "Total Requested : " + dashboardObj.dn_total_leads.ToString() + "\n"
-				+ "Total Accepted : " + dashboardObj.dn_total_leads_accepted.ToString() + "\n"
-				+ "Leads with DealMakers : " + dashboardObj.dn_leads_with_dealmakers.ToString() + "\n"
-				+ "Leads without DealMakers : " + dashboardObj.dn_leads_without_dealmakers.ToString();
+			LabelCRMNew.Text = dashboardObj.CRMNew.ToString();
+			LabelCRMWorking.Text = dashboardObj.CRMWorking.ToString();
+			LabelCRMProposalNegotiation.Text = dashboardObj.CRMProposal.ToString();
+			LabelCRMConnectionMade.Text = dashboardObj.CRMConnectionMade.ToString();
+			LabelCRMClosedWon.Text = dashboardObj.CRMClosedWon.ToString();
 
-			LabelTotalEarnings.Text = "Total Earnings : " + dashboardObj.total_earning + "\n";
-			TextViewDealMakers.Text = "Total Deal Requests : " + dashboardObj.total_lead_requests.ToString() + "\n"
-				+ "Deals Accepted : " + dashboardObj.total_accepted.ToString() + "\n"
-				+ "Deals Referred : " + dashboardObj.total_referred.ToString();
+			LabelDonowNew.Text = dashboardObj.DoNowNew.ToString();
+			LabelDonowWorking.Text = dashboardObj.DoNowWorking.ToString();
+			LabelDonowProposalNegotiation.Text = dashboardObj.DoNowProposal.ToString();
+			LabelDonowConnectionMade.Text = dashboardObj.DoNowConnectionMade.ToString();
+			LabelDonowClosedWon.Text = dashboardObj.DoNowClosedWon.ToString();
+
+			LabelTotalEarnings.Text = dashboardObj.total_earning + "\n";
+			TextViewDealMakers.Text = "Total Deal Requests: " + dashboardObj.total_lead_requests.ToString() + "\n"
+				+ "Deals Accepted: " + dashboardObj.total_accepted.ToString() + "\n"
+				+ "Deals Referred: " + dashboardObj.total_referred.ToString();
 
 			if (string.IsNullOrEmpty (dashboardObj.next_meeting)) {
 				ButtonNextMeeting.Hidden = true;
@@ -83,7 +95,7 @@ namespace donow.iOS
 			this.NavigationItem.SetHidesBackButton (true, false);
 			this.NavigationItem.SetLeftBarButtonItem(null, true);
 
-			ScrollViewDashboard.ContentSize = new CGSize (375, 870);
+			ScrollViewDashboard.ContentSize = new CGSize (375, 1000);
 
 			//Dashboard dashboardObj = AppDelegate.userBL.GetDashBoardDetails (AppDelegate.UserDetails.UserId);
 

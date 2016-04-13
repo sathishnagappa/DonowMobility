@@ -96,7 +96,7 @@ namespace donow.iOS
 			LabelCompanyName.Text = lead.COMPANY_NAME;
 //			string coma = (string.IsNullOrEmpty (lead.CITY) || string.IsNullOrEmpty (lead.STATE)) ? "" : ", ";
 //			LabelCityAndState.Text = lead.CITY + coma + lead.STATE; 
-			LabelScoreDigit.Text = lead.LEAD_SCORE == 0 ? "3" : lead.LEAD_SCORE.ToString();
+			LabelScoreDigit.Text = lead.LEAD_SOURCE == 2 ? (lead.LEAD_SCORE == 0 ? "NA" : lead.LEAD_SCORE.ToString()) : lead.LEAD_SCORE.ToString();
 			LabelNewLead.Text = GetStatus(lead.USER_LEAD_STATUS);
 			LabelNewLead.TextAlignment = UITextAlignment.Right;
 //			LeadIndustry.Text = lead.LeadIndustry;
@@ -140,7 +140,7 @@ namespace donow.iOS
 //			LeadIndustry.Frame = new CGRect (100, 127, 280, 25);
 
 			LabelScore.Frame = new CGRect (100, 107, 120, 25);
-			LabelScoreDigit.Frame = new CGRect (270, 107, 25, 25);
+			LabelScoreDigit.Frame = new CGRect (270, 107, 75, 25);
 
 			LabelNewLead.Frame = new CGRect (this.Bounds.Size.Width - 220, 10, 200, 25);
 		}

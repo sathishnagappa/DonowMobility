@@ -15,18 +15,32 @@ namespace donow.iOS
 	partial class InfoPage
 	{
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView HeaderView { get; set; }
+		UIKit.UIButton ButtonWebsite { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIScrollView ScrollViewInfoPage { get; set; }
+		UIKit.UIView HeaderView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel LabelCompany { get; set; }
+
+		[Outlet]
+		UIKit.UIScrollView ScrollViewInfoPage { get; set; }
+
+		[Outlet]
+		UIKit.UITextView TextViewCompanyInfo { get; set; }
+
+		[Outlet]
+		UIButton ButtonVideo { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (HeaderView != null) {
-				HeaderView.Dispose ();
-				HeaderView = null;
+			if (ButtonVideo != null) {
+				ButtonVideo.Dispose ();
+				ButtonVideo = null;
+			}
+			if (ButtonWebsite != null) {
+				ButtonWebsite.Dispose ();
+				ButtonWebsite = null;
 			}
 			if (ScrollViewInfoPage != null) {
 				ScrollViewInfoPage.Dispose ();

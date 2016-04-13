@@ -36,8 +36,6 @@ namespace donow.Services
 			request.ContentType = "application/json";
 			request.Method = "GET";
 
-
-
 			if (CheckInternetAccess ()) {
 				try
 				{

@@ -186,11 +186,11 @@ namespace donow.PCL
 			return parsedResponse;
 		}
 
-		//public string SFDCAuthentication (string companyName)
-		public string SFDCAuthentication (int userID)
+		public string SFDCAuthentication (string domainName)
+		//public string SFDCAuthentication (int userID)
 		{
-			//SFDCCredentails sfdcobj = GetSFDCCredentails (companyName);
-			SFDCCredentails sfdcobj = GetSFDCCredentails (userID);
+			SFDCCredentails sfdcobj = GetSFDCCredentails (domainName);
+			//SFDCCredentails sfdcobj = GetSFDCCredentails (userID);
 //			SFDCCredentails sfdcobj = new SFDCCredentails ();
 //			sfdcobj.UserID = 2;
 //			sfdcobj.Url = "https://ap2.salesforce.com//services/oauth2/token";
@@ -214,7 +214,7 @@ namespace donow.PCL
 			{
 				stream.Write(data, 0, data.Length);
 			}
-			var content = string.Empty; 
+			var content = string.Empty;  
 			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 			{
 
@@ -230,24 +230,24 @@ namespace donow.PCL
 			return sfdcAuthObj.access_token;
 
 		}
-		//public SFDCCredentails GetSFDCCredentails(string companyName)
-		public SFDCCredentails GetSFDCCredentails(int userID)
+		public SFDCCredentails GetSFDCCredentails(string domainName)
+		//public SFDCCredentails GetSFDCCredentails(int userID)
 		{
 			//RestService restSevice = new RestService ();
-			string leadsApicall = Constants.SFDCCrendentails +  "?Id=" + userID;
-			//string leadsApicall = Constants.SFDCCrendentails +  "?compnayName=" + companyName;
-			string response =  RestService.Instance.GetData (leadsApicall);
+			//string sfdcApicall = Constants.SFDCCrendentails +  "?Id=" + userID;
+			string sfdcApicall = Constants.SFDCCrendentails +  "?DomainName=" + domainName;
+			string response =  RestService.Instance.GetData (sfdcApicall);
 			var parsedResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<SFDCCredentails>(response.ToString());
 			return parsedResponse;
 		}
 
-		public async Task<string> UpdateSFDCData (string accessCode,long leadid,string status)
+		public async Task<string> UpdateSFDCData (string accessCode,string leadid,string status)
 		{
 
 			HttpClient queryClient3 = new HttpClient ();
 			string serviceURL3 = "https://ap2.salesforce.com/services/data/v35.0/sobjects/Lead/" + leadid + "?_HttpMethod=PATCH";
 
-			string insertPacket = "{ \"Status\": " + status + " }";
+			string insertPacket = "{ \"Status\": \"" + status + "\" }";
 
 			StringContent insertString = new StringContent(insertPacket,Encoding.UTF8,"application/json");
 			HttpRequestMessage request3 = new HttpRequestMessage(HttpMethod.Post, serviceURL3);

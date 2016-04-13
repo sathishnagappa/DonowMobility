@@ -60,10 +60,9 @@ namespace donow.iOS
 			base.ViewWillDisappear (animated);
 			TableViewLeads.Source = null;
 			if (searchTableView == null) {
-
 				TableViewLeads.ReloadData ();
 			}
-
+			leads = null;
 		}
 
 		protected override void Dispose (bool disposing)

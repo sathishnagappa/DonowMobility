@@ -5,6 +5,7 @@ using UIKit;
 using donow.Util;
 using Xamarin;
 using System.Collections.Generic;
+using CoreGraphics;
 
 namespace donow.iOS
 {
@@ -24,8 +25,7 @@ namespace donow.iOS
 		public  override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-			this.Title = "Change Password";
+			this.NavigationItem.Title = "Change Password";
 
 			ButtonChangePassword.Layer.CornerRadius = 5.0f;
 			// Navigation
@@ -40,8 +40,7 @@ namespace donow.iOS
 			TextBoxUserName.Text = AppDelegate.UserDetails.Name;
 
 			ButtonChangePassword.TouchUpInside += (object sender, EventArgs e) =>  {
-
-
+				
 				if(Validation())
 				{						
 					AppDelegate.UserDetails.Password = Crypto.Encrypt(TextBoxNewPassword.Text); 
@@ -57,9 +56,30 @@ namespace donow.iOS
 					};
 					alert.AddButton ("OK");
 					alert.Show ();
-				
-
 				}
+			};
+
+			TextBoxShouldReturn ();
+			TextBoxConfirmPassword.ShouldBeginEditing = delegate {
+				ScrollViewChangePswd.SetContentOffset ( new CGPoint(0,50),true);
+				return true;	
+			};
+		}
+
+		void TextBoxShouldReturn () {
+			
+			TextBoxOldPassword.ShouldReturn = delegate {
+				TextBoxOldPassword.ResignFirstResponder ();
+				return true;
+			};
+			TextBoxNewPassword.ShouldReturn = delegate {
+				TextBoxNewPassword.ResignFirstResponder ();
+				return true;
+			};
+			TextBoxConfirmPassword.ShouldReturn = delegate {
+				TextBoxConfirmPassword.ResignFirstResponder ();
+				ScrollViewChangePswd.SetContentOffset ( new CGPoint(0,0),true);
+				return true;
 			};
 		}
 
@@ -114,8 +134,7 @@ namespace donow.iOS
 				alert.Show ();
 				return false;
 			}
-			return true;
-		
+			return true;		
 		}
 	}
 }
