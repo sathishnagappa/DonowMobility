@@ -230,7 +230,7 @@ namespace donow.iOS
 				ButtonUpdateProspect.Frame = new CGRect (25, 2245, this.View.Bounds.Size.Width - 50, 40);
 			} else {
 				LabelLeadScore.Text = prospectDetails.LEAD_SCORE.ToString();
-				LabelLeadSource.Text = "DoNow";
+				LabelLeadSource.Text = "dealtrio";
 				ButtonPassProspect.Hidden =  false;
 			}
 			LabelProspectCityandState.Text = prospectDetails.CITY + coma + prospectDetails.STATE;

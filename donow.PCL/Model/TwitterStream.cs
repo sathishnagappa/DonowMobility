@@ -12,4 +12,3 @@ namespace donow.PCL
 		public string ErrorMessage { get; set; }
 	}
 }
-

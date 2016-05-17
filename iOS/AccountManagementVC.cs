@@ -6,6 +6,9 @@ using donow.PCL;
 using CoreGraphics;
 using System.Collections.Generic;
 using Xamarin;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace donow.iOS
 {
@@ -161,6 +164,9 @@ namespace donow.iOS
 				if(AppDelegate.UserDetails.UserId == 0)
 				{
 					AppDelegate.UserDetails.UserId = AppDelegate.userBL.CreateUser(AppDelegate.UserDetails);
+
+//					SendMail(AppDelegate.UserDetails.Email);
+
 					//Xamarin Insight tracking code
 					Insights.Track("CreateUser", new Dictionary <string,string>{
 						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
@@ -183,6 +189,48 @@ namespace donow.iOS
 				}else
 					this.NavigationController.PopViewController(false);
 			};
+		}
+
+		void SendMail(string email)
+		{
+			UIAlertView alert;
+			try
+			{
+				MailMessage mail=new MailMessage();
+				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
+				mail.From=new MailAddress("support@donowx.com");
+				//mail.To.Add(new MailAddress(AppDelegate.UserDetails.Email));
+				mail.To.Add(new MailAddress("sarathy@donowx.com"));
+				mail.To.Add(new MailAddress("barbieto@donowx.com"));
+				mail.Bcc.Add(new MailAddress("support@donowx.com"));
+				mail.Subject = "New User Registered";
+				mail.Body = "A new User is Registered - " + AppDelegate.UserDetails.FullName;
+				SmtpServer.Port = 587;
+				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
+				SmtpServer.EnableSsl=true;
+				ServicePointManager.ServerCertificateValidationCallback=delegate(object sender, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors) {
+					return true;
+				};
+				SmtpServer.SendAsync(mail,null);
+
+//				alert = new UIAlertView () {
+//					Title = "", 
+//					Message = "Mail Sent."
+//				};
+//				alert.AddButton ("OK");
+//				alert.Show ();
+
+			}
+			catch(Exception ex) 
+			{
+				Insights.Report(ex);
+				alert = new UIAlertView () {
+					Title = "Email Error", 
+					Message = "Coundn't send email."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+			}
 		}
 
 //		public void UpdateControls (string Parameter, string TableType)

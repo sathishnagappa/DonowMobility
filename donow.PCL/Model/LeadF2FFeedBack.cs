@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class LeadF2FFeedBack
+	public class LeadF2FFeedBack : BaseClass
 	{
 		public long LeadID { get; set;}
 		public int UserID { get; set;}
@@ -14,8 +14,6 @@ namespace donow.PCL
 		public string SalesStage { get; set;}
 		public string NextSteps { get; set;}
 		public int MeetingID { get; set;}
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

@@ -2,12 +2,10 @@
 
 namespace donow.PCL
 {
-	public class LineOfBusiness
+	public class LineOfBusiness : BaseClass
 	{
 		public string IndustryName { get; set;}
 		public string LineofBusiness { get; set;}
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

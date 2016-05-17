@@ -80,14 +80,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField TextBoxPayPalPassword { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField TextBoxPayPalUser { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField TextBoxPhone { get; set; }
 
 		[Outlet]
@@ -167,14 +159,6 @@ namespace donow.iOS
 			if (TextBoxOfficeAddress != null) {
 				TextBoxOfficeAddress.Dispose ();
 				TextBoxOfficeAddress = null;
-			}
-			if (TextBoxPayPalPassword != null) {
-				TextBoxPayPalPassword.Dispose ();
-				TextBoxPayPalPassword = null;
-			}
-			if (TextBoxPayPalUser != null) {
-				TextBoxPayPalUser.Dispose ();
-				TextBoxPayPalUser = null;
 			}
 			if (TextBoxPhone != null) {
 				TextBoxPhone.Dispose ();

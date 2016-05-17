@@ -82,38 +82,6 @@ namespace donow.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIScrollView ReferralRequestScrollView { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextAcceptedIndustry { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextAcceptedSellerName { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextCompletedIndusty { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextCompletedSellerName { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextNewIndustry { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextNewSellerName { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextPassedIndustry { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TextPassedSellerName { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
 			if (AcceptedRequestView != null) {
@@ -183,38 +151,6 @@ namespace donow.iOS
 			if (ReferralRequestScrollView != null) {
 				ReferralRequestScrollView.Dispose ();
 				ReferralRequestScrollView = null;
-			}
-			if (TextAcceptedIndustry != null) {
-				TextAcceptedIndustry.Dispose ();
-				TextAcceptedIndustry = null;
-			}
-			if (TextAcceptedSellerName != null) {
-				TextAcceptedSellerName.Dispose ();
-				TextAcceptedSellerName = null;
-			}
-			if (TextCompletedIndusty != null) {
-				TextCompletedIndusty.Dispose ();
-				TextCompletedIndusty = null;
-			}
-			if (TextCompletedSellerName != null) {
-				TextCompletedSellerName.Dispose ();
-				TextCompletedSellerName = null;
-			}
-			if (TextNewIndustry != null) {
-				TextNewIndustry.Dispose ();
-				TextNewIndustry = null;
-			}
-			if (TextNewSellerName != null) {
-				TextNewSellerName.Dispose ();
-				TextNewSellerName = null;
-			}
-			if (TextPassedIndustry != null) {
-				TextPassedIndustry.Dispose ();
-				TextPassedIndustry = null;
-			}
-			if (TextPassedSellerName != null) {
-				TextPassedSellerName.Dispose ();
-				TextPassedSellerName = null;
 			}
 		}
 	}

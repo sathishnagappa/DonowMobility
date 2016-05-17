@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class DealHistroy
+	public class DealHistroy : BaseClass
 	{
 		public int LeadId { get; set; }
 		public int UserId { get; set; }
@@ -14,8 +14,6 @@ namespace donow.PCL
 		public int BrokerID {get; set;} 
 		public string LeadIndustry {get; set;} 
 		public string BrokerName {get; set;} 
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

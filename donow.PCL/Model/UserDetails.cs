@@ -2,7 +2,7 @@
 
 namespace donow.PCL.Model
 {
-	public class UserDetails
+	public class UserDetails : BaseClass
 	{
 
 	    public int UserId { get; set; }
@@ -30,8 +30,6 @@ namespace donow.PCL.Model
 		public string ImageUrl { get; set; }
 		public int MeetingCount { get; set; }
 		public int LeadCount { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

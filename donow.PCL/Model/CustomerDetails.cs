@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace donow.PCL
 {
-	public class CustomerDetails
-	{
+	public class CustomerDetails : BaseClass
+	{ 
 		public int LeadId { get; set; }
 		public string Name { get; set; }
 		public string Company { get; set; }
@@ -34,8 +34,6 @@ namespace donow.PCL
 		public string COUNTY { get; set; }
 		public string WebAddress { get; set; }
 		public string SFDCLEAD_ID  { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class UserMeetings
+	public class UserMeetings : BaseClass
 	{
 		public int Id { get; set; }
 		public int UserId { get; set; }
@@ -16,8 +16,6 @@ namespace donow.PCL
 		public string Status { get; set; }
 		public string Comments { get; set; }
 		public string SFDCLead_ID { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

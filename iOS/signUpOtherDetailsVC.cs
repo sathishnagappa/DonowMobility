@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using donow.Util;
 using donow.PCL.Model;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using Xamarin;
 
 namespace donow.iOS
 {

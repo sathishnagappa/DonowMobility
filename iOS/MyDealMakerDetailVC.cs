@@ -84,7 +84,7 @@ namespace donow.iOS
 				rrnew.LeadEmailID = AppDelegate.CurrentLead.EMAILID;
 				rrnew.LeadID = AppDelegate.CurrentLead.LEAD_ID;
 				AppDelegate.referralRequestBL.SaveReferralRequest(rrnew);
-				string[] nameArray;
+				string[] nameArray = {};
 				string greetings;
 				if(!string.IsNullOrEmpty(brokerObj.BrokerName)) {
 					nameArray = brokerObj.BrokerName.Split(' ');
@@ -97,20 +97,28 @@ namespace donow.iOS
 				MailMessage mail=new MailMessage();
 				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
 				mail.From=new MailAddress("support@donowx.com");
-				//mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
-				//mail.To.Add(new MailAddress("prateek.arora@brillio.com"));
+				//mail.To.Add(new MailAddress(brokerObj.BrokerEmail));
 				mail.To.Add(new MailAddress("sarathy@donowx.com"));
 				mail.To.Add(new MailAddress("barbieto@donowx.com"));
 				mail.Bcc.Add(new MailAddress("anirban@donowx.com"));
+				mail.Bcc.Add(new MailAddress("support@donowx.com"));
 				mail.Subject = "Please Serve as a Dealmaker and Monetize Your Network";
-				mail.Body = greetings + "\n\nYou are invited to join our growing donow network that connects sellers and prospects across the industries.  " +
-					"You have been identified as an individual that can potentially help one of our sellers connect with a prospect based on your profile. " +
-					"\n\nPlease join our network to evaluate the opportunity and make the connection.  You will be provided information on both the seller and " +
-					"prospect that allows you to make an informed decision on serving as a dealmaker. \n\nAs a dealmaker, you will be paid funds based on the " +
-					"connections you make.  The more connections you make, the better your score will be and the more money you will earn.  It’s that easy.  " +
-					"As a member of our donow network, you will also have the ability to benefit from our other seller services such as lead generation and curated " +
-					"information that connects you to customers faster. \n\nPlease email support@donowx.com to receive instruction to download the app and join the network.\n\n" +
-					"Thank you for considering!";
+//				mail.Body = greetings + "\n\nYou are invited to join our growing donow network that connects sellers and prospects across the industries.  " +
+//					"You have been identified as an individual that can potentially help one of our sellers connect with a prospect based on your profile. " +
+//					"\n\nPlease join our network to evaluate the opportunity and make the connection.  You will be provided information on both the seller and " +
+//					"prospect that allows you to make an informed decision on serving as a dealmaker. \n\nAs a dealmaker, you will be paid funds based on the " +
+//					"connections you make.  The more connections you make, the better your score will be and the more money you will earn.  It’s that easy.  " +
+//					"As a member of our donow network, you will also have the ability to benefit from our other seller services such as lead generation and curated " +
+//					"information that connects you to customers faster. \n\nPlease email support@donowx.com to receive instruction to download the app and join the network.\n\n" +
+//					"Thank you for considering!";
+				mail.Body = greetings + "\n\nHope you are well!  I work with the dealtrio network. \n\nI am pleased to invite you to join our growing network that connects sellers " +
+					"and prospects across the industries. \n\nBased on your profile, you have been identified as an appropriate person that can potentially help one of our sellers " +
+					"connect with a prospect. \n\nAs a dealmaker, you will be provided with the necessary information about the seller and prospects that will enable you make an informed " +
+					"decision, and you will be paid funds based on the connections you make. \n\nThe more connections you make, the better your score and the more money you will earn." +
+					"\n\nIt’s VERY easy! \n\nYou can join the network NOW to evaluate the opportunity and make the connections. \n\nAlso as a member of our dealtrio network, you will have " +
+					"the opportunity to benefit from our other seller’s services such as lead generation and curated information that connects you to customers faster." +
+					"\n\n" + nameArray[0] + ", should you want to evaluate the opportunity and make the connections, simply mail your interest to support@donowx.com to receive " +
+					"instruction to download the app and join the network. \n\nThank you for considering! \n\ndealtrio";
 				SmtpServer.Port = 587;
 				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
 				SmtpServer.EnableSsl=true;

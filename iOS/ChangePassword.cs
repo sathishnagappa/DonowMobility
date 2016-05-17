@@ -6,6 +6,10 @@ using donow.Util;
 using Xamarin;
 using System.Collections.Generic;
 using CoreGraphics;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Linq;
 
 namespace donow.iOS
 {
@@ -49,7 +53,9 @@ namespace donow.iOS
 					Insights.Track("Change Password", new Dictionary <string,string>{
 						{"UserId", AppDelegate.UserDetails.UserId.ToString()}
 					});
-					//SendMail(AppDelegate.UserDetails.Email, newPassword);
+
+					string newPassword = TextBoxNewPassword.Text;
+//					SendMail(AppDelegate.UserDetails.Email, newPassword);
 					UIAlertView alert = new UIAlertView () { 
 						Title = "", 
 						Message = "Password Changed Successfully."
@@ -65,6 +71,8 @@ namespace donow.iOS
 				return true;	
 			};
 		}
+
+
 
 		void TextBoxShouldReturn () {
 			
@@ -135,6 +143,48 @@ namespace donow.iOS
 				return false;
 			}
 			return true;		
+		}
+
+		void SendMail(string email, string newPassword)
+		{
+			UIAlertView alert;
+			try
+			{
+				MailMessage mail=new MailMessage();
+				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
+				mail.From=new MailAddress("support@donowx.com");
+				//mail.To.Add(new MailAddress(AppDelegate.UserDetails.Email));
+				mail.To.Add(new MailAddress("sarathy@donowx.com"));
+				mail.To.Add(new MailAddress("barbieto@donowx.com"));
+				mail.Bcc.Add(new MailAddress("support@donowx.com"));
+				mail.Subject = "New Password";
+				mail.Body = "Here is your New password " + newPassword;
+				SmtpServer.Port = 587;
+				SmtpServer.Credentials=new System.Net.NetworkCredential("support@donowx.com","dnsupport$9");
+				SmtpServer.EnableSsl=true;
+				ServicePointManager.ServerCertificateValidationCallback=delegate(object sender, X509Certificate certificate, X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors) {
+					return true;
+				};
+				SmtpServer.SendAsync(mail,null);
+
+				alert = new UIAlertView () {
+					Title = "", 
+					Message = "Mail Sent."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+
+			}
+			catch(Exception ex) 
+			{
+				Insights.Report(ex);
+				alert = new UIAlertView () {
+					Title = "Email Error", 
+					Message = "Coundn't send email."
+				};
+				alert.AddButton ("OK");
+				alert.Show ();
+			}
 		}
 	}
 }

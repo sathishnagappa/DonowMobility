@@ -28,31 +28,7 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonBusinessNeedsExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonCalendarAcceptView { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonCompanyInfoExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonEmailAcceptView { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonLeadMetricesExpand { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton ButtonPass { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ButtonPhoneAcceptView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -144,10 +120,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView ViewAccept { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView ViewPass { get; set; }
 
 		void ReleaseDesignerOutlets ()
@@ -164,33 +136,9 @@ namespace donow.iOS
 				ButtonBackgroundView.Dispose ();
 				ButtonBackgroundView = null;
 			}
-			if (ButtonBusinessNeedsExpand != null) {
-				ButtonBusinessNeedsExpand.Dispose ();
-				ButtonBusinessNeedsExpand = null;
-			}
-			if (ButtonCalendarAcceptView != null) {
-				ButtonCalendarAcceptView.Dispose ();
-				ButtonCalendarAcceptView = null;
-			}
-			if (ButtonCompanyInfoExpand != null) {
-				ButtonCompanyInfoExpand.Dispose ();
-				ButtonCompanyInfoExpand = null;
-			}
-			if (ButtonEmailAcceptView != null) {
-				ButtonEmailAcceptView.Dispose ();
-				ButtonEmailAcceptView = null;
-			}
-			if (ButtonLeadMetricesExpand != null) {
-				ButtonLeadMetricesExpand.Dispose ();
-				ButtonLeadMetricesExpand = null;
-			}
 			if (ButtonPass != null) {
 				ButtonPass.Dispose ();
 				ButtonPass = null;
-			}
-			if (ButtonPhoneAcceptView != null) {
-				ButtonPhoneAcceptView.Dispose ();
-				ButtonPhoneAcceptView = null;
 			}
 			if (ButtonSubmitPassView != null) {
 				ButtonSubmitPassView.Dispose ();
@@ -279,10 +227,6 @@ namespace donow.iOS
 			if (txtViewBusinessNeeds != null) {
 				txtViewBusinessNeeds.Dispose ();
 				txtViewBusinessNeeds = null;
-			}
-			if (ViewAccept != null) {
-				ViewAccept.Dispose ();
-				ViewAccept = null;
 			}
 			if (ViewPass != null) {
 				ViewPass.Dispose ();

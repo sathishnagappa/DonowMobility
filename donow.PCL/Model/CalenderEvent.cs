@@ -2,7 +2,7 @@
 
 namespace donow.PCL.Model
 {
-	public class CalenderEvent
+	public class CalenderEvent : BaseClass
 	{
 		public int ID { get; set; }
 		public string UserID { get; set; }
@@ -10,8 +10,6 @@ namespace donow.PCL.Model
 		public string Subject { get; set; }
 		public string StartDate { get; set; }
 		public string EndDate { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

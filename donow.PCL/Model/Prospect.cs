@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace donow.PCL
 {
-	public class Prospect
+	public class Prospect : BaseClass
 	{
 		public int LEAD_ID { get; set; }
 		public string LEAD_NAME { get; set; }
@@ -40,9 +40,6 @@ namespace donow.PCL
 		public List<UserMeetings> UserMeetingList { get; set; }
 		public List<Broker> brokerList { get; set; }
 		public string SFDCLEAD_ID  { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
-
 	}
 }
 

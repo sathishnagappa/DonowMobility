@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class Broker
+	public class Broker : BaseClass
 	{
 		public long BrokerID { get; set; }
 		public string BrokerName { get; set; }
@@ -37,8 +37,6 @@ namespace donow.PCL
 		public string INDUSTRYRISK { get; set; }
 		public string COUNTY { get; set; }
 		public string WebAddress { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 //		public string StartTime { get; set; }
 //		public string EndTime { get; set; }
 	}

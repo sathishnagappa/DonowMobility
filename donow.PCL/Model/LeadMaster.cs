@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class LeadMaster
+	public class LeadMaster : BaseClass
 	{
 		public int LEAD_ID { get; set; }
 		public string LEAD_NAME { get; set; }
@@ -16,8 +16,6 @@ namespace donow.PCL
 		public string LEAD_TYPE { get; set; }
 		public string LEAD_TITLE { get; set; }
 		public int LEAD_SOURCE { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class Dashboard
+	public class Dashboard : BaseClass
 	{
 		public int total_customers {get;set;}
 		/*public int crm_total_leads {get;set;}
@@ -33,8 +33,6 @@ namespace donow.PCL
 		public int DoNowConnectionMade { get; set; }
 		public int DoNowWorking { get; set; }
 		public int DoNowNew { get; set; }
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

@@ -48,6 +48,7 @@ namespace donow.iOS
 						string newPassword = RandomString();
 						AppDelegate.UserDetails.Password = Crypto.Encrypt(newPassword); 
 						AppDelegate.userBL.UpdateUserDetails(AppDelegate.UserDetails);
+
 						SendMail(AppDelegate.UserDetails.Email, newPassword);
 						//Xamarin Insights tracking
 						Insights.Track("Forgot Password", new Dictionary <string,string>{
@@ -74,11 +75,13 @@ namespace donow.iOS
 				MailMessage mail=new MailMessage();
 				SmtpClient SmtpServer=new SmtpClient("outlook.office365.com");
 				mail.From=new MailAddress("support@donowx.com");
-				mail.To.Add(new MailAddress("sathish.nagappa@brillio.com"));
+				//mail.To.Add(new MailAddress(AppDelegate.UserDetails.Email));
 				mail.To.Add(new MailAddress("sarathy@donowx.com"));
 				mail.To.Add(new MailAddress("barbieto@donowx.com"));
 				mail.Bcc.Add(new MailAddress("anirban@donowx.com"));
-				//mail.To.Add(new MailAddress(AppDelegate.UserDetails.Email));
+				mail.Bcc.Add(new MailAddress("support@donowx.com"));
+
+				mail.To.Add(new MailAddress(AppDelegate.UserDetails.Email));
 				mail.Subject = "New Password";
 				mail.Body = "Here is your New password " + newPassword;
 				SmtpServer.Port = 587;

@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class LeadIntialContactFeedBack
+	public class LeadIntialContactFeedBack : BaseClass
 	{
 		public int ID { get; set;}
 		public long LeadID { get; set;}
@@ -13,8 +13,6 @@ namespace donow.PCL
 		public string Comments { get; set;}
 		public int MeetingID { get; set;}
 		public string SalesStage { get; set;}
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

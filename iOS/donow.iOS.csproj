@@ -8,9 +8,8 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>donow.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>donow.iOS</AssemblyName>
     <XamarinInsightsApiKey>34feb972c36b74ccb19e33d0f8e23916f1513942</XamarinInsightsApiKey>
-    <ReleaseVersion>1.0</ReleaseVersion>
+    <AssemblyName>donow.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,8 +35,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Sarathy Annamraju (52FB35L2A7)</CodesignKey>
-    <CodesignProvision>26181c41-4eee-4769-81ee-6cbdba09fe7c</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Donow X Inc. (XBQ9A4T68L)</CodesignKey>
+    <CodesignProvision>65ad73ed-4077-4042-83d2-258d808c3d15</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -127,7 +126,6 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
     <Compile Include="MyDealMakerVC.cs" />
@@ -255,6 +253,7 @@
     </Compile>
     <Compile Include="CustomerViewDealHistory.cs" />
     <Compile Include="CustomerViewPreviousMeetings.cs" />
+    <None Include="Info.plist" />
     <Compile Include="ChangePassword.cs" />
     <Compile Include="ChangePassword.designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -276,7 +275,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\Images\Scott Anders_Small.png" />
-    <BundleResource Include="Resources\DoNow Logo.png" />
     <BundleResource Include="Resources\LinkedIn Icon_Small.png" />
     <BundleResource Include="Resources\Password Icon.png" />
     <BundleResource Include="Resources\User Name Icon.png" />
@@ -342,7 +340,6 @@
     <BundleResource Include="Resources\Previous Meeting Thumb.png" />
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\Thumbs Side White.png" />
-    <BundleResource Include="Resources\DoNow Logo_New.png" />
     <BundleResource Include="Resources\DoNowLogo.png" />
     <BundleResource Include="Resources\Logo57x57.png" />
     <BundleResource Include="Resources\Logo114x114.png" />
@@ -392,6 +389,7 @@
     <BundleResource Include="Resources\sales_metrics_4.png" />
     <BundleResource Include="Resources\sales_metrics_5.png" />
     <BundleResource Include="Resources\LifeCycle_ClosedWon.png" />
+    <BundleResource Include="Resources\LogoDealTrio.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Images\" />

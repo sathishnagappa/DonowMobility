@@ -2,7 +2,7 @@
 
 namespace donow.PCL
 {
-	public class SFDCCredentails
+	public class SFDCCredentails : BaseClass
 	{
 		public string DomainName { get; set;}
 		public string Url { get; set;}
@@ -11,8 +11,6 @@ namespace donow.PCL
 		public string SecurityCode { get; set;}
 		public string ClientID { get; set;}
 		public string ClientSecret { get; set;}
-		public bool ApiResponse { get; set; }
-		public string ErrorMessage { get; set; }
 	}
 }
 

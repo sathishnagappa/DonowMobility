@@ -230,7 +230,7 @@ namespace donow.iOS
 			LabelCustomerName.Text = customerDetails.Name;
 			LabelCityAndState.Text = customerDetails.City + ", " + customerDetails.State;
 			LabelScore.Text = customerDetails.LeadSource == 2 ? (customerDetails.LeadScore == 0 ? "NA" : customerDetails.LeadScore.ToString()) : customerDetails.LeadScore.ToString(); 
-			LabelSource.Text = customerDetails.LeadSource == 2 ? "SFDC" : "DoNow" ;
+			LabelSource.Text = customerDetails.LeadSource == 2 ? "SFDC" : "dealtrio" ;
 			if (!string.IsNullOrEmpty (customerDetails.LeadTitle))
 				CustomerTitle.Text = "(" + customerDetails.LeadTitle + ")";
 			else

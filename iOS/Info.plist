@@ -48,9 +48,7 @@
 		</dict>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.donow</string>
-	<key>CFBundleDisplayName</key>
-	<string>DoNow</string>
+	<string>com.dealtrio</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -64,5 +62,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleName</key>
+	<string>dealtrio</string>
 </dict>
 </plist>

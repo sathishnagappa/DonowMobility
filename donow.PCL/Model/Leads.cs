@@ -2,7 +2,7 @@
 
 namespace donow.PCL.Model
 {
-		public class Leads
+	public class Leads : BaseClass
 		{
 
 			public int LEAD_ID { get; set; }
@@ -25,9 +25,6 @@ namespace donow.PCL.Model
 			public int USER_ID { get; set; }
 			public string LEAD_TITLE { get; set; }
 		    public string SFDCLEAD_ID  { get; set; }
-			public bool ApiResponse { get; set; }
-			public string ErrorMessage { get; set; }
-
 		}	
 }
 

@@ -60,26 +60,6 @@ namespace donow.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch SwitchBusinessUpdates { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch SwitchFollowUp { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch SwitchMeetingReminders { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch SwitchNewLeads { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch SwitchReferralRequests { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableViewCustomerStreamActivity { get; set; }
 
 		void ReleaseDesignerOutlets ()
@@ -127,26 +107,6 @@ namespace donow.iOS
 			if (ScrollViewAccountManager != null) {
 				ScrollViewAccountManager.Dispose ();
 				ScrollViewAccountManager = null;
-			}
-			if (SwitchBusinessUpdates != null) {
-				SwitchBusinessUpdates.Dispose ();
-				SwitchBusinessUpdates = null;
-			}
-			if (SwitchFollowUp != null) {
-				SwitchFollowUp.Dispose ();
-				SwitchFollowUp = null;
-			}
-			if (SwitchMeetingReminders != null) {
-				SwitchMeetingReminders.Dispose ();
-				SwitchMeetingReminders = null;
-			}
-			if (SwitchNewLeads != null) {
-				SwitchNewLeads.Dispose ();
-				SwitchNewLeads = null;
-			}
-			if (SwitchReferralRequests != null) {
-				SwitchReferralRequests.Dispose ();
-				SwitchReferralRequests = null;
 			}
 			if (TableViewCustomerStreamActivity != null) {
 				TableViewCustomerStreamActivity.Dispose ();
